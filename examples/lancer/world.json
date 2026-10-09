@@ -1,0 +1,188 @@
+{
+  "story": {
+    "version": 1,
+    "atlas": {
+      "version": 1,
+      "revision": 0,
+      "currentId": "demo-pier",
+      "nodes": [
+        {
+          "id": "demo-coast",
+          "parentId": null,
+          "name": "示例海岸",
+          "kind": "region",
+          "x": 0.5,
+          "y": 0.5,
+          "image": "",
+          "description": "请由GM上传区域地图。",
+          "people": [],
+          "visible": true
+        },
+        {
+          "id": "demo-pier",
+          "parentId": "demo-coast",
+          "name": "旧渡口",
+          "kind": "place",
+          "x": 0.4,
+          "y": 0.65,
+          "image": "",
+          "description": "玩家可以与向导交谈。",
+          "people": [],
+          "visible": true
+        }
+      ]
+    },
+    "adventure": {
+      "version": 1,
+      "events": [
+        {
+          "id": "demo-route",
+          "revision": 0,
+          "name": "选择下一站",
+          "text": "向导等待队伍的决定。",
+          "image": "",
+          "notes": "只是演示选项与剧情变量。",
+          "audience": "all",
+          "resolution": "vote",
+          "options": [
+            {
+              "id": "wait",
+              "label": "留在渡口",
+              "description": "先了解附近的消息。",
+              "effects": [
+                {
+                  "type": "flag",
+                  "key": "demo-route",
+                  "value": "wait"
+                }
+              ],
+              "failure": []
+            },
+            {
+              "id": "walk",
+              "label": "沿岸步行",
+              "description": "由GM准备下一张地图。",
+              "effects": [
+                {
+                  "type": "flag",
+                  "key": "demo-route",
+                  "value": "walk"
+                }
+              ],
+              "failure": []
+            }
+          ]
+        }
+      ],
+      "triggers": [],
+      "runs": [],
+      "flags": {},
+      "fired": {},
+      "presence": {},
+      "stage": {
+        "scripts": [
+          {
+            "id": "demo-greeting",
+            "revision": 0,
+            "name": "渡口初见",
+            "sceneId": "initial",
+            "background": "",
+            "cast": [
+              {
+                "id": "guide",
+                "actorId": "",
+                "name": "向导",
+                "portrait": "",
+                "slot": 1
+              }
+            ],
+            "cues": [
+              {
+                "id": "hello",
+                "speakerId": "guide",
+                "text": "你们打算往哪边走？"
+              }
+            ],
+            "eventIds": []
+          }
+        ],
+        "ambience": "default"
+      }
+    },
+    "members": [],
+    "packs": [
+      {
+        "id": "core",
+        "name": "核心规则",
+        "enabled": true
+      },
+      {
+        "id": "homebrew",
+        "name": "本世界私设",
+        "enabled": true
+      }
+    ],
+    "resources": [],
+    "grants": [],
+    "entries": [],
+    "messages": [],
+    "counters": []
+  },
+  "activeSceneId": "initial",
+  "activeSceneName": "旧渡口",
+  "schemaVersion": 1,
+  "id": "demo-lancer",
+  "systemId": "lancer",
+  "systemVersion": "1",
+  "name": "渡口的一天 · 接口示例",
+  "hostId": "demo-gm",
+  "revision": 0,
+  "publishedVersion": 0,
+  "updatedAt": 1791475200000,
+  "actors": [
+    {
+      "id": "demo-lancer",
+      "name": "训练驾驶员",
+      "ownerId": "",
+      "public": false,
+      "fields": {
+        "lancer.version": "1",
+        "lancer.level": "0",
+        "lancer.frame": "everest",
+        "lancer.hull": "0",
+        "lancer.agility": "0",
+        "lancer.systems": "0",
+        "lancer.engineering": "0",
+        "lancer.cp": "1",
+        "lancer.overcharge": "0",
+        "lancer.gunslingerDie": "6",
+        "lancer.torrentDie": "6",
+        "lancer.brawlerDie": "6",
+        "lancer.conditions": "[]",
+        "lancer.wreckLost": "false",
+        "lancer.pilot.ejected": "false",
+        "状态与状况": "",
+        "lancer.leaderPool": "0",
+        "lancer.current.hp": "10",
+        "lancer.current.heat": "0",
+        "lancer.current.structure": "4",
+        "lancer.current.stress": "4",
+        "lancer.current.repair": "5",
+        "lancer.current.overshield": "0",
+        "lancer.current.burn": "0"
+      },
+      "notes": ""
+    }
+  ],
+  "map": {
+    "width": 24,
+    "depth": 18,
+    "background": null,
+    "tokens": [],
+    "blocks": []
+  },
+  "assets": [],
+  "messages": [],
+  "journal": "",
+  "privateNotes": "示例秘密：渡船明天才会抵达。"
+}

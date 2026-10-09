@@ -1,0 +1,3289 @@
+{
+  "date": "2026-10-10",
+  "scope": "Direct parser/validator call arguments and rejection predicates. Not exhaustive interprocedural validation.",
+  "validators": [
+    {
+      "name": "parseAafBuild",
+      "source": "game/packages/contracts/src/aaf-build.ts",
+      "line": 32,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "b.version!==1||!['buy27','rolled'].includes(String(b.method))||!['draft','submitted','approved'].includes(String(b.status))",
+        "!Array.isArray(b.classes)||b.classes.length>9||!Array.isArray(b.selections)||b.selections.length>512",
+        "b.selectionGroups!==undefined",
+        "groups.length>20",
+        "!/^(book|cantrip|psi|prepared-(奥秘|神圣|原初)|art-(fighter|rogue|ranger))$/.test(key)||!Array.isArray(v)||v.length>100||new Set(v).size!==v.length",
+        "b.bardTradition!==undefined&&!['奥秘','神圣','原初'].includes(String(b.bardTradition))"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseAafPhysical",
+      "source": "game/packages/contracts/src/aaf-build.ts",
+      "line": 42,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "typeof v!=='number'||!Number.isFinite(v)||v<0||v>max",
+        "typeof p.stackable!=='boolean'",
+        "p.armor!==undefined",
+        "!['light','medium','heavy'].includes(String(a.category))||typeof a.stealthDisadvantage!=='boolean'",
+        "p.shield!==undefined",
+        "typeof s.light!=='boolean'",
+        "p.weapon!==undefined",
+        "!/^(?:\\d+d\\d+|\\d+)(?:\\s+\\S+)?$/.test(dice)||![1,2].includes(Number(w.hands))",
+        "typeof w[key]!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseAafFlow",
+      "source": "game/packages/contracts/src/aaf-flow.ts",
+      "line": 19,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!Array.isArray(value)||value.length>128",
+        "!obj(f)||!id(f.id)||!id(f.actorId)||!id(f.label)||!['cast','attack','move','stand','item','manual'].includes(String(f.event))||!ids(f.eligible)||!ids(f.opportunity)||!ids(f.passed)||typeof f.cancelled!=='boolean'||!obj(f.operation)",
+        "!id(o.abilityId)||!ids(o.targets)||o.concentrationId!==undefined&&!id(o.concentrationId)",
+        "!id(o.abilityId)||!id(o.frameId)",
+        "!id(o.abilityId)||!id(o.targetId)||!id(o.concentrationId)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "isAafTurnMovement",
+      "source": "game/packages/contracts/src/aaf-movement.ts",
+      "line": 8,
+      "fields": [],
+      "checks": [
+        "isAafSpeedMode(g.mode)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "isAafMovementSpeeds",
+      "source": "game/packages/contracts/src/aaf-movement.ts",
+      "line": 13,
+      "fields": [],
+      "checks": [
+        "isAafSpeedMode(mode)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseAafRules",
+      "source": "game/packages/contracts/src/aaf-rules.ts",
+      "line": 87,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!rules(v)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "isAafRules",
+      "source": "game/packages/contracts/src/aaf-rules.ts",
+      "line": 88,
+      "fields": [],
+      "checks": [
+        "parseAafRules(v)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseAafAbility",
+      "source": "game/packages/contracts/src/aaf-rules.ts",
+      "line": 89,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!ability(v)",
+        "a.resolution==='save'&&!a.save"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseAafOperation",
+      "source": "game/packages/contracts/src/aaf-rules.ts",
+      "line": 90,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!effect(v)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseAafDuration",
+      "source": "game/packages/contracts/src/aaf-rules.ts",
+      "line": 91,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!duration(v)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseAafItemDefinition",
+      "source": "game/packages/contracts/src/aaf.ts",
+      "line": 65,
+      "fields": [],
+      "checks": [
+        "parseAafPhysical(d.physical)"
+      ],
+      "rejectionConditions": [
+        "!shape.length && result.installation === 'independent'",
+        "result.kind === 'socket' && (!shape.length || result.installation !== 'independent')",
+        "(r.mode === 'direction' || r.mode === 'ray') && !r.direction",
+        "r.mode === 'cells' && !r.cells?.length"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseAafCatalog",
+      "source": "game/packages/contracts/src/aaf.ts",
+      "line": 99,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "c.version !== 1",
+        "active.has(id)",
+        "!n"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseAafCharacter",
+      "source": "game/packages/contracts/src/aaf.ts",
+      "line": 107,
+      "fields": [],
+      "checks": [
+        "parseAafTalent(l.node)",
+        "parseAafItemDefinition(i.definition)",
+        "parseAafBuild(a.build)",
+        "parseAafBuild(a.buildDraft)"
+      ],
+      "rejectionConditions": [
+        "a.version !== 1",
+        "entries.length > 1000",
+        "visiting.has(id)",
+        "!n"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseTokenActorDelta",
+      "source": "game/packages/contracts/src/actor-delta.ts",
+      "line": 37,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!record(raw)||raw.version!==1||!Number.isSafeInteger(raw.revision)||Number(raw.revision)<0",
+        "++nodes>12000||depth>32||!record(value)",
+        "value.kind==='object'||value.kind==='collection'",
+        "!record(entries)",
+        "value.order!==undefined&&typeof value.order!=='boolean'",
+        "mask.kind!=='object'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseActorFile",
+      "source": "game/packages/contracts/src/actor-transfer.ts",
+      "line": 12,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "isGameSystemId(v.systemId)",
+        "storyObject(v.actor)",
+        "storyId(actor.id)",
+        "storyObject(c)"
+      ],
+      "rejectionConditions": [
+        "v.format!=='aaf-actor'||v.version!==1||!isGameSystemId(v.systemId)||v.systemVersion!==GAME_SYSTEMS[v.systemId].version",
+        "new TextEncoder().encode(JSON.stringify(v)).byteLength>ACTOR_FILE_MAX_BYTES",
+        "actor.tokenInstance!==undefined",
+        "!Array.isArray(v.grants)||v.grants.length>5000||!Array.isArray(v.counters)||!Array.isArray(v.catalog)||v.catalog.length>1000",
+        "found.size!==story.resources.length"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseAdventureEffects",
+      "source": "game/packages/contracts/src/adventure-events.ts",
+      "line": 59,
+      "fields": [],
+      "checks": [
+        "parseAdventureSelector(v.targets)",
+        "parseUtopiaIntent(v.intent)",
+        "parseSceneRegions([v.region],200,200)"
+      ],
+      "rejectionConditions": [
+        "!/^(?:\\d{1,4}|(?:[1-9]|[1-9]\\d)d(?:[2-9]|[1-9]\\d{1,3})(?:[+-]\\d{1,3})?)$/i.test(formula)",
+        "!Number.isInteger(value)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseAdventureEvent",
+      "source": "game/packages/contracts/src/adventure-events.ts",
+      "line": 79,
+      "fields": [],
+      "checks": [
+        "parseAdventureEffects(o.effects)",
+        "parseAdventureEffects(o.failure)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseAdventureTrigger",
+      "source": "game/packages/contracts/src/adventure-events.ts",
+      "line": 80,
+      "fields": [],
+      "checks": [
+        "parseAdventureSelector(v.filter)",
+        "parseAdventureEffects(v.effects)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseAdventure",
+      "source": "game/packages/contracts/src/adventure-events.ts",
+      "line": 81,
+      "fields": [],
+      "checks": [
+        "parseAdventureBallot(r.ballot)",
+        "parseAdventureEvent(r.event)",
+        "parseStoryStage(v.stage)"
+      ],
+      "rejectionConditions": [
+        "v.version!==1",
+        "Object.keys(flags).length>=1000",
+        "Object.keys(fired).length>=10000",
+        "Object.keys(presence).length>=10000"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseCardDefinition",
+      "source": "game/packages/contracts/src/card-definition.ts",
+      "line": 8,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "v.useDeckBack!==undefined",
+        "typeof v.useDeckBack!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseCardStackFile",
+      "source": "game/packages/contracts/src/card-stack-file.ts",
+      "line": 5,
+      "fields": [],
+      "checks": [
+        "isGameSystemId(v.systemId)",
+        "parseLibraryDocument(v.stack)"
+      ],
+      "rejectionConditions": [
+        "v.format!=='aaf-card-stack'||v.version!==1||!isGameSystemId(v.systemId)||typeof v.partial!=='boolean'",
+        "!resolveStackCard(library,ref)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateCardStacks",
+      "source": "game/packages/contracts/src/card-stacks.ts",
+      "line": 17,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!source||source.card.stackId!==doc.id||source.card.area!==(doc.stack.type==='hand'?'hand':'table')||source.card.holderId||located.has(key)",
+        "doc.kind==='cards'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseChatInput",
+      "source": "game/packages/contracts/src/chat-input.ts",
+      "line": 4,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "command&&word",
+        "word==='ic'||word==='ooc'||['em','emote','me'].includes(word)",
+        "channel!=='talk'&&!p.actorId",
+        "word==='w'||word==='whisper'",
+        "!target",
+        "found.length!==1",
+        "!recipients.length"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseCombatStep",
+      "source": "game/packages/contracts/src/combat-journal.ts",
+      "line": 24,
+      "fields": [],
+      "checks": [
+        "parseCombatRoll(s.roll)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseCombatCard",
+      "source": "game/packages/contracts/src/combat-journal.ts",
+      "line": 29,
+      "fields": [],
+      "checks": [
+        "parseCombatVisual(c.visual)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseCombatJournal",
+      "source": "game/packages/contracts/src/combat-journal.ts",
+      "line": 33,
+      "fields": [],
+      "checks": [
+        "parseCombatCard(d.root)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseCompendiumDocument",
+      "source": "game/packages/contracts/src/compendium-documents.ts",
+      "line": 34,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyId(v.id)",
+        "parseLibraryDocument(v)"
+      ],
+      "rejectionConditions": [
+        "typeof v.kind==='string'&&Object.hasOwn(COMPENDIUM_FILE_CODECS,v.kind)&&(v.kind!=='cards'||Object.hasOwn(v,'file'))",
+        "v.name!==doc.name||v.description!==doc.description"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "assertCompendiumDocumentSystem",
+      "source": "game/packages/contracts/src/compendium-documents.ts",
+      "line": 42,
+      "fields": [],
+      "checks": [
+        "isCardStackCompendiumDocument(doc)"
+      ],
+      "rejectionConditions": [
+        "(doc.kind==='actor'||doc.kind==='resource'||isCardStackCompendiumDocument(doc))&&doc.file.systemId!==system"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseCompendiumFolderPreview",
+      "source": "game/packages/contracts/src/compendium-folder-export.ts",
+      "line": 8,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyId(r.sourceId)",
+        "storyId(r.entryId)",
+        "storyId(v.leaseId)"
+      ],
+      "rejectionConditions": [
+        "!Number.isSafeInteger(v.expiresAt)||Number(v.expiresAt)<0||!Number.isSafeInteger(v.folderCount)||Number(v.folderCount)<0||Number(v.folderCount)>256",
+        "typeof r.overwrite!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseCompendiumFolderOptions",
+      "source": "game/packages/contracts/src/compendium-folder-export.ts",
+      "line": 16,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)"
+      ],
+      "rejectionConditions": [
+        "typeof v[key]!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseCompendiumImportOptions",
+      "source": "game/packages/contracts/src/compendium-import.ts",
+      "line": 11,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyId(v.folderId)",
+        "storyId(v.parentId)"
+      ],
+      "rejectionConditions": [
+        "typeof v[k]!=='boolean'",
+        "!folderName"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseCompendiumImportPreview",
+      "source": "game/packages/contracts/src/compendium-import.ts",
+      "line": 16,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyId(r.entryId)",
+        "storyId(r.targetId)",
+        "storyId(v.leaseId)"
+      ],
+      "rejectionConditions": [
+        "!Number.isSafeInteger(v.expiresAt)||Number(v.expiresAt)<0||!Number.isSafeInteger(v.folderCount)||Number(v.folderCount)<0||Number(v.folderCount)>257",
+        "typeof r.overwrite!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseCompendiumImportBatch",
+      "source": "game/packages/contracts/src/compendium-import.ts",
+      "line": 44,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "parseCompendiumPack(v.pack)",
+        "parseCompendiumIndex(v.index)",
+        "storyObject(v.plan)",
+        "parseCompendiumImportPreview({rows:p.rows,conflicts:[],expiresAt:0,folderCount:0})",
+        "parseDocumentDirectory(p.directory,undefined,DOCUMENT_DIRECTORY_TYPES[pack.kind].maxEntries)",
+        "storyId(p.worldId)"
+      ],
+      "rejectionConditions": [
+        "new TextEncoder().encode(JSON.stringify(v)).length>COMPENDIUM_LIMITS.archiveBytes",
+        "typeof p.keepIds!=='boolean'||!Number.isSafeInteger(p.worldRevision)||Number(p.worldRevision)<0||p.packId!==pack.id||p.packRevision!==pack.revision||index.kind!==pack.kind||index.entries.length!==pack.count",
+        "body.projected||body.systemId!==pack.systemId||body.document.kind!==pack.kind||!e||e.name!==body.document.name||seen.has(e.id)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "assertCompendiumImportCurrent",
+      "source": "game/packages/contracts/src/compendium-import.ts",
+      "line": 56,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "plan.worldId!==worldId||plan.worldRevision!==revision||pack.systemId!==systemId||!current||current.revision!==pack.revision||current.indexHash!==pack.indexHash",
+        "!!target!==row.overwrite||target&&target.name!==row.previousName"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseCompendiumMedia",
+      "source": "game/packages/contracts/src/compendium-media.ts",
+      "line": 14,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)"
+      ],
+      "rejectionConditions": [
+        "!Object.hasOwn(extensions,mime)||path!=='assets/'+h+'.'+extensions[mime]||paths.has(path)",
+        "!Number.isSafeInteger(v.size)||Number(v.size)<1||Number(v.size)>(mime==='model/gltf-binary'?64000000:32000000)",
+        "chunks.length!==Math.ceil(size/COMPENDIUM_MEDIA_CHUNK_BYTES)",
+        "bytes>COMPENDIUM_MEDIA_TOTAL_BYTES",
+        "document!==undefined"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseCompendiumMediaChunk",
+      "source": "game/packages/contracts/src/compendium-media.ts",
+      "line": 28,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)"
+      ],
+      "rejectionConditions": [
+        "v.format!=='aaf-compendium-media'||v.version!==1||typeof v.data!=='string'||!v.data.length||v.data.length>Math.ceil(COMPENDIUM_MEDIA_CHUNK_BYTES/3)*4||v.data.length%4||!/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(v.data)",
+        "decoded.length>COMPENDIUM_MEDIA_CHUNK_BYTES||btoa(decoded)!==v.data"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseCompendiumUuid",
+      "source": "game/packages/contracts/src/compendium-reference.ts",
+      "line": 17,
+      "fields": [],
+      "checks": [
+        "parseCompendiumHref(compendiumHref({packId:decodeURIComponent(m[1]),entryId:decodeURIComponent(m[2]),...(m[3]?{pageId:decodeURIComponent(m[3])}:{}),...(m[4]?{anchor:m[4]}:{})}))"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseCompendiumPack",
+      "source": "game/packages/contracts/src/compendium.ts",
+      "line": 22,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "isGameSystemId(v.systemId)",
+        "storyId(v.id)",
+        "parseResourceAccess(v.access)"
+      ],
+      "rejectionConditions": [
+        "!isGameSystemId(v.systemId)",
+        "v.source!=='world'",
+        "typeof v.locked!=='boolean'",
+        "!name.trim()"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseCompendiumIndex",
+      "source": "game/packages/contracts/src/compendium.ts",
+      "line": 31,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyId(e.id)"
+      ],
+      "rejectionConditions": [
+        "v.version!==1"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseCompendiumBody",
+      "source": "game/packages/contracts/src/compendium.ts",
+      "line": 37,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "isGameSystemId(v.systemId)",
+        "parseCompendiumDocument(v.document)",
+        "isLibraryCompendiumDocument(document)",
+        "storyId(v.originWorldId)",
+        "storyId(v.originDocumentId)",
+        "parseCompendiumMedia(v.media,document)"
+      ],
+      "rejectionConditions": [
+        "v.format!=='aaf-compendium-entry'||v.version!==1||!isGameSystemId(v.systemId)",
+        "isLibraryCompendiumDocument(document)&&document.projected"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseConversationChannel",
+      "source": "game/packages/contracts/src/conversation-channels.ts",
+      "line": 5,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyId(c.id)"
+      ],
+      "rejectionConditions": [
+        "!id.startsWith('custom:')||!name"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseTimedDecision",
+      "source": "game/packages/contracts/src/decision-policy.ts",
+      "line": 11,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!raw||typeof raw!=='object'||Array.isArray(raw)",
+        "typeof x!=='string'||!x||x.length>max",
+        "typeof x!=='number'||!Number.isSafeInteger(x)||x<0",
+        "typeof v.optional!=='boolean'||!Array.isArray(v.choices)||v.choices.length>30||!v.optional&&!v.choices.length",
+        "deadlineAt<createdAt",
+        "pausedAt!==undefined&&(pausedAt<createdAt||pausedAt>=deadlineAt)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "assertDiceDimension",
+      "source": "game/packages/contracts/src/dice-parser.ts",
+      "line": 5,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!Number.isInteger(value)||value<1||value>(kind==='count'?1000:1000000)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseDiceExpression",
+      "source": "game/packages/contracts/src/dice-parser.ts",
+      "line": 53,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "typeof expression!=='string'||!expression.trim()||expression.length>1000",
+        "p.i!==expression.length"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseDirectoryAccessPatch",
+      "source": "game/packages/contracts/src/directory-access.ts",
+      "line": 23,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyObject(v.users)",
+        "storyId(id)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseDndActiveEffect",
+      "source": "game/packages/contracts/src/dnd-effects.ts",
+      "line": 19,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "typeof v!=='boolean'",
+        "!Number.isSafeInteger(n)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseDndSceneSpell",
+      "source": "game/packages/contracts/src/dnd-effects.ts",
+      "line": 26,
+      "fields": [],
+      "checks": [
+        "parseDndActiveEffect(e)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseDndPointEffect",
+      "source": "game/packages/contracts/src/dnd-magic.ts",
+      "line": 32,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "x.kind!=='teleport'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseDndMagicPrompt",
+      "source": "game/packages/contracts/src/dnd-magic.ts",
+      "line": 34,
+      "fields": [],
+      "checks": [
+        "parseDndPointEffect(x.pointEffect)"
+      ],
+      "rejectionConditions": [
+        "!['burst','counter','empower','burning','effect-target','choose-point'].includes(kind)",
+        "!['created','turnStart'].includes(String(x.phase))"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseDndMagic",
+      "source": "game/packages/contracts/src/dnd-magic.ts",
+      "line": 36,
+      "fields": [],
+      "checks": [
+        "parseDndPointEffect(j.effect)",
+        "parsePending({gate,attack:j.attack})",
+        "parsePending({gate,move:j.plan})",
+        "parseDndMagicPrompt(x.prompt)"
+      ],
+      "rejectionConditions": [
+        "depth>15",
+        "++count>500",
+        "kind==='counter'",
+        "!['spell','pact'].includes(String(f.slotType))",
+        "kind==='effect-target'",
+        "!['created','turnStart'].includes(String(j.phase))",
+        "kind==='cast'",
+        "!['spell','pact'].includes(slotType)",
+        "kind==='damage'",
+        "!['acid','bludgeoning','cold','fire','force','lightning','necrotic','piercing','poison','psychic','radiant','slashing','thunder'].includes(String(j.damageType))",
+        "![0,.5,1].includes(Number(t.factor))"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseDndRest",
+      "source": "game/packages/contracts/src/dnd.ts",
+      "line": 108,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "['__proto__','constructor','prototype'].includes(id)||Object.keys(votes).length>=300",
+        "['__proto__','constructor','prototype'].includes(id)||Object.keys(hitDice).length>=300"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseDndCharacter",
+      "source": "game/packages/contracts/src/dnd.ts",
+      "line": 109,
+      "fields": [],
+      "checks": [
+        "parseDndSorcery(v.sorcery)"
+      ],
+      "rejectionConditions": [
+        "v.version!==1",
+        "Object.keys(skills).length>30||Object.keys(resources).length>100",
+        "['__proto__','constructor','prototype'].includes(key)||Object.keys(result).length>=30",
+        "['__proto__','constructor','prototype'].includes(k)",
+        "slots.length!==9",
+        "typeof item.weight!=='number'||!Number.isFinite(item.weight)||item.weight<0||item.weight>100000",
+        "typeof item.notes!=='string'||item.notes.length>4000",
+        "['__proto__','constructor','prototype'].includes(id)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseDndBattle",
+      "source": "game/packages/contracts/src/dnd.ts",
+      "line": 137,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "v.version!==1",
+        "typeof t.initiative!=='number'||!Number.isFinite(t.initiative)||t.initiative < -1000||t.initiative>1000",
+        "surgeAction&&!action"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseDndPending",
+      "source": "game/packages/contracts/src/dnd.ts",
+      "line": 149,
+      "fields": [],
+      "checks": [
+        "parseTimedDecision(v.gate)",
+        "parseDndMagic({prompt:{kind:'burst',actor:'validation'},jobs:v.followups},parseDndPending)",
+        "parseDndMagic(v.magic,parseDndPending)",
+        "parseDndMagicPrompt(v.magicPrompt)",
+        "parseDndHudRef(d.source)"
+      ],
+      "rejectionConditions": [
+        "v.adjudication!==undefined",
+        "pending.magic&&(pending.attack||pending.opportunity||pending.move||pending.adjudication)",
+        "pending.adjudication&&(pending.attack||pending.opportunity||pending.move)||pending.attack&&pending.opportunity||pending.opportunity&&!pending.move"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseDocumentDirectory",
+      "source": "game/packages/contracts/src/document-directory.ts",
+      "line": 13,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!Array.isArray(v.folders)||v.folders.length>128",
+        "!name.trim()",
+        "!/^#[\\da-f]{6}$/i.test(color)",
+        "f.sorting!=='manual'&&f.sorting!=='alphabetical'",
+        "byId.size!==folders.length",
+        "documentIds?.has(f.id)",
+        "visited.has(parent)",
+        "visited.size>8",
+        "!item",
+        "rows.length>maxEntries",
+        "folder&&!byId.has(folder)",
+        "documentIds&&!documentIds.has(document)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseDoorVisual",
+      "source": "game/packages/contracts/src/door-visual.ts",
+      "line": 7,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "typeof x!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseDrawingExtras",
+      "source": "game/packages/contracts/src/drawing-style.ts",
+      "line": 8,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!/^#[0-9a-f]{6}$/i.test(s)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneEncounter",
+      "source": "game/packages/contracts/src/encounter.ts",
+      "line": 8,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "typeof r.hidden!=='boolean'||typeof r.defeated!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseEncounters",
+      "source": "game/packages/contracts/src/encounter.ts",
+      "line": 9,
+      "fields": [],
+      "checks": [
+        "parseSceneEncounter(value)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseEntityDirectories",
+      "source": "game/packages/contracts/src/entity-directory.ts",
+      "line": 6,
+      "fields": [],
+      "checks": [
+        "parseDocumentDirectory(v[kind],kind==='actor'?actors:resources,DOCUMENT_DIRECTORY_TYPES[kind].maxEntries)"
+      ],
+      "rejectionConditions": [
+        "!raw||typeof raw!=='object'||Array.isArray(raw)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseEnvironmentDecision",
+      "source": "game/packages/contracts/src/environment-decision.ts",
+      "line": 11,
+      "fields": [],
+      "checks": [
+        "parseEnvironmentEffect(v.effect)",
+        "parseEnvironmentEffect(r.effect)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateHeartseaFields",
+      "source": "game/packages/contracts/src/heartsea.ts",
+      "line": 2,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "fields['heartsea.version']!=='1'",
+        "!fields[key].trim()||!Number.isInteger(v)||v<min||v>max",
+        "(fields['heartsea.specialty.label.'+i]?.length??0)>20"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseJournalAccess",
+      "source": "game/packages/contracts/src/journal-access.ts",
+      "line": 9,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyObject(value.users)",
+        "storyId(id)"
+      ],
+      "rejectionConditions": [
+        "Object.keys(users).length>128"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseJournalReference",
+      "source": "game/packages/contracts/src/journal-reference.ts",
+      "line": 6,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyId(v.entryId)",
+        "storyId(v.pageId)"
+      ],
+      "rejectionConditions": [
+        "anchor!==undefined&&!/^[\\w-]+$/.test(anchor)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseJournalHref",
+      "source": "game/packages/contracts/src/journal-reference.ts",
+      "line": 12,
+      "fields": [],
+      "checks": [
+        "parseJournalReference({entryId:q.get('entry'),...(q.has('page')?{pageId:q.get('page')} :{}),...(q.has('anchor')?{anchor:q.get('anchor')}:{})})"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseJournalSecrets",
+      "source": "game/packages/contracts/src/journal-secrets.ts",
+      "line": 5,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyId(v.id)"
+      ],
+      "rejectionConditions": [
+        "typeof v.revealed!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseJournalFile",
+      "source": "game/packages/contracts/src/journal-transfer.ts",
+      "line": 15,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyObject(v.entry)",
+        "storyObject(rawPage)",
+        "parseStory({...emptyStory(),entries:[v.entry]})"
+      ],
+      "rejectionConditions": [
+        "v.format!=='aaf-journal'||v.version!==1",
+        "new TextEncoder().encode(JSON.stringify(v)).byteLength>JOURNAL_FILE_MAX_BYTES",
+        "Array.isArray(entry.pages)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseEffect",
+      "source": "game/packages/contracts/src/lancer-combat.ts",
+      "line": 138,
+      "fields": [],
+      "checks": [
+        "parseLancerArea(v.area)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSalvo",
+      "source": "game/packages/contracts/src/lancer-combat.ts",
+      "line": 139,
+      "fields": [],
+      "checks": [
+        "parseLancerArea(v.area)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseLancerPilotProfile",
+      "source": "game/packages/contracts/src/lancer-combat.ts",
+      "line": 144,
+      "fields": [],
+      "checks": [
+        "parsePilotConditions(p.conditions)"
+      ],
+      "rejectionConditions": [
+        "bonus%2"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseLancerUnit",
+      "source": "game/packages/contracts/src/lancer-combat.ts",
+      "line": 150,
+      "fields": [],
+      "checks": [
+        "parsePilotConditions(v.conditions)",
+        "parseLancerAI(v.ai)",
+        "parseLancerNhp(v.nhp)",
+        "parseLancerReadyReference(q.ref)",
+        "parseLancerAutomation(s.automation,'system')",
+        "parseLancerNpc(v.npc)",
+        "parseLancerRide(v.riding)",
+        "parseLancerPilotProfile(c.profile)"
+      ],
+      "rejectionConditions": [
+        "v.counters!==undefined",
+        "entries.length>100",
+        "!/^[\\w.-]{1,120}$/.test(k)"
+      ],
+      "delegatedTypes": [
+        "const"
+      ]
+    },
+    {
+      "name": "parseStep",
+      "source": "game/packages/contracts/src/lancer-combat.ts",
+      "line": 181,
+      "fields": [],
+      "checks": [
+        "parseStepBody(raw)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseStepBody",
+      "source": "game/packages/contracts/src/lancer-combat.ts",
+      "line": 184,
+      "fields": [],
+      "checks": [
+        "parseLancerSceneEffect(v.effect)",
+        "parseStep(v.shot)",
+        "parseReplay(c.replay)",
+        "parseReplay(v.replay)",
+        "parsePoint(v.origin)",
+        "parsePoint(v.pushOrigin)",
+        "parsePoint(v.pullCenter)"
+      ],
+      "rejectionConditions": [
+        "record(v.shot).kind!=='attack'",
+        "!rolls.length",
+        "record(v.shot).kind!=='tech'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseLancerBattle",
+      "source": "game/packages/contracts/src/lancer-combat.ts",
+      "line": 205,
+      "fields": [],
+      "checks": [
+        "parsePoint(p.defaultPoint)",
+        "parseStep(p.step)",
+        "parseLancerArea(q.area)",
+        "parseLancerReadyReference(w.prepared)",
+        "parseCombatStep({text:l.text,movement:l.movement})",
+        "parseCombatRoll(l.roll)"
+      ],
+      "rejectionConditions": [
+        "v.version!==1"
+      ],
+      "delegatedTypes": [
+        "const"
+      ]
+    },
+    {
+      "name": "parseLancerFormula",
+      "source": "game/packages/contracts/src/lancer-custom.ts",
+      "line": 47,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!m||+m[1]<1||+m[1]>20||+m[2]<2||+m[2]>100"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseLancerAutomation",
+      "source": "game/packages/contracts/src/lancer-custom.ts",
+      "line": 65,
+      "fields": [],
+      "checks": [
+        "parseLancerFormula(d.damage,`damageParts[${i}].damage`)"
+      ],
+      "rejectionConditions": [
+        "v.version!==1",
+        "expected&&kind!==expected",
+        "!/^[a-z][a-z0-9-]*$/.test(id)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseLancerMission",
+      "source": "game/packages/contracts/src/lancer-maintenance.ts",
+      "line": 34,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "v.version!==1"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseLancerSceneObject",
+      "source": "game/packages/contracts/src/lancer-scene.ts",
+      "line": 53,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!v||typeof v!=='object'||Array.isArray(v)",
+        "typeof v[k]!=='boolean'",
+        "typeof v!=='number'||!Number.isFinite(v)||v<min||v>max",
+        "typeof v!=='string'||!v.trim()||v.length>max",
+        "!['none','soft','hard'].includes(String(v.cover))",
+        "!Array.isArray(v.actions)||v.actions.length>16",
+        "!['quick','full','free'].includes(String(a.cost))||typeof a.enabled!=='boolean'",
+        "a.once!==undefined&&typeof a.once!=='boolean'",
+        "a.effects!==undefined&&(!Array.isArray(a.effects)||a.effects.length>16)",
+        "durability&&durability.hp>durability.maxHp",
+        "typeof s[k]!=='boolean'",
+        "!['none','soft','hard'].includes(String(s.cover))",
+        "v.template!==undefined&&typeof v.template!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseLancerSceneEffect",
+      "source": "game/packages/contracts/src/lancer-scene.ts",
+      "line": 71,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!raw||typeof raw!=='object'||Array.isArray(raw)",
+        "typeof x!=='string'||!x.trim()||x.length>160",
+        "typeof x!=='number'||!Number.isFinite(x)||x<min||x>max",
+        "v.kind==='state'",
+        "typeof v.enabled!=='boolean'||v.allowFall!==undefined&&typeof v.allowFall!=='boolean'",
+        "v.kind==='hazard'",
+        "!/^(?:\\d{1,3}|(?:[1-9]|1\\d|20)d(?:4|6|8|10|12|20)(?:[+-]\\d{1,3})?)$/.test(damage)",
+        "!['kinetic','energy','explosive','burn','heat'].includes(String(v.damageType))",
+        "v.save!==undefined",
+        "!s||!['hull','agility','systems','engineering'].includes(String(s.skill))||typeof s.half!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseLibraryDirectories",
+      "source": "game/packages/contracts/src/library-directory.ts",
+      "line": 7,
+      "fields": [],
+      "checks": [
+        "isLibraryKind(k)"
+      ],
+      "rejectionConditions": [
+        "!raw||typeof raw!=='object'||Array.isArray(raw)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseMediaManifest",
+      "source": "game/packages/contracts/src/media.ts",
+      "line": 11,
+      "fields": [],
+      "checks": [
+        "isRecord(value)",
+        "isInteger(value.version)",
+        "isAssetPath(value.path)",
+        "isInteger(value.size, 1, 32000000)"
+      ],
+      "rejectionConditions": [
+        "!isRecord(value) || value.schemaVersion !== 1 || !isInteger(value.version) || !Array.isArray(value.files) || value.files.length > 10000",
+        "!isRecord(value) || !isAssetPath(value.path) || paths.has(value.path) || typeof value.hash !== \"string\" || !/^[a-f0-9]{64}$/.test(value.hash) || !isInteger(value.size, 1, 32000000) || !MEDIA_TYPES.includes(value.mime as MediaType)",
+        "total > 512000000"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseOwnedItem",
+      "source": "game/packages/contracts/src/owned-item.ts",
+      "line": 17,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "parseResourceFile({format:'aaf-resources',version:1,systemId:system,rootId:v.rootId,resources})",
+        "storyObject(v.source)",
+        "storyId(v.id)",
+        "storyId(source.id)"
+      ],
+      "rejectionConditions": [
+        "!resources.length",
+        "!Number.isSafeInteger(v.quantity)||Number(v.quantity)<0||Number(v.quantity)>1000000"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseOwnedItems",
+      "source": "game/packages/contracts/src/owned-item.ts",
+      "line": 25,
+      "fields": [],
+      "checks": [
+        "parseOwnedItem(v,systemId)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateLocalPdf",
+      "source": "game/packages/contracts/src/pdf-media.ts",
+      "line": 5,
+      "fields": [],
+      "checks": [
+        "isPdfHeader(new Uint8Array(await blob.slice(0,8).arrayBuffer()))"
+      ],
+      "rejectionConditions": [
+        "!blob.size||blob.size>LOCAL_PDF_LIMIT",
+        "!isPdfHeader(new Uint8Array(await blob.slice(0,8).arrayBuffer()))"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseRegionDecisions",
+      "source": "game/packages/contracts/src/region-decision.ts",
+      "line": 7,
+      "fields": [],
+      "checks": [
+        "storyObject(value)",
+        "parseTimedDecision(v.gate)",
+        "parseEnvironmentDecision(v.environment)",
+        "storyObject(v.transfer)",
+        "storyObject(transfer.effect)",
+        "storyObject(e.teleport)",
+        "storyObject(e.point)",
+        "storyId(e.regionId)",
+        "storyId(e.behaviorId)",
+        "storyId(e.tokenId)",
+        "storyNumber(p.x,0,300)",
+        "storyNumber(p.y,0,300)",
+        "storyNumber(p.z,0,200)",
+        "storyId(d.sceneId)",
+        "storyId(d.regionId)",
+        "storyId(transfer.sceneId)"
+      ],
+      "rejectionConditions": [
+        "v.accepted!==undefined&&typeof v.accepted!=='boolean'",
+        "v.kind==='environment'",
+        "gate.pausedAt!==gate.createdAt"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseResourceAccess",
+      "source": "game/packages/contracts/src/resource-access.ts",
+      "line": 3,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyObject(v.users)",
+        "storyId(id)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseResourceImage",
+      "source": "game/packages/contracts/src/resource-details.ts",
+      "line": 5,
+      "fields": [],
+      "checks": [
+        "isAssetPath(value)"
+      ],
+      "rejectionConditions": [
+        "!isAssetPath(value)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseResourceSource",
+      "source": "game/packages/contracts/src/resource-details.ts",
+      "line": 6,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "typeof text!=='string'||text.length>(key==='url'?2000:500)||/[\\x00-\\x08\\x0b\\x0c\\x0e-\\x1f]/.test(text)",
+        "result.url",
+        "!['https:','http:'].includes(url.protocol)||url.username||url.password"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseResourceFile",
+      "source": "game/packages/contracts/src/resource-transfer.ts",
+      "line": 16,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "isGameSystemId(v.systemId)",
+        "storyId(v.rootId)"
+      ],
+      "rejectionConditions": [
+        "v.format!=='aaf-resources'||v.version!==1||!isGameSystemId(v.systemId)",
+        "new TextEncoder().encode(JSON.stringify(v)).byteLength>RESOURCE_FILE_MAX_BYTES",
+        "!Array.isArray(v.resources)||!v.resources.length||v.resources.length>5000",
+        "found.size!==resources.length"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseResourceVisual",
+      "source": "game/packages/contracts/src/resource-visual.ts",
+      "line": 6,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseResourceVisualEvent",
+      "source": "game/packages/contracts/src/resource-visual.ts",
+      "line": 11,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "parseResourceVisual({preset:v.preset})",
+        "storyId(v.sceneId)",
+        "storyId(v.sourceId)"
+      ],
+      "rejectionConditions": [
+        "!targetIds.length"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseRuleVariant",
+      "source": "game/packages/contracts/src/rule-variant.ts",
+      "line": 5,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!raw||typeof raw!=='object'||Array.isArray(raw)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "assertSceneArchiveReplacement",
+      "source": "game/packages/contracts/src/scene-archive-update.ts",
+      "line": 8,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyNumber(v.expectedRevision,0,Number.MAX_SAFE_INTEGER)"
+      ],
+      "rejectionConditions": [
+        "!Number.isInteger(expectedRevision)||expectedRevision!==revision",
+        "!target",
+        "target.busy",
+        "scene.id!==id",
+        "b.type==='teleport'&&b.destinationScene===id&&b.destinationRegion"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneArchiveHeader",
+      "source": "game/packages/contracts/src/scene-archive.ts",
+      "line": 10,
+      "fields": [],
+      "checks": [
+        "isGameSystemId(h.systemId)",
+        "isAssetPath(path)"
+      ],
+      "rejectionConditions": [
+        "h.format!=='aaf.scene'||h.version!==1",
+        "!isGameSystemId(h.systemId)",
+        "h.adapter!==adapter",
+        "!name.trim()||!sourceSceneId||!sourceWorldId",
+        "!Array.isArray(h.assets)||h.assets.length>10000",
+        "!isAssetPath(path)||paths.has(path)||! /^[a-f0-9]{64}$/.test(hash)",
+        "!['image/png','image/jpeg','image/webp','audio/mpeg','audio/ogg','audio/wav','video/webm','video/mp4','application/pdf','model/gltf-binary'].includes(mime)",
+        "!Number.isSafeInteger(a.size)||Number(a.size)<1||Number(a.size)>(mime==='model/gltf-binary'?64000000:32000000)",
+        "total>SCENE_ARCHIVE_LIMIT"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneAudio",
+      "source": "game/packages/contracts/src/scene-audio.ts",
+      "line": 6,
+      "fields": [],
+      "checks": [
+        "parseSceneAudioBinding(binding)"
+      ],
+      "rejectionConditions": [
+        "rows.length>128"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneInitialView",
+      "source": "game/packages/contracts/src/scene-camera.ts",
+      "line": 4,
+      "fields": [],
+      "checks": [
+        "isRecord(raw)"
+      ],
+      "rejectionConditions": [
+        "!isRecord(raw)",
+        "typeof v!=='number'||!Number.isFinite(v)||v<min||v>max"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneCanvasStyle",
+      "source": "game/packages/contracts/src/scene-canvas.ts",
+      "line": 12,
+      "fields": [],
+      "checks": [
+        "isRecord(raw)",
+        "isRecord(f)",
+        "parseGridPixels(raw.gridPixels)",
+        "parseSceneMeasurementScale(raw.measurement)",
+        "parseSceneFrame(raw.frame)",
+        "parseSceneInitialView(raw.initialView)"
+      ],
+      "rejectionConditions": [
+        "!isRecord(raw)",
+        "typeof v!=='string'||!/^#[0-9a-f]{6}$/i.test(v)",
+        "typeof v!=='number'||!Number.isFinite(v)||v<min||v>max",
+        "v!=='image'&&v!=='video'",
+        "raw.foreground!==undefined",
+        "!isRecord(f)||typeof f.src!=='string'||!f.src||f.src.length>512||!/^[\\w./-]+$/.test(f.src)||f.src.split('/').includes('..')||typeof f.elevation!=='number'||!Number.isFinite(f.elevation)||f.elevation< -100||f.elevation>100||typeof f.opacity!=='number'||!Number.isFinite(f.opacity)||f.opacity<0||f.opacity>1"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneCanvasValue",
+      "source": "game/packages/contracts/src/scene-canvas.ts",
+      "line": 21,
+      "fields": [],
+      "checks": [
+        "isRecord(raw)",
+        "parseSceneCanvasStyle(raw.style)"
+      ],
+      "rejectionConditions": [
+        "!isRecord(raw)||raw.background!==null&&(typeof raw.background!=='string'||raw.background.length>512||!raw.background||!/^[\\w./-]+$/.test(raw.background)||raw.background.split('/').includes('..'))"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneDirectory",
+      "source": "game/packages/contracts/src/scene-directory.ts",
+      "line": 6,
+      "fields": [],
+      "checks": [
+        "parseDocumentDirectory(raw,sceneIds,256)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseDoorIntent",
+      "source": "game/packages/contracts/src/scene-door.ts",
+      "line": 4,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!raw||typeof raw!=='object'||Array.isArray(raw)",
+        "value.operation!==undefined&&!['toggle','lock'].includes(value.operation as string)",
+        "value.expectedState!==undefined&&!['none','closed','open','locked'].includes(value.expectedState as string)",
+        "value.silent!==undefined&&typeof value.silent!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseEnvironmentEffect",
+      "source": "game/packages/contracts/src/scene-environment.ts",
+      "line": 19,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "damage&&!/^\\s*(?:\\d+|\\d{0,3}d\\d{1,4})(?:\\s*[+-]\\s*\\d+)?\\s*$/i.test(damage)",
+        "typeof v.review!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseRegionEnvironment",
+      "source": "game/packages/contracts/src/scene-environment.ts",
+      "line": 20,
+      "fields": [],
+      "checks": [
+        "parseEnvironmentEffect(j.effect)"
+      ],
+      "rejectionConditions": [
+        "v.surface!==undefined",
+        "typeof s.climbable!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "assertEnvironmentMovement",
+      "source": "game/packages/contracts/src/scene-environment.ts",
+      "line": 22,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "r.environment?.movement&&!r.environment.movement.includes(mode)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneFeatures",
+      "source": "game/packages/contracts/src/scene-features.ts",
+      "line": 27,
+      "fields": [],
+      "checks": [
+        "parseWallAccess(w.access)",
+        "parseDoorVisual(w.doorVisual)",
+        "parseDoorSound(w.doorSound)",
+        "parseDoorSignal(w.doorSignal)",
+        "parseDrawingExtras(d)",
+        "parseSceneNotes(v.notes,width,height)",
+        "parseSceneRegions(v.regions,width,height)",
+        "parseSceneTiles(v.tiles,width,height)",
+        "parseSceneSounds(v.sounds,width,height)",
+        "parseSenseMarkers(v.senseMarkers)",
+        "parseTokenMotion(v.tokenMotion)",
+        "parseFogImage(v.fogImage)"
+      ],
+      "rejectionConditions": [
+        "typeof v!=='boolean'",
+        "!/^#[0-9a-f]{6}$/i.test(s)",
+        "Math.hypot(w.b.x-w.a.x,w.b.y-w.a.y)<.001",
+        "d.kind==='polygon'&&(d.points?.length??0)<3",
+        "d.kind==='freehand'&&(d.points?.length??0)<2",
+        "!/^\\d+,\\d+$/.test(cell)",
+        "cx>=width||cy>=height",
+        "v.explored!==undefined",
+        "records.length>128",
+        "v.movementCells!==undefined",
+        "entries.length>width*height",
+        "v.tokenVision!==undefined",
+        "rows.length>500",
+        "v.globalLightBounds!==undefined",
+        "globalLightBounds.x+globalLightBounds.width>width||globalLightBounds.y+globalLightBounds.height>height"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseFogImage",
+      "source": "game/packages/contracts/src/scene-fog.ts",
+      "line": 4,
+      "fields": [],
+      "checks": [
+        "isAssetPath(raw)"
+      ],
+      "rejectionConditions": [
+        "!isAssetPath(raw)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneFrame",
+      "source": "game/packages/contracts/src/scene-frame.ts",
+      "line": 5,
+      "fields": [],
+      "checks": [
+        "isRecord(raw)"
+      ],
+      "rejectionConditions": [
+        "!isRecord(raw)",
+        "typeof width!=='number'||!Number.isFinite(width)||width<1||width>512||typeof height!=='number'||!Number.isFinite(height)||height<1||height>512||typeof padding!=='number'||!Number.isFinite(padding)||padding<0||padding>1"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneJournals",
+      "source": "game/packages/contracts/src/scene-journal.ts",
+      "line": 5,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyId(id)",
+        "parseJournalReference(ref)"
+      ],
+      "rejectionConditions": [
+        "rows.length>128"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneMeasurementScale",
+      "source": "game/packages/contracts/src/scene-measurement.ts",
+      "line": 4,
+      "fields": [],
+      "checks": [
+        "isRecord(raw)"
+      ],
+      "rejectionConditions": [
+        "!isRecord(raw)||typeof raw.distance!=='number'||!Number.isFinite(raw.distance)||raw.distance<.000001||raw.distance>1000000||typeof raw.units!=='string'||!raw.units.trim()||raw.units.length>24||/[\\u0000-\\u001f\\u007f-\\u009f]/.test(raw.units)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneNavigationConfig",
+      "source": "game/packages/contracts/src/scene-navigation.ts",
+      "line": 7,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)"
+      ],
+      "rejectionConditions": [
+        "!Number.isSafeInteger(v.revision)||Number(v.revision)<0||typeof v.navigation!=='boolean'||typeof v.players!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneNavigation",
+      "source": "game/packages/contracts/src/scene-navigation.ts",
+      "line": 11,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyId(id)",
+        "parseSceneNavigationConfig(value)"
+      ],
+      "rejectionConditions": [
+        "rows.length>256"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneSummaries",
+      "source": "game/packages/contracts/src/scene-navigation.ts",
+      "line": 15,
+      "fields": [],
+      "checks": [
+        "storyObject(value)",
+        "parseSceneThumbnailSource(v.thumbnail)",
+        "storyId(v.id)",
+        "parseSceneKind(v.kind)"
+      ],
+      "rejectionConditions": [
+        "!Array.isArray(raw)||raw.length>256"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneNotes",
+      "source": "game/packages/contracts/src/scene-note.ts",
+      "line": 9,
+      "fields": [],
+      "checks": [
+        "parseJournalReference(n.reference)"
+      ],
+      "rejectionConditions": [
+        "typeof v!=='boolean'",
+        "!/^#[0-9a-f]{6}$/i.test(s)",
+        "icon==='custom'&&!iconSrc"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseTokenSenses",
+      "source": "game/packages/contracts/src/scene-obscurity.ts",
+      "line": 11,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyNumber(v.darkvision,0,200)",
+        "storyNumber(v[k],0,200)"
+      ],
+      "rejectionConditions": [
+        "typeof v.magicalDarkness!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseGridPixels",
+      "source": "game/packages/contracts/src/scene-pixels.ts",
+      "line": 5,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "typeof raw!=='number'||!Number.isFinite(raw)||raw<1||raw>4096"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseScenePixels",
+      "source": "game/packages/contracts/src/scene-pixels.ts",
+      "line": 8,
+      "fields": [],
+      "checks": [
+        "isRecord(raw)",
+        "parseGridPixels(raw.grid)"
+      ],
+      "rejectionConditions": [
+        "!isRecord(raw)",
+        "typeof v!=='number'||!Number.isFinite(v)||v<1||v>2097152"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseScenePreloads",
+      "source": "game/packages/contracts/src/scene-preload.ts",
+      "line": 9,
+      "fields": [],
+      "checks": [
+        "storyNumber(v,min,max)",
+        "storyObject(raw)",
+        "storyId(r.playerId)",
+        "storyId(v.id)",
+        "storyId(v.sceneId)"
+      ],
+      "rejectionConditions": [
+        "!Number.isSafeInteger(n)",
+        "!src"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateRegionPolygon",
+      "source": "game/packages/contracts/src/scene-region.ts",
+      "line": 20,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "near(points[i],points[next])",
+        "edgesIntersect(points[i],points[next],points[j],points[end])"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneRegions",
+      "source": "game/packages/contracts/src/scene-region.ts",
+      "line": 27,
+      "fields": [],
+      "checks": [
+        "parseSceneTemplate(v.template,width,height)",
+        "parseEnvironmentEffect(b.effect)",
+        "parseDndSceneSpell(v.magic)",
+        "parseRegionEnvironment(v.environment)"
+      ],
+      "rejectionConditions": [
+        "typeof v!=='boolean'",
+        "new Set(ids).size!==ids.length",
+        "!/^#[0-9a-f]{6}$/i.test(color)",
+        "template&&list(v.shapes,512).length",
+        "Math.abs(a.x-b.x)<EPS||Math.abs(a.y-b.y)<EPS",
+        "!Number.isInteger(n*4)",
+        "!Number.isInteger(n)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "assertSceneResizeReview",
+      "source": "game/packages/contracts/src/scene-resize-review.ts",
+      "line": 19,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "review.conflicts.length"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "assertSceneResizeRevision",
+      "source": "game/packages/contracts/src/scene-resize-review.ts",
+      "line": 20,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "typeof expected!=='number'||expected!==revision"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneResizeRequest",
+      "source": "game/packages/contracts/src/scene-resize.ts",
+      "line": 10,
+      "fields": [],
+      "checks": [
+        "isRecord(raw)",
+        "parseGridPixels(raw.gridPixels)",
+        "parseSceneFrame(raw.frame)"
+      ],
+      "rejectionConditions": [
+        "!isRecord(raw)||raw.image!=='fit'&&raw.image!=='preserve'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneSounds",
+      "source": "game/packages/contracts/src/scene-sound.ts",
+      "line": 6,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "typeof v!=='boolean'",
+        "!src"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneTemplate",
+      "source": "game/packages/contracts/src/scene-template.ts",
+      "line": 8,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "kind==='cone'&&cap==='flat'&&angle>=180",
+        "kind==='cone'&&cap==='flat'&&num(v.distance,.05,100)*Math.tan(angle*Math.PI/360)>200",
+        "typeof v.highlight!=='boolean'",
+        "borderColor&&!/^#[0-9a-fA-F]{6}$/.test(borderColor)",
+        "v.semicircle!==undefined&&typeof v.semicircle!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneThumbnailSource",
+      "source": "game/packages/contracts/src/scene-thumbnail.ts",
+      "line": 8,
+      "fields": [],
+      "checks": [
+        "isRecord(raw)",
+        "parseSceneCanvasValue(raw)"
+      ],
+      "rejectionConditions": [
+        "!isRecord(raw)||typeof raw.width!=='number'||typeof raw.height!=='number'||!Number.isFinite(raw.width)||!Number.isFinite(raw.height)||raw.width<=0||raw.height<=0||raw.width>512||raw.height>512"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneTiles",
+      "source": "game/packages/contracts/src/scene-tile.ts",
+      "line": 8,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "typeof v!=='boolean'",
+        "!src",
+        "!/^#[0-9a-f]{6}$/i.test(tint)",
+        "new Set(occlusion).size!==occlusion.length"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneMap",
+      "source": "game/packages/contracts/src/scene.ts",
+      "line": 82,
+      "fields": [],
+      "checks": [
+        "isRecord(value)",
+        "isInteger(value.width, 1, 256)",
+        "isInteger(value.height, 1, 256)",
+        "isInteger(value.tilePx, 8, 512)",
+        "isRecord(tile)",
+        "isInteger(tile.x, 0, width - 1)",
+        "isInteger(tile.y, 0, height - 1)",
+        "isRecord(tile.door)",
+        "isRecord(tile.light)",
+        "isInteger(tile.light.radiusFeet, 5, 1000)",
+        "isRecord(tile.extra)",
+        "isRecord(token)",
+        "isId(token.id)",
+        "isText(token.name)",
+        "isInteger(token.x, 0, width - 1)",
+        "isInteger(token.y, 0, height - 1)",
+        "isInteger(token.speed, 0, 10000)",
+        "parseSceneCanvasStyle(value.canvas)"
+      ],
+      "rejectionConditions": [
+        "!isRecord(value) || !isInteger(value.width, 1, 256) || !isInteger(value.height, 1, 256) || !isInteger(value.tilePx, 8, 512) || !Array.isArray(value.tiles) || !Array.isArray(value.tokens) || value.tiles.length !== value.width * value.height || value.tokens.length > 4096",
+        "!isRecord(tile) || !isInteger(tile.x, 0, width - 1) || !isInteger(tile.y, 0, height - 1) || typeof tile.tag !== \"string\" || !Object.hasOwn(TERRAIN_PASSABLE, tile.tag)",
+        "tiles[index]",
+        "tile.door !== undefined",
+        "!isRecord(tile.door) || typeof tile.door.open !== \"boolean\" || typeof tile.door.locked !== \"boolean\" || typeof tile.door.secret !== \"boolean\" || tile.tag !== (tile.door.open ? \"normal\" : \"wall\")",
+        "tile.light !== undefined",
+        "!isRecord(tile.light) || !isInteger(tile.light.radiusFeet, 5, 1000) || typeof tile.light.enabled !== \"boolean\"",
+        "tile.extra !== undefined",
+        "!isRecord(tile.extra)",
+        "!isRecord(token) || !isId(token.id) || ids.has(token.id) || !isText(token.name) || !isInteger(token.x, 0, width - 1) || !isInteger(token.y, 0, height - 1) || !isInteger(token.speed, 0, 10000) || (token.faction !== \"pc\" && token.faction !== \"npc\")"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSenseMarkers",
+      "source": "game/packages/contracts/src/sense-markers.ts",
+      "line": 4,
+      "fields": [],
+      "checks": [
+        "storyObject(row)",
+        "storyNumber(v.x,0,10000)",
+        "storyNumber(v.y,0,10000)",
+        "storyNumber(v.z,0,200)",
+        "storyNumber(v.width,.1,100)"
+      ],
+      "rejectionConditions": [
+        "!Array.isArray(raw)||raw.length>500",
+        "!Array.isArray(v.sources)||v.sources.length>500"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseHandouts",
+      "source": "game/packages/contracts/src/story-delivery.ts",
+      "line": 13,
+      "fields": [],
+      "checks": [
+        "storyObject(value)",
+        "storyId(r.playerId)",
+        "storyNumber(r.at,0,Number.MAX_SAFE_INTEGER)",
+        "parseJournalSecrets(v.secrets)",
+        "parseJournalPages(v.pages).map(publicJournalPage)",
+        "parseJournalPages(v.pages)",
+        "storyId(v.id)",
+        "storyId(v.authorId)",
+        "storyNumber(v.at,0,Number.MAX_SAFE_INTEGER)"
+      ],
+      "rejectionConditions": [
+        "recipients&&(!recipients.length||new Set(recipients).size!==recipients.length)",
+        "typeof v.closed!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseRecaps",
+      "source": "game/packages/contracts/src/story-delivery.ts",
+      "line": 23,
+      "fields": [],
+      "checks": [
+        "storyObject(value)",
+        "storyId(v.id)",
+        "storyId(v.authorId)",
+        "storyNumber(v.at,0,Number.MAX_SAFE_INTEGER)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseJournalPages",
+      "source": "game/packages/contracts/src/story-journal.ts",
+      "line": 9,
+      "fields": [],
+      "checks": [
+        "storyObject(value)",
+        "storyNumber(p.level,1,3)",
+        "parseJournalSecrets(p.secrets)",
+        "parseJournalAccess(p.access,true)",
+        "storyId(p.id)"
+      ],
+      "rejectionConditions": [
+        "!Number.isInteger(level)||typeof p.showTitle!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseNotebook",
+      "source": "game/packages/contracts/src/story-progress.ts",
+      "line": 26,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "JSON.stringify(b).length>600000"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateQuestChain",
+      "source": "game/packages/contracts/src/story-progress.ts",
+      "line": 32,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "active.has(key)",
+        "!row"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseStageScript",
+      "source": "game/packages/contracts/src/story-stage.ts",
+      "line": 23,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!Number.isInteger(revision)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseAdventureBallot",
+      "source": "game/packages/contracts/src/story-stage.ts",
+      "line": 36,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!Number.isInteger(round)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseResource",
+      "source": "game/packages/contracts/src/story.ts",
+      "line": 100,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "isGameSystemId(v.systemId)",
+        "parseResourceVisual(a.visual)",
+        "storyId(a.id)",
+        "storyNumber(a.cost,0,10)",
+        "storyNumber(a.poolCost,0,10000)",
+        "storyNumber(a.range,0,2000)",
+        "storyNumber(a.count,1,100)",
+        "storyNumber(a.duration,0,10000)",
+        "parseResourceImage(v.image)",
+        "parseResourceSource(v.source)",
+        "parseResourceAccess(v.access)",
+        "storyId(v.id)",
+        "storyId(v.packId)"
+      ],
+      "rejectionConditions": [
+        "!isGameSystemId(v.systemId)",
+        "!result.name.trim()"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseStory",
+      "source": "game/packages/contracts/src/story.ts",
+      "line": 111,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyObject(x)",
+        "storyId(a.id)",
+        "parseUserColor(a.color)",
+        "storyId(a.actorId)",
+        "storyId(a.resourceId)",
+        "parseQuest(a.quest)",
+        "parseNotebook(a.notebook)",
+        "parseJournalSecrets(a.secrets)",
+        "parseJournalAccess(a.access,false)",
+        "parseJournalPages(a.pages)",
+        "storyId(a.authorId)",
+        "parseResourceVisualEvent(a.visual)",
+        "storyNumber(a.at,0,Number.MAX_SAFE_INTEGER)",
+        "parseMessageDetails(a)",
+        "storyNumber(a.max)",
+        "storyNumber(a.value,0,max)",
+        "parseRegionDecisions(v.regionDecisions)",
+        "parseHandouts(v.handouts)",
+        "parseRecaps(v.recaps)",
+        "storyObject(v.sceneViews)",
+        "storyId(user)",
+        "storyId(scene)",
+        "storyObject(v.climbAttempts)",
+        "parseWorldAtlas(v.atlas)",
+        "parseAdventure(v.adventure)",
+        "storyObject(v.dndRules)",
+        "storyNumber(v.reactionSeconds,5,300)",
+        "parseCombatJournal(v.combatJournal)",
+        "parseCombatCheckpoints(v.combatCheckpoints)",
+        "parseEncounters(v.encounters)",
+        "parseWorldAssetPack(v.assetPack)",
+        "parseCompendiumCatalog(v.compendiums??[])",
+        "parseCompendiumCatalog(v.compendiums)",
+        "parseSceneJournals(v.sceneJournals)",
+        "parseScenePreloads(v.scenePreloads)",
+        "parseSceneNavigation(v.sceneNavigation)",
+        "parseSceneDirectory(v.sceneDirectory)",
+        "parseWorldLibrary(v.library)",
+        "parseWorldCalendar(v.calendar)"
+      ],
+      "rejectionConditions": [
+        "v.version!==1",
+        "typeof a.enabled!=='boolean'",
+        "a.revision!==undefined&&(!Number.isSafeInteger(a.revision)||Number(a.revision)<0)",
+        "a.quest!==undefined&&a.kind!=='quest'||a.notebook!==undefined&&a.kind!=='journal'",
+        "!byId.has(c)||byId.get(c)!.systemId!==r.systemId",
+        "path.has(id)",
+        "depth>16",
+        "!byId.has(g.resourceId)",
+        "v.sceneViews!==undefined",
+        "rows.length>128",
+        "v.paused!==undefined&&typeof v.paused!=='boolean'",
+        "r.backgroundAbilityUnbound!==undefined&&typeof r.backgroundAbilityUnbound!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseTableDocument",
+      "source": "game/packages/contracts/src/table-document.ts",
+      "line": 8,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyId(v.target)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseManualTable",
+      "source": "game/packages/contracts/src/tabletop.ts",
+      "line": 78,
+      "fields": [],
+      "checks": [
+        "isGameSystemId(v.systemId)",
+        "parseRuleVariant(v.ruleVariant,v.systemId)",
+        "parseUtopiaBattle(v.utopiaBattle)",
+        "parseStory(storyInput)",
+        "parseManualTable({...v,story:undefined,scenes:undefined,activeSceneId:undefined,activeSceneName:undefined,activeSceneKind:undefined,map:s.map,utopiaBattle:s.utopiaBattle,dndBattle:s.dndBattle,lancerBattle:s.lancerBattle,dndPending:s.dndPending})",
+        "parseSceneKind(s.kind)",
+        "parseOwnedItems(a.ownedItems,v.systemId)",
+        "parseTokenAppearance(t.appearance)",
+        "parseLancerRide(t.lancerRiding)",
+        "parseLancerSceneObject(b.lancer)",
+        "parseSceneCanvasStyle(map.canvas)",
+        "parseDndRest(v.dndRest)",
+        "parseDndPending(v.dndPending)",
+        "parseDndBattle(v.dndBattle)",
+        "parseLancerBattle(v.lancerBattle)",
+        "parseLancerMission(v.lancerMission)",
+        "parseSceneSummaries(v.sceneSummaries)",
+        "parseSceneKind(v.activeSceneKind)"
+      ],
+      "rejectionConditions": [
+        "v.schemaVersion !== 1 || !isGameSystemId(v.systemId)",
+        "utopiaBattle&&variant?.id!=='new-utopia'",
+        "variant?.id==='new-utopia'&&(v.lancerBattle!==undefined||v.lancerMission!==undefined)",
+        "t.objectKind!=='object'&&t.objectKind!=='vehicle'",
+        "!['visible','spectral','sound','tremor'].includes(String(t.perception))",
+        "t.lancerPilotBody!=='casket'&&t.lancerPilotBody!=='subaltern'",
+        "b.terrain!==undefined&&!['difficult','dangerous','difficult-dangerous'].includes(String(b.terrain))",
+        "b.hazardDamage!==undefined&&!['kinetic','energy','explosive','burn'].includes(String(b.hazardDamage))",
+        "!validPublicationPath(a.path) || a.path === 'table.json' || !validHash(a.hash)",
+        "map.features!==undefined",
+        "background&&!sceneMediaExists(background,canvas?.backgroundMedia??'image')",
+        "canvas?.foreground&&!sceneMediaExists(canvas.foreground.src,canvas.foreground.media)",
+        "dndPending && v.systemId !== 'dnd5e-2024'",
+        "dndPending",
+        "lancerMission&&v.systemId!=='lancer'",
+        "map.environment!==undefined&&!['normal','zero-g','underwater'].includes(String(map.environment))",
+        "lancerBattle && v.systemId !== 'lancer'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parsePublication",
+      "source": "game/packages/contracts/src/tabletop.ts",
+      "line": 181,
+      "fields": [],
+      "checks": [
+        "isGameSystemId(v.systemId)"
+      ],
+      "rejectionConditions": [
+        "v.schemaVersion !== 1 || !isGameSystemId(v.systemId)",
+        "!validPublicationPath(f.path) || !validHash(f.hash)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "assertTerraActorChanges",
+      "source": "game/packages/contracts/src/terra-setting.ts",
+      "line": 11,
+      "fields": [],
+      "checks": [
+        "isTerraSpecies(species)",
+        "isTerraSpecies(item.source?.id??'')",
+        "isTerraSpecies(root.source?.page??'')",
+        "isTerraSpecies('tw-'+t)"
+      ],
+      "rejectionConditions": [
+        "species&&!isTerraSpecies(species)&&species!==old?.dnd?.species"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseTokenAppearance",
+      "source": "game/packages/contracts/src/token-appearance.ts",
+      "line": 9,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "parseTokenSenses(v.senses)",
+        "storyNumber(v.scaleX,.1,10)",
+        "storyNumber(v.scaleY,.1,10)",
+        "storyNumber(v.alpha,0,1)"
+      ],
+      "rejectionConditions": [
+        "typeof value!=='boolean'",
+        "!/^#[0-9a-f]{6}$/i.test(String(v.tint))",
+        "v.movementModes!==undefined&&(!Array.isArray(v.movementModes)||v.movementModes.length>6)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseTokenConfiguration",
+      "source": "game/packages/contracts/src/token-appearance.ts",
+      "line": 25,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyNumber(v.z,-100,200)",
+        "storyNumber(v.rotation,0,359)",
+        "parseTokenAppearance(v.appearance)"
+      ],
+      "rejectionConditions": [
+        "!name.trim()"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseTokenPresentation",
+      "source": "game/packages/contracts/src/token-appearance.ts",
+      "line": 32,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "parseTokenConfiguration(v)",
+        "storyNumber(r.value,0,1000000)",
+        "storyNumber(r.max,0,1000000)"
+      ],
+      "rejectionConditions": [
+        "typeof v.owned!=='boolean'||!Array.isArray(v.resources)||v.resources.length>130"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "assertTokenRotationChange",
+      "source": "game/packages/contracts/src/token-appearance.ts",
+      "line": 35,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "before.appearance?.lockRotation&&after.appearance?.lockRotation&&(before.rotation??0)!==(after.rotation??0)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseTokenImages",
+      "source": "game/packages/contracts/src/token-images.ts",
+      "line": 5,
+      "fields": [],
+      "checks": [
+        "isAssetPath(p)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseTokenMotion",
+      "source": "game/packages/contracts/src/token-motion.ts",
+      "line": 4,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyId(v.id)",
+        "storyNumber(v.serial,0,Number.MAX_SAFE_INTEGER)"
+      ],
+      "rejectionConditions": [
+        "!Array.isArray(v.path)||v.path.length<2"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseTokenActorInstance",
+      "source": "game/packages/contracts/src/token-prototype.ts",
+      "line": 9,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "parseTokenActorDelta(v.delta)"
+      ],
+      "rejectionConditions": [
+        "!/^[\\w-]+$/.test(s)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseTokenPrototype",
+      "source": "game/packages/contracts/src/token-prototype.ts",
+      "line": 10,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "parseTokenConfiguration(v.configuration)",
+        "parseTokenImages(v.randomImages)"
+      ],
+      "rejectionConditions": [
+        "typeof v.linked!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneObject",
+      "source": "game/packages/contracts/src/unit-inspection.ts",
+      "line": 13,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "v.blocksMovement!==undefined&&typeof v.blocksMovement!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseUserColor",
+      "source": "game/packages/contracts/src/user-colors.ts",
+      "line": 5,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "typeof raw!==\"string\"||!/^#[0-9a-f]{6}$/i.test(raw)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseUtopiaCharacter",
+      "source": "game/packages/contracts/src/utopia.ts",
+      "line": 53,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "c.version!==1",
+        "tune.length!==4",
+        "resources.structure>4||resources.power>4||resources.erosion>3||resources.cp>1",
+        "c.npc",
+        "typeof size!=='number'||![.5,1,2,3,4,5,6].includes(size)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseUtopiaIntent",
+      "source": "game/packages/contracts/src/utopia.ts",
+      "line": 63,
+      "fields": [],
+      "checks": [
+        "parsePoint(v)",
+        "parseUtopiaCharacter(v.character)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseUtopiaStep",
+      "source": "game/packages/contracts/src/utopia.ts",
+      "line": 82,
+      "fields": [],
+      "checks": [
+        "parsePoint(s.point)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseUtopiaBattle",
+      "source": "game/packages/contracts/src/utopia.ts",
+      "line": 93,
+      "fields": [],
+      "checks": [
+        "parsePoint(u.origin)"
+      ],
+      "rejectionConditions": [
+        "b.version!==1"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "isInteger",
+      "source": "game/packages/contracts/src/validation.ts",
+      "line": 8,
+      "fields": [],
+      "checks": [
+        "isFiniteNumber(value)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseWallAccess",
+      "source": "game/packages/contracts/src/wall-access.ts",
+      "line": 7,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseWorldAssetFile",
+      "source": "game/packages/contracts/src/world-assets.ts",
+      "line": 10,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "isAssetPath(path)",
+        "storyNumber(v.size,1,64000000)"
+      ],
+      "rejectionConditions": [
+        "!isAssetPath(path)||!/^[a-f0-9]{64}$/.test(hash)||!['image/png','image/jpeg','image/webp','image/gif','image/svg+xml','audio/ogg','audio/mpeg','audio/wav','video/webm','video/mp4','application/pdf','model/gltf-binary'].includes(mime)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseWorldAssetPack",
+      "source": "game/packages/contracts/src/world-assets.ts",
+      "line": 11,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseWorldAtlas",
+      "source": "game/packages/contracts/src/world-atlas.ts",
+      "line": 17,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "v.version!==1",
+        "!Number.isInteger(revision)",
+        "typeof n.visible!=='boolean'",
+        "frame&&(frame.x+frame.width>1.00001||frame.y+frame.height>1.00001)",
+        "byId.size!==nodes.length",
+        "!n.parentId&&n.kind!=='region'",
+        "seen.has(p)",
+        "!parent",
+        "parent.kind!=='region'",
+        "seen.size>16",
+        "currentId&&!byId.has(currentId)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneKind",
+      "source": "game/packages/contracts/src/world-calendar.ts",
+      "line": 4,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "value !== 'adventure' && value !== 'camp' && value !== 'combat'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseCalendarDate",
+      "source": "game/packages/contracts/src/world-calendar.ts",
+      "line": 59,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!definition"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseWorldCalendar",
+      "source": "game/packages/contracts/src/world-calendar.ts",
+      "line": 75,
+      "fields": [],
+      "checks": [
+        "parseCalendarDate(v.current, clock)"
+      ],
+      "rejectionConditions": [
+        "v.version !== 1",
+        "!months.length",
+        "!found",
+        "e.visibility !== 'public' && e.visibility !== 'gm'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseMessageDetails",
+      "source": "game/packages/contracts/src/world-conversation.ts",
+      "line": 16,
+      "fields": [],
+      "checks": [
+        "parseTableDocument(r)",
+        "parseMessageDetails({roll:r.roll})"
+      ],
+      "rejectionConditions": [
+        "v.inline!==undefined",
+        "rows.length!==expected.length",
+        "r[key]!==comparison[key]",
+        "definition.kind==='immediate'&&r.roll===undefined||definition.kind==='deferred'&&r.roll!==undefined",
+        "roll&&roll.expression!==definition.expression",
+        "v.roll!==undefined",
+        "!/^[\\w.]+$/.test(k)",
+        "typeof f.active!=='boolean'",
+        "v.rollPrivacy!==undefined",
+        "!Number.isInteger(revision)||!result.roll||v.channel!=='rolls'||result.recipients?.length||result.regionScene||result.inline?.length||result.mode!==mode&&result.mode!=='public'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseLibraryDocument",
+      "source": "game/packages/contracts/src/world-library.ts",
+      "line": 34,
+      "fields": [],
+      "checks": [
+        "parseTableDocument(r.document)",
+        "parseCardDefinition(c)",
+        "parseCardStack(v.stack)"
+      ],
+      "rejectionConditions": [
+        "!base.name.trim()",
+        "kind==='table'",
+        "range.length!==2",
+        "kind==='cards'",
+        "!base.projected&&!faces.length",
+        "faces.length&&selected>=faces.length",
+        "stack&&(cards.length||order.length)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseWorldLibrary",
+      "source": "game/packages/contracts/src/world-library.ts",
+      "line": 56,
+      "fields": [],
+      "checks": [
+        "parseLibraryDirectories(v.directories,documents)",
+        "parseMacroBars(v.macroBars)",
+        "parseSceneAudio(v.sceneAudio)"
+      ],
+      "rejectionConditions": [
+        "v.version!==1"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseMacroArgs",
+      "source": "game/packages/contracts/src/world-macro.ts",
+      "line": 3,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "values.length>32",
+        "!/^[A-Za-z_]\\w{0,63}$/.test(key)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseMacroBar",
+      "source": "game/packages/contracts/src/world-macro.ts",
+      "line": 7,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!Number.isInteger(page)||!Number.isInteger(revision)||slots.length!==50"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseMacroBars",
+      "source": "game/packages/contracts/src/world-macro.ts",
+      "line": 8,
+      "fields": [],
+      "checks": [
+        "parseMacroBar(bar)"
+      ],
+      "rejectionConditions": [
+        "rows.length>128"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "assertDndCanHide",
+      "source": "game/packages/game-core/src/dnd/hiding.ts",
+      "line": 4,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!token"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateDndLights",
+      "source": "game/packages/game-core/src/dnd/lights.ts",
+      "line": 3,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!source",
+        "!Array.isArray(points)||points.length<1||points.length>4||previous&&previous.length!==points.length",
+        "!p||![p.x,p.y,p.z].every(Number.isFinite)||p.x<0||p.y<0||p.x>table.map.width||p.y>table.map.depth||p.z< -100||p.z>100",
+        "Math.hypot(Math.max(Math.abs(center.x-p.x),Math.abs(center.y-p.y)),source.z-p.z)*5>120",
+        "previous&&Math.hypot(Math.max(Math.abs(p.x-from.x),Math.abs(p.y-from.y)),p.z-from.z)*5>60",
+        "dndRayBlocked(from,{...p,z:p.z+.5},table.map)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateLancerArea",
+      "source": "game/packages/game-core/src/lancer/areas.ts",
+      "line": 26,
+      "fields": [],
+      "checks": [
+        "parseLancerArea(raw)"
+      ],
+      "rejectionConditions": [
+        "!w.area||area.kind!==w.area.kind||area.size!==w.area.size",
+        "area.x>=map.width||area.y>=map.depth",
+        "area.kind==='blast'&&lancerSystemActive(a,'ms_siege_stabilizers')&&distance<=5",
+        "area.kind==='blast'||w.range>0",
+        "distance>w.range",
+        "distance>0",
+        "!w.tags.includes('seeking')&&!w.tags.includes('arcing')&&!lancerUnitLineOfSight(map,a,origin)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateDroneLink",
+      "source": "game/packages/game-core/src/lancer/drone-talents.ts",
+      "line": 25,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!t||t.id===previous.id||selected.includes(t.id)||t.side!==u.side||!alive(t)||!character(t)||!a||!v",
+        "lancerDistance(a,v)>3",
+        "!(previous.id===u.id?lancerUnitLineOfSight(map,u,v):lancerLineOfSight(map,a,v))"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateLancerFlight",
+      "source": "game/packages/game-core/src/lancer/flight.ts",
+      "line": 21,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!option",
+        "option.boostOnly&&(counter(u,'boosted')!==u.turns||counter(u,'flight-boost')<=0)",
+        "has(u,'prone')",
+        "length===0",
+        "option.boostOnly&&cost>counter(u,'flight-boost')",
+        "z-lancerFloor(map,{...t,x,y,z})>10&&counter(u,'nonMoveAction')===u.turns"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateLancerNpcTarget",
+      "source": "game/packages/game-core/src/lancer/npc.ts",
+      "line": 79,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "ability!=='melt'",
+        "!t?.entity||!w"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateLancerPoint",
+      "source": "game/packages/game-core/src/lancer/point-decision.ts",
+      "line": 9,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "spec.mode==='hazard'",
+        "spec.mode==='push'||spec.mode==='puppet'",
+        "u.destroyed||u.phasedUntil||distance<=0||distance>spec.range||to.z!==t.z||!Number.isInteger(to.x)||!Number.isInteger(to.y)",
+        "u.destroyed||u.phasedUntil||has(u,'stunned')||has(u,'shutdown')||has(u,'slowed')||spec.mode!=='teleport'&&has(u,'immobilized')",
+        "cost>spec.range||cost<=0",
+        "spec.mode==='ground'&&to.z-lancerFloor(map,{...t,...to})>.11",
+        "spec.adjacent",
+        "!target||lancerDistance({...t,...to},target)>1",
+        "spec.toward",
+        "!target||lancerDistance({...t,...to},target)>=lancerDistance(t,target)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateLancerWeaponUse",
+      "source": "game/packages/game-core/src/lancer/resolution.ts",
+      "line": 59,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "restricted",
+        "a.destroyed||w.destroyed||!spent&&!availableWeapon(w)",
+        "a.phasedUntil",
+        "lancerSystemActive(a,'ms_siege_stabilizers')&&w.tags.includes('melee')",
+        "a.counters?.highAltitude||has(a,'jammed')&&!w.tags.includes('unarmed')||has(a,'shutdown')||has(a,'stunned')",
+        "w.tags.includes('ordnance')&&!a.counters?.['ready-ordnance']&&(reaction||!committed&&(a.actions.length>0||a.movement<a.speed))"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateWeapon",
+      "source": "game/packages/game-core/src/lancer/resolution.ts",
+      "line": 67,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "a.counters?.highAltitude",
+        "a.phasedUntil||target.phasedUntil",
+        "has(a,'jammed')&&!w.tags.includes('unarmed')||has(a,'shutdown')||has(a,'stunned')",
+        "a.pilot&&w.tags.includes('antique')&&!feature(target,'biological')",
+        "target.destroyed||!target.deployed||!area&&(!secondary?.area&&has(target,'hidden')||!secondary&&target.id===a.id)",
+        "!planningRange&&!w.tags.includes('seeking')&&!w.tags.includes('arcing')&&!(area?.kind==='blast'?lancerLineOfSight(map,areaOrigin(area),tt):secondary?lancerLineOfSight(map,at,tt):lancerUnitLineOfSight(map,a,tt))",
+        "w.tags.includes('ordnance')&&a.side!==target.side&&!!a.pilot===!!target.pilot&&!has(target,'hidden')&&lancerDistance(source,tt)<=1",
+        "area?!lancerAreaContains(area,tt,at):lancerDistance(at,tt)>(secondary?(secondary.area?1:3):w.tags.includes('melee')?w.threat:w.range)+reachBonus+planningRange",
+        "w.tags.includes('ordnance')&&!a.counters?.['ready-ordnance']&&(reaction||!committed&&(a.actions.length>0||a.movement<a.speed))"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateLancerActionTarget",
+      "source": "game/packages/game-core/src/lancer/targeting.ts",
+      "line": 37,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!target||target.id===u.id||target.destroyed||target.phasedUntil||!target.deployed",
+        "!a||!t",
+        "lancerDistance(a,t)>(['ram','grapple','improvised'].includes(action)?1:u.sensors)",
+        "['lockon','invade'].includes(action)&&(has(u,'jammed')||has(u,'tech-disabled')||has(target,'shutdown'))",
+        "action==='invade'&&target.features?.includes('biological')",
+        "action==='search'",
+        "!has(target,'hidden')",
+        "has(target,'hidden')",
+        "!lancerUnitLineOfSight(map,u,t)",
+        "action==='ram'&&!lancerCanRam(map,u,target)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateTechMovement",
+      "source": "game/packages/game-core/src/lancer/tech-effects.ts",
+      "line": 28,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "source&&lancerDistance({...from,...to},source)<lancerDistance(from,source)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateTechTarget",
+      "source": "game/packages/game-core/src/lancer/tech.ts",
+      "line": 59,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!t||t.id===u.id||!t.deployed||t.destroyed||t.phasedUntil||has(t,'hidden')&&!(i.option==='bolster'&&t.side===u.side)||!at||!tt",
+        "has(u,'jammed')||has(u,'tech-disabled')",
+        "has(t,'shutdown')||i.option!=='scan'&&object||!['scan','lockon'].includes(i.option)&&feature(t,'biological')",
+        "i.option==='bolster'&&(has(t,'jammed')||has(t,'tech-disabled'))",
+        "lancerDistance(at,tt)>u.sensors||i.option!=='bolster'&&!lancerUnitLineOfSight(map,u,tt)",
+        "i.consumeLock&&!has(t,'lockon')"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "isWeaponReady",
+      "source": "game/packages/game-core/src/persistence.ts",
+      "line": 72,
+      "fields": [],
+      "checks": [
+        "isRecord(actor)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "requireGm",
+      "source": "game/packages/game-core/src/utopia/state.ts",
+      "line": 6,
+      "fields": [],
+      "checks": [
+        "isGm(x)"
+      ],
+      "rejectionConditions": [
+        "!isGm(x)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateShot",
+      "source": "game/packages/game-core/src/utopia/weapons.ts",
+      "line": 22,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "s.equipment!=='npc'&&s.equipment!=='unarmed'&&(!p.gear||p.gear.destroyed||!p.gear.loaded)",
+        "p.profile.heavyOrdnance&&(overwatch||u.turn?.used.length||utopiaEngaged(x.table,s.source))",
+        "overwatch&&(p.profile.size==='超重'||p.profile.heavyOrdnance)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "isWeapon",
+      "source": "game/packages/game-core/src/validation.ts",
+      "line": 14,
+      "fields": [],
+      "checks": [
+        "isRecord(value)",
+        "isText(value.name)",
+        "isInteger(value.proficiency,0,100)",
+        "isInteger(value.rangeFeet, 5, 10000)",
+        "isRecord(special)",
+        "isText(special.name)",
+        "isInteger(special.mp, 0, 100000)",
+        "isInteger(special.rangeFeet, 5, 10000)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "isCombatantInput",
+      "source": "game/packages/game-core/src/validation.ts",
+      "line": 26,
+      "fields": [],
+      "checks": [
+        "isRecord(value)",
+        "isAafRules(value.aafRules)",
+        "isId(value.id)",
+        "isText(value.name)",
+        "isInteger(value.x)",
+        "isInteger(value.y)",
+        "isFiniteNumber(value.z)",
+        "isInteger(value.speed, 0, 10000)",
+        "isInteger(value.maxHp, 1, 1000000)",
+        "isAafMovementSpeeds(value.movementSpeeds)",
+        "isInteger(value.hp, 0, value.maxHp)",
+        "isFiniteNumber(value.ac)",
+        "isRecord(value.attrs)",
+        "isInteger(value.attrs.str, 0, 10000)",
+        "isInteger(value.attrs.dex, 0, 10000)",
+        "isInteger(score, 0, 10000)",
+        "isInteger(value.mpMax, 0, 1000000)",
+        "isInteger(value.mp, 0, typeof value.mpMax === \"number\" ? value.mpMax : 0)",
+        "isInteger(value.burnStacks, 0, 100)",
+        "isWeapon(value.weapon)",
+        "isWeapon(value.offhandWeapon)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "isCombatIntent",
+      "source": "game/packages/game-core/src/validation.ts",
+      "line": 38,
+      "fields": [],
+      "checks": [
+        "isRecord(value)",
+        "isId(value.targetId)",
+        "isAafAction(value.action)",
+        "isInteger(value.x)",
+        "isInteger(value.y)",
+        "isFiniteNumber(value.z)",
+        "isAafSpeedMode(value.mode)",
+        "isId(value.sourceId)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseDamageDice",
+      "source": "game/packages/rules-engine/src/combat.ts",
+      "line": 83,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!m"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateDndScores",
+      "source": "game/packages/rules-engine/src/dnd/characters.ts",
+      "line": 9,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!['pointBuy','array','manual'].includes(method)",
+        "method==='pointBuy'&&!dndPointBuy(scores).valid"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateDndBuildChoices",
+      "source": "game/packages/rules-engine/src/dnd/creation-choices.ts",
+      "line": 57,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "new Set(initiate).size!==initiate.length"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseLancerTraining",
+      "source": "game/packages/rules-engine/src/lancer-training.ts",
+      "line": 44,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!raw||typeof raw!=='object'||Array.isArray(raw)",
+        "!Array.isArray(a)||a.length>100",
+        "typeof v!=='string'||!/^[\\w.-]{1,120}$/.test(v)",
+        "!x||typeof x!=='object'||Array.isArray(x)",
+        "c[key]!==undefined",
+        "!Number.isInteger(c[key])||Number(c[key])<0||Number(c[key])>19",
+        "!Number.isInteger(t.rank)||Number(t.rank)<1||Number(t.rank)>3"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "assertClimbAttempt",
+      "source": "game/packages/session/src/elevation-movement.ts",
+      "line": 19,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "d.phase==='climb'&&d.turn&&story?.climbAttempts?.[d.sceneId+':'+d.tokenId]===d.turn"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateEnvironmentMove",
+      "source": "game/packages/session/src/environment-decisions.ts",
+      "line": 25,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!gm&&mode!=='climb'&&!(appearance?.movementModes??['walk','jump']).includes(mode)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseResourceUse",
+      "source": "game/packages/session/src/resource-use.ts",
+      "line": 5,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyId(v.ownedItemId)",
+        "storyId(v.actorId)",
+        "storyId(v.resourceId)",
+        "storyId(v.activityId)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseActor",
+      "source": "game/packages/session/src/world-persistence.ts",
+      "line": 24,
+      "fields": [],
+      "checks": [
+        "requireRecord(value)",
+        "actorProfile(raw.profile)",
+        "parseAafCharacter(raw.aaf)",
+        "requireId(item.id)",
+        "requireId(item.itemId)",
+        "requireInteger(item.quantity, 1, 1000000)",
+        "idList(item.equippedSlots)",
+        "requireRecord(raw.resources)",
+        "requireId(effect.id)",
+        "requireText(effect.name, 200)",
+        "requireInteger(effect.stacks, 1, 10000)",
+        "requireInteger(effect.duration, 0, 1000000)",
+        "optionalText(effect.description, 10000)",
+        "parseOwnedItems(raw.ownedItems,\"aaf\")",
+        "parseTokenPrototype(raw.prototypeToken)",
+        "parseTokenActorInstance(raw.tokenInstance)",
+        "requireId(raw.id)",
+        "requireInteger(raw.mp, 0, profile.mpMax ?? 0)",
+        "requireInteger(raw.burnStacks, 0, 100)",
+        "parseActorAccess(raw.access)",
+        "idList(raw.owners)",
+        "visibility(raw.visibility)",
+        "assetReference(raw.portrait)",
+        "optionalText(raw.notes, 50000)",
+        "requireInteger(item.max, 0, 1000000)",
+        "requireId(id)",
+        "requireInteger(item.value, 0, id==='focus'?1000000:max)"
+      ],
+      "rejectionConditions": [
+        "raw.aaf !== undefined",
+        "errors.length",
+        "new Set(slots).size !== slots.length",
+        "resources.length > 128",
+        "![\"turn-start\", \"turn-end\", \"rest\", \"manual\"].includes(String(effect.tick))"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseScene",
+      "source": "game/packages/session/src/world-persistence.ts",
+      "line": 49,
+      "fields": [],
+      "checks": [
+        "requireRecord(value)",
+        "parseSceneMap(raw.map)",
+        "requireInteger(p.x, 0, map.width - 1)",
+        "requireInteger(p.y, 0, map.height - 1)",
+        "requireText(token.name,120)",
+        "assetReference(token.image)",
+        "requireNumber(token.rotation,0,359)",
+        "parseTokenAppearance(token.appearance)",
+        "requireId(token.id)",
+        "requireId(token.actorId)",
+        "requireNumber(token.z??0,-100,200)",
+        "requireBoolean(token.hidden)",
+        "requireInteger(token.visionFeet, 0, 10000)",
+        "requireId(item.id)",
+        "requireId(item.ownerId)",
+        "optionalText(item.text, 10000)",
+        "visibility(item.visibility)",
+        "requireId(raw.id)",
+        "requireText(raw.name)",
+        "parseSceneKind(raw.kind)",
+        "requireId(raw.combatId)",
+        "assetReference(raw.background)",
+        "requireBoolean(raw.fogEnabled)"
+      ],
+      "rejectionConditions": [
+        "!Number.isFinite(movementCost(map, token)) || (blocks && occupied.has(elevationCellKey(token))) || actors.has(token.actorId)",
+        "![\"pin\", \"drawing\", \"template\"].includes(String(item.kind))",
+        "!points.length",
+        "typeof value !== \"string\" || !/^\\d+,\\d+$/.test(value)",
+        "raw.ambientLight !== undefined && raw.ambientLight !== \"bright\" && raw.ambientLight !== \"dark\""
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "assertEditable",
+      "source": "game/packages/session/src/world-scenes.ts",
+      "line": 36,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "scene.combat"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "requireId",
+      "source": "game/packages/session/src/world-validation.ts",
+      "line": 6,
+      "fields": [],
+      "checks": [
+        "isId(value)"
+      ],
+      "rejectionConditions": [
+        "!isId(value)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "requireText",
+      "source": "game/packages/session/src/world-validation.ts",
+      "line": 7,
+      "fields": [],
+      "checks": [
+        "isText(value, max)"
+      ],
+      "rejectionConditions": [
+        "!isText(value, max)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "requireNumber",
+      "source": "game/packages/session/src/world-validation.ts",
+      "line": 11,
+      "fields": [],
+      "checks": [
+        "isFiniteNumber(value)"
+      ],
+      "rejectionConditions": [
+        "!isFiniteNumber(value) || value < min || value > max"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "requireInteger",
+      "source": "game/packages/session/src/world-validation.ts",
+      "line": 14,
+      "fields": [],
+      "checks": [
+        "isInteger(value, min, max)"
+      ],
+      "rejectionConditions": [
+        "!isInteger(value, min, max)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "requireBoolean",
+      "source": "game/packages/session/src/world-validation.ts",
+      "line": 17,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "typeof value !== \"boolean\""
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "requireRecord",
+      "source": "game/packages/session/src/world-validation.ts",
+      "line": 18,
+      "fields": [],
+      "checks": [
+        "isRecord(value)"
+      ],
+      "rejectionConditions": [
+        "!isRecord(value)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "assertJson",
+      "source": "game/packages/session/src/world-validation.ts",
+      "line": 20,
+      "fields": [],
+      "checks": [
+        "isRecord(value)"
+      ],
+      "rejectionConditions": [
+        "depth > 40 || ++budget.nodes > 1000000",
+        "isRecord(value) && (Object.getPrototypeOf(value) === Object.prototype || Object.getPrototypeOf(value) === null)",
+        "[\"__proto__\", \"constructor\", \"prototype\"].includes(key)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "assertGm",
+      "source": "game/packages/session/src/world-validation.ts",
+      "line": 58,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!context.isGm && context.senderId !== context.hostId"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseCatalogEntry",
+      "source": "game/packages/session/src/world-validation.ts",
+      "line": 59,
+      "fields": [],
+      "checks": [
+        "requireRecord(value)",
+        "requireId(raw.id)",
+        "requireText(raw.name)",
+        "isText(tag, 80)",
+        "requireRecord(raw.data ?? {})",
+        "assetReference(raw.image)",
+        "visibility(raw.visibility ?? \"gm\")",
+        "actorProfile(raw.profile)"
+      ],
+      "rejectionConditions": [
+        "![\"actor\", \"monster\", \"item\", \"ability\", \"rule\", \"journal\"].includes(String(raw.kind))",
+        "typeof raw.description !== \"string\" || raw.description.length > 50000",
+        "JSON.stringify(data).length > 100000"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseWorldView",
+      "source": "game/packages/session/src/world-view-validation.ts",
+      "line": 17,
+      "fields": [],
+      "checks": [
+        "requireRecord(value)",
+        "requireId(raw.id)",
+        "requireId(raw.hostId)",
+        "requireInteger(raw.revision, 0, Number.MAX_SAFE_INTEGER)",
+        "parseActor(value)",
+        "parseSceneThumbnailSource(scene.thumbnail)",
+        "requireId(scene.id)",
+        "requireText(scene.name)",
+        "parseSceneKind(scene.kind)",
+        "parseStory(raw.story)",
+        "requireRecord(raw.scene)",
+        "parseSceneMap(item.map)",
+        "requireRecord(item.snapshot)",
+        "requireInteger(p.x, 0, map.width - 1)",
+        "requireInteger(p.y, 0, map.height - 1)",
+        "requireInteger(actor.maxHp, 1, 1000000)",
+        "requireInteger(actor.hp, 0, maxHp)",
+        "requireBoolean(actor.alive)",
+        "requireId(actor.id)",
+        "requireText(actor.name)",
+        "requireNumber(actor.z??0,-100,200)",
+        "requireNumber(actor.ac, -100000, 100000)",
+        "requireInteger(actor.burnStacks, 0, 100)",
+        "requireId(actor.actorId)",
+        "requireBoolean(actor.injured)",
+        "requireRecord(actor.actions)",
+        "requireInteger(a.standard,0,100)",
+        "requireInteger(a.quick,0,100)",
+        "requireInteger(a.move,0,100)",
+        "requireInteger(a.reaction,0,100)",
+        "requireNumber(actor.initiative,-100000,100000)",
+        "requireInteger(actor.mp, 0, 1000000)",
+        "requireInteger(actor.mpMax, 0, 1000000)",
+        "requireRecord(actor.quota)",
+        "requireBoolean(q.standard)",
+        "requireBoolean(q.move)",
+        "requireBoolean(q.quick)",
+        "requireBoolean(q.reaction)",
+        "requireText(actor.weaponName)",
+        "requireText(actor.offhandName)",
+        "requireBoolean(actor.offhandReady)",
+        "requireText(actor.specialName)",
+        "requireInteger(actor.specialMp, 0, 100000)",
+        "requireId(value)",
+        "requireText(event.kind, 80)",
+        "optionalText(event.text, 10000)",
+        "requireInteger(event.eventId, 0, Number.MAX_SAFE_INTEGER)",
+        "requireNumber(event.damage, 0, 1000000000)",
+        "requireRecord(event.dice)",
+        "requireInteger(face, 1, 20)",
+        "requireInteger(face, 1, 6)",
+        "requireNumber(dice.flat, -1000000000, 1000000000)",
+        "requireNumber(dice.total, -1000000000, 1000000000)",
+        "requireBoolean(dice.nat20)",
+        "requireBoolean(dice.nat1)",
+        "requireInteger(snapshotRaw.round, 0, Number.MAX_SAFE_INTEGER)",
+        "requireNumber(snapshotRaw.moveLeft, 0, 10000)",
+        "requireRecord(snapshotRaw.reactionWindow)",
+        "requireId(w.id)",
+        "requireText(w.label)",
+        "requireInteger(w.depth,1,128)",
+        "requireRecord(snapshotRaw.movement)",
+        "isAafSpeedMode(m.mode)",
+        "requireInteger(m.total,0,10000)",
+        "requireId(annotation.ownerId)",
+        "optionalText(annotation.text, 10000)",
+        "visibility(annotation.visibility)",
+        "requireId(item.id)",
+        "requireText(item.name)",
+        "parseSceneKind(item.kind)",
+        "assetReference(item.background)",
+        "requireBoolean(item.inCombat)",
+        "parseTokenPresentation(value)",
+        "requireId(item.combatId)",
+        "parseAafCatalog(raw.aafCatalog)",
+        "requireId(raw.activeSceneId)"
+      ],
+      "rejectionConditions": [
+        "actor.id !== id",
+        "raw.scene !== null",
+        "(actor.faction !== \"pc\" && actor.faction !== \"npc\") || alive !== (hp > 0||actor.injured===true) || actor.injured===true&&hp!==0",
+        "ids.size !== combatants.length",
+        "!ids.has(id)",
+        "event.dice !== undefined",
+        "!d20.length",
+        "snapshotRaw.reactionWindow!==undefined",
+        "!['cast','attack','move','stand','item','manual'].includes(String(w.event))",
+        "snapshotRaw.movement!==undefined",
+        "!isAafSpeedMode(m.mode)",
+        "snapshot.moveLeft>snapshot.movement.total",
+        "snapshotRaw.turnOrder!==undefined",
+        "new Set(snapshot.turnOrder).size!==snapshot.turnOrder.length",
+        "annotation.id !== id || ![\"pin\", \"drawing\", \"template\"].includes(String(annotation.kind))",
+        "!points.length",
+        "typeof value !== \"string\" || !/^\\d+,\\d+$/.test(value)",
+        "item.hiddenTokenIds!==undefined",
+        "new Set(scene.hiddenTokenIds).size!==scene.hiddenTokenIds.length"
+      ],
+      "delegatedTypes": []
+    }
+  ]
+}

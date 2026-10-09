@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LancerCombatIntent",
+  "anyOf": [
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_262"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_263"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_264"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_265"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_266"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_267"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_268"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_269"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_270"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_271"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_272"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_274"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_275"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_276"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_278"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_280"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_281"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_282"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_283"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_284"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_285"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_286"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_287"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_288"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_289"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_290"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_292"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_293"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_295"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_296"
+    }
+  ]
+}

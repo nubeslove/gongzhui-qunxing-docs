@@ -1,0 +1,41 @@
+# Put map/log_format in the http context. Replace host and certificate paths.
+map $http_upgrade $gongzhui_connection_upgrade {
+    default upgrade;
+    '' close;
+}
+# $uri omits the query token used by WebSocket. Do not use $request here.
+log_format gongzhui_safe '$remote_addr [$time_local] "$request_method $uri $server_protocol" '
+                         '$status $body_bytes_sent $request_time';
+
+server {
+    listen 443 ssl;
+    server_name game.example.com;
+    ssl_certificate /etc/letsencrypt/live/game.example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/game.example.com/privkey.pem;
+    access_log /var/log/nginx/gongzhui-access.log gongzhui_safe;
+    client_max_body_size 64m;
+
+    location /api/ {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        # Single directly exposed proxy: overwrite untrusted incoming chain.
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_request_buffering off;
+        proxy_read_timeout 120s;
+        proxy_send_timeout 120s;
+    }
+    location = /ws {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $gongzhui_connection_upgrade;
+        proxy_buffering off;
+        proxy_read_timeout 90s;
+        proxy_send_timeout 90s;
+    }
+}

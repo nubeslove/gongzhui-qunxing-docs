@@ -1,0 +1,38 @@
+{
+  "id": "demo-route",
+  "revision": 0,
+  "name": "选择下一站",
+  "text": "向导等待队伍的决定。",
+  "image": "",
+  "notes": "只是演示选项与剧情变量。",
+  "audience": "all",
+  "resolution": "vote",
+  "options": [
+    {
+      "id": "wait",
+      "label": "留在渡口",
+      "description": "先了解附近的消息。",
+      "effects": [
+        {
+          "type": "flag",
+          "key": "demo-route",
+          "value": "wait"
+        }
+      ],
+      "failure": []
+    },
+    {
+      "id": "walk",
+      "label": "沿岸步行",
+      "description": "由GM准备下一张地图。",
+      "effects": [
+        {
+          "type": "flag",
+          "key": "demo-route",
+          "value": "walk"
+        }
+      ],
+      "failure": []
+    }
+  ]
+}

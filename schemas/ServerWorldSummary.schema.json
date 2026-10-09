@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ServerWorldSummary",
+  "description": "WorldSummary 加当前 HTTP 响应的 inviteCode 扩展；按路由实现核对。",
+  "type": "object",
+  "properties": {
+    "ruleVariant": {
+      "anyOf": [
+        {
+          "$ref": "./contracts.schema.json#/$defs/Object_24"
+        },
+        {
+          "$ref": "./contracts.schema.json#/$defs/Object_25"
+        }
+      ],
+      "description": "Theme variants remain distinct even when they share a base rules engine."
+    },
+    "systemId": {
+      "anyOf": [
+        {
+          "const": "aaf",
+          "type": "string"
+        },
+        {
+          "const": "dnd5e-2024",
+          "type": "string"
+        },
+        {
+          "const": "lancer",
+          "type": "string"
+        },
+        {
+          "const": "otherworld-journey",
+          "type": "string"
+        }
+      ],
+      "description": "Absent only in legacy AAF worlds."
+    },
+    "systemVersion": {
+      "type": "string"
+    },
+    "worldId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "gmNickname": {
+      "type": "string"
+    },
+    "gmPlayerId": {
+      "type": "string"
+    },
+    "assetVersion": {
+      "type": "number",
+      "description": "规则数据包版本（资源同步用，见 M6）"
+    },
+    "playerCount": {
+      "type": "number"
+    },
+    "createdAt": {
+      "type": "number"
+    },
+    "inviteCode": {
+      "type": "string",
+      "description": "当前服务器的目录响应可能附带；加入接口并未据此进行密码验证。"
+    }
+  },
+  "required": [
+    "worldId",
+    "name",
+    "gmNickname",
+    "gmPlayerId",
+    "assetVersion",
+    "playerCount",
+    "createdAt"
+  ],
+  "additionalProperties": false
+}

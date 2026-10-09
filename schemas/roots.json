@@ -1,0 +1,555 @@
+{
+  "ResourceFile": {
+    "$ref": "./contracts.schema.json#/$defs/ResourceFile"
+  },
+  "ActorFile": {
+    "$ref": "./contracts.schema.json#/$defs/ActorFile"
+  },
+  "JournalFile": {
+    "$ref": "./contracts.schema.json#/$defs/JournalFile"
+  },
+  "SceneArchiveHeader": {
+    "$ref": "./contracts.schema.json#/$defs/SceneArchiveHeader"
+  },
+  "WorldAssetPack": {
+    "$ref": "./contracts.schema.json#/$defs/WorldAssetPack"
+  },
+  "CompendiumBody": {
+    "$ref": "./contracts.schema.json#/$defs/CompendiumBody"
+  },
+  "CompendiumIndex": {
+    "$ref": "./contracts.schema.json#/$defs/CompendiumIndex"
+  },
+  "ManualTable": {
+    "$ref": "./contracts.schema.json#/$defs/ManualTable"
+  },
+  "ManualActor": {
+    "$ref": "./contracts.schema.json#/$defs/ManualActor"
+  },
+  "StoryResource": {
+    "$ref": "./contracts.schema.json#/$defs/StoryResource"
+  },
+  "StageScript": {
+    "$ref": "./contracts.schema.json#/$defs/StageScript"
+  },
+  "AdventureEvent": {
+    "$ref": "./contracts.schema.json#/$defs/AdventureEvent"
+  },
+  "WorldAtlas": {
+    "$ref": "./contracts.schema.json#/$defs/WorldAtlas"
+  },
+  "DndCharacter": {
+    "$ref": "./contracts.schema.json#/$defs/DndCharacter"
+  },
+  "DndIntent": {
+    "anyOf": [
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_224"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_225"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_226"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_227"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_228"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_229"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_230"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_231"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_232"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_233"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_235"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_236"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_237"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_239"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_240"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_241"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_242"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_243"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_244"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_245"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_246"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_247"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_248"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_133"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_249"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_250"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_251"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_252"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_253"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_254"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_255"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_256"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_257"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_258"
+      }
+    ]
+  },
+  "LancerEquipmentAutomation": {
+    "anyOf": [
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_259"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_182"
+      }
+    ]
+  },
+  "LancerCombatIntent": {
+    "anyOf": [
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_262"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_263"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_264"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_265"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_266"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_267"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_268"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_269"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_270"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_271"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_272"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_274"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_275"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_276"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_278"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_280"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_281"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_282"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_283"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_284"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_285"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_286"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_287"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_288"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_289"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_290"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_292"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_293"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_295"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_296"
+      }
+    ]
+  },
+  "UtopiaCharacter": {
+    "$ref": "./contracts.schema.json#/$defs/UtopiaCharacter"
+  },
+  "UtopiaIntent": {
+    "anyOf": [
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_43"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_44"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_45"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_46"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_47"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_48"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_49"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_50"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_52"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_54"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_55"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_56"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_57"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_58"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_59"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_61"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_62"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_66"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_67"
+      }
+    ]
+  },
+  "WorldPublication": {
+    "$ref": "./contracts.schema.json#/$defs/WorldPublication"
+  },
+  "AuthCredentials": {
+    "$ref": "./contracts.schema.json#/$defs/AuthCredentials"
+  },
+  "AuthResult": {
+    "$ref": "./contracts.schema.json#/$defs/AuthResult"
+  },
+  "AuthConfig": {
+    "$ref": "./contracts.schema.json#/$defs/AuthConfig"
+  },
+  "AccountInfo": {
+    "$ref": "./contracts.schema.json#/$defs/AccountInfo"
+  },
+  "CommunityAction": {
+    "anyOf": [
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_297"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_298"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_299"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_300"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_301"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_302"
+      }
+    ]
+  },
+  "CommunityView": {
+    "$ref": "./contracts.schema.json#/$defs/CommunityView"
+  },
+  "RegionEnvironment": {
+    "$ref": "./contracts.schema.json#/$defs/RegionEnvironment"
+  },
+  "TokenAppearance": {
+    "$ref": "./contracts.schema.json#/$defs/TokenAppearance"
+  },
+  "CardStackFile": {
+    "$ref": "./contracts.schema.json#/$defs/CardStackFile"
+  },
+  "AafCharacter": {
+    "$ref": "./contracts.schema.json#/$defs/AafCharacter"
+  },
+  "AafCatalog": {
+    "$ref": "./contracts.schema.json#/$defs/AafCatalog"
+  },
+  "WorldSummary": {
+    "$ref": "./contracts.schema.json#/$defs/WorldSummary"
+  },
+  "PlayerInfo": {
+    "$ref": "./contracts.schema.json#/$defs/PlayerInfo"
+  },
+  "WorldSnapshot": {
+    "$ref": "./contracts.schema.json#/$defs/WorldSnapshot"
+  },
+  "AssetManifest": {
+    "$ref": "./contracts.schema.json#/$defs/AssetManifest"
+  },
+  "AssetPayload": {
+    "$ref": "./contracts.schema.json#/$defs/AssetPayload"
+  },
+  "MediaManifest": {
+    "$ref": "./contracts.schema.json#/$defs/MediaManifest"
+  },
+  "TableAction": {
+    "anyOf": [
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_312"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_313"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_316"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_317"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_322"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_349"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_351"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_355"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_356"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_366"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_367"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_368"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_369"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_370"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_371"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_372"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_373"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_374"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_375"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_376"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_377"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_378"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_379"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_382"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_383"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_384"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_385"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_389"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_390"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_457"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_458"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_459"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_460"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_461"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_463"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_464"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_465"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_466"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_467"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_468"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_469"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_478"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_479"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_480"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_481"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_482"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_483"
+      }
+    ]
+  },
+  "WorldDocument": {
+    "$ref": "./contracts.schema.json#/$defs/WorldDocument"
+  },
+  "ActorDocument": {
+    "$ref": "./contracts.schema.json#/$defs/ActorDocument"
+  },
+  "WorldCommand": {
+    "$ref": "./contracts.schema.json#/$defs/WorldCommand"
+  },
+  "RuleVariant": {
+    "anyOf": [
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_24"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_25"
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CommunityAction",
+  "anyOf": [
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_297"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_298"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_299"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_300"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_301"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_302"
+    }
+  ]
+}

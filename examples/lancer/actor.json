@@ -1,0 +1,43 @@
+{
+  "format": "aaf-actor",
+  "version": 1,
+  "systemId": "lancer",
+  "systemVersion": "1",
+  "actor": {
+    "id": "demo-lancer",
+    "name": "训练驾驶员",
+    "ownerId": "",
+    "public": false,
+    "fields": {
+      "lancer.version": "1",
+      "lancer.level": "0",
+      "lancer.frame": "everest",
+      "lancer.hull": "0",
+      "lancer.agility": "0",
+      "lancer.systems": "0",
+      "lancer.engineering": "0",
+      "lancer.cp": "1",
+      "lancer.overcharge": "0",
+      "lancer.gunslingerDie": "6",
+      "lancer.torrentDie": "6",
+      "lancer.brawlerDie": "6",
+      "lancer.conditions": "[]",
+      "lancer.wreckLost": "false",
+      "lancer.pilot.ejected": "false",
+      "状态与状况": "",
+      "lancer.leaderPool": "0",
+      "lancer.current.hp": "10",
+      "lancer.current.heat": "0",
+      "lancer.current.structure": "4",
+      "lancer.current.stress": "4",
+      "lancer.current.repair": "5",
+      "lancer.current.overshield": "0",
+      "lancer.current.burn": "0"
+    },
+    "notes": ""
+  },
+  "resources": [],
+  "grants": [],
+  "counters": [],
+  "catalog": []
+}

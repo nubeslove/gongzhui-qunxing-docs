@@ -1,0 +1,38 @@
+{
+  "format": "aaf-actor",
+  "version": 1,
+  "systemId": "aaf",
+  "systemVersion": "aaf-2026-09",
+  "actor": {
+    "id": "demo-guide",
+    "profile": {
+      "name": "渡口向导",
+      "faction": "npc",
+      "speed": 30,
+      "hp": 8,
+      "maxHp": 8,
+      "ac": 10,
+      "attrs": {
+        "str": 10,
+        "dex": 10,
+        "con": 10,
+        "int": 10,
+        "wis": 10,
+        "cha": 10
+      }
+    },
+    "mp": 0,
+    "burnStacks": 0,
+    "owners": [],
+    "visibility": "gm",
+    "portrait": null,
+    "notes": "",
+    "inventory": [],
+    "resources": {},
+    "effects": []
+  },
+  "resources": [],
+  "grants": [],
+  "counters": [],
+  "catalog": []
+}

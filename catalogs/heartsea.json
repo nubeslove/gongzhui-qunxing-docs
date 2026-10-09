@@ -1,0 +1,2484 @@
+{
+  "date": "2026-10-10",
+  "scope": "ID and names only. Index inclusion does not establish automation or redistribution rights.",
+  "entries": [
+    {
+      "id": "rules-3-0",
+      "name": "使用本书",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[0]"
+    },
+    {
+      "id": "rules-3-1",
+      "name": "替换与保留",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[1]"
+    },
+    {
+      "id": "rules-3-2",
+      "name": "世界与适格者",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[2]"
+    },
+    {
+      "id": "rules-4-4",
+      "name": "属性与技能",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[3]"
+    },
+    {
+      "id": "rules-4-5",
+      "name": "人类通则",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[4]"
+    },
+    {
+      "id": "rules-4-7",
+      "name": "心海学员",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[5]"
+    },
+    {
+      "id": "rules-5-8",
+      "name": "自发觉醒者",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[6]"
+    },
+    {
+      "id": "rules-5-9",
+      "name": "窃梦家学徒",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[7]"
+    },
+    {
+      "id": "rules-5-10",
+      "name": "心海军团旧员",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[8]"
+    },
+    {
+      "id": "rules-5-11",
+      "name": "供梦工",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[9]"
+    },
+    {
+      "id": "rules-6-12",
+      "name": "守醒工匠",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[10]"
+    },
+    {
+      "id": "rules-6-13",
+      "name": "独立绘旅人",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[11]"
+    },
+    {
+      "id": "rules-6-14",
+      "name": "归港医护",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[12]"
+    },
+    {
+      "id": "rules-6-15",
+      "name": "管理局见习员",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[13]"
+    },
+    {
+      "id": "rules-6-16",
+      "name": "流演艺人",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[14]"
+    },
+    {
+      "id": "rules-7-17",
+      "name": "失地回收者",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[15]"
+    },
+    {
+      "id": "rules-7-18",
+      "name": "安眠书记官助手",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[16]"
+    },
+    {
+      "id": "rules-7-19",
+      "name": "觉醒印记",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[17]"
+    },
+    {
+      "id": "rules-8-20",
+      "name": "六种心能职业",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[18]"
+    },
+    {
+      "id": "rules-8-21",
+      "name": "成长与共同表",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[19]"
+    },
+    {
+      "id": "rules-10-23",
+      "name": "灵能点",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[20]"
+    },
+    {
+      "id": "rules-10-24",
+      "name": "灵术与超能",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[21]"
+    },
+    {
+      "id": "rules-10-25",
+      "name": "每回合与每行动段限制",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[22]"
+    },
+    {
+      "id": "rules-11-26",
+      "name": "专注",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[23]"
+    },
+    {
+      "id": "rules-11-27",
+      "name": "超能塑形",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[24]"
+    },
+    {
+      "id": "rules-12-28",
+      "name": "使徒的三种状态",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[25]"
+    },
+    {
+      "id": "rules-12-29",
+      "name": "部署流程",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[26]"
+    },
+    {
+      "id": "rules-12-30",
+      "name": "行动顺序与指令",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[27]"
+    },
+    {
+      "id": "rules-13-31",
+      "name": "倒地、失联与分队",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[28]"
+    },
+    {
+      "id": "rules-13-32",
+      "name": "受伤与解体",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[29]"
+    },
+    {
+      "id": "rules-13-33",
+      "name": "羁绊六维",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[30]"
+    },
+    {
+      "id": "rules-14-34",
+      "name": "第三章　心能职业",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[31]"
+    },
+    {
+      "id": "rules-14-35",
+      "name": "心铸者",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[32]"
+    },
+    {
+      "id": "rules-14-36",
+      "name": "1 级：心象武装与战斗架势",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[33]"
+    },
+    {
+      "id": "rules-14-37",
+      "name": "2 级：蓄势",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[34]"
+    },
+    {
+      "id": "rules-14-38",
+      "name": "5 级：连续攻击",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[35]"
+    },
+    {
+      "id": "rules-14-39",
+      "name": "9 级：破式",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[36]"
+    },
+    {
+      "id": "rules-14-40",
+      "name": "11 级：三重攻势",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[37]"
+    },
+    {
+      "id": "rules-15-41",
+      "name": "13 级：随心锻形",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[38]"
+    },
+    {
+      "id": "rules-15-42",
+      "name": "17 级：四重攻势",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[39]"
+    },
+    {
+      "id": "rules-15-43",
+      "name": "20 级：心象化身",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[40]"
+    },
+    {
+      "id": "rules-15-44",
+      "name": "道途：断潮之刃",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[41]"
+    },
+    {
+      "id": "rules-15-45",
+      "name": "道途：镇海壁垒",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[42]"
+    },
+    {
+      "id": "rules-15-46",
+      "name": "逐影者",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[43]"
+    },
+    {
+      "id": "rules-16-47",
+      "name": "1 级：破绽与专精",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[44]"
+    },
+    {
+      "id": "rules-16-48",
+      "name": "2 级：快步",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[45]"
+    },
+    {
+      "id": "rules-16-49",
+      "name": "5 级：诡袭",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[46]"
+    },
+    {
+      "id": "rules-16-50",
+      "name": "9 级：事先准备",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[47]"
+    },
+    {
+      "id": "rules-16-51",
+      "name": "11 级：可靠手艺",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[48]"
+    },
+    {
+      "id": "rules-16-52",
+      "name": "13 级：借影",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[49]"
+    },
+    {
+      "id": "rules-16-53",
+      "name": "17 级：空白一瞬",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[50]"
+    },
+    {
+      "id": "rules-16-54",
+      "name": "20 级：改写机会",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[51]"
+    },
+    {
+      "id": "rules-17-55",
+      "name": "道途：镜盗",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[52]"
+    },
+    {
+      "id": "rules-17-56",
+      "name": "道途：无灯密探",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[53]"
+    },
+    {
+      "id": "rules-17-57",
+      "name": "灵术师",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[54]"
+    },
+    {
+      "id": "rules-17-58",
+      "name": "1 级：术式档案",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[55]"
+    },
+    {
+      "id": "rules-18-59",
+      "name": "2 级：精密塑形",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[56]"
+    },
+    {
+      "id": "rules-18-60",
+      "name": "5 级：稳定塑形",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[57]"
+    },
+    {
+      "id": "rules-18-61",
+      "name": "9 级：双重塑形",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[58]"
+    },
+    {
+      "id": "rules-18-62",
+      "name": "11 级：深层通达",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[59]"
+    },
+    {
+      "id": "rules-18-63",
+      "name": "13 级：逆向解析",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[60]"
+    },
+    {
+      "id": "rules-18-64",
+      "name": "17 级：高阶联想",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[61]"
+    },
+    {
+      "id": "rules-18-65",
+      "name": "20 级：灵术宗师",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[62]"
+    },
+    {
+      "id": "rules-18-66",
+      "name": "道途：星律学派",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[63]"
+    },
+    {
+      "id": "rules-19-67",
+      "name": "道途：镜像学派",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[64]"
+    },
+    {
+      "id": "rules-19-68",
+      "name": "引航师",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[65]"
+    },
+    {
+      "id": "rules-19-69",
+      "name": "1 级：航标",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[66]"
+    },
+    {
+      "id": "rules-19-70",
+      "name": "2 级：校航",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[67]"
+    },
+    {
+      "id": "rules-19-71",
+      "name": "5 级：指向之光",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[68]"
+    },
+    {
+      "id": "rules-19-72",
+      "name": "9 级：携队引航",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[69]"
+    },
+    {
+      "id": "rules-20-73",
+      "name": "11 级：辉光共鸣",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[70]"
+    },
+    {
+      "id": "rules-20-74",
+      "name": "13 级：归港锚记",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[71]"
+    },
+    {
+      "id": "rules-20-75",
+      "name": "17 级：跨越防线",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[72]"
+    },
+    {
+      "id": "rules-20-76",
+      "name": "20 级：不熄之灯",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[73]"
+    },
+    {
+      "id": "rules-20-77",
+      "name": "道途：渡星航道",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[74]"
+    },
+    {
+      "id": "rules-20-78",
+      "name": "道途：守灯者",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[75]"
+    },
+    {
+      "id": "rules-21-79",
+      "name": "星枢师",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[76]"
+    },
+    {
+      "id": "rules-21-80",
+      "name": "1 级：便携灵械",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[77]"
+    },
+    {
+      "id": "rules-21-81",
+      "name": "2 级：快速改装",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[78]"
+    },
+    {
+      "id": "rules-21-82",
+      "name": "5 级：现场工程",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[79]"
+    },
+    {
+      "id": "rules-22-83",
+      "name": "9 级：模块库存",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[80]"
+    },
+    {
+      "id": "rules-22-84",
+      "name": "11 级：复合机组",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[81]"
+    },
+    {
+      "id": "rules-22-85",
+      "name": "13 级：应急旁路",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[82]"
+    },
+    {
+      "id": "rules-22-86",
+      "name": "17 级：双路供电",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[83]"
+    },
+    {
+      "id": "rules-22-87",
+      "name": "20 级：心海工坊",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[84]"
+    },
+    {
+      "id": "rules-22-88",
+      "name": "道途：巡航机匠",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[85]"
+    },
+    {
+      "id": "rules-22-89",
+      "name": "道途：回生工程",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[86]"
+    },
+    {
+      "id": "rules-23-90",
+      "name": "契灵师",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[87]"
+    },
+    {
+      "id": "rules-23-91",
+      "name": "1 级：主契",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[88]"
+    },
+    {
+      "id": "rules-23-92",
+      "name": "2 级：同频感官",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[89]"
+    },
+    {
+      "id": "rules-23-93",
+      "name": "5 级：双契部署",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[90]"
+    },
+    {
+      "id": "rules-23-94",
+      "name": "9 级：流转之牌",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[91]"
+    },
+    {
+      "id": "rules-23-95",
+      "name": "11 级：精密协奏",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[92]"
+    },
+    {
+      "id": "rules-23-96",
+      "name": "13 级：远行许可",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[93]"
+    },
+    {
+      "id": "rules-24-97",
+      "name": "17 级：三相配置",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[94]"
+    },
+    {
+      "id": "rules-24-98",
+      "name": "20 级：群星协奏",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[95]"
+    },
+    {
+      "id": "rules-24-99",
+      "name": "道途：誓星之环",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[96]"
+    },
+    {
+      "id": "rules-24-100",
+      "name": "道途：万象牌阵",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[97]"
+    },
+    {
+      "id": "rules-24-101",
+      "name": "通用专长",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[98]"
+    },
+    {
+      "id": "rules-26-102",
+      "name": "第四章　灵术目录",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[99]"
+    },
+    {
+      "id": "rules-26-103",
+      "name": "灵术速查",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[100]"
+    },
+    {
+      "id": "rules-28-105",
+      "name": "心弦箭",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[101]"
+    },
+    {
+      "id": "rules-28-106",
+      "name": "冷光刺",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[102]"
+    },
+    {
+      "id": "rules-28-107",
+      "name": "火花弹",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[103]"
+    },
+    {
+      "id": "rules-28-108",
+      "name": "念手",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[104]"
+    },
+    {
+      "id": "rules-28-109",
+      "name": "醒灯",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[105]"
+    },
+    {
+      "id": "rules-28-110",
+      "name": "梦文",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[106]"
+    },
+    {
+      "id": "rules-28-111",
+      "name": "折声",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[107]"
+    },
+    {
+      "id": "rules-29-112",
+      "name": "精工修复",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[108]"
+    },
+    {
+      "id": "rules-29-114",
+      "name": "念矢",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[109]"
+    },
+    {
+      "id": "rules-29-115",
+      "name": "心幕",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[110]"
+    },
+    {
+      "id": "rules-29-116",
+      "name": "愈合",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[111]"
+    },
+    {
+      "id": "rules-29-117",
+      "name": "折返标记",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[112]"
+    },
+    {
+      "id": "rules-29-118",
+      "name": "残念回溯",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[113]"
+    },
+    {
+      "id": "rules-30-119",
+      "name": "止步律令",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[114]"
+    },
+    {
+      "id": "rules-30-120",
+      "name": "契印加锋",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[115]"
+    },
+    {
+      "id": "rules-30-122",
+      "name": "锁足波",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[116]"
+    },
+    {
+      "id": "rules-30-123",
+      "name": "幕影替身",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[117]"
+    },
+    {
+      "id": "rules-30-124",
+      "name": "心桥",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[118]"
+    },
+    {
+      "id": "rules-30-125",
+      "name": "白噪音",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[119]"
+    },
+    {
+      "id": "rules-31-126",
+      "name": "分光折镜",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[120]"
+    },
+    {
+      "id": "rules-31-127",
+      "name": "侦察萤灯",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[121]"
+    },
+    {
+      "id": "rules-31-128",
+      "name": "契印急转",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[122]"
+    },
+    {
+      "id": "rules-31-130",
+      "name": "星落矢",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[123]"
+    },
+    {
+      "id": "rules-31-131",
+      "name": "碎镜回廊",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[124]"
+    },
+    {
+      "id": "rules-31-132",
+      "name": "空阶",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[125]"
+    },
+    {
+      "id": "rules-32-133",
+      "name": "解构术",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[126]"
+    },
+    {
+      "id": "rules-32-134",
+      "name": "解构反制",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[127]"
+    },
+    {
+      "id": "rules-32-135",
+      "name": "溯源",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[128]"
+    },
+    {
+      "id": "rules-32-136",
+      "name": "牌体修复",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[129]"
+    },
+    {
+      "id": "rules-32-137",
+      "name": "凝心复苏",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[130]"
+    },
+    {
+      "id": "rules-32-139",
+      "name": "相位囚笼",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[131]"
+    },
+    {
+      "id": "rules-33-140",
+      "name": "同行折跃",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[132]"
+    },
+    {
+      "id": "rules-33-141",
+      "name": "镜中假身",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[133]"
+    },
+    {
+      "id": "rules-33-142",
+      "name": "心防净域",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[134]"
+    },
+    {
+      "id": "rules-33-143",
+      "name": "映界测绘",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[135]"
+    },
+    {
+      "id": "rules-33-144",
+      "name": "灵械操控",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[136]"
+    },
+    {
+      "id": "rules-33-145",
+      "name": "同调共振",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[137]"
+    },
+    {
+      "id": "rules-34-147",
+      "name": "坍星",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[138]"
+    },
+    {
+      "id": "rules-34-148",
+      "name": "归港门",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[139]"
+    },
+    {
+      "id": "rules-34-149",
+      "name": "缝界锚",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[140]"
+    },
+    {
+      "id": "rules-34-150",
+      "name": "剥离梦魇",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[141]"
+    },
+    {
+      "id": "rules-34-151",
+      "name": "临界解放",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[142]"
+    },
+    {
+      "id": "rules-35-152",
+      "name": "幻景帷幕",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[143]"
+    },
+    {
+      "id": "rules-35-154",
+      "name": "贯星长廊",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[144]"
+    },
+    {
+      "id": "rules-35-155",
+      "name": "真实观测",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[145]"
+    },
+    {
+      "id": "rules-35-157",
+      "name": "重力逆转",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[146]"
+    },
+    {
+      "id": "rules-35-158",
+      "name": "幻景重绘",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[147]"
+    },
+    {
+      "id": "rules-36-160",
+      "name": "群体悬浮",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[148]"
+    },
+    {
+      "id": "rules-36-161",
+      "name": "心象星舰",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[149]"
+    },
+    {
+      "id": "rules-36-163",
+      "name": "原初星律",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[150]"
+    },
+    {
+      "id": "rules-36-164",
+      "name": "梦界重构",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[151]"
+    },
+    {
+      "id": "rules-37-165",
+      "name": "第五章　使徒与阿尔卡纳",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[152]"
+    },
+    {
+      "id": "rules-37-166",
+      "name": "刻录与人格连续性",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[153]"
+    },
+    {
+      "id": "rules-37-167",
+      "name": "大小阿尔卡纳",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[154]"
+    },
+    {
+      "id": "rules-38-168",
+      "name": "卡匣与同调",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[155]"
+    },
+    {
+      "id": "rules-38-169",
+      "name": "换载、遗失与损伤",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[156]"
+    },
+    {
+      "id": "rules-39-170",
+      "name": "现实显现",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[157]"
+    },
+    {
+      "id": "rules-39-171",
+      "name": "建立使徒面板",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[158]"
+    },
+    {
+      "id": "rules-40-172",
+      "name": "六名可直接使用的使徒",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[159]"
+    },
+    {
+      "id": "rules-40-173",
+      "name": "雨宫璃音　镜刃护卫",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[160]"
+    },
+    {
+      "id": "rules-40-174",
+      "name": "艾达·沃克　远眺射手",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[161]"
+    },
+    {
+      "id": "rules-41-175",
+      "name": "久世栞　针光医师",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[162]"
+    },
+    {
+      "id": "rules-41-176",
+      "name": "埃利奥·赫兹　灵械工匠",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[163]"
+    },
+    {
+      "id": "rules-42-177",
+      "name": "瑟芙琳·诺克斯　帷幕记录者",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[164]"
+    },
+    {
+      "id": "rules-42-178",
+      "name": "诺娅·织舟　折岸旅人",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[165]"
+    },
+    {
+      "id": "rules-42-179",
+      "name": "转换外来使徒",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[166]"
+    },
+    {
+      "id": "rules-43-181",
+      "name": "武器与护甲",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[167]"
+    },
+    {
+      "id": "rules-44-182",
+      "name": "器材与灵能物品",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[168]"
+    },
+    {
+      "id": "rules-44-183",
+      "name": "梦界稳定度",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[169]"
+    },
+    {
+      "id": "rules-45-184",
+      "name": "航行与隙间",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[170]"
+    },
+    {
+      "id": "rules-46-185",
+      "name": "黑潮侵蚀",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[171]"
+    },
+    {
+      "id": "rules-46-186",
+      "name": "回归、休息与物品",
+      "book": "rules",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[172]"
+    },
+    {
+      "id": "world-3-187",
+      "name": "第一章世界格局与危机",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[173]"
+    },
+    {
+      "id": "world-3-188",
+      "name": "梦之都与内海",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[174]"
+    },
+    {
+      "id": "world-3-190",
+      "name": "现实",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[175]"
+    },
+    {
+      "id": "world-3-191",
+      "name": "幻梦境",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[176]"
+    },
+    {
+      "id": "world-3-192",
+      "name": "心灵之屿",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[177]"
+    },
+    {
+      "id": "world-4-193",
+      "name": "梦界、彼界与次元",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[178]"
+    },
+    {
+      "id": "world-4-194",
+      "name": "隙间",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[179]"
+    },
+    {
+      "id": "world-4-195",
+      "name": "黑潮、魇魔与蚀骸",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[180]"
+    },
+    {
+      "id": "world-4-197",
+      "name": "心能与入梦仪器",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[181]"
+    },
+    {
+      "id": "world-4-198",
+      "name": "入梦者与供梦者",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[182]"
+    },
+    {
+      "id": "world-5-199",
+      "name": "适格者",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[183]"
+    },
+    {
+      "id": "world-5-200",
+      "name": "梦境行者",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[184]"
+    },
+    {
+      "id": "world-5-201",
+      "name": "绘旅人",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[185]"
+    },
+    {
+      "id": "world-5-202",
+      "name": "引航员",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[186]"
+    },
+    {
+      "id": "world-5-203",
+      "name": "梦生者与使徒",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[187]"
+    },
+    {
+      "id": "world-6-204",
+      "name": "第二章梦之都",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[188]"
+    },
+    {
+      "id": "world-6-205",
+      "name": "梦之都的居民",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[189]"
+    },
+    {
+      "id": "world-6-206",
+      "name": "居所与家庭",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[190]"
+    },
+    {
+      "id": "world-6-207",
+      "name": "饮食与身体照护",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[191]"
+    },
+    {
+      "id": "world-6-208",
+      "name": "以做梦为生",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[192]"
+    },
+    {
+      "id": "world-7-209",
+      "name": "信用点与梦时额度",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[193]"
+    },
+    {
+      "id": "world-7-210",
+      "name": "通行、消息与公共习惯",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[194]"
+    },
+    {
+      "id": "world-7-211",
+      "name": "纪年与节日",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[195]"
+    },
+    {
+      "id": "world-8-212",
+      "name": "心能科技与城市供给",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[196]"
+    },
+    {
+      "id": "world-8-213",
+      "name": "从潜意识到电网",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[197]"
+    },
+    {
+      "id": "world-8-214",
+      "name": "两侧设施的对应",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[198]"
+    },
+    {
+      "id": "world-8-215",
+      "name": "旧科技为什么衰退",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[199]"
+    },
+    {
+      "id": "world-9-216",
+      "name": "仍在工作的旧时代",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[200]"
+    },
+    {
+      "id": "world-9-217",
+      "name": "能源不能代替材料",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[201]"
+    },
+    {
+      "id": "world-9-218",
+      "name": "镜冠区",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[202]"
+    },
+    {
+      "id": "world-9-219",
+      "name": "合议厅与市民回廊",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[203]"
+    },
+    {
+      "id": "world-9-220",
+      "name": "七灯广场",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[204]"
+    },
+    {
+      "id": "world-9-221",
+      "name": "升空门",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[205]"
+    },
+    {
+      "id": "world-10-222",
+      "name": "白昼区",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[206]"
+    },
+    {
+      "id": "world-10-223",
+      "name": "实园与白榆步道",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[207]"
+    },
+    {
+      "id": "world-10-224",
+      "name": "清醒会所",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[208]"
+    },
+    {
+      "id": "world-10-225",
+      "name": "万象区",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[209]"
+    },
+    {
+      "id": "world-10-226",
+      "name": "万象文库",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[210]"
+    },
+    {
+      "id": "world-10-227",
+      "name": "百景通廊",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[211]"
+    },
+    {
+      "id": "world-11-228",
+      "name": "纸背街",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[212]"
+    },
+    {
+      "id": "world-11-229",
+      "name": "合眠区",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[213]"
+    },
+    {
+      "id": "world-11-230",
+      "name": "九号眠务所",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[214]"
+    },
+    {
+      "id": "world-11-231",
+      "name": "晨班市场",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[215]"
+    },
+    {
+      "id": "world-11-232",
+      "name": "青穗区",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[216]"
+    },
+    {
+      "id": "world-11-233",
+      "name": "第七温室群",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[217]"
+    },
+    {
+      "id": "world-12-234",
+      "name": "种源库与回水廊",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[218]"
+    },
+    {
+      "id": "world-12-235",
+      "name": "炉心区",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[219]"
+    },
+    {
+      "id": "world-12-236",
+      "name": "南铸联合厂",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[220]"
+    },
+    {
+      "id": "world-12-237",
+      "name": "汇能站",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[221]"
+    },
+    {
+      "id": "world-12-238",
+      "name": "十六号检修台",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[222]"
+    },
+    {
+      "id": "world-13-239",
+      "name": "旧湾区",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[223]"
+    },
+    {
+      "id": "world-13-240",
+      "name": "归帆码头",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[224]"
+    },
+    {
+      "id": "world-13-241",
+      "name": "盐阶市场",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[225]"
+    },
+    {
+      "id": "world-13-242",
+      "name": "归潮旅馆",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[226]"
+    },
+    {
+      "id": "world-13-243",
+      "name": "环垣区",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[227]"
+    },
+    {
+      "id": "world-13-244",
+      "name": "东堤堡",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[228]"
+    },
+    {
+      "id": "world-13-245",
+      "name": "返航医院",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[229]"
+    },
+    {
+      "id": "world-14-246",
+      "name": "根底区",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[230]"
+    },
+    {
+      "id": "world-14-247",
+      "name": "地下十一站",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[231]"
+    },
+    {
+      "id": "world-14-248",
+      "name": "低处花房",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[232]"
+    },
+    {
+      "id": "world-14-249",
+      "name": "浮空辖区与城市之外",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[233]"
+    },
+    {
+      "id": "world-15-250",
+      "name": "第三章心海学院",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[234]"
+    },
+    {
+      "id": "world-15-251",
+      "name": "学院的建立与扩张",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[235]"
+    },
+    {
+      "id": "world-15-252",
+      "name": "管理学院的人",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[236]"
+    },
+    {
+      "id": "world-15-253",
+      "name": "院长陆见深",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[237]"
+    },
+    {
+      "id": "world-15-254",
+      "name": "常务副院长西园寺静香",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[238]"
+    },
+    {
+      "id": "world-16-255",
+      "name": "监察与申诉",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[239]"
+    },
+    {
+      "id": "world-16-256",
+      "name": "六座分院",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[240]"
+    },
+    {
+      "id": "world-16-257",
+      "name": "镜海分院",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[241]"
+    },
+    {
+      "id": "world-16-258",
+      "name": "幻灵分院",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[242]"
+    },
+    {
+      "id": "world-16-259",
+      "name": "织星分院",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[243]"
+    },
+    {
+      "id": "world-17-260",
+      "name": "澄心分院",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[244]"
+    },
+    {
+      "id": "world-17-261",
+      "name": "星枢分院",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[245]"
+    },
+    {
+      "id": "world-17-262",
+      "name": "观渊分院",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[246]"
+    },
+    {
+      "id": "world-17-263",
+      "name": "辉夜姬与月枢",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[247]"
+    },
+    {
+      "id": "world-18-264",
+      "name": "梦之间",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[248]"
+    },
+    {
+      "id": "world-18-265",
+      "name": "居住与创作",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[249]"
+    },
+    {
+      "id": "world-18-266",
+      "name": "出入与关系",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[250]"
+    },
+    {
+      "id": "world-18-267",
+      "name": "人格重塑",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[251]"
+    },
+    {
+      "id": "world-18-268",
+      "name": "在学院生活",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[252]"
+    },
+    {
+      "id": "world-19-269",
+      "name": "毕业、离校与服役",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[253]"
+    },
+    {
+      "id": "world-20-270",
+      "name": "第四章幻梦境与内海",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[254]"
+    },
+    {
+      "id": "world-20-271",
+      "name": "航行与停泊",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[255]"
+    },
+    {
+      "id": "world-20-272",
+      "name": "航道与航图",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[256]"
+    },
+    {
+      "id": "world-20-273",
+      "name": "心锚与返回",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[257]"
+    },
+    {
+      "id": "world-20-274",
+      "name": "时间与消息",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[258]"
+    },
+    {
+      "id": "world-21-275",
+      "name": "隙间与失向事故",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[259]"
+    },
+    {
+      "id": "world-21-276",
+      "name": "误入的征兆",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[260]"
+    },
+    {
+      "id": "world-21-277",
+      "name": "隙间之内",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[261]"
+    },
+    {
+      "id": "world-21-278",
+      "name": "搜救与封界",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[262]"
+    },
+    {
+      "id": "world-21-279",
+      "name": "内海的港口与群岛",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[263]"
+    },
+    {
+      "id": "world-21-280",
+      "name": "中央港",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[264]"
+    },
+    {
+      "id": "world-21-281",
+      "name": "回声群岛",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[265]"
+    },
+    {
+      "id": "world-22-282",
+      "name": "万书湾",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[266]"
+    },
+    {
+      "id": "world-22-283",
+      "name": "缄船坞",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[267]"
+    },
+    {
+      "id": "world-22-284",
+      "name": "旧桥岛",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[268]"
+    },
+    {
+      "id": "world-22-285",
+      "name": "灯塔防线",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[269]"
+    },
+    {
+      "id": "world-22-286",
+      "name": "引航员",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[270]"
+    },
+    {
+      "id": "world-23-287",
+      "name": "交界地",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[271]"
+    },
+    {
+      "id": "world-23-288",
+      "name": "第十九灯塔：望汐",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[272]"
+    },
+    {
+      "id": "world-23-289",
+      "name": "第三十一灯塔：赤帆",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[273]"
+    },
+    {
+      "id": "world-23-290",
+      "name": "黑潮及其侵蚀",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[274]"
+    },
+    {
+      "id": "world-23-291",
+      "name": "魇魔与蚀骸",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[275]"
+    },
+    {
+      "id": "world-23-292",
+      "name": "内海渗透",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[276]"
+    },
+    {
+      "id": "world-24-293",
+      "name": "现实中的失地",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[277]"
+    },
+    {
+      "id": "world-24-294",
+      "name": "白岭旧观测站",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[278]"
+    },
+    {
+      "id": "world-24-295",
+      "name": "南岸封存园",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[279]"
+    },
+    {
+      "id": "world-24-296",
+      "name": "赤湾转运港",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[280]"
+    },
+    {
+      "id": "world-29-297",
+      "name": "第六章势力与窃梦家",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[281]"
+    },
+    {
+      "id": "world-29-298",
+      "name": "联合政府",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[282]"
+    },
+    {
+      "id": "world-29-299",
+      "name": "非常存续宪章",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[283]"
+    },
+    {
+      "id": "world-29-300",
+      "name": "梦境管理局",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[284]"
+    },
+    {
+      "id": "world-30-301",
+      "name": "巡梦司",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[285]"
+    },
+    {
+      "id": "world-30-302",
+      "name": "明镜督察处",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[286]"
+    },
+    {
+      "id": "world-30-303",
+      "name": "缝界特遣队",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[287]"
+    },
+    {
+      "id": "world-30-304",
+      "name": "心海军团",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[288]"
+    },
+    {
+      "id": "world-30-305",
+      "name": "踏浪者舰队",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[289]"
+    },
+    {
+      "id": "world-30-306",
+      "name": "镇海卫",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[290]"
+    },
+    {
+      "id": "world-30-307",
+      "name": "逐魇队",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[291]"
+    },
+    {
+      "id": "world-30-308",
+      "name": "归航救援团",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[292]"
+    },
+    {
+      "id": "world-30-309",
+      "name": "万象共同体",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[293]"
+    },
+    {
+      "id": "world-31-310",
+      "name": "白昼公会",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[294]"
+    },
+    {
+      "id": "world-31-311",
+      "name": "原灯誓约",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[295]"
+    },
+    {
+      "id": "world-31-312",
+      "name": "灰帆联营",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[296]"
+    },
+    {
+      "id": "world-32-313",
+      "name": "浮墨社",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[297]"
+    },
+    {
+      "id": "world-32-314",
+      "name": "百相剧团",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[298]"
+    },
+    {
+      "id": "world-32-315",
+      "name": "无灯互助网",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[299]"
+    },
+    {
+      "id": "world-32-316",
+      "name": "长梦教会",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[300]"
+    },
+    {
+      "id": "world-33-317",
+      "name": "玻璃庭",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[301]"
+    },
+    {
+      "id": "world-33-318",
+      "name": "空白商会",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[302]"
+    },
+    {
+      "id": "world-33-319",
+      "name": "窃梦家",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[303]"
+    },
+    {
+      "id": "world-33-320",
+      "name": "出身与师承",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[304]"
+    },
+    {
+      "id": "world-33-321",
+      "name": "工作与利益",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[305]"
+    },
+    {
+      "id": "world-34-322",
+      "name": "信誉与追捕",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[306]"
+    },
+    {
+      "id": "world-35-323",
+      "name": "第七章阿尔卡纳与使徒",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[307]"
+    },
+    {
+      "id": "world-35-324",
+      "name": "小阿尔卡纳与大阿尔卡纳",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[308]"
+    },
+    {
+      "id": "world-35-325",
+      "name": "小阿尔卡纳",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[309]"
+    },
+    {
+      "id": "world-35-326",
+      "name": "大阿尔卡纳",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[310]"
+    },
+    {
+      "id": "world-35-327",
+      "name": "承载与增幅",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[311]"
+    },
+    {
+      "id": "world-35-328",
+      "name": "升阶与换载",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[312]"
+    },
+    {
+      "id": "world-35-329",
+      "name": "梦生者与使徒",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[313]"
+    },
+    {
+      "id": "world-36-330",
+      "name": "刻录与同行",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[314]"
+    },
+    {
+      "id": "world-36-331",
+      "name": "被拒绝的邀请",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[315]"
+    },
+    {
+      "id": "world-36-332",
+      "name": "卡牌中的存在",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[316]"
+    },
+    {
+      "id": "world-36-333",
+      "name": "遗失、损伤与契约者死亡",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[317]"
+    },
+    {
+      "id": "world-37-334",
+      "name": "力量、负担与成长",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[318]"
+    },
+    {
+      "id": "world-37-335",
+      "name": "现实具现",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[319]"
+    },
+    {
+      "id": "world-37-336",
+      "name": "阿尔卡纳增幅器",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[320]"
+    },
+    {
+      "id": "world-37-337",
+      "name": "使徒在梦之都",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[321]"
+    },
+    {
+      "id": "world-37-338",
+      "name": "同行者事务所",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[322]"
+    },
+    {
+      "id": "world-37-339",
+      "name": "安眠书记官",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[323]"
+    },
+    {
+      "id": "world-38-340",
+      "name": "沉沦与归属",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[324]"
+    },
+    {
+      "id": "world-39-341",
+      "name": "第八章旅行者的生活",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[325]"
+    },
+    {
+      "id": "world-39-343",
+      "name": "学院新生",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[326]"
+    },
+    {
+      "id": "world-39-344",
+      "name": "自发觉醒者",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[327]"
+    },
+    {
+      "id": "world-39-345",
+      "name": "退学或离职的行者",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[328]"
+    },
+    {
+      "id": "world-39-346",
+      "name": "势力培养的行者",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[329]"
+    },
+    {
+      "id": "world-39-347",
+      "name": "绘旅人身边的人",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[330]"
+    },
+    {
+      "id": "world-39-348",
+      "name": "队伍与后勤",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[331]"
+    },
+    {
+      "id": "world-40-349",
+      "name": "接取工作",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[332]"
+    },
+    {
+      "id": "world-40-350",
+      "name": "名声与关系",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[333]"
+    },
+    {
+      "id": "world-40-351",
+      "name": "一次远行之后",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[334]"
+    },
+    {
+      "id": "world-41-352",
+      "name": "第九章从丰盈时代到暗潮纪元",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[335]"
+    },
+    {
+      "id": "world-41-353",
+      "name": "丰盈时代",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[336]"
+    },
+    {
+      "id": "world-41-354",
+      "name": "共享梦境的发现",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[337]"
+    },
+    {
+      "id": "world-41-355",
+      "name": "远岸计划",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[338]"
+    },
+    {
+      "id": "world-41-356",
+      "name": "裂潮之夜",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[339]"
+    },
+    {
+      "id": "world-42-357",
+      "name": "联合政府与最初的灯火",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[340]"
+    },
+    {
+      "id": "world-42-358",
+      "name": "七位初灯",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[341]"
+    },
+    {
+      "id": "world-42-359",
+      "name": "静梦方案",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[342]"
+    },
+    {
+      "id": "world-43-360",
+      "name": "梦之都工程",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[343]"
+    },
+    {
+      "id": "world-43-361",
+      "name": "公共梦界与梦务制度",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[344]"
+    },
+    {
+      "id": "world-43-362",
+      "name": "阿尔卡纳时代",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[345]"
+    },
+    {
+      "id": "world-43-363",
+      "name": "暗潮纪元二十年",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[346]"
+    },
+    {
+      "id": "world-44-364",
+      "name": "主要纪年",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[347]"
+    },
+    {
+      "id": "world-49-366",
+      "name": "世界与空间",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[348]"
+    },
+    {
+      "id": "world-49-367",
+      "name": "心能、旅行与危机",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[349]"
+    },
+    {
+      "id": "world-49-368",
+      "name": "人物与身份",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[350]"
+    },
+    {
+      "id": "world-50-369",
+      "name": "阿尔卡纳与设施",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[351]"
+    },
+    {
+      "id": "world-50-370",
+      "name": "制度与组织",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[352]"
+    },
+    {
+      "id": "world-50-371",
+      "name": "资料口径",
+      "book": "world",
+      "source": "game/apps/desktop/public/heartsea/library.json",
+      "location": "$.entries[353]"
+    }
+  ]
+}

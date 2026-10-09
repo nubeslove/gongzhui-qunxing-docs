@@ -1,0 +1,150 @@
+{
+  "date": "2026-10-10",
+  "checks": 44,
+  "files": [
+    {
+      "file": "examples/aaf/resource.json",
+      "schema": "ResourceFile",
+      "parser": "parseResourceFile",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/dnd5e-2024/resource.json",
+      "schema": "ResourceFile",
+      "parser": "parseResourceFile",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/lancer/resource.json",
+      "schema": "ResourceFile",
+      "parser": "parseResourceFile",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/heartsea/resource.json",
+      "schema": "ResourceFile",
+      "parser": "parseResourceFile",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/dnd5e-2024/actor.json",
+      "schema": "ActorFile",
+      "parser": "parseActorFile",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/heartsea/actor.json",
+      "schema": "ActorFile",
+      "parser": "parseActorFile",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/new-utopia/actor.json",
+      "schema": "ActorFile",
+      "parser": "parseActorFile",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/lancer/actor.json",
+      "schema": "ActorFile",
+      "parser": "parseActorFile",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/lancer/weapon.json",
+      "schema": null,
+      "parser": "parseWeapon",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/lancer/automation.json",
+      "schema": "LancerEquipmentAutomation",
+      "parser": "parseLancerAutomation",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/aaf/catalog.json",
+      "schema": "AafCatalog",
+      "parser": "parseAafCatalog",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/aaf/world.json",
+      "schema": "WorldDocument",
+      "parser": "adapter",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/aaf/create-actor-command.json",
+      "schema": "WorldCommand",
+      "parser": "adapter",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/aaf/actor.json",
+      "schema": "ActorFile",
+      "parser": "parseActorFile",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/shared/journal.json",
+      "schema": "JournalFile",
+      "parser": "parseJournalFile",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/shared/atlas.json",
+      "schema": "WorldAtlas",
+      "parser": "parseWorldAtlas",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/shared/stage.json",
+      "schema": "StageScript",
+      "parser": "parseStageScript",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/shared/event.json",
+      "schema": "AdventureEvent",
+      "parser": "parseAdventureEvent",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/shared/elevation.json",
+      "schema": "RegionEnvironment",
+      "parser": "parseRegionEnvironment",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/dnd5e-2024/world.json",
+      "schema": "ManualTable",
+      "parser": "parseManualTable",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/lancer/world.json",
+      "schema": "ManualTable",
+      "parser": "parseManualTable",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/heartsea/world.json",
+      "schema": "ManualTable",
+      "parser": "parseManualTable",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/terra-walker/world.json",
+      "schema": "ManualTable",
+      "parser": "parseManualTable",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/new-utopia/world.json",
+      "schema": "ManualTable",
+      "parser": "parseManualTable",
+      "status": "runtime-parser-passed"
+    }
+  ]
+}

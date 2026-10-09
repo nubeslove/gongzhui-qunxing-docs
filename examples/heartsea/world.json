@@ -1,0 +1,187 @@
+{
+  "story": {
+    "version": 1,
+    "atlas": {
+      "version": 1,
+      "revision": 0,
+      "currentId": "demo-pier",
+      "nodes": [
+        {
+          "id": "demo-coast",
+          "parentId": null,
+          "name": "示例海岸",
+          "kind": "region",
+          "x": 0.5,
+          "y": 0.5,
+          "image": "",
+          "description": "请由GM上传区域地图。",
+          "people": [],
+          "visible": true
+        },
+        {
+          "id": "demo-pier",
+          "parentId": "demo-coast",
+          "name": "旧渡口",
+          "kind": "place",
+          "x": 0.4,
+          "y": 0.65,
+          "image": "",
+          "description": "玩家可以与向导交谈。",
+          "people": [],
+          "visible": true
+        }
+      ]
+    },
+    "adventure": {
+      "version": 1,
+      "events": [
+        {
+          "id": "demo-route",
+          "revision": 0,
+          "name": "选择下一站",
+          "text": "向导等待队伍的决定。",
+          "image": "",
+          "notes": "只是演示选项与剧情变量。",
+          "audience": "all",
+          "resolution": "vote",
+          "options": [
+            {
+              "id": "wait",
+              "label": "留在渡口",
+              "description": "先了解附近的消息。",
+              "effects": [
+                {
+                  "type": "flag",
+                  "key": "demo-route",
+                  "value": "wait"
+                }
+              ],
+              "failure": []
+            },
+            {
+              "id": "walk",
+              "label": "沿岸步行",
+              "description": "由GM准备下一张地图。",
+              "effects": [
+                {
+                  "type": "flag",
+                  "key": "demo-route",
+                  "value": "walk"
+                }
+              ],
+              "failure": []
+            }
+          ]
+        }
+      ],
+      "triggers": [],
+      "runs": [],
+      "flags": {},
+      "fired": {},
+      "presence": {},
+      "stage": {
+        "scripts": [
+          {
+            "id": "demo-greeting",
+            "revision": 0,
+            "name": "渡口初见",
+            "sceneId": "initial",
+            "background": "",
+            "cast": [
+              {
+                "id": "guide",
+                "actorId": "",
+                "name": "向导",
+                "portrait": "",
+                "slot": 1
+              }
+            ],
+            "cues": [
+              {
+                "id": "hello",
+                "speakerId": "guide",
+                "text": "你们打算往哪边走？"
+              }
+            ],
+            "eventIds": []
+          }
+        ],
+        "ambience": "default"
+      }
+    },
+    "members": [],
+    "packs": [
+      {
+        "id": "core",
+        "name": "核心规则",
+        "enabled": true
+      },
+      {
+        "id": "homebrew",
+        "name": "本世界私设",
+        "enabled": true
+      }
+    ],
+    "resources": [],
+    "grants": [],
+    "entries": [],
+    "messages": [],
+    "counters": []
+  },
+  "activeSceneId": "initial",
+  "activeSceneName": "旧渡口",
+  "schemaVersion": 1,
+  "id": "demo-otherworld-journey",
+  "systemId": "otherworld-journey",
+  "systemVersion": "0.1-editorial.1",
+  "name": "渡口的一天 · 接口示例",
+  "hostId": "demo-gm",
+  "revision": 0,
+  "publishedVersion": 0,
+  "updatedAt": 1791475200000,
+  "actors": [
+    {
+      "id": "demo-heartsea-guide",
+      "name": "见习引航员",
+      "ownerId": "",
+      "public": false,
+      "fields": {
+        "heartsea.version": "1",
+        "heartsea.level": "1",
+        "heartsea.class": "契灵师",
+        "角色类型": "NPC",
+        "heartsea.kind": "使徒",
+        "heartsea.affinity": "0",
+        "heartsea.balance": "0",
+        "生命值": "8",
+        "生命值上限": "8",
+        "护甲等级 AC": "10",
+        "heartsea.pp": "4",
+        "力量": "10",
+        "敏捷": "10",
+        "体质": "10",
+        "智力": "10",
+        "感知": "10",
+        "魅力": "10",
+        "heartsea.relation.忠诚": "0",
+        "heartsea.relation.亲近": "0",
+        "heartsea.relation.认同": "0",
+        "heartsea.relation.服从": "0",
+        "heartsea.relation.依赖": "0",
+        "heartsea.relation.渴求": "0"
+      },
+      "notes": ""
+    }
+  ],
+  "map": {
+    "width": 24,
+    "depth": 18,
+    "background": null,
+    "tokens": [],
+    "blocks": []
+  },
+  "assets": [],
+  "messages": [],
+  "journal": "",
+  "privateNotes": "示例秘密：渡船明天才会抵达。"
+}

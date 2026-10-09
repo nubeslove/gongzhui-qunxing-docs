@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "kind": "weapon",
+  "profile": {
+    "weaponType": "rifle",
+    "damageParts": [
+      {
+        "damage": "1d6",
+        "type": "kinetic"
+      }
+    ],
+    "range": 10,
+    "threat": 1,
+    "accuracy": 0,
+    "selfHeat": 0,
+    "reliable": 0,
+    "knockback": 0,
+    "tags": []
+  }
+}

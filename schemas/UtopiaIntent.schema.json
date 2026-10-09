@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UtopiaIntent",
+  "anyOf": [
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_43"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_44"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_45"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_46"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_47"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_48"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_49"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_50"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_52"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_54"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_55"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_56"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_57"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_58"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_59"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_61"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_62"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_66"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_67"
+    }
+  ]
+}

@@ -1,0 +1,2050 @@
+{
+  "date": "2026-10-10",
+  "scope": "ID and names only. Index inclusion does not establish automation or redistribution rights.",
+  "entries": [
+    {
+      "id": "ACT_Q01",
+      "name": "交火",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 6"
+    },
+    {
+      "id": "ACT_Q02",
+      "name": "推进",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 13"
+    },
+    {
+      "id": "ACT_Q03",
+      "name": "冲撞",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 20"
+    },
+    {
+      "id": "ACT_Q04",
+      "name": "擒拿",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 27"
+    },
+    {
+      "id": "ACT_Q05",
+      "name": "躲藏",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 34"
+    },
+    {
+      "id": "ACT_Q06",
+      "name": "搜索",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 41"
+    },
+    {
+      "id": "ACT_Q07",
+      "name": "装填单件",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 48"
+    },
+    {
+      "id": "ACT_Q08",
+      "name": "自调谐",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 55"
+    },
+    {
+      "id": "ACT_F01",
+      "name": "齐射",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 62"
+    },
+    {
+      "id": "ACT_F02",
+      "name": "脱离",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 69"
+    },
+    {
+      "id": "ACT_F03",
+      "name": "徒手打击",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 76"
+    },
+    {
+      "id": "ACT_F04",
+      "name": "稳固处置",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 83"
+    },
+    {
+      "id": "ACT_F05",
+      "name": "现场操作",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 90"
+    },
+    {
+      "id": "ACT_F06",
+      "name": "提取晶核",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 97"
+    },
+    {
+      "id": "ACT_F07",
+      "name": "重新启动",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 104"
+    },
+    {
+      "id": "ACT_T01",
+      "name": "扫描",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 111"
+    },
+    {
+      "id": "ACT_T02",
+      "name": "锁定",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 118"
+    },
+    {
+      "id": "ACT_T03",
+      "name": "防护校验",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 125"
+    },
+    {
+      "id": "ACT_T04",
+      "name": "电子注扰",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 132"
+    },
+    {
+      "id": "ACT_T05",
+      "name": "术式与专用干涉",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 139"
+    },
+    {
+      "id": "ACT_S01",
+      "name": "守望",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 146"
+    },
+    {
+      "id": "ACT_S02",
+      "name": "受身",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 153"
+    },
+    {
+      "id": "ACT_S03",
+      "name": "准备",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 160"
+    },
+    {
+      "id": "ACT_S04",
+      "name": "超限",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 167"
+    },
+    {
+      "id": "ACT_S05",
+      "name": "关机",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 174"
+    },
+    {
+      "id": "STATUS_1",
+      "name": "受损",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 181"
+    },
+    {
+      "id": "STATUS_2",
+      "name": "缓慢",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 188"
+    },
+    {
+      "id": "STATUS_3",
+      "name": "固定",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 195"
+    },
+    {
+      "id": "STATUS_4",
+      "name": "受扰",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 202"
+    },
+    {
+      "id": "STATUS_5",
+      "name": "抑制",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 209"
+    },
+    {
+      "id": "STATUS_6",
+      "name": "晕眩",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 216"
+    },
+    {
+      "id": "STATUS_7",
+      "name": "离散",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 223"
+    },
+    {
+      "id": "STATUS_8",
+      "name": "锁定",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 230"
+    },
+    {
+      "id": "STATUS_9",
+      "name": "暴露",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 237"
+    },
+    {
+      "id": "STATUS_10",
+      "name": "伏卧",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 244"
+    },
+    {
+      "id": "STATUS_11",
+      "name": "匿迹",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 251"
+    },
+    {
+      "id": "STATUS_12",
+      "name": "隐形",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 258"
+    },
+    {
+      "id": "STATUS_13",
+      "name": "关机",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 265"
+    },
+    {
+      "id": "MAINT_1",
+      "name": "脱险冷却",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 272"
+    },
+    {
+      "id": "MAINT_2",
+      "name": "现场维护",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 279"
+    },
+    {
+      "id": "MAINT_3",
+      "name": "侵蚀校准",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 286"
+    },
+    {
+      "id": "MAINT_4",
+      "name": "完整整备",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 293"
+    },
+    {
+      "id": "BG01",
+      "name": "月表居民",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 300"
+    },
+    {
+      "id": "BG02",
+      "name": "轨道技术员",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 307"
+    },
+    {
+      "id": "BG03",
+      "name": "旧档案保管者",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 314"
+    },
+    {
+      "id": "BG04",
+      "name": "医护研究员",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 321"
+    },
+    {
+      "id": "BG05",
+      "name": "工业劳务者",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 328"
+    },
+    {
+      "id": "BG06",
+      "name": "流亡舰队子民",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 335"
+    },
+    {
+      "id": "BG07",
+      "name": "方舟教育者",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 342"
+    },
+    {
+      "id": "BG08",
+      "name": "地表勘探者",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 349"
+    },
+    {
+      "id": "BG09",
+      "name": "聚落调解人",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 356"
+    },
+    {
+      "id": "BG10",
+      "name": "地下行动者",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 363"
+    },
+    {
+      "id": "BG11",
+      "name": "仪式与典籍学者",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 370"
+    },
+    {
+      "id": "BG12",
+      "name": "残存训练",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 377"
+    },
+    {
+      "id": "NP01",
+      "name": "档案索引",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 384"
+    },
+    {
+      "id": "NP02",
+      "name": "旧地通行",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 391"
+    },
+    {
+      "id": "NP03",
+      "name": "痕迹复核",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 398"
+    },
+    {
+      "id": "NP04",
+      "name": "适配诊断",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 405"
+    },
+    {
+      "id": "NP05",
+      "name": "安全路标",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 412"
+    },
+    {
+      "id": "NP06",
+      "name": "条件拆分",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 419"
+    },
+    {
+      "id": "NP07",
+      "name": "预留退路",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 426"
+    },
+    {
+      "id": "NP08",
+      "name": "样本保存",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 433"
+    },
+    {
+      "id": "NP09",
+      "name": "工作交接",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 440"
+    },
+    {
+      "id": "NP10",
+      "name": "异常标定",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 447"
+    },
+    {
+      "id": "NP11",
+      "name": "供应习惯",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 454"
+    },
+    {
+      "id": "NP12",
+      "name": "清楚的承诺",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 461"
+    },
+    {
+      "id": "R01",
+      "name": "替代入口",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 468"
+    },
+    {
+      "id": "R02",
+      "name": "维修箱",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 475"
+    },
+    {
+      "id": "R03",
+      "name": "预设掩体",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 482"
+    },
+    {
+      "id": "R04",
+      "name": "维护口令",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 489"
+    },
+    {
+      "id": "R05",
+      "name": "敌情档案",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 496"
+    },
+    {
+      "id": "R06",
+      "name": "运输接应",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 503"
+    },
+    {
+      "id": "R07",
+      "name": "隔离补片",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 510"
+    },
+    {
+      "id": "R08",
+      "name": "离线控制图",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 517"
+    },
+    {
+      "id": "F01",
+      "name": "白桦",
+      "type": "frame",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 524"
+    },
+    {
+      "id": "F02",
+      "name": "隼影",
+      "type": "frame",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 551"
+    },
+    {
+      "id": "F03",
+      "name": "壁垒",
+      "type": "frame",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 578"
+    },
+    {
+      "id": "F04",
+      "name": "远望",
+      "type": "frame",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 605"
+    },
+    {
+      "id": "F05",
+      "name": "织机",
+      "type": "frame",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 632"
+    },
+    {
+      "id": "F06",
+      "name": "幽灯",
+      "type": "frame",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 659"
+    },
+    {
+      "id": "F07",
+      "name": "苍鹭",
+      "type": "frame",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 686"
+    },
+    {
+      "id": "F08",
+      "name": "棱镜",
+      "type": "frame",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 713"
+    },
+    {
+      "id": "T01",
+      "name": "突击步战",
+      "type": "talent",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 740"
+    },
+    {
+      "id": "T02",
+      "name": "刃术",
+      "type": "talent",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 750"
+    },
+    {
+      "id": "T03",
+      "name": "重击",
+      "type": "talent",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 760"
+    },
+    {
+      "id": "T04",
+      "name": "精准射击",
+      "type": "talent",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 770"
+    },
+    {
+      "id": "T05",
+      "name": "近身火力",
+      "type": "talent",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 780"
+    },
+    {
+      "id": "T06",
+      "name": "弹道规划",
+      "type": "talent",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 790"
+    },
+    {
+      "id": "T07",
+      "name": "电战压制",
+      "type": "talent",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 800"
+    },
+    {
+      "id": "T08",
+      "name": "相位技艺",
+      "type": "talent",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 810"
+    },
+    {
+      "id": "T09",
+      "name": "稳态施术",
+      "type": "talent",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 820"
+    },
+    {
+      "id": "T10",
+      "name": "危险调制",
+      "type": "talent",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 830"
+    },
+    {
+      "id": "T11",
+      "name": "重装防卫",
+      "type": "talent",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 840"
+    },
+    {
+      "id": "T12",
+      "name": "协同指挥",
+      "type": "talent",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 850"
+    },
+    {
+      "id": "T13",
+      "name": "抢修工程",
+      "type": "talent",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 860"
+    },
+    {
+      "id": "T14",
+      "name": "无人机调度",
+      "type": "talent",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 870"
+    },
+    {
+      "id": "T15",
+      "name": "潜伏作战",
+      "type": "talent",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 880"
+    },
+    {
+      "id": "T16",
+      "name": "热控作战",
+      "type": "talent",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 890"
+    },
+    {
+      "id": "T17",
+      "name": "战术机动",
+      "type": "talent",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 900"
+    },
+    {
+      "id": "T18",
+      "name": "双持惯用",
+      "type": "talent",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 910"
+    },
+    {
+      "id": "C01",
+      "name": "复层承力",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 920"
+    },
+    {
+      "id": "C02",
+      "name": "复合防护",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 927"
+    },
+    {
+      "id": "C03",
+      "name": "稳定挂载",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 934"
+    },
+    {
+      "id": "C04",
+      "name": "增设接口",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 941"
+    },
+    {
+      "id": "C05",
+      "name": "近战延伸",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 948"
+    },
+    {
+      "id": "C06",
+      "name": "远程校准",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 955"
+    },
+    {
+      "id": "C07",
+      "name": "维护冗余",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 962"
+    },
+    {
+      "id": "C08",
+      "name": "并行总线",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 969"
+    },
+    {
+      "id": "C09",
+      "name": "高效步进",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 976"
+    },
+    {
+      "id": "C10",
+      "name": "防故障隔层",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 983"
+    },
+    {
+      "id": "C11",
+      "name": "异源滤波",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 990"
+    },
+    {
+      "id": "C12",
+      "name": "启动缓冲",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 997"
+    },
+    {
+      "id": "W01",
+      "name": "标准突击步枪",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1004"
+    },
+    {
+      "id": "W02",
+      "name": "紧凑手枪",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1014"
+    },
+    {
+      "id": "W03",
+      "name": "破门霰弹枪",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1024"
+    },
+    {
+      "id": "W04",
+      "name": "复合战刃",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1034"
+    },
+    {
+      "id": "W05",
+      "name": "折叠刺刃",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1044"
+    },
+    {
+      "id": "W06",
+      "name": "破阵长刃",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1054"
+    },
+    {
+      "id": "W07",
+      "name": "转轮机枪",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1064"
+    },
+    {
+      "id": "W08",
+      "name": "反器材加农",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1074"
+    },
+    {
+      "id": "W09",
+      "name": "聚热束枪",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1084"
+    },
+    {
+      "id": "W10",
+      "name": "微型导弹匣",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1094"
+    },
+    {
+      "id": "W11",
+      "name": "曲射榴弹筒",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1104"
+    },
+    {
+      "id": "W12",
+      "name": "焰流喷口",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1114"
+    },
+    {
+      "id": "W13",
+      "name": "切割热线",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1124"
+    },
+    {
+      "id": "W14",
+      "name": "诱导针群",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1134"
+    },
+    {
+      "id": "W15",
+      "name": "声震脉冲器",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1144"
+    },
+    {
+      "id": "W16",
+      "name": "轨道投射炮",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1154"
+    },
+    {
+      "id": "W17",
+      "name": "长距精确步枪",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1164"
+    },
+    {
+      "id": "W18",
+      "name": "导电索刃",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1174"
+    },
+    {
+      "id": "S01",
+      "name": "跃升喷口",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1184"
+    },
+    {
+      "id": "S02",
+      "name": "稳固伺服",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1192"
+    },
+    {
+      "id": "S03",
+      "name": "折叠工事",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1200"
+    },
+    {
+      "id": "S04",
+      "name": "战地修复臂",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1208"
+    },
+    {
+      "id": "S05",
+      "name": "散热喷流",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1216"
+    },
+    {
+      "id": "S06",
+      "name": "箔幕弹组",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1224"
+    },
+    {
+      "id": "S07",
+      "name": "共鸣耦合器",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1232"
+    },
+    {
+      "id": "S08",
+      "name": "额外携行仓",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1240"
+    },
+    {
+      "id": "S09",
+      "name": "复合内衬",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1248"
+    },
+    {
+      "id": "S10",
+      "name": "任务观测器",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1256"
+    },
+    {
+      "id": "S11",
+      "name": "近场隔断盾",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1264"
+    },
+    {
+      "id": "S12",
+      "name": "姿态飞翼",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1272"
+    },
+    {
+      "id": "S13",
+      "name": "多环境推进",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1280"
+    },
+    {
+      "id": "S14",
+      "name": "缆绳锚",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1288"
+    },
+    {
+      "id": "S15",
+      "name": "步哨无人机",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1296"
+    },
+    {
+      "id": "S16",
+      "name": "回收无人机",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1304"
+    },
+    {
+      "id": "S17",
+      "name": "破障雷组",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1312"
+    },
+    {
+      "id": "S18",
+      "name": "工具快换架",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1320"
+    },
+    {
+      "id": "P01",
+      "name": "念动刺",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1328"
+    },
+    {
+      "id": "P02",
+      "name": "扰弦",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1337"
+    },
+    {
+      "id": "P16",
+      "name": "神经错位",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1346"
+    },
+    {
+      "id": "P17",
+      "name": "偏向场",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1355"
+    },
+    {
+      "id": "D01",
+      "name": "流线突击",
+      "type": "route",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1364"
+    },
+    {
+      "id": "W19",
+      "name": "冲刺刺枪",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1384"
+    },
+    {
+      "id": "S19",
+      "name": "踏跃装具",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1394"
+    },
+    {
+      "id": "W20",
+      "name": "钩刃矛",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1402"
+    },
+    {
+      "id": "S20",
+      "name": "惯性转向",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1412"
+    },
+    {
+      "id": "W21",
+      "name": "疾驰链刃",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1420"
+    },
+    {
+      "id": "S21",
+      "name": "折返引擎",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1430"
+    },
+    {
+      "id": "D02",
+      "name": "堡垒构筑",
+      "type": "route",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1438"
+    },
+    {
+      "id": "W22",
+      "name": "盾座霰弹",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1458"
+    },
+    {
+      "id": "S22",
+      "name": "展开塔盾",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1468"
+    },
+    {
+      "id": "W23",
+      "name": "驱逐炮",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1476"
+    },
+    {
+      "id": "S23",
+      "name": "反冲地锚",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1486"
+    },
+    {
+      "id": "W24",
+      "name": "堡垒震击槌",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1494"
+    },
+    {
+      "id": "S24",
+      "name": "隔离穹顶",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1504"
+    },
+    {
+      "id": "D03",
+      "name": "火力整形",
+      "type": "route",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1512"
+    },
+    {
+      "id": "W25",
+      "name": "多弹头发射器",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1532"
+    },
+    {
+      "id": "S25",
+      "name": "引信编程器",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1542"
+    },
+    {
+      "id": "W26",
+      "name": "分束加农",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1550"
+    },
+    {
+      "id": "S26",
+      "name": "曲射改装",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1560"
+    },
+    {
+      "id": "W27",
+      "name": "抛物压制炮",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1568"
+    },
+    {
+      "id": "S27",
+      "name": "预告打击阵列",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1578"
+    },
+    {
+      "id": "D04",
+      "name": "狩猎解算",
+      "type": "route",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1586"
+    },
+    {
+      "id": "W28",
+      "name": "针线步枪",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1606"
+    },
+    {
+      "id": "S28",
+      "name": "远端测绘",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1616"
+    },
+    {
+      "id": "W29",
+      "name": "针点加农",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1624"
+    },
+    {
+      "id": "S29",
+      "name": "近域脉扫",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1634"
+    },
+    {
+      "id": "W30",
+      "name": "定标光矛",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1642"
+    },
+    {
+      "id": "S30",
+      "name": "静置补偿",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1652"
+    },
+    {
+      "id": "D05",
+      "name": "链路作战",
+      "type": "route",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1660"
+    },
+    {
+      "id": "W31",
+      "name": "探针发射器",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1680"
+    },
+    {
+      "id": "S31",
+      "name": "撤权脚本",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1690"
+    },
+    {
+      "id": "S32",
+      "name": "转发干线",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1698"
+    },
+    {
+      "id": "S33",
+      "name": "滞后注入",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1706"
+    },
+    {
+      "id": "S34",
+      "name": "断环指令",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1714"
+    },
+    {
+      "id": "S35",
+      "name": "网域镜像",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1722"
+    },
+    {
+      "id": "D06",
+      "name": "现场工程",
+      "type": "route",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1730"
+    },
+    {
+      "id": "W32",
+      "name": "维护射束",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1750"
+    },
+    {
+      "id": "S36",
+      "name": "净化喷雾",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1760"
+    },
+    {
+      "id": "W33",
+      "name": "机能裁剪刀",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1768"
+    },
+    {
+      "id": "S37",
+      "name": "远置修复站",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1778"
+    },
+    {
+      "id": "S38",
+      "name": "紧急旁路",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1786"
+    },
+    {
+      "id": "S39",
+      "name": "多点抢修架",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1794"
+    },
+    {
+      "id": "D07",
+      "name": "无人集群",
+      "type": "route",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1802"
+    },
+    {
+      "id": "W34",
+      "name": "子机巢",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1822"
+    },
+    {
+      "id": "S40",
+      "name": "猎蜂无人机",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1832"
+    },
+    {
+      "id": "W35",
+      "name": "压制蜂群",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1840"
+    },
+    {
+      "id": "S41",
+      "name": "折镜无人机",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1850"
+    },
+    {
+      "id": "S42",
+      "name": "蜂群合拢",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1858"
+    },
+    {
+      "id": "S43",
+      "name": "远端继电器",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1866"
+    },
+    {
+      "id": "D08",
+      "name": "磁场动力",
+      "type": "route",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1874"
+    },
+    {
+      "id": "W36",
+      "name": "磁索标枪",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1894"
+    },
+    {
+      "id": "P03",
+      "name": "牵引束",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1904"
+    },
+    {
+      "id": "W37",
+      "name": "斥力震荡器",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1913"
+    },
+    {
+      "id": "P04",
+      "name": "矢量屏壁",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1923"
+    },
+    {
+      "id": "W38",
+      "name": "引力砧",
+      "type": "weapon",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1932"
+    },
+    {
+      "id": "P05",
+      "name": "坠星挤压",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1942"
+    },
+    {
+      "id": "D09",
+      "name": "相位测绘",
+      "type": "route",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1951"
+    },
+    {
+      "id": "P06",
+      "name": "相位钉",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1971"
+    },
+    {
+      "id": "S44",
+      "name": "异常频谱器",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1980"
+    },
+    {
+      "id": "P07",
+      "name": "折径",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1988"
+    },
+    {
+      "id": "P08",
+      "name": "回流斩波",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 1997"
+    },
+    {
+      "id": "P09",
+      "name": "断界圆环",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2006"
+    },
+    {
+      "id": "S45",
+      "name": "相位隔离脊",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2015"
+    },
+    {
+      "id": "D10",
+      "name": "共鸣塑形",
+      "type": "route",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2023"
+    },
+    {
+      "id": "P10",
+      "name": "感官错帧",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2043"
+    },
+    {
+      "id": "P11",
+      "name": "念动切线",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2052"
+    },
+    {
+      "id": "P12",
+      "name": "认知静幕",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2061"
+    },
+    {
+      "id": "P13",
+      "name": "晶格支点",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2070"
+    },
+    {
+      "id": "P14",
+      "name": "感知断路",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2079"
+    },
+    {
+      "id": "P15",
+      "name": "共同位移",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2088"
+    },
+    {
+      "id": "HAZ1",
+      "name": "带电地面",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2097"
+    },
+    {
+      "id": "HAZ2",
+      "name": "高温区",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2104"
+    },
+    {
+      "id": "HAZ3",
+      "name": "不稳平台",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2111"
+    },
+    {
+      "id": "HAZ4",
+      "name": "共鸣发射器",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2118"
+    },
+    {
+      "id": "HAZ5",
+      "name": "浓雾",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2125"
+    },
+    {
+      "id": "HAZ6",
+      "name": "移动平台",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2132"
+    },
+    {
+      "id": "E01",
+      "name": "普通蚀骸",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2139"
+    },
+    {
+      "id": "E02",
+      "name": "攀行蚀骸",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2163"
+    },
+    {
+      "id": "E03",
+      "name": "针蜂侦察机",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2189"
+    },
+    {
+      "id": "E04",
+      "name": "残缺卫戍炮",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2216"
+    },
+    {
+      "id": "E05",
+      "name": "蚀骸潮群",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2242"
+    },
+    {
+      "id": "E06",
+      "name": "骨盾屠骸",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2269"
+    },
+    {
+      "id": "E07",
+      "name": "疫囊喷吐体",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2296"
+    },
+    {
+      "id": "E08",
+      "name": "孵化巢核",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2323"
+    },
+    {
+      "id": "E09",
+      "name": "巡猎犬机",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2350"
+    },
+    {
+      "id": "E10",
+      "name": "蜂巢枪兵",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2377"
+    },
+    {
+      "id": "E11",
+      "name": "净空焚烧机",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2404"
+    },
+    {
+      "id": "E12",
+      "name": "观测浮标",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2431"
+    },
+    {
+      "id": "E13",
+      "name": "切割哨卫",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2458"
+    },
+    {
+      "id": "E14",
+      "name": "飞翼掠袭机",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2485"
+    },
+    {
+      "id": "E15",
+      "name": "回收近卫",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2512"
+    },
+    {
+      "id": "E16",
+      "name": "限权司祭",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2539"
+    },
+    {
+      "id": "E17",
+      "name": "白纱医疗使徒",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2565"
+    },
+    {
+      "id": "E18",
+      "name": "猎隙者",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2592"
+    },
+    {
+      "id": "E19",
+      "name": "反相匿体",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2618"
+    },
+    {
+      "id": "E20",
+      "name": "界面织者",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2644"
+    },
+    {
+      "id": "E21",
+      "name": "潮汐眷属",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2670"
+    },
+    {
+      "id": "E22",
+      "name": "盐脊武装者",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2698"
+    },
+    {
+      "id": "E23",
+      "name": "清算执行体",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2722"
+    },
+    {
+      "id": "E24",
+      "name": "裂隙锚主",
+      "type": "enemy",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2750"
+    },
+    {
+      "id": "B01",
+      "name": "盾线",
+      "type": "build",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2779"
+    },
+    {
+      "id": "B02",
+      "name": "折光",
+      "type": "build",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2835"
+    },
+    {
+      "id": "B03",
+      "name": "缝针",
+      "type": "build",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2892"
+    },
+    {
+      "id": "B04",
+      "name": "频灯",
+      "type": "build",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 2950"
+    },
+    {
+      "id": "TR01",
+      "name": "调查",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3008"
+    },
+    {
+      "id": "TR02",
+      "name": "入微观察",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3018"
+    },
+    {
+      "id": "TR03",
+      "name": "审度时势",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3028"
+    },
+    {
+      "id": "TR04",
+      "name": "入侵修理",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3038"
+    },
+    {
+      "id": "TR05",
+      "name": "发明创造",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3048"
+    },
+    {
+      "id": "TR06",
+      "name": "拆解回收",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3058"
+    },
+    {
+      "id": "TR07",
+      "name": "荒野求生",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3068"
+    },
+    {
+      "id": "TR08",
+      "name": "追踪寻路",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3078"
+    },
+    {
+      "id": "TR09",
+      "name": "攀越穿行",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3088"
+    },
+    {
+      "id": "TR10",
+      "name": "隐秘潜入",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3098"
+    },
+    {
+      "id": "TR11",
+      "name": "驾驶载具",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3108"
+    },
+    {
+      "id": "TR12",
+      "name": "伪装伪造",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3118"
+    },
+    {
+      "id": "TR13",
+      "name": "社交交涉",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3128"
+    },
+    {
+      "id": "TR14",
+      "name": "资源协商",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3138"
+    },
+    {
+      "id": "TR15",
+      "name": "组织协调",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3148"
+    },
+    {
+      "id": "TR16",
+      "name": "当地见闻",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3158"
+    },
+    {
+      "id": "TR17",
+      "name": "医学照护",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3168"
+    },
+    {
+      "id": "TR18",
+      "name": "辨识异象",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3178"
+    },
+    {
+      "id": "TR19",
+      "name": "古代知识",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3188"
+    },
+    {
+      "id": "TR20",
+      "name": "应急处置",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3198"
+    },
+    {
+      "id": "N01",
+      "name": "勘察记录包",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3208"
+    },
+    {
+      "id": "N02",
+      "name": "晶核保护盒",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3218"
+    },
+    {
+      "id": "N03",
+      "name": "离线终端",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3228"
+    },
+    {
+      "id": "N04",
+      "name": "取证套装",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3238"
+    },
+    {
+      "id": "N05",
+      "name": "密封样本箱",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3248"
+    },
+    {
+      "id": "N06",
+      "name": "隔离校准器",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3258"
+    },
+    {
+      "id": "N07",
+      "name": "有机急救包",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3268"
+    },
+    {
+      "id": "N08",
+      "name": "索具组",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3278"
+    },
+    {
+      "id": "N09",
+      "name": "便携热源",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3288"
+    },
+    {
+      "id": "N10",
+      "name": "异常记录仪",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3298"
+    },
+    {
+      "id": "N11",
+      "name": "微型观察机",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3308"
+    },
+    {
+      "id": "N12",
+      "name": "防护与除污组",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3318"
+    },
+    {
+      "id": "N13",
+      "name": "翻译资料库",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3328"
+    },
+    {
+      "id": "N14",
+      "name": "伪装工具",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3338"
+    },
+    {
+      "id": "N15",
+      "name": "便携加工台",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3348"
+    },
+    {
+      "id": "N16",
+      "name": "个人记忆匣",
+      "type": "card",
+      "source": "game/packages/rules-engine/src/utopia/catalog.generated.ts",
+      "location": "line 3358"
+    }
+  ]
+}

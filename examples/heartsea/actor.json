@@ -1,0 +1,42 @@
+{
+  "format": "aaf-actor",
+  "version": 1,
+  "systemId": "otherworld-journey",
+  "systemVersion": "0.1-editorial.1",
+  "actor": {
+    "id": "demo-heartsea-guide",
+    "name": "见习引航员",
+    "ownerId": "",
+    "public": false,
+    "fields": {
+      "heartsea.version": "1",
+      "heartsea.level": "1",
+      "heartsea.class": "契灵师",
+      "角色类型": "NPC",
+      "heartsea.kind": "使徒",
+      "heartsea.affinity": "0",
+      "heartsea.balance": "0",
+      "生命值": "8",
+      "生命值上限": "8",
+      "护甲等级 AC": "10",
+      "heartsea.pp": "4",
+      "力量": "10",
+      "敏捷": "10",
+      "体质": "10",
+      "智力": "10",
+      "感知": "10",
+      "魅力": "10",
+      "heartsea.relation.忠诚": "0",
+      "heartsea.relation.亲近": "0",
+      "heartsea.relation.认同": "0",
+      "heartsea.relation.服从": "0",
+      "heartsea.relation.依赖": "0",
+      "heartsea.relation.渴求": "0"
+    },
+    "notes": ""
+  },
+  "resources": [],
+  "grants": [],
+  "counters": [],
+  "catalog": []
+}

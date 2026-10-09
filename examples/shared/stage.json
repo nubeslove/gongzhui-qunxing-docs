@@ -1,0 +1,24 @@
+{
+  "id": "demo-greeting",
+  "revision": 0,
+  "name": "渡口初见",
+  "sceneId": "initial",
+  "background": "",
+  "cast": [
+    {
+      "id": "guide",
+      "actorId": "",
+      "name": "向导",
+      "portrait": "",
+      "slot": 1
+    }
+  ],
+  "cues": [
+    {
+      "id": "hello",
+      "speakerId": "guide",
+      "text": "你们打算往哪边走？"
+    }
+  ],
+  "eventIds": []
+}

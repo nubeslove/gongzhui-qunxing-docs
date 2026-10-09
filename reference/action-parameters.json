@@ -1,0 +1,2232 @@
+{
+  "date": "2026-10-10",
+  "kind": "static-direct-expressions",
+  "missing": [],
+  "actions": {
+    "aaf.level": [
+      {
+        "source": "game/packages/session/src/world-aaf.ts",
+        "line": 29,
+        "fields": [
+          "actorId",
+          "expected",
+          "level",
+          "extraTp"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "assertGm(context)",
+          "requireInteger(action.level, 1, 20)",
+          "requireInteger(action.extraTp, 0, 1000)"
+        ],
+        "rejectionConditions": [
+          "aaf.buildApplied&&next!==aaf.level",
+          "aafTpSpent(aaf) > aafTpTotal(next) + aaf.extraTp"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.learning": [
+      {
+        "source": "game/packages/session/src/world-aaf.ts",
+        "line": 37,
+        "fields": [
+          "actorId",
+          "expected",
+          "window"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "assertGm(context)"
+        ],
+        "rejectionConditions": [
+          "!['long-rest', 'item', 'closed'].includes(String(action.window))"
+        ],
+        "delegatedTypes": [
+          "'long-rest' | 'item' | 'closed'"
+        ],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.talent.learn": [
+      {
+        "source": "game/packages/session/src/world-aaf.ts",
+        "line": 43,
+        "fields": [
+          "actorId",
+          "expected",
+          "nodeId"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "requireId(action.nodeId)"
+        ],
+        "rejectionConditions": [
+          "!node",
+          "reason"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.talent.refund": [
+      {
+        "source": "game/packages/session/src/world-aaf.ts",
+        "line": 48,
+        "fields": [
+          "actorId",
+          "expected",
+          "nodeId"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "requireId(action.nodeId)"
+        ],
+        "rejectionConditions": [
+          "!['creation', 'long-rest', 'item'].includes(aaf.learning)"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.item.grant": [
+      {
+        "source": "game/packages/session/src/world-aaf.ts",
+        "line": 53,
+        "fields": [
+          "actorId",
+          "expected",
+          "definition",
+          "definitionId",
+          "id"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "assertGm(context)",
+          "requireId(action.definitionId)",
+          "parseAafItemDefinition(action.definition)",
+          "requireId(action.id)"
+        ],
+        "rejectionConditions": [
+          "!definition"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.item.equip": [
+      {
+        "source": "game/packages/session/src/world-aaf.ts",
+        "line": 59,
+        "fields": [
+          "actorId",
+          "expected",
+          "id",
+          "equipped",
+          "slot",
+          "hostId"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "requireId(action.id)",
+          "requireBoolean(action.equipped)",
+          "requireText(action.slot || '配件', 100)",
+          "requireId(action.hostId)"
+        ],
+        "rejectionConditions": [
+          "!item"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.item.quality": [
+      {
+        "source": "game/packages/session/src/world-aaf.ts",
+        "line": 65,
+        "fields": [
+          "actorId",
+          "expected",
+          "id",
+          "defective"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "assertGm(context)",
+          "requireId(action.id)",
+          "requireBoolean(action.defective)"
+        ],
+        "rejectionConditions": [
+          "!item"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.item.active": [
+      {
+        "source": "game/packages/session/src/world-aaf.ts",
+        "line": 71,
+        "fields": [
+          "actorId",
+          "expected",
+          "reason",
+          "id",
+          "equipped"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "assertGm(context)",
+          "requireText(action.reason, 1000)",
+          "requireId(action.id)",
+          "requireBoolean(action.equipped)"
+        ],
+        "rejectionConditions": [
+          "!item"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.item.transfer": [
+      {
+        "source": "game/packages/session/src/world-aaf.ts",
+        "line": 96,
+        "fields": [
+          "actorId",
+          "expected",
+          "id",
+          "targetId",
+          "targetExpected"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "assertGm(context)",
+          "requireId(action.id)",
+          "requireId(action.targetId)",
+          "parseAafCharacter(next)"
+        ],
+        "rejectionConditions": [
+          "!item||!target||target.id===actor.id",
+          "worldActorBusy(world,target.id)",
+          "action.targetExpected!==next.revision",
+          "invalid.length"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.item.consume": [
+      {
+        "source": "game/packages/session/src/world-aaf.ts",
+        "line": 91,
+        "fields": [
+          "actorId",
+          "expected",
+          "id"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "requireId(action.id)"
+        ],
+        "rejectionConditions": [
+          "!item?.definition.tags.includes('consumable')||item.definition.shape.length"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.layout": [
+      {
+        "source": "game/packages/session/src/world-aaf.ts",
+        "line": 76,
+        "fields": [
+          "actorId",
+          "expected",
+          "preparationMinutes",
+          "placements",
+          "automatic",
+          "targets"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "parseAafCharacter({ ...aaf, placements: action.placements, automatic: action.automatic ?? aaf.automatic, targets: action.targets ?? aaf.targets })"
+        ],
+        "rejectionConditions": [
+          "action.preparationMinutes !== 10"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.item.use": [
+      {
+        "source": "game/packages/session/src/world-aaf.ts",
+        "line": 82,
+        "fields": [
+          "actorId",
+          "expected",
+          "id"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "requireId(action.id)"
+        ],
+        "rejectionConditions": [
+          "!item || !item.definition.maxUses",
+          "!aafItemActive(aaf, item)",
+          "!pool"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.rest.complete": [
+      {
+        "source": "game/packages/session/src/world-aaf.ts",
+        "line": 109,
+        "fields": [
+          "actorId",
+          "expected",
+          "heldThroughout",
+          "heldItemIds"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "assertGm(context)"
+        ],
+        "rejectionConditions": [
+          "action.heldThroughout !== true"
+        ],
+        "delegatedTypes": [
+          "string[]"
+        ],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.resources.refresh": [
+      {
+        "source": "game/packages/session/src/world-aaf.ts",
+        "line": 24,
+        "fields": [
+          "actorId",
+          "expected",
+          "catalogRevision"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "assertGm(context)",
+          "parseAafCharacter(aafRefreshResources(aaf,catalog))"
+        ],
+        "rejectionConditions": [
+          "action.catalogRevision!==catalog.revision"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.build.save": [
+      {
+        "source": "game/packages/session/src/world-aaf-character.ts",
+        "line": 27,
+        "fields": [
+          "actorId",
+          "expected",
+          "build",
+          "apply"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "parseAafBuild(action.build)",
+          "assertGm(context)"
+        ],
+        "rejectionConditions": [
+          "build.sourceRevision!==AAF_CREATION.revision&&aaf.build?.sourceRevision!==build.sourceRevision",
+          "(build.status!=='draft'||action.apply===true)&&issues.length"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.build.roll": [
+      {
+        "source": "game/packages/session/src/world-aaf-character.ts",
+        "line": 23,
+        "fields": [
+          "actorId",
+          "expected"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "assertGm(context)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.gear.equip": [
+      {
+        "source": "game/packages/session/src/world-aaf-character.ts",
+        "line": 66,
+        "fields": [
+          "actorId",
+          "expected",
+          "slot",
+          "id"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "requireText(action.slot,100)",
+          "requireId(action.id)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.gear.base": [
+      {
+        "source": "game/packages/session/src/world-aaf-character.ts",
+        "line": 58,
+        "fields": [
+          "actorId",
+          "expected",
+          "id",
+          "definitionId"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "assertGm(context)",
+          "requireId(action.id)",
+          "requireId(action.definitionId)"
+        ],
+        "rejectionConditions": [
+          "!item||item.definition.kind!=='equipment'||item.hostId||!base?.physical||!base.slots.length"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.gear.buy": [
+      {
+        "source": "game/packages/session/src/world-aaf-character.ts",
+        "line": 50,
+        "fields": [
+          "actorId",
+          "expected",
+          "definitionId",
+          "quantity",
+          "id",
+          "grant"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "requireId(action.definitionId)",
+          "requireInteger(action.quantity??1,1,99)",
+          "requireId(action.id)",
+          "assertGm(context)"
+        ],
+        "rejectionConditions": [
+          "!definition",
+          "!definition.physical?.stackable&&quantity!==1",
+          "(aaf.purseSp??0)<cost"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.bag.move": [
+      {
+        "source": "game/packages/session/src/world-aaf-character.ts",
+        "line": 73,
+        "fields": [
+          "actorId",
+          "expected",
+          "id",
+          "index",
+          "stow"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "requireId(action.id)",
+          "requireInteger(action.index,0,511)"
+        ],
+        "rejectionConditions": [
+          "!item",
+          "action.stow===true",
+          "item.definition.kind!=='equipment'||item.hostId",
+          "other&&other.id!==item.id&&!other.equipped&&!item.equipped&&item.definition.physical?.stackable&&!item.definition.shape.length&&JSON.stringify(item.definition)===JSON.stringify(other.definition)",
+          "quantity>9999"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.bag.split": [
+      {
+        "source": "game/packages/session/src/world-aaf-character.ts",
+        "line": 82,
+        "fields": [
+          "actorId",
+          "expected",
+          "id",
+          "newId",
+          "quantity"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "requireId(action.id)",
+          "requireId(action.newId)",
+          "requireInteger(action.quantity,1,(item.quantity??1)-1)"
+        ],
+        "rejectionConditions": [
+          "!item?.definition.physical?.stackable||item.equipped"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.purse": [
+      {
+        "source": "game/packages/session/src/world-aaf-character.ts",
+        "line": 87,
+        "fields": [
+          "actorId",
+          "expected",
+          "value"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "assertGm(context)",
+          "requireInteger(action.value,0,100000000)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.hand": [
+      {
+        "source": "game/packages/session/src/world-aaf-character.ts",
+        "line": 70,
+        "fields": [
+          "actorId",
+          "expected",
+          "hand"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision"
+        ],
+        "rejectionConditions": [
+          "!['左手','右手'].includes(String(action.hand))"
+        ],
+        "delegatedTypes": [
+          "'左手'|'右手'"
+        ],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.skill.roll": [
+      {
+        "source": "game/packages/session/src/world-aaf-character.ts",
+        "line": 16,
+        "fields": [
+          "actorId",
+          "expected",
+          "skill",
+          "messageId"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "requireText(action.skill,100)",
+          "requireId(action.messageId)"
+        ],
+        "rejectionConditions": [
+          "!aaf.build||!aaf.buildApplied",
+          "!AAF_CREATION.skills.includes(skill)"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.speed.set": [
+      {
+        "source": "game/packages/session/src/world-aaf-character.ts",
+        "line": 12,
+        "fields": [
+          "actorId",
+          "expected",
+          "speeds"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "assertGm(context)",
+          "isAafMovementSpeeds(action.speeds)"
+        ],
+        "rejectionConditions": [
+          "!isAafMovementSpeeds(action.speeds)"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.catalog": [
+      {
+        "source": "game/packages/session/src/world-aaf.ts",
+        "line": 125,
+        "fields": [
+          "expected",
+          "catalog"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "parseAafCatalog(action.catalog)"
+        ],
+        "rejectionConditions": [
+          "(world.aafCatalog?.revision ?? AAF_CATALOG.revision) !== action.expected"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "encounter.manage": [
+      {
+        "source": "game/packages/session/src/world-encounter.ts",
+        "line": 20,
+        "fields": [
+          "sceneId",
+          "command"
+        ],
+        "checks": [],
+        "rejectionConditions": [
+          "scene.id!==world.activeSceneId",
+          "command.op==='award'",
+          "!a"
+        ],
+        "delegatedTypes": [
+          "EncounterCommand"
+        ]
+      }
+    ],
+    "scene.resize": [
+      {
+        "source": "game/packages/session/src/world-scene-resize.ts",
+        "line": 8,
+        "fields": [
+          "expectedRevision",
+          "sceneId",
+          "request"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireId(action.sceneId)",
+          "parseSceneMap(map)"
+        ],
+        "rejectionConditions": [
+          "!scene",
+          "scene.combat"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "compendium.import": [
+      {
+        "source": "game/packages/session/src/world-compendium-import.ts",
+        "line": 13,
+        "fields": [
+          "leaseId"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireId(action.leaseId)"
+        ],
+        "rejectionConditions": [
+          "!batch"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "directory.table": [
+      {
+        "source": "game/packages/session/src/world-directory-table.ts",
+        "line": 3,
+        "fields": [],
+        "checks": [
+          "assertGm(context)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": [
+          "DirectoryTableCommand"
+        ]
+      }
+    ],
+    "directory.delete": [
+      {
+        "source": "game/packages/session/src/world-directory-delete.ts",
+        "line": 5,
+        "fields": [],
+        "checks": [
+          "assertGm(context)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": [
+          "DirectoryDeleteCommand"
+        ]
+      }
+    ],
+    "directory.access": [
+      {
+        "source": "game/packages/session/src/world-directory-access.ts",
+        "line": 4,
+        "fields": [],
+        "checks": [
+          "assertGm(context)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": [
+          "DirectoryAccessCommand"
+        ]
+      }
+    ],
+    "actor.owned": [
+      {
+        "source": "game/packages/session/src/world-owned-items.ts",
+        "line": 6,
+        "fields": [
+          "actorId"
+        ],
+        "checks": [
+          "ownedActor(world,action.actorId,context)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": [
+          "OwnedItemCommand"
+        ]
+      }
+    ],
+    "actor.sheet": [
+      {
+        "source": "game/packages/session/src/world-actor-access.ts",
+        "line": 14,
+        "fields": [
+          "id",
+          "before",
+          "profile"
+        ],
+        "checks": [
+          "ownedActor(world,action.id,context)",
+          "actorProfile(action.before)",
+          "actorProfile(action.profile)"
+        ],
+        "rejectionConditions": [
+          "worldActorBusy(world,actor.id)",
+          "canonicalJson(actor.profile)!==canonicalJson(actorProfile(action.before))",
+          "!context.isGm&&context.senderId!==context.hostId&&JSON.stringify(next.aafRules)!==JSON.stringify(actor.profile.aafRules)"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "actor.access": [
+      {
+        "source": "game/packages/session/src/world-actor-access.ts",
+        "line": 15,
+        "fields": [
+          "id",
+          "before",
+          "value"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireId(action.id)",
+          "parseActorAccess(action.before)",
+          "parseActorAccess(action.value)"
+        ],
+        "rejectionConditions": [
+          "!actor",
+          "canonicalJson(actorOwnership(actor))!==canonicalJson(parseActorAccess(action.before))"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "actor.copy": [
+      {
+        "source": "game/packages/session/src/world-actor-transfer.ts",
+        "line": 1,
+        "fields": [
+          "id",
+          "name",
+          "targetId",
+          "folderId",
+          "sourceId",
+          "expected",
+          "file"
+        ],
+        "checks": [
+          "parseActorFile(raw)",
+          "parseActor(file.actor)",
+          "requireId(action.id)",
+          "requireText(action.name,200)",
+          "requireId(action.targetId)",
+          "requireId(action.sourceId)",
+          "parseActorFile(action.expected)",
+          "parseActorFile(action.file)",
+          "assertGm(context)"
+        ],
+        "rejectionConditions": [
+          "!actor",
+          "!c",
+          "file.systemId!=='aaf'",
+          "action.kind==='actor.import'&&action.targetId!==undefined&&(!target||target.id!==id)",
+          "target?.tokenInstance",
+          "!target&&world.actors[id]",
+          "target&&action.folderId!==undefined",
+          "action.kind==='actor.copy'",
+          "canonicalJson(file)!==canonicalJson(parseActorFile(action.expected))",
+          "target&&canonicalJson(exportWorldActor(world,target.id))!==canonicalJson(parseActorFile(action.expected))"
+        ],
+        "delegatedTypes": [
+          "ActorTransferCommand"
+        ]
+      }
+    ],
+    "actor.import": [
+      {
+        "source": "game/packages/session/src/world-actor-transfer.ts",
+        "line": 1,
+        "fields": [
+          "id",
+          "name",
+          "targetId",
+          "folderId",
+          "sourceId",
+          "expected",
+          "file"
+        ],
+        "checks": [
+          "parseActorFile(raw)",
+          "parseActor(file.actor)",
+          "requireId(action.id)",
+          "requireText(action.name,200)",
+          "requireId(action.targetId)",
+          "requireId(action.sourceId)",
+          "parseActorFile(action.expected)",
+          "parseActorFile(action.file)",
+          "assertGm(context)"
+        ],
+        "rejectionConditions": [
+          "!actor",
+          "!c",
+          "file.systemId!=='aaf'",
+          "action.kind==='actor.import'&&action.targetId!==undefined&&(!target||target.id!==id)",
+          "target?.tokenInstance",
+          "!target&&world.actors[id]",
+          "target&&action.folderId!==undefined",
+          "action.kind==='actor.copy'",
+          "canonicalJson(file)!==canonicalJson(parseActorFile(action.expected))",
+          "target&&canonicalJson(exportWorldActor(world,target.id))!==canonicalJson(parseActorFile(action.expected))"
+        ],
+        "delegatedTypes": [
+          "ActorTransferCommand"
+        ]
+      }
+    ],
+    "scene.import": [
+      {
+        "source": "game/packages/session/src/world-scene-archive.ts",
+        "line": 32,
+        "fields": [
+          "archive",
+          "id",
+          "name",
+          "folderId",
+          "replacement"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireId(action.id)",
+          "requireText(action.name,200)",
+          "requireId(action.folderId)"
+        ],
+        "rejectionConditions": [
+          "context.senderId!==world.hostId"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "scene.copy": [
+      {
+        "source": "game/packages/session/src/world-scene-copy.ts",
+        "line": 7,
+        "fields": [
+          "sourceId",
+          "id",
+          "name",
+          "folderId"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireId(action.sourceId)",
+          "requireId(action.id)",
+          "requireText(action.name)",
+          "requireId(action.folderId)"
+        ],
+        "rejectionConditions": [
+          "!source",
+          "world.scenes[id]||Object.keys(world.scenes).length>=128",
+          "source.combat",
+          "!actor",
+          "actor.tokenInstance",
+          "Object.keys(world.actors).length>=10000"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "actor.inheritance": [
+      {
+        "source": "game/packages/session/src/world-token-instances.ts",
+        "line": 13,
+        "fields": [
+          "id",
+          "mode",
+          "expected"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireId(action.id)"
+        ],
+        "rejectionConditions": [
+          "!actor?.tokenInstance"
+        ],
+        "delegatedTypes": [
+          "ActorInheritanceMode",
+          "ActorInheritanceState"
+        ]
+      }
+    ],
+    "actor.prototype": [
+      {
+        "source": "game/packages/session/src/world-token-instances.ts",
+        "line": 14,
+        "fields": [
+          "id",
+          "before",
+          "value"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireId(action.id)",
+          "parseTokenPrototype(action.value)"
+        ],
+        "rejectionConditions": [
+          "!actor||actor.tokenInstance",
+          "canonicalJson(action.before)!==canonicalJson(before)"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "story.use": [
+      {
+        "source": "game/packages/session/src/world-story.ts",
+        "line": 11,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      }
+    ],
+    "story.command": [
+      {
+        "source": "game/packages/session/src/world-story.ts",
+        "line": 12,
+        "fields": [
+          "command",
+          "messageId"
+        ],
+        "checks": [
+          "isRecord(action.command)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      }
+    ],
+    "effect.tick": [
+      {
+        "source": "game/packages/session/src/world-actors.ts",
+        "line": 16,
+        "fields": [
+          "tick",
+          "actorId"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "ownedActor(world, action.actorId, context)"
+        ],
+        "rejectionConditions": [
+          "action.tick !== \"rest\" && action.tick !== \"manual\""
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "actor.create": [
+      {
+        "source": "game/packages/session/src/world-actors.ts",
+        "line": 21,
+        "fields": [
+          "id",
+          "templateId",
+          "profile",
+          "folderId",
+          "owners",
+          "visibility",
+          "portrait",
+          "aafCreation"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireId(action.id)",
+          "requireId(action.templateId)",
+          "actorProfile(template?.profile ?? action.profile)",
+          "requireId(action.folderId)",
+          "idList(action.owners ?? [])",
+          "visibility(action.visibility ?? \"gm\")",
+          "assetReference(action.portrait ?? template?.image)"
+        ],
+        "rejectionConditions": [
+          "world.actors[id] || Object.keys(world.actors).length >= 10000",
+          "action.templateId !== undefined && !template?.profile"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "actor.update": [
+      {
+        "source": "game/packages/session/src/world-actors.ts",
+        "line": 34,
+        "fields": [
+          "id",
+          "profile",
+          "mp",
+          "burnStacks",
+          "owners",
+          "visibility",
+          "portrait",
+          "notes"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "ownedActor(world, action.id, context)",
+          "actorProfile(action.profile)",
+          "idList(action.owners)",
+          "visibility(action.visibility)",
+          "assetReference(action.portrait)",
+          "optionalText(action.notes, 50000)",
+          "requireInteger(action.mp, 0, actor.profile.mpMax ?? 0)",
+          "requireInteger(action.burnStacks, 0, 100)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      }
+    ],
+    "actor.delete": [
+      {
+        "source": "game/packages/session/src/world-actors.ts",
+        "line": 49,
+        "fields": [
+          "id"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "ownedActor(world, action.id, context)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      }
+    ],
+    "inventory.grant": [
+      {
+        "source": "game/packages/session/src/world-actors.ts",
+        "line": 56,
+        "fields": [
+          "actorId",
+          "id",
+          "itemId",
+          "quantity"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "ownedActor(world, action.actorId, context)",
+          "requireId(action.id)",
+          "requireId(action.itemId)",
+          "requireInteger(action.quantity, 1, 1000000)"
+        ],
+        "rejectionConditions": [
+          "world.catalog[itemId]?.kind !== \"item\""
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "inventory.quantity": [
+      {
+        "source": "game/packages/session/src/world-actors.ts",
+        "line": 64,
+        "fields": [
+          "actorId",
+          "id",
+          "quantity"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "ownedActor(world, action.actorId, context)",
+          "requireId(action.id)",
+          "requireInteger(action.quantity, 0, 1000000)"
+        ],
+        "rejectionConditions": [
+          "!item"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "inventory.equip": [
+      {
+        "source": "game/packages/session/src/world-actors.ts",
+        "line": 73,
+        "fields": [
+          "actorId",
+          "id",
+          "slot",
+          "equipped"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "requireId(action.id)",
+          "requireId(action.slot)",
+          "requireBoolean(action.equipped)"
+        ],
+        "rejectionConditions": [
+          "!item"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "resource.set": [
+      {
+        "source": "game/packages/session/src/world-actors.ts",
+        "line": 83,
+        "fields": [
+          "actorId",
+          "id",
+          "max",
+          "value"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "ownedActor(world, action.actorId, context)",
+          "requireId(action.id)",
+          "requireInteger(action.max, 0, 1000000)",
+          "requireInteger(action.value, 0, id==='focus'?1000000:max)"
+        ],
+        "rejectionConditions": [
+          "!actor.resources[id] && Object.keys(actor.resources).length >= 128"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "resource.delete": [
+      {
+        "source": "game/packages/session/src/world-actors.ts",
+        "line": 91,
+        "fields": [
+          "actorId",
+          "id"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "ownedActor(world, action.actorId, context)",
+          "requireId(action.id)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      }
+    ],
+    "effect.upsert": [
+      {
+        "source": "game/packages/session/src/world-actors.ts",
+        "line": 95,
+        "fields": [
+          "actorId",
+          "effect"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "ownedActor(world, action.actorId, context)",
+          "requireRecord(action.effect)",
+          "requireId(raw.id)",
+          "requireText(raw.name, 200)",
+          "requireInteger(raw.stacks, 1, 10000)",
+          "requireInteger(raw.duration, 0, 1000000)",
+          "optionalText(raw.description, 10000)"
+        ],
+        "rejectionConditions": [
+          "![\"turn-start\", \"turn-end\", \"rest\", \"manual\"].includes(String(raw.tick))",
+          "actor.effects.length >= 128"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "effect.delete": [
+      {
+        "source": "game/packages/session/src/world-actors.ts",
+        "line": 108,
+        "fields": [
+          "actorId",
+          "id"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "ownedActor(world, action.actorId, context)",
+          "requireId(action.id)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      }
+    ],
+    "catalog.upsert": [
+      {
+        "source": "game/packages/session/src/world-catalog.ts",
+        "line": 11,
+        "fields": [
+          "entry"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "parseCatalogEntry(action.entry)"
+        ],
+        "rejectionConditions": [
+          "!world.catalog[entry.id] && Object.keys(world.catalog).length >= 10000"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "catalog.delete": [
+      {
+        "source": "game/packages/session/src/world-catalog.ts",
+        "line": 17,
+        "fields": [
+          "id"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireId(action.id)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      }
+    ],
+    "catalog.import": [
+      {
+        "source": "game/packages/session/src/world-catalog.ts",
+        "line": 22,
+        "fields": [
+          "pack",
+          "overwrite"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireRecord(action.pack)"
+        ],
+        "rejectionConditions": [
+          "pack.schemaVersion !== 1 || !Array.isArray(pack.entries) || pack.entries.length > 10000",
+          "ids.has(entry.id)",
+          "world.catalog[entry.id] && action.overwrite !== true",
+          "Object.keys(world.catalog).length > 10000"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "journal.upsert": [
+      {
+        "source": "game/packages/session/src/world-narrative.ts",
+        "line": 6,
+        "fields": [
+          "id",
+          "title",
+          "body",
+          "image",
+          "visibility",
+          "owners"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireId(action.id)",
+          "requireText(action.title, 500)",
+          "optionalText(action.body, 100000)",
+          "assetReference(action.image)",
+          "visibility(action.visibility ?? \"gm\")",
+          "idList(action.owners ?? [])"
+        ],
+        "rejectionConditions": [
+          "!world.journals[id] && Object.keys(world.journals).length >= 10000"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "journal.delete": [
+      {
+        "source": "game/packages/session/src/world-narrative.ts",
+        "line": 13,
+        "fields": [
+          "id"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireId(action.id)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      }
+    ],
+    "chat.send": [
+      {
+        "source": "game/packages/session/src/world-narrative.ts",
+        "line": 14,
+        "fields": [
+          "id",
+          "recipients",
+          "text"
+        ],
+        "checks": [
+          "requireId(action.id)",
+          "idList(action.recipients)",
+          "requireText(action.text, 4000)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      }
+    ],
+    "dice.roll": [
+      {
+        "source": "game/packages/session/src/world-narrative.ts",
+        "line": 22,
+        "fields": [
+          "id",
+          "count",
+          "sides",
+          "modifier",
+          "recipients",
+          "text"
+        ],
+        "checks": [
+          "requireId(action.id)",
+          "requireInteger(action.count, 1, 100)",
+          "requireInteger(action.sides, 2, 10000)",
+          "requireInteger(action.modifier ?? 0, -1000000, 1000000)",
+          "idList(action.recipients)",
+          "optionalText(action.text ?? \"\", 4000)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      }
+    ],
+    "clock.upsert": [
+      {
+        "source": "game/packages/session/src/world-narrative.ts",
+        "line": 34,
+        "fields": [
+          "id",
+          "max",
+          "name",
+          "value",
+          "visibility",
+          "owners"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireId(action.id)",
+          "requireInteger(action.max, 1, 10000)",
+          "requireText(action.name, 500)",
+          "requireInteger(action.value, 0, max)",
+          "visibility(action.visibility ?? \"public\")",
+          "idList(action.owners ?? [])"
+        ],
+        "rejectionConditions": [
+          "!world.clocks[id] && Object.keys(world.clocks).length >= 128"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "clock.advance": [
+      {
+        "source": "game/packages/session/src/world-narrative.ts",
+        "line": 41,
+        "fields": [
+          "id",
+          "delta"
+        ],
+        "checks": [
+          "requireId(action.id)",
+          "requireInteger(action.delta, -10000, 10000)"
+        ],
+        "rejectionConditions": [
+          "!clock || (context.senderId !== context.hostId && !clock.owners.includes(context.senderId))"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "clock.delete": [
+      {
+        "source": "game/packages/session/src/world-narrative.ts",
+        "line": 46,
+        "fields": [
+          "id"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireId(action.id)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      }
+    ],
+    "combat.quota": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 54,
+        "fields": [
+          "sceneId",
+          "id",
+          "quota",
+          "available"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireId(action.id)",
+          "requireText(action.quota)",
+          "requireBoolean(action.available)"
+        ],
+        "rejectionConditions": [
+          "!scene.combat || scene.id !== world.activeSceneId || !quota",
+          "!available && !quota[slot]"
+        ],
+        "delegatedTypes": [
+          "const"
+        ]
+      }
+    ],
+    "combat.adjust": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 70,
+        "fields": [
+          "sceneId",
+          "id",
+          "hp",
+          "mp",
+          "burnStacks"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireId(action.id)",
+          "requireInteger(action.hp, 0, actor.maxHp)",
+          "requireInteger(action.mp, 0, actor.mpMax ?? 0)",
+          "requireInteger(action.burnStacks, 0, 100)"
+        ],
+        "rejectionConditions": [
+          "!combat || scene.id !== world.activeSceneId",
+          "!actor"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "scene.bindings": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 89,
+        "fields": [
+          "sceneId",
+          "bindings"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireRecord(action.bindings)",
+          "requireId(id)",
+          "requireId(owner)",
+          "requireId(bindings[token.id])"
+        ],
+        "rejectionConditions": [
+          "!scene.tokens[requireId(id)] || !context.members.has(requireId(owner))"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "scene.create": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 97,
+        "fields": [
+          "id",
+          "name",
+          "sceneKind",
+          "map",
+          "background",
+          "folderId"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireId(action.id)",
+          "requireText(action.name)",
+          "parseSceneKind(action.sceneKind??'adventure')",
+          "parseSceneMap(action.map)",
+          "assetReference(action.background)",
+          "requireId(action.folderId)"
+        ],
+        "rejectionConditions": [
+          "world.scenes[id] || Object.keys(world.scenes).length >= 128"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "scene.door": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 107,
+        "fields": [
+          "sceneId",
+          "id",
+          "intent"
+        ],
+        "checks": [
+          "requireId(action.id)"
+        ],
+        "rejectionConditions": [
+          "!context.isGm&&context.senderId!==context.hostId&&worldSceneId(world,context.senderId)!==scene.id"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "scene.perception": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 108,
+        "fields": [
+          "id",
+          "edit"
+        ],
+        "checks": [
+          "assertGm(context)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      }
+    ],
+    "scene.features": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 109,
+        "fields": [
+          "id",
+          "edits"
+        ],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      }
+    ],
+    "scene.canvas": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 110,
+        "fields": [
+          "sceneId",
+          "before",
+          "value"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "assetReference(value.background)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      }
+    ],
+    "scene.update": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 111,
+        "fields": [
+          "id",
+          "name",
+          "sceneKind",
+          "background",
+          "map"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireText(action.name)",
+          "parseSceneKind(action.sceneKind)",
+          "assetReference(action.background)",
+          "parseSceneMap(action.map)"
+        ],
+        "rejectionConditions": [
+          "action.map !== undefined"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "scene.delete": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 123,
+        "fields": [
+          "id"
+        ],
+        "checks": [
+          "assertGm(context)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      }
+    ],
+    "scene.activate": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 126,
+        "fields": [
+          "id"
+        ],
+        "checks": [
+          "assertGm(context)"
+        ],
+        "rejectionConditions": [
+          "active && active.id !== scene.id && active.combat"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "token.place": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 133,
+        "fields": [
+          "sceneId",
+          "id",
+          "actorId",
+          "x",
+          "y",
+          "hidden",
+          "visionFeet"
+        ],
+        "checks": [
+          "requireId(action.id)",
+          "ownedActor(world, action.actorId, context)",
+          "requireInteger(action.x, 0, scene.map.width - 1)",
+          "requireInteger(action.y, 0, scene.map.height - 1)",
+          "requireBoolean(action.hidden)",
+          "requireInteger(action.visionFeet, 0, 10000)"
+        ],
+        "rejectionConditions": [
+          "!context.isGm&&context.senderId!==context.hostId&&scene.id!==worldSceneId(world,context.senderId)",
+          "actor.tokenInstance",
+          "!Number.isFinite(movementCost(scene.map, point, occupied))"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "token.remove": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 144,
+        "fields": [
+          "sceneId",
+          "id"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireId(action.id)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      }
+    ],
+    "token.configure": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 147,
+        "fields": [
+          "sceneId",
+          "id",
+          "configuration",
+          "expectedConfiguration",
+          "binding",
+          "toggleHidden",
+          "hidden",
+          "visionFeet"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireId(action.id)",
+          "parseTokenConfiguration(action.configuration)",
+          "requireBoolean(action.hidden)",
+          "requireInteger(action.visionFeet, 0, 10000)"
+        ],
+        "rejectionConditions": [
+          "!token",
+          "action.configuration!==undefined",
+          "canonicalJson(action.expectedConfiguration)!==canonicalJson(current)"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "token.move": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 156,
+        "fields": [
+          "sceneId",
+          "id",
+          "x",
+          "y",
+          "mode"
+        ],
+        "checks": [
+          "requireInteger(action.x, 0, scene.map.width - 1)",
+          "requireInteger(action.y, 0, scene.map.height - 1)"
+        ],
+        "rejectionConditions": [
+          "scene.id !== worldSceneId(world,context.senderId) && context.senderId !== context.hostId && !context.isGm",
+          "world.actors[token.actorId].profile.hp === 0 && context.senderId !== context.hostId && !context.isGm",
+          "visible && !visible.has(cellKey(to))"
+        ],
+        "delegatedTypes": [
+          "import('@aelzerant/contracts').MovementChoice"
+        ]
+      }
+    ],
+    "combat.start": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 168,
+        "fields": [
+          "sceneId",
+          "seed"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireInteger(action.seed, 0, 0xffffffff)"
+        ],
+        "rejectionConditions": [
+          "world.activeSceneId !== scene.id"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "combat.stop": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 182,
+        "fields": [
+          "sceneId"
+        ],
+        "checks": [
+          "assertGm(context)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      }
+    ],
+    "combat.action": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 185,
+        "fields": [
+          "sceneId",
+          "intent"
+        ],
+        "checks": [
+          "isCombatIntent(action.intent)"
+        ],
+        "rejectionConditions": [
+          "!scene.combat || !isCombatIntent(action.intent) || worldSceneId(world,context.senderId) !== scene.id",
+          "intent.kind === \"attack\" && !visibleTokenIds(world, scene, context.senderId).has(intent.targetId)",
+          "intent.kind==='aaf'",
+          "next.events.at(-1)?.kind === \"invalid\""
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "combat.move": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 197,
+        "fields": [
+          "sceneId",
+          "id",
+          "x",
+          "y",
+          "mode"
+        ],
+        "checks": [
+          "requireInteger(action.x, 0, scene.map.width - 1)",
+          "requireInteger(action.y, 0, scene.map.height - 1)",
+          "isAafSpeedMode(m)",
+          "isAafSpeedMode(requested)",
+          "isAafSpeedMode(mode)"
+        ],
+        "rejectionConditions": [
+          "!combat || scene.id !== worldSceneId(world,context.senderId) || combat.status !== \"active\"",
+          "!actor.alive || actor.id !== combat.activeId",
+          "requested!=='adaptive'&&!isAafSpeedMode(requested)",
+          "!path || path.length < 2",
+          "!isAafSpeedMode(mode)",
+          "next.events.at(-1)?.kind === \"invalid\""
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "scene.fog": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 222,
+        "fields": [
+          "sceneId",
+          "enabled",
+          "cells",
+          "reveal"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireBoolean(action.enabled)",
+          "requireRecord(value)",
+          "requireInteger(point.x, 0, scene.map.width - 1)",
+          "requireInteger(point.y, 0, scene.map.height - 1)"
+        ],
+        "rejectionConditions": [
+          "action.cells !== undefined",
+          "!Array.isArray(action.cells) || action.cells.length > scene.map.width * scene.map.height"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "annotation.upsert": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 231,
+        "fields": [
+          "sceneId",
+          "annotation"
+        ],
+        "checks": [
+          "requireRecord(action.annotation)",
+          "requireId(raw.id)",
+          "requireRecord(value)",
+          "requireInteger(point.x, 0, scene.map.width - 1)",
+          "requireInteger(point.y, 0, scene.map.height - 1)",
+          "visibility(raw.visibility ?? \"public\")"
+        ],
+        "rejectionConditions": [
+          "scene.id !== world.activeSceneId && context.senderId !== context.hostId && !context.isGm",
+          "previous && previous.ownerId !== context.senderId && context.senderId !== context.hostId && !context.isGm",
+          "![\"pin\", \"drawing\", \"template\"].includes(String(raw.kind)) || !Array.isArray(raw.points) || !raw.points.length || raw.points.length > 1024",
+          "!previous && Object.keys(scene.annotations).length >= 1024"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "annotation.delete": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 242,
+        "fields": [
+          "sceneId",
+          "id"
+        ],
+        "checks": [
+          "requireId(action.id)"
+        ],
+        "rejectionConditions": [
+          "annotation && annotation.ownerId !== context.senderId && context.senderId !== context.hostId && !context.isGm"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "scene.ambient": [
+      {
+        "source": "game/packages/session/src/world-environment.ts",
+        "line": 8,
+        "fields": [
+          "sceneId",
+          "light"
+        ],
+        "checks": [
+          "assertGm(context)"
+        ],
+        "rejectionConditions": [
+          "action.light !== \"bright\" && action.light !== \"dark\""
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "door.set": [
+      {
+        "source": "game/packages/session/src/world-environment.ts",
+        "line": 12,
+        "fields": [
+          "sceneId",
+          "x",
+          "y",
+          "open",
+          "tokenId",
+          "locked",
+          "secret"
+        ],
+        "checks": [
+          "requireInteger(action.x, 0, scene.map.width - 1)",
+          "requireInteger(action.y, 0, scene.map.height - 1)",
+          "requireBoolean(action.open)",
+          "requireBoolean(action.locked)",
+          "requireBoolean(action.secret)"
+        ],
+        "rejectionConditions": [
+          "context.senderId !== context.hostId",
+          "scene.id !== world.activeSceneId || !tile.door || tile.door.secret || tile.door.locked || gridDistance(token, tile) > 5 || (visible && !visible.has(`${x},${y}`))",
+          "action.locked !== undefined || action.secret !== undefined"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "light.set": [
+      {
+        "source": "game/packages/session/src/world-environment.ts",
+        "line": 27,
+        "fields": [
+          "sceneId",
+          "x",
+          "y",
+          "radiusFeet",
+          "enabled"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireInteger(action.x, 0, scene.map.width - 1)",
+          "requireInteger(action.y, 0, scene.map.height - 1)",
+          "requireInteger(action.radiusFeet, 0, 1000)",
+          "requireBoolean(action.enabled)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      }
+    ],
+    "audio.set": [
+      {
+        "source": "game/packages/session/src/world-audio.ts",
+        "line": 9,
+        "fields": [
+          "assetId",
+          "playing",
+          "volume",
+          "loop",
+          "offsetSeconds"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "assetReference(action.assetId)",
+          "requireBoolean(action.playing)",
+          "requireNumber(action.volume, 0, 1)",
+          "requireBoolean(action.loop)",
+          "requireNumber(action.offsetSeconds, 0, 86400)"
+        ],
+        "rejectionConditions": [
+          "playing && !assetId"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "audio.control": [
+      {
+        "source": "game/packages/session/src/world-audio.ts",
+        "line": 16,
+        "fields": [
+          "operation",
+          "seconds",
+          "volume",
+          "loop"
+        ],
+        "checks": [
+          "assertGm(context)",
+          "requireNumber(action.seconds, 0, 86400)",
+          "requireNumber(action.volume, 0, 1)",
+          "requireBoolean(action.loop)"
+        ],
+        "rejectionConditions": [
+          "!state.assetId"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "aaf.rules.configure": [
+      {
+        "source": "game/packages/session/src/world-aaf-rules.ts",
+        "line": 39,
+        "fields": [
+          "actorId",
+          "expected",
+          "rules"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "parseAafRules(action.rules)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.rules.ability": [
+      {
+        "source": "game/packages/session/src/world-aaf-rules.ts",
+        "line": 40,
+        "fields": [
+          "actorId",
+          "expected",
+          "ability"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "parseAafAbility(action.ability)"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.rules.effect": [
+      {
+        "source": "game/packages/session/src/world-aaf-rules.ts",
+        "line": 41,
+        "fields": [
+          "actorId",
+          "expected",
+          "effect",
+          "source",
+          "duration"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "parseAafOperation(action.effect)",
+          "requireText(action.source)",
+          "parseAafDuration(action.duration)"
+        ],
+        "rejectionConditions": [
+          "effect.kind==='shield'&&!ctx.combat"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.rules.check": [
+      {
+        "source": "game/packages/session/src/world-aaf-rules.ts",
+        "line": 45,
+        "fields": [
+          "actorId",
+          "expected",
+          "check"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "requireRecord(action.check)",
+          "requireInteger(raw.dc,0,1000)",
+          "requireText(raw.skill)"
+        ],
+        "rejectionConditions": [
+          "!['attribute','skill','save','initiative'].includes(String(raw.kind))",
+          "!['str','dex','con','int','wis','cha'].includes(attribute)"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.rules.rest": [
+      {
+        "source": "game/packages/session/src/world-aaf-rules.ts",
+        "line": 51,
+        "fields": [
+          "actorId",
+          "expected",
+          "rest",
+          "provisions"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision"
+        ],
+        "rejectionConditions": [
+          "ctx.combat",
+          "kind!=='short'&&kind!=='long'",
+          "kind==='short'&&r.shortRests>=2"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.rules.boundary": [
+      {
+        "source": "game/packages/session/src/world-aaf-rules.ts",
+        "line": 66,
+        "fields": [
+          "actorId",
+          "expected",
+          "event"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision"
+        ],
+        "rejectionConditions": [
+          "!['scene-end','combat-end','long-rest-start','short-rest-start'].includes(String(action.event))"
+        ],
+        "delegatedTypes": [
+          "AafBoundary"
+        ],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.rules.hero": [
+      {
+        "source": "game/packages/session/src/world-aaf-rules.ts",
+        "line": 69,
+        "fields": [
+          "actorId",
+          "expected",
+          "active",
+          "sacrifice"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.rules.defeat": [
+      {
+        "source": "game/packages/session/src/world-aaf-rules.ts",
+        "line": 70,
+        "fields": [
+          "actorId",
+          "expected"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.rules.respond": [
+      {
+        "source": "game/packages/session/src/world-aaf-rules.ts",
+        "line": 38,
+        "fields": [
+          "actorId",
+          "expected",
+          "action"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "isAafAction(action.action)"
+        ],
+        "rejectionConditions": [
+          "!isAafAction(action.action)||!['confirm','reroll','choose-reroll','end-concentration','react'].includes(action.action.type)"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "adjudication.apply": [
+      {
+        "source": "game/packages/session/src/world-authority.ts",
+        "line": 44,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      }
+    ],
+    "world.undo": [
+      {
+        "source": "game/packages/session/src/world-authority.ts",
+        "fields": [],
+        "checks": [
+          "senderId === hostId",
+          "history.length > 0"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": [],
+        "note": "仅GM；只撤销当前有限历史中的可逆编辑；不提供任意战斗回滚。"
+      }
+    ],
+    "combat.rollback": [
+      {
+        "source": "game/packages/session/src/world-combat-rollback.ts",
+        "line": 1,
+        "fields": [
+          "command",
+          "actorId",
+          "sceneId",
+          "intent",
+          "confirmed",
+          "id",
+          "rollbackKind"
+        ],
+        "checks": [],
+        "rejectionConditions": [
+          "!storyGm(world.story,world.hostId,sender)||action.confirmed!==true",
+          "!row||row.sceneId!==action.sceneId||!row.kinds.includes(action.rollbackKind as RollbackKind)",
+          "!scene",
+          "!a"
+        ],
+        "delegatedTypes": [
+          "{op?:string}|undefined",
+          "{kind?:string}",
+          "RollbackKind",
+          "CombatRollbackCommand"
+        ]
+      }
+    ]
+  }
+}

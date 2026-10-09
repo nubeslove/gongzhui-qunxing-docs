@@ -1,0 +1,4344 @@
+{
+  "date": "2026-10-10",
+  "scope": "ID and names only. Index inclusion does not establish automation or redistribution rights.",
+  "entries": [
+    {
+      "id": "zh-1-89-0-11",
+      "name": "原型武器",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[0]"
+    },
+    {
+      "id": "zh-1-94-0-16",
+      "name": "燃料棒枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[1]"
+    },
+    {
+      "id": "zh-1-96-1-17",
+      "name": "侍从级NHP",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[2]"
+    },
+    {
+      "id": "zh-1-96-1-26",
+      "name": "学生级NHP",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[3]"
+    },
+    {
+      "id": "zh-1-97-0-0",
+      "name": "开悟级NHP",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[4]"
+    },
+    {
+      "id": "zh-1-97-1-11",
+      "name": "弹药库",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[5]"
+    },
+    {
+      "id": "zh-1-113-0-1",
+      "name": "伙伴/礼宾级辅助单元",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[6]"
+    },
+    {
+      "id": "zh-1-113-0-19",
+      "name": "定制涂装作业",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[7]"
+    },
+    {
+      "id": "zh-1-113-0-26",
+      "name": "扩张间隔",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[8]"
+    },
+    {
+      "id": "zh-1-113-1-0",
+      "name": "操纵器",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[9]"
+    },
+    {
+      "id": "zh-1-113-1-9",
+      "name": "A 型烟雾弹",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[10]"
+    },
+    {
+      "id": "zh-1-113-1-19",
+      "name": "A 型耶利哥可展开掩体",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[11]"
+    },
+    {
+      "id": "zh-1-113-1-26",
+      "name": "B 型毒咒弹",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[12]"
+    },
+    {
+      "id": "zh-1-114-0-0",
+      "name": "个人化",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[13]"
+    },
+    {
+      "id": "zh-1-114-0-7",
+      "name": "稳定结构",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[14]"
+    },
+    {
+      "id": "zh-1-114-0-10",
+      "name": "炮塔无人机",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[15]"
+    },
+    {
+      "id": "zh-1-114-0-25",
+      "name": "三式护盾",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[16]"
+    },
+    {
+      "id": "zh-1-114-1-13",
+      "name": "EVA 模块",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[17]"
+    },
+    {
+      "id": "zh-1-114-1-18",
+      "name": "快速猛跃喷射系统",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[18]"
+    },
+    {
+      "id": "zh-1-114-1-22",
+      "name": "一式飞行系统",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[19]"
+    },
+    {
+      "id": "zh-1-123-0-1",
+      "name": "链斧",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[20]"
+    },
+    {
+      "id": "zh-1-123-0-10",
+      "name": "合成肌肉织网",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[21]"
+    },
+    {
+      "id": "zh-1-123-1-1",
+      "name": "刺鬃冠镖弹发射器",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[22]"
+    },
+    {
+      "id": "zh-1-123-1-10",
+      "name": "纳米碳剑",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[23]"
+    },
+    {
+      "id": "zh-1-124-0-1",
+      "name": "强化缆绳",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[24]"
+    },
+    {
+      "id": "zh-1-124-1-0",
+      "name": "塞赫麦特级NHP",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[25]"
+    },
+    {
+      "id": "zh-1-127-0-1",
+      "name": "阿尔戈大盾",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[26]"
+    },
+    {
+      "id": "zh-1-127-0-14",
+      "name": "突击加农炮",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[27]"
+    },
+    {
+      "id": "zh-1-127-1-1",
+      "name": "埃癸斯护盾发生器",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[28]"
+    },
+    {
+      "id": "zh-1-127-1-16",
+      "name": "震荡导弹",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[29]"
+    },
+    {
+      "id": "zh-1-128-0-1",
+      "name": "便携式地堡",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[30]"
+    },
+    {
+      "id": "zh-1-128-1-0",
+      "name": "利维坦重型突击加农炮",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[31]"
+    },
+    {
+      "id": "zh-1-129-1-6",
+      "name": "碰锁无人机",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[32]"
+    },
+    {
+      "id": "zh-1-131-0-1",
+      "name": "缆盘系统",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[33]"
+    },
+    {
+      "id": "zh-1-131-0-16",
+      "name": "补给无人机",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[34]"
+    },
+    {
+      "id": "zh-1-131-1-1",
+      "name": "马骡装具",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[35]"
+    },
+    {
+      "id": "zh-1-131-1-19",
+      "name": "白浴密封喷雾",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[36]"
+    },
+    {
+      "id": "zh-1-132-0-1",
+      "name": "阿刻索稳定器",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[37]"
+    },
+    {
+      "id": "zh-1-132-1-0",
+      "name": "“切割者”Mk2 等离子炬",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[38]"
+    },
+    {
+      "id": "zh-1-135-0-1",
+      "name": "壁垒模块",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[39]"
+    },
+    {
+      "id": "zh-1-135-0-10",
+      "name": "刺枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[40]"
+    },
+    {
+      "id": "zh-1-135-1-1",
+      "name": "装甲锁定镀层",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[41]"
+    },
+    {
+      "id": "zh-1-135-1-15",
+      "name": "高热炸药",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[42]"
+    },
+    {
+      "id": "zh-1-136-0-1",
+      "name": "动力指虎",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[43]"
+    },
+    {
+      "id": "zh-1-136-1-0",
+      "name": "冲压式喷气发动机",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[44]"
+    },
+    {
+      "id": "zh-1-137-1-12",
+      "name": "M35 雷神之锤",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[45]"
+    },
+    {
+      "id": "zh-1-139-0-1",
+      "name": "BB 突破/爆破炸药",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[46]"
+    },
+    {
+      "id": "zh-1-139-0-19",
+      "name": "掌心雷",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[47]"
+    },
+    {
+      "id": "zh-1-139-1-1",
+      "name": "投矛器",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[48]"
+    },
+    {
+      "id": "zh-1-139-1-7",
+      "name": "“罗兰”弹仓",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[49]"
+    },
+    {
+      "id": "zh-1-140-0-1",
+      "name": "动力锤",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[50]"
+    },
+    {
+      "id": "zh-1-140-1-0",
+      "name": "“老爹级”伙伴礼宾单元",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[51]"
+    },
+    {
+      "id": "zh-1-143-0-1",
+      "name": "攻城槌",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[52]"
+    },
+    {
+      "id": "zh-1-143-0-11",
+      "name": "“甲板清扫者”自动霰弹枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[53]"
+    },
+    {
+      "id": "zh-1-143-1-1",
+      "name": "摘菊使者",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[54]"
+    },
+    {
+      "id": "zh-1-143-1-12",
+      "name": "催化锤",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[55]"
+    },
+    {
+      "id": "zh-1-144-0-1",
+      "name": "过穿螺旋弹",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[56]"
+    },
+    {
+      "id": "zh-1-144-1-0",
+      "name": "超密度装甲",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[57]"
+    },
+    {
+      "id": "zh-1-147-0-1",
+      "name": "冲击长枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[58]"
+    },
+    {
+      "id": "zh-1-147-0-14",
+      "name": "网颚陷阱",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[59]"
+    },
+    {
+      "id": "zh-1-147-1-1",
+      "name": "蒺藜发射器",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[60]"
+    },
+    {
+      "id": "zh-1-147-1-12",
+      "name": "穿刺者钉枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[61]"
+    },
+    {
+      "id": "zh-1-148-0-1",
+      "name": "作战用钻机",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[62]"
+    },
+    {
+      "id": "zh-1-148-1-0",
+      "name": "充能标桩",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[63]"
+    },
+    {
+      "id": "zh-1-155-0-1",
+      "name": "黑铁鞭",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[64]"
+    },
+    {
+      "id": "zh-1-155-0-16",
+      "name": "磁能加农炮",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[65]"
+    },
+    {
+      "id": "zh-1-155-1-1",
+      "name": "冰遁无人机",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[66]"
+    },
+    {
+      "id": "zh-1-156-0-0",
+      "name": "周边指令基板",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[67]"
+    },
+    {
+      "id": "zh-1-156-1-1",
+      "name": "黑冰模块",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[68]"
+    },
+    {
+      "id": "zh-1-156-1-13",
+      "name": "磁能盾",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[69]"
+    },
+    {
+      "id": "zh-1-159-0-1",
+      "name": "高压磁能钳",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[70]"
+    },
+    {
+      "id": "zh-1-159-0-10",
+      "name": "追踪漏洞",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[71]"
+    },
+    {
+      "id": "zh-1-159-1-1",
+      "name": "核心虹吸",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[72]"
+    },
+    {
+      "id": "zh-1-159-1-10",
+      "name": "“秃鹫”DMR",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[73]"
+    },
+    {
+      "id": "zh-1-160-0-1",
+      "name": "动能补偿器",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[74]"
+    },
+    {
+      "id": "zh-1-160-1-0",
+      "name": "磁轨炮",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[75]"
+    },
+    {
+      "id": "zh-1-163-0-1",
+      "name": "神经刺",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[76]"
+    },
+    {
+      "id": "zh-1-163-0-17",
+      "name": "面纱步枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[77]"
+    },
+    {
+      "id": "zh-1-163-1-1",
+      "name": "爆裂投射器",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[78]"
+    },
+    {
+      "id": "zh-1-163-1-13",
+      "name": "闪烁力场投影器",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[79]"
+    },
+    {
+      "id": "zh-1-164-0-1",
+      "name": "晕眩冠冕",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[80]"
+    },
+    {
+      "id": "zh-1-164-1-0",
+      "name": "绿洲墙",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[81]"
+    },
+    {
+      "id": "zh-1-167-0-1",
+      "name": "闪光炸药",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[82]"
+    },
+    {
+      "id": "zh-1-167-0-18",
+      "name": "反应织物",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[83]"
+    },
+    {
+      "id": "zh-1-167-1-1",
+      "name": "磁轨步枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[84]"
+    },
+    {
+      "id": "zh-1-167-1-10",
+      "name": "电击匕首",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[85]"
+    },
+    {
+      "id": "zh-1-168-0-1",
+      "name": "主动光学迷彩",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[86]"
+    },
+    {
+      "id": "zh-1-168-1-0",
+      "name": "电击环",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[87]"
+    },
+    {
+      "id": "zh-1-171-0-1",
+      "name": "标枪火箭",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[88]"
+    },
+    {
+      "id": "zh-1-171-0-15",
+      "name": "舍罗伽导弹",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[89]"
+    },
+    {
+      "id": "zh-1-171-1-1",
+      "name": "甘提娑导弹",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[90]"
+    },
+    {
+      "id": "zh-1-171-1-10",
+      "name": "稳定器模块",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[91]"
+    },
+    {
+      "id": "zh-1-172-0-1",
+      "name": "毗那喀导弹",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[92]"
+    },
+    {
+      "id": "zh-1-172-1-0",
+      "name": "特拉洛克级NHP",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[93]"
+    },
+    {
+      "id": "zh-1-175-0-1",
+      "name": "翘曲匕首",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[94]"
+    },
+    {
+      "id": "zh-1-175-0-11",
+      "name": "维阿雅火箭",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[95]"
+    },
+    {
+      "id": "zh-1-175-1-1",
+      "name": "猎人逻辑套件",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[96]"
+    },
+    {
+      "id": "zh-1-175-1-14",
+      "name": "奇点动力",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[97]"
+    },
+    {
+      "id": "zh-1-176-0-1",
+      "name": "FADE 斗篷",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[98]"
+    },
+    {
+      "id": "zh-1-176-1-0",
+      "name": "幻剑",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[99]"
+    },
+    {
+      "id": "zh-1-179-0-1",
+      "name": "莲花投射器",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[100]"
+    },
+    {
+      "id": "zh-1-179-0-17",
+      "name": "标光",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[101]"
+    },
+    {
+      "id": "zh-1-179-1-1",
+      "name": "神谕LMG-I",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[102]"
+    },
+    {
+      "id": "zh-1-179-1-8",
+      "name": "可伸缩剖面",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[103]"
+    },
+    {
+      "id": "zh-1-180-0-1",
+      "name": "雅典娜级NHP",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[104]"
+    },
+    {
+      "id": "zh-1-180-1-0",
+      "name": "LB/OC 隐形场",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[105]"
+    },
+    {
+      "id": "zh-1-187-0-1",
+      "name": "虫巢无人机",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[106]"
+    },
+    {
+      "id": "zh-1-187-0-20",
+      "name": "扫描虫群",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[107]"
+    },
+    {
+      "id": "zh-1-187-1-1",
+      "name": "纳米复合物适应",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[108]"
+    },
+    {
+      "id": "zh-1-187-1-15",
+      "name": "虫群之躯",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[109]"
+    },
+    {
+      "id": "zh-1-188-0-1",
+      "name": "纳米机械鞭",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[110]"
+    },
+    {
+      "id": "zh-1-188-1-0",
+      "name": "“虫群/虫巢”巢房",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[111]"
+    },
+    {
+      "id": "zh-1-191-0-1",
+      "name": "自动荚舱",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[112]"
+    },
+    {
+      "id": "zh-1-191-1-0",
+      "name": "H0R_OS 系统升级I",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[113]"
+    },
+    {
+      "id": "zh-1-192-0-1",
+      "name": "超挂钩",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[114]"
+    },
+    {
+      "id": "zh-1-192-1-0",
+      "name": "H0R_OS 系统升级II",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[115]"
+    },
+    {
+      "id": "zh-1-193-0-1",
+      "name": "欧西里斯级NHP",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[116]"
+    },
+    {
+      "id": "zh-1-194-0-0",
+      "name": "H0R_OS 系统升级III",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[117]"
+    },
+    {
+      "id": "zh-1-197-0-1",
+      "name": "拟态网络",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[118]"
+    },
+    {
+      "id": "zh-1-197-0-16",
+      "name": "哨兵无人机",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[119]"
+    },
+    {
+      "id": "zh-1-197-1-1",
+      "name": "//“蝎子”V70.1",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[120]"
+    },
+    {
+      "id": "zh-1-197-1-16",
+      "name": "监控模块",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[121]"
+    },
+    {
+      "id": "zh-1-198-0-1",
+      "name": "斯库拉级NHP",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[122]"
+    },
+    {
+      "id": "zh-1-198-1-0",
+      "name": "斩首炮",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[123]"
+    },
+    {
+      "id": "zh-1-201-1-1",
+      "name": "食尸鬼巢房",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[124]"
+    },
+    {
+      "id": "zh-1-201-1-11",
+      "name": "傀儡师",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[125]"
+    },
+    {
+      "id": "zh-1-202-0-1",
+      "name": "妖鬼巢房",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[126]"
+    },
+    {
+      "id": "zh-1-202-0-20",
+      "name": "暴风无人机",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[127]"
+    },
+    {
+      "id": "zh-1-202-1-1",
+      "name": "湮灭巢房",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[128]"
+    },
+    {
+      "id": "zh-1-202-1-14",
+      "name": "刺客无人机",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[129]"
+    },
+    {
+      "id": "zh-1-205-0-1",
+      "name": "招手者",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[130]"
+    },
+    {
+      "id": "zh-1-205-0-14",
+      "name": "催化手枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[131]"
+    },
+    {
+      "id": "zh-1-205-1-1",
+      "name": "电弧投射器",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[132]"
+    },
+    {
+      "id": "zh-1-205-1-12",
+      "name": "惩击",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[133]"
+    },
+    {
+      "id": "zh-1-206-0-1",
+      "name": "EMP 脉冲",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[134]"
+    },
+    {
+      "id": "zh-1-206-1-0",
+      "name": "雷电发生器",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[135]"
+    },
+    {
+      "id": "zh-1-209-0-1",
+      "name": "催眠炸药",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[136]"
+    },
+    {
+      "id": "zh-1-209-0-18",
+      "name": "病毒逻辑套件",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[137]"
+    },
+    {
+      "id": "zh-1-209-1-1",
+      "name": "积极系统同步",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[138]"
+    },
+    {
+      "id": "zh-1-209-1-17",
+      "name": "空间翘曲雕刻",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[139]"
+    },
+    {
+      "id": "zh-1-210-0-1",
+      "name": "拦截场",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[140]"
+    },
+    {
+      "id": "zh-1-210-1-0",
+      "name": "刀剑律法",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[141]"
+    },
+    {
+      "id": "zh-1-213-0-1",
+      "name": "猎手锁定",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[142]"
+    },
+    {
+      "id": "zh-1-213-0-10",
+      "name": "智能枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[143]"
+    },
+    {
+      "id": "zh-1-213-1-1",
+      "name": "荷鲁斯之眼",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[144]"
+    },
+    {
+      "id": "zh-1-213-1-15",
+      "name": "拟态枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[145]"
+    },
+    {
+      "id": "zh-1-214-0-1",
+      "name": "西西弗斯级NHP",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[146]"
+    },
+    {
+      "id": "zh-1-214-1-0",
+      "name": "自动枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[147]"
+    },
+    {
+      "id": "zh-1-221-1-1",
+      "name": "“滾筒”定向推进炸药",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[148]"
+    },
+    {
+      "id": "zh-1-221-1-25",
+      "name": "攻城稳定器",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[149]"
+    },
+    {
+      "id": "zh-1-222-0-2",
+      "name": "自动装填无人机",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[150]"
+    },
+    {
+      "id": "zh-1-222-0-13",
+      "name": "高射炮发射器",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[151]"
+    },
+    {
+      "id": "zh-1-222-1-2",
+      "name": "外置供弹系统",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[152]"
+    },
+    {
+      "id": "zh-1-222-1-10",
+      "name": "攻城加农炮",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[153]"
+    },
+    {
+      "id": "zh-1-225-0-1",
+      "name": "爆炸性通风",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[154]"
+    },
+    {
+      "id": "zh-1-225-0-10",
+      "name": "喀拉喀托温压火焰喷射器",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[155]"
+    },
+    {
+      "id": "zh-1-225-1-1",
+      "name": "浩劫炸药",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[156]"
+    },
+    {
+      "id": "zh-1-225-1-19",
+      "name": "自动冷却器",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[157]"
+    },
+    {
+      "id": "zh-1-226-0-1",
+      "name": "阿格尼级NHP",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[158]"
+    },
+    {
+      "id": "zh-1-226-1-0",
+      "name": "等离子体喷射器",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[159]"
+    },
+    {
+      "id": "zh-1-229-0-1",
+      "name": "搁浅炸药",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[160]"
+    },
+    {
+      "id": "zh-1-229-0-17",
+      "name": "短管加农炮",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[161]"
+    },
+    {
+      "id": "zh-1-229-1-1",
+      "name": "重力枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[162]"
+    },
+    {
+      "id": "zh-1-229-1-12",
+      "name": "斥力场",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[163]"
+    },
+    {
+      "id": "zh-1-230-0-1",
+      "name": "夹钳炸弹",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[164]"
+    },
+    {
+      "id": "zh-1-230-1-0",
+      "name": "超立方体",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[165]"
+    },
+    {
+      "id": "zh-1-233-0-1",
+      "name": "静滞插销",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[166]"
+    },
+    {
+      "id": "zh-1-233-0-17",
+      "name": "静滞发生器",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[167]"
+    },
+    {
+      "id": "zh-1-233-1-1",
+      "name": "静滞护盾",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[168]"
+    },
+    {
+      "id": "zh-1-233-1-18",
+      "name": "相位准备模块",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[169]"
+    },
+    {
+      "id": "zh-1-234-0-1",
+      "name": "霎盾",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[170]"
+    },
+    {
+      "id": "zh-1-234-1-0",
+      "name": "置换枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[171]"
+    },
+    {
+      "id": "zh-1-237-0-1",
+      "name": "飞地模式支援护盾",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[172]"
+    },
+    {
+      "id": "zh-1-237-0-17",
+      "name": "碎头集落导弹",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[173]"
+    },
+    {
+      "id": "zh-1-237-1-1",
+      "name": "闪现锚点",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[174]"
+    },
+    {
+      "id": "zh-1-237-1-14",
+      "name": "硬光防御系统",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[175]"
+    },
+    {
+      "id": "zh-1-238-0-1",
+      "name": "非因果律模块",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[176]"
+    },
+    {
+      "id": "zh-1-238-1-0",
+      "name": "诺亚级NHP",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[177]"
+    },
+    {
+      "id": "zh-1-239-1-7",
+      "name": "ZF4 固态堆芯",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[178]"
+    },
+    {
+      "id": "zh-1-241-0-2",
+      "name": "反应炉稳定器",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[179]"
+    },
+    {
+      "id": "zh-1-241-0-10",
+      "name": "索尔式镭射步枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[180]"
+    },
+    {
+      "id": "zh-1-241-1-2",
+      "name": "仙女座式重型镭射炮",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[181]"
+    },
+    {
+      "id": "zh-1-241-1-10",
+      "name": "冗余系统升级",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[182]"
+    },
+    {
+      "id": "zh-1-242-0-1",
+      "name": "阿修罗级NHP",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[183]"
+    },
+    {
+      "id": "zh-1-242-1-0",
+      "name": "迅子长枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[184]"
+    },
+    {
+      "id": "zh-1-245-0-1",
+      "name": "湮灭者",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[185]"
+    },
+    {
+      "id": "zh-1-245-0-14",
+      "name": "外置电池",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[186]"
+    },
+    {
+      "id": "zh-1-245-1-1",
+      "name": "深井实验性冷源",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[187]"
+    },
+    {
+      "id": "zh-1-245-1-11",
+      "name": "火炬",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[188]"
+    },
+    {
+      "id": "zh-1-246-0-1",
+      "name": "路西法级NHP",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[189]"
+    },
+    {
+      "id": "zh-1-246-1-0",
+      "name": "等离子护手",
+      "kind": "system",
+      "book": "lancer-1",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[190]"
+    },
+    {
+      "id": "zh-2-133-0-1",
+      "name": "铁磁流长枪",
+      "kind": "weapon",
+      "book": "lancer-2",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[191]"
+    },
+    {
+      "id": "zh-2-133-0-20",
+      "name": "钉刺螺旋",
+      "kind": "system",
+      "book": "lancer-2",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[192]"
+    },
+    {
+      "id": "zh-2-133-1-1",
+      "name": "共感护盾",
+      "kind": "system",
+      "book": "lancer-2",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[193]"
+    },
+    {
+      "id": "zh-2-133-1-18",
+      "name": "加缪之锋",
+      "kind": "system",
+      "book": "lancer-2",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[194]"
+    },
+    {
+      "id": "zh-2-134-0-1",
+      "name": "铁磁钉壁",
+      "kind": "system",
+      "book": "lancer-2",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[195]"
+    },
+    {
+      "id": "zh-2-134-1-0",
+      "name": "驳逆回环",
+      "kind": "weapon",
+      "book": "lancer-2",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[196]"
+    },
+    {
+      "id": "zh-2-136-0-8",
+      "name": "薛西斯之巅",
+      "kind": "weapon",
+      "book": "lancer-2",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[197]"
+    },
+    {
+      "id": "zh-2-137-0-1",
+      "name": "广域支配",
+      "kind": "system",
+      "book": "lancer-2",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[198]"
+    },
+    {
+      "id": "zh-2-137-0-22",
+      "name": "电箭巢房",
+      "kind": "weapon",
+      "book": "lancer-2",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[199]"
+    },
+    {
+      "id": "zh-2-137-1-1",
+      "name": "帝王之眼",
+      "kind": "system",
+      "book": "lancer-2",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[200]"
+    },
+    {
+      "id": "zh-2-137-1-19",
+      "name": "列王记",
+      "kind": "system",
+      "book": "lancer-2",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[201]"
+    },
+    {
+      "id": "zh-2-138-0-1",
+      "name": "朔望之证",
+      "kind": "system",
+      "book": "lancer-2",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[202]"
+    },
+    {
+      "id": "zh-2-138-1-0",
+      "name": "君王步态",
+      "kind": "system",
+      "book": "lancer-2",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[203]"
+    },
+    {
+      "id": "zh-3-39-0-1",
+      "name": "多档机动系统",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[204]"
+    },
+    {
+      "id": "zh-3-39-0-21",
+      "name": "克拉尔步枪",
+      "kind": "weapon",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[205]"
+    },
+    {
+      "id": "zh-3-39-1-1",
+      "name": "猎人之艺,一式",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[206]"
+    },
+    {
+      "id": "zh-3-39-1-13",
+      "name": "弹跳利刃",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[207]"
+    },
+    {
+      "id": "zh-3-40-0-1",
+      "name": "猎人之艺,二式",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[208]"
+    },
+    {
+      "id": "zh-3-40-1-0",
+      "name": "寺岛之刃",
+      "kind": "weapon",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[209]"
+    },
+    {
+      "id": "zh-3-43-1-8",
+      "name": "HHS-075“剥皮者”霰弹枪",
+      "kind": "weapon",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[210]"
+    },
+    {
+      "id": "zh-3-44-0-1",
+      "name": "锤式U-RPL",
+      "kind": "weapon",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[211]"
+    },
+    {
+      "id": "zh-3-44-0-9",
+      "name": "超巨质量模组",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[212]"
+    },
+    {
+      "id": "zh-3-44-1-1",
+      "name": "硬点加固",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[213]"
+    },
+    {
+      "id": "zh-3-44-1-9",
+      "name": "钉刺充能",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[214]"
+    },
+    {
+      "id": "zh-3-45-0-1",
+      "name": "高速机动喷口",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[215]"
+    },
+    {
+      "id": "zh-3-45-1-0",
+      "name": "HHS-155 食人族",
+      "kind": "weapon",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[216]"
+    },
+    {
+      "id": "zh-3-48-0-1",
+      "name": "熔炉钳夹",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[217]"
+    },
+    {
+      "id": "zh-3-48-0-13",
+      "name": "融核步枪",
+      "kind": "weapon",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[218]"
+    },
+    {
+      "id": "zh-3-48-1-1",
+      "name": "震荡开膛手",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[219]"
+    },
+    {
+      "id": "zh-3-48-1-16",
+      "name": "熔渣炮",
+      "kind": "weapon",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[220]"
+    },
+    {
+      "id": "zh-3-49-0-1",
+      "name": "献祭",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[221]"
+    },
+    {
+      "id": "zh-3-49-1-0",
+      "name": "净化代码",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[222]"
+    },
+    {
+      "id": "zh-3-53-0-1",
+      "name": "解脱者",
+      "kind": "weapon",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[223]"
+    },
+    {
+      "id": "zh-3-53-0-14",
+      "name": "彷徨梦魇",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[224]"
+    },
+    {
+      "id": "zh-3-53-1-1",
+      "name": "反线性时间",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[225]"
+    },
+    {
+      "id": "zh-3-53-1-15",
+      "name": "错乱年代表",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[226]"
+    },
+    {
+      "id": "zh-3-54-0-1",
+      "name": "狄律摩斯级NHP",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[227]"
+    },
+    {
+      "id": "zh-3-54-1-8",
+      "name": "死缓",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[228]"
+    },
+    {
+      "id": "zh-3-57-0-1",
+      "name": "加速",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[229]"
+    },
+    {
+      "id": "zh-3-57-0-17",
+      "name": "霎间炸药",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[230]"
+    },
+    {
+      "id": "zh-3-57-1-1",
+      "name": "霎间隧道器",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[231]"
+    },
+    {
+      "id": "zh-3-57-1-11",
+      "name": "扭曲步枪",
+      "kind": "weapon",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[232]"
+    },
+    {
+      "id": "zh-3-58-0-1",
+      "name": "终决机密",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[233]"
+    },
+    {
+      "id": "zh-3-58-1-0",
+      "name": "现世缺口",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[234]"
+    },
+    {
+      "id": "zh-3-62-0-1",
+      "name": "“猎虎”格斗臂套",
+      "kind": "weapon",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[235]"
+    },
+    {
+      "id": "zh-3-62-0-9",
+      "name": "力量总成套组I",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[236]"
+    },
+    {
+      "id": "zh-3-62-1-1",
+      "name": "热熔缭绕",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[237]"
+    },
+    {
+      "id": "zh-3-62-1-15",
+      "name": "力量总成套组II",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[238]"
+    },
+    {
+      "id": "zh-3-63-0-1",
+      "name": "D/D288",
+      "kind": "weapon",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[239]"
+    },
+    {
+      "id": "zh-3-63-1-0",
+      "name": "力量总成套组III",
+      "kind": "system",
+      "book": "lancer-3",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[240]"
+    },
+    {
+      "id": "zh-4-37-0-0",
+      "name": "阿拉斯卡级NHP",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[241]"
+    },
+    {
+      "id": "zh-4-52-0-8",
+      "name": "锤击",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[242]"
+    },
+    {
+      "id": "zh-4-52-0-22",
+      "name": "焚化炉",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[243]"
+    },
+    {
+      "id": "zh-4-52-1-15",
+      "name": "机枪",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[244]"
+    },
+    {
+      "id": "zh-4-71-0-1",
+      "name": "远程锁定继电枪",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[245]"
+    },
+    {
+      "id": "zh-4-71-0-21",
+      "name": "子母弹发射器",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[246]"
+    },
+    {
+      "id": "zh-4-71-1-1",
+      "name": "滑轮",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[247]"
+    },
+    {
+      "id": "zh-4-71-1-15",
+      "name": "可部署侦察卡宾枪",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[248]"
+    },
+    {
+      "id": "zh-4-71-1-30",
+      "name": "可部署侦察卡宾枪",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[249]"
+    },
+    {
+      "id": "zh-4-72-0-1",
+      "name": "可变几何机体",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[250]"
+    },
+    {
+      "id": "zh-4-72-1-0",
+      "name": "“猎犬级”伙伴礼宾单元",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[251]"
+    },
+    {
+      "id": "zh-4-75-0-1",
+      "name": "虎爪",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[252]"
+    },
+    {
+      "id": "zh-4-75-0-14",
+      "name": "爆破/反应装甲(ERA)分层",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[253]"
+    },
+    {
+      "id": "zh-4-75-1-1",
+      "name": "马克胡特链锯剑",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[254]"
+    },
+    {
+      "id": "zh-4-75-1-16",
+      "name": "修复型粘剂管道",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[255]"
+    },
+    {
+      "id": "zh-4-76-0-1",
+      "name": "传动化狼牙棒",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[256]"
+    },
+    {
+      "id": "zh-4-76-1-0",
+      "name": "奥贡级NHP",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[257]"
+    },
+    {
+      "id": "zh-4-78-0-1",
+      "name": "恶魔之牙",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[258]"
+    },
+    {
+      "id": "zh-4-81-0-19",
+      "name": "清道夫巢房",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[259]"
+    },
+    {
+      "id": "zh-4-81-1-1",
+      "name": "蜘蛛炸弹",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[260]"
+    },
+    {
+      "id": "zh-4-81-1-28",
+      "name": "沙罗曼蛇纵火霰弹枪",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[261]"
+    },
+    {
+      "id": "zh-4-82-0-1",
+      "name": "破坏者无人机",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[262]"
+    },
+    {
+      "id": "zh-4-82-1-15",
+      "name": "突击盾",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[263]"
+    },
+    {
+      "id": "zh-4-82-1-20",
+      "name": "可伸缩榴弹炮",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[264]"
+    },
+    {
+      "id": "zh-4-85-0-1",
+      "name": "病毒匕首",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[265]"
+    },
+    {
+      "id": "zh-4-85-0-17",
+      "name": "ECM 发射器",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[266]"
+    },
+    {
+      "id": "zh-4-85-1-1",
+      "name": "武器硬化",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[267]"
+    },
+    {
+      "id": "zh-4-85-1-14",
+      "name": "“捕兽夹”反侵入追踪器v.2.3",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[268]"
+    },
+    {
+      "id": "zh-4-86-0-1",
+      "name": "公牛反辐射导弹",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[269]"
+    },
+    {
+      "id": "zh-4-86-1-0",
+      "name": "“尖竹钉”反侵入荆棘v.1.6",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[270]"
+    },
+    {
+      "id": "zh-4-89-0-1",
+      "name": "级联雪崩模块",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[271]"
+    },
+    {
+      "id": "zh-4-89-0-14",
+      "name": "//影拳",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[272]"
+    },
+    {
+      "id": "zh-4-89-1-1",
+      "name": "落星模块",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[273]"
+    },
+    {
+      "id": "zh-4-89-1-14",
+      "name": "//蛇_牙击",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[274]"
+    },
+    {
+      "id": "zh-4-90-0-1",
+      "name": "浸吞模块",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[275]"
+    },
+    {
+      "id": "zh-4-90-1-0",
+      "name": "//碎心v.5.掌",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[276]"
+    },
+    {
+      "id": "zh-4-93-0-1",
+      "name": "弹石炸弹",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[277]"
+    },
+    {
+      "id": "zh-4-93-0-20",
+      "name": "纠结加农炮",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[278]"
+    },
+    {
+      "id": "zh-4-93-1-1",
+      "name": "休克鞭",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[279]"
+    },
+    {
+      "id": "zh-4-93-1-13",
+      "name": "扰频弹",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[280]"
+    },
+    {
+      "id": "zh-4-94-0-1",
+      "name": "爆炸锁链",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[281]"
+    },
+    {
+      "id": "zh-4-94-1-0",
+      "name": "地震脉冲场发生器",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[282]"
+    },
+    {
+      "id": "zh-4-97-0-1",
+      "name": "自适应重量",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[283]"
+    },
+    {
+      "id": "zh-4-97-0-15",
+      "name": "“游隼”寻索阔剑",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[284]"
+    },
+    {
+      "id": "zh-4-97-1-1",
+      "name": "智能刃",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[285]"
+    },
+    {
+      "id": "zh-4-97-1-14",
+      "name": "盾牌阵列无人机",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[286]"
+    },
+    {
+      "id": "zh-4-98-0-1",
+      "name": "规避游标阵列",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[287]"
+    },
+    {
+      "id": "zh-4-98-1-0",
+      "name": "阿尔忒弥斯级NHP",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[288]"
+    },
+    {
+      "id": "zh-4-99-1-12",
+      "name": "黑夹克战斗弓",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[289]"
+    },
+    {
+      "id": "zh-4-102-0-1",
+      "name": "防护罩导弹",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[290]"
+    },
+    {
+      "id": "zh-4-102-0-14",
+      "name": "全息炸弹",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[291]"
+    },
+    {
+      "id": "zh-4-102-1-1",
+      "name": "砚台适应性涂装",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[292]"
+    },
+    {
+      "id": "zh-4-102-1-13",
+      "name": "夜莺无人机",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[293]"
+    },
+    {
+      "id": "zh-4-103-0-1",
+      "name": "战术转移器",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[294]"
+    },
+    {
+      "id": "zh-4-103-1-0",
+      "name": "回声斗篷",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[295]"
+    },
+    {
+      "id": "zh-4-108-0-1",
+      "name": "“疣猪”GPMG",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[296]"
+    },
+    {
+      "id": "zh-4-108-0-16",
+      "name": "炮塔挂载点",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[297]"
+    },
+    {
+      "id": "zh-4-108-1-1",
+      "name": "粘滞发射器",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[298]"
+    },
+    {
+      "id": "zh-4-109-0-0",
+      "name": "巨质包",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[299]"
+    },
+    {
+      "id": "zh-4-109-0-24",
+      "name": "反火力套组",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[300]"
+    },
+    {
+      "id": "zh-4-109-1-0",
+      "name": "Mk 12 底盘支援武器器",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[301]"
+    },
+    {
+      "id": "zh-4-109-1-7",
+      "name": "用一个快速动作为你装填该武器:",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[302]"
+    },
+    {
+      "id": "zh-4-113-0-1",
+      "name": "SABR 引擎",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[303]"
+    },
+    {
+      "id": "zh-4-113-0-15",
+      "name": "群聚巢房",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[304]"
+    },
+    {
+      "id": "zh-4-113-1-1",
+      "name": "弓兵巢房",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[305]"
+    },
+    {
+      "id": "zh-4-113-1-13",
+      "name": "白星信号拦截器",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[306]"
+    },
+    {
+      "id": "zh-4-114-0-1",
+      "name": "EW/ECM 阵列",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[307]"
+    },
+    {
+      "id": "zh-4-114-1-0",
+      "name": "猎兔犬巢房",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[308]"
+    },
+    {
+      "id": "zh-4-120-0-1",
+      "name": "空间穿线器",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[309]"
+    },
+    {
+      "id": "zh-4-120-0-20",
+      "name": "滑移枪",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[310]"
+    },
+    {
+      "id": "zh-4-120-1-1",
+      "name": "纠缠约束器",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[311]"
+    },
+    {
+      "id": "zh-4-120-1-20",
+      "name": "超储库分流",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[312]"
+    },
+    {
+      "id": "zh-4-121-0-1",
+      "name": "曲刃",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[313]"
+    },
+    {
+      "id": "zh-4-121-1-0",
+      "name": "伊贝吉级NHP 流",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[314]"
+    },
+    {
+      "id": "zh-4-128-0-1",
+      "name": "桥梁层叠包",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[315]"
+    },
+    {
+      "id": "zh-4-128-0-17",
+      "name": "弩炮战斗霰弹枪",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[316]"
+    },
+    {
+      "id": "zh-4-128-1-1",
+      "name": "休克桥塔",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[317]"
+    },
+    {
+      "id": "zh-4-128-1-19",
+      "name": "大型起重传动装置",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[318]"
+    },
+    {
+      "id": "zh-4-129-0-1",
+      "name": "系统优化程序",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[319]"
+    },
+    {
+      "id": "zh-4-129-1-0",
+      "name": "帕尔瓦蒂级NHP",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[320]"
+    },
+    {
+      "id": "zh-4-134-0-5",
+      "name": "下挂式冲击器",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[321]"
+    },
+    {
+      "id": "zh-4-134-1-0",
+      "name": "弹道臂盾",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[322]"
+    },
+    {
+      "id": "zh-4-135-0-5",
+      "name": "哨兵无人机",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[323]"
+    },
+    {
+      "id": "zh-4-135-1-0",
+      "name": "主动防御系统",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[324]"
+    },
+    {
+      "id": "zh-4-136-0-5",
+      "name": "FCS 战术网络中继",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[325]"
+    },
+    {
+      "id": "zh-4-136-1-0",
+      "name": "密特拉级NHP",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[326]"
+    },
+    {
+      "id": "zh-4-137-0-5",
+      "name": "瓦亚维亚导弹",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[327]"
+    },
+    {
+      "id": "zh-4-137-1-0",
+      "name": "ATG 精确炸弹",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[328]"
+    },
+    {
+      "id": "zh-4-138-0-5",
+      "name": "哥瓦尔丹微型导弹",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[329]"
+    },
+    {
+      "id": "zh-4-138-1-0",
+      "name": "缇娜玻安导弹",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[330]"
+    },
+    {
+      "id": "zh-4-139-0-6",
+      "name": "“凉风”温控器",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[331]"
+    },
+    {
+      "id": "zh-4-139-1-0",
+      "name": "HSC 电镀",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[332]"
+    },
+    {
+      "id": "zh-4-140-0-6",
+      "name": "塔佐蠕虫",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[333]"
+    },
+    {
+      "id": "zh-4-140-1-0",
+      "name": "厌恶/反射",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[334]"
+    },
+    {
+      "id": "zh-4-141-0-5",
+      "name": "扫描炸弹",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[335]"
+    },
+    {
+      "id": "zh-4-141-1-0",
+      "name": "寻索弹射器",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[336]"
+    },
+    {
+      "id": "zh-4-142-0-6",
+      "name": "自我意识桥接",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[337]"
+    },
+    {
+      "id": "zh-4-142-1-0",
+      "name": "本体论超空间战术脉冲",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[338]"
+    },
+    {
+      "id": "zh-4-143-0-5",
+      "name": "“北极星”式多功能镭射枪",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[339]"
+    },
+    {
+      "id": "zh-4-143-1-0",
+      "name": "“猎户座”式热射镭射枪",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[340]"
+    },
+    {
+      "id": "zh-4-144-0-5",
+      "name": "模块化先进战斗步枪",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[341]"
+    },
+    {
+      "id": "zh-4-144-1-0",
+      "name": "最优化工程",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[342]"
+    },
+    {
+      "id": "zh-4-145-0-6",
+      "name": "重力风向标",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[343]"
+    },
+    {
+      "id": "zh-4-145-1-0",
+      "name": "运动驱动器",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[344]"
+    },
+    {
+      "id": "zh-4-146-0-5",
+      "name": "战术带",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[345]"
+    },
+    {
+      "id": "zh-4-146-1-0",
+      "name": "武器舱",
+      "kind": "system",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[346]"
+    },
+    {
+      "id": "zh-4-147-0-5",
+      "name": "热风冲锋手枪",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[347]"
+    },
+    {
+      "id": "zh-4-147-1-0",
+      "name": "重击炮",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[348]"
+    },
+    {
+      "id": "zh-4-148-0-5",
+      "name": "等离子电浆盾",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[349]"
+    },
+    {
+      "id": "zh-4-148-1-0",
+      "name": "赫塔卡重型战斗盾",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[350]"
+    },
+    {
+      "id": "zh-4-149-0-46",
+      "name": "远程机炮",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[351]"
+    },
+    {
+      "id": "zh-4-149-1-32",
+      "name": "自动榴弹发射器",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[352]"
+    },
+    {
+      "id": "zh-4-151-0-46",
+      "name": "即抛式PDW",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[353]"
+    },
+    {
+      "id": "zh-4-151-1-26",
+      "name": "民兵步枪",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[354]"
+    },
+    {
+      "id": "zh-4-151-1-34",
+      "name": "反装甲高爆炸弹",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[355]"
+    },
+    {
+      "id": "zh-4-153-0-47",
+      "name": "槌拳",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[356]"
+    },
+    {
+      "id": "zh-4-153-1-21",
+      "name": "转矩连枷",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[357]"
+    },
+    {
+      "id": "zh-4-153-1-25",
+      "name": "突破钻",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[358]"
+    },
+    {
+      "id": "zh-4-153-1-31",
+      "name": "活塞式压缩长矛",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[359]"
+    },
+    {
+      "id": "zh-4-155-1-30",
+      "name": "磁感魔爪",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[360]"
+    },
+    {
+      "id": "zh-4-157-0-48",
+      "name": "冲击手甲",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[361]"
+    },
+    {
+      "id": "zh-4-159-0-46",
+      "name": "相位利刃",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[362]"
+    },
+    {
+      "id": "zh-4-161-0-46",
+      "name": "位移鞭",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[363]"
+    },
+    {
+      "id": "zh-4-163-0-44",
+      "name": "突击卡宾枪",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[364]"
+    },
+    {
+      "id": "zh-4-165-0-48",
+      "name": "镭射钻",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[365]"
+    },
+    {
+      "id": "zh-4-167-0-49",
+      "name": "火控连接电池",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[366]"
+    },
+    {
+      "id": "zh-4-167-1-30",
+      "name": "脊柱光矛",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[367]"
+    },
+    {
+      "id": "zh-4-168-0-18",
+      "name": "点式防御阵列",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[368]"
+    },
+    {
+      "id": "zh-4-169-0-45",
+      "name": "纳米碳戟",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[369]"
+    },
+    {
+      "id": "zh-4-172-0-17",
+      "name": "安装炮塔",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[370]"
+    },
+    {
+      "id": "zh-4-172-0-25",
+      "name": "打桩机",
+      "kind": "weapon",
+      "book": "lancer-4",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[371]"
+    },
+    {
+      "id": "zh-5-88-0-21",
+      "name": "数据飞镖",
+      "kind": "weapon",
+      "book": "lancer-5",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[372]"
+    },
+    {
+      "id": "zh-5-89-0-14",
+      "name": "马尔杜克级NHP",
+      "kind": "system",
+      "book": "lancer-5",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[373]"
+    },
+    {
+      "id": "zh-5-90-0-0",
+      "name": "伊南娜级NHP",
+      "kind": "system",
+      "book": "lancer-5",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[374]"
+    },
+    {
+      "id": "zh-5-91-1-0",
+      "name": "埃列什基伽勒级NHP",
+      "kind": "system",
+      "book": "lancer-5",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[375]"
+    },
+    {
+      "id": "zh-5-92-0-0",
+      "name": "涅伽尔级NHP",
+      "kind": "system",
+      "book": "lancer-5",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[376]"
+    },
+    {
+      "id": "zh-6-31-0-12",
+      "name": "爆破者工具箱",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[377]"
+    },
+    {
+      "id": "zh-6-36-0-1",
+      "name": "寻血猎犬mk3.3 集群嗅探器",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[378]"
+    },
+    {
+      "id": "zh-6-36-0-11",
+      "name": "长尾鲨无人机",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[379]"
+    },
+    {
+      "id": "zh-6-36-1-1",
+      "name": "“激流”弹道捕鲸叉",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[380]"
+    },
+    {
+      "id": "zh-6-36-1-11",
+      "name": "跃迁驱动器",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[381]"
+    },
+    {
+      "id": "zh-6-37-0-1",
+      "name": "舱壁螺钻",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[382]"
+    },
+    {
+      "id": "zh-6-37-1-0",
+      "name": "进入导轨",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[383]"
+    },
+    {
+      "id": "zh-6-40-0-1",
+      "name": "透镜制造法典v.08",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[384]"
+    },
+    {
+      "id": "zh-6-40-0-17",
+      "name": "声波炸药",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[385]"
+    },
+    {
+      "id": "zh-6-40-1-1",
+      "name": "点弹射流形簇",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[386]"
+    },
+    {
+      "id": "zh-6-40-1-17",
+      "name": "尖啸步枪",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[387]"
+    },
+    {
+      "id": "zh-6-41-0-1",
+      "name": "“洞察”原型思维体",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[388]"
+    },
+    {
+      "id": "zh-6-41-1-0",
+      "name": "犹大漏洞",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[389]"
+    },
+    {
+      "id": "zh-6-44-0-1",
+      "name": "痴迷.递归(T)",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[390]"
+    },
+    {
+      "id": "zh-6-44-0-12",
+      "name": "辉耀羽流",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[391]"
+    },
+    {
+      "id": "zh-6-44-1-1",
+      "name": "半衰烈日透镜",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[392]"
+    },
+    {
+      "id": "zh-6-44-1-12",
+      "name": "“圣武士”碎片整理子程序",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[393]"
+    },
+    {
+      "id": "zh-6-45-0-1",
+      "name": "日冕倾泻",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[394]"
+    },
+    {
+      "id": "zh-6-45-1-0",
+      "name": "虹彩全息鳞",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[395]"
+    },
+    {
+      "id": "zh-6-46-1-9",
+      "name": "PT3 耀斑弓",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[396]"
+    },
+    {
+      "id": "zh-6-48-0-1",
+      "name": "阻燃性单元",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[397]"
+    },
+    {
+      "id": "zh-6-48-0-11",
+      "name": "电离炸药",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[398]"
+    },
+    {
+      "id": "zh-6-48-1-1",
+      "name": "电磁感应焊机",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[399]"
+    },
+    {
+      "id": "zh-6-48-1-22",
+      "name": "台风型离子通道",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[400]"
+    },
+    {
+      "id": "zh-6-49-0-1",
+      "name": "蒸发冷却镀层",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[401]"
+    },
+    {
+      "id": "zh-6-49-1-0",
+      "name": "祭品电箭",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[402]"
+    },
+    {
+      "id": "zh-6-52-0-1",
+      "name": "繁茂炸药",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[403]"
+    },
+    {
+      "id": "zh-6-52-0-17",
+      "name": "TT.7 雪盲",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[404]"
+    },
+    {
+      "id": "zh-6-52-1-1",
+      "name": "散射弓",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[405]"
+    },
+    {
+      "id": "zh-6-52-1-10",
+      "name": "“治愈之手”绿浴套组",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[406]"
+    },
+    {
+      "id": "zh-6-53-0-1",
+      "name": "碳钢自动机械锯",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[407]"
+    },
+    {
+      "id": "zh-6-53-1-0",
+      "name": "“残酷收割”等离子镰",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[408]"
+    },
+    {
+      "id": "zh-6-55-0-1",
+      "name": "吉利斗篷",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[409]"
+    },
+    {
+      "id": "zh-6-55-1-1",
+      "name": "蔓生炸药",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[410]"
+    },
+    {
+      "id": "zh-6-55-1-16",
+      "name": "烟雾发生器",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[411]"
+    },
+    {
+      "id": "zh-6-56-0-1",
+      "name": "分裂弹",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[412]"
+    },
+    {
+      "id": "zh-6-56-1-0",
+      "name": "野火导弹",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[413]"
+    },
+    {
+      "id": "zh-6-58-0-1",
+      "name": "燧发手枪",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[414]"
+    },
+    {
+      "id": "zh-6-58-0-11",
+      "name": "陷阱炸药",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[415]"
+    },
+    {
+      "id": "zh-6-58-1-1",
+      "name": "TT.6“猛男”支援无人机",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[416]"
+    },
+    {
+      "id": "zh-6-58-1-14",
+      "name": "毒蛇无人机",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[417]"
+    },
+    {
+      "id": "zh-6-59-0-1",
+      "name": "“药剂师”射手步枪",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[418]"
+    },
+    {
+      "id": "zh-6-59-1-0",
+      "name": "帕尔瓦蒂级NHP",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[419]"
+    },
+    {
+      "id": "zh-6-62-0-1",
+      "name": "载体夹",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[420]"
+    },
+    {
+      "id": "zh-6-62-0-13",
+      "name": "炫彩",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[421]"
+    },
+    {
+      "id": "zh-6-62-1-1",
+      "name": "切伦科夫流形簇",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[422]"
+    },
+    {
+      "id": "zh-6-62-1-12",
+      "name": "蝉鸣叨叨",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[423]"
+    },
+    {
+      "id": "zh-6-63-0-1",
+      "name": "电流虫群",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[424]"
+    },
+    {
+      "id": "zh-6-63-1-0",
+      "name": "电击炸药",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[425]"
+    },
+    {
+      "id": "zh-6-65-0-1",
+      "name": "“研磨者”战斗UZI",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[426]"
+    },
+    {
+      "id": "zh-6-65-0-12",
+      "name": "B.M.X.自动打印平台",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[427]"
+    },
+    {
+      "id": "zh-6-65-1-1",
+      "name": "等离子脚轮",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[428]"
+    },
+    {
+      "id": "zh-6-65-1-9",
+      "name": "血浆胎面",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[429]"
+    },
+    {
+      "id": "zh-6-66-0-1",
+      "name": "油脂炸药",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[430]"
+    },
+    {
+      "id": "zh-6-66-1-0",
+      "name": "墨丘利级NHP",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[431]"
+    },
+    {
+      "id": "zh-6-68-0-1",
+      "name": "全地形合成肌",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[432]"
+    },
+    {
+      "id": "zh-6-68-0-9",
+      "name": "火炉之锤",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[433]"
+    },
+    {
+      "id": "zh-6-68-1-1",
+      "name": "钢钉驱动器",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[434]"
+    },
+    {
+      "id": "zh-6-68-1-17",
+      "name": "卡扣式挤压采矿钳",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[435]"
+    },
+    {
+      "id": "zh-6-69-0-1",
+      "name": "地质形态粉碎球",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[436]"
+    },
+    {
+      "id": "zh-6-69-1-0",
+      "name": "地震炸药",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[437]"
+    },
+    {
+      "id": "zh-6-71-0-1",
+      "name": "霜冻炸药",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[438]"
+    },
+    {
+      "id": "zh-6-71-0-18",
+      "name": "弹簧锁播种机",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[439]"
+    },
+    {
+      "id": "zh-6-71-1-1",
+      "name": "TT.8“阿尔卑斯之春”卡宾枪",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[440]"
+    },
+    {
+      "id": "zh-6-71-1-11",
+      "name": "雪崩冲锋",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[441]"
+    },
+    {
+      "id": "zh-6-72-0-1",
+      "name": "TT.32“冰湖”冷却剂喷管",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[442]"
+    },
+    {
+      "id": "zh-6-72-1-0",
+      "name": "斯卡蒂级NHP",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[443]"
+    },
+    {
+      "id": "zh-6-75-0-1",
+      "name": "货物步行者",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[444]"
+    },
+    {
+      "id": "zh-6-75-0-17",
+      "name": "阻尼泵合金",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[445]"
+    },
+    {
+      "id": "zh-6-75-1-1",
+      "name": "双耳瓶无人机",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[446]"
+    },
+    {
+      "id": "zh-6-75-1-19",
+      "name": "仓补炸药",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[447]"
+    },
+    {
+      "id": "zh-6-76-0-1",
+      "name": "陶制外层涂料",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[448]"
+    },
+    {
+      "id": "zh-6-76-1-0",
+      "name": "纳米级陶粒载体",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[449]"
+    },
+    {
+      "id": "zh-6-78-0-48",
+      "name": "泥浆加农炮",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[450]"
+    },
+    {
+      "id": "zh-6-80-0-42",
+      "name": "“太鼓”GL-16",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[451]"
+    },
+    {
+      "id": "zh-6-81-0-45",
+      "name": "拦截式SMG",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[452]"
+    },
+    {
+      "id": "zh-6-82-0-58",
+      "name": "示踪步枪",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[453]"
+    },
+    {
+      "id": "zh-6-83-0-12",
+      "name": "“致命一击”",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[454]"
+    },
+    {
+      "id": "zh-6-84-0-43",
+      "name": "“黑寡妇”长步枪",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[455]"
+    },
+    {
+      "id": "zh-6-84-1-17",
+      "name": "爆裂筒仓",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[456]"
+    },
+    {
+      "id": "zh-6-88-1-2",
+      "name": "抛出燃料棒",
+      "kind": "weapon",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[457]"
+    },
+    {
+      "id": "zh-6-93-1-15",
+      "name": "弹药吊索",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[458]"
+    },
+    {
+      "id": "zh-6-94-1-6",
+      "name": "达米安的提神饮料",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[459]"
+    },
+    {
+      "id": "zh-6-98-0-0",
+      "name": "不稳定炸药",
+      "kind": "system",
+      "book": "lancer-6",
+      "automation": "reference",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[460]"
+    },
+    {
+      "id": "zh-gms-weapon-0",
+      "name": "反器材步枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[461]"
+    },
+    {
+      "id": "zh-gms-weapon-1",
+      "name": "突击步枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[462]"
+    },
+    {
+      "id": "zh-gms-weapon-2",
+      "name": "充能刃",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[463]"
+    },
+    {
+      "id": "zh-gms-weapon-3",
+      "name": "气旋脉冲步枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[464]"
+    },
+    {
+      "id": "zh-gms-weapon-4",
+      "name": "重型充能刃",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[465]"
+    },
+    {
+      "id": "zh-gms-weapon-5",
+      "name": "重型机枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[466]"
+    },
+    {
+      "id": "zh-gms-weapon-6",
+      "name": "重型近战武器",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[467]"
+    },
+    {
+      "id": "zh-gms-weapon-7",
+      "name": "榴弹炮",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[468]"
+    },
+    {
+      "id": "zh-gms-weapon-8",
+      "name": "导弹发射架",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[469]"
+    },
+    {
+      "id": "zh-gms-weapon-9",
+      "name": "迫击炮",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[470]"
+    },
+    {
+      "id": "zh-gms-weapon-10",
+      "name": "巢房(追猎)",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[471]"
+    },
+    {
+      "id": "zh-gms-weapon-11",
+      "name": "巢房(轻)",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[472]"
+    },
+    {
+      "id": "zh-gms-weapon-12",
+      "name": "手枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[473]"
+    },
+    {
+      "id": "zh-gms-weapon-13",
+      "name": "多段刀",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[474]"
+    },
+    {
+      "id": "zh-gms-weapon-14",
+      "name": "火箭推进榴弹",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[475]"
+    },
+    {
+      "id": "zh-gms-weapon-15",
+      "name": "霰弹枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[476]"
+    },
+    {
+      "id": "zh-gms-weapon-16",
+      "name": "战术匕首",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[477]"
+    },
+    {
+      "id": "zh-gms-weapon-17",
+      "name": "战术近战武器",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[478]"
+    },
+    {
+      "id": "zh-gms-weapon-18",
+      "name": "热能长枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[479]"
+    },
+    {
+      "id": "zh-gms-weapon-19",
+      "name": "热能手枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[480]"
+    },
+    {
+      "id": "zh-gms-weapon-20",
+      "name": "热能步枪",
+      "kind": "weapon",
+      "book": "lancer-1",
+      "automation": "weapon",
+      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "location": "$.entries[481]"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "format": "aaf-journal",
+  "version": 1,
+  "entry": {
+    "id": "demo-journal",
+    "kind": "journal",
+    "title": "旧渡口 · GM手记",
+    "body": "目的：认识向导。线索：渡船延期。和平出口：等待或改道。战斗出口：另备战术场景。",
+    "visibility": "gm",
+    "authorId": "demo-gm",
+    "status": "open",
+    "sceneId": "initial"
+  }
+}

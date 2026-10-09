@@ -1,0 +1,426 @@
+{
+  "date": "2026-10-10",
+  "scope": "ID and names only. Index inclusion does not establish automation or redistribution rights.",
+  "entries": [
+    {
+      "id": "tw-R01",
+      "name": "菲林",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 4"
+    },
+    {
+      "id": "tw-R02",
+      "name": "鲁珀",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 22"
+    },
+    {
+      "id": "tw-R03",
+      "name": "沃尔珀",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 40"
+    },
+    {
+      "id": "tw-R04",
+      "name": "佩洛",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 58"
+    },
+    {
+      "id": "tw-R05",
+      "name": "库兰塔",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 76"
+    },
+    {
+      "id": "tw-R06",
+      "name": "卡普里尼",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 94"
+    },
+    {
+      "id": "tw-R07",
+      "name": "黎博利",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 112"
+    },
+    {
+      "id": "tw-R08",
+      "name": "乌萨斯",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 130"
+    },
+    {
+      "id": "tw-R09",
+      "name": "萨卡兹",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 148"
+    },
+    {
+      "id": "tw-R10",
+      "name": "萨科塔",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 166"
+    },
+    {
+      "id": "tw-R11",
+      "name": "龙",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 184"
+    },
+    {
+      "id": "tw-R12",
+      "name": "德拉克",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 202"
+    },
+    {
+      "id": "tw-R13",
+      "name": "阿斯兰",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 220"
+    },
+    {
+      "id": "tw-R14",
+      "name": "丰蹄",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 238"
+    },
+    {
+      "id": "tw-R15",
+      "name": "杜林",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 256"
+    },
+    {
+      "id": "tw-R16",
+      "name": "安努拉",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 274"
+    },
+    {
+      "id": "tw-R17",
+      "name": "阿戈尔",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 292"
+    },
+    {
+      "id": "tw-R18",
+      "name": "阿达克利斯",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 310"
+    },
+    {
+      "id": "tw-R19",
+      "name": "萨弗拉",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 328"
+    },
+    {
+      "id": "tw-R20",
+      "name": "埃拉菲亚",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 346"
+    },
+    {
+      "id": "tw-R21",
+      "name": "扎拉克",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 364"
+    },
+    {
+      "id": "tw-R22",
+      "name": "卡特斯",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 382"
+    },
+    {
+      "id": "tw-R23",
+      "name": "斐迪亚",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 400"
+    },
+    {
+      "id": "tw-R24",
+      "name": "瓦伊凡",
+      "kind": "species",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 418"
+    },
+    {
+      "id": "tw-B01",
+      "name": "流动诊所学徒",
+      "kind": "background",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 436"
+    },
+    {
+      "id": "tw-B02",
+      "name": "货运护卫",
+      "kind": "background",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 456"
+    },
+    {
+      "id": "tw-B03",
+      "name": "城邦工务学徒",
+      "kind": "background",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 476"
+    },
+    {
+      "id": "tw-B04",
+      "name": "退役军人",
+      "kind": "background",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 496"
+    },
+    {
+      "id": "tw-B05",
+      "name": "荒野拾遗者",
+      "kind": "background",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 516"
+    },
+    {
+      "id": "tw-B06",
+      "name": "档案抄写员",
+      "kind": "background",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 536"
+    },
+    {
+      "id": "tw-B07",
+      "name": "工棚协调员",
+      "kind": "background",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 556"
+    },
+    {
+      "id": "tw-B08",
+      "name": "法术技艺实习生",
+      "kind": "background",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 576"
+    },
+    {
+      "id": "tw-B09",
+      "name": "荒原测绘员",
+      "kind": "background",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 596"
+    },
+    {
+      "id": "tw-B10",
+      "name": "感染者互助志愿者",
+      "kind": "background",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 616"
+    },
+    {
+      "id": "tw-B11",
+      "name": "边境检疫助理",
+      "kind": "background",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 636"
+    },
+    {
+      "id": "tw-B12",
+      "name": "商旅联络员",
+      "kind": "background",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 656"
+    },
+    {
+      "id": "tw-B13",
+      "name": "边区信使",
+      "kind": "background",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 676"
+    },
+    {
+      "id": "tw-B14",
+      "name": "旧城维修员",
+      "kind": "background",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 696"
+    },
+    {
+      "id": "tw-B15",
+      "name": "乡镇教师",
+      "kind": "background",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 716"
+    },
+    {
+      "id": "tw-B16",
+      "name": "研究设施离职者",
+      "kind": "background",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 736"
+    },
+    {
+      "id": "tw-F01",
+      "name": "野外急救",
+      "kind": "feat",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 756"
+    },
+    {
+      "id": "tw-F02",
+      "name": "货线熟手",
+      "kind": "feat",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 771"
+    },
+    {
+      "id": "tw-F03",
+      "name": "工坊学徒",
+      "kind": "feat",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 786"
+    },
+    {
+      "id": "tw-F04",
+      "name": "战线观察者",
+      "kind": "feat",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 801"
+    },
+    {
+      "id": "tw-F05",
+      "name": "拾遗者",
+      "kind": "feat",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 816"
+    },
+    {
+      "id": "tw-F06",
+      "name": "记录保管人",
+      "kind": "feat",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 831"
+    },
+    {
+      "id": "tw-F07",
+      "name": "互助组织者",
+      "kind": "feat",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 846"
+    },
+    {
+      "id": "tw-F08",
+      "name": "源石学入门",
+      "kind": "feat",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 861"
+    },
+    {
+      "id": "tw-F09",
+      "name": "护运盾手",
+      "kind": "feat",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 876"
+    },
+    {
+      "id": "tw-F10",
+      "name": "铳械维护员",
+      "kind": "feat",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 891"
+    },
+    {
+      "id": "tw-F11",
+      "name": "精准构式",
+      "kind": "feat",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 906"
+    },
+    {
+      "id": "tw-F12",
+      "name": "战地护理",
+      "kind": "feat",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 921"
+    },
+    {
+      "id": "tw-F13",
+      "name": "长夜守望",
+      "kind": "feat",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 936"
+    },
+    {
+      "id": "tw-F14",
+      "name": "工务专精",
+      "kind": "feat",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 951"
+    },
+    {
+      "id": "tw-F15",
+      "name": "救援拖带",
+      "kind": "feat",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 966"
+    },
+    {
+      "id": "tw-F16",
+      "name": "交叉掩护",
+      "kind": "feat",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 981"
+    },
+    {
+      "id": "tw-F17",
+      "name": "源石屏障师",
+      "kind": "feat",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 996"
+    },
+    {
+      "id": "tw-F18",
+      "name": "迁徙领航",
+      "kind": "feat",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 1011"
+    },
+    {
+      "id": "tw-F19",
+      "name": "不灭守途之恩",
+      "kind": "feat",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 1026"
+    },
+    {
+      "id": "tw-F20",
+      "name": "天际构式之恩",
+      "kind": "feat",
+      "source": "game/packages/rules-engine/src/terra/creation.generated.ts",
+      "location": "line 1041"
+    }
+  ]
+}

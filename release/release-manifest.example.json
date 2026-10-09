@@ -1,0 +1,24 @@
+{
+  "format": "gongzhui-release",
+  "version": 1,
+  "releaseId": "0.1.0-docs-20261010-draft",
+  "status": "draft",
+  "appVersion": "0.1.0",
+  "serverVersion": "0.1.0",
+  "docsSnapshot": "2026-10-10",
+  "notes": "发行规范示例；本次未执行原生构建，没有对应安装包或已部署服务。",
+  "compatibility": {
+    "clientServerPairTested": false,
+    "requiredServerCapabilities": ["accounts-v1", "multi-system-worlds-v1", "publications-v1"],
+    "systems": [
+      {"systemId":"aaf","systemVersion":"aaf-2026-09"},
+      {"systemId":"dnd5e-2024","systemVersion":"2024"},
+      {"systemId":"lancer","systemVersion":"1"},
+      {"systemId":"otherworld-journey","systemVersion":"0.1-editorial.1"},
+      {"systemId":"dnd5e-2024","systemVersion":"2024","ruleVariant":{"id":"terra-walker","version":"0.9.1","base":"2024"}},
+      {"systemId":"lancer","systemVersion":"1","ruleVariant":{"id":"new-utopia","version":"0.1.1","base":"lancer-1","resources":"1.0"}}
+    ],
+    "migrations": []
+  },
+  "artifacts": []
+}

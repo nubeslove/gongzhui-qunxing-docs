@@ -1,0 +1,109 @@
+{
+  "format": "aaf-actor",
+  "version": 1,
+  "systemId": "lancer",
+  "systemVersion": "1",
+  "actor": {
+    "utopia": {
+      "version": 1,
+      "level": 1,
+      "frame": "F03",
+      "tune": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "background": "BG05",
+      "triggers": {
+        "TR06": 2,
+        "TR04": 2,
+        "TR14": 2,
+        "TR09": 2
+      },
+      "talents": {
+        "T11": 1,
+        "T17": 1,
+        "T13": 1
+      },
+      "technology": {},
+      "cores": [],
+      "feats": [
+        "NP04"
+      ],
+      "tools": [
+        "N01",
+        "N02",
+        "N08"
+      ],
+      "equipment": [
+        {
+          "id": "gear-1",
+          "entry": "W07",
+          "mount": 0,
+          "charges": 0,
+          "loaded": true,
+          "destroyed": false
+        },
+        {
+          "id": "gear-2",
+          "entry": "W04",
+          "mount": 1,
+          "charges": 0,
+          "loaded": true,
+          "destroyed": false
+        },
+        {
+          "id": "gear-3",
+          "entry": "S03",
+          "mount": -1,
+          "charges": 0,
+          "loaded": true,
+          "destroyed": false
+        },
+        {
+          "id": "gear-4",
+          "entry": "S11",
+          "mount": -1,
+          "charges": 0,
+          "loaded": true,
+          "destroyed": false
+        },
+        {
+          "id": "gear-5",
+          "entry": "S02",
+          "mount": -1,
+          "charges": 0,
+          "loaded": true,
+          "destroyed": false
+        }
+      ],
+      "resources": {
+        "hp": 14,
+        "structure": 4,
+        "power": 4,
+        "heat": 0,
+        "resonance": 0,
+        "erosion": 0,
+        "repair": 6,
+        "cp": 1,
+        "shield": 0,
+        "burn": 0,
+        "overcharge": 0
+      },
+      "conditions": [],
+      "turns": 0,
+      "uses": {}
+    },
+    "id": "demo-utopia",
+    "name": "训练使徒",
+    "ownerId": "",
+    "public": false,
+    "fields": {},
+    "notes": ""
+  },
+  "resources": [],
+  "grants": [],
+  "counters": [],
+  "catalog": []
+}

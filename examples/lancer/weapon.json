@@ -1,0 +1,34 @@
+{
+  "name": "训练步枪",
+  "sp": 0,
+  "limited": 0,
+  "used": 0,
+  "notes": "自编接口示例；平衡性由GM决定。",
+  "resourceId": "custom:demo-rifle",
+  "automation": {
+    "version": 1,
+    "kind": "weapon",
+    "profile": {
+      "weaponType": "rifle",
+      "damageParts": [
+        {
+          "damage": "1d6",
+          "type": "kinetic"
+        }
+      ],
+      "range": 10,
+      "threat": 1,
+      "accuracy": 0,
+      "selfHeat": 0,
+      "reliable": 0,
+      "knockback": 0,
+      "tags": []
+    }
+  },
+  "size": "main",
+  "mount": 0,
+  "brace": -1,
+  "damage": "1d6 kinetic",
+  "range": "10",
+  "tags": ""
+}

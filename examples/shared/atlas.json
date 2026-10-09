@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "revision": 0,
+  "currentId": "demo-pier",
+  "nodes": [
+    {
+      "id": "demo-coast",
+      "parentId": null,
+      "name": "示例海岸",
+      "kind": "region",
+      "x": 0.5,
+      "y": 0.5,
+      "image": "",
+      "description": "请由GM上传区域地图。",
+      "people": [],
+      "visible": true
+    },
+    {
+      "id": "demo-pier",
+      "parentId": "demo-coast",
+      "name": "旧渡口",
+      "kind": "place",
+      "x": 0.4,
+      "y": 0.65,
+      "image": "",
+      "description": "玩家可以与向导交谈。",
+      "people": [],
+      "visible": true
+    }
+  ]
+}

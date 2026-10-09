@@ -1,0 +1,54 @@
+{
+  "story": {
+    "version": 1,
+    "assetPack": {
+      "name": "AAF 空白备团草稿",
+      "files": [],
+      "directory": {
+        "revision": 0,
+        "folders": [],
+        "entries": {}
+      }
+    },
+    "members": [],
+    "packs": [
+      {
+        "id": "core",
+        "name": "核心规则",
+        "enabled": true
+      },
+      {
+        "id": "homebrew",
+        "name": "本世界私设",
+        "enabled": true
+      }
+    ],
+    "resources": [],
+    "grants": [],
+    "entries": [],
+    "messages": [],
+    "counters": []
+  },
+  "schemaVersion": 1,
+  "id": "demo-aaf",
+  "hostId": "demo-gm",
+  "name": "AAF 空白备团草稿",
+  "revision": 0,
+  "activeSceneId": null,
+  "scenes": {},
+  "actors": {},
+  "catalog": {},
+  "journals": {},
+  "clocks": {},
+  "messages": [],
+  "receipts": [],
+  "rngState": 12345,
+  "audio": {
+    "assetId": null,
+    "playing": false,
+    "volume": 1,
+    "loop": false,
+    "offsetSeconds": 0,
+    "startedAt": 0
+  }
+}

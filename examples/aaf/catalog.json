@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "revision": "demo-1",
+  "talents": [
+    {
+      "id": "demo-pathfinder",
+      "name": "熟悉道路",
+      "branch": "示例",
+      "description": "示例天赋，只记录学习，不声称附带自动数值。",
+      "cost": 1,
+      "requires": [],
+      "x": 0,
+      "y": 0
+    }
+  ],
+  "items": []
+}

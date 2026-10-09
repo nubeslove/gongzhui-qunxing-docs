@@ -1,0 +1,22 @@
+{
+  "format": "aaf-resources",
+  "version": 1,
+  "systemId": "dnd5e-2024",
+  "rootId": "demo-lantern",
+  "resources": [
+    {
+      "id": "demo-lantern",
+      "systemId": "dnd5e-2024",
+      "name": "渡口提灯",
+      "kind": "item",
+      "description": "一盏可供演出使用的提灯。它不自动产生光源或修改数值。",
+      "packId": "homebrew",
+      "visibility": "gm",
+      "tags": [
+        "示例"
+      ],
+      "children": [],
+      "activities": []
+    }
+  ]
+}
