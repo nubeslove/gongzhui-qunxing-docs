@@ -64,8 +64,8 @@
     },
     {
       "path": "game/apps/server/src/updates.ts",
-      "sha256": "21b0b0c1979318d00d8f63013c03ffd8fd7f0ca30b52b3f62708335ed891106e",
-      "bytes": 10997
+      "sha256": "687a17d2b07f91101de5a0449e5285e44c67e813996b67be36c55949fe19958f",
+      "bytes": 12215
     },
     {
       "path": "game/apps/server/src/world-templates.ts",
