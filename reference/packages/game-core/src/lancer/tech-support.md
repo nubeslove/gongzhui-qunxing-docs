@@ -1,23 +1,22 @@
 # game/packages/game-core/src/lancer/tech-support.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
-import {LANCER_CONDITION_NAMES,type LancerBattle,type LancerCombatUnit,type LancerDecision,type LancerBattleStep} from '@aelzerant/contracts';
-import {LANCER_CORE_BY_ID,LANCER_TALENTS} from '@aelzerant/rules-engine';
+import {isWallflowerEidolon,isWallflowerShard} from './wallflower';
+import {lancerScanPanel} from './scan-panel';
+import {type LancerBattle,type LancerCombatUnit,type LancerDecision,type LancerBattleStep} from '@aelzerant/contracts';
 import {clear,condition,has,log,unit} from './state';
-import {LANCER_EXECUTABLE_FEATURES} from './features';
-import {LANCER_TALENT_EFFECTS} from './talents';
 ```
 </details>
 
 ## bolsterLancer
 
-导出接口 · 源码第 7 行。
+导出接口 · 源码第 6 行。
 
 ```ts
 export function bolsterLancer(b: LancerBattle, u: LancerCombatUnit, t: LancerCombatUnit): void;
@@ -29,9 +28,23 @@ export function bolsterLancer(b: LancerBattle, u: LancerCombatUnit, t: LancerCom
 | `u` | 否 | `LancerCombatUnit` | — |
 | `t` | 否 | `LancerCombatUnit` | — |
 
+## recordLancerScanData
+
+导出接口 · 源码第 14 行。
+
+```ts
+export function recordLancerScanData(b: LancerBattle, u: LancerCombatUnit, t: LancerCombatUnit): void;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `b` | 否 | `LancerBattle` | — |
+| `u` | 否 | `LancerCombatUnit` | — |
+| `t` | 否 | `LancerCombatUnit` | — |
+
 ## offerLancerScan
 
-导出接口 · 源码第 29 行。
+导出接口 · 源码第 17 行。
 
 ```ts
 export function offerLancerScan(b: LancerBattle, u: LancerCombatUnit, t: LancerCombatUnit): void;
@@ -45,7 +58,7 @@ export function offerLancerScan(b: LancerBattle, u: LancerCombatUnit, t: LancerC
 
 ## respondLancerScan
 
-导出接口 · 源码第 32 行。
+导出接口 · 源码第 22 行。
 
 ```ts
 export function respondLancerScan(b: LancerBattle, p: LancerDecision, option: string, text?: string): boolean;
@@ -60,7 +73,7 @@ export function respondLancerScan(b: LancerBattle, p: LancerDecision, option: st
 
 ## offerFriendlyInvade
 
-导出接口 · 源码第 44 行。
+导出接口 · 源码第 41 行。
 
 ```ts
 export function offerFriendlyInvade(b: LancerBattle, u: LancerCombatUnit, t: LancerCombatUnit, s: Extract<LancerBattleStep,{kind:'tech'}>, name: string): boolean;
@@ -76,7 +89,7 @@ export function offerFriendlyInvade(b: LancerBattle, u: LancerCombatUnit, t: Lan
 
 ## respondFriendlyInvade
 
-导出接口 · 源码第 48 行。
+导出接口 · 源码第 45 行。
 
 ```ts
 export function respondFriendlyInvade(b: LancerBattle, p: LancerDecision, option: string): boolean;

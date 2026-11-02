@@ -1,23 +1,24 @@
 # game/packages/game-core/src/aaf/damage.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
-import {aafCombatDuration,type AafDamagePart,type AafDuration,type AafEffectOperation} from '@aelzerant/contracts';
+import {aafCombatDuration,type AafDamagePart,type AafEffectContext,type AafEffectOperation,type AafEffectTask} from '@aelzerant/contracts';
 import {aafDamage,aafRoll} from '@aelzerant/rules-engine';
 import type {CombatState,Combatant} from '../types';
 import {nextRandom} from '../random';
-import {aafCheckActor,aafCondition,aafConditions,aafDefenses,aafEndConcentration,aafId,aafLog,aafRemoveCondition} from './state';
+import {aafCheckActor,aafCondition,aafConditions,aafDefenses,aafEndConcentration,aafId,aafLog,aafRemoveCondition,aafCheckNeedsDecision} from './state';
+import {aafContinue} from './flow';
 ```
 </details>
 
 ## aafDefeat
 
-导出接口 · 源码第 7 行。
+导出接口 · 源码第 8 行。
 
 ```ts
 export function aafDefeat(state: CombatState, actor: Combatant): void;
@@ -30,7 +31,7 @@ export function aafDefeat(state: CombatState, actor: Combatant): void;
 
 ## aafEnterWounds
 
-导出接口 · 源码第 14 行。
+导出接口 · 源码第 15 行。
 
 ```ts
 export function aafEnterWounds(state: CombatState, actor: Combatant): void;
@@ -43,7 +44,7 @@ export function aafEnterWounds(state: CombatState, actor: Combatant): void;
 
 ## aafExhaustion
 
-导出接口 · 源码第 21 行。
+导出接口 · 源码第 22 行。
 
 ```ts
 export function aafExhaustion(state: CombatState, actor: Combatant, levels: number): void;
@@ -57,10 +58,10 @@ export function aafExhaustion(state: CombatState, actor: Combatant, levels: numb
 
 ## aafFocusCheck
 
-导出接口 · 源码第 28 行。
+导出接口 · 源码第 29 行。
 
 ```ts
-export function aafFocusCheck(state: CombatState, actor: Combatant, damage?: number, casting?: boolean): boolean;
+export function aafFocusCheck(state: CombatState, actor: Combatant, damage?: number, casting?: boolean): boolean | "pending";
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
@@ -72,7 +73,7 @@ export function aafFocusCheck(state: CombatState, actor: Combatant, damage?: num
 
 ## aafDealDamage
 
-导出接口 · 源码第 34 行。
+导出接口 · 源码第 36 行。
 
 ```ts
 export function aafDealDamage(state: CombatState, target: Combatant, parts: AafDamagePart[], options?: {sourceId?:string;critical?:number;half?:boolean;unreducible?:boolean;nonlethal?:boolean;terminal?:boolean}): number;
@@ -87,7 +88,7 @@ export function aafDealDamage(state: CombatState, target: Combatant, parts: AafD
 
 ## aafLoseLife
 
-导出接口 · 源码第 60 行。
+导出接口 · 源码第 62 行。
 
 ```ts
 export function aafLoseLife(state: CombatState, actor: Combatant, amount: number): void;
@@ -101,7 +102,7 @@ export function aafLoseLife(state: CombatState, actor: Combatant, amount: number
 
 ## aafHeal
 
-导出接口 · 源码第 64 行。
+导出接口 · 源码第 66 行。
 
 ```ts
 export function aafHeal(state: CombatState, actor: Combatant, amount: number): number;
@@ -115,7 +116,7 @@ export function aafHeal(state: CombatState, actor: Combatant, amount: number): n
 
 ## aafInjurySave
 
-导出接口 · 源码第 71 行。
+导出接口 · 源码第 73 行。
 
 ```ts
 export function aafInjurySave(state: CombatState, actor: Combatant): void;
@@ -128,7 +129,7 @@ export function aafInjurySave(state: CombatState, actor: Combatant): void;
 
 ## aafAddEffect
 
-导出接口 · 源码第 79 行。
+导出接口 · 源码第 81 行。
 
 ```ts
 export function aafAddEffect(state: CombatState, actor: Combatant, name: 'burning'|'bleeding'|'cold'|'shock', stacks: number): void;
@@ -143,7 +144,7 @@ export function aafAddEffect(state: CombatState, actor: Combatant, name: 'burnin
 
 ## aafTerminal
 
-导出接口 · 源码第 90 行。
+导出接口 · 源码第 92 行。
 
 ```ts
 export function aafTerminal(state: CombatState, actor: Combatant, name: 'burning'|'bleeding'|'cold'|'shock'): void;
@@ -155,12 +156,28 @@ export function aafTerminal(state: CombatState, actor: Combatant, name: 'burning
 | `actor` | 否 | `Combatant` | — |
 | `name` | 否 | `'burning'&#124;'bleeding'&#124;'cold'&#124;'shock'` | — |
 
-## aafApplyEffect
+## aafApplyEffects
 
-导出接口 · 源码第 97 行。
+导出接口 · 源码第 100 行。
+
+Pause between damage events so a later focus check cannot replace an unresolved one.
 
 ```ts
-export function aafApplyEffect(state: CombatState, target: Combatant, effect: AafEffectOperation, options?: {sourceId?:string;source?:string;duration?:AafDuration;concentrationId?:string;critical?:number;half?:boolean}): number | void;
+export function aafApplyEffects(state: CombatState, target: Combatant, tasks: AafEffectTask[]): void;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `state` | 否 | `CombatState` | — |
+| `target` | 否 | `Combatant` | — |
+| `tasks` | 否 | `AafEffectTask[]` | — |
+
+## aafApplyEffect
+
+导出接口 · 源码第 113 行。
+
+```ts
+export function aafApplyEffect(state: CombatState, target: Combatant, effect: AafEffectOperation, options?: AafEffectContext): number | void;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
@@ -168,4 +185,4 @@ export function aafApplyEffect(state: CombatState, target: Combatant, effect: Aa
 | `state` | 否 | `CombatState` | — |
 | `target` | 否 | `Combatant` | — |
 | `effect` | 否 | `AafEffectOperation` | — |
-| `options` | 是 | `{sourceId?:string;source?:string;duration?:AafDuration;concentrationId?:string;critical?:number;half?:boolean}` | {} |
+| `options` | 是 | `AafEffectContext` | {} |

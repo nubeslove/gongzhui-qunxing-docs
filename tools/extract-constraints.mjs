@@ -11,6 +11,12 @@ const esc=s=>String(s).replaceAll('|','&#124;').replaceAll('\n',' ');
 const expression=n=>n.getText().replace(/\s+/g,' ').trim();
 const uniq=x=>[...new Set(x)];
 const short=n=>n.getText().length<=500&&!/=>|function\s*\(/.test(n.getText());
+function branchKinds(n){
+ if(ts.isParenthesizedExpression(n))return branchKinds(n.expression);
+ if(!ts.isBinaryExpression(n))return [];
+ if([ts.SyntaxKind.BarBarToken,ts.SyntaxKind.AmpersandAmpersandToken].includes(n.operatorToken.kind))return [...branchKinds(n.left),...branchKinds(n.right)];
+ return n.operatorToken.kind===ts.SyntaxKind.EqualsEqualsEqualsToken&&ts.isStringLiteral(n.right)&&['kind','action.kind'].includes(n.left.getText())?[n.right.text]:[];
+}
 function detail(node,sf){
  const fields=[],checks=[],guards=[],delegates=[];
  function visit(n){
@@ -28,6 +34,7 @@ for(const file of files){
  function visit(n){
   if(ts.isPropertyAssignment(n)&&ts.isStringLiteral(n.name))add(n.name.text,n.initializer);
   if(ts.isCaseClause(n)&&ts.isStringLiteral(n.expression))add(n.expression.text,n);
+  if(ts.isIfStatement(n))for(const k of branchKinds(n.expression))add(k,n.thenStatement);
   if(ts.isBinaryExpression(n)&&n.operatorToken.kind===ts.SyntaxKind.EqualsToken&&ts.isElementAccessExpression(n.left)&&ts.isStringLiteral(n.left.argumentExpression))add(n.left.argumentExpression.text,n.right);
   if(ts.isFunctionDeclaration(n)&&n.name&&/^(parse|require|is|validate|assert)[A-Z]/.test(n.name.text)&&n.body){
    const d=detail(n.body,sf);if(d.checks.length||d.rejectionConditions.length)validators.push({name:n.name.text,...d});
@@ -38,6 +45,7 @@ for(const file of files){
 // These commands are routed specially before/around the ordinary handler table.
 actions.set('world.undo',[{source:'game/packages/session/src/world-authority.ts',fields:[],checks:['senderId === hostId','history.length > 0'],rejectionConditions:[],delegatedTypes:[],note:'仅GM；只撤销当前有限历史中的可逆编辑；不提供任意战斗回滚。'}]);
 const special={
+ 'spiral.ruenChoice':{source:'game/packages/game-core/src/spiral/ruen.ts',type:'SpiralData'},
  'combat.rollback':{source:'game/packages/session/src/world-combat-rollback.ts',type:'CombatRollbackCommand'},
  'adjudication.apply':{source:'game/packages/session/src/world-adjudication.ts',type:'AdjudicationCommand'},
  'actor.copy':{source:'game/packages/session/src/world-actor-transfer.ts',type:'ActorTransferCommand'},
@@ -46,9 +54,10 @@ const special={
 for(const [k,s]of Object.entries(special))if(!actions.get(k)?.length){const file=path.join(source,s.source),sf=ts.createSourceFile(file,fs.readFileSync(file,'utf8'),ts.ScriptTarget.Latest,true);const d=detail(sf,sf);d.delegatedTypes=uniq([...d.delegatedTypes,s.type]);actions.set(k,[d]);}
 // AAF character cases share actor ownership and a separate aaf.revision guard.
 for(const [k,records]of actions)if(k.startsWith('aaf.')&&k!=='aaf.catalog')for(const d of records){d.fields=uniq(['actorId','expected',...d.fields]);d.checks=uniq(['ownedActor(world, action.actorId, context)','action.expected === current.revision',...d.checks]);d.note='共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。';}
+for(const [k,records]of actions)if(k.startsWith('spiral.')&&k!=='spiral.create')for(const d of records)d.note='分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。';
 const missing=[...actions].filter(([,v])=>!v.length).map(([k])=>k);
-fs.writeFileSync(path.join(root,'reference/action-parameters.json'),JSON.stringify({date:'2026-10-10',kind:'static-direct-expressions',missing,actions:Object.fromEntries(actions)},null,2)+'\n');
-fs.writeFileSync(path.join(root,'reference/parser-constraints.json'),JSON.stringify({date:'2026-10-10',scope:'Direct parser/validator call arguments and rejection predicates. Not exhaustive interprocedural validation.',validators},null,2)+'\n');
+fs.writeFileSync(path.join(root,'reference/action-parameters.json'),JSON.stringify({date:new Date().toISOString().slice(0,10),kind:'static-direct-expressions',missing,actions:Object.fromEntries(actions)},null,2)+'\n');
+fs.writeFileSync(path.join(root,'reference/parser-constraints.json'),JSON.stringify({date:new Date().toISOString().slice(0,10),scope:'Direct parser/validator call arguments and rejection predicates. Not exhaustive interprocedural validation.',validators},null,2)+'\n');
 const heading=`# AAF世界动作参数\n\n当前注册${kinds.length}个命令。下面从实际处理器提取读取的action字段、直接校验表达式、拒绝条件和转交类型；不是凭命令名称猜测的接口。嵌套结构和业务检查继续沿“转交类型”到[符号索引](../../reference/README.md)查询。\n\n完整外层为WorldCommand：requestId、expectedRevision、action.kind。静态提取中的条件为**拒绝条件**，不是应填入JSON的值；局部变量需结合对应类型理解。参数表不把“代码读取过”误写成“所有场景都必填”，可选性以联合类型／解析器为准。\n\n[机器可读动作表](../../reference/action-parameters.json) · [解析器范围／默认值表达式](../../reference/parser-constraints.json) · [命令事务与联机](commands-and-network.md)\n\n数值参数的requireInteger(value,min,max)表示闭区间整数；requireText(value,max)是非空受限文字，optionalText允许空串。默认值如action.quantity ?? 1只在参数省略时使用。\n\n`;
-fs.writeFileSync(path.join(root,'docs/api/aaf-actions.md'),heading+[...actions].map(([k,records])=>`## ${k}\n\n`+records.map(d=>`来源：\`${d.source}\`${d.line?' 第'+d.line+'行':''}。${d.note??''}\n\n读取字段：${d.fields.length?d.fields.map(f=>'`'+f+'`').join('、'):'无额外直接字段'}。\n\n${d.delegatedTypes.length?'转交类型：'+d.delegatedTypes.map(t=>'`'+t+'`').join('、')+'。\n\n':''}${d.checks.length?'直接校验：\n\n'+d.checks.map(c=>'- `'+esc(c)+'`').join('\n')+'\n\n':''}${d.rejectionConditions.length?'<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>\n\n'+d.rejectionConditions.map(c=>'- `'+esc(c)+'`').join('\n')+'\n\n</details>\n\n':''}`).join('')).join(''));
+fs.writeFileSync(path.join(root,'docs/api/aaf-actions.md'),(heading+[...actions].map(([k,records])=>`## ${k}\n\n`+records.map(d=>`来源：\`${d.source}\`${d.line?' 第'+d.line+'行':''}。${d.note??''}\n\n读取字段：${d.fields.length?d.fields.map(f=>'`'+f+'`').join('、'):'无额外直接字段'}。\n\n${d.delegatedTypes.length?'转交类型：'+d.delegatedTypes.map(t=>'`'+t+'`').join('、')+'。\n\n':''}${d.checks.length?'直接校验：\n\n'+d.checks.map(c=>'- `'+esc(c)+'`').join('\n')+'\n\n':''}${d.rejectionConditions.length?'<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>\n\n'+d.rejectionConditions.map(c=>'- `'+esc(c)+'`').join('\n')+'\n\n</details>\n\n':''}`).join('')).join('')).trimEnd()+'\n');
 console.log(JSON.stringify({commands:kinds.length,missing,validators:validators.length}));if(missing.length)process.exitCode=1;

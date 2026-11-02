@@ -1,6 +1,6 @@
 # game/packages/contracts/src/token-prototype.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -9,7 +9,7 @@
 ```ts
 import {parseTokenImages} from './token-images';
 import {removeFromDocumentDirectory} from './document-directory';
-import {parseTokenActorDelta,type TokenActorDelta} from './actor-delta';
+import {actorDeltaEmpty,parseTokenActorDelta,type TokenActorDelta} from './actor-delta';
 import {parseTokenConfiguration,tokenConfiguration,type TokenConfigurationValue} from './token-appearance';
 import {storyObject,storyText,type StoryWorkspace} from './story';
 ```
@@ -118,3 +118,48 @@ export function removeTokenActorStory(story: StoryWorkspace|undefined, id: strin
 | --- | --- | --- | --- |
 | `story` | 否 | `StoryWorkspace&#124;undefined` | — |
 | `id` | 否 | `string` | — |
+
+## duplicateTokenActor
+
+导出接口 · 源码第 16 行。
+
+Copying a token derives a fresh independent actor; the source keeps its own binding and resource pointer.
+
+```ts
+export function duplicateTokenActor<A extends {id:string;tokenInstance?:TokenActorInstance;prototypeToken?:TokenPrototype}>(actor: A, newActorId: string, newTokenId: string): A;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `actor` | 否 | `A` | — |
+| `newActorId` | 否 | `string` | — |
+| `newTokenId` | 否 | `string` | — |
+
+## numberedTokenName
+
+导出接口 · 源码第 24 行。
+
+Stable copy ordinal so four summoned goblins read 地精 2, 地精 3, 地精 4 instead of four identical names.
+
+```ts
+export function numberedTokenName(base: string, taken: Iterable<string>): string;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `base` | 否 | `string` | — |
+| `taken` | 否 | `Iterable<string>` | — |
+
+## surroundingCellOffsets
+
+导出接口 · 源码第 31 行。
+
+Ring offsets ordered right, then outward, so repeated copies of one token march away instead of stacking.
+
+```ts
+export function surroundingCellOffsets(radius: number): Array<{x:number;y:number}>;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `radius` | 否 | `number` | — |

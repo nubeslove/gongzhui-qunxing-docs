@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "共坠群星平台 HTTP API",
-    "version": "0.1.0-docs.20261010",
+    "version": "0.1.0-docs.20261018",
     "description": "源码快照。未增加 API 版本前缀。GM 战斗命令、本地备团函数和 Tauri 命令不是这些 HTTP 路由。部分错误由 Express 返回文本或 HTML；调用方不要无条件 JSON.parse。"
   },
   "servers": [
@@ -34,7 +34,7 @@
       "get": {
         "operationId": "get__api_health",
         "summary": "健康与能力标记",
-        "description": "当前能力：multi-system-worlds-v1、publications-v1、accounts-v1。计数不是活跃连接人数。\n权限：无需登录。",
+        "description": "包含世界访问、管理员角色、签名客户端更新与发布队列能力。返回当前运行 version 与 commit；计数不是活跃连接人数。\n权限：无需登录。",
         "tags": [
           "平台"
         ],
@@ -49,6 +49,12 @@
                   "properties": {
                     "ok": {
                       "type": "boolean"
+                    },
+                    "version": {
+                      "type": "string"
+                    },
+                    "commit": {
+                      "type": "string"
                     },
                     "players": {
                       "type": "number"
@@ -68,6 +74,8 @@
                   },
                   "required": [
                     "ok",
+                    "version",
+                    "commit",
                     "players",
                     "worlds",
                     "ts",
@@ -1473,11 +1481,2008 @@
         }
       }
     },
+    "/api/auth/challenge": {
+      "get": {
+        "operationId": "get__api_auth_challenge",
+        "summary": "取得本地图形验证码",
+        "description": "图片为 SVG data URL；验证码绑定请求 IP，约两分钟有效，一次提交后即消耗。\n权限：无需登录。",
+        "tags": [
+          "账号"
+        ],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "image": {
+                      "type": "string"
+                    },
+                    "expiresAt": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "image",
+                    "expiresAt"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "请求限流",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "认证忙或保存失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/worlds/{id}/members": {
+      "get": {
+        "operationId": "get__api_worlds_id_members",
+        "summary": "世界成员名单",
+        "description": "仅世界 GM、已加入且有访问权的账号可读；不含被移除成员。\n权限：该世界 GM 或当前成员。",
+        "tags": [
+          "平台"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "平台服务器 worldId；不是本地 table.id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "players": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "../schemas/PlayerInfo.schema.json"
+                      }
+                    }
+                  },
+                  "required": [
+                    "players"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/worlds/{id}/publication/compare": {
+      "get": {
+        "operationId": "get__api_worlds_id_publication_compare",
+        "summary": "比较发布文档修订",
+        "description": "必需查询参数 path（文档路径）与 revision（非负整数）；返回权威层文档修订对比。\n权限：世界创建者或平台管理员。",
+        "tags": [
+          "公开发布"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "平台服务器 worldId；不是本地 table.id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数、版本或业务校验失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "修订冲突或账号占用",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/worlds/{id}/publication/draft": {
+      "get": {
+        "operationId": "get__api_worlds_id_publication_draft",
+        "summary": "读取权威备团稿",
+        "description": "返回本世界权威备团稿；不支持时返回 409。\n权限：世界创建者或平台管理员。",
+        "tags": [
+          "公开发布"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "平台服务器 worldId；不是本地 table.id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "修订冲突或账号占用",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/client/presence": {
+      "post": {
+        "operationId": "post__api_client_presence",
+        "summary": "客户端在线心跳",
+        "description": "维护本账号在线租约；退出时 leaving=true。服务器保存退出期间返回 503。\n权限：有效账号。",
+        "tags": [
+          "平台"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9_-]{1,80}$"
+                  },
+                  "leaving": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "clientId"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ready": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "ready"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数、版本或业务校验失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "请求体过大",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "认证忙或保存失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/internal/updates/claim": {
+      "post": {
+        "operationId": "post__api_internal_updates_claim",
+        "summary": "更新代理领取审核任务",
+        "description": "内部代理接口，必须使用 X-Update-Key 本机控制密钥。准备和停服前分别校验站长审核及空闲条件；不是给一般客户端或 AI 使用的后门。\n权限：无需登录。",
+        "tags": [
+          "平台"
+        ],
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "jobId": {
+                    "type": "string"
+                  },
+                  "phase": {
+                    "enum": [
+                      "prepare"
+                    ]
+                  }
+                },
+                "required": [
+                  "jobId"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数、版本或业务校验失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "修订冲突或账号占用",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "请求体过大",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-Update-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/admin/releases/check": {
+      "get": {
+        "operationId": "get__api_admin_releases_check",
+        "summary": "检查配置的发行源",
+        "description": "仅有更新提交权限的账号；未配置发行源返回 409。\n权限：平台管理员且在 UPDATE_ADMIN_IDS 中。",
+        "tags": [
+          "平台"
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "latest": {
+                      "$ref": "../schemas/AppRelease.schema.json"
+                    },
+                    "currentVersion": {
+                      "type": "string"
+                    },
+                    "available": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "latest",
+                    "currentVersion",
+                    "available"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "修订冲突或账号占用",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/releases/jobs/{id}/approve": {
+      "post": {
+        "operationId": "post__api_admin_releases_jobs_id_approve",
+        "summary": "站长审核并等待空闲更新",
+        "description": "额外要求站长身份；提交号必须与任务相同。approve 等待全平台连续无人在线满十分钟，force 在准备完成后保存并重启。\n权限：平台管理员且在 UPDATE_ADMIN_IDS 中。",
+        "tags": [
+          "平台"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "平台服务器 worldId；不是本地 table.id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "commit": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{40}$"
+                  }
+                },
+                "required": [
+                  "commit"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../schemas/DeploymentJob.schema.json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数、版本或业务校验失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "请求体过大",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/releases/jobs/{id}/force": {
+      "post": {
+        "operationId": "post__api_admin_releases_jobs_id_force",
+        "summary": "站长审核并强制更新",
+        "description": "额外要求站长身份；提交号必须与任务相同。approve 等待全平台连续无人在线满十分钟，force 在准备完成后保存并重启。\n权限：平台管理员且在 UPDATE_ADMIN_IDS 中。",
+        "tags": [
+          "平台"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "平台服务器 worldId；不是本地 table.id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "commit": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{40}$"
+                  }
+                },
+                "required": [
+                  "commit"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../schemas/DeploymentJob.schema.json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数、版本或业务校验失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "请求体过大",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/releases/jobs/{id}/reject": {
+      "post": {
+        "operationId": "post__api_admin_releases_jobs_id_reject",
+        "summary": "站长驳回更新",
+        "description": "仅站长可驳回尚未执行的任务；执行中不可撤销。\n权限：平台管理员且在 UPDATE_ADMIN_IDS 中。",
+        "tags": [
+          "平台"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "平台服务器 worldId；不是本地 table.id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "reason": {
+                    "type": "string"
+                  }
+                },
+                "required": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../schemas/DeploymentJob.schema.json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数、版本或业务校验失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "请求体过大",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/world-deletions": {
+      "get": {
+        "operationId": "get__api_world_deletions",
+        "summary": "本人可见的清理任务",
+        "description": "仅返回本人所有或具有该世界删除权限的任务。\n权限：有效账号。",
+        "tags": [
+          "平台"
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "jobs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "required": [
+                    "jobs"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/world-lifecycle/query": {
+      "post": {
+        "operationId": "post__api_world_lifecycle_query",
+        "summary": "查询世界下架状态",
+        "description": "仅返回本人原有世界或成员世界的清理状态。\n权限：有效账号。",
+        "tags": [
+          "平台"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "worldIds": {
+                    "type": "array",
+                    "maxItems": 128,
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "worldIds"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "removed": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "worldId": {
+                            "type": "string"
+                          },
+                          "mode": {
+                            "enum": [
+                              "unpublish",
+                              "delete"
+                            ]
+                          },
+                          "ownerId": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "worldId",
+                          "mode",
+                          "ownerId"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "removed"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数、版本或业务校验失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "请求体过大",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/worlds/{id}/deletion": {
+      "get": {
+        "operationId": "get__api_worlds_id_deletion",
+        "summary": "世界清理任务状态",
+        "description": "\n权限：世界创建者或平台管理员。",
+        "tags": [
+          "平台"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "平台服务器 worldId；不是本地 table.id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "job": {
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "job"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "资源不存在",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/world-templates": {
+      "get": {
+        "operationId": "get__api_world_templates",
+        "summary": "平台模组目录",
+        "description": "仅登录账号可读。返回模组说明与可用状态，不返回剧情正文。正式发行从配套清单提供模组，首次创建时自动下载并校验，缓存位于 WORLD_TEMPLATE_ROOT 或 DATA_DIR/world-templates。开发或自托管环境也可显式放置本地模组。\n权限：有效账号。",
+        "tags": [
+          "平台"
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "templates": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "systemId": {
+                            "const": "dnd5e-2024"
+                          },
+                          "ruleVariant": {
+                            "const": "terra-walker"
+                          },
+                          "available": {
+                            "type": "boolean"
+                          },
+                          "version": {
+                            "type": "string"
+                          },
+                          "size": {
+                            "type": "number"
+                          },
+                          "sha256": {
+                            "type": "string",
+                            "pattern": "^[a-f0-9]{64}$"
+                          },
+                          "contents": {
+                            "type": "object",
+                            "properties": {
+                              "chapters": {
+                                "type": "number"
+                              },
+                              "scenes": {
+                                "type": "number"
+                              },
+                              "beats": {
+                                "type": "number"
+                              },
+                              "players": {
+                                "type": "number"
+                              },
+                              "compendiums": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "chapters",
+                              "scenes",
+                              "beats",
+                              "players",
+                              "compendiums"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name",
+                          "description",
+                          "systemId",
+                          "ruleVariant",
+                          "available"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "templates"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/world-templates/{id}/archive": {
+      "get": {
+        "operationId": "get__api_world_templates_id_archive",
+        "summary": "下载平台模组完整备份",
+        "description": "必须携带目录返回的 sha256 查询参数；版本变化返回 409，服务器未备妥返回 503。Cache-Control 为 private, no-store。下载后核对长度和 SHA256，并通过完整备份校验建立独立世界；不覆盖原存档。\n权限：有效账号。",
+        "tags": [
+          "平台"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "平台服务器 worldId；不是本地 table.id"
+          },
+          {
+            "name": "sha256",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "资源不存在",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "修订冲突或账号占用",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "认证忙或保存失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/worlds": {
       "get": {
         "operationId": "get__api_worlds",
         "summary": "世界目录",
-        "description": "当前没有分页和系统过滤参数；由客户端筛选。运行时世界摘要可能包含 inviteCode，它不是额外的入场密码验证。\n权限：有效账号。",
+        "description": "只返回本人有权访问的世界，邀请码不包含在摘要。没有分页和系统过滤参数。\n权限：有效账号。",
         "tags": [
           "平台"
         ],
@@ -1683,7 +3688,7 @@
       "post": {
         "operationId": "post__api_worlds_id_join",
         "summary": "加入世界",
-        "description": "当前实现按 worldId 加入，未校验邀请码或审批；同一账号只有一个当前 worldId。请勿将它当作邀请制私密入场服务。\n权限：有效账号。",
+        "description": "按 canAccessWorld 校验可见性、成员和移除状态；私密世界首次使用 join-invite。平台管理员可访问。一个账号只有一个当前 worldId。\n权限：有效账号。",
         "tags": [
           "平台"
         ],
@@ -1881,7 +3886,7 @@
       "post": {
         "operationId": "post__api_worlds_id_kick",
         "summary": "移除成员",
-        "description": "不能移除当前 GM；保存后撤销目标信令连接。\n权限：该世界 GM。",
+        "description": "不能移除当前 GM；保存后撤销目标信令连接。\n权限：世界创建者或平台管理员。",
         "tags": [
           "平台"
         ],
@@ -2079,8 +4084,8 @@
     "/api/worlds/{id}/delete": {
       "post": {
         "operationId": "post__api_worlds_id_delete",
-        "summary": "删除服务器世界",
-        "description": "删除目录记录、快照与旧 JSON 资源，并清除成员归属。media/publications 磁盘目录没有自动回收，不把目录删除当作彻底擦除。\n权限：该世界 GM。",
+        "summary": "下架或删除世界",
+        "description": "先持久化任务再撤销目录，后台清理可恢复续作。完成时 200、执行中 202；按权限核验，不能把请求受理当作已经完成。\n权限：世界创建者或平台管理员。",
         "tags": [
           "平台"
         ],
@@ -2095,8 +4100,28 @@
             "description": "平台服务器 worldId；不是本地 table.id"
           }
         ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "mode": {
+                    "enum": [
+                      "unpublish",
+                      "delete"
+                    ],
+                    "default": "unpublish"
+                  }
+                },
+                "required": []
+              }
+            }
+          }
+        },
         "responses": {
-          "200": {
+          "202": {
             "description": "成功",
             "content": {
               "application/json": {
@@ -2104,12 +4129,44 @@
                   "type": "object",
                   "properties": {
                     "ok": {
-                      "const": true
+                      "type": "boolean"
+                    },
+                    "job": {
+                      "type": "object"
                     }
                   },
                   "required": [
-                    "ok"
+                    "ok",
+                    "job"
                   ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数、版本或业务校验失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
                 }
               }
             }
@@ -2170,8 +4227,36 @@
               }
             }
           },
-          "404": {
-            "description": "资源不存在",
+          "413": {
+            "description": "请求体过大",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "认证忙或保存失败",
             "content": {
               "application/json": {
                 "schema": {
@@ -2205,7 +4290,7 @@
       "post": {
         "operationId": "post__api_worlds_id_transfer",
         "summary": "转交服务器 GM 身份",
-        "description": "接收者必须已是当前成员；不自动传输 GM 本地私密存档和附件，应先完成备份交接。\n权限：该世界 GM。",
+        "description": "接收者必须已是当前成员；不自动传输 GM 本地私密存档和附件，应先完成备份交接。\n权限：世界创建者或平台管理员。",
         "tags": [
           "平台"
         ],
@@ -2408,7 +4493,7 @@
       "post": {
         "operationId": "post__api_worlds_id_snapshot",
         "summary": "写入 GM 备份快照",
-        "description": "JSON 请求上限 64 MiB。state 缺省为 null；服务器包装 version/at，不验证世界业务内容。\n权限：该世界 GM。",
+        "description": "JSON 请求上限 64 MiB。state 缺省为 null；服务器包装 version/at，不验证世界业务内容。\n权限：世界创建者或平台管理员。",
         "tags": [
           "平台"
         ],
@@ -2607,7 +4692,7 @@
       "get": {
         "operationId": "get__api_worlds_id_snapshot",
         "summary": "读取 GM 备份快照",
-        "description": "\n权限：该世界 GM。",
+        "description": "\n权限：世界创建者或平台管理员。",
         "tags": [
           "平台"
         ],
@@ -2732,7 +4817,7 @@
       "put": {
         "operationId": "put__api_worlds_id_assets",
         "summary": "替换旧式 JSON 资源集",
-        "description": "整个 files 集合替换，不是增量追加。哈希针对 canonicalJson；当前清单及正文对所有已登录账号可读，不适合 GM 秘密。请求上限 2 MiB。\n权限：该世界 GM。",
+        "description": "整个 files 集合替换，不是增量追加。哈希针对 canonicalJson；清单及正文也要求 canAccessWorld 权限，不应在玩家可见资源中写 GM 秘密。请求上限 2 MiB。\n权限：世界创建者或平台管理员。",
         "tags": [
           "平台"
         ],
@@ -2942,7 +5027,7 @@
       "get": {
         "operationId": "get__api_worlds_id_manifest",
         "summary": "旧式 JSON 资源清单",
-        "description": "只要求登录，不要求世界成员。\n权限：有效账号。",
+        "description": "要求登录并通过 canAccessWorld；无权访问时返回 404。\n权限：有效账号。",
         "tags": [
           "平台"
         ],
@@ -3039,7 +5124,7 @@
       "get": {
         "operationId": "get__api_worlds_id_file_path_",
         "summary": "旧式 JSON 资源正文",
-        "description": "path 对应 Express 通配符 :path(*)；可以包含斜线。只要求登录。\n权限：有效账号。",
+        "description": "path 对应 Express 通配符 :path(*)；可以包含斜线。要求登录并通过 canAccessWorld。\n权限：有效账号。",
         "tags": [
           "平台"
         ],
@@ -3267,7 +5352,7 @@
       "post": {
         "operationId": "post__api_worlds_id_publication",
         "summary": "原子提交发布版本",
-        "description": "先传全部 blob，再提交。需精确一个 table.json、最多 300 附件；table.json ≤2,000,000 字节。核对 system/version/host/serverWorldId、清单和 publicTable 无私密内容。返回版本为 expectedVersion+1。409 后重读合并。\n权限：该世界 GM。",
+        "description": "先传全部 blob，再提交。需精确一个 table.json、最多 300 附件；table.json ≤2,000,000 字节。核对 system/version/host/serverWorldId、清单和 publicTable 无私密内容。返回版本为 expectedVersion+1。409 后重读合并。\n权限：世界创建者或平台管理员。",
         "tags": [
           "公开发布"
         ],
@@ -3471,7 +5556,7 @@
       "put": {
         "operationId": "put__api_worlds_id_publication_blobs_hash_",
         "summary": "预上传发布附件",
-        "description": "Content-Type 必须精确为 application/octet-stream。1–64,000,000 字节，按流计算 SHA-256；上传并不自动公开，提交清单后才可下载。\n权限：该世界 GM。",
+        "description": "Content-Type 必须精确为 application/octet-stream。1–64,000,000 字节，按流计算 SHA-256；上传并不自动公开，提交清单后才可下载。\n权限：世界创建者或平台管理员。",
         "tags": [
           "公开发布"
         ],
@@ -4081,7 +6166,7 @@
       "put": {
         "operationId": "put__api_worlds_id_media_file_path_",
         "summary": "上传共享媒体",
-        "description": "建议 Content-Type: application/octet-stream；按文件头判断实际类型。每文件 ≤32,000,000 字节、合计 ≤512,000,000 字节。清单中的同路径替换；不用这一接口上传 GLB。\n权限：该世界 GM。",
+        "description": "建议 Content-Type: application/octet-stream；按文件头判断实际类型。每文件 ≤32,000,000 字节、合计 ≤512,000,000 字节。清单中的同路径替换；不用这一接口上传 GLB。\n权限：世界创建者或平台管理员。",
         "tags": [
           "共享媒体"
         ],
@@ -4357,6 +6442,2895 @@
           },
           "401": {
             "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "请求体过大",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/worlds/join-invite": {
+      "post": {
+        "operationId": "post__api_worlds_join_invite",
+        "summary": "通过邀请码加入世界",
+        "description": "\n权限：有效账号。",
+        "tags": [
+          "平台"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "inviteCode": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "inviteCode"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "world": {
+                      "$ref": "../schemas/ServerWorldSummary.schema.json"
+                    }
+                  },
+                  "required": [
+                    "world"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数、版本或业务校验失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "请求体过大",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/worlds/{id}/access": {
+      "get": {
+        "operationId": "get__api_worlds_id_access",
+        "summary": "读取世界分享设置",
+        "description": "\n权限：世界创建者或平台管理员。",
+        "tags": [
+          "平台"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "平台服务器 worldId；不是本地 table.id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "visibility": {
+                      "enum": [
+                        "public",
+                        "invite"
+                      ]
+                    },
+                    "inviteCode": {
+                      "type": "string"
+                    },
+                    "members": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "visibility",
+                    "inviteCode",
+                    "members"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "post__api_worlds_id_access",
+        "summary": "修改分享与成员资格",
+        "description": "私密化保留当前成员并轮换邀请码。移除成员会撤销本世界访问与管理员演出角色记录。\n权限：世界创建者或平台管理员。",
+        "tags": [
+          "平台"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "平台服务器 worldId；不是本地 table.id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "visibility": {
+                    "enum": [
+                      "public",
+                      "invite"
+                    ]
+                  },
+                  "rotateInvite": {
+                    "type": "boolean"
+                  },
+                  "removePlayerId": {
+                    "type": "string"
+                  },
+                  "addPlayerId": {
+                    "type": "string"
+                  }
+                },
+                "required": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "visibility": {
+                      "enum": [
+                        "public",
+                        "invite"
+                      ]
+                    },
+                    "inviteCode": {
+                      "type": "string"
+                    },
+                    "members": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "visibility",
+                    "inviteCode",
+                    "members"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数、版本或业务校验失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "请求体过大",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/worlds/{id}/role": {
+      "get": {
+        "operationId": "get__api_worlds_id_role",
+        "summary": "读取世界内管理员角色",
+        "description": "可选 playerId 查询参数；普通账号只能查本人，创建者或管理员可查他人。创建者 hostId 与管理员附加 role 分开。\n权限：有效账号。",
+        "tags": [
+          "平台"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "平台服务器 worldId；不是本地 table.id"
+          },
+          {
+            "name": "playerId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "worldId": {
+                      "type": "string"
+                    },
+                    "hostId": {
+                      "type": "string"
+                    },
+                    "playerId": {
+                      "type": "string"
+                    },
+                    "nickname": {
+                      "type": "string"
+                    },
+                    "role": {
+                      "enum": [
+                        "gm",
+                        "player"
+                      ]
+                    },
+                    "admin": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "worldId",
+                    "hostId",
+                    "playerId",
+                    "nickname",
+                    "role",
+                    "admin"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "资源不存在",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "post__api_worlds_id_role",
+        "summary": "平台管理员切换自己的世界角色",
+        "description": "仅平台管理员、已进入世界、且不是世界创建者时可调用；不能提升其他玩家。\n权限：有效账号。",
+        "tags": [
+          "平台"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "平台服务器 worldId；不是本地 table.id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "enum": [
+                      "gm",
+                      "player"
+                    ]
+                  }
+                },
+                "required": [
+                  "role"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "worldId": {
+                      "type": "string"
+                    },
+                    "hostId": {
+                      "type": "string"
+                    },
+                    "playerId": {
+                      "type": "string"
+                    },
+                    "nickname": {
+                      "type": "string"
+                    },
+                    "role": {
+                      "enum": [
+                        "gm",
+                        "player"
+                      ]
+                    },
+                    "admin": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "worldId",
+                    "hostId",
+                    "playerId",
+                    "nickname",
+                    "role",
+                    "admin"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数、版本或业务校验失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "资源不存在",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "修订冲突或账号占用",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "请求体过大",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/worlds/{id}/roles": {
+      "get": {
+        "operationId": "get__api_worlds_id_roles",
+        "summary": "读取本世界主持人名单",
+        "description": "\n权限：该世界 GM 或当前成员。",
+        "tags": [
+          "平台"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "平台服务器 worldId；不是本地 table.id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "worldId": {
+                      "type": "string"
+                    },
+                    "hostId": {
+                      "type": "string"
+                    },
+                    "gms": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "worldId",
+                    "hostId",
+                    "gms"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "资源不存在",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/worlds/{id}/media/upload": {
+      "post": {
+        "operationId": "post__api_worlds_id_media_upload",
+        "summary": "获得外部附件上传 URL",
+        "description": "需配置外部对象存储。短期签名 URL 仅用于该对象上传；不能给不受信任 AI。\n权限：世界创建者或平台管理员。",
+        "tags": [
+          "共享媒体"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "平台服务器 worldId；不是本地 table.id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "hash": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "number"
+                  },
+                  "mime": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "path",
+                  "hash",
+                  "size",
+                  "mime"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "url"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数、版本或业务校验失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "请求体过大",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "认证忙或保存失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/worlds/{id}/media/gc": {
+      "post": {
+        "operationId": "post__api_worlds_id_media_gc",
+        "summary": "回收外部孤立附件",
+        "description": "无需正文。对比本世界当前清单，删除不再被清单引用的对象；不是按年龄删除。\n权限：世界创建者或平台管理员。",
+        "tags": [
+          "共享媒体"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "平台服务器 worldId；不是本地 table.id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "removed": {
+                      "type": "number"
+                    },
+                    "kept": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "removed",
+                    "kept"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数、版本或业务校验失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "认证忙或保存失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/worlds/{id}/publication/upload": {
+      "post": {
+        "operationId": "post__api_worlds_id_publication_upload",
+        "summary": "获得外部附件上传 URL",
+        "description": "需配置外部对象存储。短期签名 URL 仅用于该对象上传；不能给不受信任 AI。\n权限：世界创建者或平台管理员。",
+        "tags": [
+          "公开发布"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "平台服务器 worldId；不是本地 table.id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hash": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "hash",
+                  "size"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "url"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数、版本或业务校验失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "请求体过大",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "认证忙或保存失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/worlds/{id}/media/commit": {
+      "post": {
+        "operationId": "post__api_worlds_id_media_commit",
+        "summary": "核验并登记外部媒体",
+        "description": "服务端核验对象长度、哈希和文件类型后提交；SVG 走全文校验的本机通道。\n权限：世界创建者或平台管理员。",
+        "tags": [
+          "共享媒体"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "平台服务器 worldId；不是本地 table.id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "hash": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "number"
+                  },
+                  "mime": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "path",
+                  "hash",
+                  "size",
+                  "mime"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "manifest": {
+                      "$ref": "../schemas/MediaManifest.schema.json"
+                    }
+                  },
+                  "required": [
+                    "manifest"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数、版本或业务校验失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "请求体过大",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "认证忙或保存失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/releases/current": {
+      "get": {
+        "operationId": "get__api_releases_current",
+        "summary": "运行版本与已激活发行",
+        "description": "无需账号；no-store。候选版本不会提前向客户端发布。\n权限：无需登录。",
+        "tags": [
+          "平台"
+        ],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "version": {
+                      "type": "string"
+                    },
+                    "commit": {
+                      "type": "string"
+                    },
+                    "protocol": {
+                      "type": "number"
+                    },
+                    "release": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "version": {
+                              "type": "string"
+                            },
+                            "commit": {
+                              "type": "string"
+                            },
+                            "docsCommit": {
+                              "type": "string"
+                            },
+                            "publishedAt": {
+                              "type": "string"
+                            },
+                            "notes": {
+                              "type": "string"
+                            },
+                            "protocol": {
+                              "type": "number"
+                            },
+                            "minClientVersion": {
+                              "type": "string"
+                            },
+                            "artifacts": {
+                              "type": "object",
+                              "additionalProperties": {
+                                "type": "object",
+                                "properties": {
+                                  "url": {
+                                    "type": "string"
+                                  },
+                                  "signature": {
+                                    "type": "string"
+                                  },
+                                  "sha256": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "url",
+                                  "signature",
+                                  "sha256"
+                                ]
+                              }
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "version",
+                            "commit",
+                            "docsCommit",
+                            "publishedAt",
+                            "notes",
+                            "protocol",
+                            "minClientVersion",
+                            "artifacts"
+                          ]
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "version",
+                    "commit",
+                    "protocol",
+                    "release"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/updates/{target}/{arch}/{current}": {
+      "get": {
+        "operationId": "get__api_updates_target_arch_current_",
+        "summary": "Tauri 签名更新检查",
+        "description": "无更新或不支持该平台返回 204，无 JSON 正文。仅返回已激活且高于 current 的稳定版本。\n权限：无需登录。",
+        "tags": [
+          "平台"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "name": "target",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "资源相对路径；按路径编码，不包含 .."
+          },
+          {
+            "name": "arch",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "资源相对路径；按路径编码，不包含 .."
+          },
+          {
+            "name": "current",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "资源相对路径；按路径编码，不包含 .."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "version": {
+                      "type": "string"
+                    },
+                    "notes": {
+                      "type": "string"
+                    },
+                    "pub_date": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "signature": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "version",
+                    "notes",
+                    "pub_date",
+                    "url",
+                    "signature"
+                  ]
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "无可用更新；空正文"
+          },
+          "400": {
+            "description": "参数、版本或业务校验失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/releases": {
+      "get": {
+        "operationId": "get__api_admin_releases",
+        "summary": "候选发布与部署状态",
+        "description": "\n权限：平台管理员且在 UPDATE_ADMIN_IDS 中。",
+        "tags": [
+          "平台"
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "active": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "version": {
+                              "type": "string"
+                            },
+                            "commit": {
+                              "type": "string"
+                            },
+                            "docsCommit": {
+                              "type": "string"
+                            },
+                            "publishedAt": {
+                              "type": "string"
+                            },
+                            "notes": {
+                              "type": "string"
+                            },
+                            "protocol": {
+                              "type": "number"
+                            },
+                            "minClientVersion": {
+                              "type": "string"
+                            },
+                            "artifacts": {
+                              "type": "object",
+                              "additionalProperties": {
+                                "type": "object",
+                                "properties": {
+                                  "url": {
+                                    "type": "string"
+                                  },
+                                  "signature": {
+                                    "type": "string"
+                                  },
+                                  "sha256": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "url",
+                                  "signature",
+                                  "sha256"
+                                ]
+                              }
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "version",
+                            "commit",
+                            "docsCommit",
+                            "publishedAt",
+                            "notes",
+                            "protocol",
+                            "minClientVersion",
+                            "artifacts"
+                          ]
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "candidates": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "string"
+                          },
+                          "commit": {
+                            "type": "string"
+                          },
+                          "docsCommit": {
+                            "type": "string"
+                          },
+                          "publishedAt": {
+                            "type": "string"
+                          },
+                          "notes": {
+                            "type": "string"
+                          },
+                          "protocol": {
+                            "type": "number"
+                          },
+                          "minClientVersion": {
+                            "type": "string"
+                          },
+                          "artifacts": {
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "object",
+                              "properties": {
+                                "url": {
+                                  "type": "string"
+                                },
+                                "signature": {
+                                  "type": "string"
+                                },
+                                "sha256": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "url",
+                                "signature",
+                                "sha256"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "version",
+                          "commit",
+                          "docsCommit",
+                          "publishedAt",
+                          "notes",
+                          "protocol",
+                          "minClientVersion",
+                          "artifacts"
+                        ]
+                      }
+                    },
+                    "jobs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "version": {
+                                "type": "string"
+                              },
+                              "commit": {
+                                "type": "string"
+                              },
+                              "docsCommit": {
+                                "type": "string"
+                              },
+                              "publishedAt": {
+                                "type": "string"
+                              },
+                              "notes": {
+                                "type": "string"
+                              },
+                              "protocol": {
+                                "type": "number"
+                              },
+                              "minClientVersion": {
+                                "type": "string"
+                              },
+                              "artifacts": {
+                                "type": "object",
+                                "additionalProperties": {
+                                  "type": "object",
+                                  "properties": {
+                                    "url": {
+                                      "type": "string"
+                                    },
+                                    "signature": {
+                                      "type": "string"
+                                    },
+                                    "sha256": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "url",
+                                    "signature",
+                                    "sha256"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "version",
+                              "commit",
+                              "docsCommit",
+                              "publishedAt",
+                              "notes",
+                              "protocol",
+                              "minClientVersion",
+                              "artifacts"
+                            ]
+                          },
+                          "requestedBy": {
+                            "type": "string"
+                          },
+                          "requestedAt": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "enum": [
+                              "queued",
+                              "preparing",
+                              "stopping",
+                              "switching",
+                              "checking",
+                              "complete",
+                              "rolled-back",
+                              "failed"
+                            ]
+                          },
+                          "message": {
+                            "type": "string"
+                          },
+                          "previous": {
+                            "type": "string"
+                          },
+                          "backup": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "release",
+                          "requestedBy",
+                          "requestedAt",
+                          "status",
+                          "message"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "active",
+                    "candidates",
+                    "jobs"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "post__api_admin_releases",
+        "summary": "登记不可覆盖的候选发布",
+        "description": "64 KB 上限，完整项目与文档提交 SHA；下载 URL 来自 UPDATE_ARTIFACT_ORIGINS；必须提供签名客户端包。\n权限：平台管理员且在 UPDATE_ADMIN_IDS 中。",
+        "tags": [
+          "平台"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "string"
+                  },
+                  "commit": {
+                    "type": "string"
+                  },
+                  "docsCommit": {
+                    "type": "string"
+                  },
+                  "publishedAt": {
+                    "type": "string"
+                  },
+                  "notes": {
+                    "type": "string"
+                  },
+                  "protocol": {
+                    "type": "number"
+                  },
+                  "minClientVersion": {
+                    "type": "string"
+                  },
+                  "artifacts": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "signature": {
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "signature",
+                        "sha256"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "version",
+                  "commit",
+                  "docsCommit",
+                  "publishedAt",
+                  "notes",
+                  "protocol",
+                  "minClientVersion",
+                  "artifacts"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "release": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string"
+                        },
+                        "commit": {
+                          "type": "string"
+                        },
+                        "docsCommit": {
+                          "type": "string"
+                        },
+                        "publishedAt": {
+                          "type": "string"
+                        },
+                        "notes": {
+                          "type": "string"
+                        },
+                        "protocol": {
+                          "type": "number"
+                        },
+                        "minClientVersion": {
+                          "type": "string"
+                        },
+                        "artifacts": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "object",
+                            "properties": {
+                              "url": {
+                                "type": "string"
+                              },
+                              "signature": {
+                                "type": "string"
+                              },
+                              "sha256": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "url",
+                              "signature",
+                              "sha256"
+                            ]
+                          }
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "version",
+                        "commit",
+                        "docsCommit",
+                        "publishedAt",
+                        "notes",
+                        "protocol",
+                        "minClientVersion",
+                        "artifacts"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "release"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数、版本或业务校验失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "请求体过大",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/releases/{id}/deploy": {
+      "post": {
+        "operationId": "post__api_admin_releases_id_deploy",
+        "summary": "管理员确认部署",
+        "description": "需显式确认完整候选提交编号，只允许一个未完成任务。由独立 Linux 更新代理执行，202 不表示已经更新成功。\n权限：平台管理员且在 UPDATE_ADMIN_IDS 中。",
+        "tags": [
+          "平台"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "平台服务器 worldId；不是本地 table.id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "commit": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "commit"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "release": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string"
+                        },
+                        "commit": {
+                          "type": "string"
+                        },
+                        "docsCommit": {
+                          "type": "string"
+                        },
+                        "publishedAt": {
+                          "type": "string"
+                        },
+                        "notes": {
+                          "type": "string"
+                        },
+                        "protocol": {
+                          "type": "number"
+                        },
+                        "minClientVersion": {
+                          "type": "string"
+                        },
+                        "artifacts": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "object",
+                            "properties": {
+                              "url": {
+                                "type": "string"
+                              },
+                              "signature": {
+                                "type": "string"
+                              },
+                              "sha256": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "url",
+                              "signature",
+                              "sha256"
+                            ]
+                          }
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "version",
+                        "commit",
+                        "docsCommit",
+                        "publishedAt",
+                        "notes",
+                        "protocol",
+                        "minClientVersion",
+                        "artifacts"
+                      ]
+                    },
+                    "requestedBy": {
+                      "type": "string"
+                    },
+                    "requestedAt": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "enum": [
+                        "queued",
+                        "preparing",
+                        "stopping",
+                        "switching",
+                        "checking",
+                        "complete",
+                        "rolled-back",
+                        "failed"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "previous": {
+                      "type": "string"
+                    },
+                    "backup": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "release",
+                    "requestedBy",
+                    "requestedAt",
+                    "status",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数、版本或业务校验失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "没有访问权限",
             "content": {
               "application/json": {
                 "schema": {

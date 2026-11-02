@@ -1,13 +1,13 @@
 # game/packages/rules-engine/src/dnd/spells.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
-import type { DndAbility, DndDamageType, DndCondition } from '@aelzerant/contracts';
+import type { DndAbility, DndDamageType, DndCondition, DndCharacter } from '@aelzerant/contracts';
 import type {DndEntry} from './catalog-types';
 ```
 </details>
@@ -20,6 +20,17 @@ Explicit reviewed profiles. Other text is never silently interpreted as an effec
 
 ```ts
 export interface DndSpellExecutor {
+    goodberry?: boolean;
+    lightObject?: boolean;
+    willing?: boolean;
+    reaction?: boolean;
+    benefitAura?: boolean;
+    hitDiceHealing?: boolean;
+    originCube?: boolean;
+    excludeTargets?: boolean;
+    castChoice?: boolean;
+    teleport?: number;
+    nonmagical?: boolean;
     zoneDamage?: boolean;
     moveZone?: {
         feet: number;
@@ -75,6 +86,17 @@ export interface DndSpellExecutor {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `goodberry` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `lightObject` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `willing` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `reaction` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `benefitAura` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `hitDiceHealing` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `originCube` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `excludeTargets` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `castChoice` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `teleport` | 是 | `number` | 见结构定义及所属功能文档 |
+| `nonmagical` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `zoneDamage` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `moveZone` | 是 | `{feet:number;teleport:boolean}` | 见结构定义及所属功能文档 |
 | `moveZone.feet` | 否 | `number` | 见结构定义及所属功能文档 |
@@ -125,7 +147,7 @@ export interface DndSpellExecutor {
 
 ## dndSpellRayCount
 
-导出接口 · 源码第 80 行。
+导出接口 · 源码第 107 行。
 
 ```ts
 export function dndSpellRayCount(entry: DndEntry, slot: number, level: number): number;
@@ -139,7 +161,7 @@ export function dndSpellRayCount(entry: DndEntry, slot: number, level: number): 
 
 ## dndSpellTargets
 
-导出接口 · 源码第 93 行。
+导出接口 · 源码第 120 行。
 
 ```ts
 export function dndSpellTargets(entry: DndEntry, slot: number, level: number): { self: boolean; max: number; range: number; humanoid: boolean; area: boolean; } | undefined;
@@ -153,7 +175,7 @@ export function dndSpellTargets(entry: DndEntry, slot: number, level: number): {
 
 ## dndSpellCoverage
 
-导出接口 · 源码第 104 行。
+导出接口 · 源码第 131 行。
 
 ```ts
 export function dndSpellCoverage(english: string): { status: "partial"; label: string; note: string; } | { status: "reference"; label: string; note: string; };
@@ -165,10 +187,24 @@ export function dndSpellCoverage(english: string): { status: "partial"; label: s
 
 ## dndSpellCanTargetObjects
 
-导出接口 · 源码第 107 行。
+导出接口 · 源码第 134 行。
 
 Reviewed object targeting; effect automation remains an independent capability.
 
 ```ts
 export const dndSpellCanTargetObjects: (entry: DndEntry): boolean;
 ```
+
+## dndVigorProblem
+
+导出接口 · 源码第 136 行。
+
+```ts
+export function dndVigorProblem(c: DndCharacter, counts: number[]|undefined, slot: number): string;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `c` | 否 | `DndCharacter` | — |
+| `counts` | 否 | `number[]&#124;undefined` | — |
+| `slot` | 否 | `number` | — |

@@ -1,6 +1,6 @@
 # game/packages/game-core/src/aaf/state.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -42,12 +42,20 @@ export function aafConditions(actor: Combatant): Set<AafCondition>;
 export const aafIncapacitated: (actor: Combatant): boolean;
 ```
 
-## aafLog
+## aafCheckNeedsDecision
 
 导出接口 · 源码第 17 行。
 
 ```ts
-export function aafLog(state: CombatState, actor: Combatant, text: string, sourceId?: string): void;
+export const aafCheckNeedsDecision: (actor: Combatant, check: import("@aelzerant/contracts").AafCheckRecord): boolean;
+```
+
+## aafLog
+
+导出接口 · 源码第 18 行。
+
+```ts
+export function aafLog(state: CombatState, actor: Combatant, text: string, sourceId?: string, check?: import('@aelzerant/contracts').AafCheckRecord): void;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
@@ -56,10 +64,11 @@ export function aafLog(state: CombatState, actor: Combatant, text: string, sourc
 | `actor` | 否 | `Combatant` | — |
 | `text` | 否 | `string` | — |
 | `sourceId` | 是 | `string` | — |
+| `check` | 是 | `import('@aelzerant/contracts').AafCheckRecord` | — |
 
 ## aafId
 
-导出接口 · 源码第 18 行。
+导出接口 · 源码第 19 行。
 
 ```ts
 export const aafId: (state: CombatState, prefix: string): string;
@@ -67,7 +76,7 @@ export const aafId: (state: CombatState, prefix: string): string;
 
 ## aafEndConcentration
 
-导出接口 · 源码第 19 行。
+导出接口 · 源码第 20 行。
 
 ```ts
 export function aafEndConcentration(state: CombatState, actor: Combatant, id: string): void;
@@ -81,7 +90,7 @@ export function aafEndConcentration(state: CombatState, actor: Combatant, id: st
 
 ## aafCondition
 
-导出接口 · 源码第 26 行。
+导出接口 · 源码第 27 行。
 
 ```ts
 export function aafCondition(state: CombatState, actor: Combatant, name: AafCondition, source: string, duration?: AafDuration, sourceActorId?: string, concentrationId?: string): void;
@@ -99,7 +108,7 @@ export function aafCondition(state: CombatState, actor: Combatant, name: AafCond
 
 ## aafRemoveCondition
 
-导出接口 · 源码第 41 行。
+导出接口 · 源码第 42 行。
 
 ```ts
 export function aafRemoveCondition(state: CombatState, actor: Combatant, name: AafCondition): void;
@@ -113,7 +122,7 @@ export function aafRemoveCondition(state: CombatState, actor: Combatant, name: A
 
 ## aafExpires
 
-导出接口 · 源码第 42 行。
+导出接口 · 源码第 43 行。
 
 ```ts
 export function aafExpires(duration: AafDuration, event: AafBoundary, ownerId: string, actingId?: string): boolean;
@@ -128,7 +137,7 @@ export function aafExpires(duration: AafDuration, event: AafBoundary, ownerId: s
 
 ## aafBoundary
 
-导出接口 · 源码第 46 行。
+导出接口 · 源码第 47 行。
 
 ```ts
 export function aafBoundary(state: CombatState, event: AafBoundary, actingId?: string): void;
@@ -142,7 +151,7 @@ export function aafBoundary(state: CombatState, event: AafBoundary, actingId?: s
 
 ## aafDefenses
 
-导出接口 · 源码第 58 行。
+导出接口 · 源码第 59 行。
 
 ```ts
 export function aafDefenses(actor: Combatant): AafDefense[];
@@ -154,7 +163,7 @@ export function aafDefenses(actor: Combatant): AafDefense[];
 
 ## aafCheckActor
 
-导出接口 · 源码第 67 行。
+导出接口 · 源码第 68 行。
 
 ```ts
 export function aafCheckActor(state: CombatState, actor: Combatant, kind: AafCheckKind, dc: number, options?: {attribute?:AafAttribute;skill?:string;flat?:number;advantage?:boolean;disadvantage?:boolean;automatic?:boolean;heroBonus?:boolean;visual?:boolean;auditory?:boolean}): import("@source/packages/contracts/src/aaf-rules").AafCheckRecord;
@@ -170,7 +179,7 @@ export function aafCheckActor(state: CombatState, actor: Combatant, kind: AafChe
 
 ## aafSyncQuota
 
-导出接口 · 源码第 84 行。
+导出接口 · 源码第 85 行。
 
 ```ts
 export function aafSyncQuota(state: CombatState, actor: Combatant): void;
@@ -183,7 +192,7 @@ export function aafSyncQuota(state: CombatState, actor: Combatant): void;
 
 ## aafSpeedValue
 
-导出接口 · 源码第 88 行。
+导出接口 · 源码第 89 行。
 
 ```ts
 export function aafSpeedValue(actor: Combatant, mode: 'walk'|'fly'|'swim'|'climb'|'burrow'): number;

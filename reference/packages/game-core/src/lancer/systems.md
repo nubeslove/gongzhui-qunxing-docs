@@ -1,6 +1,6 @@
 # game/packages/game-core/src/lancer/systems.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -8,7 +8,7 @@
 
 ```ts
 import {useCustomSystem} from './custom-equipment';
-import {parseLancerAutomation} from '@aelzerant/contracts';
+import {isHexGrid,hexInBounds,snapGridPoint,parseLancerAutomation} from '@aelzerant/contracts';
 import { useLancerCombatSystem } from './active-systems';
 import type { LancerArea, LancerBattle, LancerCombatIntent, LancerCombatSystem, LancerCombatUnit, ManualMap, ManualToken } from '@aelzerant/contracts';
 import { areaOrigin, lancerAreaContains } from './areas';
@@ -123,7 +123,7 @@ export function lancerSystemPointInRange(map: ManualMap, u: LancerCombatUnit, p:
 
 ## useLancerSystem
 
-导出接口 · 源码第 57 行。
+导出接口 · 源码第 59 行。
 
 Returns self heat so the caller uses the same reactor settlement path as weapons.
 
@@ -141,7 +141,7 @@ export function useLancerSystem(b: LancerBattle, map: ManualMap, u: LancerCombat
 
 ## triggerLancerMines
 
-导出接口 · 源码第 100 行。
+导出接口 · 源码第 102 行。
 
 Check the entire traversed segment, not only its endpoint. Placing a mine does not trigger it.
 

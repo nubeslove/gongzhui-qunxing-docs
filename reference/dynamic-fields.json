@@ -1,327 +1,69 @@
 [
   {
+    "key": "lancer.side",
+    "source": "game/apps/desktop/src/tabletop/lancer/actorGroup.ts",
+    "line": 6,
+    "expression": "actor.fields['lancer.side']"
+  },
+  {
+    "key": "lancer.actorRole",
+    "source": "game/apps/desktop/src/tabletop/lancer/actorGroup.ts",
+    "line": 7,
+    "expression": "actor.fields['lancer.actorRole']"
+  },
+  {
+    "key": "lancer.npc",
+    "source": "game/apps/desktop/src/tabletop/lancer/actorGroup.ts",
+    "line": 8,
+    "expression": "actor.fields['lancer.npc']"
+  },
+  {
     "key": "呼号",
     "source": "game/apps/desktop/src/tabletop/lancer/CharacterReadView.tsx",
-    "line": 16,
+    "line": 24,
     "expression": "actor.fields['呼号']"
   },
   {
     "key": "呼号",
     "source": "game/apps/desktop/src/tabletop/lancer/CharacterReadView.tsx",
-    "line": 16,
+    "line": 24,
     "expression": "actor.fields['呼号']"
   },
   {
-    "key": "机甲型号",
-    "source": "game/apps/desktop/src/tabletop/lancer/CharacterReadView.tsx",
-    "line": 16,
-    "expression": "actor.fields['机甲型号']"
-  },
-  {
     "key": "机甲名",
     "source": "game/apps/desktop/src/tabletop/lancer/CharacterReadView.tsx",
-    "line": 16,
-    "expression": "actor.fields['机甲名']"
-  },
-  {
-    "key": "机甲名",
-    "source": "game/apps/desktop/src/tabletop/lancer/CharacterReadView.tsx",
-    "line": 16,
+    "line": 25,
     "expression": "actor.fields['机甲名']"
   },
   {
     "key": "背景",
     "source": "game/apps/desktop/src/tabletop/lancer/CharacterReadView.tsx",
-    "line": 20,
+    "line": 29,
     "expression": "actor.fields['背景']"
   },
   {
     "key": "触发技",
     "source": "game/apps/desktop/src/tabletop/lancer/CharacterReadView.tsx",
-    "line": 20,
-    "expression": "actor.fields['触发技']"
-  },
-  {
-    "key": "触发技",
-    "source": "game/apps/desktop/src/tabletop/lancer/CharacterReadView.tsx",
-    "line": 20,
+    "line": 30,
     "expression": "actor.fields['触发技']"
   },
   {
     "key": "驾驶员装备",
     "source": "game/apps/desktop/src/tabletop/lancer/CharacterReadView.tsx",
-    "line": 20,
+    "line": 31,
     "expression": "actor.fields['驾驶员装备']"
   },
   {
     "key": "执照",
     "source": "game/apps/desktop/src/tabletop/lancer/CharacterReadView.tsx",
-    "line": 22,
+    "line": 33,
     "expression": "actor.fields['执照']"
-  },
-  {
-    "key": "机甲名",
-    "source": "game/apps/desktop/src/tabletop/lancer/CharacterReadView.tsx",
-    "line": 23,
-    "expression": "actor.fields['机甲名']"
   },
   {
     "key": "状态与状况",
     "source": "game/apps/desktop/src/tabletop/lancer/CharacterReadView.tsx",
-    "line": 25,
+    "line": 36,
     "expression": "actor.fields['状态与状况']"
-  },
-  {
-    "key": "lancer.creation",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 14,
-    "expression": "actor.fields['lancer.creation']"
-  },
-  {
-    "key": "lancer.npc",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 15,
-    "expression": "actor.fields['lancer.npc']"
-  },
-  {
-    "key": "lancer.frame",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 18,
-    "expression": "actor.fields['lancer.frame']"
-  },
-  {
-    "key": "lancer.loaded.${i}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 22,
-    "expression": "actor.fields[`lancer.loaded.${i}`]"
-  },
-  {
-    "key": "lancer.destroyed.weapon.${i}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 22,
-    "expression": "actor.fields[`lancer.destroyed.weapon.${i}`]"
-  },
-  {
-    "key": "lancer.loaded.${i}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 35,
-    "expression": "actor.fields[`lancer.loaded.${i}`]"
-  },
-  {
-    "key": "lancer.destroyed.weapon.${i}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 35,
-    "expression": "actor.fields[`lancer.destroyed.weapon.${i}`]"
-  },
-  {
-    "key": "lancer.talentWeapon.fuel-rod.used",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 37,
-    "expression": "actor.fields['lancer.talentWeapon.fuel-rod.used']"
-  },
-  {
-    "key": "lancer.talentWeapon.fuel-rod.destroyed",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 37,
-    "expression": "actor.fields['lancer.talentWeapon.fuel-rod.destroyed']"
-  },
-  {
-    "key": "lancer.ai",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 39,
-    "expression": "actor.fields['lancer.ai']"
-  },
-  {
-    "key": "lancer.ai",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 39,
-    "expression": "actor.fields['lancer.ai']"
-  },
-  {
-    "key": "lancer.nhp",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 40,
-    "expression": "actor.fields['lancer.nhp']"
-  },
-  {
-    "key": "lancer.nhp",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 40,
-    "expression": "actor.fields['lancer.nhp']"
-  },
-  {
-    "key": "lancer.pilot.ejected",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 41,
-    "expression": "actor.fields['lancer.pilot.ejected']"
-  },
-  {
-    "key": "lancer.side",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 41,
-    "expression": "actor.fields['lancer.side']"
-  },
-  {
-    "key": "lancer.destroyed.unit",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 41,
-    "expression": "actor.fields['lancer.destroyed.unit']"
-  },
-  {
-    "key": "lancer.leaderPool",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 45,
-    "expression": "actor.fields['lancer.leaderPool']"
-  },
-  {
-    "key": "lancer.leaderPool",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 45,
-    "expression": "actor.fields['lancer.leaderPool']"
-  },
-  {
-    "key": "lancer.torrentDie",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 45,
-    "expression": "actor.fields['lancer.torrentDie']"
-  },
-  {
-    "key": "lancer.wreckLost",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 45,
-    "expression": "actor.fields['lancer.wreckLost']"
-  },
-  {
-    "key": "lancer.brawlerDie",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 45,
-    "expression": "actor.fields['lancer.brawlerDie']"
-  },
-  {
-    "key": "lancer.gunslingerDie",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 45,
-    "expression": "actor.fields['lancer.gunslingerDie']"
-  },
-  {
-    "key": "lancer.destroyed.system.${i}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 46,
-    "expression": "actor.fields[`lancer.destroyed.system.${i}`]"
-  },
-  {
-    "key": "lancer.nhp",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 63,
-    "expression": "actor.fields['lancer.nhp']"
-  },
-  {
-    "key": "lancer.ai",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 64,
-    "expression": "actor.fields['lancer.ai']"
-  },
-  {
-    "key": "lancer.pilot.ejected",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 65,
-    "expression": "actor.fields['lancer.pilot.ejected']"
-  },
-  {
-    "key": "lancer.leaderPool",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 66,
-    "expression": "actor.fields['lancer.leaderPool']"
-  },
-  {
-    "key": "lancer.wreckLost",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 67,
-    "expression": "actor.fields['lancer.wreckLost']"
-  },
-  {
-    "key": "lancer.conditions",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 68,
-    "expression": "actor.fields['lancer.conditions']"
-  },
-  {
-    "key": "lancer.current.${key}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 69,
-    "expression": "actor.fields[`lancer.current.${key}`]"
-  },
-  {
-    "key": "lancer.torrentDie",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 70,
-    "expression": "actor.fields['lancer.torrentDie']"
-  },
-  {
-    "key": "lancer.brawlerDie",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 71,
-    "expression": "actor.fields['lancer.brawlerDie']"
-  },
-  {
-    "key": "lancer.gunslingerDie",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 72,
-    "expression": "actor.fields['lancer.gunslingerDie']"
-  },
-  {
-    "key": "lancer.destroyed.unit",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 73,
-    "expression": "actor.fields['lancer.destroyed.unit']"
-  },
-  {
-    "key": "lancer.cp",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 73,
-    "expression": "actor.fields['lancer.cp']"
-  },
-  {
-    "key": "lancer.overcharge",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 73,
-    "expression": "actor.fields['lancer.overcharge']"
-  },
-  {
-    "key": "lancer.talentWeapon.${key}.used（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 74,
-    "expression": "actor.fields[`lancer.talentWeapon.${key}.used`]"
-  },
-  {
-    "key": "lancer.talentWeapon.${key}.destroyed（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 74,
-    "expression": "actor.fields[`lancer.talentWeapon.${key}.destroyed`]"
-  },
-  {
-    "key": "lancer.destroyed.${kind}.${i}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 74,
-    "expression": "actor.fields[`lancer.destroyed.${kind}.${i}`]"
-  },
-  {
-    "key": "lancer.loaded.${i}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 74,
-    "expression": "actor.fields[`lancer.loaded.${i}`]"
-  },
-  {
-    "key": "lancer.conditions",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 77,
-    "expression": "actor.fields['lancer.conditions']"
-  },
-  {
-    "key": "lancer.hull",
-    "source": "game/apps/desktop/src/tabletop/lancer/combatAdapter.ts",
-    "line": 82,
-    "expression": "a.fields['lancer.hull']"
   },
   {
     "key": "lancer.frame",
@@ -414,166 +156,268 @@
     "expression": "f[`lancer.destroyed.system.${systems.length-1}`]"
   },
   {
-    "key": "lancer.contentPacks",
-    "source": "game/apps/desktop/src/tabletop/lancer/content.ts",
-    "line": 15,
-    "expression": "a.fields['lancer.contentPacks']"
+    "key": "lancer.level",
+    "source": "game/apps/desktop/src/tabletop/lancer/CoreBonusBrowser.tsx",
+    "line": 9,
+    "expression": "actor.fields['lancer.level']"
   },
   {
-    "key": "lancer.contentPacks",
-    "source": "game/apps/desktop/src/tabletop/lancer/content.ts",
-    "line": 16,
-    "expression": "a.fields['lancer.contentPacks']"
+    "key": "lancer.startingLevel",
+    "source": "game/apps/desktop/src/tabletop/lancer/CreationWizard.tsx",
+    "line": 34,
+    "expression": "actor.fields['lancer.startingLevel']"
   },
   {
-    "key": "lancer.licenses",
-    "source": "game/apps/desktop/src/tabletop/lancer/content.ts",
-    "line": 21,
-    "expression": "a.fields['lancer.licenses']"
+    "key": "lancer.startingLevel",
+    "source": "game/apps/desktop/src/tabletop/lancer/CreationWizard.tsx",
+    "line": 34,
+    "expression": "actor.fields['lancer.startingLevel']"
   },
   {
-    "key": "lancer.frame",
-    "source": "game/apps/desktop/src/tabletop/lancer/content.ts",
-    "line": 35,
-    "expression": "a.fields['lancer.frame']"
+    "key": "lancer.startingBonus",
+    "source": "game/apps/desktop/src/tabletop/lancer/CreationWizard.tsx",
+    "line": 34,
+    "expression": "actor.fields['lancer.startingBonus']"
+  },
+  {
+    "key": "lancer.startingLevel",
+    "source": "game/apps/desktop/src/tabletop/lancer/CreationWizard.tsx",
+    "line": 34,
+    "expression": "actor.fields['lancer.startingLevel']"
+  },
+  {
+    "key": "lancer.startingLevel",
+    "source": "game/apps/desktop/src/tabletop/lancer/CreationWizard.tsx",
+    "line": 34,
+    "expression": "actor.fields['lancer.startingLevel']"
   },
   {
     "key": "呼号",
     "source": "game/apps/desktop/src/tabletop/lancer/CreationWizard.tsx",
-    "line": 28,
+    "line": 35,
     "expression": "actor.fields['呼号']"
   },
   {
     "key": "背景",
     "source": "game/apps/desktop/src/tabletop/lancer/CreationWizard.tsx",
-    "line": 28,
+    "line": 35,
     "expression": "actor.fields['背景']"
   },
   {
     "key": "驾驶员装备",
     "source": "game/apps/desktop/src/tabletop/lancer/CreationWizard.tsx",
-    "line": 28,
+    "line": 35,
     "expression": "actor.fields['驾驶员装备']"
   },
   {
-    "key": "机甲名",
-    "source": "game/apps/desktop/src/tabletop/lancer/CreationWizard.tsx",
-    "line": 32,
-    "expression": "actor.fields['机甲名']"
+    "key": "lancer.side",
+    "source": "game/apps/desktop/src/tabletop/lancer/customNpc.ts",
+    "line": 13,
+    "expression": "actor.fields['lancer.side']"
   },
   {
     "key": "lancer.npc",
-    "source": "game/apps/desktop/src/tabletop/lancer/deployment.ts",
-    "line": 15,
-    "expression": "a.fields['lancer.npc']"
+    "source": "game/apps/desktop/src/tabletop/lancer/DeploymentPanel.tsx",
+    "line": 13,
+    "expression": "table.actors.find(v=>v.id===a.id)?.fields['lancer.npc']"
   },
   {
-    "key": "lancer.side",
-    "source": "game/apps/desktop/src/tabletop/lancer/deployment.ts",
+    "key": "lancer.npc",
+    "source": "game/apps/desktop/src/tabletop/lancer/DeploymentPanel.tsx",
     "line": 15,
-    "expression": "a.fields['lancer.side']"
+    "expression": "table.actors.find(v=>v.id===a.id)?.fields['lancer.npc']"
+  },
+  {
+    "key": "呼号",
+    "source": "game/apps/desktop/src/tabletop/lancer/deploymentUnitLabel.ts",
+    "line": 7,
+    "expression": "actor.fields['呼号']"
   },
   {
     "key": "lancer.frame",
     "source": "game/apps/desktop/src/tabletop/lancer/FramePicker.tsx",
-    "line": 11,
+    "line": 10,
     "expression": "actor.fields['lancer.frame']"
   },
   {
+    "key": "lancer.frame",
+    "source": "game/apps/desktop/src/tabletop/lancer/FramePicker.tsx",
+    "line": 14,
+    "expression": "actor.fields['lancer.frame']"
+  },
+  {
+    "key": "lancer.startingLevel",
+    "source": "game/apps/desktop/src/tabletop/lancer/GrantEditor.tsx",
+    "line": 4,
+    "expression": "actor.fields['lancer.startingLevel']"
+  },
+  {
+    "key": "lancer.creation",
+    "source": "game/apps/desktop/src/tabletop/lancer/Hangar.tsx",
+    "line": 37,
+    "expression": "actor.fields['lancer.creation']"
+  },
+  {
     "key": "lancer.side",
     "source": "game/apps/desktop/src/tabletop/lancer/Hangar.tsx",
-    "line": 22,
+    "line": 38,
     "expression": "a.fields['lancer.side']"
   },
   {
     "key": "lancer.creation",
     "source": "game/apps/desktop/src/tabletop/lancer/Hangar.tsx",
-    "line": 22,
+    "line": 38,
     "expression": "a.fields['lancer.creation']"
   },
   {
     "key": "lancer.side",
     "source": "game/apps/desktop/src/tabletop/lancer/Hangar.tsx",
-    "line": 22,
+    "line": 38,
     "expression": "a.fields['lancer.side']"
   },
   {
-    "key": "lancer.creation",
+    "key": "lancer.side",
     "source": "game/apps/desktop/src/tabletop/lancer/Hangar.tsx",
-    "line": 22,
-    "expression": "a.fields['lancer.creation']"
+    "line": 39,
+    "expression": "next.fields['lancer.side']"
+  },
+  {
+    "key": "lancer.actorRole",
+    "source": "game/apps/desktop/src/tabletop/lancer/Hangar.tsx",
+    "line": 39,
+    "expression": "next.fields['lancer.actorRole']"
   },
   {
     "key": "lancer.npc",
     "source": "game/apps/desktop/src/tabletop/lancer/Hangar.tsx",
-    "line": 23,
+    "line": 42,
     "expression": "actor.fields['lancer.npc']"
-  },
-  {
-    "key": "lancer.creation",
-    "source": "game/apps/desktop/src/tabletop/lancer/Hangar.tsx",
-    "line": 23,
-    "expression": "actor.fields['lancer.creation']"
   },
   {
     "key": "lancer.npc",
     "source": "game/apps/desktop/src/tabletop/lancer/Hangar.tsx",
-    "line": 23,
+    "line": 42,
     "expression": "actor.fields['lancer.npc']"
-  },
-  {
-    "key": "lancer.creation",
-    "source": "game/apps/desktop/src/tabletop/lancer/Hangar.tsx",
-    "line": 23,
-    "expression": "actor.fields['lancer.creation']"
-  },
-  {
-    "key": "lancer.creation",
-    "source": "game/apps/desktop/src/tabletop/lancer/Hangar.tsx",
-    "line": 23,
-    "expression": "actor.fields['lancer.creation']"
-  },
-  {
-    "key": "lancer.creation",
-    "source": "game/apps/desktop/src/tabletop/lancer/Hangar.tsx",
-    "line": 23,
-    "expression": "actor.fields['lancer.creation']"
   },
   {
     "key": "lancer.side",
     "source": "game/apps/desktop/src/tabletop/lancer/Hangar.tsx",
-    "line": 23,
+    "line": 42,
     "expression": "actor.fields['lancer.side']"
   },
   {
     "key": "lancer.side",
     "source": "game/apps/desktop/src/tabletop/lancer/Hangar.tsx",
-    "line": 23,
+    "line": 42,
     "expression": "t.actors.find(a=>a.id===actor.id)!.fields['lancer.side']"
-  },
-  {
-    "key": "lancer.creation",
-    "source": "game/apps/desktop/src/tabletop/lancer/Hangar.tsx",
-    "line": 23,
-    "expression": "actor.fields['lancer.creation']"
   },
   {
     "key": "lancer.npc",
     "source": "game/apps/desktop/src/tabletop/lancer/Hangar.tsx",
-    "line": 24,
+    "line": 43,
     "expression": "actor.fields['lancer.npc']"
+  },
+  {
+    "key": "lancer.npc",
+    "source": "game/apps/desktop/src/tabletop/lancer/hud/ImportantBroadcast.tsx",
+    "line": 19,
+    "expression": "a.fields['lancer.npc']"
+  },
+  {
+    "key": "lancer.side",
+    "source": "game/apps/desktop/src/tabletop/lancer/hud/ImportantBroadcast.tsx",
+    "line": 19,
+    "expression": "a.fields['lancer.side']"
+  },
+  {
+    "key": "lancer.npc",
+    "source": "game/apps/desktop/src/tabletop/lancer/hud/sceneStatusModel.ts",
+    "line": 10,
+    "expression": "actor?.fields['lancer.npc']"
+  },
+  {
+    "key": "lancer.npc",
+    "source": "game/apps/desktop/src/tabletop/lancer/hud/sceneStatusModel.ts",
+    "line": 15,
+    "expression": "a.fields['lancer.npc']"
+  },
+  {
+    "key": "lancer.side",
+    "source": "game/apps/desktop/src/tabletop/lancer/hud/sceneStatusModel.ts",
+    "line": 15,
+    "expression": "a.fields['lancer.side']"
+  },
+  {
+    "key": "角色类型",
+    "source": "game/apps/desktop/src/tabletop/lancer/hud/sceneStatusModel.ts",
+    "line": 15,
+    "expression": "a.fields['角色类型']"
   },
   {
     "key": "lancer.creation",
     "source": "game/apps/desktop/src/tabletop/lancer/LancerCharacter.tsx",
     "line": 25,
-    "expression": "a.fields['lancer.creation']"
+    "expression": "actor.fields['lancer.creation']"
   },
   {
     "key": "lancer.creation",
     "source": "game/apps/desktop/src/tabletop/lancer/LancerCharacter.tsx",
-    "line": 44,
+    "line": 39,
+    "expression": "a.fields['lancer.creation']"
+  },
+  {
+    "key": "lancer.levelGrant",
+    "source": "game/apps/desktop/src/tabletop/lancer/LancerCharacter.tsx",
+    "line": 47,
+    "expression": "actor.fields['lancer.levelGrant']"
+  },
+  {
+    "key": "lancer.creation",
+    "source": "game/apps/desktop/src/tabletop/lancer/LancerCharacter.tsx",
+    "line": 63,
     "expression": "actor.fields['lancer.creation']"
+  },
+  {
+    "key": "lancer.npc",
+    "source": "game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx",
+    "line": 72,
+    "expression": "a.fields['lancer.npc']"
+  },
+  {
+    "key": "lancer.side",
+    "source": "game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx",
+    "line": 72,
+    "expression": "a.fields['lancer.side']"
+  },
+  {
+    "key": "lancer.npc",
+    "source": "game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx",
+    "line": 147,
+    "expression": "hangarActor?.fields['lancer.npc']"
+  },
+  {
+    "key": "lancer.creation",
+    "source": "game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx",
+    "line": 147,
+    "expression": "hangarActor?.fields['lancer.creation']"
+  },
+  {
+    "key": "lancer.creation",
+    "source": "game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx",
+    "line": 149,
+    "expression": "hangarActor?.fields['lancer.creation']"
+  },
+  {
+    "key": "lancer.creation",
+    "source": "game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx",
+    "line": 149,
+    "expression": "hangarActor?.fields['lancer.creation']"
+  },
+  {
+    "key": "lancer.creation",
+    "source": "game/apps/desktop/src/tabletop/lancer/LancerHome.tsx",
+    "line": 52,
+    "expression": "actor?.fields['lancer.creation']"
   },
   {
     "key": "lancer.${key}（插值）",
@@ -654,120 +498,6 @@
     "expression": "actor.fields[`${LC}frame`]"
   },
   {
-    "key": "lancer.nhp",
-    "source": "game/apps/desktop/src/tabletop/lancer/maintenance.ts",
-    "line": 13,
-    "expression": "a.fields['lancer.nhp']"
-  },
-  {
-    "key": "lancer.nhp",
-    "source": "game/apps/desktop/src/tabletop/lancer/maintenance.ts",
-    "line": 13,
-    "expression": "a.fields['lancer.nhp']"
-  },
-  {
-    "key": "lancer.nhp",
-    "source": "game/apps/desktop/src/tabletop/lancer/maintenance.ts",
-    "line": 13,
-    "expression": "a.fields['lancer.nhp']"
-  },
-  {
-    "key": "lancer.ai",
-    "source": "game/apps/desktop/src/tabletop/lancer/maintenance.ts",
-    "line": 13,
-    "expression": "a.fields['lancer.ai']"
-  },
-  {
-    "key": "lancer.ai",
-    "source": "game/apps/desktop/src/tabletop/lancer/maintenance.ts",
-    "line": 13,
-    "expression": "a.fields['lancer.ai']"
-  },
-  {
-    "key": "lancer.ai",
-    "source": "game/apps/desktop/src/tabletop/lancer/maintenance.ts",
-    "line": 13,
-    "expression": "a.fields['lancer.ai']"
-  },
-  {
-    "key": "lancer.pilot.dead",
-    "source": "game/apps/desktop/src/tabletop/lancer/maintenance.ts",
-    "line": 13,
-    "expression": "a.fields['lancer.pilot.dead']"
-  },
-  {
-    "key": "lancer.pilot.hp",
-    "source": "game/apps/desktop/src/tabletop/lancer/maintenance.ts",
-    "line": 13,
-    "expression": "a.fields['lancer.pilot.hp']"
-  },
-  {
-    "key": "lancer.pilot.unconscious",
-    "source": "game/apps/desktop/src/tabletop/lancer/maintenance.ts",
-    "line": 13,
-    "expression": "a.fields['lancer.pilot.unconscious']"
-  },
-  {
-    "key": "lancer.pilot.conditions",
-    "source": "game/apps/desktop/src/tabletop/lancer/maintenance.ts",
-    "line": 13,
-    "expression": "a.fields['lancer.pilot.conditions']"
-  },
-  {
-    "key": "lancer.pilot.burn",
-    "source": "game/apps/desktop/src/tabletop/lancer/maintenance.ts",
-    "line": 13,
-    "expression": "a.fields['lancer.pilot.burn']"
-  },
-  {
-    "key": "lancer.pilot.gearUsed.${slot}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/maintenance.ts",
-    "line": 13,
-    "expression": "a.fields[`lancer.pilot.gearUsed.${slot}`]"
-  },
-  {
-    "key": "lancer.pilot.loaded.${slot}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/maintenance.ts",
-    "line": 13,
-    "expression": "a.fields[`lancer.pilot.loaded.${slot}`]"
-  },
-  {
-    "key": "lancer.npc",
-    "source": "game/apps/desktop/src/tabletop/lancer/maintenance.ts",
-    "line": 20,
-    "expression": "a.fields['lancer.npc']"
-  },
-  {
-    "key": "状态与状况",
-    "source": "game/apps/desktop/src/tabletop/lancer/maintenance.ts",
-    "line": 29,
-    "expression": "a.fields['状态与状况']"
-  },
-  {
-    "key": "lancer.side",
-    "source": "game/apps/desktop/src/tabletop/lancer/maintenance.ts",
-    "line": 40,
-    "expression": "p.fields['lancer.side']"
-  },
-  {
-    "key": "lancer.side",
-    "source": "game/apps/desktop/src/tabletop/lancer/maintenance.ts",
-    "line": 40,
-    "expression": "a.fields['lancer.side']"
-  },
-  {
-    "key": "lancer.side",
-    "source": "game/apps/desktop/src/tabletop/lancer/maintenance.ts",
-    "line": 49,
-    "expression": "t.fields['lancer.side']"
-  },
-  {
-    "key": "lancer.side",
-    "source": "game/apps/desktop/src/tabletop/lancer/maintenance.ts",
-    "line": 49,
-    "expression": "a.fields['lancer.side']"
-  },
-  {
     "key": "lancer.npc",
     "source": "game/apps/desktop/src/tabletop/lancer/MaintenancePanel.tsx",
     "line": 16,
@@ -816,172 +546,46 @@
     "expression": "a.fields['lancer.wreckLost']"
   },
   {
-    "key": "lancer.frame（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
+    "key": "lancer.npc",
+    "source": "game/apps/desktop/src/tabletop/lancer/manualNodeControls.ts",
+    "line": 7,
+    "expression": "a.fields['lancer.npc']"
+  },
+  {
+    "key": "lancer.creation",
+    "source": "game/apps/desktop/src/tabletop/lancer/manualNodeControls.ts",
+    "line": 7,
+    "expression": "a.fields['lancer.creation']"
+  },
+  {
+    "key": "lancer.side",
+    "source": "game/apps/desktop/src/tabletop/lancer/manualNodeControls.ts",
+    "line": 7,
+    "expression": "a.fields['lancer.side']"
+  },
+  {
+    "key": "lancer.destroyed.unit",
+    "source": "game/apps/desktop/src/tabletop/lancer/manualNodeControls.ts",
+    "line": 7,
+    "expression": "a.fields['lancer.destroyed.unit']"
+  },
+  {
+    "key": "lancer.frame",
+    "source": "game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx",
     "line": 31,
-    "expression": "actor.fields[`${LC}frame`]"
+    "expression": "actor.fields['lancer.frame']"
   },
   {
-    "key": "lancer.${kind}.${i}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 39,
-    "expression": "fields[`${LC}${kind}.${i}`]"
+    "key": "机甲名",
+    "source": "game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx",
+    "line": 35,
+    "expression": "actor.fields['机甲名']"
   },
   {
-    "key": "lancer.${kind}.${i}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 40,
-    "expression": "fields[`${LC}${kind}.${i}`]"
-  },
-  {
-    "key": "lancer.frame（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 44,
-    "expression": "f[`${LC}frame`]"
-  },
-  {
-    "key": "lancer.frame（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 45,
-    "expression": "f[`${LC}frame`]"
-  },
-  {
-    "key": "lancer.base.${key}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 46,
-    "expression": "f[`${LC}base.${key}`]"
-  },
-  {
-    "key": "lancer.training（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 47,
-    "expression": "f[`${LC}training`]"
-  },
-  {
-    "key": "lancer.mod.${key}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 49,
-    "expression": "f[`${LC}mod.${key}`]"
-  },
-  {
-    "key": "lancer.hull（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 51,
-    "expression": "f[`${LC}hull`]"
-  },
-  {
-    "key": "lancer.agility（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 51,
-    "expression": "f[`${LC}agility`]"
-  },
-  {
-    "key": "lancer.systems（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 51,
-    "expression": "f[`${LC}systems`]"
-  },
-  {
-    "key": "lancer.engineering（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 51,
-    "expression": "f[`${LC}engineering`]"
-  },
-  {
-    "key": "lancer.level（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 52,
-    "expression": "f[`${LC}level`]"
-  },
-  {
-    "key": "lancer.mounts（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 57,
-    "expression": "f[`${LC}mounts`]"
-  },
-  {
-    "key": "lancer.${kind}.${i}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 64,
-    "expression": "f[`${LC}${kind}.${i}`]"
-  },
-  {
-    "key": "lancer.frameLicense（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 76,
-    "expression": "f[`${LC}frameLicense`]"
-  },
-  {
-    "key": "lancer.current.${key}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 81,
-    "expression": "f[`${LC}current.${key}`]"
-  },
-  {
-    "key": "lancer.cp（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 83,
-    "expression": "f[`${LC}cp`]"
-  },
-  {
-    "key": "lancer.overcharge（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 83,
-    "expression": "f[`${LC}overcharge`]"
-  },
-  {
-    "key": "lancer.leaderPool",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 96,
-    "expression": "fields['lancer.leaderPool']"
-  },
-  {
-    "key": "lancer.prototype.design",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 98,
-    "expression": "fields['lancer.prototype.design']"
-  },
-  {
-    "key": "lancer.current.${key}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 100,
-    "expression": "fields[`${LC}current.${key}`]"
-  },
-  {
-    "key": "lancer.version（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 106,
-    "expression": "actor.fields[`${LC}version`]"
-  },
-  {
-    "key": "执照等级 LL",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 107,
-    "expression": "actor.fields['执照等级 LL']"
-  },
-  {
-    "key": "机甲型号",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 108,
-    "expression": "actor.fields['机甲型号']"
-  },
-  {
-    "key": "lancer.frame（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 110,
-    "expression": "fields[`${LC}frame`]"
-  },
-  {
-    "key": "lancer.${key}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 111,
-    "expression": "fields[`${LC}${key}`]"
-  },
-  {
-    "key": "lancer.current.${key}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/model.ts",
-    "line": 117,
-    "expression": "next.fields[`${LC}current.${key}`]"
+    "key": "机甲名",
+    "source": "game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx",
+    "line": 35,
+    "expression": "actor.fields['机甲名']"
   },
   {
     "key": "lancer.nhp",
@@ -1032,6 +636,66 @@
     "expression": "fields['lancer.nhp']"
   },
   {
+    "key": "lancer.npc",
+    "source": "game/apps/desktop/src/tabletop/lancer/npcImport.ts",
+    "line": 43,
+    "expression": "actor.fields['lancer.npc']"
+  },
+  {
+    "key": "lancer.npc",
+    "source": "game/apps/desktop/src/tabletop/lancer/npcImport.ts",
+    "line": 43,
+    "expression": "actor.fields['lancer.npc']"
+  },
+  {
+    "key": "lancer.side",
+    "source": "game/apps/desktop/src/tabletop/lancer/npcImport.ts",
+    "line": 44,
+    "expression": "actor.fields['lancer.side']"
+  },
+  {
+    "key": "立绘",
+    "source": "game/apps/desktop/src/tabletop/lancer/npcImport.ts",
+    "line": 44,
+    "expression": "actor.fields['立绘']"
+  },
+  {
+    "key": "lancer.npc.source",
+    "source": "game/apps/desktop/src/tabletop/lancer/npcImport.ts",
+    "line": 44,
+    "expression": "actor.fields['lancer.npc.source']"
+  },
+  {
+    "key": "lancer.side",
+    "source": "game/apps/desktop/src/tabletop/lancer/NpcSheet.tsx",
+    "line": 23,
+    "expression": "actor.fields['lancer.side']"
+  },
+  {
+    "key": "lancer.side",
+    "source": "game/apps/desktop/src/tabletop/lancer/NpcSheet.tsx",
+    "line": 23,
+    "expression": "actor.fields['lancer.side']"
+  },
+  {
+    "key": "lancer.side",
+    "source": "game/apps/desktop/src/tabletop/lancer/NpcSheet.tsx",
+    "line": 23,
+    "expression": "actor.fields['lancer.side']"
+  },
+  {
+    "key": "Token",
+    "source": "game/apps/desktop/src/tabletop/lancer/pilotArtworkTransfer.ts",
+    "line": 5,
+    "expression": "a.fields['Token']"
+  },
+  {
+    "key": "lancer.importReceipt",
+    "source": "game/apps/desktop/src/tabletop/lancer/pilotArtworkTransfer.ts",
+    "line": 27,
+    "expression": "copy.fields['lancer.importReceipt']"
+  },
+  {
     "key": "lancer.pilot.suit",
     "source": "game/apps/desktop/src/tabletop/lancer/PilotEquipment.tsx",
     "line": 4,
@@ -1080,357 +744,195 @@
     "expression": "f[`lancer.pilot.gear.${slot}`]"
   },
   {
-    "key": "lancer.level",
-    "source": "game/apps/desktop/src/tabletop/lancer/pilotProfile.ts",
-    "line": 4,
-    "expression": "actor.fields['lancer.level']"
-  },
-  {
-    "key": "lancer.pilot.suit",
-    "source": "game/apps/desktop/src/tabletop/lancer/pilotProfile.ts",
-    "line": 5,
-    "expression": "f['lancer.pilot.suit']"
-  },
-  {
-    "key": "lancer.pilot.maxHp",
-    "source": "game/apps/desktop/src/tabletop/lancer/pilotProfile.ts",
-    "line": 7,
-    "expression": "f['lancer.pilot.maxHp']"
-  },
-  {
-    "key": "lancer.pilot.hp",
-    "source": "game/apps/desktop/src/tabletop/lancer/pilotProfile.ts",
-    "line": 7,
-    "expression": "f['lancer.pilot.hp']"
-  },
-  {
-    "key": "lancer.pilot.conditions",
-    "source": "game/apps/desktop/src/tabletop/lancer/pilotProfile.ts",
-    "line": 7,
-    "expression": "f['lancer.pilot.conditions']"
-  },
-  {
-    "key": "lancer.pilot.unconscious",
-    "source": "game/apps/desktop/src/tabletop/lancer/pilotProfile.ts",
-    "line": 9,
-    "expression": "f['lancer.pilot.unconscious']"
-  },
-  {
-    "key": "lancer.pilot.weapon.${slot}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/pilotProfile.ts",
-    "line": 11,
-    "expression": "f[`lancer.pilot.weapon.${slot}`]"
-  },
-  {
-    "key": "lancer.pilot.damage.${slot}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/pilotProfile.ts",
-    "line": 13,
-    "expression": "f[`lancer.pilot.damage.${slot}`]"
-  },
-  {
-    "key": "lancer.pilot.loaded.${slot}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/pilotProfile.ts",
+    "key": "lancer.version",
+    "source": "game/apps/desktop/src/tabletop/lancer/PilotImport.tsx",
     "line": 14,
-    "expression": "f[`lancer.pilot.loaded.${slot}`]"
+    "expression": "a.fields['lancer.version']"
   },
   {
-    "key": "lancer.pilot.gear.${slot}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/pilotProfile.ts",
-    "line": 17,
-    "expression": "f[`lancer.pilot.gear.${slot}`]"
-  },
-  {
-    "key": "lancer.pilot.gearUsed.${slot}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/pilotProfile.ts",
-    "line": 17,
-    "expression": "f[`lancer.pilot.gearUsed.${slot}`]"
-  },
-  {
-    "key": "呼号",
-    "source": "game/apps/desktop/src/tabletop/lancer/pilotProfile.ts",
-    "line": 18,
-    "expression": "actor.fields['呼号']"
-  },
-  {
-    "key": "lancer.pilot.dead",
-    "source": "game/apps/desktop/src/tabletop/lancer/pilotProfile.ts",
-    "line": 18,
-    "expression": "f['lancer.pilot.dead']"
-  },
-  {
-    "key": "lancer.pilot.burn",
-    "source": "game/apps/desktop/src/tabletop/lancer/pilotProfile.ts",
-    "line": 18,
-    "expression": "f['lancer.pilot.burn']"
-  },
-  {
-    "key": "lancer.triggers",
-    "source": "game/apps/desktop/src/tabletop/lancer/pilotProfile.ts",
-    "line": 18,
-    "expression": "f['lancer.triggers']"
-  },
-  {
-    "key": "lancer.pilot.gearUsed.${g.id.split('-').at(-1)}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/pilotProfile.ts",
-    "line": 22,
-    "expression": "actor.fields[`lancer.pilot.gearUsed.${g.id.split('-').at(-1)}`]"
-  },
-  {
-    "key": "lancer.pilot.loaded.${w.mount}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/pilotProfile.ts",
-    "line": 23,
-    "expression": "actor.fields[`lancer.pilot.loaded.${w.mount}`]"
+    "key": "lancer.npc",
+    "source": "game/apps/desktop/src/tabletop/lancer/PilotImport.tsx",
+    "line": 14,
+    "expression": "a.fields['lancer.npc']"
   },
   {
     "key": "lancer.creation",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 16,
+    "source": "game/apps/desktop/src/tabletop/lancer/PilotImport.tsx",
+    "line": 14,
     "expression": "a.fields['lancer.creation']"
   },
   {
-    "key": "lancer.contentPacks",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 16,
-    "expression": "a.fields['lancer.contentPacks']"
-  },
-  {
-    "key": "lancer.hull",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 16,
-    "expression": "a.fields['lancer.hull']"
-  },
-  {
-    "key": "lancer.training",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 16,
-    "expression": "a.fields['lancer.training']"
-  },
-  {
-    "key": "lancer.triggers",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 16,
-    "expression": "a.fields['lancer.triggers']"
-  },
-  {
-    "key": "lancer.licenses",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 16,
-    "expression": "a.fields['lancer.licenses']"
-  },
-  {
-    "key": "lancer.licenses",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 21,
-    "expression": "next.fields['lancer.licenses']"
-  },
-  {
-    "key": "lancer.frameLicense",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 21,
-    "expression": "next.fields['lancer.frameLicense']"
-  },
-  {
-    "key": "lancer.frame",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 21,
-    "expression": "next.fields['lancer.frame']"
-  },
-  {
-    "key": "lancer.frame",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 21,
-    "expression": "next.fields['lancer.frame']"
-  },
-  {
-    "key": "lancer.level",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 22,
-    "expression": "a.fields['lancer.level']"
-  },
-  {
-    "key": "lancer.triggers",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 40,
-    "expression": "baseline?.fields['lancer.triggers']"
-  },
-  {
-    "key": "lancer.pilot.maxHp",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 78,
-    "expression": "next.fields['lancer.pilot.maxHp']"
-  },
-  {
-    "key": "lancer.pilot.maxHp",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 78,
-    "expression": "baseline.fields['lancer.pilot.maxHp']"
-  },
-  {
-    "key": "lancer.destroyed.${kind}.${i}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 79,
-    "expression": "next.fields[`lancer.destroyed.${kind}.${i}`]"
-  },
-  {
-    "key": "lancer.loaded.${i}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 79,
-    "expression": "next.fields[`lancer.loaded.${i}`]"
-  },
-  {
-    "key": "lancer.${kind}.${j}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 80,
-    "expression": "baseline.fields[`lancer.${kind}.${j}`]"
-  },
-  {
-    "key": "lancer.${kind}.${j}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 80,
-    "expression": "baseline.fields[`lancer.${kind}.${j}`]"
-  },
-  {
-    "key": "lancer.${kind}.${match}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 81,
-    "expression": "baseline.fields[`lancer.${kind}.${match}`]"
-  },
-  {
-    "key": "lancer.destroyed.${kind}.${match}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 81,
-    "expression": "baseline.fields[`lancer.destroyed.${kind}.${match}`]"
-  },
-  {
-    "key": "lancer.destroyed.${kind}.${i}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 81,
-    "expression": "next.fields[`lancer.destroyed.${kind}.${i}`]"
-  },
-  {
-    "key": "lancer.loaded.${match}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 81,
-    "expression": "baseline.fields[`lancer.loaded.${match}`]"
-  },
-  {
-    "key": "lancer.loaded.${i}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 81,
-    "expression": "next.fields[`lancer.loaded.${i}`]"
-  },
-  {
-    "key": "lancer.loaded.${match}（插值）",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 81,
-    "expression": "baseline.fields[`lancer.loaded.${match}`]"
-  },
-  {
-    "key": "lancer.pilot.maxHp",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 84,
-    "expression": "next.fields['lancer.pilot.maxHp']"
-  },
-  {
-    "key": "lancer.pilot.hp",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 84,
-    "expression": "next.fields['lancer.pilot.hp']"
-  },
-  {
-    "key": "lancer.pilot.unconscious",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 84,
-    "expression": "next.fields['lancer.pilot.unconscious']"
-  },
-  {
     "key": "lancer.creation",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 85,
-    "expression": "next.fields['lancer.creation']"
-  },
-  {
-    "key": "lancer.version",
-    "source": "game/apps/desktop/src/tabletop/lancer/progression.ts",
-    "line": 89,
-    "expression": "a.fields['lancer.version']"
+    "source": "game/apps/desktop/src/tabletop/lancer/PilotImport.tsx",
+    "line": 15,
+    "expression": "r.actor.fields['lancer.creation']"
   },
   {
     "key": "触发技",
     "source": "game/apps/desktop/src/tabletop/lancer/ProgressionEditors.tsx",
-    "line": 14,
+    "line": 19,
     "expression": "actor.fields['触发技']"
   },
   {
     "key": "lancer.triggers",
     "source": "game/apps/desktop/src/tabletop/lancer/ProgressionEditors.tsx",
-    "line": 14,
+    "line": 19,
     "expression": "actor.fields['lancer.triggers']"
   },
   {
     "key": "触发技",
     "source": "game/apps/desktop/src/tabletop/lancer/ProgressionEditors.tsx",
-    "line": 14,
+    "line": 19,
     "expression": "actor.fields['触发技']"
   },
   {
     "key": "执照",
     "source": "game/apps/desktop/src/tabletop/lancer/ProgressionEditors.tsx",
-    "line": 21,
+    "line": 27,
     "expression": "actor.fields['执照']"
   },
   {
     "key": "lancer.licenses",
     "source": "game/apps/desktop/src/tabletop/lancer/ProgressionEditors.tsx",
-    "line": 21,
+    "line": 27,
     "expression": "actor.fields['lancer.licenses']"
   },
   {
     "key": "执照",
     "source": "game/apps/desktop/src/tabletop/lancer/ProgressionEditors.tsx",
-    "line": 21,
+    "line": 27,
     "expression": "actor.fields['执照']"
-  },
-  {
-    "key": "lancer.prototype.plan.type",
-    "source": "game/apps/desktop/src/tabletop/lancer/prototypeEquipment.ts",
-    "line": 9,
-    "expression": "actor.fields['lancer.prototype.plan.type']"
-  },
-  {
-    "key": "lancer.prototype.plan.damage",
-    "source": "game/apps/desktop/src/tabletop/lancer/prototypeEquipment.ts",
-    "line": 9,
-    "expression": "actor.fields['lancer.prototype.plan.damage']"
-  },
-  {
-    "key": "lancer.prototype.plan.mods",
-    "source": "game/apps/desktop/src/tabletop/lancer/prototypeEquipment.ts",
-    "line": 10,
-    "expression": "actor.fields['lancer.prototype.plan.mods']"
-  },
-  {
-    "key": "lancer.prototype.design",
-    "source": "game/apps/desktop/src/tabletop/lancer/prototypeEquipment.ts",
-    "line": 21,
-    "expression": "actor.fields['lancer.prototype.design']"
-  },
-  {
-    "key": "lancer.talentWeapon.prototype.used",
-    "source": "game/apps/desktop/src/tabletop/lancer/prototypeEquipment.ts",
-    "line": 29,
-    "expression": "actor.fields['lancer.talentWeapon.prototype.used']"
-  },
-  {
-    "key": "lancer.talentWeapon.prototype.destroyed",
-    "source": "game/apps/desktop/src/tabletop/lancer/prototypeEquipment.ts",
-    "line": 29,
-    "expression": "actor.fields['lancer.talentWeapon.prototype.destroyed']"
   },
   {
     "key": "lancer.frame",
     "source": "game/apps/desktop/src/tabletop/lancer/ResourceCatalog.tsx",
-    "line": 15,
+    "line": 20,
+    "expression": "actor?.fields['lancer.frame']"
+  },
+  {
+    "key": "lancer.rogue.target",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/missionStatus.ts",
+    "line": 13,
+    "expression": "table.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.target']"
+  },
+  {
+    "key": "lancer.current.hp",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/previewFixture.ts",
+    "line": 23,
+    "expression": "a.fields['lancer.current.hp']"
+  },
+  {
+    "key": "lancer.current.structure",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/previewFixture.ts",
+    "line": 23,
+    "expression": "a.fields['lancer.current.structure']"
+  },
+  {
+    "key": "lancer.current.stress",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/previewFixture.ts",
+    "line": 23,
+    "expression": "a.fields['lancer.current.stress']"
+  },
+  {
+    "key": "lancer.current.repair",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/previewFixture.ts",
+    "line": 23,
+    "expression": "a.fields['lancer.current.repair']"
+  },
+  {
+    "key": "lancer.cp",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/previewFixture.ts",
+    "line": 23,
+    "expression": "a.fields['lancer.cp']"
+  },
+  {
+    "key": "lancer.destroyed.weapon.0",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/previewFixture.ts",
+    "line": 23,
+    "expression": "a.fields['lancer.destroyed.weapon.0']"
+  },
+  {
+    "key": "lancer.rogue.manualStats",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/RogueAbilityDesk.tsx",
+    "line": 32,
+    "expression": "actor.fields['lancer.rogue.manualStats']"
+  },
+  {
+    "key": "lancer.rogue.manualStats",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/RogueAbilityDesk.tsx",
+    "line": 34,
+    "expression": "actor.fields['lancer.rogue.manualStats']"
+  },
+  {
+    "key": "lancer.rogue.portrait",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/RogueBase.tsx",
+    "line": 28,
+    "expression": "actor.fields['lancer.rogue.portrait']"
+  },
+  {
+    "key": "立绘",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/RogueBase.tsx",
+    "line": 28,
+    "expression": "actor.fields['立绘']"
+  },
+  {
+    "key": "呼号",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/RogueBase.tsx",
+    "line": 28,
+    "expression": "actor.fields['呼号']"
+  },
+  {
+    "key": "呼号",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/RogueBase.tsx",
+    "line": 33,
+    "expression": "actors.find(a=>a.id===target.actor)?.fields['呼号']"
+  },
+  {
+    "key": "lancer.rogue.portrait",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx",
+    "line": 42,
+    "expression": "a?.fields['lancer.rogue.portrait']"
+  },
+  {
+    "key": "立绘",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx",
+    "line": 42,
+    "expression": "a?.fields['立绘']"
+  },
+  {
+    "key": "lancer.rogue.portrait",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx",
+    "line": 42,
+    "expression": "a.fields['lancer.rogue.portrait']"
+  },
+  {
+    "key": "立绘",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx",
+    "line": 42,
+    "expression": "a.fields['立绘']"
+  },
+  {
+    "key": "呼号",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx",
+    "line": 42,
+    "expression": "a?.fields['呼号']"
+  },
+  {
+    "key": "呼号",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx",
+    "line": 42,
+    "expression": "a?.fields['呼号']"
+  },
+  {
+    "key": "lancer.rogue.boss",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/tokenArt.ts",
+    "line": 9,
+    "expression": "actor?.fields['lancer.rogue.boss']"
+  },
+  {
+    "key": "lancer.frame",
+    "source": "game/apps/desktop/src/tabletop/lancer/rogue/tokenArt.ts",
+    "line": 12,
     "expression": "actor?.fields['lancer.frame']"
   },
   {
@@ -1440,16 +942,88 @@
     "expression": "actor.fields['lancer.talentWeapon.prototype.used']"
   },
   {
-    "key": "heartsea.class",
-    "source": "game/apps/desktop/src/heartsea/characters.ts",
-    "line": 9,
-    "expression": "a.fields['heartsea.class']"
+    "key": "lancer.creation",
+    "source": "game/apps/desktop/src/tabletop/lancer/terminal/Directories.tsx",
+    "line": 43,
+    "expression": "actor.fields['lancer.creation']"
   },
   {
-    "key": "heartsea.primary",
-    "source": "game/apps/desktop/src/heartsea/characters.ts",
+    "key": "呼号",
+    "source": "game/apps/desktop/src/tabletop/lancer/terminal/Directories.tsx",
+    "line": 44,
+    "expression": "actor.fields['呼号']"
+  },
+  {
+    "key": "机甲名",
+    "source": "game/apps/desktop/src/tabletop/lancer/terminal/Directories.tsx",
+    "line": 44,
+    "expression": "actor.fields['机甲名']"
+  },
+  {
+    "key": "lancer.creation",
+    "source": "game/apps/desktop/src/tabletop/lancer/terminal/Directories.tsx",
+    "line": 44,
+    "expression": "actor.fields['lancer.creation']"
+  },
+  {
+    "key": "lancer.npc",
+    "source": "game/apps/desktop/src/tabletop/lancer/useTerminalOnboarding.ts",
     "line": 11,
-    "expression": "a.fields['heartsea.primary']"
+    "expression": "a.fields['lancer.npc']"
+  },
+  {
+    "key": "lancer.creation",
+    "source": "game/apps/desktop/src/tabletop/lancer/useTerminalOnboarding.ts",
+    "line": 12,
+    "expression": "a.fields['lancer.creation']"
+  },
+  {
+    "key": "lancer.creation",
+    "source": "game/apps/desktop/src/tabletop/lancer/useTerminalOnboarding.ts",
+    "line": 13,
+    "expression": "a.fields['lancer.creation']"
+  },
+  {
+    "key": "呼号",
+    "source": "game/apps/desktop/src/tabletop/lancer/validationWorld.ts",
+    "line": 13,
+    "expression": "pilot.fields['呼号']"
+  },
+  {
+    "key": "呼号",
+    "source": "game/apps/desktop/src/tabletop/lancer/validationWorld.ts",
+    "line": 13,
+    "expression": "contact.fields['呼号']"
+  },
+  {
+    "key": "呼号",
+    "source": "game/apps/desktop/src/tabletop/lancer/validationWorld.ts",
+    "line": 13,
+    "expression": "enemy.fields['呼号']"
+  },
+  {
+    "key": "lancer.creation",
+    "source": "game/apps/desktop/src/tabletop/lancer/WorldPilotImport.tsx",
+    "line": 14,
+    "expression": "a.fields['lancer.creation']"
+  },
+  {
+    "key": "lancer.version",
+    "source": "game/apps/desktop/src/tabletop/lancer/WorldPilotImport.tsx",
+    "line": 16,
+    "expression": "a.fields['lancer.version']"
+  },
+  {
+    "key": "lancer.npc",
+    "source": "game/apps/desktop/src/tabletop/lancer/WorldPilotImport.tsx",
+    "line": 16,
+    "expression": "a.fields['lancer.npc']"
+  },
+  {
+    "key": "lancer.level",
+    "source": "game/apps/desktop/src/tabletop/lancer/WorldPilotImport.tsx",
+    "line": 20,
+    "expression": "a.fields['lancer.level']"
   },
   {
     "key": "Token",
@@ -1520,20 +1094,8 @@
   {
     "key": "heartsea.kind",
     "source": "game/apps/desktop/src/heartsea/Home.tsx",
-    "line": 35,
+    "line": 41,
     "expression": "a.fields['heartsea.kind']"
-  },
-  {
-    "key": "Token",
-    "source": "game/apps/desktop/src/heartsea/tokenArtwork.ts",
-    "line": 6,
-    "expression": "prior?.fields['Token']"
-  },
-  {
-    "key": "Token",
-    "source": "game/apps/desktop/src/heartsea/tokenArtwork.ts",
-    "line": 6,
-    "expression": "actor.fields['Token']"
   },
   {
     "key": "Token",
@@ -1548,57 +1110,93 @@
     "expression": "a.fields['heartsea.kind']"
   },
   {
+    "key": "lancer.conditions",
+    "source": "game/packages/game-core/src/lancer/npc-profile.ts",
+    "line": 5,
+    "expression": "actor.fields['lancer.conditions']"
+  },
+  {
+    "key": "lancer.current.${key}（插值）",
+    "source": "game/packages/game-core/src/lancer/npc-profile.ts",
+    "line": 13,
+    "expression": "actor.fields[`lancer.current.${key}`]"
+  },
+  {
+    "key": "lancer.side",
+    "source": "game/packages/game-core/src/lancer/npc-profile.ts",
+    "line": 15,
+    "expression": "actor.fields['lancer.side']"
+  },
+  {
+    "key": "lancer.destroyed.unit",
+    "source": "game/packages/game-core/src/lancer/npc-profile.ts",
+    "line": 16,
+    "expression": "actor.fields['lancer.destroyed.unit']"
+  },
+  {
+    "key": "lancer.loaded.${i}（插值）",
+    "source": "game/packages/game-core/src/lancer/npc-profile.ts",
+    "line": 21,
+    "expression": "actor.fields[`lancer.loaded.${i}`]"
+  },
+  {
+    "key": "lancer.destroyed.weapon.${i}（插值）",
+    "source": "game/packages/game-core/src/lancer/npc-profile.ts",
+    "line": 21,
+    "expression": "actor.fields[`lancer.destroyed.weapon.${i}`]"
+  },
+  {
     "key": "lancer.npc",
     "source": "game/packages/game-core/src/lancer/npc.ts",
-    "line": 33,
+    "line": 35,
     "expression": "actor.fields['lancer.npc']"
   },
   {
     "key": "lancer.npc",
     "source": "game/packages/game-core/src/lancer/npc.ts",
-    "line": 34,
+    "line": 36,
     "expression": "actor.fields['lancer.npc']"
   },
   {
     "key": "lancer.loaded.${i}（插值）",
     "source": "game/packages/game-core/src/lancer/npc.ts",
-    "line": 54,
+    "line": 59,
     "expression": "actor.fields[`lancer.loaded.${i}`]"
   },
   {
     "key": "lancer.destroyed.weapon.${i}（插值）",
     "source": "game/packages/game-core/src/lancer/npc.ts",
-    "line": 54,
+    "line": 59,
     "expression": "actor.fields[`lancer.destroyed.weapon.${i}`]"
   },
   {
     "key": "lancer.current.${key}（插值）",
     "source": "game/packages/game-core/src/lancer/npc.ts",
-    "line": 55,
+    "line": 60,
     "expression": "actor.fields[`lancer.current.${key}`]"
   },
   {
     "key": "lancer.destroyed.system.${i}（插值）",
     "source": "game/packages/game-core/src/lancer/npc.ts",
-    "line": 56,
+    "line": 61,
     "expression": "actor.fields[`lancer.destroyed.system.${i}`]"
   },
   {
     "key": "lancer.destroyed.system.${i}（插值）",
     "source": "game/packages/game-core/src/lancer/npc.ts",
-    "line": 58,
+    "line": 63,
     "expression": "actor.fields[`lancer.destroyed.system.${i}`]"
   },
   {
     "key": "lancer.side",
     "source": "game/packages/game-core/src/lancer/npc.ts",
-    "line": 61,
+    "line": 66,
     "expression": "actor.fields['lancer.side']"
   },
   {
     "key": "lancer.destroyed.unit",
     "source": "game/packages/game-core/src/lancer/npc.ts",
-    "line": 61,
+    "line": 66,
     "expression": "actor.fields['lancer.destroyed.unit']"
   }
 ]

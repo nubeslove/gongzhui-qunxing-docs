@@ -1,12 +1,13 @@
 # game/packages/game-core/src/lancer/npc.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {applyNpcTemplates,validateNpcTemplates} from './npc-templates';
 import {actorController} from '@aelzerant/contracts';
 import { parseLancerNpc, type LancerNpc, type LancerBattle, type LancerCombatUnit, type LancerCombatWeapon, type LancerCombatIntent, type ManualActor, type ManualMap, type ManualToken } from '@aelzerant/contracts';
 import { validateLancerWeaponUse, validateWeapon } from './resolution';
@@ -15,12 +16,13 @@ import { lancerDie, type LancerRandom } from './dice';
 import { lancerAreaTargets, validateLancerArea } from './areas';
 import { clear, condition, has, log, spend } from './state';
 import { count } from './features';
+import { lancerProfileUnit,lancerNpcConditions } from './npc-profile';
 ```
 </details>
 
 ## readLancerNpc
 
-导出接口 · 源码第 32 行。
+导出接口 · 源码第 34 行。
 
 ```ts
 export function readLancerNpc(actor: ManualActor): LancerNpc|undefined;
@@ -32,7 +34,7 @@ export function readLancerNpc(actor: ManualActor): LancerNpc|undefined;
 
 ## createLancerNpc
 
-导出接口 · 源码第 39 行。
+导出接口 · 源码第 42 行。
 
 ```ts
 export function createLancerNpc(name: string, ownerId: string, npc?: LancerNpc): ManualActor;
@@ -46,7 +48,7 @@ export function createLancerNpc(name: string, ownerId: string, npc?: LancerNpc):
 
 ## lancerNpcUnit
 
-导出接口 · 源码第 42 行。
+导出接口 · 源码第 45 行。
 
 ```ts
 export function lancerNpcUnit(actor: ManualActor, token: ManualToken): LancerCombatUnit;
@@ -59,7 +61,7 @@ export function lancerNpcUnit(actor: ManualActor, token: ManualToken): LancerCom
 
 ## lancerNpcActionIssue
 
-导出接口 · 源码第 66 行。
+导出接口 · 源码第 71 行。
 
 ```ts
 export function lancerNpcActionIssue(u: LancerCombatUnit, i: Extract<LancerCombatIntent,{type:'npcAction'}>): string|null;
@@ -72,7 +74,7 @@ export function lancerNpcActionIssue(u: LancerCombatUnit, i: Extract<LancerComba
 
 ## lancerNpcAreaWeapon
 
-导出接口 · 源码第 75 行。
+导出接口 · 源码第 81 行。
 
 ```ts
 export function lancerNpcAreaWeapon(u: LancerCombatUnit, ability?: string): LancerCombatWeapon;
@@ -85,7 +87,7 @@ export function lancerNpcAreaWeapon(u: LancerCombatUnit, ability?: string): Lanc
 
 ## validateLancerNpcTarget
 
-导出接口 · 源码第 79 行。
+导出接口 · 源码第 85 行。
 
 ```ts
 export function validateLancerNpcTarget(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, ability: string, target: string): void;
@@ -101,7 +103,7 @@ export function validateLancerNpcTarget(b: LancerBattle, map: ManualMap, u: Lanc
 
 ## useLancerNpcAction
 
-导出接口 · 源码第 85 行。
+导出接口 · 源码第 91 行。
 
 ```ts
 export function useLancerNpcAction(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, i: Extract<LancerCombatIntent,{type:'npcAction'}>): void;
@@ -116,7 +118,7 @@ export function useLancerNpcAction(b: LancerBattle, map: ManualMap, u: LancerCom
 
 ## beginLancerNpcTurn
 
-导出接口 · 源码第 109 行。
+导出接口 · 源码第 116 行。
 
 ```ts
 export function beginLancerNpcTurn(b: LancerBattle, u: LancerCombatUnit, r: LancerRandom): void;
@@ -130,7 +132,7 @@ export function beginLancerNpcTurn(b: LancerBattle, u: LancerCombatUnit, r: Lanc
 
 ## lancerNpcWeaponHit
 
-导出接口 · 源码第 115 行。
+导出接口 · 源码第 122 行。
 
 ```ts
 export function lancerNpcWeaponHit(b: LancerBattle, u: LancerCombatUnit, target: LancerCombatUnit, w: LancerCombatWeapon): number;
@@ -145,7 +147,7 @@ export function lancerNpcWeaponHit(b: LancerBattle, u: LancerCombatUnit, target:
 
 ## refreshLancerNpcAuras
 
-导出接口 · 源码第 124 行。
+导出接口 · 源码第 131 行。
 
 ```ts
 export function refreshLancerNpcAuras(b: LancerBattle, map: ManualMap): void;
@@ -158,7 +160,7 @@ export function refreshLancerNpcAuras(b: LancerBattle, map: ManualMap): void;
 
 ## lancerActivationLimit
 
-导出接口 · 源码第 128 行。
+导出接口 · 源码第 135 行。
 
 ```ts
 export function lancerActivationLimit(u: LancerCombatUnit): number;
@@ -170,7 +172,7 @@ export function lancerActivationLimit(u: LancerCombatUnit): number;
 
 ## lancerActivationsUsed
 
-导出接口 · 源码第 129 行。
+导出接口 · 源码第 136 行。
 
 ```ts
 export function lancerActivationsUsed(b: LancerBattle, u: LancerCombatUnit): number;
@@ -183,7 +185,7 @@ export function lancerActivationsUsed(b: LancerBattle, u: LancerCombatUnit): num
 
 ## finishLancerActivation
 
-导出接口 · 源码第 130 行。
+导出接口 · 源码第 137 行。
 
 ```ts
 export function finishLancerActivation(b: LancerBattle, u: LancerCombatUnit): void;

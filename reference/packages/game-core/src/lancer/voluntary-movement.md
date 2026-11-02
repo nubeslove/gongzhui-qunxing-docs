@@ -1,12 +1,15 @@
 # game/packages/game-core/src/lancer/voluntary-movement.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {dustgraveBoss} from './dustgrave';
+import {isHexGrid} from '@aelzerant/contracts';
+import {hexFootprint,hexDistance,hexTokenLine} from '@aelzerant/contracts';
 import type { LancerBattle, LancerBattleStep, LancerCombatUnit, ManualMap, ManualToken } from '@aelzerant/contracts';
 import { validateTechMovement } from './tech-effects';
 import { feature } from './features';
@@ -17,7 +20,7 @@ import { canReact, has } from './state';
 
 ## ignoresLancerEngagement
 
-导出接口 · 源码第 7 行。
+导出接口 · 源码第 10 行。
 
 ```ts
 export const ignoresLancerEngagement: (b: LancerBattle, u: LancerCombatUnit, target: string): boolean;
@@ -25,7 +28,7 @@ export const ignoresLancerEngagement: (b: LancerBattle, u: LancerCombatUnit, tar
 
 ## canLancerPass
 
-导出接口 · 源码第 9 行。
+导出接口 · 源码第 12 行。
 
 ```ts
 export const canLancerPass: (b: LancerBattle, u: LancerCombatUnit, a: ManualToken, t: ManualToken): boolean;
@@ -33,7 +36,7 @@ export const canLancerPass: (b: LancerBattle, u: LancerCombatUnit, a: ManualToke
 
 ## validateLancerPath
 
-导出接口 · 源码第 14 行。
+导出接口 · 源码第 17 行。
 
 Check intermediate occupants separately from the destination: allies/smaller units may be crossed, never used as a stopping point.
 
@@ -52,7 +55,7 @@ export function validateLancerPath(b: LancerBattle, map: ManualMap, u: LancerCom
 
 ## queueLancerPath
 
-导出接口 · 源码第 22 行。
+导出接口 · 源码第 25 行。
 
 ```ts
 export function queueLancerPath(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, to: {x:number;y:number;z:number}, cost: number, ignoreReactions?: boolean, teleport?: boolean, involuntary?: boolean): void;
@@ -71,7 +74,7 @@ export function queueLancerPath(b: LancerBattle, map: ManualMap, u: LancerCombat
 
 ## stopLancerEngagement
 
-导出接口 · 源码第 36 行。
+导出接口 · 源码第 39 行。
 
 Entering a new, equal-or-larger hostile's engagement stops this movement, but never a forced/teleport move.
 

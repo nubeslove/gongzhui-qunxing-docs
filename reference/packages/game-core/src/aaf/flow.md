@@ -1,22 +1,23 @@
 # game/packages/game-core/src/aaf/flow.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {aafDistance as gridDistance} from '@aelzerant/rules-engine';
 import type {AafAbility,AafFlowFrame,AafFlowOperation,AafTrigger,AafReactionWindow} from '@aelzerant/contracts';
 import type {Combatant,CombatState} from '../types';
-import {gridDistance,hasLineOfSight} from '../geometry';
+import {hasLineOfSight} from '../geometry';
 import {aafConditions,aafId,aafIncapacitated,aafLog} from './state';
 ```
 </details>
 
 ## aafReactionAbility
 
-导出接口 · 源码第 6 行。
+导出接口 · 源码第 7 行。
 
 ```ts
 export function aafReactionAbility(state: CombatState, reactor: Combatant, frame: AafFlowFrame, ability: AafAbility): boolean;
@@ -31,7 +32,7 @@ export function aafReactionAbility(state: CombatState, reactor: Combatant, frame
 
 ## aafOpportunity
 
-导出接口 · 源码第 17 行。
+导出接口 · 源码第 18 行。
 
 ```ts
 export function aafOpportunity(state: CombatState, reactor: Combatant, source: Combatant, event: AafTrigger): boolean;
@@ -46,7 +47,7 @@ export function aafOpportunity(state: CombatState, reactor: Combatant, source: C
 
 ## aafQueue
 
-导出接口 · 源码第 23 行。
+导出接口 · 源码第 24 行。
 
 ```ts
 export function aafQueue(state: CombatState, actor: Combatant, label: string, event: AafTrigger, operation: AafFlowOperation, provoke?: boolean): AafFlowFrame;
@@ -63,7 +64,7 @@ export function aafQueue(state: CombatState, actor: Combatant, label: string, ev
 
 ## aafResponders
 
-导出接口 · 源码第 33 行。
+导出接口 · 源码第 34 行。
 
 ```ts
 export function aafResponders(state: CombatState, frame: AafFlowFrame): string[];
@@ -76,7 +77,7 @@ export function aafResponders(state: CombatState, frame: AafFlowFrame): string[]
 
 ## aafReactionWindow
 
-导出接口 · 源码第 36 行。
+导出接口 · 源码第 37 行。
 
 ```ts
 export function aafReactionWindow(state: CombatState): AafReactionWindow|undefined;
@@ -85,3 +86,18 @@ export function aafReactionWindow(state: CombatState): AafReactionWindow|undefin
 | 参数 | 可选 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | `state` | 否 | `CombatState` | — |
+
+## aafContinue
+
+导出接口 · 源码第 44 行。
+
+```ts
+export function aafContinue(state: CombatState, actor: Combatant, label: string, operation: AafFlowOperation): void;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `state` | 否 | `CombatState` | — |
+| `actor` | 否 | `Combatant` | — |
+| `label` | 否 | `string` | — |
+| `operation` | 否 | `AafFlowOperation` | — |

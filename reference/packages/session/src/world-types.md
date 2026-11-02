@@ -1,6 +1,6 @@
 # game/packages/session/src/world-types.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -383,6 +383,7 @@ export interface AudioState {
 
 ```ts
 export interface WorldDocument {
+    spiral?: import('@aelzerant/game-core').SpiralState;
     aafCatalog?: import('@aelzerant/contracts').AafCatalog;
     story?: StoryWorkspace;
     schemaVersion: 1;
@@ -409,6 +410,7 @@ export interface WorldDocument {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `spiral` | 是 | `import('@aelzerant/game-core').SpiralState` | 见结构定义及所属功能文档 |
 | `aafCatalog` | 是 | `import('@aelzerant/contracts').AafCatalog` | 见结构定义及所属功能文档 |
 | `story` | 是 | `StoryWorkspace` | 见结构定义及所属功能文档 |
 | `schemaVersion` | 否 | `1` | 见结构定义及所属功能文档 |
@@ -429,7 +431,7 @@ export interface WorldDocument {
 
 ## WorldCommand
 
-导出接口 · 源码第 74 行。
+导出接口 · 源码第 75 行。
 
 ```ts
 export interface WorldCommand {
@@ -447,7 +449,7 @@ export interface WorldCommand {
 
 ## WorldAction
 
-导出接口 · 源码第 75 行。
+导出接口 · 源码第 76 行。
 
 ```ts
 export interface WorldAction {
@@ -463,7 +465,7 @@ export interface WorldAction {
 
 ## WorldContext
 
-导出接口 · 源码第 76 行。
+导出接口 · 源码第 77 行。
 
 ```ts
 export interface WorldContext {
@@ -487,7 +489,7 @@ export interface WorldContext {
 
 ## WorldHandler
 
-导出接口 · 源码第 77 行。
+导出接口 · 源码第 78 行。
 
 ```ts
 export type WorldHandler = (world: WorldDocument, action: WorldAction, context: WorldContext) => void;

@@ -1,6 +1,6 @@
 # game/packages/game-core/src/aaf/turn.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -42,9 +42,21 @@ export function aafTurnStart(state: CombatState, actor: Combatant): void;
 | `state` | 否 | `CombatState` | — |
 | `actor` | 否 | `Combatant` | — |
 
+## aafResumeTurnStart
+
+导出接口 · 源码第 29 行。
+
+```ts
+export function aafResumeTurnStart(state: CombatState): void;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `state` | 否 | `CombatState` | — |
+
 ## aafTurnEnd
 
-导出接口 · 源码第 41 行。
+导出接口 · 源码第 47 行。
 
 ```ts
 export function aafTurnEnd(state: CombatState, actor: Combatant): void;
@@ -57,7 +69,7 @@ export function aafTurnEnd(state: CombatState, actor: Combatant): void;
 
 ## aafSpendAction
 
-导出接口 · 源码第 50 行。
+导出接口 · 源码第 57 行。
 
 Returns false when shock consumes the action and prevents execution. The caller commits that outcome.
 

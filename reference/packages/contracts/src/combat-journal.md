@@ -1,6 +1,6 @@
 # game/packages/contracts/src/combat-journal.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -80,6 +80,7 @@ export interface CombatStep {
     feedback?: CombatFeedback[];
     text: string;
     movement?: {
+        teleport?: boolean;
         tokenId: string;
         name: string;
         distance: number;
@@ -103,7 +104,8 @@ export interface CombatStep {
 | --- | --- | --- | --- |
 | `feedback` | 是 | `CombatFeedback[]` | 见结构定义及所属功能文档 |
 | `text` | 否 | `string` | 见结构定义及所属功能文档 |
-| `movement` | 是 | `{tokenId:string;name:string;distance:number;units:string;cost:number;to?:{x:number;y:number;z:number}}` | 见结构定义及所属功能文档 |
+| `movement` | 是 | `{teleport?:boolean;tokenId:string;name:string;distance:number;units:string;cost:number;to?:{x:number;y:number;z:number}}` | 见结构定义及所属功能文档 |
+| `movement.teleport` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `movement.tokenId` | 否 | `string` | 见结构定义及所属功能文档 |
 | `movement.name` | 否 | `string` | 见结构定义及所属功能文档 |
 | `movement.distance` | 否 | `number` | 见结构定义及所属功能文档 |
@@ -240,15 +242,94 @@ export interface CombatDraft {
 | `reactions` | 否 | `CombatCard[]` | 见结构定义及所属功能文档 |
 | `scope` | 否 | `string[]` | 见结构定义及所属功能文档 |
 
+## CombatLogSession
+
+导出接口 · 源码第 19 行。
+
+A combat in progress. The live channel only exists between this moment and the end boundary.
+
+```ts
+export interface CombatLogSession {
+    id: string;
+    sceneId: string;
+    startedAt: number;
+    sceneName?: string;
+    systemId?: string;
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `sceneId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `startedAt` | 否 | `number` | 见结构定义及所属功能文档 |
+| `sceneName` | 是 | `string` | 见结构定义及所属功能文档 |
+| `systemId` | 是 | `string` | 见结构定义及所属功能文档 |
+
+## CombatLogLine
+
+导出接口 · 源码第 21 行。
+
+Text lines that were not folded into a card (rollback notices, encounter status, Lancer engine log).
+
+```ts
+export interface CombatLogLine {
+    id: string;
+    text: string;
+    at: number;
+    author?: string;
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `text` | 否 | `string` | 见结构定义及所属功能文档 |
+| `at` | 否 | `number` | 见结构定义及所属功能文档 |
+| `author` | 是 | `string` | 见结构定义及所属功能文档 |
+
+## CombatLogArchive
+
+导出接口 · 源码第 23 行。
+
+One finished combat, archived when the end boundary is crossed.
+
+```ts
+export interface CombatLogArchive {
+    id: string;
+    sceneId: string;
+    sceneName: string;
+    startedAt: number;
+    endedAt: number;
+    cards: CombatCard[];
+    lines: CombatLogLine[];
+    systemId?: string;
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `sceneId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `sceneName` | 否 | `string` | 见结构定义及所属功能文档 |
+| `startedAt` | 否 | `number` | 见结构定义及所属功能文档 |
+| `endedAt` | 否 | `number` | 见结构定义及所属功能文档 |
+| `cards` | 否 | `CombatCard[]` | 见结构定义及所属功能文档 |
+| `lines` | 否 | `CombatLogLine[]` | 见结构定义及所属功能文档 |
+| `systemId` | 是 | `string` | 见结构定义及所属功能文档 |
+
 ## CombatJournal
 
-导出接口 · 源码第 18 行。
+导出接口 · 源码第 24 行。
 
 ```ts
 export interface CombatJournal {
     cards: CombatCard[];
     pending: Record<string, CombatDraft>;
     since?: number;
+    session?: CombatLogSession;
+    history?: CombatLogArchive[];
+    archived?: string[];
 }
 ```
 
@@ -257,10 +338,13 @@ export interface CombatJournal {
 | `cards` | 否 | `CombatCard[]` | 见结构定义及所属功能文档 |
 | `pending` | 否 | `Record<string,CombatDraft>` | 见结构定义及所属功能文档 |
 | `since` | 是 | `number` | 见结构定义及所属功能文档 |
+| `session` | 是 | `CombatLogSession` | 见结构定义及所属功能文档 |
+| `history` | 是 | `CombatLogArchive[]` | 见结构定义及所属功能文档 |
+| `archived` | 是 | `string[]` | 见结构定义及所属功能文档 |
 
 ## CombatTrace
 
-导出接口 · 源码第 19 行。
+导出接口 · 源码第 25 行。
 
 ```ts
 export type CombatTrace = {
@@ -301,7 +385,7 @@ export type CombatTrace = {
 
 ## parseCombatRoll
 
-导出接口 · 源码第 21 行。
+导出接口 · 源码第 27 行。
 
 ```ts
 export function parseCombatRoll(raw: unknown): CombatRollDetail;
@@ -313,7 +397,7 @@ export function parseCombatRoll(raw: unknown): CombatRollDetail;
 
 ## parseCombatStep
 
-导出接口 · 源码第 24 行。
+导出接口 · 源码第 30 行。
 
 ```ts
 export function parseCombatStep(raw: unknown): CombatStep;
@@ -325,7 +409,7 @@ export function parseCombatStep(raw: unknown): CombatStep;
 
 ## parseCombatCard
 
-导出接口 · 源码第 29 行。
+导出接口 · 源码第 35 行。
 
 ```ts
 export function parseCombatCard(raw: unknown): CombatCard;
@@ -335,9 +419,45 @@ export function parseCombatCard(raw: unknown): CombatCard;
 | --- | --- | --- | --- |
 | `raw` | 否 | `unknown` | — |
 
+## parseCombatLogLine
+
+导出接口 · 源码第 39 行。
+
+```ts
+export function parseCombatLogLine(raw: unknown): CombatLogLine;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `raw` | 否 | `unknown` | — |
+
+## parseCombatLogArchive
+
+导出接口 · 源码第 42 行。
+
+```ts
+export function parseCombatLogArchive(raw: unknown): CombatLogArchive;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `raw` | 否 | `unknown` | — |
+
+## parseCombatLogSession
+
+导出接口 · 源码第 45 行。
+
+```ts
+export function parseCombatLogSession(raw: unknown): CombatLogSession;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `raw` | 否 | `unknown` | — |
+
 ## parseCombatJournal
 
-导出接口 · 源码第 33 行。
+导出接口 · 源码第 48 行。
 
 ```ts
 export function parseCombatJournal(raw: unknown): CombatJournal;
@@ -349,10 +469,10 @@ export function parseCombatJournal(raw: unknown): CombatJournal;
 
 ## projectCombatJournal
 
-导出接口 · 源码第 36 行。
+导出接口 · 源码第 51 行。
 
 ```ts
-export function projectCombatJournal(story: StoryWorkspace, playerId: string|undefined, gm: boolean, actors: ReadonlySet<string>, scenes?: ReadonlySet<string>): CombatJournal|undefined;
+export function projectCombatJournal(story: StoryWorkspace, playerId: string|undefined, gm: boolean, actors: ReadonlySet<string>, scenes?: ReadonlySet<string>, visibleActors?: ReadonlySet<string>, channelScenes?: ReadonlySet<string>): CombatJournal|undefined;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
@@ -362,10 +482,12 @@ export function projectCombatJournal(story: StoryWorkspace, playerId: string|und
 | `gm` | 否 | `boolean` | — |
 | `actors` | 否 | `ReadonlySet<string>` | — |
 | `scenes` | 是 | `ReadonlySet<string>` | — |
+| `visibleActors` | 是 | `ReadonlySet<string>` | actors |
+| `channelScenes` | 是 | `ReadonlySet<string>` | scenes??new Set() |
 
 ## combatRollSummary
 
-导出接口 · 源码第 49 行。
+导出接口 · 源码第 73 行。
 
 ```ts
 export function combatRollSummary(roll: CombatRollDetail, simple: boolean): string;

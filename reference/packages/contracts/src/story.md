@@ -1,13 +1,18 @@
 # game/packages/contracts/src/story.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {parseSceneChannelVisits,type SceneChannelVisits} from './scene-channel-visits';
+import {parseLancerNodeRuns,projectLancerNodeRuns,parseLancerNodeRestPlan,parseLancerNodeEndPlan,type LancerNodeRun,type LancerNodeRestPlan,type LancerNodeEndPlan} from './lancer-node-execution';
+import {parseLancerScenePlans,type LancerScenePlan} from './lancer-scene-plan';
+import {parseTacticalMissions,projectTacticalMissions,type TacticalMission} from './tactical-mission';
 import {parseWorldAtlas,projectWorldAtlas,type WorldAtlas} from './world-atlas';
+import {parseTeamAssets,type TeamAssets} from './team-assets';
 import {parseQuest,parseNotebook,questUnlocked,type QuestDetails,type GmNotebook} from './story-progress';
 import {parseAdventure,projectAdventure,type AdventureState} from './adventure-events';
 import {parseUserColor} from './user-colors';
@@ -31,6 +36,7 @@ import {parseSceneJournals,projectSceneJournals} from './scene-journal';
 import type {JournalReference} from './journal-reference';
 import {parseScenePreloads,projectScenePreloads,type ScenePreload} from './scene-preload';
 import {parseSceneNavigation,type SceneNavigationConfig} from './scene-navigation';
+import {parseLancerStartingGrants} from './lancer-starting-grants';
 import {parseSceneDirectory,emptySceneDirectory,type SceneDirectory} from './scene-directory';
 import {parseJournalAccess} from './journal-access';
 import type {DocumentAccess} from './world-library';
@@ -39,6 +45,9 @@ import {parseRegionDecisions,type RegionDecision} from './region-decision';
 import {parseHandouts,parseRecaps,type StoryHandout,type StoryRecap} from './story-delivery';
 import { isGameSystemId, type GameSystemId } from './systems';
 import { parseWorldCalendar, type WorldCalendar } from './world-calendar';
+import {parseStoryPlugins,parseTheatreState,type StoryPlugins,type TheatreState} from './theatre';
+import {parseBossBarState,type BossBarState} from './boss-bar';
+import {MONSTER_HP_VISIBILITIES,type MonsterHpVisibility} from './monster-health';
 import {parseWorldLibrary,projectWorldLibrary,type WorldLibrary} from './world-library';
 import {parseMessageDetails,canReadMessage,type MessageDetails} from './world-conversation';
 ```
@@ -53,7 +62,7 @@ export * from './story-delivery';
 
 ## ResourceKind
 
-导出接口 · 源码第 41 行。
+导出接口 · 源码第 50 行。
 
 ```ts
 export type ResourceKind = keyof typeof RESOURCE_KINDS;
@@ -61,7 +70,7 @@ export type ResourceKind = keyof typeof RESOURCE_KINDS;
 
 ## StoryChannel
 
-导出接口 · 源码第 42 行。
+导出接口 · 源码第 51 行。
 
 ```ts
 export type StoryChannel = keyof typeof STORY_CHANNELS;
@@ -69,7 +78,7 @@ export type StoryChannel = keyof typeof STORY_CHANNELS;
 
 ## StoryVisibility
 
-导出接口 · 源码第 43 行。
+导出接口 · 源码第 52 行。
 
 ```ts
 export type StoryVisibility = 'gm' | 'public';
@@ -77,7 +86,7 @@ export type StoryVisibility = 'gm' | 'public';
 
 ## StoryMember
 
-导出接口 · 源码第 44 行。
+导出接口 · 源码第 53 行。
 
 ```ts
 export interface StoryMember {
@@ -97,7 +106,7 @@ export interface StoryMember {
 
 ## StoryPack
 
-导出接口 · 源码第 45 行。
+导出接口 · 源码第 54 行。
 
 ```ts
 export interface StoryPack {
@@ -115,7 +124,7 @@ export interface StoryPack {
 
 ## ResourceEffect
 
-导出接口 · 源码第 46 行。
+导出接口 · 源码第 55 行。
 
 ```ts
 export interface ResourceEffect {
@@ -135,7 +144,7 @@ export interface ResourceEffect {
 
 ## ResourceActivity
 
-导出接口 · 源码第 52 行。
+导出接口 · 源码第 61 行。
 
 ```ts
 export interface ResourceActivity {
@@ -173,7 +182,7 @@ export interface ResourceActivity {
 
 ## StoryResource
 
-导出接口 · 源码第 62 行。
+导出接口 · 源码第 71 行。
 
 ```ts
 export interface StoryResource {
@@ -211,7 +220,7 @@ export interface StoryResource {
 
 ## StoryEntry
 
-导出接口 · 源码第 68 行。
+导出接口 · 源码第 77 行。
 
 ```ts
 export interface StoryEntry {
@@ -251,7 +260,7 @@ export interface StoryEntry {
 
 ## StoryMessage
 
-导出接口 · 源码第 69 行。
+导出接口 · 源码第 78 行。
 
 ```ts
 export interface StoryMessage extends MessageDetails {
@@ -277,7 +286,7 @@ export interface StoryMessage extends MessageDetails {
 
 ## ResourceGrant
 
-导出接口 · 源码第 70 行。
+导出接口 · 源码第 79 行。
 
 ```ts
 export interface ResourceGrant {
@@ -293,7 +302,7 @@ export interface ResourceGrant {
 
 ## StoryCounter
 
-导出接口 · 源码第 71 行。
+导出接口 · 源码第 80 行。
 
 ```ts
 export interface StoryCounter {
@@ -311,12 +320,228 @@ export interface StoryCounter {
 | `value` | 否 | `number` | 见结构定义及所属功能文档 |
 | `max` | 否 | `number` | 见结构定义及所属功能文档 |
 
+## PRESENTATION_MODES
+
+导出接口 · 源码第 81 行。
+
+```ts
+export const PRESENTATION_MODES = ['terminal', 'scene', 'performance', 'deployment', 'battle'] as const;
+```
+
+## PresentationMode
+
+导出接口 · 源码第 82 行。
+
+```ts
+export type PresentationMode = typeof PRESENTATION_MODES[number];
+```
+
+## PRESENTATION_TRANSITIONS
+
+导出接口 · 源码第 83 行。
+
+```ts
+export const PRESENTATION_TRANSITIONS = ['fade', 'iris', 'black', 'cut'] as const;
+```
+
+## PresentationTransition
+
+导出接口 · 源码第 84 行。
+
+```ts
+export type PresentationTransition = typeof PRESENTATION_TRANSITIONS[number];
+```
+
+## PRESENTATION_EFFECTS
+
+导出接口 · 源码第 85 行。
+
+```ts
+export const PRESENTATION_EFFECTS = ['rain', 'fog', 'embers', 'scan', 'glitch', 'impact'] as const;
+```
+
+## PresentationEffect
+
+导出接口 · 源码第 86 行。
+
+```ts
+export type PresentationEffect = typeof PRESENTATION_EFFECTS[number];
+```
+
+## PresentationState
+
+导出接口 · 源码第 87 行。
+
+```ts
+export interface PresentationState {
+    id: number;
+    mode: PresentationMode;
+    sceneId?: string;
+    transition?: PresentationTransition;
+    effects?: PresentationEffect[];
+    startedAt: number;
+    revision: number;
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `id` | 否 | `number` | 见结构定义及所属功能文档 |
+| `mode` | 否 | `PresentationMode` | 见结构定义及所属功能文档 |
+| `sceneId` | 是 | `string` | 见结构定义及所属功能文档 |
+| `transition` | 是 | `PresentationTransition` | 见结构定义及所属功能文档 |
+| `effects` | 是 | `PresentationEffect[]` | 见结构定义及所属功能文档 |
+| `startedAt` | 否 | `number` | 见结构定义及所属功能文档 |
+| `revision` | 否 | `number` | 见结构定义及所属功能文档 |
+
+## SCENE_NODE_KINDS
+
+导出接口 · 源码第 96 行。
+
+```ts
+export const SCENE_NODE_KINDS = ['start', 'scene', 'battle', 'rest', 'event', 'branch', 'merge', 'end', 'note'] as const;
+```
+
+## SceneNodeKind
+
+导出接口 · 源码第 97 行。
+
+```ts
+export type SceneNodeKind = typeof SCENE_NODE_KINDS[number];
+```
+
+## SceneNode
+
+导出接口 · 源码第 98 行。
+
+```ts
+export interface SceneNode {
+    body?: string;
+    rest?: LancerNodeRestPlan;
+    ending?: LancerNodeEndPlan;
+    id: string;
+    name: string;
+    kind: SceneNodeKind;
+    sceneId?: string;
+    eventId?: string;
+    mode?: 'scene' | 'performance';
+    requires: string[];
+    x: number;
+    y: number;
+    hidden?: boolean;
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `body` | 是 | `string` | 见结构定义及所属功能文档 |
+| `rest` | 是 | `LancerNodeRestPlan` | 见结构定义及所属功能文档 |
+| `ending` | 是 | `LancerNodeEndPlan` | 见结构定义及所属功能文档 |
+| `id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `name` | 否 | `string` | 见结构定义及所属功能文档 |
+| `kind` | 否 | `SceneNodeKind` | 见结构定义及所属功能文档 |
+| `sceneId` | 是 | `string` | 见结构定义及所属功能文档 |
+| `eventId` | 是 | `string` | 见结构定义及所属功能文档 |
+| `mode` | 是 | `'scene'&#124;'performance'` | 见结构定义及所属功能文档 |
+| `requires` | 否 | `string[]` | 见结构定义及所属功能文档 |
+| `x` | 否 | `number` | 见结构定义及所属功能文档 |
+| `y` | 否 | `number` | 见结构定义及所属功能文档 |
+| `hidden` | 是 | `boolean` | 见结构定义及所属功能文档 |
+
+## SceneGraph
+
+导出接口 · 源码第 99 行。
+
+```ts
+export interface SceneGraph {
+    id: string;
+    name: string;
+    version: 1;
+    revision: number;
+    nodes: SceneNode[];
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `name` | 否 | `string` | 见结构定义及所属功能文档 |
+| `version` | 否 | `1` | 见结构定义及所属功能文档 |
+| `revision` | 否 | `number` | 见结构定义及所属功能文档 |
+| `nodes` | 否 | `SceneNode[]` | 见结构定义及所属功能文档 |
+
+## SceneGraphLibrary
+
+导出接口 · 源码第 100 行。
+
+```ts
+export interface SceneGraphLibrary {
+    version: 1;
+    revision: number;
+    activeId: string;
+    graphs: SceneGraph[];
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `version` | 否 | `1` | 见结构定义及所属功能文档 |
+| `revision` | 否 | `number` | 见结构定义及所属功能文档 |
+| `activeId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `graphs` | 否 | `SceneGraph[]` | 见结构定义及所属功能文档 |
+
+## PlayerProgress
+
+导出接口 · 源码第 101 行。
+
+```ts
+export type PlayerProgress = Record<string, number>;
+```
+
+## StoryOnboarding
+
+导出接口 · 源码第 102 行。
+
+```ts
+export interface StoryOnboarding {
+    startingLevel: number;
+    bonus: string;
+    allowPlayerCreate: boolean;
+    mode?: 'campaign' | 'arena' | 'open';
+    startingGrants?: import('./lancer-starting-grants').LancerStartingGrant[];
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `startingLevel` | 否 | `number` | 见结构定义及所属功能文档 |
+| `bonus` | 否 | `string` | 见结构定义及所属功能文档 |
+| `allowPlayerCreate` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `mode` | 是 | `'campaign'&#124;'arena'&#124;'open'` | 见结构定义及所属功能文档 |
+| `startingGrants` | 是 | `import('./lancer-starting-grants').LancerStartingGrant[]` | 见结构定义及所属功能文档 |
+
+## SceneEffectMap
+
+导出接口 · 源码第 103 行。
+
+```ts
+export type SceneEffectMap = Record<string, PresentationEffect[]>;
+```
+
 ## StoryWorkspace
 
-导出接口 · 源码第 72 行。
+导出接口 · 源码第 104 行。
 
 ```ts
 export interface StoryWorkspace {
+    lancerNodeRuns?: Record<string, LancerNodeRun>;
+    lancerScenePlans?: Record<string, LancerScenePlan>;
+    tacticalMissions?: Record<string, TacticalMission>;
+    sceneEffects?: SceneEffectMap;
+    presentation?: PresentationState;
+    sceneGraphs?: SceneGraphLibrary;
+    playerProgress?: Record<string, PlayerProgress>;
+    onboarding?: StoryOnboarding;
     atlas?: WorldAtlas;
     conversationChannels?: ConversationChannel[];
     combatJournal?: CombatJournal;
@@ -328,6 +553,7 @@ export interface StoryWorkspace {
     entityDirectories?: EntityDirectories;
     journalDirectory?: DocumentDirectory;
     adventure?: AdventureState;
+    teamAssets?: TeamAssets;
     sceneJournals?: Record<string, JournalReference>;
     scenePreloads?: ScenePreload[];
     sceneNavigation?: Record<string, SceneNavigationConfig>;
@@ -336,11 +562,17 @@ export interface StoryWorkspace {
     climbAttempts?: Record<string, string>;
     regionDecisions?: RegionDecision[];
     sceneViews?: Record<string, string>;
+    sceneChannelVisits?: SceneChannelVisits;
     calendar?: WorldCalendar;
+    plugins?: StoryPlugins;
+    theatre?: TheatreState;
+    bossBar?: BossBarState;
+    monsterHpVisibility?: MonsterHpVisibility;
     library?: WorldLibrary;
     handouts?: StoryHandout[];
     recaps?: StoryRecap[];
     dndRules?: {
+        dawnHour?: number | null;
         outsideCombatTime: 'frozen' | 'realtime';
         backgroundAbilityUnbound?: boolean;
     };
@@ -358,6 +590,14 @@ export interface StoryWorkspace {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `lancerNodeRuns` | 是 | `Record<string,LancerNodeRun>` | 见结构定义及所属功能文档 |
+| `lancerScenePlans` | 是 | `Record<string,LancerScenePlan>` | 见结构定义及所属功能文档 |
+| `tacticalMissions` | 是 | `Record<string,TacticalMission>` | 见结构定义及所属功能文档 |
+| `sceneEffects` | 是 | `SceneEffectMap` | 见结构定义及所属功能文档 |
+| `presentation` | 是 | `PresentationState` | 见结构定义及所属功能文档 |
+| `sceneGraphs` | 是 | `SceneGraphLibrary` | 见结构定义及所属功能文档 |
+| `playerProgress` | 是 | `Record<string,PlayerProgress>` | 见结构定义及所属功能文档 |
+| `onboarding` | 是 | `StoryOnboarding` | 见结构定义及所属功能文档 |
 | `atlas` | 是 | `WorldAtlas` | 见结构定义及所属功能文档 |
 | `conversationChannels` | 是 | `ConversationChannel[]` | 见结构定义及所属功能文档 |
 | `combatJournal` | 是 | `CombatJournal` | 见结构定义及所属功能文档 |
@@ -369,6 +609,7 @@ export interface StoryWorkspace {
 | `entityDirectories` | 是 | `EntityDirectories` | 见结构定义及所属功能文档 |
 | `journalDirectory` | 是 | `DocumentDirectory` | 见结构定义及所属功能文档 |
 | `adventure` | 是 | `AdventureState` | 见结构定义及所属功能文档 |
+| `teamAssets` | 是 | `TeamAssets` | 见结构定义及所属功能文档 |
 | `sceneJournals` | 是 | `Record<string,JournalReference>` | 见结构定义及所属功能文档 |
 | `scenePreloads` | 是 | `ScenePreload[]` | 见结构定义及所属功能文档 |
 | `sceneNavigation` | 是 | `Record<string,SceneNavigationConfig>` | 见结构定义及所属功能文档 |
@@ -377,11 +618,17 @@ export interface StoryWorkspace {
 | `climbAttempts` | 是 | `Record<string,string>` | 见结构定义及所属功能文档 |
 | `regionDecisions` | 是 | `RegionDecision[]` | 见结构定义及所属功能文档 |
 | `sceneViews` | 是 | `Record<string,string>` | 见结构定义及所属功能文档 |
+| `sceneChannelVisits` | 是 | `SceneChannelVisits` | 见结构定义及所属功能文档 |
 | `calendar` | 是 | `WorldCalendar` | 见结构定义及所属功能文档 |
+| `plugins` | 是 | `StoryPlugins` | 见结构定义及所属功能文档 |
+| `theatre` | 是 | `TheatreState` | 见结构定义及所属功能文档 |
+| `bossBar` | 是 | `BossBarState` | 见结构定义及所属功能文档 |
+| `monsterHpVisibility` | 是 | `MonsterHpVisibility` | 见结构定义及所属功能文档 |
 | `library` | 是 | `WorldLibrary` | 见结构定义及所属功能文档 |
 | `handouts` | 是 | `StoryHandout[]` | 见结构定义及所属功能文档 |
 | `recaps` | 是 | `StoryRecap[]` | 见结构定义及所属功能文档 |
-| `dndRules` | 是 | `{outsideCombatTime:'frozen'&#124;'realtime';backgroundAbilityUnbound?:boolean}` | 见结构定义及所属功能文档 |
+| `dndRules` | 是 | `{dawnHour?:number&#124;null;outsideCombatTime:'frozen'&#124;'realtime';backgroundAbilityUnbound?:boolean}` | 见结构定义及所属功能文档 |
+| `dndRules.dawnHour` | 是 | `number&#124;null` | 见结构定义及所属功能文档 |
 | `dndRules.outsideCombatTime` | 否 | `'frozen'&#124;'realtime'` | 见结构定义及所属功能文档 |
 | `dndRules.backgroundAbilityUnbound` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `reactionSeconds` | 是 | `number` | 见结构定义及所属功能文档 |
@@ -396,7 +643,7 @@ export interface StoryWorkspace {
 
 ## storyObject
 
-导出接口 · 源码第 88 行。
+导出接口 · 源码第 126 行。
 
 ```ts
 export const storyObject: (v: unknown): Record<string, unknown>;
@@ -404,7 +651,7 @@ export const storyObject: (v: unknown): Record<string, unknown>;
 
 ## storyText
 
-导出接口 · 源码第 89 行。
+导出接口 · 源码第 127 行。
 
 ```ts
 export const storyText: (v: unknown, max?: number): string;
@@ -412,7 +659,7 @@ export const storyText: (v: unknown, max?: number): string;
 
 ## storyId
 
-导出接口 · 源码第 90 行。
+导出接口 · 源码第 128 行。
 
 ```ts
 export const storyId: (v: unknown): string;
@@ -420,7 +667,7 @@ export const storyId: (v: unknown): string;
 
 ## storyNumber
 
-导出接口 · 源码第 91 行。
+导出接口 · 源码第 129 行。
 
 ```ts
 export const storyNumber: (v: unknown, min?: number, max?: number): number;
@@ -428,7 +675,7 @@ export const storyNumber: (v: unknown, min?: number, max?: number): number;
 
 ## storyList
 
-导出接口 · 源码第 92 行。
+导出接口 · 源码第 130 行。
 
 ```ts
 export const storyList: (v: unknown, max?: number): unknown[];
@@ -436,7 +683,7 @@ export const storyList: (v: unknown, max?: number): unknown[];
 
 ## storyEnum
 
-导出接口 · 源码第 93 行。
+导出接口 · 源码第 131 行。
 
 ```ts
 export const storyEnum: <T extends string>(v: unknown, values: readonly T[]): T;
@@ -444,7 +691,7 @@ export const storyEnum: <T extends string>(v: unknown, values: readonly T[]): T;
 
 ## emptyStory
 
-导出接口 · 源码第 97 行。
+导出接口 · 源码第 135 行。
 
 ```ts
 export function emptyStory(): StoryWorkspace;
@@ -452,7 +699,7 @@ export function emptyStory(): StoryWorkspace;
 
 ## blankResource
 
-导出接口 · 源码第 98 行。
+导出接口 · 源码第 136 行。
 
 ```ts
 export function blankResource(systemId: GameSystemId, id: string): StoryResource;
@@ -465,7 +712,7 @@ export function blankResource(systemId: GameSystemId, id: string): StoryResource
 
 ## blankActivity
 
-导出接口 · 源码第 99 行。
+导出接口 · 源码第 137 行。
 
 ```ts
 export function blankActivity(id: string): ResourceActivity;
@@ -477,7 +724,7 @@ export function blankActivity(id: string): ResourceActivity;
 
 ## parseResource
 
-导出接口 · 源码第 100 行。
+导出接口 · 源码第 138 行。
 
 ```ts
 export function parseResource(raw: unknown): StoryResource;
@@ -487,9 +734,93 @@ export function parseResource(raw: unknown): StoryResource;
 | --- | --- | --- | --- |
 | `raw` | 否 | `unknown` | — |
 
+## parsePresentationState
+
+导出接口 · 源码第 149 行。
+
+```ts
+export function parsePresentationState(raw: unknown): PresentationState;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `raw` | 否 | `unknown` | — |
+
+## parseSceneEffects
+
+导出接口 · 源码第 153 行。
+
+```ts
+export function parseSceneEffects(raw: unknown): SceneEffectMap;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `raw` | 否 | `unknown` | — |
+
+## parseOnboarding
+
+导出接口 · 源码第 158 行。
+
+```ts
+export function parseOnboarding(raw: unknown): StoryOnboarding;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `raw` | 否 | `unknown` | — |
+
+## parsePlayerProgress
+
+导出接口 · 源码第 161 行。
+
+```ts
+export function parsePlayerProgress(raw: unknown): Record<string,PlayerProgress>;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `raw` | 否 | `unknown` | — |
+
+## parseSceneGraph
+
+导出接口 · 源码第 181 行。
+
+```ts
+export function parseSceneGraph(raw: unknown): SceneGraph;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `raw` | 否 | `unknown` | — |
+
+## parseLegacySceneGraph
+
+导出接口 · 源码第 185 行。
+
+```ts
+export function parseLegacySceneGraph(raw: unknown): SceneGraphLibrary;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `raw` | 否 | `unknown` | — |
+
+## parseSceneGraphLibrary
+
+导出接口 · 源码第 188 行。
+
+```ts
+export function parseSceneGraphLibrary(raw: unknown): SceneGraphLibrary;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `raw` | 否 | `unknown` | — |
+
 ## parseStory
 
-导出接口 · 源码第 111 行。
+导出接口 · 源码第 196 行。
 
 ```ts
 export function parseStory(raw: unknown): StoryWorkspace;
@@ -501,7 +832,7 @@ export function parseStory(raw: unknown): StoryWorkspace;
 
 ## storyGm
 
-导出接口 · 源码第 131 行。
+导出接口 · 源码第 216 行。
 
 ```ts
 export function storyGm(story: StoryWorkspace|undefined, ownerId: string, playerId: string): boolean;
@@ -515,10 +846,10 @@ export function storyGm(story: StoryWorkspace|undefined, ownerId: string, player
 
 ## projectStory
 
-导出接口 · 源码第 132 行。
+导出接口 · 源码第 217 行。
 
 ```ts
-export function projectStory(story: StoryWorkspace, ownerId: string, playerId: string|undefined, actorIds: ReadonlySet<string>, sceneIds?: ReadonlySet<string>, readableActorIds?: ReadonlySet<string>): StoryWorkspace;
+export function projectStory(story: StoryWorkspace, ownerId: string, playerId: string|undefined, actorIds: ReadonlySet<string>, sceneIds?: ReadonlySet<string>, readableActorIds?: ReadonlySet<string>, combatActorIds?: ReadonlySet<string>, channelScenes?: ReadonlySet<string>): StoryWorkspace;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
@@ -529,3 +860,5 @@ export function projectStory(story: StoryWorkspace, ownerId: string, playerId: s
 | `actorIds` | 否 | `ReadonlySet<string>` | — |
 | `sceneIds` | 是 | `ReadonlySet<string>` | — |
 | `readableActorIds` | 是 | `ReadonlySet<string>` | actorIds |
+| `combatActorIds` | 是 | `ReadonlySet<string>` | readableActorIds |
+| `channelScenes` | 是 | `ReadonlySet<string>` | new Set() |

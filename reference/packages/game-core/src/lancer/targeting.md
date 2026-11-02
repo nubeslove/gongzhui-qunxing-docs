@@ -1,12 +1,13 @@
 # game/packages/game-core/src/lancer/targeting.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {dustgraveProtected} from './dustgrave';
 import {pilotGearIssue,lancerPilotGear} from './pilot-gear';
 import {LANCER_PILOT_GEAR} from './pilot-equipment';
 import {validateWeapon} from './resolution';
@@ -32,7 +33,7 @@ import { lancerAreaTargets, validateLancerArea } from './areas';
 
 ## LancerTargetMode
 
-导出接口 · 源码第 23 行。
+导出接口 · 源码第 24 行。
 
 ```ts
 export type LancerTargetMode = 'self' | 'unit' | 'point' | 'area';
@@ -40,7 +41,7 @@ export type LancerTargetMode = 'self' | 'unit' | 'point' | 'area';
 
 ## lancerTargetMode
 
-导出接口 · 源码第 24 行。
+导出接口 · 源码第 25 行。
 
 ```ts
 export function lancerTargetMode(u: LancerCombatUnit, i: LancerCombatIntent): LancerTargetMode;
@@ -53,7 +54,7 @@ export function lancerTargetMode(u: LancerCombatUnit, i: LancerCombatIntent): La
 
 ## validateLancerActionTarget
 
-导出接口 · 源码第 37 行。
+导出接口 · 源码第 38 行。
 
 Read-only targeting rules, shared by the preview and GM settlement.
 
@@ -70,7 +71,7 @@ export function validateLancerActionTarget(map: ManualMap, u: LancerCombatUnit, 
 
 ## lancerTargetIssue
 
-导出接口 · 源码第 50 行。
+导出接口 · 源码第 51 行。
 
 ```ts
 export function lancerTargetIssue(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, i: LancerCombatIntent, id: string): string|null;
@@ -86,7 +87,7 @@ export function lancerTargetIssue(b: LancerBattle, map: ManualMap, u: LancerComb
 
 ## lancerAreaIssue
 
-导出接口 · 源码第 82 行。
+导出接口 · 源码第 83 行。
 
 ```ts
 export function lancerAreaIssue(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, i: LancerCombatIntent): string|null;

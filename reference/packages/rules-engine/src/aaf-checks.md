@@ -1,6 +1,6 @@
 # game/packages/rules-engine/src/aaf-checks.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -57,7 +57,7 @@ export const aafFocusMaximum: (level: number): number;
 导出接口 · 源码第 9 行。
 
 ```ts
-export const aafUpkeepBase: (rank: number): 2 | 1 | 3;
+export const aafUpkeepBase: (rank: number): 1 | 2 | 3;
 ```
 
 ## aafUpkeep
@@ -78,7 +78,7 @@ export function aafUpkeep(items: Pick<AafRuleState['concentrations'][number],'co
 导出接口 · 源码第 11 行。
 
 ```ts
-export const aafCantripDice: (level: number): 2 | 1 | 4 | 3;
+export const aafCantripDice: (level: number): 1 | 2 | 3 | 4;
 ```
 
 ## aafCasterLevel
@@ -150,12 +150,27 @@ export const aafRitualPrice: (power: number, area: number): { mp: number; dc: nu
 导出接口 · 源码第 20 行。
 
 ```ts
-export const aafClockDelta: (success: boolean, critical: boolean, fumble: boolean, threat?: boolean): 0 | 2 | 1;
+export const aafClockDelta: (success: boolean, critical: boolean, fumble: boolean, threat?: boolean): 1 | 0 | 2;
 ```
+
+## aafDistance
+
+导出接口 · 源码第 22 行。
+
+First diagonal square is 5 feet; every subsequent diagonal is 10 feet.
+
+```ts
+export function aafDistance(a: {x:number;y:number;z?:number}, b: {x:number;y:number;z?:number}): number;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `a` | 否 | `{x:number;y:number;z?:number}` | — |
+| `b` | 否 | `{x:number;y:number;z?:number}` | — |
 
 ## aafRoll
 
-导出接口 · 源码第 21 行。
+导出接口 · 源码第 27 行。
 
 ```ts
 export function aafRoll(count: number, sides: number, rng: ()=>number): number[];
@@ -169,7 +184,7 @@ export function aafRoll(count: number, sides: number, rng: ()=>number): number[]
 
 ## AafCheckInput
 
-导出接口 · 源码第 23 行。
+导出接口 · 源码第 29 行。
 
 ```ts
 export interface AafCheckInput {
@@ -201,7 +216,7 @@ export interface AafCheckInput {
 
 ## aafCheck
 
-导出接口 · 源码第 25 行。
+导出接口 · 源码第 31 行。
 
 Same name/source contributes once; independent named dice are rolled and summed separately.
 
@@ -216,7 +231,7 @@ export function aafCheck(input: AafCheckInput, rng: ()=>number): AafCheckRecord;
 
 ## aafReroll
 
-导出接口 · 源码第 38 行。
+导出接口 · 源码第 44 行。
 
 ```ts
 export function aafReroll(check: AafCheckRecord, index: number, face: number, keep: boolean): AafCheckRecord;
@@ -231,7 +246,7 @@ export function aafReroll(check: AafCheckRecord, index: number, face: number, ke
 
 ## aafDamageType
 
-导出接口 · 源码第 47 行。
+导出接口 · 源码第 53 行。
 
 ```ts
 export function aafDamageType(raw: string): AafDamageType;
@@ -243,7 +258,7 @@ export function aafDamageType(raw: string): AafDamageType;
 
 ## AafDamageResult
 
-导出接口 · 源码第 51 行。
+导出接口 · 源码第 57 行。
 
 ```ts
 export interface AafDamageResult {
@@ -271,7 +286,7 @@ export interface AafDamageResult {
 
 ## aafDamage
 
-导出接口 · 源码第 53 行。
+导出接口 · 源码第 59 行。
 
 Resistance and vulnerability run before final flooring, so both cancel even for odd damage.
 

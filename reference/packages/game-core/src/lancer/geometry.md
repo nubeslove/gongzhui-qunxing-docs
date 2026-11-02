@@ -1,12 +1,14 @@
 # game/packages/game-core/src/lancer/geometry.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {isHexGrid} from '@aelzerant/contracts';
+import {hexDistance,hexFootprint,hexInBounds,hexTokenLine,snapHexToken} from '@aelzerant/contracts';
 import {lancerObject,lancerObjectActive,lancerObjectToken,lancerEffectiveBlock} from '@aelzerant/contracts';
 import { regionContains,regionShapes,isSmoke,lightActive,obscurityCrosses,environmentCoverCrosses,regionMovementMultiplier,sceneRayBlocked } from '@aelzerant/contracts';
 import type { LancerCombatUnit, ManualBlock, ManualMap, ManualToken } from '@aelzerant/contracts';
@@ -15,7 +17,7 @@ import type { LancerCombatUnit, ManualBlock, ManualMap, ManualToken } from '@ael
 
 ## Point
 
-内部依赖类型 · 源码第 5 行。
+内部依赖类型 · 源码第 7 行。
 
 ```ts
 type Point = {
@@ -33,22 +35,23 @@ type Point = {
 
 ## lancerFootprintPoints
 
-导出接口 · 源码第 18 行。
+导出接口 · 源码第 20 行。
 
 Oriented samples keep scenery targeting on the displayed model's actual footprint.
 
 ```ts
-export function lancerFootprintPoints(t: ManualToken, cells?: boolean): Point[];
+export function lancerFootprintPoints(t: ManualToken, cells?: boolean, map?: ManualMap): Point[];
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | `t` | 否 | `ManualToken` | — |
 | `cells` | 是 | `boolean` | false |
+| `map` | 是 | `ManualMap` | — |
 
 ## lancerLineOfSight
 
-导出接口 · 源码第 23 行。
+导出接口 · 源码第 26 行。
 
 ```ts
 export function lancerLineOfSight(map: ManualMap, a: ManualToken, b: ManualToken): boolean;
@@ -62,7 +65,7 @@ export function lancerLineOfSight(map: ManualMap, a: ManualToken, b: ManualToken
 
 ## lancerUnitLineOfSight
 
-导出接口 · 源码第 27 行。
+导出接口 · 源码第 30 行。
 
 ```ts
 export function lancerUnitLineOfSight(map: ManualMap, u: LancerCombatUnit, target: ManualToken): boolean;
@@ -76,7 +79,7 @@ export function lancerUnitLineOfSight(map: ManualMap, u: LancerCombatUnit, targe
 
 ## lancerTerrainCover
 
-导出接口 · 源码第 31 行。
+导出接口 · 源码第 34 行。
 
 Cover is traced at half height, while line of sight uses the top of the model.
 
@@ -92,22 +95,23 @@ export function lancerTerrainCover(map: ManualMap, a: ManualToken, t: ManualToke
 
 ## lancerDistance
 
-导出接口 · 源码第 61 行。
+导出接口 · 源码第 64 行。
 
-Square-grid distance from occupied edges, with height measured in spaces.
+Distance between occupied cells; height remains measured in spaces.
 
 ```ts
-export function lancerDistance(a: ManualToken, b: ManualToken): number;
+export function lancerDistance(a: ManualToken, b: ManualToken, map?: ManualMap): number;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | `a` | 否 | `ManualToken` | — |
 | `b` | 否 | `ManualToken` | — |
+| `map` | 是 | `ManualMap` | — |
 
 ## footprintGap
 
-导出接口 · 源码第 65 行。
+导出接口 · 源码第 69 行。
 
 Separating axes of both rectangles, expanded in the square grid metric.
 
@@ -122,15 +126,15 @@ export function footprintGap(a: ManualToken, b: ManualToken): number;
 
 ## lancerBlockDistance
 
-导出接口 · 源码第 71 行。
+导出接口 · 源码第 75 行。
 
 ```ts
-export const lancerBlockDistance: (token: ManualToken, block: ManualBlock): number;
+export const lancerBlockDistance: (token: ManualToken, block: ManualBlock, map?: ManualMap): number;
 ```
 
 ## lancerBlockOverlaps
 
-导出接口 · 源码第 72 行。
+导出接口 · 源码第 76 行。
 
 ```ts
 export function lancerBlockOverlaps(block: ManualBlock, token: ManualToken): boolean;
@@ -143,7 +147,7 @@ export function lancerBlockOverlaps(block: ManualBlock, token: ManualToken): boo
 
 ## lancerPosition
 
-导出接口 · 源码第 76 行。
+导出接口 · 源码第 80 行。
 
 ```ts
 export function lancerPosition(map: ManualMap, token: ManualToken, x: number, y: number, z: number): void;
@@ -159,7 +163,7 @@ export function lancerPosition(map: ManualMap, token: ManualToken, x: number, y:
 
 ## lancerTerrainContains
 
-导出接口 · 源码第 84 行。
+导出接口 · 源码第 89 行。
 
 Difficult areas are passable volumes, independent of the visual model.
 
@@ -174,7 +178,7 @@ export function lancerTerrainContains(b: ManualBlock, t: ManualToken): boolean;
 
 ## lancerDifficultAt
 
-导出接口 · 源码第 87 行。
+导出接口 · 源码第 92 行。
 
 ```ts
 export function lancerDifficultAt(map: ManualMap, t: ManualToken): boolean;
@@ -187,7 +191,7 @@ export function lancerDifficultAt(map: ManualMap, t: ManualToken): boolean;
 
 ## lancerDifficultSteps
 
-导出接口 · 源码第 88 行。
+导出接口 · 源码第 93 行。
 
 ```ts
 export function lancerDifficultSteps(map: ManualMap, t: ManualToken, x: number, y: number, z: number): boolean[];
@@ -203,7 +207,7 @@ export function lancerDifficultSteps(map: ManualMap, t: ManualToken, x: number, 
 
 ## lancerMovementWeights
 
-导出接口 · 源码第 93 行。
+导出接口 · 源码第 98 行。
 
 Per-step weights also drive queue charging when a reaction interrupts a route.
 
@@ -223,7 +227,7 @@ export function lancerMovementWeights(map: ManualMap, t: ManualToken, x: number,
 
 ## lancerMovementCost
 
-导出接口 · 源码第 100 行。
+导出接口 · 源码第 106 行。
 
 Straight waypoint movement. Additional waypoints can be submitted around obstacles. Climbing costs double.
 
@@ -243,7 +247,7 @@ export function lancerMovementCost(map: ManualMap, token: ManualToken, x: number
 
 ## lancerFloor
 
-导出接口 · 源码第 115 行。
+导出接口 · 源码第 121 行。
 
 Height of the supporting floor under the footprint's centre. Decorative models do not become floors.
 

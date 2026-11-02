@@ -1,6 +1,6 @@
 # game/packages/game-core/src/lancer/leadership.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -166,7 +166,7 @@ export function beginLeadershipAction(b: LancerBattle, u: LancerCombatUnit, i: L
 
 ## Damage
 
-内部依赖类型 · 源码第 75 行。
+内部依赖类型 · 源码第 76 行。
 
 ```ts
 type Damage = Extract<LancerBattleStep, {
@@ -176,7 +176,7 @@ type Damage = Extract<LancerBattleStep, {
 
 ## offerLeadershipDamage
 
-导出接口 · 源码第 76 行。
+导出接口 · 源码第 77 行。
 
 ```ts
 export function offerLeadershipDamage(b: LancerBattle, s: Damage): boolean;
@@ -189,7 +189,7 @@ export function offerLeadershipDamage(b: LancerBattle, s: Damage): boolean;
 
 ## offerLeadershipHarm
 
-导出接口 · 源码第 86 行。
+导出接口 · 源码第 87 行。
 
 ```ts
 export function offerLeadershipHarm(b: LancerBattle, s: Extract<LancerBattleStep,{kind:'harm'}>): boolean;
@@ -202,7 +202,7 @@ export function offerLeadershipHarm(b: LancerBattle, s: Extract<LancerBattleStep
 
 ## respondLeadership
 
-导出接口 · 源码第 91 行。
+导出接口 · 源码第 92 行。
 
 ```ts
 export function respondLeadership(b: LancerBattle, p: LancerDecision, option: string, r: LancerRandom, text?: string, purpose?: LancerLeadershipPurpose): boolean;

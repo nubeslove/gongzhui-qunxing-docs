@@ -1,6 +1,6 @@
 # game/packages/contracts/src/adventure-events.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -122,6 +122,11 @@ export type AdventureEffect = ({
     type: 'reveal';
     entryId: string;
 } | {
+    type: 'archive.create';
+    entryId: string;
+    title: string;
+    text: string;
+} | {
     type: 'quest';
     entryId: string;
     objectiveId: string;
@@ -130,6 +135,10 @@ export type AdventureEffect = ({
 } | {
     type: 'quest.publish';
     entryId: string;
+} | {
+    type: 'quest.status';
+    entryId: string;
+    status: 'open' | 'completed' | 'failed';
 } | {
     type: 'economy';
     cost: 'action' | 'bonus' | 'reaction';
@@ -192,31 +201,38 @@ export type AdventureEffect = ({
 | `分支11.unlock` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `分支12.type` | 否 | `'reveal'` | 见结构定义及所属功能文档 |
 | `分支12.entryId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支13.type` | 否 | `'quest'` | 见结构定义及所属功能文档 |
+| `分支13.type` | 否 | `'archive.create'` | 见结构定义及所属功能文档 |
 | `分支13.entryId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支13.objectiveId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支13.mode` | 否 | `'add'&#124;'set'` | 见结构定义及所属功能文档 |
-| `分支13.value` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支14.type` | 否 | `'quest.publish'` | 见结构定义及所属功能文档 |
+| `分支13.title` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支13.text` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支14.type` | 否 | `'quest'` | 见结构定义及所属功能文档 |
 | `分支14.entryId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支15.type` | 否 | `'economy'` | 见结构定义及所属功能文档 |
-| `分支15.cost` | 否 | `'action'&#124;'bonus'&#124;'reaction'` | 见结构定义及所属功能文档 |
-| `分支16.type` | 否 | `'region'` | 见结构定义及所属功能文档 |
-| `分支16.region` | 否 | `SceneRegion` | 见结构定义及所属功能文档 |
-| `分支17.type` | 否 | `'trigger'` | 见结构定义及所属功能文档 |
-| `分支17.triggerId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支17.enabled` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支18.type` | 否 | `'flag'` | 见结构定义及所属功能文档 |
-| `分支18.key` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支18.value` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支19.type` | 否 | `'message'` | 见结构定义及所属功能文档 |
-| `分支19.text` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支19.audience` | 否 | `'all'&#124;'gm'&#124;'owner'` | 见结构定义及所属功能文档 |
+| `分支14.objectiveId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支14.mode` | 否 | `'add'&#124;'set'` | 见结构定义及所属功能文档 |
+| `分支14.value` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支15.type` | 否 | `'quest.publish'` | 见结构定义及所属功能文档 |
+| `分支15.entryId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支16.type` | 否 | `'quest.status'` | 见结构定义及所属功能文档 |
+| `分支16.entryId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支16.status` | 否 | `'open'&#124;'completed'&#124;'failed'` | 见结构定义及所属功能文档 |
+| `分支17.type` | 否 | `'economy'` | 见结构定义及所属功能文档 |
+| `分支17.cost` | 否 | `'action'&#124;'bonus'&#124;'reaction'` | 见结构定义及所属功能文档 |
+| `分支18.type` | 否 | `'region'` | 见结构定义及所属功能文档 |
+| `分支18.region` | 否 | `SceneRegion` | 见结构定义及所属功能文档 |
+| `分支19.type` | 否 | `'trigger'` | 见结构定义及所属功能文档 |
+| `分支19.triggerId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支19.enabled` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支20.type` | 否 | `'flag'` | 见结构定义及所属功能文档 |
+| `分支20.key` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支20.value` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支21.type` | 否 | `'message'` | 见结构定义及所属功能文档 |
+| `分支21.text` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支21.audience` | 否 | `'all'&#124;'gm'&#124;'owner'` | 见结构定义及所属功能文档 |
 | `targets` | 是 | `AdventureSelector` | 见结构定义及所属功能文档 |
 
 ## AdventureCheck
 
-导出接口 · 源码第 32 行。
+导出接口 · 源码第 34 行。
 
 ```ts
 export interface AdventureCheck {
@@ -236,7 +252,7 @@ export interface AdventureCheck {
 
 ## AdventureRequirement
 
-导出接口 · 源码第 33 行。
+导出接口 · 源码第 35 行。
 
 ```ts
 export interface AdventureRequirement {
@@ -256,7 +272,7 @@ export interface AdventureRequirement {
 
 ## AdventureOption
 
-导出接口 · 源码第 34 行。
+导出接口 · 源码第 36 行。
 
 ```ts
 export interface AdventureOption {
@@ -282,7 +298,7 @@ export interface AdventureOption {
 
 ## AdventureEvent
 
-导出接口 · 源码第 35 行。
+导出接口 · 源码第 37 行。
 
 ```ts
 export interface AdventureEvent {
@@ -325,7 +341,7 @@ export interface AdventureEvent {
 
 ## AdventureTrigger
 
-导出接口 · 源码第 36 行。
+导出接口 · 源码第 38 行。
 
 ```ts
 export interface AdventureTrigger {
@@ -372,7 +388,7 @@ export interface AdventureTrigger {
 
 ## AdventureDecision
 
-导出接口 · 源码第 37 行。
+导出接口 · 源码第 39 行。
 
 ```ts
 export interface AdventureDecision {
@@ -398,7 +414,7 @@ export interface AdventureDecision {
 
 ## AdventureRun
 
-导出接口 · 源码第 38 行。
+导出接口 · 源码第 40 行。
 
 ```ts
 export interface AdventureRun {
@@ -430,7 +446,7 @@ export interface AdventureRun {
 
 ## AdventureState
 
-导出接口 · 源码第 39 行。
+导出接口 · 源码第 41 行。
 
 ```ts
 export interface AdventureState {
@@ -461,7 +477,7 @@ export interface AdventureState {
 
 ## AdventureCommand
 
-导出接口 · 源码第 40 行。
+导出接口 · 源码第 42 行。
 
 ```ts
 export type AdventureCommand = StageCommand | {
@@ -479,6 +495,12 @@ export type AdventureCommand = StageCommand | {
     optionId: string;
     round: number;
     actorId: string;
+} | {
+    op: 'notebook.focus';
+    entryId: string;
+    chapterId: string;
+    nodeId: string;
+    expected: number;
 } | {
     op: 'notebook.run';
     entryId: string;
@@ -553,53 +575,58 @@ export type AdventureCommand = StageCommand | {
 | `分支4.optionId` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支4.round` | 否 | `number` | 见结构定义及所属功能文档 |
 | `分支4.actorId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支5.op` | 否 | `'notebook.run'` | 见结构定义及所属功能文档 |
+| `分支5.op` | 否 | `'notebook.focus'` | 见结构定义及所属功能文档 |
 | `分支5.entryId` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支5.chapterId` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支5.nodeId` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支5.expected` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支5.sourceId` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支6.op` | 否 | `'event.save'` | 见结构定义及所属功能文档 |
-| `分支6.value` | 否 | `AdventureEvent` | 见结构定义及所属功能文档 |
-| `分支6.expected` | 否 | `number&#124;null` | 见结构定义及所属功能文档 |
-| `分支7.op` | 否 | `'event.delete'` | 见结构定义及所属功能文档 |
-| `分支7.id` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支7.expected` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支8.op` | 否 | `'trigger.save'` | 见结构定义及所属功能文档 |
-| `分支8.value` | 否 | `AdventureTrigger` | 见结构定义及所属功能文档 |
-| `分支8.expected` | 否 | `number&#124;null` | 见结构定义及所属功能文档 |
-| `分支9.op` | 否 | `'trigger.delete'` | 见结构定义及所属功能文档 |
-| `分支9.id` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支9.expected` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支10.op` | 否 | `'trigger.fire'` | 见结构定义及所属功能文档 |
+| `分支6.op` | 否 | `'notebook.run'` | 见结构定义及所属功能文档 |
+| `分支6.entryId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支6.chapterId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支6.nodeId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支6.expected` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支6.sourceId` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支7.op` | 否 | `'event.save'` | 见结构定义及所属功能文档 |
+| `分支7.value` | 否 | `AdventureEvent` | 见结构定义及所属功能文档 |
+| `分支7.expected` | 否 | `number&#124;null` | 见结构定义及所属功能文档 |
+| `分支8.op` | 否 | `'event.delete'` | 见结构定义及所属功能文档 |
+| `分支8.id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支8.expected` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支9.op` | 否 | `'trigger.save'` | 见结构定义及所属功能文档 |
+| `分支9.value` | 否 | `AdventureTrigger` | 见结构定义及所属功能文档 |
+| `分支9.expected` | 否 | `number&#124;null` | 见结构定义及所属功能文档 |
+| `分支10.op` | 否 | `'trigger.delete'` | 见结构定义及所属功能文档 |
 | `分支10.id` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支10.signal` | 否 | `AdventureSignal` | 见结构定义及所属功能文档 |
-| `分支10.tokenId` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支10.point` | 是 | `ScenePoint` | 见结构定义及所属功能文档 |
-| `分支11.op` | 否 | `'trigger.interact'` | 见结构定义及所属功能文档 |
-| `分支11.signal` | 否 | `'click'&#124;'doubleClick'&#124;'rightClick'` | 见结构定义及所属功能文档 |
+| `分支10.expected` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支11.op` | 否 | `'trigger.fire'` | 见结构定义及所属功能文档 |
+| `分支11.id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支11.signal` | 否 | `AdventureSignal` | 见结构定义及所属功能文档 |
 | `分支11.tokenId` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支11.point` | 否 | `ScenePoint` | 见结构定义及所属功能文档 |
-| `分支12.op` | 否 | `'event.open'` | 见结构定义及所属功能文档 |
-| `分支12.id` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支12.sourceId` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支13.op` | 否 | `'event.choose'` | 见结构定义及所属功能文档 |
-| `分支13.runId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支13.optionId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支13.actorId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支14.op` | 否 | `'event.close'` | 见结构定义及所属功能文档 |
+| `分支11.point` | 是 | `ScenePoint` | 见结构定义及所属功能文档 |
+| `分支12.op` | 否 | `'trigger.interact'` | 见结构定义及所属功能文档 |
+| `分支12.signal` | 否 | `'click'&#124;'doubleClick'&#124;'rightClick'` | 见结构定义及所属功能文档 |
+| `分支12.tokenId` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支12.point` | 否 | `ScenePoint` | 见结构定义及所属功能文档 |
+| `分支13.op` | 否 | `'event.open'` | 见结构定义及所属功能文档 |
+| `分支13.id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支13.sourceId` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支14.op` | 否 | `'event.choose'` | 见结构定义及所属功能文档 |
 | `分支14.runId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支15.op` | 否 | `'event.ready'` | 见结构定义及所属功能文档 |
+| `分支14.optionId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支14.actorId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支15.op` | 否 | `'event.close'` | 见结构定义及所属功能文档 |
 | `分支15.runId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支16.op` | 否 | `'event.play'` | 见结构定义及所属功能文档 |
+| `分支16.op` | 否 | `'event.ready'` | 见结构定义及所属功能文档 |
 | `分支16.runId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支17.op` | 否 | `'tick'` | 见结构定义及所属功能文档 |
-| `分支18.op` | 否 | `'trigger.reset'` | 见结构定义及所属功能文档 |
-| `分支18.id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支17.op` | 否 | `'event.play'` | 见结构定义及所属功能文档 |
+| `分支17.runId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支18.op` | 否 | `'tick'` | 见结构定义及所属功能文档 |
+| `分支19.op` | 否 | `'trigger.reset'` | 见结构定义及所属功能文档 |
+| `分支19.id` | 否 | `string` | 见结构定义及所属功能文档 |
 
 ## emptyAdventure
 
-导出接口 · 源码第 52 行。
+导出接口 · 源码第 55 行。
 
 ```ts
 export const emptyAdventure: (): AdventureState;
@@ -607,7 +634,7 @@ export const emptyAdventure: (): AdventureState;
 
 ## parseAdventureSelector
 
-导出接口 · 源码第 58 行。
+导出接口 · 源码第 61 行。
 
 ```ts
 export function parseAdventureSelector(raw: unknown): AdventureSelector;
@@ -619,7 +646,7 @@ export function parseAdventureSelector(raw: unknown): AdventureSelector;
 
 ## parseAdventureEffects
 
-导出接口 · 源码第 59 行。
+导出接口 · 源码第 62 行。
 
 ```ts
 export function parseAdventureEffects(raw: unknown): AdventureEffect[];
@@ -631,7 +658,7 @@ export function parseAdventureEffects(raw: unknown): AdventureEffect[];
 
 ## parseAdventureEvent
 
-导出接口 · 源码第 79 行。
+导出接口 · 源码第 84 行。
 
 ```ts
 export function parseAdventureEvent(raw: unknown): AdventureEvent;
@@ -643,7 +670,7 @@ export function parseAdventureEvent(raw: unknown): AdventureEvent;
 
 ## parseAdventureTrigger
 
-导出接口 · 源码第 80 行。
+导出接口 · 源码第 85 行。
 
 ```ts
 export function parseAdventureTrigger(raw: unknown): AdventureTrigger;
@@ -655,7 +682,7 @@ export function parseAdventureTrigger(raw: unknown): AdventureTrigger;
 
 ## parseAdventure
 
-导出接口 · 源码第 81 行。
+导出接口 · 源码第 86 行。
 
 ```ts
 export function parseAdventure(raw: unknown): AdventureState;
@@ -667,7 +694,7 @@ export function parseAdventure(raw: unknown): AdventureState;
 
 ## projectAdventure
 
-导出接口 · 源码第 83 行。
+导出接口 · 源码第 88 行。
 
 Future branches and effect payloads never cross a player connection.
 

@@ -3,10 +3,10 @@
   "title": "RuleVariant",
   "anyOf": [
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_24"
+      "$ref": "./contracts.schema.json#/$defs/Object_32"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_25"
+      "$ref": "./contracts.schema.json#/$defs/Object_33"
     }
   ]
 }

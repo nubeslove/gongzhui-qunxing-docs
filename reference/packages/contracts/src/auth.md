@@ -1,6 +1,6 @@
 # game/packages/contracts/src/auth.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -28,15 +28,13 @@ export interface CaptchaProof {
 
 ```ts
 export interface AuthConfig {
-    captcha: 'none' | 'tencent';
-    appId?: string;
+    captcha: 'none' | 'local';
 }
 ```
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
-| `captcha` | 否 | `'none' &#124; 'tencent'` | 见结构定义及所属功能文档 |
-| `appId` | 是 | `string` | 见结构定义及所属功能文档 |
+| `captcha` | 否 | `'none' &#124; 'local'` | 见结构定义及所属功能文档 |
 
 ## AuthCredentials
 
@@ -82,13 +80,16 @@ export interface AuthResult {
 
 ## AccountInfo
 
-导出接口 · 源码第 6 行。
+导出接口 · 源码第 7 行。
+
+`admin` marks a platform administrator: full GM authority over every world, but a player by default inside one.
 
 ```ts
 export interface AccountInfo {
     playerId: string;
     nickname: string;
     username: string | null;
+    admin?: boolean;
 }
 ```
 
@@ -97,3 +98,22 @@ export interface AccountInfo {
 | `playerId` | 否 | `string` | 见结构定义及所属功能文档 |
 | `nickname` | 否 | `string` | 见结构定义及所属功能文档 |
 | `username` | 否 | `string &#124; null` | 见结构定义及所属功能文档 |
+| `admin` | 是 | `boolean` | 见结构定义及所属功能文档 |
+
+## CaptchaChallenge
+
+导出接口 · 源码第 9 行。
+
+```ts
+export interface CaptchaChallenge {
+    id: string;
+    image: string;
+    expiresAt: number;
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `image` | 否 | `string` | 见结构定义及所属功能文档 |
+| `expiresAt` | 否 | `number` | 见结构定义及所属功能文档 |

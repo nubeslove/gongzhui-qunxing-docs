@@ -1,23 +1,29 @@
 # game/packages/rules-engine/src/dnd/spell-effects.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
-import type {DndCondition,DndCharacter,DndAbility,DndDamageType,DndActiveEffect} from '@aelzerant/contracts';
+import {DND_MAGIC_SCHOOLS} from '@aelzerant/contracts';
+import {dndMagicItemBonus} from './magic-items';
+import type {DndCondition,DndCharacter,DndAbility,DndDamageType,DndActiveEffect,ManualActor} from '@aelzerant/contracts';
 import {dndEntry,DND_SKILLS,DND_ABILITY_NAMES,DND_DAMAGE_NAMES} from './index';
 ```
 </details>
 
 ## DndSpellEffectProfile
 
-导出接口 · 源码第 3 行。
+导出接口 · 源码第 5 行。
 
 ```ts
 export interface DndSpellEffectProfile {
+    concealed?: boolean;
+    reveals?: boolean;
+    attackAdvantage?: boolean;
+    light?: number;
     duration: number;
     concentration?: boolean;
     expires?: 'source-start' | 'source-end' | 'target-start' | 'target-end';
@@ -25,6 +31,7 @@ export interface DndSpellEffectProfile {
     additionalConditions?: DndCondition[];
     wakeable?: boolean;
     sleep?: boolean;
+    haste?: boolean;
     speedZero?: boolean;
     noHealing?: boolean;
     noOpportunity?: boolean;
@@ -33,13 +40,19 @@ export interface DndSpellEffectProfile {
     nextSavePenalty?: number;
     nextAttackDisadvantage?: boolean;
     armorBase?: number;
+    speedHalf?: boolean;
     armorBonus?: number;
     armorMinimum?: number;
     repeatSave?: DndAbility;
+    damageSave?: DndAbility;
+    noStand?: boolean;
     conditionChoice?: boolean;
     conditionImmunities?: DndCondition[];
     resistances?: DndDamageType[] | 'choice';
     immunities?: DndDamageType[];
+    checkDisadvantage?: boolean;
+    spiderClimb?: boolean;
+    fly?: number;
     checkAdvantage?: boolean;
     skillBonus?: boolean;
     damageReduction?: boolean;
@@ -59,6 +72,10 @@ export interface DndSpellEffectProfile {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `concealed` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `reveals` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `attackAdvantage` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `light` | 是 | `number` | 见结构定义及所属功能文档 |
 | `duration` | 否 | `number` | 见结构定义及所属功能文档 |
 | `concentration` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `expires` | 是 | `'source-start'&#124;'source-end'&#124;'target-start'&#124;'target-end'` | 见结构定义及所属功能文档 |
@@ -66,6 +83,7 @@ export interface DndSpellEffectProfile {
 | `additionalConditions` | 是 | `DndCondition[]` | 见结构定义及所属功能文档 |
 | `wakeable` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `sleep` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `haste` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `speedZero` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `noHealing` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `noOpportunity` | 是 | `boolean` | 见结构定义及所属功能文档 |
@@ -74,13 +92,19 @@ export interface DndSpellEffectProfile {
 | `nextSavePenalty` | 是 | `number` | 见结构定义及所属功能文档 |
 | `nextAttackDisadvantage` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `armorBase` | 是 | `number` | 见结构定义及所属功能文档 |
+| `speedHalf` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `armorBonus` | 是 | `number` | 见结构定义及所属功能文档 |
 | `armorMinimum` | 是 | `number` | 见结构定义及所属功能文档 |
 | `repeatSave` | 是 | `DndAbility` | 见结构定义及所属功能文档 |
+| `damageSave` | 是 | `DndAbility` | 见结构定义及所属功能文档 |
+| `noStand` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `conditionChoice` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `conditionImmunities` | 是 | `DndCondition[]` | 见结构定义及所属功能文档 |
 | `resistances` | 是 | `DndDamageType[]&#124;'choice'` | 见结构定义及所属功能文档 |
 | `immunities` | 是 | `DndDamageType[]` | 见结构定义及所属功能文档 |
+| `checkDisadvantage` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `spiderClimb` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `fly` | 是 | `number` | 见结构定义及所属功能文档 |
 | `checkAdvantage` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `skillBonus` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `damageReduction` | 是 | `boolean` | 见结构定义及所属功能文档 |
@@ -98,7 +122,7 @@ export interface DndSpellEffectProfile {
 
 ## dndActiveSpellProfiles
 
-导出接口 · 源码第 53 行。
+导出接口 · 源码第 81 行。
 
 ```ts
 export function dndActiveSpellProfiles(c: DndCharacter): { effect: DndActiveEffect; rule: DndSpellEffectProfile; }[];
@@ -110,7 +134,7 @@ export function dndActiveSpellProfiles(c: DndCharacter): { effect: DndActiveEffe
 
 ## dndSpellSpeedChange
 
-导出接口 · 源码第 54 行。
+导出接口 · 源码第 82 行。
 
 ```ts
 export function dndSpellSpeedChange(c: DndCharacter): number;
@@ -122,7 +146,7 @@ export function dndSpellSpeedChange(c: DndCharacter): number;
 
 ## dndArmorClass
 
-导出接口 · 源码第 55 行。
+导出接口 · 源码第 83 行。
 
 ```ts
 export function dndArmorClass(c: DndCharacter): number;
@@ -134,7 +158,7 @@ export function dndArmorClass(c: DndCharacter): number;
 
 ## dndSpellEffectRule
 
-导出接口 · 源码第 56 行。
+导出接口 · 源码第 84 行。
 
 ```ts
 export function dndSpellEffectRule(e: DndActiveEffect): DndSpellEffectProfile|undefined;
@@ -146,19 +170,32 @@ export function dndSpellEffectRule(e: DndActiveEffect): DndSpellEffectProfile|un
 
 ## dndSpellChoiceOptions
 
-导出接口 · 源码第 57 行。
+导出接口 · 源码第 85 行。
 
 ```ts
-export function dndSpellChoiceOptions(english: string): {id:string;label:string}[];
+export function dndSpellChoiceOptions(english: string, target?: Pick<ManualActor,'dnd'|'sceneObject'|'inspection'>): {id:string;label:string}[];
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | `english` | 否 | `string` | — |
+| `target` | 是 | `Pick<ManualActor,'dnd'&#124;'sceneObject'&#124;'inspection'>` | — |
+
+## dndEnlargeEffect
+
+导出接口 · 源码第 96 行。
+
+```ts
+export function dndEnlargeEffect(c: DndCharacter): DndActiveEffect | undefined;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `c` | 否 | `DndCharacter` | — |
 
 ## dndSpellRollAdvantage
 
-导出接口 · 源码第 64 行。
+导出接口 · 源码第 97 行。
 
 ```ts
 export function dndSpellRollAdvantage(c: DndCharacter, ability: DndAbility, save: boolean, attack: boolean): boolean;
@@ -173,20 +210,22 @@ export function dndSpellRollAdvantage(c: DndCharacter, ability: DndAbility, save
 
 ## dndSpellRollDisadvantage
 
-导出接口 · 源码第 65 行。
+导出接口 · 源码第 98 行。
 
 ```ts
-export function dndSpellRollDisadvantage(c: DndCharacter, ability: DndAbility): boolean;
+export function dndSpellRollDisadvantage(c: DndCharacter, ability: DndAbility, save?: boolean, attack?: boolean): boolean;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | `c` | 否 | `DndCharacter` | — |
 | `ability` | 否 | `DndAbility` | — |
+| `save` | 是 | `boolean` | false |
+| `attack` | 是 | `boolean` | false |
 
 ## dndSpellResists
 
-导出接口 · 源码第 66 行。
+导出接口 · 源码第 99 行。
 
 ```ts
 export function dndSpellResists(c: DndCharacter, type: DndDamageType): boolean;
@@ -199,7 +238,7 @@ export function dndSpellResists(c: DndCharacter, type: DndDamageType): boolean;
 
 ## dndCharmedBy
 
-导出接口 · 源码第 67 行。
+导出接口 · 源码第 100 行。
 
 ```ts
 export function dndCharmedBy(c: DndCharacter, actor: string): boolean;
@@ -210,9 +249,22 @@ export function dndCharmedBy(c: DndCharacter, actor: string): boolean;
 | `c` | 否 | `DndCharacter` | — |
 | `actor` | 否 | `string` | — |
 
+## dndCreatureType
+
+导出接口 · 源码第 101 行。
+
+```ts
+export function dndCreatureType(c: DndCharacter, magical?: boolean): string;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `c` | 否 | `DndCharacter` | — |
+| `magical` | 是 | `boolean` | false |
+
 ## dndHumanoid
 
-导出接口 · 源码第 68 行。
+导出接口 · 源码第 102 行。
 
 ```ts
 export function dndHumanoid(c: DndCharacter): boolean;
@@ -222,9 +274,23 @@ export function dndHumanoid(c: DndCharacter): boolean;
 | --- | --- | --- | --- |
 | `c` | 否 | `DndCharacter` | — |
 
+## dndMagicAuraEffect
+
+导出接口 · 源码第 107 行。
+
+Only magical queries use Mask; the creature's physical type, species and traits are unchanged.
+
+```ts
+export function dndMagicAuraEffect(c: DndCharacter): DndActiveEffect | undefined;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `c` | 否 | `DndCharacter` | — |
+
 ## dndSleepImmune
 
-导出接口 · 源码第 71 行。
+导出接口 · 源码第 116 行。
 
 ```ts
 export function dndSleepImmune(c: DndCharacter): boolean;

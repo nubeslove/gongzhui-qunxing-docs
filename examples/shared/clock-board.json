@@ -1,0 +1,25 @@
+{
+  "presentation": "clocks",
+  "chain": "示例交涉",
+  "order": 1,
+  "predecessors": [],
+  "revealWhenUnlocked": false,
+  "autoComplete": false,
+  "objectives": [
+    {
+      "id": "time",
+      "text": "剩余发言轮次",
+      "current": 4,
+      "target": 4,
+      "optional": false
+    },
+    {
+      "id": "guide",
+      "text": "向导",
+      "current": 1,
+      "target": 6,
+      "optional": false
+    }
+  ],
+  "rewards": []
+}

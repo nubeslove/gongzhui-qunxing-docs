@@ -10,7 +10,7 @@ const walk=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?
 const groups={
  aaf:['game/packages/rules-engine/src/aaf-catalog.generated.ts','game/packages/rules-engine/src/aaf-character-catalog.generated.ts'],
  'dnd5e-2024':['game/packages/rules-engine/src/dnd/catalog.generated.ts','game/packages/rules-engine/src/dnd/creation-options.generated.ts','game/packages/rules-engine/src/dnd/spellfire.generated.ts'],
- lancer:['game/apps/desktop/src/tabletop/lancer/data/catalog.json'],
+ lancer:['game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json'],
  'terra-walker':['game/packages/rules-engine/src/terra/creation.generated.ts'],
  'new-utopia':['game/packages/rules-engine/src/utopia/catalog.generated.ts'],
  heartsea:['game/apps/desktop/public/heartsea/library.json']
@@ -23,7 +23,7 @@ for(const [group,files] of Object.entries(groups)){
   if(file.endsWith('.json')){const visit=(v,p)=>{take(v,p);if(Array.isArray(v))v.forEach((x,i)=>visit(x,p+'['+i+']'));else if(v&&typeof v==='object')for(const [k,x]of Object.entries(v))if(typeof x==='object'&&x!==null)visit(x,p+'.'+k);};visit(JSON.parse(text),'$');}
   else {const sf=ts.createSourceFile(file,text,ts.ScriptTarget.Latest,true);const visit=n=>{if(ts.isObjectLiteralExpression(n)){const v={};for(const p of n.properties)if(ts.isPropertyAssignment(p)){const val=p.initializer;if(ts.isStringLiteral(val)||ts.isNumericLiteral(val))v[p.name.getText(sf).replace(/^['"]|['"]$/g,'')]=ts.isNumericLiteral(val)?Number(val.text):val.text;}take(v,'line '+(sf.getLineAndCharacterOfPosition(n.getStart()).line+1));}ts.forEachChild(n,visit);};visit(sf);}
  }
- const unique=[...new Map(rows.map(r=>[r.source+'|'+r.id+'|'+r.location,r])).values()];write(`catalogs/${group}.json`,{date:'2026-10-10',scope:'ID and names only. Index inclusion does not establish automation or redistribution rights.',entries:unique});counts[group]=unique.length;
+ const unique=[...new Map(rows.map(r=>[r.source+'|'+r.id+'|'+r.location,r])).values()];write(`catalogs/${group}.json`,{date:new Date().toISOString().slice(0,10),scope:'ID and names only. Index inclusion does not establish automation or redistribution rights.',entries:unique});counts[group]=unique.length;
 }
 // String dictionaries are part of the interface, despite not having statically named TS properties.
 const dynamic=[];

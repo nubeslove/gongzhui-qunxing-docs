@@ -1,6 +1,6 @@
 {
-  "date": "2026-10-10",
-  "checks": 44,
+  "date": "2026-11-02",
+  "checks": 47,
   "files": [
     {
       "file": "examples/aaf/resource.json",
@@ -60,6 +60,24 @@
       "file": "examples/lancer/automation.json",
       "schema": "LancerEquipmentAutomation",
       "parser": "parseLancerAutomation",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/lancer/npc-profile.json",
+      "schema": "LancerNpc",
+      "parser": "parseLancerNpc",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/shared/theatre-state.json",
+      "schema": "TheatreState",
+      "parser": "parseTheatreState",
+      "status": "runtime-parser-passed"
+    },
+    {
+      "file": "examples/shared/clock-board.json",
+      "schema": "QuestDetails",
+      "parser": "parseQuest",
       "status": "runtime-parser-passed"
     },
     {

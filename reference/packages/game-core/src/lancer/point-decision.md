@@ -1,12 +1,14 @@
 # game/packages/game-core/src/lancer/point-decision.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {isHexGrid} from '@aelzerant/contracts';
+import {hexTokenNeighbours} from '@aelzerant/contracts';
 import { knockbackLancer } from './displacement';
 import { validateLancerPath, queueLancerPath, canLancerPass } from './voluntary-movement';
 import type { LancerBattle, LancerCombatUnit, LancerDecision, ManualMap } from '@aelzerant/contracts';
@@ -17,7 +19,7 @@ import { canReact, has, log, unit } from './state';
 
 ## askLancerPoint
 
-导出接口 · 源码第 6 行。
+导出接口 · 源码第 8 行。
 
 ```ts
 export function askLancerPoint(b: LancerBattle, u: LancerCombatUnit, title: string, body: string, point: NonNullable<LancerDecision['point']>, key: string): void;
@@ -34,7 +36,7 @@ export function askLancerPoint(b: LancerBattle, u: LancerCombatUnit, title: stri
 
 ## validateLancerPoint
 
-导出接口 · 源码第 9 行。
+导出接口 · 源码第 11 行。
 
 ```ts
 export function validateLancerPoint(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, spec: NonNullable<LancerDecision['point']>, to: {x:number;y:number;z:number}): void;
@@ -50,7 +52,7 @@ export function validateLancerPoint(b: LancerBattle, map: ManualMap, u: LancerCo
 
 ## respondLancerPoint
 
-导出接口 · 源码第 21 行。
+导出接口 · 源码第 23 行。
 
 ```ts
 export function respondLancerPoint(b: LancerBattle, map: ManualMap, p: LancerDecision, choice: string, to?: {x:number;y:number;z:number}): void;

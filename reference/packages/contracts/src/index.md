@@ -1,13 +1,19 @@
 # game/packages/contracts/src/index.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
 ## 重新导出的模块
 
 ```ts
+export * from './world-mode';
+export * from './lancer-node-execution';
+export * from './lancer-scene-plan';
+export * from './dnd-detection';
+export * from './lancer-starting-grants';
 export * from './aaf';
+export * from './spiral';
 export * from './aaf-rules';
 export * from './aaf-movement';
 export * from './scene-pixels';
@@ -31,6 +37,8 @@ export * from './auth';
 export { GAME_SYSTEMS, isGameSystemId, systemOf, systemIdentity } from './systems';
 export type { GameSystemId } from './systems';
 export * from './tabletop';
+export * from './world-edit-policy';
+export * from './world-publication-merge';
 export * from "./characters";
 export * from "./scene";
 export * from "./validation";
@@ -90,12 +98,14 @@ export * from './drawing-shape';
 export * from './drawing-style';
 export * from './token-appearance';
 export * from './token-prototype';
+export * from './media-policy';
 export * from './token-images';
 export * from './scene-fog';
 export * from './scene-directory';
 export * from './scene-copy';
 export * from './scene-archive';
 export * from './scene-archive-content';
+export {sceneArchiveLibrary} from './scene-archive-cards';
 export * from './journal-secrets';
 export * from './document-directory';
 export * from './journal-directory';
@@ -156,11 +166,31 @@ export * from './character-portraits';
 export * from './aaf-build';
 export * from './scene-elevation';
 export * from './aaf-flow';
+export * from './spiral-exploration';
+export * from './spiral-ruen';
+export * from './theatre';
+export * from './boss-bar';
+export * from './monster-health';
+export * from './releases';
+export * from './team-assets';
+export * from './tactical-mission';
+export * from './scene-grid';
+export * from './table-sync';
+export * from './world-deletion';
+export * from './control';
+export {isLancerRuntimeField} from './lancer-runtime-fields';
+export * from './wallet';
+export * from './cosmetics';
+export * from './lancer-rogue';
+export * from './lancer-player-ability';
+export * from './scene-channel-visits';
+export * from './scene-graph-layout';
+export * from './world-templates';
 ```
 
 ## PlayerIdentity
 
-导出接口 · 源码第 29 行。
+导出接口 · 源码第 35 行。
 
 ```ts
 export interface PlayerIdentity {
@@ -178,7 +208,7 @@ export interface PlayerIdentity {
 
 ## PlayerInfo
 
-导出接口 · 源码第 38 行。
+导出接口 · 源码第 44 行。
 
 ```ts
 export interface PlayerInfo {
@@ -198,10 +228,13 @@ export interface PlayerInfo {
 
 ## WorldSummary
 
-导出接口 · 源码第 52 行。
+导出接口 · 源码第 58 行。
 
 ```ts
 export interface WorldSummary {
+    worldMode?: import('./world-mode').WorldMode;
+    visibility?: 'public' | 'invite';
+    spiral?: import('./spiral').SpiralSettings;
     ruleVariant?: import('./rule-variant').RuleVariant;
     systemId?: import('./systems').GameSystemId;
     systemVersion?: string;
@@ -217,6 +250,9 @@ export interface WorldSummary {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `worldMode` | 是 | `import('./world-mode').WorldMode` | 见结构定义及所属功能文档 |
+| `visibility` | 是 | `'public' &#124; 'invite'` | 见结构定义及所属功能文档 |
+| `spiral` | 是 | `import('./spiral').SpiralSettings` | 见结构定义及所属功能文档 |
 | `ruleVariant` | 是 | `import('./rule-variant').RuleVariant` | Theme variants remain distinct even when they share a base rules engine. |
 | `systemId` | 是 | `import('./systems').GameSystemId` | Absent only in legacy AAF worlds. |
 | `systemVersion` | 是 | `string` | 见结构定义及所属功能文档 |
@@ -230,15 +266,15 @@ export interface WorldSummary {
 
 ## NetMessageKind
 
-导出接口 · 源码第 70 行。
+导出接口 · 源码第 79 行。
 
 ```ts
-export type NetMessageKind = "event.world" | "meta.heartbeat" | "meta.invite" | "meta.world-deleted" | "intent.action" | "event.sync" | "event.log" | "event.session" | "event.state" | "event.battle" | "event.receipt";
+export type NetMessageKind = "event.world" | "meta.heartbeat" | "meta.invite" | "meta.world-deleted" | "intent.action" | "role.request" | "event.sync" | "event.log" | "event.session" | "event.state" | "event.battle" | "event.receipt";
 ```
 
 ## NetMessage
 
-导出接口 · 源码第 86 行。
+导出接口 · 源码第 97 行。
 
 ```ts
 export interface NetMessage<T = unknown> {
@@ -258,7 +294,7 @@ export interface NetMessage<T = unknown> {
 
 ## SignalKind
 
-导出接口 · 源码第 97 行。
+导出接口 · 源码第 108 行。
 
 ```ts
 export type SignalKind = "offer" | "answer" | "ice" | "reconnect";
@@ -266,7 +302,7 @@ export type SignalKind = "offer" | "answer" | "ice" | "reconnect";
 
 ## SignalMessage
 
-导出接口 · 源码第 99 行。
+导出接口 · 源码第 110 行。
 
 ```ts
 export interface SignalMessage {
@@ -293,7 +329,7 @@ export interface SignalMessage {
 
 ## HeartbeatPayload
 
-导出接口 · 源码第 113 行。
+导出接口 · 源码第 124 行。
 
 meta.heartbeat 载荷：玩家断档起点
 
@@ -309,7 +345,7 @@ export interface HeartbeatPayload {
 
 ## SyncEventsPayload
 
-导出接口 · 源码第 118 行。
+导出接口 · 源码第 129 行。
 
 event.sync 载荷：GM 事件日志回放
 
@@ -325,7 +361,7 @@ export interface SyncEventsPayload {
 
 ## SessionStatePayload
 
-导出接口 · 源码第 125 行。
+导出接口 · 源码第 136 行。
 
 event.session 载荷：GM 权威的 token↔玩家绑定表 + 会话参与者
 
@@ -343,7 +379,7 @@ export interface SessionStatePayload {
 
 ## CombatStatePayload
 
-导出接口 · 源码第 131 行。
+导出接口 · 源码第 142 行。
 
 event.state 载荷：GM 权威战斗快照（玩家端只读渲染/意图预览）
 
@@ -378,6 +414,8 @@ export interface CombatStatePayload {
             quick: number;
             reaction: number;
         };
+        effectiveSpeeds?: Record<import('./aaf-movement').AafSpeedMode, number>;
+        movementGrants?: import('./aaf-movement').AafMovementPool[];
         specialName?: string;
         specialMp?: number;
         mp?: number;
@@ -397,6 +435,7 @@ export interface CombatStatePayload {
         sourceId?: string;
         targetId?: string;
         damage?: number;
+        check?: import('./aaf-rules').AafCheckRecord;
         dice?: {
             d20: number[];
             bonusFaces: number[];
@@ -418,12 +457,12 @@ export interface CombatStatePayload {
 | `activeId` | 否 | `string` | 见结构定义及所属功能文档 |
 | `moveLeft` | 否 | `number` | 见结构定义及所属功能文档 |
 | `movement` | 是 | `import('./aaf-movement').AafMovementGrant` | 见结构定义及所属功能文档 |
-| `combatants` | 否 | `Array<{     id: string; name: string; faction: "pc" &#124; "npc";     x: number; y: number; z?:number;hp: number; maxHp: number; ac: number; alive: boolean; burnStacks: number;     weaponName?: string;     offhandName?: string;     offhandReady?: boolean;     initiative?: number;     injured?:boolean;     actions?:{standard:number;move:number;quick:number;reaction:number};     specialName?: string;     specialMp?: number;     mp?: number;     mpMax?: number;     actorId?: string;     quota?: { standard: boolean; move: boolean; quick: boolean; reaction: boolean };   }>` | 见结构定义及所属功能文档 |
-| `eventsTail` | 否 | `Array<{ kind: string; text: string; eventId?: number; sourceId?: string; targetId?: string; damage?: number;     dice?: { d20: number[]; bonusFaces: number[]; penaltyFaces: number[]; flat: number; total: number; nat20: boolean; nat1: boolean } }>` | 见结构定义及所属功能文档 |
+| `combatants` | 否 | `Array<{     id: string; name: string; faction: "pc" &#124; "npc";     x: number; y: number; z?:number;hp: number; maxHp: number; ac: number; alive: boolean; burnStacks: number;     weaponName?: string;     offhandName?: string;     offhandReady?: boolean;     initiative?: number;     injured?:boolean;     actions?:{standard:number;move:number;quick:number;reaction:number};     effectiveSpeeds?:Record<import('./aaf-movement').AafSpeedMode,number>;     movementGrants?:import('./aaf-movement').AafMovementPool[];     specialName?: string;     specialMp?: number;     mp?: number;     mpMax?: number;     actorId?: string;     quota?: { standard: boolean; move: boolean; quick: boolean; reaction: boolean };   }>` | 见结构定义及所属功能文档 |
+| `eventsTail` | 否 | `Array<{ kind: string; text: string; eventId?: number; sourceId?: string; targetId?: string; damage?: number;     check?: import('./aaf-rules').AafCheckRecord;     dice?: { d20: number[]; bonusFaces: number[]; penaltyFaces: number[]; flat: number; total: number; nat20: boolean; nat1: boolean } }>` | 见结构定义及所属功能文档 |
 
 ## TransferWorldRequest
 
-导出接口 · 源码第 158 行。
+导出接口 · 源码第 172 行。
 
 ```ts
 export interface TransferWorldRequest {
@@ -437,7 +476,7 @@ export interface TransferWorldRequest {
 
 ## RegisterRequest
 
-导出接口 · 源码第 164 行。
+导出接口 · 源码第 178 行。
 
 ```ts
 export interface RegisterRequest {
@@ -453,7 +492,7 @@ export interface RegisterRequest {
 
 ## RegisterResponse
 
-导出接口 · 源码第 169 行。
+导出接口 · 源码第 183 行。
 
 ```ts
 export interface RegisterResponse {
@@ -469,10 +508,13 @@ export interface RegisterResponse {
 
 ## CreateWorldRequest
 
-导出接口 · 源码第 174 行。
+导出接口 · 源码第 189 行。
 
 ```ts
 export interface CreateWorldRequest {
+    draftId?: string;
+    visibility?: 'public' | 'invite';
+    spiral?: import('./spiral').SpiralSettings;
     name: string;
     systemId?: import('./systems').GameSystemId;
     ruleVariant?: import('./rule-variant').RuleVariant;
@@ -481,13 +523,16 @@ export interface CreateWorldRequest {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `draftId` | 是 | `string` | Stable local UUID for a first publication; retrying reserves the same world. |
+| `visibility` | 是 | `'public' &#124; 'invite'` | 见结构定义及所属功能文档 |
+| `spiral` | 是 | `import('./spiral').SpiralSettings` | 见结构定义及所属功能文档 |
 | `name` | 否 | `string` | 见结构定义及所属功能文档 |
 | `systemId` | 是 | `import('./systems').GameSystemId` | 见结构定义及所属功能文档 |
 | `ruleVariant` | 是 | `import('./rule-variant').RuleVariant` | 见结构定义及所属功能文档 |
 
 ## CreateWorldResponse
 
-导出接口 · 源码第 180 行。
+导出接口 · 源码第 199 行。
 
 ```ts
 export interface CreateWorldResponse {
@@ -501,7 +546,7 @@ export interface CreateWorldResponse {
 
 ## InviteResponse
 
-导出接口 · 源码第 184 行。
+导出接口 · 源码第 203 行。
 
 ```ts
 export interface InviteResponse {
@@ -515,7 +560,7 @@ export interface InviteResponse {
 
 ## WorldSnapshot
 
-导出接口 · 源码第 190 行。
+导出接口 · 源码第 209 行。
 
 M5.1 世界快照（GM 备份最新一份；内容=GM 端权威状态，schema 随 M5.2 世界会话定）
 
@@ -535,7 +580,7 @@ export interface WorldSnapshot {
 
 ## AssetFileMeta
 
-导出接口 · 源码第 199 行。
+导出接口 · 源码第 218 行。
 
 资源包=JSON 文件集合（规则数据/怪物图鉴/物品表等的引擎数据）
 
@@ -555,7 +600,7 @@ export interface AssetFileMeta {
 
 ## AssetManifest
 
-导出接口 · 源码第 206 行。
+导出接口 · 源码第 225 行。
 
 ```ts
 export interface AssetManifest {
@@ -571,7 +616,7 @@ export interface AssetManifest {
 
 ## AssetPayload
 
-导出接口 · 源码第 212 行。
+导出接口 · 源码第 231 行。
 
 ```ts
 export interface AssetPayload {
@@ -589,7 +634,7 @@ export interface AssetPayload {
 
 ## UploadAssetsRequest
 
-导出接口 · 源码第 219 行。
+导出接口 · 源码第 238 行。
 
 GM 上传资源包请求（files: path → 数据）
 
@@ -605,10 +650,7 @@ export interface UploadAssetsRequest {
 
 ## canonicalJson
 
-导出接口 · 源码第 227 行。
-
-canonical JSON：键排序的稳定序列化（服务器/客户端哈希一致的前提）。
-作用于 JSON-serializable 值；undefined/函数会按 JSON 语义丢弃。
+导出接口 · 源码第 247 行。
 
 ```ts
 export function canonicalJson(value: unknown): string;

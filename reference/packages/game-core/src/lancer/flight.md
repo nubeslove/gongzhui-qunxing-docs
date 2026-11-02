@@ -1,6 +1,6 @@
 # game/packages/game-core/src/lancer/flight.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -11,12 +11,13 @@ import type { LancerBattle, LancerCombatUnit, ManualMap, ManualToken } from '@ae
 import { count, counter, feature } from './features';
 import { lancerFloor, lancerMovementCost, lancerPosition } from './geometry';
 import { has, log } from './state';
+import {nearestLancerSpaces} from './displacement';
 ```
 </details>
 
 ## LancerFlightOption
 
-导出接口 · 源码第 6 行。
+导出接口 · 源码第 7 行。
 
 ```ts
 export interface LancerFlightOption {
@@ -38,7 +39,7 @@ export interface LancerFlightOption {
 
 ## lancerFlightOptions
 
-导出接口 · 源码第 7 行。
+导出接口 · 源码第 8 行。
 
 ```ts
 export function lancerFlightOptions(u: LancerCombatUnit, map: ManualMap): LancerFlightOption[];
@@ -51,7 +52,7 @@ export function lancerFlightOptions(u: LancerCombatUnit, map: ManualMap): Lancer
 
 ## validateLancerFlight
 
-导出接口 · 源码第 21 行。
+导出接口 · 源码第 24 行。
 
 A boost opens a new straight flight segment; small repeated clicks cannot turn without one.
 
@@ -72,7 +73,7 @@ export function validateLancerFlight(b: LancerBattle, map: ManualMap, u: LancerC
 
 ## beginLancerFlight
 
-导出接口 · 源码第 32 行。
+导出接口 · 源码第 36 行。
 
 ```ts
 export function beginLancerFlight(u: LancerCombatUnit, map: ManualMap, t: ManualToken, x: number, y: number, z: number, id: string): void;
@@ -90,7 +91,7 @@ export function beginLancerFlight(u: LancerCombatUnit, map: ManualMap, t: Manual
 
 ## refreshLancerAltitude
 
-导出接口 · 源码第 37 行。
+导出接口 · 源码第 41 行。
 
 ```ts
 export function refreshLancerAltitude(u: LancerCombatUnit, map: ManualMap): void;
@@ -103,7 +104,7 @@ export function refreshLancerAltitude(u: LancerCombatUnit, map: ManualMap): void
 
 ## lancerFlightTurnEnd
 
-导出接口 · 源码第 45 行。
+导出接口 · 源码第 50 行。
 
 ```ts
 export function lancerFlightTurnEnd(b: LancerBattle, map: ManualMap, u: LancerCombatUnit): number;
@@ -117,7 +118,7 @@ export function lancerFlightTurnEnd(b: LancerBattle, map: ManualMap, u: LancerCo
 
 ## fallLancer
 
-导出接口 · 源码第 51 行。
+导出接口 · 源码第 56 行。
 
 ```ts
 export function fallLancer(b: LancerBattle, map: ManualMap, u: LancerCombatUnit): void;

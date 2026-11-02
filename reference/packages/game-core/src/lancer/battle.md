@@ -1,13 +1,22 @@
 # game/packages/game-core/src/lancer/battle.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {lancerTriggeredActions,settleDefaultTriggers} from './default-triggers';
+import {queuePlayerAbility} from './player-ability';
+import {adjudicateLancerScenery} from './scenery-adjudication';
+import {queueLancerSceneHazards} from './scene-events';
+import {fullActionIssue,consumeFullAction} from './full-action';
+import {sceneGridLabel} from '@aelzerant/contracts';
+import {lancerDeploymentAvailable} from './deployment-position';
 import {lancerSceneInteraction,syncLancerScenery,persistLancerScenery} from './scene-objects';
+import {advanceLancerEntry} from './entry';
+import {lancerCoordinationEpoch,lancerCoordinationVoters,lancerCoordinationReady,lancerCoordinationRequests} from './coordination';
 import {addNhpSubalterns,refreshNhpBodies,useNhp,offerNhpTurn,shutdownNhp,nhpRoot} from './nhp';
 import {lancerAIControlling,lancerTurnContains,lancerGMControls} from './control-state';
 import {useLancerAI,refreshLancerAI,lancerAIBudget} from './ai-control';
@@ -22,6 +31,7 @@ import {queueLancerWeaponReactions} from './weapon-events';
 import { onSpotterLock, queueSpotterEnd } from './spotter';
 import { beginLeadershipAction, queueLeadershipTurn } from './leadership';
 import {queueTerrainHazard} from './terrain-hazards';
+import {activateGmsFeature} from './gms';
 import { consumeLancerSkillAccuracy } from './features';
 import { validateLancerPath, queueLancerPath, canLancerPass } from './voluntary-movement';
 import { parseLancerBattle, parseLancerZone, LANCER_CONDITION_NAMES, type LancerBattle, type LancerCombatIntent, type LancerCombatUnit, type ManualMap, type ManualToken } from '@aelzerant/contracts';
@@ -67,21 +77,21 @@ export { LANCER_EXECUTABLE_FEATURES } from './features';
 
 ## lancerStartIssue
 
-导出接口 · 源码第 49 行。
+导出接口 · 源码第 59 行。
 
 Shared by the deployment UI and the authority transition.
 
 ```ts
-export function lancerStartIssue(b: Pick<LancerBattle,'phase'|'units'>): string|null;
+export function lancerStartIssue(b: Pick<LancerBattle,'phase'|'units'|'entry'>): string|null;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| `b` | 否 | `Pick<LancerBattle,'phase'&#124;'units'>` | — |
+| `b` | 否 | `Pick<LancerBattle,'phase'&#124;'units'&#124;'entry'>` | — |
 
 ## LancerBattleContext
 
-导出接口 · 源码第 55 行。
+导出接口 · 源码第 66 行。
 
 ```ts
 export interface LancerBattleContext {
@@ -107,7 +117,7 @@ export interface LancerBattleContext {
 
 ## applyLancerIntent
 
-导出接口 · 源码第 59 行。
+导出接口 · 源码第 70 行。
 
 ```ts
 export function applyLancerIntent(current: LancerBattle|undefined, sourceMap: ManualMap, intent: LancerCombatIntent, ctx: LancerBattleContext): {battle:LancerBattle;map:ManualMap};

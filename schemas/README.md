@@ -2,6 +2,12 @@
 
 JSON Schema Draft 2020-12，来源为当前 TypeScript 合同。这里是**规范化输出结构**：必填属性可能由游戏解析器补默认值。结构校验不包含全部数值范围、跨对象引用、规则版本、授权及业务条件，最终以客户端导入／源码解析器为准。没有网络 API 的 schema 不会因此变成网络 API。
 
+- [AppRelease](AppRelease.schema.json)
+- [DeploymentJob](DeploymentJob.schema.json)
+- [WorldTemplate](WorldTemplate.schema.json)
+- [LancerNpc](LancerNpc.schema.json)
+- [TheatreState](TheatreState.schema.json)
+- [QuestDetails](QuestDetails.schema.json)
 - [ResourceFile](ResourceFile.schema.json)
 - [ActorFile](ActorFile.schema.json)
 - [JournalFile](JournalFile.schema.json)

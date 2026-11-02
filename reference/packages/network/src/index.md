@@ -1,6 +1,6 @@
 # game/packages/network/src/index.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -23,7 +23,7 @@ export interface SignalLink {
     onSignal(cb: (msg: SignalMessage) => void): void;
     onMembers(cb: (memberIds: string[]) => void): void;
     onStatus(cb: (connected: boolean) => void): void;
-    onRevoked?(cb: () => void): void;
+    onRevoked?(cb: (reason: 'revoked' | 'replaced') => void): void;
     close(): void;
 }
 ```
@@ -33,7 +33,7 @@ export interface SignalLink {
 导出接口 · 源码第 27 行。
 
 ```ts
-export function signalViaServer(url: string, token: string, worldId: string): SignalLink;
+export function signalViaServer(url: string, token: string, worldId: string, version?: string): SignalLink;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
@@ -41,6 +41,7 @@ export function signalViaServer(url: string, token: string, worldId: string): Si
 | `url` | 否 | `string` | — |
 | `token` | 否 | `string` | — |
 | `worldId` | 否 | `string` | — |
+| `version` | 是 | `string` | — |
 
 ## PeerState
 
@@ -140,7 +141,7 @@ export class HostSession {
 
 ## ClientSessionOptions
 
-导出接口 · 源码第 330 行。
+导出接口 · 源码第 338 行。
 
 ```ts
 export interface ClientSessionOptions {
@@ -164,7 +165,7 @@ export interface ClientSessionOptions {
 
 ## ClientSession
 
-导出接口 · 源码第 340 行。
+导出接口 · 源码第 348 行。
 
 ```ts
 export class ClientSession {

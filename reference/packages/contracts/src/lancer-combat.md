@@ -1,6 +1,6 @@
 # game/packages/contracts/src/lancer-combat.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -8,14 +8,16 @@
 
 ```ts
 import {parseCombatRoll,parseCombatStep,type CombatRollDetail,type CombatStep} from './combat-journal';
+import {parseLancerEntry,type LancerEntry} from './lancer-entry';
 import {parseLancerAutomation,type LancerCustomSystemAutomation} from './lancer-custom';
 import {parseLancerSceneEffect,type LancerSceneEffect} from './lancer-scene';
+import {parseLancerPlayerEffect,parseLancerPlayerMemory,type LancerPlayerAbility,type LancerPlayerEffect,type LancerPlayerMemory} from './lancer-player-ability';
 ```
 </details>
 
 ## LancerLeadershipPurpose
 
-导出接口 · 源码第 6 行。
+导出接口 · 源码第 8 行。
 
 ```ts
 export type LancerLeadershipPurpose = keyof typeof LANCER_LEADERSHIP_PURPOSES;
@@ -23,7 +25,7 @@ export type LancerLeadershipPurpose = keyof typeof LANCER_LEADERSHIP_PURPOSES;
 
 ## LancerSide
 
-导出接口 · 源码第 7 行。
+导出接口 · 源码第 9 行。
 
 ```ts
 export type LancerSide = 'players' | 'hostiles';
@@ -31,7 +33,7 @@ export type LancerSide = 'players' | 'hostiles';
 
 ## LancerDamageType
 
-导出接口 · 源码第 8 行。
+导出接口 · 源码第 10 行。
 
 ```ts
 export type LancerDamageType = 'kinetic' | 'energy' | 'explosive' | 'burn' | 'heat';
@@ -39,7 +41,7 @@ export type LancerDamageType = 'kinetic' | 'energy' | 'explosive' | 'burn' | 'he
 
 ## LANCER_CONDITIONS
 
-导出接口 · 源码第 9 行。
+导出接口 · 源码第 11 行。
 
 ```ts
 export const LANCER_CONDITIONS = ['impaired', 'slowed', 'immobilized', 'stunned', 'jammed', 'exposed', 'prone', 'hidden', 'invisible', 'shutdown', 'lockon', 'shredded', 'engaged', 'shortsighted', 'swarmed', 'reactionless', 'life-support', 'tech-disabled', 'cockpit-jammed', 'bolstered'] as const;
@@ -47,7 +49,7 @@ export const LANCER_CONDITIONS = ['impaired', 'slowed', 'immobilized', 'stunned'
 
 ## LancerCondition
 
-导出接口 · 源码第 10 行。
+导出接口 · 源码第 12 行。
 
 ```ts
 export type LancerCondition = typeof LANCER_CONDITIONS[number];
@@ -55,7 +57,7 @@ export type LancerCondition = typeof LANCER_CONDITIONS[number];
 
 ## LancerDeploymentZone
 
-导出接口 · 源码第 12 行。
+导出接口 · 源码第 14 行。
 
 ```ts
 export interface LancerDeploymentZone {
@@ -68,6 +70,11 @@ export interface LancerDeploymentZone {
     depth: number;
     side: LancerSide;
     ownerId: string;
+    maxUnits?: number;
+    requiredFlag?: {
+        key: string;
+        value: string;
+    };
 }
 ```
 
@@ -82,10 +89,14 @@ export interface LancerDeploymentZone {
 | `depth` | 否 | `number` | 见结构定义及所属功能文档 |
 | `side` | 否 | `LancerSide` | 见结构定义及所属功能文档 |
 | `ownerId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `maxUnits` | 是 | `number` | 见结构定义及所属功能文档 |
+| `requiredFlag` | 是 | `{key:string;value:string}` | 见结构定义及所属功能文档 |
+| `requiredFlag.key` | 否 | `string` | 见结构定义及所属功能文档 |
+| `requiredFlag.value` | 否 | `string` | 见结构定义及所属功能文档 |
 
 ## LancerArea
 
-导出接口 · 源码第 13 行。
+导出接口 · 源码第 15 行。
 
 ```ts
 export interface LancerArea {
@@ -109,7 +120,7 @@ export interface LancerArea {
 
 ## LancerDamagePool
 
-导出接口 · 源码第 14 行。
+导出接口 · 源码第 16 行。
 
 ```ts
 export interface LancerDamagePool {
@@ -131,7 +142,7 @@ export interface LancerDamagePool {
 
 ## LancerSalvo
 
-导出接口 · 源码第 15 行。
+导出接口 · 源码第 17 行。
 
 ```ts
 export interface LancerSalvo {
@@ -169,7 +180,7 @@ export interface LancerSalvo {
 
 ## LancerEffect
 
-导出接口 · 源码第 16 行。
+导出接口 · 源码第 18 行。
 
 ```ts
 export interface LancerEffect {
@@ -178,7 +189,7 @@ export interface LancerEffect {
     id: string;
     owner: string;
     target?: string;
-    key: 'smoke' | 'projected-shield' | 'soft-cover' | 'resistance' | 'thinking' | 'combined-melee' | 'combined-ranged' | 'plasma' | 'duelist-feint' | 'duelist-trip' | 'supersonic' | 'tech-shrike' | 'tech-mirage' | 'tech-stalk' | 'tech-terrify' | 'tech-banish' | 'tech-prometheus' | 'tech-excommunicate' | 'tech-logic' | 'ejected-cores';
+    key: 'smoke' | 'projected-shield' | 'soft-cover' | 'resistance' | 'thinking' | 'combined-melee' | 'combined-ranged' | 'plasma' | 'duelist-feint' | 'duelist-trip' | 'supersonic' | 'tech-shrike' | 'tech-mirage' | 'tech-stalk' | 'tech-terrify' | 'tech-banish' | 'tech-prometheus' | 'tech-excommunicate' | 'tech-logic' | 'ejected-cores' | 'gms-invade';
     until: number;
     at: 'start' | 'end';
     area?: LancerArea;
@@ -202,7 +213,7 @@ export interface LancerEffect {
 | `id` | 否 | `string` | 见结构定义及所属功能文档 |
 | `owner` | 否 | `string` | 见结构定义及所属功能文档 |
 | `target` | 是 | `string` | 见结构定义及所属功能文档 |
-| `key` | 否 | `'smoke'&#124;'projected-shield'&#124;'soft-cover'&#124;'resistance'&#124;'thinking'&#124;'combined-melee'&#124;'combined-ranged'&#124;'plasma'&#124;'duelist-feint'&#124;'duelist-trip'&#124;'supersonic'&#124;'tech-shrike'&#124;'tech-mirage'&#124;'tech-stalk'&#124;'tech-terrify'&#124;'tech-banish'&#124;'tech-prometheus'&#124;'tech-excommunicate'&#124;'tech-logic'&#124;'ejected-cores'` | 见结构定义及所属功能文档 |
+| `key` | 否 | `'smoke'&#124;'projected-shield'&#124;'soft-cover'&#124;'resistance'&#124;'thinking'&#124;'combined-melee'&#124;'combined-ranged'&#124;'plasma'&#124;'duelist-feint'&#124;'duelist-trip'&#124;'supersonic'&#124;'tech-shrike'&#124;'tech-mirage'&#124;'tech-stalk'&#124;'tech-terrify'&#124;'tech-banish'&#124;'tech-prometheus'&#124;'tech-excommunicate'&#124;'tech-logic'&#124;'ejected-cores'&#124;'gms-invade'` | 见结构定义及所属功能文档 |
 | `until` | 否 | `number` | 见结构定义及所属功能文档 |
 | `at` | 否 | `'start'&#124;'end'` | 见结构定义及所属功能文档 |
 | `area` | 是 | `LancerArea` | 见结构定义及所属功能文档 |
@@ -217,7 +228,7 @@ export interface LancerEffect {
 
 ## LancerCombatWeapon
 
-导出接口 · 源码第 17 行。
+导出接口 · 源码第 19 行。
 
 ```ts
 export interface LancerCombatWeapon {
@@ -283,7 +294,7 @@ export interface LancerCombatWeapon {
 
 ## LancerCombatSystem
 
-导出接口 · 源码第 23 行。
+导出接口 · 源码第 25 行。
 
 ```ts
 export interface LancerCombatSystem {
@@ -309,7 +320,7 @@ export interface LancerCombatSystem {
 
 ## LancerPilotGear
 
-导出接口 · 源码第 24 行。
+导出接口 · 源码第 26 行。
 
 ```ts
 export interface LancerPilotGear {
@@ -327,7 +338,7 @@ export interface LancerPilotGear {
 
 ## LancerPilotProfile
 
-导出接口 · 源码第 25 行。
+导出接口 · 源码第 27 行。
 
 ```ts
 export interface LancerPilotProfile {
@@ -336,7 +347,7 @@ export interface LancerPilotProfile {
         name: string;
         bonus: number;
     }[];
-    suit?: 'none' | 'light' | 'assault' | 'heavy' | 'mobility' | 'stealth';
+    suit?: 'none' | 'light' | 'assault' | 'heavy' | 'mobility' | 'stealth' | 'madrigal';
     name: string;
     grit: number;
     hp: number;
@@ -359,7 +370,7 @@ export interface LancerPilotProfile {
 | `triggers` | 是 | `{name:string;bonus:number}[]` | 见结构定义及所属功能文档 |
 | `triggers.[].name` | 否 | `string` | 见结构定义及所属功能文档 |
 | `triggers.[].bonus` | 否 | `number` | 见结构定义及所属功能文档 |
-| `suit` | 是 | `'none'&#124;'light'&#124;'assault'&#124;'heavy'&#124;'mobility'&#124;'stealth'` | 见结构定义及所属功能文档 |
+| `suit` | 是 | `'none'&#124;'light'&#124;'assault'&#124;'heavy'&#124;'mobility'&#124;'stealth'&#124;'madrigal'` | 见结构定义及所属功能文档 |
 | `name` | 否 | `string` | 见结构定义及所属功能文档 |
 | `grit` | 否 | `number` | 见结构定义及所属功能文档 |
 | `hp` | 否 | `number` | 见结构定义及所属功能文档 |
@@ -376,7 +387,7 @@ export interface LancerPilotProfile {
 
 ## LancerTimedCondition
 
-导出接口 · 源码第 31 行。
+导出接口 · 源码第 33 行。
 
 ```ts
 export interface LancerTimedCondition {
@@ -400,29 +411,144 @@ export interface LancerTimedCondition {
 | `untilTurn` | 是 | `number` | 见结构定义及所属功能文档 |
 | `expireAt` | 是 | `'start'&#124;'end'` | 见结构定义及所属功能文档 |
 
-## LancerNpc
+## LancerNpcProfile
 
-导出接口 · 源码第 32 行。
+导出接口 · 源码第 36 行。
+
+A portable stat block. Narrative-only traits stay in the actor's GM notes;
+manual actions spend their declared resource and write an adjudication record.
 
 ```ts
-export interface LancerNpc {
-    classId: string;
-    tier: 1 | 2 | 3;
-    template: 'standard' | 'elite' | 'grunt';
-    options: string[];
+export interface LancerNpcProfile {
+    name: string;
+    source: string;
+    size: number;
+    activations: 1 | 2 | 3;
+    flight?: {
+        mode: 'fly' | 'hover';
+        height?: number;
+        stable?: boolean;
+    };
+    conditionImmunities?: LancerCondition[];
+    hp: number;
+    heatCap: number;
+    structure: number;
+    stress: number;
+    armor: number;
+    evasion: number;
+    edef: number;
+    speed: number;
+    sensors: number;
+    save: number;
+    attack: number;
+    tech: number;
+    hull: number;
+    agility: number;
+    systems: number;
+    engineering: number;
+    weapons: LancerCombatWeapon[];
+    actions: {
+        id: string;
+        name: string;
+        cost: 0 | 1 | 2;
+        description: string;
+    }[];
+    traits: string[];
+    conditions: LancerCondition[];
+    resistances: LancerDamageType[];
 }
 ```
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `name` | 否 | `string` | 见结构定义及所属功能文档 |
+| `source` | 否 | `string` | 见结构定义及所属功能文档 |
+| `size` | 否 | `number` | 见结构定义及所属功能文档 |
+| `activations` | 否 | `1&#124;2&#124;3` | 见结构定义及所属功能文档 |
+| `flight` | 是 | `{mode:'fly'&#124;'hover';height?:number;stable?:boolean}` | 见结构定义及所属功能文档 |
+| `flight.mode` | 否 | `'fly'&#124;'hover'` | 见结构定义及所属功能文档 |
+| `flight.height` | 是 | `number` | 见结构定义及所属功能文档 |
+| `flight.stable` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `conditionImmunities` | 是 | `LancerCondition[]` | 见结构定义及所属功能文档 |
+| `hp` | 否 | `number` | 见结构定义及所属功能文档 |
+| `heatCap` | 否 | `number` | 见结构定义及所属功能文档 |
+| `structure` | 否 | `number` | 见结构定义及所属功能文档 |
+| `stress` | 否 | `number` | 见结构定义及所属功能文档 |
+| `armor` | 否 | `number` | 见结构定义及所属功能文档 |
+| `evasion` | 否 | `number` | 见结构定义及所属功能文档 |
+| `edef` | 否 | `number` | 见结构定义及所属功能文档 |
+| `speed` | 否 | `number` | 见结构定义及所属功能文档 |
+| `sensors` | 否 | `number` | 见结构定义及所属功能文档 |
+| `save` | 否 | `number` | 见结构定义及所属功能文档 |
+| `attack` | 否 | `number` | 见结构定义及所属功能文档 |
+| `tech` | 否 | `number` | 见结构定义及所属功能文档 |
+| `hull` | 否 | `number` | 见结构定义及所属功能文档 |
+| `agility` | 否 | `number` | 见结构定义及所属功能文档 |
+| `systems` | 否 | `number` | 见结构定义及所属功能文档 |
+| `engineering` | 否 | `number` | 见结构定义及所属功能文档 |
+| `weapons` | 否 | `LancerCombatWeapon[]` | 见结构定义及所属功能文档 |
+| `actions` | 否 | `{id:string;name:string;cost:0&#124;1&#124;2;description:string}[]` | 见结构定义及所属功能文档 |
+| `actions.[].id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `actions.[].name` | 否 | `string` | 见结构定义及所属功能文档 |
+| `actions.[].cost` | 否 | `0&#124;1&#124;2` | 见结构定义及所属功能文档 |
+| `actions.[].description` | 否 | `string` | 见结构定义及所属功能文档 |
+| `traits` | 否 | `string[]` | 见结构定义及所属功能文档 |
+| `conditions` | 否 | `LancerCondition[]` | 见结构定义及所属功能文档 |
+| `resistances` | 否 | `LancerDamageType[]` | 见结构定义及所属功能文档 |
+
+## LANCER_NPC_TEMPLATES
+
+导出接口 · 源码第 44 行。
+
+```ts
+export const LANCER_NPC_TEMPLATES = ['veteran', 'ultra', 'commander', 'rpv', 'exotic', 'mercenary', 'pirate', 'ship', 'spacer', 'vehicle'] as const;
+```
+
+## LancerNpcTemplate
+
+导出接口 · 源码第 45 行。
+
+```ts
+export type LancerNpcTemplate = typeof LANCER_NPC_TEMPLATES[number];
+```
+
+## LancerNpc
+
+导出接口 · 源码第 46 行。
+
+```ts
+export interface LancerNpc {
+    reference?: LancerIntelSection[];
+    templates?: LancerNpcTemplate[];
+    veteranSkill?: 'hull' | 'agility' | 'systems' | 'engineering';
+    templateFeatures?: Record<string, string[]>;
+    ultraActivations?: 2 | 3;
+    classId: string;
+    tier: 1 | 2 | 3;
+    template: 'standard' | 'elite' | 'grunt';
+    options: string[];
+    rpv?: boolean;
+    profile?: LancerNpcProfile;
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `reference` | 是 | `LancerIntelSection[]` | 见结构定义及所属功能文档 |
+| `templates` | 是 | `LancerNpcTemplate[]` | 见结构定义及所属功能文档 |
+| `veteranSkill` | 是 | `'hull'&#124;'agility'&#124;'systems'&#124;'engineering'` | 见结构定义及所属功能文档 |
+| `templateFeatures` | 是 | `Record<string,string[]>` | 见结构定义及所属功能文档 |
+| `ultraActivations` | 是 | `2&#124;3` | 见结构定义及所属功能文档 |
 | `classId` | 否 | `string` | 见结构定义及所属功能文档 |
 | `tier` | 否 | `1&#124;2&#124;3` | 见结构定义及所属功能文档 |
 | `template` | 否 | `'standard'&#124;'elite'&#124;'grunt'` | 见结构定义及所属功能文档 |
 | `options` | 否 | `string[]` | 见结构定义及所属功能文档 |
+| `rpv` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `profile` | 是 | `LancerNpcProfile` | 见结构定义及所属功能文档 |
 
 ## LancerReadyReference
 
-导出接口 · 源码第 33 行。
+导出接口 · 源码第 47 行。
 
 ```ts
 export interface LancerReadyReference {
@@ -442,7 +568,7 @@ export interface LancerReadyReference {
 
 ## LancerReady
 
-导出接口 · 源码第 34 行。
+导出接口 · 源码第 48 行。
 
 ```ts
 export interface LancerReady {
@@ -470,7 +596,7 @@ export interface LancerReady {
 
 ## LancerTurnBudget
 
-导出接口 · 源码第 35 行。
+导出接口 · 源码第 49 行。
 
 ```ts
 export interface LancerTurnBudget {
@@ -494,7 +620,7 @@ export interface LancerTurnBudget {
 
 ## LancerAI
 
-导出接口 · 源码第 36 行。
+导出接口 · 源码第 50 行。
 
 ```ts
 export interface LancerAI {
@@ -516,7 +642,7 @@ export interface LancerAI {
 
 ## LancerNhp
 
-导出接口 · 源码第 37 行。
+导出接口 · 源码第 51 行。
 
 ```ts
 export interface LancerNhp {
@@ -556,15 +682,25 @@ export interface LancerNhp {
 
 ## LancerCombatUnit
 
-导出接口 · 源码第 38 行。
+导出接口 · 源码第 52 行。
 
 ```ts
 export interface LancerCombatUnit {
+    manual?: LancerPlayerMemory;
     ai?: LancerAI;
     nhp?: LancerNhp;
     readied?: LancerReady;
+    fullAction?: {
+        kind: 'tech' | 'barrage';
+        remaining: number;
+        weapons: string[];
+        first: boolean;
+    };
+    defaultTriggers?: string[];
     riding?: LancerRide;
     pilot?: {
+        standalone?: boolean;
+        profile?: LancerPilotProfile;
         mech: string;
         independent?: boolean;
         body?: 'subaltern' | 'casket';
@@ -651,11 +787,20 @@ export interface LancerCombatUnit {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `manual` | 是 | `LancerPlayerMemory` | 见结构定义及所属功能文档 |
 | `ai` | 是 | `LancerAI` | 见结构定义及所属功能文档 |
 | `nhp` | 是 | `LancerNhp` | 见结构定义及所属功能文档 |
 | `readied` | 是 | `LancerReady` | 见结构定义及所属功能文档 |
+| `fullAction` | 是 | `{kind:'tech'&#124;'barrage';remaining:number;weapons:string[];first:boolean}` | 见结构定义及所属功能文档 |
+| `fullAction.kind` | 否 | `'tech'&#124;'barrage'` | 见结构定义及所属功能文档 |
+| `fullAction.remaining` | 否 | `number` | 见结构定义及所属功能文档 |
+| `fullAction.weapons` | 否 | `string[]` | 见结构定义及所属功能文档 |
+| `fullAction.first` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `defaultTriggers` | 是 | `string[]` | 见结构定义及所属功能文档 |
 | `riding` | 是 | `LancerRide` | 见结构定义及所属功能文档 |
-| `pilot` | 是 | `{mech:string;independent?:boolean;body?:'subaltern'&#124;'casket'}` | Only the active body receives an activation; the parked mech remains a target. |
+| `pilot` | 是 | `{standalone?:boolean;profile?:LancerPilotProfile;mech:string;independent?:boolean;body?:'subaltern'&#124;'casket'}` | Only the active body receives an activation; the parked mech remains a target. |
+| `pilot.standalone` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `pilot.profile` | 是 | `LancerPilotProfile` | 见结构定义及所属功能文档 |
 | `pilot.mech` | 否 | `string` | 见结构定义及所属功能文档 |
 | `pilot.independent` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `pilot.body` | 是 | `'subaltern'&#124;'casket'` | 见结构定义及所属功能文档 |
@@ -734,7 +879,7 @@ export interface LancerCombatUnit {
 
 ## LancerRide
 
-导出接口 · 源码第 56 行。
+导出接口 · 源码第 73 行。
 
 ```ts
 export interface LancerRide {
@@ -752,7 +897,7 @@ export interface LancerRide {
 
 ## LancerAttackReplay
 
-导出接口 · 源码第 57 行。
+导出接口 · 源码第 74 行。
 
 ```ts
 export interface LancerAttackReplay {
@@ -780,7 +925,7 @@ export interface LancerAttackReplay {
 
 ## LancerCheckResult
 
-导出接口 · 源码第 58 行。
+导出接口 · 源码第 75 行。
 
 ```ts
 export interface LancerCheckResult {
@@ -798,7 +943,7 @@ export interface LancerCheckResult {
 
 ## LancerAttackOutcome
 
-导出接口 · 源码第 59 行。
+导出接口 · 源码第 76 行。
 
 ```ts
 export interface LancerAttackOutcome {
@@ -824,7 +969,7 @@ export interface LancerAttackOutcome {
 
 ## LancerAttackStep
 
-导出接口 · 源码第 60 行。
+导出接口 · 源码第 77 行。
 
 ```ts
 export type LancerAttackStep = Extract<LancerBattleStep, {
@@ -834,15 +979,21 @@ export type LancerAttackStep = Extract<LancerBattleStep, {
 
 ## LancerBattleStep
 
-导出接口 · 源码第 61 行。
+导出接口 · 源码第 78 行。
 
 ```ts
 export type LancerBattleStep = {
+    manualTriggers?: string[];
     leaderChecks?: {
         reviewed: string[];
         boosted: string[];
     };
 } & ({
+    kind: 'playerEffect';
+    unit: string;
+    source: string;
+    effect: LancerPlayerEffect;
+} | {
     kind: 'customEffect';
     unit: string;
     target: string;
@@ -920,6 +1071,7 @@ export type LancerBattleStep = {
     unit: string;
     target: string;
     option: string;
+    wide?: boolean;
     orderAccuracy?: boolean;
     reaction?: boolean;
     consumeLock: boolean;
@@ -1055,197 +1207,204 @@ export type LancerBattleStep = {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `manualTriggers` | 是 | `string[]` | 见结构定义及所属功能文档 |
 | `leaderChecks` | 是 | `{reviewed:string[];boosted:string[]}` | 见结构定义及所属功能文档 |
 | `leaderChecks.reviewed` | 否 | `string[]` | 见结构定义及所属功能文档 |
 | `leaderChecks.boosted` | 否 | `string[]` | 见结构定义及所属功能文档 |
-| `分支1.kind` | 否 | `'customEffect'` | 见结构定义及所属功能文档 |
+| `分支1.kind` | 否 | `'playerEffect'` | 见结构定义及所属功能文档 |
 | `分支1.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支1.target` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支1.system` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支1.mode` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支1.effect` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支2.kind` | 否 | `'move'` | 见结构定义及所属功能文档 |
+| `分支1.source` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支1.effect` | 否 | `LancerPlayerEffect` | 见结构定义及所属功能文档 |
+| `分支2.kind` | 否 | `'customEffect'` | 见结构定义及所属功能文档 |
 | `分支2.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支2.x` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支2.y` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支2.z` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支2.cost` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支2.involuntary` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支2.forced` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支2.teleport` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支2.group` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支2.ignoreReactions` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支3.kind` | 否 | `'attackResult'` | 见结构定义及所属功能文档 |
+| `分支2.target` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支2.system` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支2.mode` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支2.effect` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支3.kind` | 否 | `'move'` | 见结构定义及所属功能文档 |
 | `分支3.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支3.shot` | 否 | `LancerAttackStep` | 见结构定义及所属功能文档 |
-| `分支3.rolls` | 否 | `LancerCheckResult[]` | 见结构定义及所属功能文档 |
-| `分支3.selected` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支3.context` | 否 | `LancerAttackOutcome` | 见结构定义及所属功能文档 |
-| `分支4.kind` | 否 | `'techResult'` | 见结构定义及所属功能文档 |
+| `分支3.x` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支3.y` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支3.z` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支3.cost` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支3.involuntary` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支3.forced` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支3.teleport` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支3.group` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支3.ignoreReactions` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支4.kind` | 否 | `'attackResult'` | 见结构定义及所属功能文档 |
 | `分支4.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支4.shot` | 否 | `Extract<LancerBattleStep,{kind:'tech'}>` | 见结构定义及所属功能文档 |
+| `分支4.shot` | 否 | `LancerAttackStep` | 见结构定义及所属功能文档 |
 | `分支4.rolls` | 否 | `LancerCheckResult[]` | 见结构定义及所属功能文档 |
 | `分支4.selected` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支4.nuclear` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支4.locked` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支4.hiddenMiss` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支5.kind` | 否 | `'watch'` | 见结构定义及所属功能文档 |
+| `分支4.context` | 否 | `LancerAttackOutcome` | 见结构定义及所属功能文档 |
+| `分支5.kind` | 否 | `'techResult'` | 见结构定义及所属功能文档 |
 | `分支5.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支5.target` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支5.cqbOnly` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支5.group` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支5.involuntary` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支6.kind` | 否 | `'attack'` | 见结构定义及所属功能文档 |
+| `分支5.shot` | 否 | `Extract<LancerBattleStep,{kind:'tech'}>` | 见结构定义及所属功能文档 |
+| `分支5.rolls` | 否 | `LancerCheckResult[]` | 见结构定义及所属功能文档 |
+| `分支5.selected` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支5.nuclear` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支5.locked` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支5.hiddenMiss` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支6.kind` | 否 | `'watch'` | 见结构定义及所属功能文档 |
 | `分支6.unit` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支6.target` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支6.weapon` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支6.orderAccuracy` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支6.accuracy` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支6.cover` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支6.consumeLock` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支6.lockConsumed` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支6.halfDamage` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支6.halfHeat` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支6.preflight` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支6.replay` | 是 | `LancerAttackReplay` | 见结构定义及所属功能文档 |
-| `分支6.talents` | 是 | `string[]` | 见结构定义及所属功能文档 |
-| `分支6.emptyArea` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支6.special` | 是 | `'autopod'&#124;'vorpal'&#124;'autogun'&#124;'npc-melt'&#124;'npc-pulse'` | 见结构定义及所属功能文档 |
-| `分支6.profile` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支6.reaction` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支6.guarded` | 是 | `string[]` | 见结构定义及所属功能文档 |
-| `分支6.salvo` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支6.noBonus` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支6.secondary` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支6.origin` | 是 | `{x:number;y:number;z:number;size?:number}` | 见结构定义及所属功能文档 |
-| `分支6.origin.x` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支6.origin.y` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支6.origin.z` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支6.origin.size` | 是 | `number` | 见结构定义及所属功能文档 |
-| `分支7.kind` | 否 | `'tech'` | 见结构定义及所属功能文档 |
+| `分支6.cqbOnly` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支6.group` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支6.involuntary` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支7.kind` | 否 | `'attack'` | 见结构定义及所属功能文档 |
 | `分支7.unit` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支7.target` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支7.option` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支7.weapon` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支7.orderAccuracy` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支7.reaction` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支7.accuracy` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支7.cover` | 否 | `number` | 见结构定义及所属功能文档 |
 | `分支7.consumeLock` | 否 | `boolean` | 见结构定义及所属功能文档 |
 | `分支7.lockConsumed` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支7.accuracy` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支7.guarded` | 是 | `string[]` | 见结构定义及所属功能文档 |
+| `分支7.halfDamage` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支7.halfHeat` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `分支7.preflight` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支7.ally` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支7.consent` | 是 | `'requested'&#124;'accepted'&#124;'declined'` | 见结构定义及所属功能文档 |
-| `分支8.kind` | 否 | `'melee'` | 见结构定义及所属功能文档 |
+| `分支7.replay` | 是 | `LancerAttackReplay` | 见结构定义及所属功能文档 |
+| `分支7.talents` | 是 | `string[]` | 见结构定义及所属功能文档 |
+| `分支7.emptyArea` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支7.special` | 是 | `'autopod'&#124;'vorpal'&#124;'autogun'&#124;'npc-melt'&#124;'npc-pulse'` | 见结构定义及所属功能文档 |
+| `分支7.profile` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支7.reaction` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支7.guarded` | 是 | `string[]` | 见结构定义及所属功能文档 |
+| `分支7.salvo` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支7.noBonus` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支7.secondary` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支7.origin` | 是 | `{x:number;y:number;z:number;size?:number}` | 见结构定义及所属功能文档 |
+| `分支7.origin.x` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支7.origin.y` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支7.origin.z` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支7.origin.size` | 是 | `number` | 见结构定义及所属功能文档 |
+| `分支8.kind` | 否 | `'tech'` | 见结构定义及所属功能文档 |
 | `分支8.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支8.mode` | 否 | `'cleave'&#124;'sweep'&#124;'reroll'` | 见结构定义及所属功能文档 |
-| `分支8.shot` | 否 | `LancerAttackStep` | 见结构定义及所属功能文档 |
-| `分支8.selected` | 是 | `string[]` | 见结构定义及所属功能文档 |
-| `分支9.kind` | 否 | `'scene'` | 见结构定义及所属功能文档 |
+| `分支8.target` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支8.option` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支8.wide` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支8.orderAccuracy` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支8.reaction` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支8.consumeLock` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支8.lockConsumed` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支8.accuracy` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支8.guarded` | 是 | `string[]` | 见结构定义及所属功能文档 |
+| `分支8.preflight` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支8.ally` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支8.consent` | 是 | `'requested'&#124;'accepted'&#124;'declined'` | 见结构定义及所属功能文档 |
+| `分支9.kind` | 否 | `'melee'` | 见结构定义及所属功能文档 |
 | `分支9.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支9.group` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支9.effect` | 否 | `LancerSceneEffect` | 见结构定义及所属功能文档 |
-| `分支10.kind` | 否 | `'damage'` | 见结构定义及所属功能文档 |
+| `分支9.mode` | 否 | `'cleave'&#124;'sweep'&#124;'reroll'` | 见结构定义及所属功能文档 |
+| `分支9.shot` | 否 | `LancerAttackStep` | 见结构定义及所属功能文档 |
+| `分支9.selected` | 是 | `string[]` | 见结构定义及所属功能文档 |
+| `分支10.kind` | 否 | `'scene'` | 见结构定义及所属功能文档 |
 | `分支10.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支10.target` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支10.amount` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支10.type` | 否 | `LancerDamageType` | 见结构定义及所属功能文档 |
-| `分支10.ap` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支10.attack` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支10.leaderBonus` | 是 | `{critical:boolean;half:boolean;max:boolean}` | 见结构定义及所属功能文档 |
-| `分支10.leaderBonus.critical` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支10.leaderBonus.half` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支10.leaderBonus.max` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支10.leaderChoice` | 是 | `'bonus'&#124;'reduce'` | 见结构定义及所属功能文档 |
-| `分支10.leaderOffered` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支10.leaderDefended` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支10.leaderReduction` | 是 | `number` | 见结构定义及所属功能文档 |
-| `分支10.halfDamage` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支10.halfHeat` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支10.weaponKind` | 是 | `'melee'&#124;'ranged'` | 见结构定义及所属功能文档 |
-| `分支10.duelistReady` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支10.resisted` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支10.chooseType` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支10.braced` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支10.ready` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支10.parts` | 是 | `{amount:number;type:LancerDamageType}[]` | 见结构定义及所属功能文档 |
-| `分支10.parts.[].amount` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支10.parts.[].type` | 否 | `LancerDamageType` | 见结构定义及所属功能文档 |
-| `分支10.bonus` | 是 | `{key:string;critical:boolean;half:boolean;max?:boolean}` | 见结构定义及所属功能文档 |
-| `分支10.bonus.key` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支10.bonus.critical` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支10.bonus.half` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支10.bonus.max` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支10.unreducible` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支11.kind` | 否 | `'harm'` | 见结构定义及所属功能文档 |
+| `分支10.group` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支10.effect` | 否 | `LancerSceneEffect` | 见结构定义及所属功能文档 |
+| `分支11.kind` | 否 | `'damage'` | 见结构定义及所属功能文档 |
 | `分支11.unit` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支11.target` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支11.amount` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支11.type` | 否 | `LancerDamageType` | 见结构定义及所属功能文档 |
+| `分支11.ap` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支11.attack` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支11.leaderBonus` | 是 | `{critical:boolean;half:boolean;max:boolean}` | 见结构定义及所属功能文档 |
+| `分支11.leaderBonus.critical` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支11.leaderBonus.half` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支11.leaderBonus.max` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支11.leaderChoice` | 是 | `'bonus'&#124;'reduce'` | 见结构定义及所属功能文档 |
+| `分支11.leaderOffered` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `分支11.leaderDefended` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支11.absorbShield` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支12.kind` | 否 | `'feature'` | 见结构定义及所属功能文档 |
+| `分支11.leaderReduction` | 是 | `number` | 见结构定义及所属功能文档 |
+| `分支11.halfDamage` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支11.halfHeat` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支11.weaponKind` | 是 | `'melee'&#124;'ranged'` | 见结构定义及所属功能文档 |
+| `分支11.duelistReady` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支11.resisted` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支11.chooseType` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支11.braced` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支11.ready` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支11.parts` | 是 | `{amount:number;type:LancerDamageType}[]` | 见结构定义及所属功能文档 |
+| `分支11.parts.[].amount` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支11.parts.[].type` | 否 | `LancerDamageType` | 见结构定义及所属功能文档 |
+| `分支11.bonus` | 是 | `{key:string;critical:boolean;half:boolean;max?:boolean}` | 见结构定义及所属功能文档 |
+| `分支11.bonus.key` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支11.bonus.critical` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支11.bonus.half` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支11.bonus.max` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支11.unreducible` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支12.kind` | 否 | `'harm'` | 见结构定义及所属功能文档 |
 | `分支12.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支12.feature` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支12.orderAccuracy` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支12.reaction` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支12.lockConsumed` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支12.selected` | 是 | `string[]` | 见结构定义及所属功能文档 |
-| `分支12.weapon` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支12.target` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支12.amount` | 是 | `number` | 见结构定义及所属功能文档 |
-| `分支12.salvo` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支12.origin` | 是 | `{x:number;y:number;z:number;size?:number}` | 见结构定义及所属功能文档 |
-| `分支12.origin.x` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支12.origin.y` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支12.origin.z` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支12.origin.size` | 是 | `number` | 见结构定义及所属功能文档 |
-| `分支13.kind` | 否 | `'save'` | 见结构定义及所属功能文档 |
+| `分支12.target` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支12.amount` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支12.leaderDefended` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支12.absorbShield` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支13.kind` | 否 | `'feature'` | 见结构定义及所属功能文档 |
 | `分支13.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支13.target` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支13.amount` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支13.type` | 否 | `LancerDamageType` | 见结构定义及所属功能文档 |
-| `分支13.skill` | 否 | `'hull'&#124;'agility'&#124;'systems'&#124;'engineering'` | 见结构定义及所属功能文档 |
-| `分支13.dc` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支13.half` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支13.ap` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支13.parts` | 是 | `{amount:number;type:LancerDamageType}[]` | 见结构定义及所属功能文档 |
-| `分支13.parts.[].amount` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支13.parts.[].type` | 否 | `LancerDamageType` | 见结构定义及所属功能文档 |
-| `分支13.conditions` | 是 | `LancerCondition[]` | 见结构定义及所属功能文档 |
-| `分支13.successConditions` | 是 | `LancerCondition[]` | 见结构定义及所属功能文档 |
-| `分支13.failureFeature` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支13.pushOrigin` | 是 | `{x:number;y:number;z:number}` | 见结构定义及所属功能文档 |
-| `分支13.pushOrigin.x` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支13.pushOrigin.y` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支13.pushOrigin.z` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支13.conditionAt` | 是 | `'start'&#124;'end'` | 见结构定义及所属功能文档 |
-| `分支13.conditionClock` | 是 | `'source'` | 见结构定义及所属功能文档 |
-| `分支13.push` | 是 | `number` | 见结构定义及所属功能文档 |
-| `分支13.pullCenter` | 是 | `{x:number;y:number;z:number}` | 见结构定义及所属功能文档 |
-| `分支13.pullCenter.x` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支13.pullCenter.y` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支13.pullCenter.z` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支13.noCoreBonus` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支14.kind` | 否 | `'trigger'` | 见结构定义及所属功能文档 |
+| `分支13.feature` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支13.orderAccuracy` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支13.reaction` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支13.lockConsumed` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支13.selected` | 是 | `string[]` | 见结构定义及所属功能文档 |
+| `分支13.weapon` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支13.target` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支13.amount` | 是 | `number` | 见结构定义及所属功能文档 |
+| `分支13.salvo` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支13.origin` | 是 | `{x:number;y:number;z:number;size?:number}` | 见结构定义及所属功能文档 |
+| `分支13.origin.x` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支13.origin.y` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支13.origin.z` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支13.origin.size` | 是 | `number` | 见结构定义及所属功能文档 |
+| `分支14.kind` | 否 | `'save'` | 见结构定义及所属功能文档 |
 | `分支14.unit` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支14.target` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支14.source` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支14.key` | 否 | `'turret'` | 见结构定义及所属功能文档 |
-| `分支15.kind` | 否 | `'overheat'` | 见结构定义及所属功能文档 |
+| `分支14.amount` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支14.type` | 否 | `LancerDamageType` | 见结构定义及所属功能文档 |
+| `分支14.skill` | 否 | `'hull'&#124;'agility'&#124;'systems'&#124;'engineering'` | 见结构定义及所属功能文档 |
+| `分支14.dc` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支14.half` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支14.ap` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支14.parts` | 是 | `{amount:number;type:LancerDamageType}[]` | 见结构定义及所属功能文档 |
+| `分支14.parts.[].amount` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支14.parts.[].type` | 否 | `LancerDamageType` | 见结构定义及所属功能文档 |
+| `分支14.conditions` | 是 | `LancerCondition[]` | 见结构定义及所属功能文档 |
+| `分支14.successConditions` | 是 | `LancerCondition[]` | 见结构定义及所属功能文档 |
+| `分支14.failureFeature` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支14.pushOrigin` | 是 | `{x:number;y:number;z:number}` | 见结构定义及所属功能文档 |
+| `分支14.pushOrigin.x` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支14.pushOrigin.y` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支14.pushOrigin.z` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支14.conditionAt` | 是 | `'start'&#124;'end'` | 见结构定义及所属功能文档 |
+| `分支14.conditionClock` | 是 | `'source'` | 见结构定义及所属功能文档 |
+| `分支14.push` | 是 | `number` | 见结构定义及所属功能文档 |
+| `分支14.pullCenter` | 是 | `{x:number;y:number;z:number}` | 见结构定义及所属功能文档 |
+| `分支14.pullCenter.x` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支14.pullCenter.y` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支14.pullCenter.z` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支14.noCoreBonus` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支15.kind` | 否 | `'trigger'` | 见结构定义及所属功能文档 |
 | `分支15.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支15.remaining` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支15.dice` | 否 | `number[]` | 见结构定义及所属功能文档 |
-| `分支15.rerolled` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支16.kind` | 否 | `'fall'` | 见结构定义及所属功能文档 |
+| `分支15.target` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支15.source` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支15.key` | 否 | `'turret'` | 见结构定义及所属功能文档 |
+| `分支16.kind` | 否 | `'overheat'` | 见结构定义及所属功能文档 |
 | `分支16.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支17.kind` | 否 | `'finish'` | 见结构定义及所属功能文档 |
+| `分支16.remaining` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支16.dice` | 否 | `number[]` | 见结构定义及所属功能文档 |
+| `分支16.rerolled` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支17.kind` | 否 | `'fall'` | 见结构定义及所属功能文档 |
 | `分支17.unit` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支18.kind` | 否 | `'finish'` | 见结构定义及所属功能文档 |
+| `分支18.unit` | 否 | `string` | 见结构定义及所属功能文档 |
 
 ## LancerDecision
 
-导出接口 · 源码第 79 行。
+导出接口 · 源码第 97 行。
 
 ```ts
 export interface LancerDecision {
+    defaultConfirmed?: boolean;
     defaultPoint?: {
         x: number;
         y: number;
@@ -1291,6 +1450,7 @@ export interface LancerDecision {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `defaultConfirmed` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `defaultPoint` | 是 | `{x:number;y:number;z:number}` | 见结构定义及所属功能文档 |
 | `defaultPoint.x` | 否 | `number` | 见结构定义及所属功能文档 |
 | `defaultPoint.y` | 否 | `number` | 见结构定义及所属功能文档 |
@@ -1327,12 +1487,58 @@ export interface LancerDecision {
 | `point.toward` | 是 | `string` | 见结构定义及所属功能文档 |
 | `point.area` | 是 | `LancerArea` | 见结构定义及所属功能文档 |
 
+## LancerDamageReport
+
+导出接口 · 源码第 106 行。
+
+```ts
+export interface LancerDamageReport {
+    kind: 'structure' | 'stress';
+    dice: number[];
+    remaining: number;
+    title: string;
+    detail: string;
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `kind` | 否 | `'structure'&#124;'stress'` | 见结构定义及所属功能文档 |
+| `dice` | 否 | `number[]` | 见结构定义及所属功能文档 |
+| `remaining` | 否 | `number` | 见结构定义及所属功能文档 |
+| `title` | 否 | `string` | 见结构定义及所属功能文档 |
+| `detail` | 否 | `string` | 见结构定义及所属功能文档 |
+
+## LancerCombatFeedback
+
+导出接口 · 源码第 107 行。
+
+```ts
+export interface LancerCombatFeedback {
+    source: string;
+    target: string;
+    kind: 'ranged' | 'melee' | 'tech' | 'damage' | 'heat' | 'burn';
+    outcome?: 'hit' | 'miss' | 'critical';
+    amount?: number;
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `source` | 否 | `string` | 见结构定义及所属功能文档 |
+| `target` | 否 | `string` | 见结构定义及所属功能文档 |
+| `kind` | 否 | `'ranged'&#124;'melee'&#124;'tech'&#124;'damage'&#124;'heat'&#124;'burn'` | 见结构定义及所属功能文档 |
+| `outcome` | 是 | `'hit'&#124;'miss'&#124;'critical'` | 见结构定义及所属功能文档 |
+| `amount` | 是 | `number` | 见结构定义及所属功能文档 |
+
 ## LancerCombatLog
 
-导出接口 · 源码第 87 行。
+导出接口 · 源码第 108 行。
 
 ```ts
 export interface LancerCombatLog {
+    feedback?: LancerCombatFeedback;
+    damageReport?: LancerDamageReport;
     movement?: CombatStep['movement'];
     roll?: CombatRollDetail;
     id: string;
@@ -1346,6 +1552,8 @@ export interface LancerCombatLog {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `feedback` | 是 | `LancerCombatFeedback` | 见结构定义及所属功能文档 |
+| `damageReport` | 是 | `LancerDamageReport` | 见结构定义及所属功能文档 |
 | `movement` | 是 | `CombatStep['movement']` | 见结构定义及所属功能文档 |
 | `roll` | 是 | `CombatRollDetail` | 见结构定义及所属功能文档 |
 | `id` | 否 | `string` | 见结构定义及所属功能文档 |
@@ -1357,7 +1565,7 @@ export interface LancerCombatLog {
 
 ## LancerGrapple
 
-导出接口 · 源码第 88 行。
+导出接口 · 源码第 109 行。
 
 ```ts
 export interface LancerGrapple {
@@ -1373,12 +1581,33 @@ export interface LancerGrapple {
 | `target` | 否 | `string` | 见结构定义及所属功能文档 |
 | `dominant` | 是 | `LancerSide` | 见结构定义及所属功能文档 |
 
+## LancerIntelSection
+
+导出接口 · 源码第 110 行。
+
+```ts
+export interface LancerIntelSection {
+    id: string;
+    kind: 'stat' | 'weapon' | 'system' | 'trait' | 'reaction';
+    name: string;
+    body: string;
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `kind` | 否 | `'stat'&#124;'weapon'&#124;'system'&#124;'trait'&#124;'reaction'` | 见结构定义及所属功能文档 |
+| `name` | 否 | `string` | 见结构定义及所属功能文档 |
+| `body` | 否 | `string` | 见结构定义及所属功能文档 |
+
 ## LancerIntel
 
-导出接口 · 源码第 89 行。
+导出接口 · 源码第 111 行。
 
 ```ts
 export interface LancerIntel {
+    sections?: LancerIntelSection[];
     awaitingReply?: boolean;
     id: string;
     unit: string;
@@ -1395,6 +1624,7 @@ export interface LancerIntel {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `sections` | 是 | `LancerIntelSection[]` | 见结构定义及所属功能文档 |
 | `awaitingReply` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `id` | 否 | `string` | 见结构定义及所属功能文档 |
 | `unit` | 否 | `string` | 见结构定义及所属功能文档 |
@@ -1409,7 +1639,7 @@ export interface LancerIntel {
 
 ## LancerQuickReaction
 
-导出接口 · 源码第 90 行。
+导出接口 · 源码第 112 行。
 
 ```ts
 export interface LancerQuickReaction {
@@ -1446,10 +1676,22 @@ export interface LancerQuickReaction {
 
 ## LancerBattle
 
-导出接口 · 源码第 91 行。
+导出接口 · 源码第 113 行。
 
 ```ts
 export interface LancerBattle {
+    entry?: LancerEntry;
+    coordination?: {
+        epoch: string;
+        requests: {
+            unit: string;
+            votes: string[];
+        }[];
+    };
+    deploymentStatus?: {
+        ready: number;
+        total: number;
+    };
     quickReaction?: LancerQuickReaction;
     version: 1;
     phase: 'deployment' | 'active' | 'ended';
@@ -1472,6 +1714,15 @@ export interface LancerBattle {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `entry` | 是 | `LancerEntry` | 见结构定义及所属功能文档 |
+| `coordination` | 是 | `{epoch:string;requests:{unit:string;votes:string[]}[]}` | 见结构定义及所属功能文档 |
+| `coordination.epoch` | 否 | `string` | 见结构定义及所属功能文档 |
+| `coordination.requests` | 否 | `{unit:string;votes:string[]}[]` | 见结构定义及所属功能文档 |
+| `coordination.requests.[].unit` | 否 | `string` | 见结构定义及所属功能文档 |
+| `coordination.requests.[].votes` | 否 | `string[]` | 见结构定义及所属功能文档 |
+| `deploymentStatus` | 是 | `{ready:number;total:number}` | 见结构定义及所属功能文档 |
+| `deploymentStatus.ready` | 否 | `number` | 见结构定义及所属功能文档 |
+| `deploymentStatus.total` | 否 | `number` | 见结构定义及所属功能文档 |
 | `quickReaction` | 是 | `LancerQuickReaction` | 见结构定义及所属功能文档 |
 | `version` | 否 | `1` | 见结构定义及所属功能文档 |
 | `phase` | 否 | `'deployment'&#124;'active'&#124;'ended'` | 见结构定义及所属功能文档 |
@@ -1492,15 +1743,23 @@ export interface LancerBattle {
 
 ## LancerCombatIntent
 
-导出接口 · 源码第 99 行。
+导出接口 · 源码第 124 行。
 
 ```ts
 export type LancerCombatIntent = ({
     leadership?: boolean;
 } & ({
+    type: 'playerAbility';
+    unit: string;
+    ability: LancerPlayerAbility;
+    request: string;
+} | {
     type: 'prepare';
     units: LancerCombatUnit[];
     zones: LancerDeploymentZone[];
+} | {
+    type: 'confirmEntry';
+    entry: string;
 } | {
     type: 'zones';
     zones: LancerDeploymentZone[];
@@ -1510,6 +1769,23 @@ export type LancerCombatIntent = ({
     x: number;
     y: number;
     z: number;
+} | {
+    type: 'coordinate';
+    unit: string;
+    op: 'request' | 'withdraw' | 'approve' | 'revoke';
+    epoch: string;
+    asPlayer?: string;
+} | {
+    type: 'barrage';
+    unit: string;
+} | {
+    type: 'finishFullAction';
+    unit: string;
+} | {
+    type: 'defaultTrigger';
+    unit: string;
+    trigger: string;
+    enabled: boolean;
 } | {
     type: 'finishReaction';
     unit: string;
@@ -1584,10 +1860,12 @@ export type LancerCombatIntent = ({
     target?: string;
     effect?: 'distract' | 'heat' | 'damage';
     trigger?: string;
+    free?: boolean;
 } | {
     type: 'action';
     unit: string;
-    action: 'boost' | 'disengage' | 'stand' | 'overcharge' | 'cool' | 'repair' | 'reload' | 'lockon' | 'invade' | 'ram' | 'grapple' | 'improvised' | 'escape' | 'release' | 'hide' | 'search' | 'shutdown' | 'boot';
+    action: 'boost' | 'disengage' | 'stand' | 'overcharge' | 'cool' | 'repair' | 'reload' | 'lockon' | 'invade' | 'ram' | 'grapple' | 'improvised' | 'escape' | 'release' | 'hide' | 'search' | 'shutdown' | 'boot' | 'selfdestruct';
+    delay?: 1 | 2;
     target?: string;
     free?: boolean;
     secondary?: 'reload' | 'burn' | 'condition';
@@ -1613,9 +1891,38 @@ export type LancerCombatIntent = ({
     unit: string;
     object: string;
     action: string;
+} | ({
+    type: 'scenery';
+    expected: {
+        id: string;
+        x: number;
+        y: number;
+        z: number;
+        rotation?: number;
+    }[];
+    reason: string;
+} & ({
+    op: 'remove';
 } | {
+    op: 'translate';
+    dx: number;
+    dy: number;
+    dz: number;
+    carryRegion?: string;
+} | {
+    op: 'rotate';
+    degrees: 90 | -90 | 180;
+    cx: number;
+    cy: number;
+    carryRegion?: string;
+})) | {
     type: 'fullTech';
     unit: string;
+    choices?: {
+        option: string;
+        target: string;
+        consumeLock: boolean;
+    }[];
 } | {
     type: 'tech';
     unit: string;
@@ -1681,6 +1988,11 @@ export type LancerCombatIntent = ({
     amount: number;
     damageType: 'kinetic' | 'energy' | 'explosive' | 'burn' | 'heat';
     condition?: LancerCondition;
+    save?: {
+        skill: 'hull' | 'agility' | 'systems' | 'engineering';
+        dc: number;
+        half: boolean;
+    };
 } | {
     type: 'adjudicate';
     unit: string;
@@ -1695,167 +2007,215 @@ export type LancerCombatIntent = ({
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
 | `leadership` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支1.type` | 否 | `'prepare'` | 见结构定义及所属功能文档 |
-| `分支1.units` | 否 | `LancerCombatUnit[]` | 见结构定义及所属功能文档 |
-| `分支1.zones` | 否 | `LancerDeploymentZone[]` | 见结构定义及所属功能文档 |
-| `分支2.type` | 否 | `'zones'` | 见结构定义及所属功能文档 |
+| `分支1.type` | 否 | `'playerAbility'` | 见结构定义及所属功能文档 |
+| `分支1.unit` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支1.ability` | 否 | `LancerPlayerAbility` | 见结构定义及所属功能文档 |
+| `分支1.request` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支2.type` | 否 | `'prepare'` | 见结构定义及所属功能文档 |
+| `分支2.units` | 否 | `LancerCombatUnit[]` | 见结构定义及所属功能文档 |
 | `分支2.zones` | 否 | `LancerDeploymentZone[]` | 见结构定义及所属功能文档 |
-| `分支3.type` | 否 | `'deploy'` | 见结构定义及所属功能文档 |
-| `分支3.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支3.x` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支3.y` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支3.z` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支4.type` | 否 | `'finishReaction'` | 见结构定义及所属功能文档 |
-| `分支4.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支5.type` | 否 | `'start'` | 见结构定义及所属功能文档 |
-| `分支6.type` | 否 | `'activate'` | 见结构定义及所属功能文档 |
+| `分支3.type` | 否 | `'confirmEntry'` | 见结构定义及所属功能文档 |
+| `分支3.entry` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支4.type` | 否 | `'zones'` | 见结构定义及所属功能文档 |
+| `分支4.zones` | 否 | `LancerDeploymentZone[]` | 见结构定义及所属功能文档 |
+| `分支5.type` | 否 | `'deploy'` | 见结构定义及所属功能文档 |
+| `分支5.unit` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支5.x` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支5.y` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支5.z` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支6.type` | 否 | `'coordinate'` | 见结构定义及所属功能文档 |
 | `分支6.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支7.type` | 否 | `'endTurn'` | 见结构定义及所属功能文档 |
-| `分支8.type` | 否 | `'endBattle'` | 见结构定义及所属功能文档 |
-| `分支9.type` | 否 | `'move'` | 见结构定义及所属功能文档 |
+| `分支6.op` | 否 | `'request'&#124;'withdraw'&#124;'approve'&#124;'revoke'` | 见结构定义及所属功能文档 |
+| `分支6.epoch` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支6.asPlayer` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支7.type` | 否 | `'barrage'` | 见结构定义及所属功能文档 |
+| `分支7.unit` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支8.type` | 否 | `'finishFullAction'` | 见结构定义及所属功能文档 |
+| `分支8.unit` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支9.type` | 否 | `'defaultTrigger'` | 见结构定义及所属功能文档 |
 | `分支9.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支9.x` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支9.y` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支9.z` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支9.flight` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支9.path` | 是 | `import('./movement-path').MovementPoint[]` | 见结构定义及所属功能文档 |
-| `分支10.type` | 否 | `'ai'` | 见结构定义及所属功能文档 |
+| `分支9.trigger` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支9.enabled` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支10.type` | 否 | `'finishReaction'` | 见结构定义及所属功能文档 |
 | `分支10.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支10.op` | 否 | `'handoff'&#124;'retake'&#124;'shutdown'` | 见结构定义及所属功能文档 |
-| `分支11.type` | 否 | `'nhp'` | 见结构定义及所属功能文档 |
-| `分支11.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支11.op` | 否 | `'switch'&#124;'breakdown'&#124;'cycle'&#124;'stress'&#124;'downtime'&#124;'install'&#124;'remove'&#124;'proxyEnter'&#124;'proxyExit'` | 见结构定义及所属功能文档 |
-| `分支11.point` | 是 | `{x:number;y:number;z:number}` | 见结构定义及所属功能文档 |
-| `分支11.point.x` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支11.point.y` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支11.point.z` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支11.body` | 是 | `'mech'&#124;'subaltern'` | 见结构定义及所属功能文档 |
-| `分支11.value` | 是 | `number` | 见结构定义及所属功能文档 |
-| `分支11.reason` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支11.removeBurdens` | 是 | `number[]` | 见结构定义及所属功能文档 |
-| `分支11.removeAbilities` | 是 | `string[]` | 见结构定义及所属功能文档 |
-| `分支12.type` | 否 | `'ready'` | 见结构定义及所属功能文档 |
+| `分支11.type` | 否 | `'start'` | 见结构定义及所属功能文档 |
+| `分支12.type` | 否 | `'activate'` | 见结构定义及所属功能文档 |
 | `分支12.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支12.ref` | 否 | `LancerReadyReference` | 见结构定义及所属功能文档 |
-| `分支12.event` | 否 | `LancerReady['event']` | 见结构定义及所属功能文档 |
-| `分支12.side` | 否 | `LancerReady['side']` | 见结构定义及所属功能文档 |
-| `分支12.subject` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支12.within` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支13.type` | 否 | `'cancelReady'` | 见结构定义及所属功能文档 |
-| `分支13.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支14.type` | 否 | `'pilotGear'` | 见结构定义及所属功能文档 |
-| `分支14.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支14.gear` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支14.mode` | 是 | `'use'&#124;'detonate'&#124;'leave'` | 见结构定义及所属功能文档 |
-| `分支14.target` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支14.point` | 是 | `{x:number;y:number;z:number}` | 见结构定义及所属功能文档 |
-| `分支14.point.x` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支14.point.y` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支14.point.z` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支14.effect` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支15.type` | 否 | `'pilot'` | 见结构定义及所属功能文档 |
+| `分支13.type` | 否 | `'endTurn'` | 见结构定义及所属功能文档 |
+| `分支14.type` | 否 | `'endBattle'` | 见结构定义及所属功能文档 |
+| `分支15.type` | 否 | `'move'` | 见结构定义及所属功能文档 |
 | `分支15.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支15.op` | 否 | `'dismount'&#124;'eject'&#124;'embark'&#124;'reload'&#124;'cloak'&#124;'ride'&#124;'jockey'&#124;'shakeOff'&#124;'jumpOff'` | 见结构定义及所属功能文档 |
-| `分支15.point` | 是 | `{x:number;y:number;z:number}` | 见结构定义及所属功能文档 |
-| `分支15.point.x` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支15.point.y` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支15.point.z` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支15.weapon` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支15.target` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支15.effect` | 是 | `'distract'&#124;'heat'&#124;'damage'` | 见结构定义及所属功能文档 |
-| `分支15.trigger` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支16.type` | 否 | `'action'` | 见结构定义及所属功能文档 |
+| `分支15.x` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支15.y` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支15.z` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支15.flight` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支15.path` | 是 | `import('./movement-path').MovementPoint[]` | 见结构定义及所属功能文档 |
+| `分支16.type` | 否 | `'ai'` | 见结构定义及所属功能文档 |
 | `分支16.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支16.action` | 否 | `'boost'&#124;'disengage'&#124;'stand'&#124;'overcharge'&#124;'cool'&#124;'repair'&#124;'reload'&#124;'lockon'&#124;'invade'&#124;'ram'&#124;'grapple'&#124;'improvised'&#124;'escape'&#124;'release'&#124;'hide'&#124;'search'&#124;'shutdown'&#124;'boot'` | 见结构定义及所属功能文档 |
-| `分支16.target` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支16.free` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支16.secondary` | 是 | `'reload'&#124;'burn'&#124;'condition'` | 见结构定义及所属功能文档 |
-| `分支16.condition` | 是 | `LancerCondition` | 见结构定义及所属功能文档 |
-| `分支16.trigger` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支17.type` | 否 | `'attack'` | 见结构定义及所属功能文档 |
+| `分支16.op` | 否 | `'handoff'&#124;'retake'&#124;'shutdown'` | 见结构定义及所属功能文档 |
+| `分支17.type` | 否 | `'nhp'` | 见结构定义及所属功能文档 |
 | `分支17.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支17.target` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支17.weapon` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支17.secondWeapon` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支17.secondTarget` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支17.extraTargets` | 是 | `string[]` | 见结构定义及所属功能文档 |
-| `分支17.profile` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支17.mode` | 否 | `'skirmish'&#124;'barrage'` | 见结构定义及所属功能文档 |
-| `分支17.accuracy` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支17.cover` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支17.consumeLock` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支17.free` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支17.area` | 是 | `LancerArea` | 见结构定义及所属功能文档 |
-| `分支18.type` | 否 | `'interact'` | 见结构定义及所属功能文档 |
+| `分支17.op` | 否 | `'switch'&#124;'breakdown'&#124;'cycle'&#124;'stress'&#124;'downtime'&#124;'install'&#124;'remove'&#124;'proxyEnter'&#124;'proxyExit'` | 见结构定义及所属功能文档 |
+| `分支17.point` | 是 | `{x:number;y:number;z:number}` | 见结构定义及所属功能文档 |
+| `分支17.point.x` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支17.point.y` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支17.point.z` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支17.body` | 是 | `'mech'&#124;'subaltern'` | 见结构定义及所属功能文档 |
+| `分支17.value` | 是 | `number` | 见结构定义及所属功能文档 |
+| `分支17.reason` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支17.removeBurdens` | 是 | `number[]` | 见结构定义及所属功能文档 |
+| `分支17.removeAbilities` | 是 | `string[]` | 见结构定义及所属功能文档 |
+| `分支18.type` | 否 | `'ready'` | 见结构定义及所属功能文档 |
 | `分支18.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支18.object` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支18.action` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支19.type` | 否 | `'fullTech'` | 见结构定义及所属功能文档 |
+| `分支18.ref` | 否 | `LancerReadyReference` | 见结构定义及所属功能文档 |
+| `分支18.event` | 否 | `LancerReady['event']` | 见结构定义及所属功能文档 |
+| `分支18.side` | 否 | `LancerReady['side']` | 见结构定义及所属功能文档 |
+| `分支18.subject` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支18.within` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支19.type` | 否 | `'cancelReady'` | 见结构定义及所属功能文档 |
 | `分支19.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支20.type` | 否 | `'tech'` | 见结构定义及所属功能文档 |
+| `分支20.type` | 否 | `'pilotGear'` | 见结构定义及所属功能文档 |
 | `分支20.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支20.option` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支20.gear` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支20.mode` | 是 | `'use'&#124;'detonate'&#124;'leave'` | 见结构定义及所属功能文档 |
 | `分支20.target` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支20.consumeLock` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支20.free` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支21.type` | 否 | `'npcAction'` | 见结构定义及所属功能文档 |
+| `分支20.point` | 是 | `{x:number;y:number;z:number}` | 见结构定义及所属功能文档 |
+| `分支20.point.x` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支20.point.y` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支20.point.z` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支20.effect` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支21.type` | 否 | `'pilot'` | 见结构定义及所属功能文档 |
 | `分支21.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支21.ability` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支21.op` | 否 | `'dismount'&#124;'eject'&#124;'embark'&#124;'reload'&#124;'cloak'&#124;'ride'&#124;'jockey'&#124;'shakeOff'&#124;'jumpOff'` | 见结构定义及所属功能文档 |
+| `分支21.point` | 是 | `{x:number;y:number;z:number}` | 见结构定义及所属功能文档 |
+| `分支21.point.x` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支21.point.y` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支21.point.z` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支21.weapon` | 是 | `string` | 见结构定义及所属功能文档 |
 | `分支21.target` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支21.area` | 是 | `LancerArea` | 见结构定义及所属功能文档 |
-| `分支21.extraArea` | 是 | `LancerArea` | 见结构定义及所属功能文档 |
-| `分支22.type` | 否 | `'weaponMode'` | 见结构定义及所属功能文档 |
+| `分支21.effect` | 是 | `'distract'&#124;'heat'&#124;'damage'` | 见结构定义及所属功能文档 |
+| `分支21.trigger` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支21.free` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支22.type` | 否 | `'action'` | 见结构定义及所属功能文档 |
 | `分支22.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支22.weapon` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支22.mode` | 否 | `'spinup'&#124;'spindown'&#124;'provoke'` | 见结构定义及所属功能文档 |
+| `分支22.action` | 否 | `'boost'&#124;'disengage'&#124;'stand'&#124;'overcharge'&#124;'cool'&#124;'repair'&#124;'reload'&#124;'lockon'&#124;'invade'&#124;'ram'&#124;'grapple'&#124;'improvised'&#124;'escape'&#124;'release'&#124;'hide'&#124;'search'&#124;'shutdown'&#124;'boot'&#124;'selfdestruct'` | 见结构定义及所属功能文档 |
+| `分支22.delay` | 是 | `1&#124;2` | 见结构定义及所属功能文档 |
+| `分支22.target` | 是 | `string` | 见结构定义及所属功能文档 |
 | `分支22.free` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支23.type` | 否 | `'completeIntel'` | 见结构定义及所属功能文档 |
-| `分支23.report` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支23.text` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支24.type` | 否 | `'decisionTimeout'` | 见结构定义及所属功能文档 |
-| `分支24.decision` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支25.type` | 否 | `'pauseDecision'` | 见结构定义及所属功能文档 |
-| `分支25.decision` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支26.type` | 否 | `'respond'` | 见结构定义及所属功能文档 |
-| `分支26.decision` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支26.option` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支26.purpose` | 是 | `LancerLeadershipPurpose` | 见结构定义及所属功能文档 |
-| `分支26.text` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支26.point` | 是 | `{x:number;y:number;z:number}` | 见结构定义及所属功能文档 |
-| `分支26.point.x` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支26.point.y` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支26.point.z` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支27.type` | 否 | `'ability'` | 见结构定义及所属功能文档 |
+| `分支22.secondary` | 是 | `'reload'&#124;'burn'&#124;'condition'` | 见结构定义及所属功能文档 |
+| `分支22.condition` | 是 | `LancerCondition` | 见结构定义及所属功能文档 |
+| `分支22.trigger` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支23.type` | 否 | `'attack'` | 见结构定义及所属功能文档 |
+| `分支23.unit` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支23.target` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支23.weapon` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支23.secondWeapon` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支23.secondTarget` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支23.extraTargets` | 是 | `string[]` | 见结构定义及所属功能文档 |
+| `分支23.profile` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支23.mode` | 否 | `'skirmish'&#124;'barrage'` | 见结构定义及所属功能文档 |
+| `分支23.accuracy` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支23.cover` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支23.consumeLock` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支23.free` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支23.area` | 是 | `LancerArea` | 见结构定义及所属功能文档 |
+| `分支24.type` | 否 | `'interact'` | 见结构定义及所属功能文档 |
+| `分支24.unit` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支24.object` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支24.action` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支25.type` | 否 | `'scenery'` | 见结构定义及所属功能文档 |
+| `分支25.expected` | 否 | `{id:string;x:number;y:number;z:number;rotation?:number}[]` | 见结构定义及所属功能文档 |
+| `分支25.expected.[].id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支25.expected.[].x` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支25.expected.[].y` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支25.expected.[].z` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支25.expected.[].rotation` | 是 | `number` | 见结构定义及所属功能文档 |
+| `分支25.reason` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支25.分支1.op` | 否 | `'remove'` | 见结构定义及所属功能文档 |
+| `分支25.分支2.op` | 否 | `'translate'` | 见结构定义及所属功能文档 |
+| `分支25.分支2.dx` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支25.分支2.dy` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支25.分支2.dz` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支25.分支2.carryRegion` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支25.分支3.op` | 否 | `'rotate'` | 见结构定义及所属功能文档 |
+| `分支25.分支3.degrees` | 否 | `90&#124;-90&#124;180` | 见结构定义及所属功能文档 |
+| `分支25.分支3.cx` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支25.分支3.cy` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支25.分支3.carryRegion` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支26.type` | 否 | `'fullTech'` | 见结构定义及所属功能文档 |
+| `分支26.unit` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支26.choices` | 是 | `{option:string;target:string;consumeLock:boolean}[]` | 见结构定义及所属功能文档 |
+| `分支26.choices.[].option` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支26.choices.[].target` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支26.choices.[].consumeLock` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支27.type` | 否 | `'tech'` | 见结构定义及所属功能文档 |
 | `分支27.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支27.ability` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支27.option` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支27.target` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支27.consumeLock` | 否 | `boolean` | 见结构定义及所属功能文档 |
 | `分支27.free` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支28.type` | 否 | `'system'` | 见结构定义及所属功能文档 |
+| `分支28.type` | 否 | `'npcAction'` | 见结构定义及所属功能文档 |
 | `分支28.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支28.system` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支28.mode` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支28.ability` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支28.target` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支28.free` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支28.point` | 是 | `{x:number;y:number;z:number}` | 见结构定义及所属功能文档 |
-| `分支28.point.x` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支28.point.y` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支28.point.z` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支29.type` | 否 | `'environment'` | 见结构定义及所属功能文档 |
+| `分支28.area` | 是 | `LancerArea` | 见结构定义及所属功能文档 |
+| `分支28.extraArea` | 是 | `LancerArea` | 见结构定义及所属功能文档 |
+| `分支29.type` | 否 | `'weaponMode'` | 见结构定义及所属功能文档 |
 | `分支29.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支29.amount` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支29.damageType` | 否 | `'kinetic'&#124;'energy'&#124;'explosive'&#124;'burn'&#124;'heat'` | 见结构定义及所属功能文档 |
-| `分支29.condition` | 是 | `LancerCondition` | 见结构定义及所属功能文档 |
-| `分支30.type` | 否 | `'adjudicate'` | 见结构定义及所属功能文档 |
-| `分支30.unit` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支30.resource` | 是 | `'hp'&#124;'heat'&#124;'overshield'&#124;'burn'&#124;'repair'` | 见结构定义及所属功能文档 |
-| `分支30.value` | 是 | `number` | 见结构定义及所属功能文档 |
-| `分支30.condition` | 是 | `LancerCondition` | 见结构定义及所属功能文档 |
-| `分支30.remove` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支30.reason` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支29.weapon` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支29.mode` | 否 | `'spinup'&#124;'spindown'&#124;'provoke'` | 见结构定义及所属功能文档 |
+| `分支29.free` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支30.type` | 否 | `'completeIntel'` | 见结构定义及所属功能文档 |
+| `分支30.report` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支30.text` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支31.type` | 否 | `'decisionTimeout'` | 见结构定义及所属功能文档 |
+| `分支31.decision` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支32.type` | 否 | `'pauseDecision'` | 见结构定义及所属功能文档 |
+| `分支32.decision` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支33.type` | 否 | `'respond'` | 见结构定义及所属功能文档 |
+| `分支33.decision` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支33.option` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支33.purpose` | 是 | `LancerLeadershipPurpose` | 见结构定义及所属功能文档 |
+| `分支33.text` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支33.point` | 是 | `{x:number;y:number;z:number}` | 见结构定义及所属功能文档 |
+| `分支33.point.x` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支33.point.y` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支33.point.z` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支34.type` | 否 | `'ability'` | 见结构定义及所属功能文档 |
+| `分支34.unit` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支34.ability` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支34.target` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支34.free` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支35.type` | 否 | `'system'` | 见结构定义及所属功能文档 |
+| `分支35.unit` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支35.system` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支35.mode` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支35.target` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支35.free` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支35.point` | 是 | `{x:number;y:number;z:number}` | 见结构定义及所属功能文档 |
+| `分支35.point.x` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支35.point.y` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支35.point.z` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支36.type` | 否 | `'environment'` | 见结构定义及所属功能文档 |
+| `分支36.unit` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支36.amount` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支36.damageType` | 否 | `'kinetic'&#124;'energy'&#124;'explosive'&#124;'burn'&#124;'heat'` | 见结构定义及所属功能文档 |
+| `分支36.condition` | 是 | `LancerCondition` | 见结构定义及所属功能文档 |
+| `分支36.save` | 是 | `{skill:'hull'&#124;'agility'&#124;'systems'&#124;'engineering';dc:number;half:boolean}` | 见结构定义及所属功能文档 |
+| `分支36.save.skill` | 否 | `'hull'&#124;'agility'&#124;'systems'&#124;'engineering'` | 见结构定义及所属功能文档 |
+| `分支36.save.dc` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支36.save.half` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支37.type` | 否 | `'adjudicate'` | 见结构定义及所属功能文档 |
+| `分支37.unit` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支37.resource` | 是 | `'hp'&#124;'heat'&#124;'overshield'&#124;'burn'&#124;'repair'` | 见结构定义及所属功能文档 |
+| `分支37.value` | 是 | `number` | 见结构定义及所属功能文档 |
+| `分支37.condition` | 是 | `LancerCondition` | 见结构定义及所属功能文档 |
+| `分支37.remove` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支37.reason` | 否 | `string` | 见结构定义及所属功能文档 |
 
 ## parseLancerRide
 
-导出接口 · 源码第 135 行。
+导出接口 · 源码第 166 行。
 
 ```ts
 export function parseLancerRide(raw: unknown): LancerRide;
@@ -1867,7 +2227,7 @@ export function parseLancerRide(raw: unknown): LancerRide;
 
 ## parseLancerArea
 
-导出接口 · 源码第 136 行。
+导出接口 · 源码第 167 行。
 
 ```ts
 export function parseLancerArea(raw: unknown): LancerArea;
@@ -1879,7 +2239,7 @@ export function parseLancerArea(raw: unknown): LancerArea;
 
 ## parseLancerZone
 
-导出接口 · 源码第 140 行。
+导出接口 · 源码第 171 行。
 
 ```ts
 export function parseLancerZone(raw: unknown): LancerDeploymentZone;
@@ -1891,7 +2251,7 @@ export function parseLancerZone(raw: unknown): LancerDeploymentZone;
 
 ## parseLancerNpc
 
-导出接口 · 源码第 141 行。
+导出接口 · 源码第 172 行。
 
 ```ts
 export function parseLancerNpc(raw: unknown): LancerNpc;
@@ -1901,9 +2261,21 @@ export function parseLancerNpc(raw: unknown): LancerNpc;
 | --- | --- | --- | --- |
 | `raw` | 否 | `unknown` | — |
 
+## parseLancerNpcProfile
+
+导出接口 · 源码第 173 行。
+
+```ts
+export function parseLancerNpcProfile(raw: unknown): LancerNpcProfile;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `raw` | 否 | `unknown` | — |
+
 ## parseLancerWeapon
 
-导出接口 · 源码第 142 行。
+导出接口 · 源码第 183 行。
 
 ```ts
 export function parseLancerWeapon(raw: unknown): LancerCombatWeapon;
@@ -1915,7 +2287,7 @@ export function parseLancerWeapon(raw: unknown): LancerCombatWeapon;
 
 ## parseLancerPilotProfile
 
-导出接口 · 源码第 144 行。
+导出接口 · 源码第 185 行。
 
 ```ts
 export function parseLancerPilotProfile(raw: unknown): LancerPilotProfile;
@@ -1927,7 +2299,7 @@ export function parseLancerPilotProfile(raw: unknown): LancerPilotProfile;
 
 ## parseLancerAI
 
-导出接口 · 源码第 147 行。
+导出接口 · 源码第 188 行。
 
 ```ts
 export function parseLancerAI(raw: unknown): LancerAI;
@@ -1939,7 +2311,7 @@ export function parseLancerAI(raw: unknown): LancerAI;
 
 ## parseLancerNhp
 
-导出接口 · 源码第 148 行。
+导出接口 · 源码第 189 行。
 
 ```ts
 export function parseLancerNhp(raw: unknown): LancerNhp;
@@ -1951,7 +2323,7 @@ export function parseLancerNhp(raw: unknown): LancerNhp;
 
 ## parseLancerReadyReference
 
-导出接口 · 源码第 149 行。
+导出接口 · 源码第 190 行。
 
 ```ts
 export function parseLancerReadyReference(raw: unknown): LancerReadyReference;
@@ -1963,7 +2335,7 @@ export function parseLancerReadyReference(raw: unknown): LancerReadyReference;
 
 ## parseLancerUnit
 
-导出接口 · 源码第 150 行。
+导出接口 · 源码第 191 行。
 
 ```ts
 export function parseLancerUnit(raw: unknown): LancerCombatUnit;
@@ -1975,7 +2347,7 @@ export function parseLancerUnit(raw: unknown): LancerCombatUnit;
 
 ## parseLancerBattle
 
-导出接口 · 源码第 205 行。
+导出接口 · 源码第 251 行。
 
 ```ts
 export function parseLancerBattle(raw: unknown): LancerBattle;
@@ -1987,7 +2359,7 @@ export function parseLancerBattle(raw: unknown): LancerBattle;
 
 ## projectLancerBattle
 
-导出接口 · 源码第 214 行。
+导出接口 · 源码第 264 行。
 
 Only the GM retains continuations and hidden-unit details. Pending choices remain durable on the host.
 

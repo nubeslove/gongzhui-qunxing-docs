@@ -1,6 +1,6 @@
 # game/packages/game-core/src/lancer/features.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -14,7 +14,7 @@ import { clear, condition, has, log } from './state';
 
 ## feature
 
-导出接口 · 源码第 41 行。
+导出接口 · 源码第 47 行。
 
 ```ts
 export const feature: (u: LancerCombatUnit, id: string): boolean;
@@ -22,7 +22,7 @@ export const feature: (u: LancerCombatUnit, id: string): boolean;
 
 ## counter
 
-导出接口 · 源码第 42 行。
+导出接口 · 源码第 48 行。
 
 ```ts
 export const counter: (u: LancerCombatUnit, id: string): number;
@@ -30,7 +30,7 @@ export const counter: (u: LancerCombatUnit, id: string): number;
 
 ## count
 
-导出接口 · 源码第 43 行。
+导出接口 · 源码第 49 行。
 
 ```ts
 export function count(u: LancerCombatUnit, id: string, value: number): void;
@@ -44,7 +44,7 @@ export function count(u: LancerCombatUnit, id: string, value: number): void;
 
 ## activateLancerFeature
 
-导出接口 · 源码第 44 行。
+导出接口 · 源码第 50 行。
 
 ```ts
 export function activateLancerFeature(b: LancerBattle, u: LancerCombatUnit, id: string): void;
@@ -58,7 +58,7 @@ export function activateLancerFeature(b: LancerBattle, u: LancerCombatUnit, id: 
 
 ## lancerUniversalAccuracy
 
-导出接口 · 源码第 58 行。
+导出接口 · 源码第 64 行。
 
 ```ts
 export function lancerUniversalAccuracy(u: LancerCombatUnit): number;
@@ -70,7 +70,7 @@ export function lancerUniversalAccuracy(u: LancerCombatUnit): number;
 
 ## consumeLancerSkillAccuracy
 
-导出接口 · 源码第 60 行。
+导出接口 · 源码第 66 行。
 
 Consume only at the actual roll, never while previewing a target or validating an action.
 
@@ -86,7 +86,7 @@ export function consumeLancerSkillAccuracy(u: LancerCombatUnit, skill: 'hull'|'a
 
 ## lancerSaveAccuracy
 
-导出接口 · 源码第 64 行。
+导出接口 · 源码第 70 行。
 
 ```ts
 export function lancerSaveAccuracy(u: LancerCombatUnit, skill: 'hull'|'agility'|'systems'|'engineering'): number;
@@ -99,7 +99,7 @@ export function lancerSaveAccuracy(u: LancerCombatUnit, skill: 'hull'|'agility'|
 
 ## lancerSkillAccuracy
 
-导出接口 · 源码第 65 行。
+导出接口 · 源码第 71 行。
 
 ```ts
 export function lancerSkillAccuracy(u: LancerCombatUnit, skill: 'hull'|'agility'|'systems'|'engineering'): number;
@@ -112,7 +112,7 @@ export function lancerSkillAccuracy(u: LancerCombatUnit, skill: 'hull'|'agility'
 
 ## lancerReactionEvaded
 
-导出接口 · 源码第 72 行。
+导出接口 · 源码第 78 行。
 
 ```ts
 export function lancerReactionEvaded(b: LancerBattle, target: LancerCombatUnit, reaction?: boolean): boolean;

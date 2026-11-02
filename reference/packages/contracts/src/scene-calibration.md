@@ -1,6 +1,6 @@
 # game/packages/contracts/src/scene-calibration.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -9,12 +9,13 @@
 ```ts
 import {sceneFrameRect} from './scene-frame';
 import {parseSceneCanvasStyle,type SceneCanvasStyle} from './scene-canvas';
+import {isHexGrid,sceneGridCenter,type SceneGrid} from './scene-grid';
 ```
 </details>
 
 ## SceneGridCalibration
 
-导出接口 · 源码第 3 行。
+导出接口 · 源码第 4 行。
 
 ```ts
 export interface SceneGridCalibration {
@@ -48,12 +49,12 @@ export interface SceneGridCalibration {
 
 ## calibrateSceneGrid
 
-导出接口 · 源码第 7 行。
+导出接口 · 源码第 8 行。
 
 Map a measured image rectangle to known world grid intersections without moving any document.
 
 ```ts
-export function calibrateSceneGrid(width: number, height: number, style: SceneCanvasStyle, value: SceneGridCalibration): SceneCanvasStyle;
+export function calibrateSceneGrid(width: number, height: number, style: SceneCanvasStyle, value: SceneGridCalibration, grid?: SceneGrid): SceneCanvasStyle;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
@@ -62,3 +63,4 @@ export function calibrateSceneGrid(width: number, height: number, style: SceneCa
 | `height` | 否 | `number` | — |
 | `style` | 否 | `SceneCanvasStyle` | — |
 | `value` | 否 | `SceneGridCalibration` | — |
+| `grid` | 是 | `SceneGrid` | — |

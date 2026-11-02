@@ -1,12 +1,18 @@
 # game/packages/game-core/src/lancer/resolution.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {breakWallflowerLayer,wallflowerImmune,wallflowerDamageImmune,wallflowerLayer,isWallflowerEidolon,isWallflowerShard,wallflowerSight,shatterWallflowerShards} from './wallflower';
+import {dustgraveBoss,dustgraveProtected,dustgraveShieldBreak,refreshDustgraveBoss} from './dustgrave';
+import {isHexGrid} from '@aelzerant/contracts';
+import {fullActionOrdnance} from './full-action';
+import {sceneGridLabel} from '@aelzerant/contracts';
+import {hexTokenLine} from '@aelzerant/contracts';
 import {persistLancerScenery} from './scene-objects';
 import {handleNhpFeature,respondNhp,refreshNhpBodies} from './nhp';
 import {cascadeLancerAI,respondLancerAI} from './ai-control';
@@ -15,7 +21,9 @@ import {queueReadiedActions,offerReadiedAction,respondReadiedAction} from './rea
 import {captureLancerPilot,lancerActivationBody,refreshLancerPilots,finishLancerEjection} from './pilot';
 import {refreshLancerRiders,respondLancerRide} from './riding';
 import {resolveCustomEquipment} from './custom-equipment';
+import {resolvePlayerEffect} from './player-ability';
 import {resolveLancerCheckFeature} from './skill-checks';
+import {offerGmsFeature,respondGmsFeature} from './gms';
 import {lancerReactionEvaded} from './features';
 import {offerQuickReaction,respondQuickReaction} from './quick-reaction';
 import { onSpotterLock, spotterAvailable, offerSpotterRoll, offerSpotterFeature, respondSpotter } from './spotter';
@@ -68,7 +76,7 @@ import {resolveLancerSceneEffect} from './scene-objects';
 
 ## availableWeapon
 
-导出接口 · 源码第 58 行。
+导出接口 · 源码第 67 行。
 
 ```ts
 export function availableWeapon(w: LancerCombatWeapon): boolean;
@@ -80,7 +88,7 @@ export function availableWeapon(w: LancerCombatWeapon): boolean;
 
 ## validateLancerWeaponUse
 
-导出接口 · 源码第 59 行。
+导出接口 · 源码第 68 行。
 
 ```ts
 export function validateLancerWeaponUse(a: LancerCombatUnit, w: LancerCombatWeapon, reaction?: boolean, committed?: boolean, spent?: boolean, special?: Extract<LancerBattleStep,{kind:'attack'}>['special']): void;
@@ -97,7 +105,7 @@ export function validateLancerWeaponUse(a: LancerCombatUnit, w: LancerCombatWeap
 
 ## validateWeapon
 
-导出接口 · 源码第 67 行。
+导出接口 · 源码第 76 行。
 
 ```ts
 export function validateWeapon(b: LancerBattle, map: ManualMap, a: LancerCombatUnit, target: LancerCombatUnit, w: LancerCombatWeapon, reaction?: boolean, committed?: boolean, area?: LancerArea, spent?: boolean, planningRange?: number, special?: Extract<LancerBattleStep,{kind:'attack'}>['special'], secondary?: {origin:{x:number;y:number;z:number;size?:number};area:boolean}): void;
@@ -118,9 +126,23 @@ export function validateWeapon(b: LancerBattle, map: ManualMap, a: LancerCombatU
 | `special` | 是 | `Extract<LancerBattleStep,{kind:'attack'}>['special']` | — |
 | `secondary` | 是 | `{origin:{x:number;y:number;z:number;size?:number};area:boolean}` | — |
 
+## stress
+
+导出接口 · 源码第 121 行。
+
+```ts
+export function stress(b: LancerBattle, u: LancerCombatUnit, r: LancerRandom): void;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `b` | 否 | `LancerBattle` | — |
+| `u` | 否 | `LancerCombatUnit` | — |
+| `r` | 否 | `LancerRandom` | — |
+
 ## applyHeat
 
-导出接口 · 源码第 123 行。
+导出接口 · 源码第 141 行。
 
 ```ts
 export function applyHeat(b: LancerBattle, u: LancerCombatUnit, amount: number, r: LancerRandom, resistanceApplied?: boolean): void;
@@ -136,7 +158,7 @@ export function applyHeat(b: LancerBattle, u: LancerCombatUnit, amount: number, 
 
 ## drainLancer
 
-导出接口 · 源码第 278 行。
+导出接口 · 源码第 304 行。
 
 ```ts
 export function drainLancer(b: LancerBattle, map: ManualMap, r: LancerRandom): void;
@@ -150,7 +172,7 @@ export function drainLancer(b: LancerBattle, map: ManualMap, r: LancerRandom): v
 
 ## respondLancer
 
-导出接口 · 源码第 383 行。
+导出接口 · 源码第 415 行。
 
 ```ts
 export function respondLancer(b: LancerBattle, option: string, gmOverride: boolean, map: ManualMap, r: LancerRandom, point?: {x:number;y:number;z:number}, text?: string, purpose?: import('@aelzerant/contracts').LancerLeadershipPurpose): void;

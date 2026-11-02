@@ -1,9 +1,9 @@
 {
-  "date": "2026-10-10",
-  "jsonFiles": 89,
-  "localLinks": 999,
-  "schemaRefs": 1614,
-  "schemaExamples": 23,
+  "date": "2026-11-02",
+  "jsonFiles": 100,
+  "localLinks": 1437,
+  "schemaRefs": 2188,
+  "schemaExamples": 26,
   "releaseChecks": 2,
   "packChecks": 3,
   "failures": []

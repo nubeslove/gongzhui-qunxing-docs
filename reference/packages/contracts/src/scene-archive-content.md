@@ -1,6 +1,6 @@
 # game/packages/contracts/src/scene-archive-content.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -62,9 +62,7 @@ export function sceneArchiveStory(source: StoryWorkspace|undefined, sceneId: str
 
 ## mapArchiveMedia
 
-导出接口 · 源码第 39 行。
-
-Media fields are registered here; filenames used as names/prose are not references.
+导出接口 · 源码第 52 行。
 
 ```ts
 export function mapArchiveMedia<T>(value: T, change: (ref:string)=>string): T;
@@ -75,9 +73,24 @@ export function mapArchiveMedia<T>(value: T, change: (ref:string)=>string): T;
 | `value` | 否 | `T` | — |
 | `change` | 否 | `(ref:string)=>string` | — |
 
+## visitArchiveMedia
+
+导出接口 · 源码第 54 行。
+
+Read-only authorization/reference scans do not allocate a second copy of the world.
+
+```ts
+export function visitArchiveMedia(value: unknown, visit: (ref:string)=>void): void;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `value` | 否 | `unknown` | — |
+| `visit` | 否 | `(ref:string)=>void` | — |
+
 ## archiveAssets
 
-导出接口 · 源码第 52 行。
+导出接口 · 源码第 55 行。
 
 ```ts
 export function archiveAssets(payload: unknown, available: readonly SceneArchiveAsset[]): SceneArchiveAsset[];
@@ -90,7 +103,7 @@ export function archiveAssets(payload: unknown, available: readonly SceneArchive
 
 ## remapArchiveAssets
 
-导出接口 · 源码第 56 行。
+导出接口 · 源码第 59 行。
 
 ```ts
 export function remapArchiveAssets<T>(payload: T, assets: readonly SceneArchiveAsset[]): {value:T;assets:SceneArchiveAsset[]};
@@ -103,7 +116,7 @@ export function remapArchiveAssets<T>(payload: T, assets: readonly SceneArchiveA
 
 ## ArchiveStoryImport
 
-导出接口 · 源码第 61 行。
+导出接口 · 源码第 64 行。
 
 ```ts
 export interface ArchiveStoryImport {
@@ -129,7 +142,7 @@ export interface ArchiveStoryImport {
 
 ## importArchiveStory
 
-导出接口 · 源码第 62 行。
+导出接口 · 源码第 65 行。
 
 ```ts
 export function importArchiveStory(source: StoryWorkspace, actorIds: Map<string,string>, oldScene: string, newScene: string, ownerId: string, newId?: ()=>string): ArchiveStoryImport;
@@ -146,7 +159,7 @@ export function importArchiveStory(source: StoryWorkspace, actorIds: Map<string,
 
 ## mergeArchiveStory
 
-导出接口 · 源码第 83 行。
+导出接口 · 源码第 86 行。
 
 ```ts
 export function mergeArchiveStory(target: StoryWorkspace|undefined, source: StoryWorkspace): StoryWorkspace;
@@ -159,7 +172,7 @@ export function mergeArchiveStory(target: StoryWorkspace|undefined, source: Stor
 
 ## remapArchiveFeatures
 
-导出接口 · 源码第 88 行。
+导出接口 · 源码第 91 行。
 
 ```ts
 export function remapArchiveFeatures(features: SceneFeatures|undefined, refs: ArchiveStoryImport, oldScene: string, warnings: string[]): void;
@@ -174,7 +187,7 @@ export function remapArchiveFeatures(features: SceneFeatures|undefined, refs: Ar
 
 ## cleanArchiveFeatures
 
-导出接口 · 源码第 95 行。
+导出接口 · 源码第 98 行。
 
 Keep authored object ids for dependency resolution; discard runtime knowledge and playback.
 

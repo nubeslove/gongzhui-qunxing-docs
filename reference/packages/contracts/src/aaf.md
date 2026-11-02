@@ -1,6 +1,6 @@
 # game/packages/contracts/src/aaf.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -341,7 +341,7 @@ export const emptyAafCharacter: (): AafCharacter;
 
 ## parseAafTalent
 
-导出接口 · 源码第 62 行。
+导出接口 · 源码第 63 行。
 
 ```ts
 export function parseAafTalent(v: unknown): AafTalentNode;
@@ -353,7 +353,7 @@ export function parseAafTalent(v: unknown): AafTalentNode;
 
 ## parseAafItemDefinition
 
-导出接口 · 源码第 65 行。
+导出接口 · 源码第 66 行。
 
 ```ts
 export function parseAafItemDefinition(v: unknown): AafItemDefinition;
@@ -365,7 +365,7 @@ export function parseAafItemDefinition(v: unknown): AafItemDefinition;
 
 ## parseAafCatalog
 
-导出接口 · 源码第 99 行。
+导出接口 · 源码第 100 行。
 
 ```ts
 export function parseAafCatalog(v: unknown): AafCatalog;
@@ -377,7 +377,7 @@ export function parseAafCatalog(v: unknown): AafCatalog;
 
 ## parseAafCharacter
 
-导出接口 · 源码第 107 行。
+导出接口 · 源码第 108 行。
 
 ```ts
 export function parseAafCharacter(v: unknown): AafCharacter;

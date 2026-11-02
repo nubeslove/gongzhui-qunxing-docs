@@ -1,6 +1,6 @@
 # game/packages/game-core/src/lancer/effects.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -10,13 +10,14 @@
 import type { LancerBattle, LancerCombatUnit, ManualMap, ManualToken } from '@aelzerant/contracts';
 import { lancerAreaContains } from './areas';
 import { lancerDistance, lancerTerrainCover } from './geometry';
+import {count} from './features';
 import { log } from './state';
 ```
 </details>
 
 ## expireLancerEffects
 
-导出接口 · 源码第 6 行。
+导出接口 · 源码第 7 行。
 
 ```ts
 export function expireLancerEffects(b: LancerBattle, u: LancerCombatUnit, at: 'start'|'end'): void;
@@ -30,7 +31,7 @@ export function expireLancerEffects(b: LancerBattle, u: LancerCombatUnit, at: 's
 
 ## lancerShieldDifficulty
 
-导出接口 · 源码第 11 行。
+导出接口 · 源码第 13 行。
 
 ```ts
 export function lancerShieldDifficulty(b: LancerBattle, a: LancerCombatUnit, t: LancerCombatUnit): number;
@@ -44,7 +45,7 @@ export function lancerShieldDifficulty(b: LancerBattle, a: LancerCombatUnit, t: 
 
 ## lancerCover
 
-导出接口 · 源码第 14 行。
+导出接口 · 源码第 16 行。
 
 ```ts
 export function lancerCover(b: LancerBattle, map: ManualMap, origin: ManualToken, target: LancerCombatUnit): number;

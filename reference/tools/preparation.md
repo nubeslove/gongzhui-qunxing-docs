@@ -1,6 +1,6 @@
 # game/tools/preparation.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../README.md)
 
@@ -39,7 +39,7 @@ export function createDraft(name: string, system?: GameSystemId, hostId?: string
 
 ## validateDraft
 
-导出接口 · 源码第 13 行。
+导出接口 · 源码第 14 行。
 
 ```ts
 export function validateDraft(raw: unknown): ManualTable;
@@ -51,7 +51,7 @@ export function validateDraft(raw: unknown): ManualTable;
 
 ## applyDraft
 
-导出接口 · 源码第 24 行。
+导出接口 · 源码第 26 行。
 
 A failed action never modifies the caller's draft.
 
@@ -66,7 +66,7 @@ export function applyDraft(raw: unknown, actions: readonly TableAction[]): Manua
 
 ## previewForPlayer
 
-导出接口 · 源码第 27 行。
+导出接口 · 源码第 29 行。
 
 ```ts
 export function previewForPlayer(raw: unknown, playerId: string): ManualTable;

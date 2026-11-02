@@ -1,6 +1,6 @@
 # game/packages/contracts/src/world-conversation.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -29,6 +29,7 @@ export type RollMode = keyof typeof ROLL_MODES;
 
 ```ts
 export interface MessageDetails {
+    important?: boolean;
     conversationId?: string;
     rollPrivacy?: RollPrivacy;
     documentResults?: (TableDocumentReference | null)[];
@@ -48,6 +49,7 @@ export interface MessageDetails {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `important` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `conversationId` | 是 | `string` | 见结构定义及所属功能文档 |
 | `rollPrivacy` | 是 | `RollPrivacy` | 见结构定义及所属功能文档 |
 | `documentResults` | 是 | `(TableDocumentReference&#124;null)[]` | 见结构定义及所属功能文档 |
@@ -102,6 +104,7 @@ export type ConversationCommand = {
     expected: import('./conversation-channels').ConversationChannel | null;
 } | {
     type: 'chat';
+    important?: boolean;
     conversationId?: string;
     channel: 'talk' | 'roleplay' | 'emote';
     text: string;
@@ -141,6 +144,7 @@ export type ConversationCommand = {
 | `分支7.channel` | 否 | `import('./conversation-channels').ConversationChannel` | 见结构定义及所属功能文档 |
 | `分支7.expected` | 否 | `import('./conversation-channels').ConversationChannel&#124;null` | 见结构定义及所属功能文档 |
 | `分支8.type` | 否 | `'chat'` | 见结构定义及所属功能文档 |
+| `分支8.important` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `分支8.conversationId` | 是 | `string` | 见结构定义及所属功能文档 |
 | `分支8.channel` | 否 | `'talk'&#124;'roleplay'&#124;'emote'` | 见结构定义及所属功能文档 |
 | `分支8.text` | 否 | `string` | 见结构定义及所属功能文档 |

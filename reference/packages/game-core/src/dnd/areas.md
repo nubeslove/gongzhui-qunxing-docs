@@ -1,14 +1,14 @@
 # game/packages/game-core/src/dnd/areas.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
-import {walledTemplateAffects,templateVisiblePolygons,dndMagicSuppression,type ManualTable,type SceneTemplate,type SceneWall,type MovementPoint} from '@aelzerant/contracts';
-import {DND_SPELL_EXECUTORS} from '@aelzerant/rules-engine';
+import {walledTemplateAffects,templateVisiblePolygons,templateContains,dndMagicSuppression,type ManualTable,type SceneTemplate,type SceneWall,type MovementPoint} from '@aelzerant/contracts';
+import {DND_SPELL_EXECUTORS,type DndSpellExecutor} from '@aelzerant/rules-engine';
 import {dndCoverFrom,dndRayBlocked} from './geometry';
 ```
 </details>
@@ -34,7 +34,7 @@ export function dndAreaWalls(table: ManualTable): SceneWall[];
 Shared targeting/authority geometry: a cell needs 50% coverage; creatures occupy every cell of their footprint.
 
 ```ts
-export function dndSpellArea(table: ManualTable, actorId: string, english: string, point: MovementPoint, slot?: number, placement?: {from:MovementPoint;range:number;spellOrigin?:MovementPoint;teleport?:boolean}): { template: SceneTemplate; cells: MovementPoint[]; targets: string[]; visiblePolygons: { x: number; y: number; }[][]; };
+export function dndSpellArea(table: ManualTable, actorId: string, english: string, point: MovementPoint, slot?: number, placement?: {from:MovementPoint;range:number;spellOrigin?:MovementPoint;teleport?:boolean}, override?: DndSpellExecutor): { template: SceneTemplate; cells: MovementPoint[]; targets: string[]; visiblePolygons: { x: number; y: number; }[][]; };
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
@@ -45,3 +45,4 @@ export function dndSpellArea(table: ManualTable, actorId: string, english: strin
 | `point` | 否 | `MovementPoint` | — |
 | `slot` | 是 | `number` | 1 |
 | `placement` | 是 | `{from:MovementPoint;range:number;spellOrigin?:MovementPoint;teleport?:boolean}` | — |
+| `override` | 是 | `DndSpellExecutor` | — |

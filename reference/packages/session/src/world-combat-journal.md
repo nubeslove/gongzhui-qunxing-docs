@@ -1,6 +1,6 @@
 # game/packages/session/src/world-combat-journal.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-02。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -8,9 +8,9 @@
 
 ```ts
 import {attributeModifier} from '@aelzerant/game-core';
-import {emptyStory,sceneMeasuredDistance,SCENE_MEASUREMENT_DEFAULTS,type CombatCard,type CombatTrace,type StoryMessage} from '@aelzerant/contracts';
+import {emptyStory,sceneMeasuredDistance,SCENE_MEASUREMENT_DEFAULTS,type CombatCard,type CombatTrace,type StoryMessage,type EncounterCommand} from '@aelzerant/contracts';
 import type {WorldDocument,WorldAction} from './world-types';
-import {recordCombatSettlement,storyRollStep} from './combat-journal';
+import {recordCombatSettlement,storyRollStep,beginCombatLog,finishCombatLog,combatLogActive} from './combat-journal';
 ```
 </details>
 
