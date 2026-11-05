@@ -3,31 +3,10 @@
   "title": "UtopiaIntent",
   "anyOf": [
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_64"
-    },
-    {
-      "$ref": "./contracts.schema.json#/$defs/Object_65"
-    },
-    {
-      "$ref": "./contracts.schema.json#/$defs/Object_66"
-    },
-    {
-      "$ref": "./contracts.schema.json#/$defs/Object_67"
-    },
-    {
-      "$ref": "./contracts.schema.json#/$defs/Object_68"
-    },
-    {
-      "$ref": "./contracts.schema.json#/$defs/Object_69"
-    },
-    {
-      "$ref": "./contracts.schema.json#/$defs/Object_70"
-    },
-    {
-      "$ref": "./contracts.schema.json#/$defs/Object_71"
-    },
-    {
       "$ref": "./contracts.schema.json#/$defs/Object_73"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_74"
     },
     {
       "$ref": "./contracts.schema.json#/$defs/Object_75"
@@ -51,13 +30,34 @@
       "$ref": "./contracts.schema.json#/$defs/Object_82"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_83"
+      "$ref": "./contracts.schema.json#/$defs/Object_84"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_85"
     },
     {
       "$ref": "./contracts.schema.json#/$defs/Object_86"
     },
     {
       "$ref": "./contracts.schema.json#/$defs/Object_87"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_88"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_89"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_91"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_92"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_95"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_96"
     }
   ]
 }

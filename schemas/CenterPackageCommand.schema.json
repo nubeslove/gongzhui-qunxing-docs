@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CenterPackageCommand",
+  "anyOf": [
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_759"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_760"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_761"
+    }
+  ]
+}

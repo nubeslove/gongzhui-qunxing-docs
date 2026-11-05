@@ -11405,6 +11405,1733 @@
     "anchor": "recordcheckpoint"
   },
   {
+    "name": "centerId",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "raw",
+        "optional": false,
+        "type": "unknown"
+      }
+    ],
+    "returns": "string",
+    "declaration": "export function centerId(raw: unknown): string;",
+    "line": 5,
+    "source": "game/packages/contracts/src/community-center-validation.ts",
+    "document": "reference/packages/contracts/src/community-center-validation.md",
+    "anchor": "centerid"
+  },
+  {
+    "name": "centerRecord",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "raw",
+        "optional": false,
+        "type": "unknown"
+      }
+    ],
+    "returns": "Record<string,unknown>",
+    "declaration": "export function centerRecord(raw: unknown): Record<string,unknown>;",
+    "line": 6,
+    "source": "game/packages/contracts/src/community-center-validation.ts",
+    "document": "reference/packages/contracts/src/community-center-validation.md",
+    "anchor": "centerrecord"
+  },
+  {
+    "name": "centerKeys",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "v",
+        "optional": false,
+        "type": "Record<string,unknown>"
+      },
+      {
+        "name": "keys",
+        "optional": false,
+        "type": "string[]"
+      }
+    ],
+    "returns": "void",
+    "declaration": "export function centerKeys(v: Record<string,unknown>, keys: string[]): void;",
+    "line": 7,
+    "source": "game/packages/contracts/src/community-center-validation.ts",
+    "document": "reference/packages/contracts/src/community-center-validation.md",
+    "anchor": "centerkeys"
+  },
+  {
+    "name": "centerText",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "raw",
+        "optional": false,
+        "type": "unknown"
+      },
+      {
+        "name": "max",
+        "optional": false,
+        "type": "number"
+      },
+      {
+        "name": "empty",
+        "optional": true,
+        "type": "boolean",
+        "default": "false"
+      }
+    ],
+    "returns": "string",
+    "declaration": "export function centerText(raw: unknown, max: number, empty?: boolean): string;",
+    "line": 8,
+    "source": "game/packages/contracts/src/community-center-validation.ts",
+    "document": "reference/packages/contracts/src/community-center-validation.md",
+    "anchor": "centertext"
+  },
+  {
+    "name": "centerVersion",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "raw",
+        "optional": false,
+        "type": "unknown"
+      }
+    ],
+    "returns": "string",
+    "declaration": "export function centerVersion(raw: unknown): string;",
+    "line": 9,
+    "source": "game/packages/contracts/src/community-center-validation.ts",
+    "document": "reference/packages/contracts/src/community-center-validation.md",
+    "anchor": "centerversion"
+  },
+  {
+    "name": "centerKind",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "raw",
+        "optional": false,
+        "type": "unknown"
+      }
+    ],
+    "returns": "CenterKind",
+    "declaration": "export function centerKind(raw: unknown): CenterKind;",
+    "line": 10,
+    "source": "game/packages/contracts/src/community-center-validation.ts",
+    "document": "reference/packages/contracts/src/community-center-validation.md",
+    "anchor": "centerkind"
+  },
+  {
+    "name": "centerSection",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "raw",
+        "optional": false,
+        "type": "unknown"
+      }
+    ],
+    "returns": "CommunitySectionId",
+    "declaration": "export function centerSection(raw: unknown): CommunitySectionId;",
+    "line": 11,
+    "source": "game/packages/contracts/src/community-center-validation.ts",
+    "document": "reference/packages/contracts/src/community-center-validation.md",
+    "anchor": "centersection"
+  },
+  {
+    "name": "centerRevision",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "raw",
+        "optional": false,
+        "type": "unknown"
+      }
+    ],
+    "returns": "number",
+    "declaration": "export function centerRevision(raw: unknown): number;",
+    "line": 12,
+    "source": "game/packages/contracts/src/community-center-validation.ts",
+    "document": "reference/packages/contracts/src/community-center-validation.md",
+    "anchor": "centerrevision"
+  },
+  {
+    "name": "parseCommunityPackage",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "raw",
+        "optional": false,
+        "type": "unknown"
+      }
+    ],
+    "returns": "CommunityPackageBody",
+    "declaration": "export function parseCommunityPackage(raw: unknown): CommunityPackageBody;",
+    "line": 14,
+    "source": "game/packages/contracts/src/community-center-validation.ts",
+    "document": "reference/packages/contracts/src/community-center-validation.md",
+    "anchor": "parsecommunitypackage"
+  },
+  {
+    "name": "COMMUNITY_SECTIONS",
+    "kind": "constant",
+    "exported": true,
+    "declaration": "export const COMMUNITY_SECTIONS = ['aaf', 'dnd5e-2024', 'lancer', 'terra-walker', 'new-utopia', 'otherworld-journey'] as const;",
+    "description": "Entry identity, not engine identity: variants must never share a catalog implicitly.",
+    "line": 5,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "community_sections"
+  },
+  {
+    "name": "CommunitySectionId",
+    "kind": "type",
+    "exported": true,
+    "description": "",
+    "declaration": "export type CommunitySectionId = typeof COMMUNITY_SECTIONS[number];",
+    "fields": [],
+    "line": 6,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "communitysectionid"
+  },
+  {
+    "name": "CenterKind",
+    "kind": "type",
+    "exported": true,
+    "description": "",
+    "declaration": "export type CenterKind = 'extension' | 'plugin' | 'homebrew';",
+    "fields": [],
+    "line": 7,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "centerkind"
+  },
+  {
+    "name": "CenterStatus",
+    "kind": "type",
+    "exported": true,
+    "description": "",
+    "declaration": "export type CenterStatus = 'draft' | 'listed' | 'unlisted' | 'deleted' | 'disabled';",
+    "fields": [],
+    "line": 8,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "centerstatus"
+  },
+  {
+    "name": "CommunityPackageBody",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface CommunityPackageBody {\n    format: 'qianxing.community';\n    schemaVersion: 1;\n    kind: CenterKind;\n    manifest: {\n        id: string;\n        name: string;\n        version: string;\n        description: string;\n        supportedSections: CommunitySectionId[];\n        categoryId?: string;\n        dependencies: Array<{\n            id: string;\n            version?: string;\n        }>;\n        conflicts: Array<{\n            id: string;\n            reason: string;\n        }>;\n    };\n    plugin?: {\n        manifest: RuntimeManifest;\n        code: string;\n    };\n    resources?: ResourcePackage;\n}",
+    "fields": [
+      {
+        "name": "format",
+        "optional": false,
+        "type": "'qianxing.community'",
+        "description": ""
+      },
+      {
+        "name": "schemaVersion",
+        "optional": false,
+        "type": "1",
+        "description": ""
+      },
+      {
+        "name": "kind",
+        "optional": false,
+        "type": "CenterKind",
+        "description": ""
+      },
+      {
+        "name": "manifest",
+        "optional": false,
+        "type": "{id:string;name:string;version:string;description:string;supportedSections:CommunitySectionId[];categoryId?:string;dependencies:Array<{id:string;version?:string}>;conflicts:Array<{id:string;reason:string}>}",
+        "description": ""
+      },
+      {
+        "name": "manifest.id",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "manifest.name",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "manifest.version",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "manifest.description",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "manifest.supportedSections",
+        "optional": false,
+        "type": "CommunitySectionId[]",
+        "description": ""
+      },
+      {
+        "name": "manifest.categoryId",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "manifest.dependencies",
+        "optional": false,
+        "type": "Array<{id:string;version?:string}>",
+        "description": ""
+      },
+      {
+        "name": "manifest.conflicts",
+        "optional": false,
+        "type": "Array<{id:string;reason:string}>",
+        "description": ""
+      },
+      {
+        "name": "plugin",
+        "optional": true,
+        "type": "{manifest:RuntimeManifest;code:string}",
+        "description": ""
+      },
+      {
+        "name": "plugin.manifest",
+        "optional": false,
+        "type": "RuntimeManifest",
+        "description": ""
+      },
+      {
+        "name": "plugin.code",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "resources",
+        "optional": true,
+        "type": "ResourcePackage",
+        "description": ""
+      }
+    ],
+    "line": 9,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "communitypackagebody"
+  },
+  {
+    "name": "CenterCategory",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface CenterCategory {\n    id: string;\n    sectionId: CommunitySectionId;\n    kind: CenterKind;\n    name: string;\n    parentId?: string;\n    revision: number;\n}",
+    "fields": [
+      {
+        "name": "id",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "sectionId",
+        "optional": false,
+        "type": "CommunitySectionId",
+        "description": ""
+      },
+      {
+        "name": "kind",
+        "optional": false,
+        "type": "CenterKind",
+        "description": ""
+      },
+      {
+        "name": "name",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "parentId",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "revision",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      }
+    ],
+    "line": 15,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "centercategory"
+  },
+  {
+    "name": "CenterVersion",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface CenterVersion {\n    version: string;\n    hash: string;\n    publishedAt: number;\n}",
+    "fields": [
+      {
+        "name": "version",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "hash",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "publishedAt",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      }
+    ],
+    "line": 16,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "centerversion"
+  },
+  {
+    "name": "CenterItem",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface CenterItem {\n    id: string;\n    name: string;\n    description: string;\n    kind: CenterKind;\n    supportedSections: CommunitySectionId[];\n    categoryId?: string;\n    authorId: string;\n    authorName: string;\n    revision: number;\n    status: CenterStatus;\n    version: string;\n    updatedAt: number;\n    canEdit: boolean;\n    canModerate: boolean;\n    canDisable: boolean;\n    installedVersion?: string;\n    worldEnabled?: boolean;\n    disabledReason?: string;\n}",
+    "fields": [
+      {
+        "name": "id",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "name",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "description",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "kind",
+        "optional": false,
+        "type": "CenterKind",
+        "description": ""
+      },
+      {
+        "name": "supportedSections",
+        "optional": false,
+        "type": "CommunitySectionId[]",
+        "description": ""
+      },
+      {
+        "name": "categoryId",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "authorId",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "authorName",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "revision",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "status",
+        "optional": false,
+        "type": "CenterStatus",
+        "description": ""
+      },
+      {
+        "name": "version",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "updatedAt",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "canEdit",
+        "optional": false,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "canModerate",
+        "optional": false,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "canDisable",
+        "optional": false,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "installedVersion",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "worldEnabled",
+        "optional": true,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "disabledReason",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      }
+    ],
+    "line": 17,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "centeritem"
+  },
+  {
+    "name": "CenterInstallation",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface CenterInstallation {\n    id: string;\n    version: string;\n    hash: string;\n    worldId?: string;\n    enabled: boolean;\n    revision: number;\n    installedAt: number;\n    disabledReason?: string;\n}",
+    "fields": [
+      {
+        "name": "id",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "version",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "hash",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "worldId",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "enabled",
+        "optional": false,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "revision",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "installedAt",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "disabledReason",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      }
+    ],
+    "line": 22,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "centerinstallation"
+  },
+  {
+    "name": "CenterCatalog",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface CenterCatalog {\n    items: CenterItem[];\n    categories: CenterCategory[];\n    canManageCategories: boolean;\n    canManageWorld: boolean;\n    worldId?: string;\n    total: number;\n}",
+    "fields": [
+      {
+        "name": "items",
+        "optional": false,
+        "type": "CenterItem[]",
+        "description": ""
+      },
+      {
+        "name": "categories",
+        "optional": false,
+        "type": "CenterCategory[]",
+        "description": ""
+      },
+      {
+        "name": "canManageCategories",
+        "optional": false,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "canManageWorld",
+        "optional": false,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "worldId",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "total",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      }
+    ],
+    "line": 23,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "centercatalog"
+  },
+  {
+    "name": "CenterDetail",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface CenterDetail {\n    item: CenterItem;\n    body: CommunityPackageBody;\n    draft?: CommunityPackageBody;\n    versions: CenterVersion[];\n    installation?: CenterInstallation;\n    grants: RuntimePermission[];\n    audit: CenterAudit[];\n}",
+    "fields": [
+      {
+        "name": "item",
+        "optional": false,
+        "type": "CenterItem",
+        "description": ""
+      },
+      {
+        "name": "body",
+        "optional": false,
+        "type": "CommunityPackageBody",
+        "description": ""
+      },
+      {
+        "name": "draft",
+        "optional": true,
+        "type": "CommunityPackageBody",
+        "description": ""
+      },
+      {
+        "name": "versions",
+        "optional": false,
+        "type": "CenterVersion[]",
+        "description": ""
+      },
+      {
+        "name": "installation",
+        "optional": true,
+        "type": "CenterInstallation",
+        "description": ""
+      },
+      {
+        "name": "grants",
+        "optional": false,
+        "type": "RuntimePermission[]",
+        "description": ""
+      },
+      {
+        "name": "audit",
+        "optional": false,
+        "type": "CenterAudit[]",
+        "description": ""
+      }
+    ],
+    "line": 24,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "centerdetail"
+  },
+  {
+    "name": "CenterAudit",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface CenterAudit {\n    at: number;\n    actorId: string;\n    action: string;\n    reason: string;\n}",
+    "fields": [
+      {
+        "name": "at",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "actorId",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "action",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "reason",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      }
+    ],
+    "line": 25,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "centeraudit"
+  },
+  {
+    "name": "CenterDependency",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface CenterDependency {\n    id: string;\n    version?: string;\n    installedVersion?: string;\n    satisfied: boolean;\n}",
+    "fields": [
+      {
+        "name": "id",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "version",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "installedVersion",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "satisfied",
+        "optional": false,
+        "type": "boolean",
+        "description": ""
+      }
+    ],
+    "line": 26,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "centerdependency"
+  },
+  {
+    "name": "CenterConflict",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface CenterConflict {\n    id: string;\n    name: string;\n    reason: string;\n}",
+    "fields": [
+      {
+        "name": "id",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "name",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "reason",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      }
+    ],
+    "line": 27,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "centerconflict"
+  },
+  {
+    "name": "CenterResourceImpact",
+    "kind": "interface",
+    "exported": true,
+    "description": "Resource identifiers and selectable providers are supplied by the resource-layer resolver.",
+    "declaration": "export interface CenterResourceImpact {\n    resourceId: string;\n    name: string;\n    providers: Array<{\n        id: string;\n        label: string;\n        version?: string;\n    }>;\n    selected?: string;\n    unresolved: boolean;\n    replacesBase: boolean;\n}",
+    "fields": [
+      {
+        "name": "resourceId",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "name",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "providers",
+        "optional": false,
+        "type": "Array<{id:string;label:string;version?:string}>",
+        "description": ""
+      },
+      {
+        "name": "selected",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "unresolved",
+        "optional": false,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "replacesBase",
+        "optional": false,
+        "type": "boolean",
+        "description": ""
+      }
+    ],
+    "line": 29,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "centerresourceimpact"
+  },
+  {
+    "name": "CenterInstallPreview",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface CenterInstallPreview {\n    id: string;\n    version: string;\n    hash: string;\n    worldId?: string;\n    body: CommunityPackageBody;\n    dependencies: CenterDependency[];\n    conflicts: CenterConflict[];\n    permissions: RuntimePermission[];\n    resourceImpacts: CenterResourceImpact[];\n    warnings: string[];\n    blockers: string[];\n    installation?: CenterInstallation;\n}",
+    "fields": [
+      {
+        "name": "id",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "version",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "hash",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "worldId",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "body",
+        "optional": false,
+        "type": "CommunityPackageBody",
+        "description": ""
+      },
+      {
+        "name": "dependencies",
+        "optional": false,
+        "type": "CenterDependency[]",
+        "description": ""
+      },
+      {
+        "name": "conflicts",
+        "optional": false,
+        "type": "CenterConflict[]",
+        "description": ""
+      },
+      {
+        "name": "permissions",
+        "optional": false,
+        "type": "RuntimePermission[]",
+        "description": ""
+      },
+      {
+        "name": "resourceImpacts",
+        "optional": false,
+        "type": "CenterResourceImpact[]",
+        "description": ""
+      },
+      {
+        "name": "warnings",
+        "optional": false,
+        "type": "string[]",
+        "description": ""
+      },
+      {
+        "name": "blockers",
+        "optional": false,
+        "type": "string[]",
+        "description": ""
+      },
+      {
+        "name": "installation",
+        "optional": true,
+        "type": "CenterInstallation",
+        "description": ""
+      }
+    ],
+    "line": 30,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "centerinstallpreview"
+  },
+  {
+    "name": "CenterResourceChoices",
+    "kind": "type",
+    "exported": true,
+    "description": "",
+    "declaration": "export type CenterResourceChoices = Record<string, string>;",
+    "fields": [],
+    "line": 35,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "centerresourcechoices"
+  },
+  {
+    "name": "CenterPackageCommand",
+    "kind": "type",
+    "exported": true,
+    "description": "",
+    "declaration": "export type CenterPackageCommand = {\n    action: 'save';\n    requestId: string;\n    expectedRevision: number;\n    body: CommunityPackageBody;\n} | {\n    action: 'publish';\n    requestId: string;\n    expectedRevision: number;\n} | {\n    action: 'unlist' | 'relist' | 'delete' | 'disable';\n    requestId: string;\n    expectedRevision: number;\n    reason: string;\n};",
+    "fields": [
+      {
+        "name": "分支1.action",
+        "optional": false,
+        "type": "'save'",
+        "description": ""
+      },
+      {
+        "name": "分支1.requestId",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "分支1.expectedRevision",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "分支1.body",
+        "optional": false,
+        "type": "CommunityPackageBody",
+        "description": ""
+      },
+      {
+        "name": "分支2.action",
+        "optional": false,
+        "type": "'publish'",
+        "description": ""
+      },
+      {
+        "name": "分支2.requestId",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "分支2.expectedRevision",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "分支3.action",
+        "optional": false,
+        "type": "'unlist'|'relist'|'delete'|'disable'",
+        "description": ""
+      },
+      {
+        "name": "分支3.requestId",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "分支3.expectedRevision",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "分支3.reason",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      }
+    ],
+    "line": 36,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "centerpackagecommand"
+  },
+  {
+    "name": "CenterCategoryCommand",
+    "kind": "type",
+    "exported": true,
+    "description": "",
+    "declaration": "export type CenterCategoryCommand = {\n    action: 'save';\n    id: string;\n    expectedRevision: number;\n    kind: CenterKind;\n    name: string;\n    parentId?: string;\n} | {\n    action: 'delete';\n    id: string;\n    expectedRevision: number;\n};",
+    "fields": [
+      {
+        "name": "分支1.action",
+        "optional": false,
+        "type": "'save'",
+        "description": ""
+      },
+      {
+        "name": "分支1.id",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "分支1.expectedRevision",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "分支1.kind",
+        "optional": false,
+        "type": "CenterKind",
+        "description": ""
+      },
+      {
+        "name": "分支1.name",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "分支1.parentId",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "分支2.action",
+        "optional": false,
+        "type": "'delete'",
+        "description": ""
+      },
+      {
+        "name": "分支2.id",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "分支2.expectedRevision",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      }
+    ],
+    "line": 40,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "centercategorycommand"
+  },
+  {
+    "name": "CenterInstallCommand",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface CenterInstallCommand {\n    id: string;\n    version: string;\n    hash: string;\n    worldId?: string;\n    expectedRevision?: number;\n    acknowledgeWarnings: boolean;\n    choices?: CenterResourceChoices;\n}",
+    "fields": [
+      {
+        "name": "id",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "version",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "hash",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "worldId",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "expectedRevision",
+        "optional": true,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "acknowledgeWarnings",
+        "optional": false,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "choices",
+        "optional": true,
+        "type": "CenterResourceChoices",
+        "description": ""
+      }
+    ],
+    "line": 43,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "centerinstallcommand"
+  },
+  {
+    "name": "CenterWorldCommand",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface CenterWorldCommand {\n    worldId: string;\n    id: string;\n    enabled: boolean;\n    expectedRevision: number;\n    choices?: CenterResourceChoices;\n    acknowledgeWarnings: boolean;\n}",
+    "fields": [
+      {
+        "name": "worldId",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "id",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "enabled",
+        "optional": false,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "expectedRevision",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "choices",
+        "optional": true,
+        "type": "CenterResourceChoices",
+        "description": ""
+      },
+      {
+        "name": "acknowledgeWarnings",
+        "optional": false,
+        "type": "boolean",
+        "description": ""
+      }
+    ],
+    "line": 44,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "centerworldcommand"
+  },
+  {
+    "name": "CenterConsentCommand",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface CenterConsentCommand {\n    id: string;\n    version: string;\n    hash: string;\n    worldId?: string;\n    grants: RuntimePermission[];\n}",
+    "fields": [
+      {
+        "name": "id",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "version",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "hash",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "worldId",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "grants",
+        "optional": false,
+        "type": "RuntimePermission[]",
+        "description": ""
+      }
+    ],
+    "line": 45,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "centerconsentcommand"
+  },
+  {
+    "name": "CenterRuntimeView",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface CenterRuntimeView {\n    revision: string;\n    packages: Array<{\n        installation: CenterInstallation;\n        body: CommunityPackageBody;\n        grants: RuntimePermission[];\n    }>;\n    notices: Array<{\n        id: string;\n        message: string;\n    }>;\n}",
+    "fields": [
+      {
+        "name": "revision",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "packages",
+        "optional": false,
+        "type": "Array<{installation:CenterInstallation;body:CommunityPackageBody;grants:RuntimePermission[]}>",
+        "description": ""
+      },
+      {
+        "name": "notices",
+        "optional": false,
+        "type": "Array<{id:string;message:string}>",
+        "description": ""
+      }
+    ],
+    "line": 46,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "centerruntimeview"
+  },
+  {
+    "name": "isCommunitySection",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "value",
+        "optional": false,
+        "type": "unknown"
+      }
+    ],
+    "returns": "value is CommunitySectionId",
+    "declaration": "export function isCommunitySection(value: unknown): value is CommunitySectionId;",
+    "line": 47,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "iscommunitysection"
+  },
+  {
+    "name": "communitySectionOf",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "world",
+        "optional": false,
+        "type": "{systemId?:string;ruleVariant?:{id:string}}"
+      }
+    ],
+    "returns": "CommunitySectionId",
+    "declaration": "export function communitySectionOf(world: {systemId?:string;ruleVariant?:{id:string}}): CommunitySectionId;",
+    "line": 48,
+    "source": "game/packages/contracts/src/community-center.ts",
+    "document": "reference/packages/contracts/src/community-center.md",
+    "anchor": "communitysectionof"
+  },
+  {
+    "name": "RuntimePermission",
+    "kind": "type",
+    "exported": true,
+    "description": "Third-party code has no DOM, native bridge, ambient files or network access.",
+    "declaration": "export type RuntimePermission = 'scene:read' | 'files:selected' | `action:${string}` | `service:${string}`;",
+    "fields": [],
+    "line": 2,
+    "source": "game/packages/contracts/src/community-plugin-runtime.ts",
+    "document": "reference/packages/contracts/src/community-plugin-runtime.md",
+    "anchor": "runtimepermission"
+  },
+  {
+    "name": "RuntimeService",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface RuntimeService {\n    id: string;\n    label: string;\n    origin: string;\n    pathPrefixes: string[];\n    methods: ('GET' | 'POST')[];\n}",
+    "fields": [
+      {
+        "name": "id",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "origin",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "pathPrefixes",
+        "optional": false,
+        "type": "string[]",
+        "description": ""
+      },
+      {
+        "name": "methods",
+        "optional": false,
+        "type": "('GET'|'POST')[]",
+        "description": ""
+      }
+    ],
+    "line": 3,
+    "source": "game/packages/contracts/src/community-plugin-runtime.ts",
+    "document": "reference/packages/contracts/src/community-plugin-runtime.md",
+    "anchor": "runtimeservice"
+  },
+  {
+    "name": "RuntimeContribution",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface RuntimeContribution {\n    id: string;\n    title: string;\n    requires: RuntimePermission[];\n}",
+    "fields": [
+      {
+        "name": "id",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "title",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "requires",
+        "optional": false,
+        "type": "RuntimePermission[]",
+        "description": ""
+      }
+    ],
+    "line": 4,
+    "source": "game/packages/contracts/src/community-plugin-runtime.ts",
+    "document": "reference/packages/contracts/src/community-plugin-runtime.md",
+    "anchor": "runtimecontribution"
+  },
+  {
+    "name": "RuntimeManifest",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface RuntimeManifest {\n    apiVersion: 1;\n    id: string;\n    version: string;\n    entry: string;\n    permissions: {\n        sceneRead?: true;\n        selectedFiles?: true;\n        actions: string[];\n        services: RuntimeService[];\n    };\n    contributions: {\n        panels: RuntimeContribution[];\n        mapTools: RuntimeContribution[];\n        processors: RuntimeContribution[];\n    };\n}",
+    "fields": [
+      {
+        "name": "apiVersion",
+        "optional": false,
+        "type": "1",
+        "description": ""
+      },
+      {
+        "name": "id",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "version",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "entry",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "permissions",
+        "optional": false,
+        "type": "{sceneRead?:true; selectedFiles?:true; actions:string[]; services:RuntimeService[]}",
+        "description": ""
+      },
+      {
+        "name": "permissions.sceneRead",
+        "optional": true,
+        "type": "true",
+        "description": ""
+      },
+      {
+        "name": "permissions.selectedFiles",
+        "optional": true,
+        "type": "true",
+        "description": ""
+      },
+      {
+        "name": "permissions.actions",
+        "optional": false,
+        "type": "string[]",
+        "description": ""
+      },
+      {
+        "name": "permissions.services",
+        "optional": false,
+        "type": "RuntimeService[]",
+        "description": ""
+      },
+      {
+        "name": "contributions",
+        "optional": false,
+        "type": "{panels:RuntimeContribution[]; mapTools:RuntimeContribution[]; processors:RuntimeContribution[]}",
+        "description": ""
+      },
+      {
+        "name": "contributions.panels",
+        "optional": false,
+        "type": "RuntimeContribution[]",
+        "description": ""
+      },
+      {
+        "name": "contributions.mapTools",
+        "optional": false,
+        "type": "RuntimeContribution[]",
+        "description": ""
+      },
+      {
+        "name": "contributions.processors",
+        "optional": false,
+        "type": "RuntimeContribution[]",
+        "description": ""
+      }
+    ],
+    "line": 5,
+    "source": "game/packages/contracts/src/community-plugin-runtime.ts",
+    "document": "reference/packages/contracts/src/community-plugin-runtime.md",
+    "anchor": "runtimemanifest"
+  },
+  {
+    "name": "RuntimeNode",
+    "kind": "type",
+    "exported": true,
+    "description": "",
+    "declaration": "export type RuntimeNode = {\n    type: 'text';\n    text: string;\n} | {\n    type: 'button';\n    text: string;\n    event: string;\n} | {\n    type: 'input';\n    label: string;\n    key: string;\n    value: string;\n} | {\n    type: 'table';\n    columns: string[];\n    rows: string[][];\n};",
+    "fields": [
+      {
+        "name": "分支1.type",
+        "optional": false,
+        "type": "'text'",
+        "description": ""
+      },
+      {
+        "name": "分支1.text",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "分支2.type",
+        "optional": false,
+        "type": "'button'",
+        "description": ""
+      },
+      {
+        "name": "分支2.text",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "分支2.event",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "分支3.type",
+        "optional": false,
+        "type": "'input'",
+        "description": ""
+      },
+      {
+        "name": "分支3.label",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "分支3.key",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "分支3.value",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "分支4.type",
+        "optional": false,
+        "type": "'table'",
+        "description": ""
+      },
+      {
+        "name": "分支4.columns",
+        "optional": false,
+        "type": "string[]",
+        "description": ""
+      },
+      {
+        "name": "分支4.rows",
+        "optional": false,
+        "type": "string[][]",
+        "description": ""
+      }
+    ],
+    "line": 10,
+    "source": "game/packages/contracts/src/community-plugin-runtime.ts",
+    "document": "reference/packages/contracts/src/community-plugin-runtime.md",
+    "anchor": "runtimenode"
+  },
+  {
+    "name": "RuntimeServiceRequest",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface RuntimeServiceRequest {\n    path: string;\n    method: 'GET' | 'POST';\n    body?: string;\n}",
+    "fields": [
+      {
+        "name": "path",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "method",
+        "optional": false,
+        "type": "'GET'|'POST'",
+        "description": ""
+      },
+      {
+        "name": "body",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      }
+    ],
+    "line": 15,
+    "source": "game/packages/contracts/src/community-plugin-runtime.ts",
+    "document": "reference/packages/contracts/src/community-plugin-runtime.md",
+    "anchor": "runtimeservicerequest"
+  },
+  {
+    "name": "RuntimeServiceResponse",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface RuntimeServiceResponse {\n    status: number;\n    body: string;\n    contentType: string;\n}",
+    "fields": [
+      {
+        "name": "status",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "body",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "contentType",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      }
+    ],
+    "line": 16,
+    "source": "game/packages/contracts/src/community-plugin-runtime.ts",
+    "document": "reference/packages/contracts/src/community-plugin-runtime.md",
+    "anchor": "runtimeserviceresponse"
+  },
+  {
+    "name": "runtimeDeclaredPermissions",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "m",
+        "optional": false,
+        "type": "RuntimeManifest"
+      }
+    ],
+    "returns": "RuntimePermission[]",
+    "declaration": "export function runtimeDeclaredPermissions(m: RuntimeManifest): RuntimePermission[];",
+    "line": 25,
+    "source": "game/packages/contracts/src/community-plugin-runtime.ts",
+    "document": "reference/packages/contracts/src/community-plugin-runtime.md",
+    "anchor": "runtimedeclaredpermissions"
+  },
+  {
+    "name": "runtimeServiceUrl",
+    "kind": "function",
+    "exported": true,
+    "description": "Restrict URL syntax before WHATWG normalization can hide traversal.",
+    "parameters": [
+      {
+        "name": "service",
+        "optional": false,
+        "type": "RuntimeService"
+      },
+      {
+        "name": "path",
+        "optional": false,
+        "type": "string"
+      }
+    ],
+    "returns": "string",
+    "declaration": "export function runtimeServiceUrl(service: RuntimeService, path: string): string;",
+    "line": 27,
+    "source": "game/packages/contracts/src/community-plugin-runtime.ts",
+    "document": "reference/packages/contracts/src/community-plugin-runtime.md",
+    "anchor": "runtimeserviceurl"
+  },
+  {
+    "name": "parseRuntimeManifest",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "value",
+        "optional": false,
+        "type": "unknown"
+      }
+    ],
+    "returns": "RuntimeManifest",
+    "declaration": "export function parseRuntimeManifest(value: unknown): RuntimeManifest;",
+    "line": 33,
+    "source": "game/packages/contracts/src/community-plugin-runtime.ts",
+    "document": "reference/packages/contracts/src/community-plugin-runtime.md",
+    "anchor": "parseruntimemanifest"
+  },
+  {
+    "name": "parseRuntimeNodes",
+    "kind": "function",
+    "exported": true,
+    "description": "Only inert host-rendered data; never HTML, CSS, scripts, images or navigable URLs.",
+    "parameters": [
+      {
+        "name": "value",
+        "optional": false,
+        "type": "unknown"
+      }
+    ],
+    "returns": "RuntimeNode[]",
+    "declaration": "export function parseRuntimeNodes(value: unknown): RuntimeNode[];",
+    "line": 50,
+    "source": "game/packages/contracts/src/community-plugin-runtime.ts",
+    "document": "reference/packages/contracts/src/community-plugin-runtime.md",
+    "anchor": "parseruntimenodes"
+  },
+  {
     "name": "COMMUNITY_SCOPES",
     "kind": "constant",
     "exported": true,
@@ -15416,7 +17143,7 @@
     "description": "",
     "declaration": "export type Capability = keyof typeof CONTROL_CAPABILITIES;",
     "fields": [],
-    "line": 15,
+    "line": 16,
     "source": "game/packages/contracts/src/control.ts",
     "document": "reference/packages/contracts/src/control.md",
     "anchor": "capability"
@@ -15426,7 +17153,7 @@
     "kind": "type",
     "exported": true,
     "description": "",
-    "declaration": "export type ControlScope = {\n    kind: 'global';\n} | {\n    kind: 'system' | 'world' | 'content';\n    id: string;\n};",
+    "declaration": "export type ControlScope = {\n    kind: 'global';\n} | {\n    kind: 'system' | 'world' | 'content' | 'section';\n    id: string;\n};",
     "fields": [
       {
         "name": "分支1.kind",
@@ -15437,7 +17164,7 @@
       {
         "name": "分支2.kind",
         "optional": false,
-        "type": "'system'|'world'|'content'",
+        "type": "'system'|'world'|'content'|'section'",
         "description": ""
       },
       {
@@ -15447,7 +17174,7 @@
         "description": ""
       }
     ],
-    "line": 16,
+    "line": 17,
     "source": "game/packages/contracts/src/control.ts",
     "document": "reference/packages/contracts/src/control.md",
     "anchor": "controlscope"
@@ -15457,7 +17184,7 @@
     "kind": "interface",
     "exported": true,
     "description": "",
-    "declaration": "export interface ControlTarget {\n    worldId?: string;\n    systemId?: string;\n    contentId?: string;\n}",
+    "declaration": "export interface ControlTarget {\n    worldId?: string;\n    systemId?: string;\n    contentId?: string;\n    sectionId?: string;\n}",
     "fields": [
       {
         "name": "worldId",
@@ -15476,9 +17203,15 @@
         "optional": true,
         "type": "string",
         "description": ""
+      },
+      {
+        "name": "sectionId",
+        "optional": true,
+        "type": "string",
+        "description": ""
       }
     ],
-    "line": 17,
+    "line": 18,
     "source": "game/packages/contracts/src/control.ts",
     "document": "reference/packages/contracts/src/control.md",
     "anchor": "controltarget"
@@ -15509,7 +17242,7 @@
         "description": ""
       }
     ],
-    "line": 18,
+    "line": 19,
     "source": "game/packages/contracts/src/control.ts",
     "document": "reference/packages/contracts/src/control.md",
     "anchor": "controlrole"
@@ -15546,7 +17279,7 @@
         "description": ""
       }
     ],
-    "line": 19,
+    "line": 20,
     "source": "game/packages/contracts/src/control.ts",
     "document": "reference/packages/contracts/src/control.md",
     "anchor": "rolebinding"
@@ -15577,7 +17310,7 @@
         "description": ""
       }
     ],
-    "line": 20,
+    "line": 21,
     "source": "game/packages/contracts/src/control.ts",
     "document": "reference/packages/contracts/src/control.md",
     "anchor": "controlaccess"
@@ -15614,7 +17347,7 @@
         "description": ""
       }
     ],
-    "line": 21,
+    "line": 22,
     "source": "game/packages/contracts/src/control.ts",
     "document": "reference/packages/contracts/src/control.md",
     "anchor": "controlauditevidence"
@@ -15687,7 +17420,7 @@
         "description": ""
       }
     ],
-    "line": 22,
+    "line": 23,
     "source": "game/packages/contracts/src/control.ts",
     "document": "reference/packages/contracts/src/control.md",
     "anchor": "controlaudit"
@@ -15699,7 +17432,7 @@
     "description": "",
     "declaration": "export type ControlIssueKind = 'ownership' | 'deletion' | 'audit';",
     "fields": [],
-    "line": 23,
+    "line": 24,
     "source": "game/packages/contracts/src/control.ts",
     "document": "reference/packages/contracts/src/control.md",
     "anchor": "controlissuekind"
@@ -15742,7 +17475,7 @@
         "description": ""
       }
     ],
-    "line": 24,
+    "line": 25,
     "source": "game/packages/contracts/src/control.ts",
     "document": "reference/packages/contracts/src/control.md",
     "anchor": "controlissue"
@@ -15785,7 +17518,7 @@
         "description": ""
       }
     ],
-    "line": 25,
+    "line": 26,
     "source": "game/packages/contracts/src/control.ts",
     "document": "reference/packages/contracts/src/control.md",
     "anchor": "controldiagnostics"
@@ -15809,7 +17542,7 @@
     ],
     "returns": "boolean",
     "declaration": "export function capabilitySupportsScope(capability: Capability, kind: ControlScope['kind']): boolean;",
-    "line": 28,
+    "line": 29,
     "source": "game/packages/contracts/src/control.ts",
     "document": "reference/packages/contracts/src/control.md",
     "anchor": "capabilitysupportsscope"
@@ -15828,7 +17561,7 @@
     ],
     "returns": "value is Capability",
     "declaration": "export function validCapability(value: unknown): value is Capability;",
-    "line": 33,
+    "line": 35,
     "source": "game/packages/contracts/src/control.ts",
     "document": "reference/packages/contracts/src/control.md",
     "anchor": "validcapability"
@@ -15853,7 +17586,7 @@
     ],
     "returns": "boolean",
     "declaration": "export function scopeMatches(scope: ControlScope, target?: ControlTarget): boolean;",
-    "line": 34,
+    "line": 36,
     "source": "game/packages/contracts/src/control.ts",
     "document": "reference/packages/contracts/src/control.md",
     "anchor": "scopematches"
@@ -15883,7 +17616,7 @@
     ],
     "returns": "boolean",
     "declaration": "export function controlAllows(access: ControlAccess, capability: Capability, target?: ControlTarget): boolean;",
-    "line": 37,
+    "line": 39,
     "source": "game/packages/contracts/src/control.ts",
     "document": "reference/packages/contracts/src/control.md",
     "anchor": "controlallows"
@@ -15902,7 +17635,7 @@
     ],
     "returns": "value is ControlScope",
     "declaration": "export function validControlScope(value: unknown): value is ControlScope;",
-    "line": 40,
+    "line": 42,
     "source": "game/packages/contracts/src/control.ts",
     "document": "reference/packages/contracts/src/control.md",
     "anchor": "validcontrolscope"
@@ -41511,7 +43244,7 @@
     ],
     "returns": "DocumentAccess",
     "declaration": "export function parseResourceAccess(raw: unknown): DocumentAccess;",
-    "line": 3,
+    "line": 4,
     "source": "game/packages/contracts/src/resource-access.ts",
     "document": "reference/packages/contracts/src/resource-access.md",
     "anchor": "parseresourceaccess"
@@ -41541,7 +43274,7 @@
     ],
     "returns": "AccessLevel",
     "declaration": "export function resourceAccess(resource: StoryResource, playerId?: string, gm?: boolean): AccessLevel;",
-    "line": 4,
+    "line": 5,
     "source": "game/packages/contracts/src/resource-access.ts",
     "document": "reference/packages/contracts/src/resource-access.md",
     "anchor": "resourceaccess"
@@ -41552,7 +43285,7 @@
     "exported": true,
     "declaration": "export const resourceReadable: (level: AccessLevel): level is \"observer\" | \"owner\";",
     "description": "",
-    "line": 5,
+    "line": 6,
     "source": "game/packages/contracts/src/resource-access.ts",
     "document": "reference/packages/contracts/src/resource-access.md",
     "anchor": "resourcereadable"
@@ -41576,7 +43309,7 @@
     ],
     "returns": "StoryResource[]",
     "declaration": "export function projectResources(story: StoryWorkspace, playerId?: string): StoryResource[];",
-    "line": 6,
+    "line": 7,
     "source": "game/packages/contracts/src/resource-access.ts",
     "document": "reference/packages/contracts/src/resource-access.md",
     "anchor": "projectresources"
@@ -42059,12 +43792,517 @@
     "anchor": "officialresourcereport"
   },
   {
+    "name": "LancerPackageEquipment",
+    "kind": "interface",
+    "exported": true,
+    "description": "Data-only definitions. Package identity/version must also match its signed center envelope.",
+    "declaration": "export interface LancerPackageEquipment {\n    id: string;\n    kind: 'weapon' | 'system';\n    name: string;\n    sp: number;\n    limited: number;\n    notes: string;\n    automation: LancerEquipmentAutomation;\n    size?: 'aux' | 'main' | 'heavy' | 'superheavy';\n}",
+    "fields": [
+      {
+        "name": "id",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "kind",
+        "optional": false,
+        "type": "'weapon'|'system'",
+        "description": ""
+      },
+      {
+        "name": "name",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "sp",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "limited",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "notes",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "automation",
+        "optional": false,
+        "type": "LancerEquipmentAutomation",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "optional": true,
+        "type": "'aux'|'main'|'heavy'|'superheavy'",
+        "description": ""
+      }
+    ],
+    "line": 7,
+    "source": "game/packages/contracts/src/resource-packages.ts",
+    "document": "reference/packages/contracts/src/resource-packages.md",
+    "anchor": "lancerpackageequipment"
+  },
+  {
+    "name": "ResourcePackage",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface ResourcePackage {\n    schemaVersion: 1;\n    packageId: string;\n    version: string;\n    systemId: GameSystemId;\n    resources: StoryResource[];\n    lancerEquipment?: LancerPackageEquipment[];\n}",
+    "fields": [
+      {
+        "name": "schemaVersion",
+        "optional": false,
+        "type": "1",
+        "description": ""
+      },
+      {
+        "name": "packageId",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "version",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "systemId",
+        "optional": false,
+        "type": "GameSystemId",
+        "description": ""
+      },
+      {
+        "name": "resources",
+        "optional": false,
+        "type": "StoryResource[]",
+        "description": ""
+      },
+      {
+        "name": "lancerEquipment",
+        "optional": true,
+        "type": "LancerPackageEquipment[]",
+        "description": ""
+      }
+    ],
+    "line": 11,
+    "source": "game/packages/contracts/src/resource-packages.ts",
+    "document": "reference/packages/contracts/src/resource-packages.md",
+    "anchor": "resourcepackage"
+  },
+  {
+    "name": "InstalledResourcePackage",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface InstalledResourcePackage {\n    package: ResourcePackage;\n    hash: string;\n    enabled: boolean;\n}",
+    "fields": [
+      {
+        "name": "package",
+        "optional": false,
+        "type": "ResourcePackage",
+        "description": ""
+      },
+      {
+        "name": "hash",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "enabled",
+        "optional": false,
+        "type": "boolean",
+        "description": ""
+      }
+    ],
+    "line": 12,
+    "source": "game/packages/contracts/src/resource-packages.ts",
+    "document": "reference/packages/contracts/src/resource-packages.md",
+    "anchor": "installedresourcepackage"
+  },
+  {
+    "name": "ResourcePackageSelection",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface ResourcePackageSelection {\n    resourceId: string;\n    providerId: string;\n    world?: StoryResource;\n}",
+    "fields": [
+      {
+        "name": "resourceId",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "providerId",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "world",
+        "optional": true,
+        "type": "StoryResource",
+        "description": ""
+      }
+    ],
+    "line": 13,
+    "source": "game/packages/contracts/src/resource-packages.ts",
+    "document": "reference/packages/contracts/src/resource-packages.md",
+    "anchor": "resourcepackageselection"
+  },
+  {
+    "name": "ResourcePackageState",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface ResourcePackageState {\n    installed: InstalledResourcePackage[];\n    selections: ResourcePackageSelection[];\n}",
+    "fields": [
+      {
+        "name": "installed",
+        "optional": false,
+        "type": "InstalledResourcePackage[]",
+        "description": ""
+      },
+      {
+        "name": "selections",
+        "optional": false,
+        "type": "ResourcePackageSelection[]",
+        "description": ""
+      }
+    ],
+    "line": 14,
+    "source": "game/packages/contracts/src/resource-packages.ts",
+    "document": "reference/packages/contracts/src/resource-packages.md",
+    "anchor": "resourcepackagestate"
+  },
+  {
+    "name": "ResourcePackageImpact",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface ResourcePackageImpact {\n    resourceId: string;\n    name: string;\n    providers: {\n        id: string;\n        label: string;\n        version?: string;\n    }[];\n    selected?: string;\n    unresolved: boolean;\n    replacesBase: boolean;\n}",
+    "fields": [
+      {
+        "name": "resourceId",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "name",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "providers",
+        "optional": false,
+        "type": "{id:string;label:string;version?:string}[]",
+        "description": ""
+      },
+      {
+        "name": "providers.[].id",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "providers.[].label",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "providers.[].version",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "selected",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "unresolved",
+        "optional": false,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "replacesBase",
+        "optional": false,
+        "type": "boolean",
+        "description": ""
+      }
+    ],
+    "line": 15,
+    "source": "game/packages/contracts/src/resource-packages.ts",
+    "document": "reference/packages/contracts/src/resource-packages.md",
+    "anchor": "resourcepackageimpact"
+  },
+  {
+    "name": "LANCER_RESOURCE_PREFIX",
+    "kind": "constant",
+    "exported": true,
+    "declaration": "export const LANCER_RESOURCE_PREFIX = 'lancer-equipment:';",
+    "description": "",
+    "line": 16,
+    "source": "game/packages/contracts/src/resource-packages.ts",
+    "document": "reference/packages/contracts/src/resource-packages.md",
+    "anchor": "lancer_resource_prefix"
+  },
+  {
+    "name": "parseLancerPackageEquipment",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "raw",
+        "optional": false,
+        "type": "unknown"
+      }
+    ],
+    "returns": "LancerPackageEquipment",
+    "declaration": "export function parseLancerPackageEquipment(raw: unknown): LancerPackageEquipment;",
+    "line": 20,
+    "source": "game/packages/contracts/src/resource-packages.ts",
+    "document": "reference/packages/contracts/src/resource-packages.md",
+    "anchor": "parselancerpackageequipment"
+  },
+  {
+    "name": "parseResourcePackage",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "raw",
+        "optional": false,
+        "type": "unknown"
+      }
+    ],
+    "returns": "ResourcePackage",
+    "declaration": "export function parseResourcePackage(raw: unknown): ResourcePackage;",
+    "line": 31,
+    "source": "game/packages/contracts/src/resource-packages.ts",
+    "document": "reference/packages/contracts/src/resource-packages.md",
+    "anchor": "parseresourcepackage"
+  },
+  {
+    "name": "parseResourcePackageState",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "raw",
+        "optional": false,
+        "type": "unknown"
+      }
+    ],
+    "returns": "ResourcePackageState",
+    "declaration": "export function parseResourcePackageState(raw: unknown): ResourcePackageState;",
+    "line": 45,
+    "source": "game/packages/contracts/src/resource-packages.ts",
+    "document": "reference/packages/contracts/src/resource-packages.md",
+    "anchor": "parseresourcepackagestate"
+  },
+  {
+    "name": "resourcePackageProvider",
+    "kind": "function-value",
+    "exported": true,
+    "declaration": "export const resourcePackageProvider: (i: InstalledResourcePackage): string;",
+    "description": "",
+    "line": 51,
+    "source": "game/packages/contracts/src/resource-packages.ts",
+    "document": "reference/packages/contracts/src/resource-packages.md",
+    "anchor": "resourcepackageprovider"
+  },
+  {
+    "name": "Candidate",
+    "kind": "interface",
+    "exported": false,
+    "description": "",
+    "declaration": "interface Candidate {\n    providerId: string;\n    label: string;\n    version?: string;\n    resource?: StoryResource;\n    equipment?: LancerPackageEquipment;\n}",
+    "fields": [
+      {
+        "name": "providerId",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "version",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "resource",
+        "optional": true,
+        "type": "StoryResource",
+        "description": ""
+      },
+      {
+        "name": "equipment",
+        "optional": true,
+        "type": "LancerPackageEquipment",
+        "description": ""
+      }
+    ],
+    "line": 52,
+    "source": "game/packages/contracts/src/resource-packages.ts",
+    "document": "reference/packages/contracts/src/resource-packages.md",
+    "anchor": "candidate"
+  },
+  {
+    "name": "resolveResourcePackages",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "story",
+        "optional": false,
+        "type": "StoryWorkspace"
+      },
+      {
+        "name": "builtin",
+        "optional": true,
+        "type": "readonly StoryResource[]",
+        "default": "[]"
+      }
+    ],
+    "returns": "{ resources: StoryResource[]; equipment: Map<string, LancerPackageEquipment>; impacts: ResourcePackageImpact[]; }",
+    "declaration": "export function resolveResourcePackages(story: StoryWorkspace, builtin?: readonly StoryResource[]): { resources: StoryResource[]; equipment: Map<string, LancerPackageEquipment>; impacts: ResourcePackageImpact[]; };",
+    "line": 53,
+    "source": "game/packages/contracts/src/resource-packages.ts",
+    "document": "reference/packages/contracts/src/resource-packages.md",
+    "anchor": "resolveresourcepackages"
+  },
+  {
+    "name": "effectiveStoryResources",
+    "kind": "function-value",
+    "exported": true,
+    "declaration": "export const effectiveStoryResources: (story: StoryWorkspace): StoryResource[];",
+    "description": "",
+    "line": 72,
+    "source": "game/packages/contracts/src/resource-packages.ts",
+    "document": "reference/packages/contracts/src/resource-packages.md",
+    "anchor": "effectivestoryresources"
+  },
+  {
+    "name": "installResourcePackage",
+    "kind": "function",
+    "exported": true,
+    "description": "Server-only installation hook. The caller verifies release bytes/hash before entering its room queue.",
+    "parameters": [
+      {
+        "name": "story",
+        "optional": false,
+        "type": "StoryWorkspace"
+      },
+      {
+        "name": "raw",
+        "optional": false,
+        "type": "unknown"
+      },
+      {
+        "name": "hash",
+        "optional": false,
+        "type": "string"
+      }
+    ],
+    "returns": "StoryWorkspace",
+    "declaration": "export function installResourcePackage(story: StoryWorkspace, raw: unknown, hash: string): StoryWorkspace;",
+    "line": 74,
+    "source": "game/packages/contracts/src/resource-packages.ts",
+    "document": "reference/packages/contracts/src/resource-packages.md",
+    "anchor": "installresourcepackage"
+  },
+  {
+    "name": "enableResourcePackage",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "story",
+        "optional": false,
+        "type": "StoryWorkspace"
+      },
+      {
+        "name": "packageId",
+        "optional": false,
+        "type": "string"
+      },
+      {
+        "name": "enabled",
+        "optional": false,
+        "type": "boolean"
+      },
+      {
+        "name": "choices",
+        "optional": true,
+        "type": "Record<string,string>",
+        "default": "{}"
+      }
+    ],
+    "returns": "StoryWorkspace",
+    "declaration": "export function enableResourcePackage(story: StoryWorkspace, packageId: string, enabled: boolean, choices?: Record<string,string>): StoryWorkspace;",
+    "line": 81,
+    "source": "game/packages/contracts/src/resource-packages.ts",
+    "document": "reference/packages/contracts/src/resource-packages.md",
+    "anchor": "enableresourcepackage"
+  },
+  {
+    "name": "projectResourcePackageEquipment",
+    "kind": "function",
+    "exported": true,
+    "description": "Published equipment selected by the GM is world-visible; private story definitions and disabled sources are not.",
+    "parameters": [
+      {
+        "name": "story",
+        "optional": false,
+        "type": "StoryWorkspace"
+      }
+    ],
+    "returns": "ResourcePackageState|undefined",
+    "declaration": "export function projectResourcePackageEquipment(story: StoryWorkspace): ResourcePackageState|undefined;",
+    "line": 92,
+    "source": "game/packages/contracts/src/resource-packages.ts",
+    "document": "reference/packages/contracts/src/resource-packages.md",
+    "anchor": "projectresourcepackageequipment"
+  },
+  {
     "name": "RESOURCE_FILE_MAX_BYTES",
     "kind": "constant",
     "exported": true,
     "declaration": "export const RESOURCE_FILE_MAX_BYTES = 1900000;",
     "description": "",
-    "line": 7,
+    "line": 8,
     "source": "game/packages/contracts/src/resource-transfer.ts",
     "document": "reference/packages/contracts/src/resource-transfer.md",
     "anchor": "resource_file_max_bytes"
@@ -42107,7 +44345,7 @@
         "description": ""
       }
     ],
-    "line": 8,
+    "line": 9,
     "source": "game/packages/contracts/src/resource-transfer.ts",
     "document": "reference/packages/contracts/src/resource-transfer.md",
     "anchor": "resourcefile"
@@ -42198,7 +44436,7 @@
         "description": ""
       }
     ],
-    "line": 9,
+    "line": 10,
     "source": "game/packages/contracts/src/resource-transfer.ts",
     "document": "reference/packages/contracts/src/resource-transfer.md",
     "anchor": "resourcetransfercommand"
@@ -42217,7 +44455,7 @@
     ],
     "returns": "ResourceFile",
     "declaration": "export function parseResourceFile(raw: unknown): ResourceFile;",
-    "line": 16,
+    "line": 17,
     "source": "game/packages/contracts/src/resource-transfer.ts",
     "document": "reference/packages/contracts/src/resource-transfer.md",
     "anchor": "parseresourcefile"
@@ -42251,7 +44489,7 @@
     ],
     "returns": "ResourceFile",
     "declaration": "export function exportResourceFile(story: StoryWorkspace, rootId: string, gm: boolean, playerId?: string): ResourceFile;",
-    "line": 23,
+    "line": 24,
     "source": "game/packages/contracts/src/resource-transfer.ts",
     "document": "reference/packages/contracts/src/resource-transfer.md",
     "anchor": "exportresourcefile"
@@ -42270,7 +44508,7 @@
     ],
     "returns": "string[]",
     "declaration": "export function resourceTransferWarnings(file: ResourceFile): string[];",
-    "line": 26,
+    "line": 27,
     "source": "game/packages/contracts/src/resource-transfer.ts",
     "document": "reference/packages/contracts/src/resource-transfer.md",
     "anchor": "resourcetransferwarnings"
@@ -42305,7 +44543,7 @@
     ],
     "returns": "StoryResource[]",
     "declaration": "export function transferResourceFile(file: ResourceFile, id: string, name: string, options?: {target?:StoryResource;sameWorld?:boolean;newId?:()=>string;onMap?:(ids:ReadonlyMap<string,string>)=>void}): StoryResource[];",
-    "line": 27,
+    "line": 28,
     "source": "game/packages/contracts/src/resource-transfer.ts",
     "document": "reference/packages/contracts/src/resource-transfer.md",
     "anchor": "transferresourcefile"
@@ -54887,7 +57125,7 @@
     "description": "",
     "declaration": "export type ResourceKind = keyof typeof RESOURCE_KINDS;",
     "fields": [],
-    "line": 52,
+    "line": 53,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "resourcekind"
@@ -54899,7 +57137,7 @@
     "description": "",
     "declaration": "export type StoryChannel = keyof typeof STORY_CHANNELS;",
     "fields": [],
-    "line": 53,
+    "line": 54,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "storychannel"
@@ -54911,7 +57149,7 @@
     "description": "",
     "declaration": "export type StoryVisibility = 'gm' | 'public';",
     "fields": [],
-    "line": 54,
+    "line": 55,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "storyvisibility"
@@ -54948,7 +57186,7 @@
         "description": ""
       }
     ],
-    "line": 55,
+    "line": 56,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "storymember"
@@ -54979,7 +57217,7 @@
         "description": ""
       }
     ],
-    "line": 56,
+    "line": 57,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "storypack"
@@ -55016,7 +57254,7 @@
         "description": ""
       }
     ],
-    "line": 57,
+    "line": 58,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "resourceeffect"
@@ -55107,7 +57345,7 @@
         "description": ""
       }
     ],
-    "line": 63,
+    "line": 64,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "resourceactivity"
@@ -55198,7 +57436,7 @@
         "description": ""
       }
     ],
-    "line": 73,
+    "line": 74,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "storyresource"
@@ -55295,7 +57533,7 @@
         "description": ""
       }
     ],
-    "line": 79,
+    "line": 80,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "storyentry"
@@ -55350,7 +57588,7 @@
         "description": ""
       }
     ],
-    "line": 80,
+    "line": 81,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "storymessage"
@@ -55375,7 +57613,7 @@
         "description": ""
       }
     ],
-    "line": 81,
+    "line": 82,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "resourcegrant"
@@ -55412,7 +57650,7 @@
         "description": ""
       }
     ],
-    "line": 82,
+    "line": 83,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "storycounter"
@@ -55423,7 +57661,7 @@
     "exported": true,
     "declaration": "export const PRESENTATION_MODES = ['terminal', 'scene', 'performance', 'deployment', 'battle'] as const;",
     "description": "",
-    "line": 83,
+    "line": 84,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "presentation_modes"
@@ -55435,7 +57673,7 @@
     "description": "",
     "declaration": "export type PresentationMode = typeof PRESENTATION_MODES[number];",
     "fields": [],
-    "line": 84,
+    "line": 85,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "presentationmode"
@@ -55446,7 +57684,7 @@
     "exported": true,
     "declaration": "export const PRESENTATION_TRANSITIONS = ['fade', 'iris', 'black', 'cut'] as const;",
     "description": "",
-    "line": 85,
+    "line": 86,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "presentation_transitions"
@@ -55458,7 +57696,7 @@
     "description": "",
     "declaration": "export type PresentationTransition = typeof PRESENTATION_TRANSITIONS[number];",
     "fields": [],
-    "line": 86,
+    "line": 87,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "presentationtransition"
@@ -55469,7 +57707,7 @@
     "exported": true,
     "declaration": "export const PRESENTATION_EFFECTS = ['rain', 'fog', 'embers', 'scan', 'glitch', 'impact'] as const;",
     "description": "",
-    "line": 87,
+    "line": 88,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "presentation_effects"
@@ -55481,7 +57719,7 @@
     "description": "",
     "declaration": "export type PresentationEffect = typeof PRESENTATION_EFFECTS[number];",
     "fields": [],
-    "line": 88,
+    "line": 89,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "presentationeffect"
@@ -55536,7 +57774,7 @@
         "description": ""
       }
     ],
-    "line": 89,
+    "line": 90,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "presentationstate"
@@ -55547,7 +57785,7 @@
     "exported": true,
     "declaration": "export const SCENE_NODE_KINDS = ['start', 'scene', 'battle', 'rest', 'event', 'branch', 'merge', 'end', 'note'] as const;",
     "description": "",
-    "line": 98,
+    "line": 99,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "scene_node_kinds"
@@ -55559,7 +57797,7 @@
     "description": "",
     "declaration": "export type SceneNodeKind = typeof SCENE_NODE_KINDS[number];",
     "fields": [],
-    "line": 99,
+    "line": 100,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "scenenodekind"
@@ -55650,7 +57888,7 @@
         "description": ""
       }
     ],
-    "line": 100,
+    "line": 101,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "scenenode"
@@ -55693,7 +57931,7 @@
         "description": ""
       }
     ],
-    "line": 101,
+    "line": 102,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "scenegraph"
@@ -55730,7 +57968,7 @@
         "description": ""
       }
     ],
-    "line": 102,
+    "line": 103,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "scenegraphlibrary"
@@ -55742,7 +57980,7 @@
     "description": "",
     "declaration": "export type PlayerProgress = Record<string, number>;",
     "fields": [],
-    "line": 103,
+    "line": 104,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "playerprogress"
@@ -55785,7 +58023,7 @@
         "description": ""
       }
     ],
-    "line": 104,
+    "line": 105,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "storyonboarding"
@@ -55797,7 +58035,7 @@
     "description": "",
     "declaration": "export type SceneEffectMap = Record<string, PresentationEffect[]>;",
     "fields": [],
-    "line": 105,
+    "line": 106,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "sceneeffectmap"
@@ -55807,8 +58045,14 @@
     "kind": "interface",
     "exported": true,
     "description": "",
-    "declaration": "export interface StoryWorkspace {\n    progressDirectories?: ProgressDirectories;\n    lancerNodeRuns?: Record<string, LancerNodeRun>;\n    lancerScenePlans?: Record<string, LancerScenePlan>;\n    tacticalMissions?: Record<string, TacticalMission>;\n    sceneEffects?: SceneEffectMap;\n    presentation?: PresentationState;\n    sceneGraphs?: SceneGraphLibrary;\n    playerProgress?: Record<string, PlayerProgress>;\n    onboarding?: StoryOnboarding;\n    atlas?: WorldAtlas;\n    conversationChannels?: ConversationChannel[];\n    combatJournal?: CombatJournal;\n    combatCheckpoints?: CombatCheckpoint[];\n    encounters?: Record<string, SceneEncounter>;\n    assetPack?: WorldAssetPack;\n    compendiumDirectory?: DocumentDirectory;\n    compendiums?: CompendiumPack[];\n    entityDirectories?: EntityDirectories;\n    journalDirectory?: DocumentDirectory;\n    adventure?: AdventureState;\n    teamAssets?: TeamAssets;\n    sceneJournals?: Record<string, JournalReference>;\n    scenePreloads?: ScenePreload[];\n    sceneNavigation?: Record<string, SceneNavigationConfig>;\n    sceneDirectory?: SceneDirectory;\n    paused?: boolean;\n    climbAttempts?: Record<string, string>;\n    regionDecisions?: RegionDecision[];\n    sceneViews?: Record<string, string>;\n    sceneChannelVisits?: SceneChannelVisits;\n    calendar?: WorldCalendar;\n    plugins?: StoryPlugins;\n    theatre?: TheatreState;\n    bossBar?: BossBarState;\n    monsterHpVisibility?: MonsterHpVisibility;\n    library?: WorldLibrary;\n    handouts?: StoryHandout[];\n    recaps?: StoryRecap[];\n    dndRules?: {\n        dawnHour?: number | null;\n        outsideCombatTime: 'frozen' | 'realtime';\n        backgroundAbilityUnbound?: boolean;\n    };\n    reactionSeconds?: number;\n    version: 1;\n    members: StoryMember[];\n    packs: StoryPack[];\n    resources: StoryResource[];\n    grants: ResourceGrant[];\n    entries: StoryEntry[];\n    messages: StoryMessage[];\n    counters: StoryCounter[];\n}",
+    "declaration": "export interface StoryWorkspace {\n    resourcePackages?: ResourcePackageState;\n    progressDirectories?: ProgressDirectories;\n    lancerNodeRuns?: Record<string, LancerNodeRun>;\n    lancerScenePlans?: Record<string, LancerScenePlan>;\n    tacticalMissions?: Record<string, TacticalMission>;\n    sceneEffects?: SceneEffectMap;\n    presentation?: PresentationState;\n    sceneGraphs?: SceneGraphLibrary;\n    playerProgress?: Record<string, PlayerProgress>;\n    onboarding?: StoryOnboarding;\n    atlas?: WorldAtlas;\n    conversationChannels?: ConversationChannel[];\n    combatJournal?: CombatJournal;\n    combatCheckpoints?: CombatCheckpoint[];\n    encounters?: Record<string, SceneEncounter>;\n    assetPack?: WorldAssetPack;\n    compendiumDirectory?: DocumentDirectory;\n    compendiums?: CompendiumPack[];\n    entityDirectories?: EntityDirectories;\n    journalDirectory?: DocumentDirectory;\n    adventure?: AdventureState;\n    teamAssets?: TeamAssets;\n    sceneJournals?: Record<string, JournalReference>;\n    scenePreloads?: ScenePreload[];\n    sceneNavigation?: Record<string, SceneNavigationConfig>;\n    sceneDirectory?: SceneDirectory;\n    paused?: boolean;\n    climbAttempts?: Record<string, string>;\n    regionDecisions?: RegionDecision[];\n    sceneViews?: Record<string, string>;\n    sceneChannelVisits?: SceneChannelVisits;\n    calendar?: WorldCalendar;\n    plugins?: StoryPlugins;\n    theatre?: TheatreState;\n    bossBar?: BossBarState;\n    monsterHpVisibility?: MonsterHpVisibility;\n    library?: WorldLibrary;\n    handouts?: StoryHandout[];\n    recaps?: StoryRecap[];\n    dndRules?: {\n        dawnHour?: number | null;\n        outsideCombatTime: 'frozen' | 'realtime';\n        backgroundAbilityUnbound?: boolean;\n    };\n    reactionSeconds?: number;\n    version: 1;\n    members: StoryMember[];\n    packs: StoryPack[];\n    resources: StoryResource[];\n    grants: ResourceGrant[];\n    entries: StoryEntry[];\n    messages: StoryMessage[];\n    counters: StoryCounter[];\n}",
     "fields": [
+      {
+        "name": "resourcePackages",
+        "optional": true,
+        "type": "ResourcePackageState",
+        "description": ""
+      },
       {
         "name": "progressDirectories",
         "optional": true,
@@ -56116,7 +58360,7 @@
         "description": ""
       }
     ],
-    "line": 106,
+    "line": 107,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "storyworkspace"
@@ -56127,7 +58371,7 @@
     "exported": true,
     "declaration": "export const storyObject: (v: unknown): Record<string, unknown>;",
     "description": "",
-    "line": 128,
+    "line": 129,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "storyobject"
@@ -56138,7 +58382,7 @@
     "exported": true,
     "declaration": "export const storyText: (v: unknown, max?: number): string;",
     "description": "",
-    "line": 129,
+    "line": 130,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "storytext"
@@ -56149,7 +58393,7 @@
     "exported": true,
     "declaration": "export const storyId: (v: unknown): string;",
     "description": "",
-    "line": 130,
+    "line": 131,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "storyid"
@@ -56160,7 +58404,7 @@
     "exported": true,
     "declaration": "export const storyNumber: (v: unknown, min?: number, max?: number): number;",
     "description": "",
-    "line": 131,
+    "line": 132,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "storynumber"
@@ -56171,7 +58415,7 @@
     "exported": true,
     "declaration": "export const storyList: (v: unknown, max?: number): unknown[];",
     "description": "",
-    "line": 132,
+    "line": 133,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "storylist"
@@ -56182,7 +58426,7 @@
     "exported": true,
     "declaration": "export const storyEnum: <T extends string>(v: unknown, values: readonly T[]): T;",
     "description": "",
-    "line": 133,
+    "line": 134,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "storyenum"
@@ -56195,7 +58439,7 @@
     "parameters": [],
     "returns": "StoryWorkspace",
     "declaration": "export function emptyStory(): StoryWorkspace;",
-    "line": 137,
+    "line": 138,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "emptystory"
@@ -56219,7 +58463,7 @@
     ],
     "returns": "StoryResource",
     "declaration": "export function blankResource(systemId: GameSystemId, id: string): StoryResource;",
-    "line": 138,
+    "line": 139,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "blankresource"
@@ -56238,7 +58482,7 @@
     ],
     "returns": "ResourceActivity",
     "declaration": "export function blankActivity(id: string): ResourceActivity;",
-    "line": 139,
+    "line": 140,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "blankactivity"
@@ -56257,7 +58501,7 @@
     ],
     "returns": "StoryResource",
     "declaration": "export function parseResource(raw: unknown): StoryResource;",
-    "line": 140,
+    "line": 141,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "parseresource"
@@ -56276,7 +58520,7 @@
     ],
     "returns": "PresentationState",
     "declaration": "export function parsePresentationState(raw: unknown): PresentationState;",
-    "line": 151,
+    "line": 152,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "parsepresentationstate"
@@ -56295,7 +58539,7 @@
     ],
     "returns": "SceneEffectMap",
     "declaration": "export function parseSceneEffects(raw: unknown): SceneEffectMap;",
-    "line": 155,
+    "line": 156,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "parsesceneeffects"
@@ -56314,7 +58558,7 @@
     ],
     "returns": "StoryOnboarding",
     "declaration": "export function parseOnboarding(raw: unknown): StoryOnboarding;",
-    "line": 160,
+    "line": 161,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "parseonboarding"
@@ -56333,7 +58577,7 @@
     ],
     "returns": "Record<string,PlayerProgress>",
     "declaration": "export function parsePlayerProgress(raw: unknown): Record<string,PlayerProgress>;",
-    "line": 163,
+    "line": 164,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "parseplayerprogress"
@@ -56352,7 +58596,7 @@
     ],
     "returns": "SceneGraph",
     "declaration": "export function parseSceneGraph(raw: unknown): SceneGraph;",
-    "line": 183,
+    "line": 184,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "parsescenegraph"
@@ -56371,7 +58615,7 @@
     ],
     "returns": "SceneGraphLibrary",
     "declaration": "export function parseLegacySceneGraph(raw: unknown): SceneGraphLibrary;",
-    "line": 187,
+    "line": 188,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "parselegacyscenegraph"
@@ -56390,7 +58634,7 @@
     ],
     "returns": "SceneGraphLibrary",
     "declaration": "export function parseSceneGraphLibrary(raw: unknown): SceneGraphLibrary;",
-    "line": 190,
+    "line": 191,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "parsescenegraphlibrary"
@@ -56409,7 +58653,7 @@
     ],
     "returns": "StoryWorkspace",
     "declaration": "export function parseStory(raw: unknown): StoryWorkspace;",
-    "line": 198,
+    "line": 199,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "parsestory"
@@ -56438,7 +58682,7 @@
     ],
     "returns": "boolean",
     "declaration": "export function storyGm(story: StoryWorkspace|undefined, ownerId: string, playerId: string): boolean;",
-    "line": 219,
+    "line": 222,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "storygm"
@@ -56495,7 +58739,7 @@
     ],
     "returns": "StoryWorkspace",
     "declaration": "export function projectStory(story: StoryWorkspace, ownerId: string, playerId: string|undefined, actorIds: ReadonlySet<string>, sceneIds?: ReadonlySet<string>, readableActorIds?: ReadonlySet<string>, combatActorIds?: ReadonlySet<string>, channelScenes?: ReadonlySet<string>): StoryWorkspace;",
-    "line": 220,
+    "line": 223,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "projectstory"
@@ -56552,7 +58796,7 @@
     ],
     "returns": "StoryWorkspace",
     "declaration": "export function projectStoryValue(story: StoryWorkspace, ownerId: string, playerId: string|undefined, actorIds: ReadonlySet<string>, sceneIds?: ReadonlySet<string>, readableActorIds?: ReadonlySet<string>, combatActorIds?: ReadonlySet<string>, channelScenes?: ReadonlySet<string>): StoryWorkspace;",
-    "line": 224,
+    "line": 227,
     "source": "game/packages/contracts/src/story.ts",
     "document": "reference/packages/contracts/src/story.md",
     "anchor": "projectstoryvalue"
@@ -95377,7 +97621,7 @@
     "description": "",
     "declaration": "export type DndHudGroup = 'common' | 'attacks' | 'spells' | 'features' | 'items';",
     "fields": [],
-    "line": 13,
+    "line": 14,
     "source": "game/packages/rules-engine/src/dnd/hud-actions.ts",
     "document": "reference/packages/rules-engine/src/dnd/hud-actions.md",
     "anchor": "dndhudgroup"
@@ -95522,7 +97766,7 @@
         "description": ""
       }
     ],
-    "line": 14,
+    "line": 15,
     "source": "game/packages/rules-engine/src/dnd/hud-actions.ts",
     "document": "reference/packages/rules-engine/src/dnd/hud-actions.md",
     "anchor": "dndhudaction"
@@ -95533,7 +97777,7 @@
     "exported": true,
     "declaration": "export const dndHudKey: (r: DndHudRef): string;",
     "description": "",
-    "line": 15,
+    "line": 16,
     "source": "game/packages/rules-engine/src/dnd/hud-actions.ts",
     "document": "reference/packages/rules-engine/src/dnd/hud-actions.md",
     "anchor": "dndhudkey"
@@ -95557,7 +97801,7 @@
     ],
     "returns": "DndHudAction[]",
     "declaration": "export function dndHudActions(actor: ManualActor, story?: StoryWorkspace): DndHudAction[];",
-    "line": 38,
+    "line": 39,
     "source": "game/packages/rules-engine/src/dnd/hud-actions.ts",
     "document": "reference/packages/rules-engine/src/dnd/hud-actions.md",
     "anchor": "dndhudactions"
@@ -101906,7 +104150,7 @@
         "description": ""
       }
     ],
-    "line": 3,
+    "line": 4,
     "source": "game/packages/session/src/resource-runtime.ts",
     "document": "reference/packages/session/src/resource-runtime.md",
     "anchor": "resourcesubject"
@@ -101931,7 +104175,7 @@
         "description": ""
       }
     ],
-    "line": 4,
+    "line": 5,
     "source": "game/packages/session/src/resource-runtime.ts",
     "document": "reference/packages/session/src/resource-runtime.md",
     "anchor": "resourceresolution"
@@ -101955,7 +104199,7 @@
     ],
     "returns": "number",
     "declaration": "export function resourceFormula(expression: string, roll: (sides:number)=>number): number;",
-    "line": 6,
+    "line": 7,
     "source": "game/packages/session/src/resource-runtime.ts",
     "document": "reference/packages/session/src/resource-runtime.md",
     "anchor": "resourceformula"
@@ -101974,7 +104218,7 @@
     ],
     "returns": "string[]",
     "declaration": "export function resourceAutomationIssues(a: ResourceActivity): string[];",
-    "line": 11,
+    "line": 12,
     "source": "game/packages/session/src/resource-runtime.ts",
     "document": "reference/packages/session/src/resource-runtime.md",
     "anchor": "resourceautomationissues"
@@ -102013,7 +104257,7 @@
     ],
     "returns": "ResourceResolution",
     "declaration": "export function resolveResource(a: ResourceActivity, sourceId: string, targetIds: string[], subjects: ResourceSubject[], roll: (sides:number)=>number): ResourceResolution;",
-    "line": 19,
+    "line": 20,
     "source": "game/packages/session/src/resource-runtime.ts",
     "document": "reference/packages/session/src/resource-runtime.md",
     "anchor": "resolveresource"
@@ -102037,7 +104281,7 @@
     ],
     "returns": "Set<string>",
     "declaration": "export function grantedResourceIds(story: StoryWorkspace, actorId: string): Set<string>;",
-    "line": 41,
+    "line": 42,
     "source": "game/packages/session/src/resource-runtime.ts",
     "document": "reference/packages/session/src/resource-runtime.md",
     "anchor": "grantedresourceids"
@@ -102080,7 +104324,7 @@
         "description": ""
       }
     ],
-    "line": 4,
+    "line": 5,
     "source": "game/packages/session/src/resource-use.ts",
     "document": "reference/packages/session/src/resource-use.md",
     "anchor": "resourceuse"
@@ -102099,7 +104343,7 @@
     ],
     "returns": "ResourceUse",
     "declaration": "export function parseResourceUse(raw: unknown): ResourceUse;",
-    "line": 5,
+    "line": 6,
     "source": "game/packages/session/src/resource-use.ts",
     "document": "reference/packages/session/src/resource-use.md",
     "anchor": "parseresourceuse"
@@ -102143,7 +104387,7 @@
     ],
     "returns": "{ resource: import(\"@source/packages/contracts/src/story\").StoryResource; activity: ResourceActivity; targets: string[]; gm: boolean; }",
     "declaration": "export function authorizeResourceUse(story: StoryWorkspace|undefined, request: ResourceUse, ownerId: string, senderId: string, controls: boolean, actor?: OwnedItemActor): { resource: import(\"@source/packages/contracts/src/story\").StoryResource; activity: ResourceActivity; targets: string[]; gm: boolean; };",
-    "line": 6,
+    "line": 7,
     "source": "game/packages/session/src/resource-use.ts",
     "document": "reference/packages/session/src/resource-use.md",
     "anchor": "authorizeresourceuse"
@@ -102167,7 +104411,7 @@
     ],
     "returns": "string[]",
     "declaration": "export function resourceUseIssues(system: GameSystemId, a: ResourceActivity): string[];",
-    "line": 17,
+    "line": 18,
     "source": "game/packages/session/src/resource-use.ts",
     "document": "reference/packages/session/src/resource-use.md",
     "anchor": "resourceuseissues"
@@ -103165,10 +105409,106 @@
     ],
     "returns": "boolean",
     "declaration": "export function applyResourceEdit(story: StoryWorkspace, command: Record<string,unknown>, context: StoryContext, gm: boolean): boolean;",
-    "line": 3,
+    "line": 4,
     "source": "game/packages/session/src/story-resource-edits.ts",
     "document": "reference/packages/session/src/story-resource-edits.md",
     "anchor": "applyresourceedit"
+  },
+  {
+    "name": "StoryResourcePackageChange",
+    "kind": "type",
+    "exported": true,
+    "description": "",
+    "declaration": "export type StoryResourcePackageChange = {\n    op: 'install';\n    package: ResourcePackage;\n    hash: string;\n} | {\n    op: 'enable';\n    packageId: string;\n    enabled: boolean;\n    choices?: Record<string, string>;\n} | {\n    op: 'remove';\n    packageId: string;\n};",
+    "fields": [
+      {
+        "name": "分支1.op",
+        "optional": false,
+        "type": "'install'",
+        "description": ""
+      },
+      {
+        "name": "分支1.package",
+        "optional": false,
+        "type": "ResourcePackage",
+        "description": ""
+      },
+      {
+        "name": "分支1.hash",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "分支2.op",
+        "optional": false,
+        "type": "'enable'",
+        "description": ""
+      },
+      {
+        "name": "分支2.packageId",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "分支2.enabled",
+        "optional": false,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "分支2.choices",
+        "optional": true,
+        "type": "Record<string,string>",
+        "description": ""
+      },
+      {
+        "name": "分支3.op",
+        "optional": false,
+        "type": "'remove'",
+        "description": ""
+      },
+      {
+        "name": "分支3.packageId",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      }
+    ],
+    "line": 2,
+    "source": "game/packages/session/src/story-resource-packages.ts",
+    "document": "reference/packages/session/src/story-resource-packages.md",
+    "anchor": "storyresourcepackagechange"
+  },
+  {
+    "name": "changeStoryResourcePackage",
+    "kind": "function",
+    "exported": true,
+    "description": "Only the trusted center service supplies installation bytes, after release/hash verification.",
+    "parameters": [
+      {
+        "name": "previous",
+        "optional": false,
+        "type": "StoryWorkspace|undefined"
+      },
+      {
+        "name": "change",
+        "optional": false,
+        "type": "StoryResourcePackageChange"
+      },
+      {
+        "name": "context",
+        "optional": false,
+        "type": "{ownerId:string;senderId:string;systemId:GameSystemId;busy:boolean}"
+      }
+    ],
+    "returns": "StoryWorkspace",
+    "declaration": "export function changeStoryResourcePackage(previous: StoryWorkspace|undefined, change: StoryResourcePackageChange, context: {ownerId:string;senderId:string;systemId:GameSystemId;busy:boolean}): StoryWorkspace;",
+    "line": 7,
+    "source": "game/packages/session/src/story-resource-packages.ts",
+    "document": "reference/packages/session/src/story-resource-packages.md",
+    "anchor": "changestoryresourcepackage"
   },
   {
     "name": "applyResourceTransfer",
@@ -104417,7 +106757,7 @@
         "description": ""
       }
     ],
-    "line": 48,
+    "line": 49,
     "source": "game/packages/session/src/story-workspace.ts",
     "document": "reference/packages/session/src/story-workspace.md",
     "anchor": "storycommand"
@@ -104550,7 +106890,7 @@
         "description": ""
       }
     ],
-    "line": 77,
+    "line": 78,
     "source": "game/packages/session/src/story-workspace.ts",
     "document": "reference/packages/session/src/story-workspace.md",
     "anchor": "storycontext"
@@ -104579,7 +106919,7 @@
     ],
     "returns": "StoryWorkspace",
     "declaration": "export function applyStoryCommand(previous: StoryWorkspace|undefined, raw: unknown, c: StoryContext): StoryWorkspace;",
-    "line": 79,
+    "line": 80,
     "source": "game/packages/session/src/story-workspace.ts",
     "document": "reference/packages/session/src/story-workspace.md",
     "anchor": "applystorycommand"
@@ -105042,7 +107382,7 @@
     "description": "",
     "declaration": "export interface WorldPersistence {\n    save(world: WorldDocument): void;\n}",
     "fields": [],
-    "line": 48,
+    "line": 49,
     "source": "game/packages/session/src/world-authority.ts",
     "document": "reference/packages/session/src/world-authority.md",
     "anchor": "worldpersistence"
@@ -105052,8 +107392,8 @@
     "kind": "class",
     "exported": true,
     "description": "Single writer. The full document is GM-only; player projections use a separate boundary.",
-    "declaration": "export class WorldAuthority {\n  importCompendium(senderId: string, raw: CompendiumImportBatch): Promise<CommandReceipt>;\n  static create(id: string, hostId: string, name: string, seed: number, persistence?: WorldPersistence): WorldAuthority;\n  static restore(value: unknown, worldId: string, hostId: string, persistence?: WorldPersistence): WorldAuthority;\n  get revision(): number;\n  get hostId(): string;\n  get canUndo(): boolean;\n  view(playerId?: string): import(\"@source/packages/session/src/world-view\").WorldView;\n  previewScene(id: string, playerId?: string): import(\"@source/packages/session/src/world-view\").SceneView;\n  exportSave(): WorldDocument;\n  setMembers(ids: readonly string[]): void;\n  setOnlineMembers(ids: readonly string[]): void;\n  subscribe(listener: () => void): () => void;\n  useAsyncPersistence(persistence: { save(world: WorldDocument): Promise<void>; }): void;\n  dispatchAsync(senderId: string, input: unknown, now?: number): Promise<CommandReceipt>;\n  dispatch(senderId: string, input: unknown, now?: number): CommandReceipt;\n}",
-    "line": 51,
+    "declaration": "export class WorldAuthority {\n  importCompendium(senderId: string, raw: CompendiumImportBatch): Promise<CommandReceipt>;\n  static create(id: string, hostId: string, name: string, seed: number, persistence?: WorldPersistence): WorldAuthority;\n  static restore(value: unknown, worldId: string, hostId: string, persistence?: WorldPersistence): WorldAuthority;\n  get revision(): number;\n  get hostId(): string;\n  get canUndo(): boolean;\n  view(playerId?: string): import(\"@source/packages/session/src/world-view\").WorldView;\n  previewScene(id: string, playerId?: string): import(\"@source/packages/session/src/world-view\").SceneView;\n  exportSave(): WorldDocument;\n  setMembers(ids: readonly string[]): void;\n  setOnlineMembers(ids: readonly string[]): void;\n  subscribe(listener: () => void): () => void;\n  useAsyncPersistence(persistence: { save(world: WorldDocument): Promise<void>; }): void;\n  changeResourcePackage(senderId: string, change: StoryResourcePackageChange, expectedRevision: number): Promise<void>;\n  dispatchAsync(senderId: string, input: unknown, now?: number): Promise<CommandReceipt>;\n  dispatch(senderId: string, input: unknown, now?: number): CommandReceipt;\n}",
+    "line": 52,
     "source": "game/packages/session/src/world-authority.ts",
     "document": "reference/packages/session/src/world-authority.md",
     "anchor": "worldauthority"
@@ -111919,7 +114259,7 @@
     ],
     "returns": "LancerCombatUnit",
     "declaration": "export function combatUnit(actor: ManualActor, token: ManualToken): LancerCombatUnit;",
-    "line": 16,
+    "line": 17,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.md",
     "anchor": "combatunit"
@@ -111948,7 +114288,7 @@
     ],
     "returns": "LancerCombatUnit",
     "declaration": "export function sceneCombatUnit(table: ManualTable, actor: ManualActor, token: ManualToken): LancerCombatUnit;",
-    "line": 54,
+    "line": 55,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.md",
     "anchor": "scenecombatunit"
@@ -111967,7 +114307,7 @@
     ],
     "returns": "LancerCombatUnit[]",
     "declaration": "export function prepareLancerUnits(table: ManualTable): LancerCombatUnit[];",
-    "line": 58,
+    "line": 59,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.md",
     "anchor": "preparelancerunits"
@@ -111986,7 +114326,7 @@
     ],
     "returns": "void",
     "declaration": "export function syncCombatCards(table: ManualTable): void;",
-    "line": 66,
+    "line": 67,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.md",
     "anchor": "synccombatcards"
@@ -112010,7 +114350,7 @@
     ],
     "returns": "void",
     "declaration": "export function syncLancerUnit(actor: ManualActor, u: LancerCombatUnit): void;",
-    "line": 71,
+    "line": 72,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.md",
     "anchor": "synclancerunit"
@@ -112029,7 +114369,7 @@
     ],
     "returns": "LancerCombatUnit['conditions']",
     "declaration": "export function readPersistentConditions(actor: ManualActor): LancerCombatUnit['conditions'];",
-    "line": 91,
+    "line": 92,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.md",
     "anchor": "readpersistentconditions"
@@ -112059,7 +114399,7 @@
     ],
     "returns": "ManualActor",
     "declaration": "export function starterLancer(name: string, ownerId: string, hostile?: boolean): ManualActor;",
-    "line": 96,
+    "line": 97,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.md",
     "anchor": "starterlancer"
@@ -114221,6 +116561,90 @@
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/reinforcements.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/reinforcements.md",
     "anchor": "planlancerreinforcements"
+  },
+  {
+    "name": "effectiveLancerResourceActor",
+    "kind": "function",
+    "exported": true,
+    "description": "Pure equipment view: original IDs, definition text, mount choices and used counters stay in the save.",
+    "parameters": [
+      {
+        "name": "actor",
+        "optional": false,
+        "type": "ManualActor"
+      },
+      {
+        "name": "story",
+        "optional": false,
+        "type": "StoryWorkspace|undefined"
+      }
+    ],
+    "returns": "ManualActor",
+    "declaration": "export function effectiveLancerResourceActor(actor: ManualActor, story: StoryWorkspace|undefined): ManualActor;",
+    "line": 6,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/resourceEquipment.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/resourceEquipment.md",
+    "anchor": "effectivelancerresourceactor"
+  },
+  {
+    "name": "resourceEquipmentView",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "resource",
+        "optional": false,
+        "type": "LancerPackageEquipment"
+      },
+      {
+        "name": "saved",
+        "optional": true,
+        "type": "Record<string,unknown>",
+        "default": "{}"
+      }
+    ],
+    "returns": "{ resourceId: string; automation: import(\"@source/packages/contracts/src/lancer-custom\").LancerEquipmentAutomation; used: {}; name: string; sp: number; limited: number; notes: string; } | { size: \"main\" | \"heavy\" | \"aux\" | \"superheavy\" | undefined; mount: {}; brace: {}; damage: string; range: string; tags: string; resourceId: string; automation: import(\"@source/packages/contracts/src/lancer-custom\").LancerEquipmentAutomation; used: {}; name: string; sp: number; limited: number; notes: string; }",
+    "declaration": "export function resourceEquipmentView(resource: LancerPackageEquipment, saved?: Record<string,unknown>): { resourceId: string; automation: import(\"@source/packages/contracts/src/lancer-custom\").LancerEquipmentAutomation; used: {}; name: string; sp: number; limited: number; notes: string; } | { size: \"main\" | \"heavy\" | \"aux\" | \"superheavy\" | undefined; mount: {}; brace: {}; damage: string; range: string; tags: string; resourceId: string; automation: import(\"@source/packages/contracts/src/lancer-custom\").LancerEquipmentAutomation; used: {}; name: string; sp: number; limited: number; notes: string; };",
+    "line": 16,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/resourceEquipment.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/resourceEquipment.md",
+    "anchor": "resourceequipmentview"
+  },
+  {
+    "name": "installLancerPackageEquipment",
+    "kind": "function",
+    "exported": true,
+    "description": "New equipment retains a source reference; disabling the source never leaves copied automation executable.",
+    "parameters": [
+      {
+        "name": "actor",
+        "optional": false,
+        "type": "ManualActor"
+      },
+      {
+        "name": "story",
+        "optional": false,
+        "type": "StoryWorkspace"
+      },
+      {
+        "name": "resourceId",
+        "optional": false,
+        "type": "string"
+      },
+      {
+        "name": "options",
+        "optional": true,
+        "type": "{mount?:number;brace?:number;replace?:boolean}",
+        "default": "{}"
+      }
+    ],
+    "returns": "ManualActor",
+    "declaration": "export function installLancerPackageEquipment(actor: ManualActor, story: StoryWorkspace, resourceId: string, options?: {mount?:number;brace?:number;replace?:boolean}): ManualActor;",
+    "line": 27,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/resourceEquipment.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/resourceEquipment.md",
+    "anchor": "installlancerpackageequipment"
   },
   {
     "name": "rogueAbilitySources",
@@ -117608,6 +120032,64 @@
     "source": "game/packages/tabletop-runtime/src/tabletop/regions.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/regions.md",
     "anchor": "runtableregions"
+  },
+  {
+    "name": "previewTableResourcePackage",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "table",
+        "optional": false,
+        "type": "ManualTable"
+      },
+      {
+        "name": "pkg",
+        "optional": false,
+        "type": "ResourcePackage"
+      },
+      {
+        "name": "hash",
+        "optional": false,
+        "type": "string"
+      }
+    ],
+    "returns": "import(\"@source/packages/contracts/src/resource-packages\").ResourcePackageImpact[]",
+    "declaration": "export function previewTableResourcePackage(table: ManualTable, pkg: ResourcePackage, hash: string): import(\"@source/packages/contracts/src/resource-packages\").ResourcePackageImpact[];",
+    "line": 3,
+    "source": "game/packages/tabletop-runtime/src/tabletop/resourcePackages.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/resourcePackages.md",
+    "anchor": "previewtableresourcepackage"
+  },
+  {
+    "name": "changeTableResourcePackage",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "table",
+        "optional": false,
+        "type": "ManualTable"
+      },
+      {
+        "name": "senderId",
+        "optional": false,
+        "type": "string"
+      },
+      {
+        "name": "change",
+        "optional": false,
+        "type": "StoryResourcePackageChange"
+      }
+    ],
+    "returns": "ManualTable",
+    "declaration": "export function changeTableResourcePackage(table: ManualTable, senderId: string, change: StoryResourcePackageChange): ManualTable;",
+    "line": 6,
+    "source": "game/packages/tabletop-runtime/src/tabletop/resourcePackages.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/resourcePackages.md",
+    "anchor": "changetableresourcepackage"
   },
   {
     "name": "exportTableScene",

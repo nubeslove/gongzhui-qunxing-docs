@@ -9,7 +9,7 @@
 3. [文件格式](docs/authoring/formats.md) 和所需 [备团工作流](docs/authoring/workflows.md)。
 4. 只查询本次涉及的类型与 [示例清单](examples/README.md)，不必把全部参考页塞进一次上下文。
 
-LANCER 另读 [备团指南](docs/authoring/lancer-preparation.md)。本轮面向 **已上线的 0.2.36 版本**；正式服和配套网页版已核验，本机桌面客户端已自动更新，实测版本为 0.2.36 且已就绪，使用前仍须核对自己的客户端版本。插件中心尚未实现，不生成“上传插件中心即可运行”的交付步骤。
+LANCER 另读 [备团指南](docs/authoring/lancer-preparation.md)。本轮对应 **0.2.37 待上线源码**；最近已确认的正式服、网页版及本机客户端仍为 0.2.36。中心与插件宿主已完成本地验收，另读 [中心说明](docs/authoring/community-center.md)；确认目标版本已发布且具备入口前，不生成“上传插件中心即可运行”的正式版交付步骤。
 
 ```sh
 node tools/query.mjs StoryResource
@@ -23,7 +23,7 @@ node tools/query.mjs --catalog lancer
 
 ```text
 请依据千星奇域文档快照 2026-11-05，为我的团制作可导入资料。
-本文对应正式服已上线的 0.2.36；本机客户端亦已自动更新至 0.2.36 并就绪，其他使用者仍需核对自己的客户端版本。
+本文对应 0.2.37 待上线源码；最近已确认正式版本为 0.2.36。须先核对目标版本，不能把待上线接口作为已发布能力。
 目标分区：填写分区名称。
 systemId / systemVersion / ruleVariant：按兼容矩阵填写。
 客户端来源与构建版本：填写实际版本；若不清楚先核对。

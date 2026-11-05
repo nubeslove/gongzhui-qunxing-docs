@@ -8,6 +8,7 @@
 
 ```ts
 import {recordSceneChannelVisit} from '@aelzerant/contracts';
+import {changeStoryResourcePackage,type StoryResourcePackageChange} from './story-resource-packages';
 import {expandPlanarMovementPath} from '@aelzerant/contracts';
 import {aafHandlers} from './world-aaf';
 import {aafRuleHandlers,migrateAafCombatRules} from './world-aaf-rules';
@@ -55,7 +56,7 @@ import {spiralHandlers} from './world-spiral';
 
 ## WorldPersistence
 
-导出接口 · 源码第 48 行。
+导出接口 · 源码第 49 行。
 
 ```ts
 export interface WorldPersistence {
@@ -65,7 +66,7 @@ export interface WorldPersistence {
 
 ## WorldAuthority
 
-导出接口 · 源码第 51 行。
+导出接口 · 源码第 52 行。
 
 Single writer. The full document is GM-only; player projections use a separate boundary.
 
@@ -84,6 +85,7 @@ export class WorldAuthority {
   setOnlineMembers(ids: readonly string[]): void;
   subscribe(listener: () => void): () => void;
   useAsyncPersistence(persistence: { save(world: WorldDocument): Promise<void>; }): void;
+  changeResourcePackage(senderId: string, change: StoryResourcePackageChange, expectedRevision: number): Promise<void>;
   dispatchAsync(senderId: string, input: unknown, now?: number): Promise<CommandReceipt>;
   dispatch(senderId: string, input: unknown, now?: number): CommandReceipt;
 }

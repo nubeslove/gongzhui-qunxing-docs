@@ -1,7 +1,7 @@
 {
-  "files": 639,
-  "symbols": 3445,
-  "fields": 7770,
+  "files": 646,
+  "symbols": 3514,
+  "fields": 7990,
   "schemaRoots": [
     "LancerNpc",
     "TheatreState",
@@ -47,8 +47,26 @@
     "WorldDocument",
     "ActorDocument",
     "WorldCommand",
-    "RuleVariant"
+    "RuleVariant",
+    "CommunityPackageBody",
+    "CenterCatalog",
+    "CenterDetail",
+    "CenterPackageCommand",
+    "CenterStatus",
+    "CenterCategoryCommand",
+    "CenterCategory",
+    "CenterInstallPreview",
+    "CenterInstallCommand",
+    "CenterInstallation",
+    "CenterWorldCommand",
+    "CenterConsentCommand",
+    "CenterRuntimeView",
+    "RuntimeManifest",
+    "RuntimePermission",
+    "RuntimeServiceRequest",
+    "RuntimeServiceResponse",
+    "ResourcePackage"
   ],
-  "definitions": 1171,
+  "definitions": 1212,
   "unsupported": []
 }

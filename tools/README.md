@@ -37,7 +37,7 @@ node tools/check-source.mjs SOURCE_ROOT
 - LANCER 的模型与资源目录位于 `tabletop-runtime`，提取工具同时保留 desktop 重新导出入口。隔离源码树未准备心海阅读资源时，可运行 `node tools/catalog-index.mjs SOURCE_ROOT ASSET_SOURCE_ROOT`，从已有本地资源树读取 `game/apps/desktop/public/heartsea/library.json`；只输出索引，不复制正文。记录该资源来源，不能把它当作本次源码新增内容。
 - build-examples使用源码已有tsx调用真实解析器；还检查玩家投影、备份恢复和本地备团命令。所有数据都是临时内存中的原创示例，不创建真实游戏世界。
 - extract-constraints提取直接参数读取、校验调用与拒绝条件；内部转交类型须继续查询，不能当作完整静态程序证明。
-- build-api根据人工逐路由核对的模型生成OpenAPI；新增服务路由时必须同步维护。check-source对比HTTP入口、注册命令与源码指纹。
+- build-api根据人工逐路由核对的模型生成OpenAPI；新增服务路由时必须同步维护。check-source对比HTTP入口、注册命令与源码指纹，也解析 community-center-api 的固定 base 与后缀路由。中心接口有明确待发布标记，源码存在不代表正式服可用。
 - HTTP 校验只覆盖 `check-source.mjs` 明列的服务文件与 `/api/` 路由，不声称穷尽其他独立服务模块；静态网页根路径不属于 JSON API。新增管理模块须单独核对后才能加入公开接口清单。
 
 生成的Schema描述规范化输出。动态fields键、数值范围、依赖闭包、权限、主持权和世界身份由实际解析／事务入口进一步验证。内部类型没有自动成为稳定SDK；这些工具不安装游戏、不打原生包、不创建用户账号。

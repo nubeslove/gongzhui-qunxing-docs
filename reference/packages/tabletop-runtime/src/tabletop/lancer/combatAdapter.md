@@ -7,6 +7,7 @@
 <details><summary>类型依赖</summary>
 
 ```ts
+import {effectiveLancerResourceActor} from './resourceEquipment';
 import {lancerNpcTokenAppearance} from './tokenAppearance';
 import {isNarrativeActor} from '../narrativeActor';
 import {readPilotProfile,savePilotProfile} from './pilotProfile';
@@ -25,7 +26,7 @@ import { coreSystemId } from './coreResources';
 
 ## combatUnit
 
-导出接口 · 源码第 16 行。
+导出接口 · 源码第 17 行。
 
 ```ts
 export function combatUnit(actor: ManualActor, token: ManualToken): LancerCombatUnit;
@@ -38,7 +39,7 @@ export function combatUnit(actor: ManualActor, token: ManualToken): LancerCombat
 
 ## sceneCombatUnit
 
-导出接口 · 源码第 54 行。
+导出接口 · 源码第 55 行。
 
 ```ts
 export function sceneCombatUnit(table: ManualTable, actor: ManualActor, token: ManualToken): LancerCombatUnit;
@@ -52,7 +53,7 @@ export function sceneCombatUnit(table: ManualTable, actor: ManualActor, token: M
 
 ## prepareLancerUnits
 
-导出接口 · 源码第 58 行。
+导出接口 · 源码第 59 行。
 
 ```ts
 export function prepareLancerUnits(table: ManualTable): LancerCombatUnit[];
@@ -64,7 +65,7 @@ export function prepareLancerUnits(table: ManualTable): LancerCombatUnit[];
 
 ## syncCombatCards
 
-导出接口 · 源码第 66 行。
+导出接口 · 源码第 67 行。
 
 ```ts
 export function syncCombatCards(table: ManualTable): void;
@@ -76,7 +77,7 @@ export function syncCombatCards(table: ManualTable): void;
 
 ## syncLancerUnit
 
-导出接口 · 源码第 71 行。
+导出接口 · 源码第 72 行。
 
 ```ts
 export function syncLancerUnit(actor: ManualActor, u: LancerCombatUnit): void;
@@ -89,7 +90,7 @@ export function syncLancerUnit(actor: ManualActor, u: LancerCombatUnit): void;
 
 ## readPersistentConditions
 
-导出接口 · 源码第 91 行。
+导出接口 · 源码第 92 行。
 
 ```ts
 export function readPersistentConditions(actor: ManualActor): LancerCombatUnit['conditions'];
@@ -101,7 +102,7 @@ export function readPersistentConditions(actor: ManualActor): LancerCombatUnit['
 
 ## starterLancer
 
-导出接口 · 源码第 96 行。
+导出接口 · 源码第 97 行。
 
 ```ts
 export function starterLancer(name: string, ownerId: string, hostile?: boolean): ManualActor;

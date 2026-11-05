@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CenterStatus",
+  "anyOf": [
+    {
+      "const": "draft",
+      "type": "string"
+    },
+    {
+      "const": "listed",
+      "type": "string"
+    },
+    {
+      "const": "unlisted",
+      "type": "string"
+    },
+    {
+      "const": "deleted",
+      "type": "string"
+    },
+    {
+      "const": "disabled",
+      "type": "string"
+    }
+  ]
+}

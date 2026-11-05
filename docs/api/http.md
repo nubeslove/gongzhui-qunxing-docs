@@ -1,6 +1,6 @@
 # 平台 HTTP 接口
 
-核对源码：server 的 index/auth/community/media/publications/world-access/world-roles/world-transfer/world-deletion/updates；其他独立管理模块未在此穷举。共 61 个 method + path 组合（含停用的旧注册入口）。[OpenAPI 3.1](../../api/openapi.json) 收录每个请求、路径参数、返回结构和状态码。
+核对源码：server 的 index/auth/community/media/publications/world-access/world-roles/world-transfer/world-deletion/updates/community-center-api；其他独立管理模块未在此穷举。共 73 个 method + path 组合（含停用的旧注册入口）。[OpenAPI 3.1](../../api/openapi.json) 收录每个请求、路径参数、返回结构和状态码。
 
 ## 通用约定
 
@@ -77,6 +77,18 @@
 | POST | `/api/admin/releases/jobs/{id}/approve` | 更新管理员 | 站长批准空闲更新 |
 | POST | `/api/admin/releases/jobs/{id}/force` | 更新管理员 | 站长批准强制更新 |
 | POST | `/api/admin/releases/jobs/{id}/reject` | 更新管理员 | 站长驳回未执行更新 |
+| GET | `/api/community-center/{section}` | 已登录 | 浏览规则内容中心 |
+| GET | `/api/community-center/{section}/packages/{id}` | 已登录 | 读取内容、版本与个人授权 |
+| POST | `/api/community-center/{section}/packages/{id}` | 已登录 | 保存、发布或治理内容 |
+| POST | `/api/community-center/{section}/categories` | 已登录 | 管理当前规则与类型的分类 |
+| POST | `/api/community-center/{section}/preview` | 已登录 | 预览安装或启用影响 |
+| POST | `/api/community-center/{section}/install` | 已登录 | 安装固定版本 |
+| POST | `/api/community-center/{section}/world` | 已登录 | 启用或停用世界内容 |
+| POST | `/api/community-center/{section}/uninstall` | 已登录 | 卸载本人或世界内容 |
+| POST | `/api/community-center/{section}/consent` | 已登录 | 记录本人对插件版本的授权 |
+| GET | `/api/community-center/{section}/runtime` | 已登录 | 读取本人可运行的插件与通知 |
+| GET | `/api/community-center/{section}/events` | 已登录 | 订阅中心变更提示 |
+| POST | `/api/community-center/{section}/service` | 已登录 | 调用本人已授权的插件外部服务 |
 
 ## GET /api/health
 
@@ -2937,6 +2949,343 @@ Tauri 签名更新检查。无更新或不支持该平台返回 204，无 JSON �
 }
 ```
 
+## GET /api/community-center/{section}
+
+浏览规则内容中心。0.2.37 待上线源码接口，中心已完成本地验收，尚未正式发布。section 是六个独立规则入口之一；worldId 存在时读取须为世界成员，安装、启用及卸载须为当前世界 GM。 view 为 browse、installed 或 mine；q 搜索标题和说明。
+
+无需请求正文。
+
+成功：200。返回结构：
+
+```json
+{
+  "$ref": "../schemas/CenterCatalog.schema.json"
+}
+```
+
+## GET /api/community-center/{section}/packages/{id}
+
+读取内容、版本与个人授权。0.2.37 待上线源码接口，中心已完成本地验收，尚未正式发布。section 是六个独立规则入口之一；worldId 存在时读取须为世界成员，安装、启用及卸载须为当前世界 GM。 已安装时 body 对应安装版本，作者草稿单独在 draft；grants 绑定本人及已装 hash。
+
+无需请求正文。
+
+成功：200。返回结构：
+
+```json
+{
+  "$ref": "../schemas/CenterDetail.schema.json"
+}
+```
+
+## POST /api/community-center/{section}/packages/{id}
+
+保存、发布或治理内容。0.2.37 待上线源码接口，中心已完成本地验收，尚未正式发布。section 是六个独立规则入口之一；worldId 存在时读取须为世界成员，安装、启用及卸载须为当前世界 GM。 作者保存草稿和直接公开发布；expectedRevision 防止覆盖改稿，requestId 重试必须保持相同正文。治理需当前 section 的 centers.manage；强停需 centers.disable 和原因，且仅适用于代码插件。
+
+请求正文：
+
+```json
+{
+  "$ref": "../schemas/CenterPackageCommand.schema.json"
+}
+```
+
+成功：200。返回结构：
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "revision": {
+      "type": "number"
+    },
+    "status": {
+      "$ref": "../schemas/CenterStatus.schema.json"
+    }
+  },
+  "required": [
+    "id",
+    "revision",
+    "status"
+  ]
+}
+```
+
+## POST /api/community-center/{section}/categories
+
+管理当前规则与类型的分类。0.2.37 待上线源码接口，中心已完成本地验收，尚未正式发布。section 是六个独立规则入口之一；worldId 存在时读取须为世界成员，安装、启用及卸载须为当前世界 GM。 需 centers.manage 的 global 或当前 section 授权。删除有子分类或被引用的分类会拒绝。
+
+请求正文：
+
+```json
+{
+  "$ref": "../schemas/CenterCategoryCommand.schema.json"
+}
+```
+
+成功：200。返回结构：
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "categories": {
+      "type": "array",
+      "items": {
+        "$ref": "../schemas/CenterCategory.schema.json"
+      }
+    }
+  },
+  "required": [
+    "categories"
+  ]
+}
+```
+
+## POST /api/community-center/{section}/preview
+
+预览安装或启用影响。0.2.37 待上线源码接口，中心已完成本地验收，尚未正式发布。section 是六个独立规则入口之一；worldId 存在时读取须为世界成员，安装、启用及卸载须为当前世界 GM。 只读。purpose 默认 install；enable 用于已装版本启用，允许下架但未强停的已装内容。展示依赖、冲突、权限和逐项覆盖影响。
+
+请求正文：
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "worldId": {
+      "type": "string"
+    },
+    "purpose": {
+      "enum": [
+        "install",
+        "enable"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "version"
+  ]
+}
+```
+
+成功：200。返回结构：
+
+```json
+{
+  "$ref": "../schemas/CenterInstallPreview.schema.json"
+}
+```
+
+## POST /api/community-center/{section}/install
+
+安装固定版本。0.2.37 待上线源码接口，中心已完成本地验收，尚未正式发布。section 是六个独立规则入口之一；worldId 存在时读取须为世界成员，安装、启用及卸载须为当前世界 GM。 hash 必须匹配版本；确认警告后安装；世界安装保持停用，不保存逐项来源选择。个人代码插件按本人授权运行，个人规则资源供备团使用。世界资源写入经过世界 authority 和持久化。
+
+请求正文：
+
+```json
+{
+  "$ref": "../schemas/CenterInstallCommand.schema.json"
+}
+```
+
+成功：200。返回结构：
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "installation": {
+      "$ref": "../schemas/CenterInstallation.schema.json"
+    }
+  },
+  "required": [
+    "installation"
+  ]
+}
+```
+
+## POST /api/community-center/{section}/world
+
+启用或停用世界内容。0.2.37 待上线源码接口，中心已完成本地验收，尚未正式发布。section 是六个独立规则入口之一；worldId 存在时读取须为世界成员，安装、启用及卸载须为当前世界 GM。 choices 是 resourceId 到 providerId 的选择；未决冲突阻止启用。战斗或待结算期间禁止改变规则资源。
+
+请求正文：
+
+```json
+{
+  "$ref": "../schemas/CenterWorldCommand.schema.json"
+}
+```
+
+成功：200。返回结构：
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "installation": {
+      "$ref": "../schemas/CenterInstallation.schema.json"
+    }
+  },
+  "required": [
+    "installation"
+  ]
+}
+```
+
+## POST /api/community-center/{section}/uninstall
+
+卸载本人或世界内容。0.2.37 待上线源码接口，中心已完成本地验收，尚未正式发布。section 是六个独立规则入口之一；worldId 存在时读取须为世界成员，安装、启用及卸载须为当前世界 GM。 世界内已启用内容须先停用。
+
+请求正文：
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "worldId": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}
+```
+
+成功：200。返回结构：
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "removed": {
+      "const": true
+    }
+  },
+  "required": [
+    "removed"
+  ]
+}
+```
+
+## POST /api/community-center/{section}/consent
+
+记录本人对插件版本的授权。0.2.37 待上线源码接口，中心已完成本地验收，尚未正式发布。section 是六个独立规则入口之一；worldId 存在时读取须为世界成员，安装、启用及卸载须为当前世界 GM。 grants 可为空或已声明权限子集；拒绝额外权限仍允许入团，只停用本人缺权限的功能。版本或 hash 改变须重新核对。
+
+请求正文：
+
+```json
+{
+  "$ref": "../schemas/CenterConsentCommand.schema.json"
+}
+```
+
+成功：200。返回结构：
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "grants": {
+      "type": "array",
+      "items": {
+        "$ref": "../schemas/RuntimePermission.schema.json"
+      }
+    }
+  },
+  "required": [
+    "grants"
+  ]
+}
+```
+
+## GET /api/community-center/{section}/runtime
+
+读取本人可运行的插件与通知。0.2.37 待上线源码接口，中心已完成本地验收，尚未正式发布。section 是六个独立规则入口之一；worldId 存在时读取须为世界成员，安装、启用及卸载须为当前世界 GM。 返回个人已安装或世界已启用且适用的固定版本，以及当前本人授权；强停通知保留原因。
+
+无需请求正文。
+
+成功：200。返回结构：
+
+```json
+{
+  "$ref": "../schemas/CenterRuntimeView.schema.json"
+}
+```
+
+## GET /api/community-center/{section}/events
+
+订阅中心变更提示。0.2.37 待上线源码接口，中心已完成本地验收，尚未正式发布。section 是六个独立规则入口之一；worldId 存在时读取须为世界成员，安装、启用及卸载须为当前世界 GM。 text/event-stream；data: changed 表示重新读取，不包含完整内容。需携带认证头并保持成员资格。
+
+无需请求正文。
+
+成功：200。返回结构：
+
+```json
+{
+  "type": "string"
+}
+```
+
+## POST /api/community-center/{section}/service
+
+调用本人已授权的插件外部服务。0.2.37 待上线源码接口，中心已完成本地验收，尚未正式发布。section 是六个独立规则入口之一；worldId 存在时读取须为世界成员，安装、启用及卸载须为当前世界 GM。 只允许 manifest 声明且本人已授予的 service:id；校验固定版本、hash、服务域名、路径和方法，撤权或断开会取消请求。
+
+请求正文：
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "hash": {
+      "type": "string"
+    },
+    "worldId": {
+      "type": "string"
+    },
+    "serviceId": {
+      "type": "string"
+    },
+    "request": {
+      "$ref": "../schemas/RuntimeServiceRequest.schema.json"
+    }
+  },
+  "required": [
+    "id",
+    "version",
+    "hash",
+    "serviceId",
+    "request"
+  ]
+}
+```
+
+成功：200。返回结构：
+
+```json
+{
+  "$ref": "../schemas/RuntimeServiceResponse.schema.json"
+}
+```
+
 ## 权限注意事项
 
-世界目录、加入和资源读取执行访问控制；私密入场、成员资格和世界内 GM 角色是不同权限。更新提交权由当前管理授权判定，审核与强制执行额外要求站长；兼容配置可使用显式更新 ID 名单。世界资源与应用发行包是不同通道。删除世界不等于回收全部附件。正式服及配套网页版 0.2.36 已上线并核验，本机桌面客户端已自动更新，实测版本为 0.2.36 且已就绪；源码、候选发布、站长审核和实际运行版本分别核对。本文不是发布授权。
+世界目录、加入和资源读取执行访问控制；私密入场、成员资格和世界内 GM 角色是不同权限。更新提交权由当前管理授权判定，审核与强制执行额外要求站长；兼容配置可使用显式更新 ID 名单。世界资源与应用发行包是不同通道。删除世界不等于回收全部附件。本接口快照对应 0.2.37 待上线源码；最近确认的正式服、配套网页版及本机客户端为 0.2.36；源码、候选发布、站长审核和实际运行版本分别核对。本文不是发布授权。

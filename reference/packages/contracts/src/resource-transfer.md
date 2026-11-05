@@ -7,6 +7,7 @@
 <details><summary>类型依赖</summary>
 
 ```ts
+import {effectiveStoryResources} from './resource-packages';
 import {projectResources,resourceAccess,resourceReadable} from './resource-access';
 import {emptyStory,parseResource,parseStory,storyObject,storyId,storyText,type StoryWorkspace,type StoryResource} from './story';
 import {isGameSystemId,type GameSystemId} from './systems';
@@ -18,7 +19,7 @@ import {parseJournalHref,journalHref} from './journal-reference';
 
 ## RESOURCE_FILE_MAX_BYTES
 
-导出接口 · 源码第 7 行。
+导出接口 · 源码第 8 行。
 
 ```ts
 export const RESOURCE_FILE_MAX_BYTES = 1900000;
@@ -26,7 +27,7 @@ export const RESOURCE_FILE_MAX_BYTES = 1900000;
 
 ## ResourceFile
 
-导出接口 · 源码第 8 行。
+导出接口 · 源码第 9 行。
 
 ```ts
 export interface ResourceFile {
@@ -48,7 +49,7 @@ export interface ResourceFile {
 
 ## ResourceTransferCommand
 
-导出接口 · 源码第 9 行。
+导出接口 · 源码第 10 行。
 
 ```ts
 export type ResourceTransferCommand = {
@@ -87,7 +88,7 @@ export type ResourceTransferCommand = {
 
 ## parseResourceFile
 
-导出接口 · 源码第 16 行。
+导出接口 · 源码第 17 行。
 
 ```ts
 export function parseResourceFile(raw: unknown): ResourceFile;
@@ -99,7 +100,7 @@ export function parseResourceFile(raw: unknown): ResourceFile;
 
 ## exportResourceFile
 
-导出接口 · 源码第 23 行。
+导出接口 · 源码第 24 行。
 
 Called on projected UI state too; no lookup through a private backing world.
 
@@ -116,7 +117,7 @@ export function exportResourceFile(story: StoryWorkspace, rootId: string, gm: bo
 
 ## resourceTransferWarnings
 
-导出接口 · 源码第 26 行。
+导出接口 · 源码第 27 行。
 
 ```ts
 export function resourceTransferWarnings(file: ResourceFile): string[];
@@ -128,7 +129,7 @@ export function resourceTransferWarnings(file: ResourceFile): string[];
 
 ## transferResourceFile
 
-导出接口 · 源码第 27 行。
+导出接口 · 源码第 28 行。
 
 ```ts
 export function transferResourceFile(file: ResourceFile, id: string, name: string, options?: {target?:StoryResource;sameWorld?:boolean;newId?:()=>string;onMap?:(ids:ReadonlyMap<string,string>)=>void}): StoryResource[];

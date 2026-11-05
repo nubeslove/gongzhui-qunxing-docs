@@ -7,6 +7,7 @@
 <details><summary>类型依赖</summary>
 
 ```ts
+import {effectiveStoryResources} from '@aelzerant/contracts';
 import {parseResource,projectResources,resourceAccess,resourceReadable,canonicalJson,placeEntity,removeFromDocumentDirectory,storyId,type StoryWorkspace} from '@aelzerant/contracts';
 import type {StoryContext} from './story-workspace';
 ```
@@ -14,7 +15,7 @@ import type {StoryContext} from './story-workspace';
 
 ## applyResourceEdit
 
-导出接口 · 源码第 3 行。
+导出接口 · 源码第 4 行。
 
 Own a world definition without gaining control of its permissions or invisible dependencies.
 

@@ -80,9 +80,9 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.ai`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:44` → `actor.fields['lancer.ai']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:44` → `actor.fields['lancer.ai']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:78` → `actor.fields['lancer.ai']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:45` → `actor.fields['lancer.ai']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:45` → `actor.fields['lancer.ai']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:79` → `actor.fields['lancer.ai']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/maintenance.ts:13` → `a.fields['lancer.ai']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/maintenance.ts:13` → `a.fields['lancer.ai']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/maintenance.ts:13` → `a.fields['lancer.ai']`
@@ -94,13 +94,13 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.brawlerDie`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:51` → `actor.fields['lancer.brawlerDie']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:86` → `actor.fields['lancer.brawlerDie']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:52` → `actor.fields['lancer.brawlerDie']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:87` → `actor.fields['lancer.brawlerDie']`
 
 ## `lancer.conditions`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:82` → `actor.fields['lancer.conditions']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:92` → `actor.fields['lancer.conditions']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:83` → `actor.fields['lancer.conditions']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:93` → `actor.fields['lancer.conditions']`
 - `game/packages/game-core/src/lancer/npc-profile.ts:5` → `actor.fields['lancer.conditions']`
 
 ## `lancer.contentPacks`
@@ -116,7 +116,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.cp`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:88` → `actor.fields['lancer.cp']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:89` → `actor.fields['lancer.cp']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:158` → `actorFor(t,p).fields['lancer.cp']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:158` → `a.fields['lancer.cp']`
 - `game/apps/desktop/src/tabletop/lancer/rogue/previewFixture.ts:24` → `a.fields['lancer.cp']`
@@ -128,7 +128,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 ## `lancer.creation`
 
 - `game/packages/tabletop-runtime/src/tabletop/lancer/campaignTemplate.ts:12` → `a.fields['lancer.creation']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:18` → `actor.fields['lancer.creation']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:19` → `actor.fields['lancer.creation']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/creation.ts:34` → `previous.fields['lancer.creation']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/creation.ts:42` → `submitted.fields['lancer.creation']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/importPilot.ts:25` → `actor.fields['lancer.creation']`
@@ -155,7 +155,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.current.${key}（插值）`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:84` → `actor.fields[`lancer.current.${key}`]`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:85` → `actor.fields[`lancer.current.${key}`]`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/model.ts:86` → `f[`${LC}current.${key}`]`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/model.ts:106` → `fields[`${LC}current.${key}`]`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/model.ts:123` → `next.fields[`${LC}current.${key}`]`
@@ -173,7 +173,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.current.npc-weapon-${i}-used（插值）`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:83` → `actor.fields[`lancer.current.npc-weapon-${i}-used`]`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:84` → `actor.fields[`lancer.current.npc-weapon-${i}-used`]`
 
 ## `lancer.current.repair`
 
@@ -194,8 +194,8 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.defaultTriggers`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:15` → `actor.fields['lancer.defaultTriggers']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:74` → `actor.fields['lancer.defaultTriggers']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:16` → `actor.fields['lancer.defaultTriggers']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:75` → `actor.fields['lancer.defaultTriggers']`
 
 ## `lancer.destroyed.${kind}.${index}（插值）`
 
@@ -203,7 +203,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.destroyed.${kind}.${i}（插值）`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:89` → `actor.fields[`lancer.destroyed.${kind}.${i}`]`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:90` → `actor.fields[`lancer.destroyed.${kind}.${i}`]`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:82` → `next.fields[`lancer.destroyed.${kind}.${i}`]`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:84` → `next.fields[`lancer.destroyed.${kind}.${i}`]`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/retraining.ts:44` → `actor.fields[`lancer.destroyed.${kind}.${i}`]`
@@ -218,7 +218,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.destroyed.system.${i}（插值）`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:52` → `actor.fields[`lancer.destroyed.system.${i}`]`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:53` → `actor.fields[`lancer.destroyed.system.${i}`]`
 - `game/packages/game-core/src/lancer/npc.ts:51` → `actor.fields[`lancer.destroyed.system.${i}`]`
 - `game/packages/game-core/src/lancer/npc.ts:53` → `actor.fields[`lancer.destroyed.system.${i}`]`
 
@@ -228,8 +228,8 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.destroyed.unit`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:47` → `actor.fields['lancer.destroyed.unit']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:88` → `actor.fields['lancer.destroyed.unit']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:48` → `actor.fields['lancer.destroyed.unit']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:89` → `actor.fields['lancer.destroyed.unit']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/maintenance.ts:30` → `actor.fields['lancer.destroyed.unit']`
 - `game/apps/desktop/src/tabletop/lancer/MaintenancePanel.tsx:31` → `a.fields['lancer.destroyed.unit']`
 - `game/apps/desktop/src/tabletop/lancer/MaintenancePanel.tsx:35` → `a.fields['lancer.destroyed.unit']`
@@ -239,8 +239,8 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.destroyed.weapon.${i}（插值）`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:26` → `actor.fields[`lancer.destroyed.weapon.${i}`]`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:40` → `actor.fields[`lancer.destroyed.weapon.${i}`]`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:27` → `actor.fields[`lancer.destroyed.weapon.${i}`]`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:41` → `actor.fields[`lancer.destroyed.weapon.${i}`]`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/retraining.ts:49` → `updated.fields[`lancer.destroyed.weapon.${i}`]`
 - `game/packages/game-core/src/lancer/npc-profile.ts:21` → `actor.fields[`lancer.destroyed.weapon.${i}`]`
 - `game/packages/game-core/src/lancer/npc.ts:49` → `actor.fields[`lancer.destroyed.weapon.${i}`]`
@@ -255,13 +255,13 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.dustgrave.mesmer`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:51` → `actor.fields['lancer.dustgrave.mesmer']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:73` → `actor.fields['lancer.dustgrave.mesmer']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:52` → `actor.fields['lancer.dustgrave.mesmer']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:74` → `actor.fields['lancer.dustgrave.mesmer']`
 
 ## `lancer.dustgrave.mesmerSix`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:51` → `actor.fields['lancer.dustgrave.mesmerSix']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:73` → `actor.fields['lancer.dustgrave.mesmerSix']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:52` → `actor.fields['lancer.dustgrave.mesmerSix']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:74` → `actor.fields['lancer.dustgrave.mesmerSix']`
 
 ## `lancer.engineering（插值）`
 
@@ -277,7 +277,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.frame`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:22` → `actor.fields['lancer.frame']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:23` → `actor.fields['lancer.frame']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/content.ts:42` → `a.fields['lancer.frame']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:18` → `a.fields['lancer.frame']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:23` → `next.fields['lancer.frame']`
@@ -288,7 +288,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/apps/desktop/src/tabletop/lancer/compcon.ts:30` → `f['lancer.frame']`
 - `game/apps/desktop/src/tabletop/lancer/FramePicker.tsx:10` → `actor.fields['lancer.frame']`
 - `game/apps/desktop/src/tabletop/lancer/FramePicker.tsx:14` → `actor.fields['lancer.frame']`
-- `game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx:31` → `actor.fields['lancer.frame']`
+- `game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx:32` → `actor.fields['lancer.frame']`
 - `game/apps/desktop/src/tabletop/lancer/ResourceCatalog.tsx:20` → `actor?.fields['lancer.frame']`
 - `game/apps/desktop/src/tabletop/lancer/rogue/RogueRetraining.tsx:14` → `actor.fields['lancer.frame']`
 - `game/apps/desktop/src/tabletop/lancer/rogue/tokenArt.ts:53` → `actor?.fields['lancer.frame']`
@@ -314,12 +314,12 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.gunslingerDie`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:51` → `actor.fields['lancer.gunslingerDie']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:87` → `actor.fields['lancer.gunslingerDie']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:52` → `actor.fields['lancer.gunslingerDie']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:88` → `actor.fields['lancer.gunslingerDie']`
 
 ## `lancer.hull`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:97` → `a.fields['lancer.hull']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:98` → `a.fields['lancer.hull']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:18` → `a.fields['lancer.hull']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:98` → `a.fields['lancer.hull']`
 
@@ -353,9 +353,9 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.leaderPool`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:51` → `actor.fields['lancer.leaderPool']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:51` → `actor.fields['lancer.leaderPool']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:80` → `actor.fields['lancer.leaderPool']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:52` → `actor.fields['lancer.leaderPool']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:52` → `actor.fields['lancer.leaderPool']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:81` → `actor.fields['lancer.leaderPool']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/model.ts:101` → `fields['lancer.leaderPool']`
 
 ## `lancer.level`
@@ -400,9 +400,9 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.loaded.${i}（插值）`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:26` → `actor.fields[`lancer.loaded.${i}`]`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:40` → `actor.fields[`lancer.loaded.${i}`]`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:89` → `actor.fields[`lancer.loaded.${i}`]`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:27` → `actor.fields[`lancer.loaded.${i}`]`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:41` → `actor.fields[`lancer.loaded.${i}`]`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:90` → `actor.fields[`lancer.loaded.${i}`]`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:82` → `next.fields[`lancer.loaded.${i}`]`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:84` → `next.fields[`lancer.loaded.${i}`]`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/retraining.ts:44` → `actor.fields[`lancer.loaded.${i}`]`
@@ -438,9 +438,9 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.nhp`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:45` → `actor.fields['lancer.nhp']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:45` → `actor.fields['lancer.nhp']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:77` → `actor.fields['lancer.nhp']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:46` → `actor.fields['lancer.nhp']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:46` → `actor.fields['lancer.nhp']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:78` → `actor.fields['lancer.nhp']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/maintenance.ts:13` → `a.fields['lancer.nhp']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/maintenance.ts:13` → `a.fields['lancer.nhp']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/maintenance.ts:13` → `a.fields['lancer.nhp']`
@@ -452,8 +452,8 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 - `game/packages/tabletop-runtime/src/tabletop/lancer/campaignTemplate.ts:8` → `a.fields['lancer.npc']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/campaignTemplate.ts:12` → `a.fields['lancer.npc']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:19` → `actor.fields['lancer.npc']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:72` → `actor.fields['lancer.npc']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:20` → `actor.fields['lancer.npc']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:73` → `actor.fields['lancer.npc']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/deployment.ts:19` → `actor.fields['lancer.npc']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/deployment.ts:30` → `a.fields['lancer.npc']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/deployment.ts:30` → `a.fields['lancer.npc']`
@@ -489,7 +489,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.overcharge`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:88` → `actor.fields['lancer.overcharge']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:89` → `actor.fields['lancer.overcharge']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/maintenance.ts:27` → `actor.fields['lancer.overcharge']`
 
 ## `lancer.overcharge（插值）`
@@ -522,8 +522,8 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.pilot.ejected`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:47` → `actor.fields['lancer.pilot.ejected']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:79` → `actor.fields['lancer.pilot.ejected']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:48` → `actor.fields['lancer.pilot.ejected']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:80` → `actor.fields['lancer.pilot.ejected']`
 
 ## `lancer.pilot.gear.${slot}（插值）`
 
@@ -611,7 +611,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.rogue`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:34` → `actor.fields['lancer.rogue']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:35` → `actor.fields['lancer.rogue']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/model.ts:38` → `actor.fields['lancer.rogue']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/model.ts:66` → `f['lancer.rogue']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/model.ts:68` → `f['lancer.rogue']`
@@ -691,7 +691,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.side`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:47` → `actor.fields['lancer.side']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:48` → `actor.fields['lancer.side']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/deployment.ts:30` → `a.fields['lancer.side']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/deployment.ts:30` → `a.fields['lancer.side']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/deployment.ts:30` → `a.fields['lancer.side']`
@@ -754,19 +754,19 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.talentWeapon.${key}.destroyed（插值）`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:89` → `actor.fields[`lancer.talentWeapon.${key}.destroyed`]`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:90` → `actor.fields[`lancer.talentWeapon.${key}.destroyed`]`
 
 ## `lancer.talentWeapon.${key}.used（插值）`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:89` → `actor.fields[`lancer.talentWeapon.${key}.used`]`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:90` → `actor.fields[`lancer.talentWeapon.${key}.used`]`
 
 ## `lancer.talentWeapon.fuel-rod.destroyed`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:42` → `actor.fields['lancer.talentWeapon.fuel-rod.destroyed']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:43` → `actor.fields['lancer.talentWeapon.fuel-rod.destroyed']`
 
 ## `lancer.talentWeapon.fuel-rod.used`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:42` → `actor.fields['lancer.talentWeapon.fuel-rod.used']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:43` → `actor.fields['lancer.talentWeapon.fuel-rod.used']`
 
 ## `lancer.talentWeapon.prototype.destroyed`
 
@@ -786,8 +786,8 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.torrentDie`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:51` → `actor.fields['lancer.torrentDie']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:85` → `actor.fields['lancer.torrentDie']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:52` → `actor.fields['lancer.torrentDie']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:86` → `actor.fields['lancer.torrentDie']`
 
 ## `lancer.training`
 
@@ -847,8 +847,8 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.wreckLost`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:51` → `actor.fields['lancer.wreckLost']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:81` → `actor.fields['lancer.wreckLost']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:52` → `actor.fields['lancer.wreckLost']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:82` → `actor.fields['lancer.wreckLost']`
 - `game/apps/desktop/src/tabletop/lancer/MaintenancePanel.tsx:35` → `a.fields['lancer.wreckLost']`
 
 ## `module.condition`
@@ -1074,8 +1074,8 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/apps/desktop/src/tabletop/lancer/CharacterReadView.tsx:25` → `actor.fields['机甲名']`
 - `game/apps/desktop/src/tabletop/lancer/compcon.ts:32` → `f['机甲名']`
 - `game/apps/desktop/src/tabletop/lancer/LancerSheet.tsx:40` → `actor.fields['机甲名']`
-- `game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx:35` → `actor.fields['机甲名']`
-- `game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx:35` → `actor.fields['机甲名']`
+- `game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx:36` → `actor.fields['机甲名']`
+- `game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx:36` → `actor.fields['机甲名']`
 - `game/apps/desktop/src/tabletop/lancer/terminal/Directories.tsx:44` → `actor.fields['机甲名']`
 
 ## `机甲型号`

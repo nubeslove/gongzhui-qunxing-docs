@@ -7,6 +7,7 @@
 <details><summary>类型依赖</summary>
 
 ```ts
+import {effectiveStoryResources} from '@aelzerant/contracts';
 import {dndDurationLabel} from './duration';
 import {dndMagicItemRule,dndMagicItemActive} from './magic-items';
 import {dndLegendaryOptions} from './legendary';
@@ -24,7 +25,7 @@ import {DND_SPELL_EXECUTORS} from './spells';
 
 ## DndHudGroup
 
-导出接口 · 源码第 13 行。
+导出接口 · 源码第 14 行。
 
 ```ts
 export type DndHudGroup = 'common' | 'attacks' | 'spells' | 'features' | 'items';
@@ -32,7 +33,7 @@ export type DndHudGroup = 'common' | 'attacks' | 'spells' | 'features' | 'items'
 
 ## DndHudAction
 
-导出接口 · 源码第 14 行。
+导出接口 · 源码第 15 行。
 
 ```ts
 export interface DndHudAction {
@@ -90,7 +91,7 @@ export interface DndHudAction {
 
 ## dndHudKey
 
-导出接口 · 源码第 15 行。
+导出接口 · 源码第 16 行。
 
 ```ts
 export const dndHudKey: (r: DndHudRef): string;
@@ -98,7 +99,7 @@ export const dndHudKey: (r: DndHudRef): string;
 
 ## dndHudActions
 
-导出接口 · 源码第 38 行。
+导出接口 · 源码第 39 行。
 
 ```ts
 export function dndHudActions(actor: ManualActor, story?: StoryWorkspace): DndHudAction[];

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RuntimePermission",
+  "anyOf": [
+    {
+      "const": "scene:read",
+      "type": "string"
+    },
+    {
+      "const": "files:selected",
+      "type": "string"
+    },
+    {
+      "type": "string",
+      "pattern": "^action:[\\s\\S]*$"
+    },
+    {
+      "type": "string",
+      "pattern": "^service:[\\s\\S]*$"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "date": "2026-11-05",
-  "version": "0.2.36",
+  "version": "0.2.37",
   "scope": "Shared contracts, rules engine signatures, game core, session, transport, assets, world model and selected local authoring entry points. No rulebook prose or asset binaries.",
   "files": [
     {
@@ -209,6 +209,21 @@
       "bytes": 1354
     },
     {
+      "path": "game/packages/contracts/src/community-center-validation.ts",
+      "sha256": "ad5a10b90d1a6a6952dc829c75859285e8cd466523891de7aae6c95038715251",
+      "bytes": 4596
+    },
+    {
+      "path": "game/packages/contracts/src/community-center.ts",
+      "sha256": "ceb6db38722f71abdb74a5788dd6b10ed7b4bd0728ec6a98532491ab007d5264",
+      "bytes": 4647
+    },
+    {
+      "path": "game/packages/contracts/src/community-plugin-runtime.ts",
+      "sha256": "f878f57bca94d15e44f0dab291c9b92d55d209733266bd6cd2dad879c39bff43",
+      "bytes": 6691
+    },
+    {
       "path": "game/packages/contracts/src/community.ts",
       "sha256": "23f17765b6b3ab24c425d259243715133d4f309fe404e062a28b7ec84b4d95ed",
       "bytes": 1734
@@ -300,8 +315,8 @@
     },
     {
       "path": "game/packages/contracts/src/control.ts",
-      "sha256": "efe5f0044d3fe1703dd2160491e90c36f1cb5e2120bcaa228eb4ab3003618722",
-      "bytes": 4799
+      "sha256": "83ef9bba5adf8e0c087a67c1ddd1356f37ec2f85fdf348a4dae92d25af6fe1a5",
+      "bytes": 5142
     },
     {
       "path": "game/packages/contracts/src/conversation-channels.ts",
@@ -435,8 +450,8 @@
     },
     {
       "path": "game/packages/contracts/src/index.ts",
-      "sha256": "6b4c49d3d643d1f4b1ef5b73f184321f450f69d07771358394a2f479250136e0",
-      "bytes": 15144
+      "sha256": "4de23623e392bd3986214689e2da3d10e6af0ceb40a741a18908895bef7f08ca",
+      "bytes": 15338
     },
     {
       "path": "game/packages/contracts/src/inline-roll.ts",
@@ -675,8 +690,8 @@
     },
     {
       "path": "game/packages/contracts/src/resource-access.ts",
-      "sha256": "8e52651e515794713a02047eeed50586f578c62b9832f046a0d494f344056830",
-      "bytes": 1728
+      "sha256": "f3e03e582b344deb51727a154d5376f1a04c370073d6f2e46cfe6ac019ad0f09",
+      "bytes": 1805
     },
     {
       "path": "game/packages/contracts/src/resource-details.ts",
@@ -689,9 +704,14 @@
       "bytes": 1432
     },
     {
+      "path": "game/packages/contracts/src/resource-packages.ts",
+      "sha256": "20b7364cfed409adf201ba5a7702ebc430848f61e056431450abe55e7bc844fa",
+      "bytes": 11966
+    },
+    {
       "path": "game/packages/contracts/src/resource-transfer.ts",
-      "sha256": "82df16dd66c90ba22a3b2f130d1491a0ae41da396222fb814573fc5362c03220",
-      "bytes": 6063
+      "sha256": "370cf7045b00a66f01369d0bdec5ed9ff78d2f45e0ae5718f48b7e3335321791",
+      "bytes": 6140
     },
     {
       "path": "game/packages/contracts/src/resource-upload.ts",
@@ -970,8 +990,8 @@
     },
     {
       "path": "game/packages/contracts/src/story.ts",
-      "sha256": "e53d4795bc7ec11eee01b90dda780f4295772bbbff75309f0c270cc62de349ac",
-      "bytes": 34341
+      "sha256": "27192277d6b2663a62bb12b584ffa092ba88a64d36021bcf471594ab05158077",
+      "bytes": 35006
     },
     {
       "path": "game/packages/contracts/src/systems.ts",
@@ -2115,8 +2135,8 @@
     },
     {
       "path": "game/packages/rules-engine/src/dnd/hud-actions.ts",
-      "sha256": "cdee5d2d8374f51388e2f9b923b2604234df9c9851ba05f4d1ff991c41898676",
-      "bytes": 17497
+      "sha256": "2e86ca00dc383f789b8acfc361f32e4e43e1b8ea5debd49fae1dba9dc0b02f1d",
+      "bytes": 17579
     },
     {
       "path": "game/packages/rules-engine/src/dnd/index.ts",
@@ -2285,8 +2305,8 @@
     },
     {
       "path": "game/packages/session/src/core.ts",
-      "sha256": "0eb1fe6b8a91f94721e848a73311c2d5882d04ec774f2f623d93247e56683e44",
-      "bytes": 3173
+      "sha256": "0a9075df24c057df17d91de0cc4f2346917b880e5b8fb7fa0c65c5baa21d6a91",
+      "bytes": 3219
     },
     {
       "path": "game/packages/session/src/directory-access.ts",
@@ -2345,13 +2365,13 @@
     },
     {
       "path": "game/packages/session/src/resource-runtime.ts",
-      "sha256": "b1d5d1b10c4cd3ef8f0cf08b9039967f59575c33885455c916273c40f2a796d1",
-      "bytes": 4618
+      "sha256": "9574fc475acae73948f29f0515f33c819bdd3f7156d4c99b2d78339be9df3bd0",
+      "bytes": 4696
     },
     {
       "path": "game/packages/session/src/resource-use.ts",
-      "sha256": "678a37b21fd7ef051b1871e5f8c8e4dabf679dacf67182bde0b964c4c6e0767c",
-      "bytes": 3425
+      "sha256": "45c4bd00edb90bee37925203e06819fa42c4e3b13ea82e81ad63a6b3df0ef1ed",
+      "bytes": 3503
     },
     {
       "path": "game/packages/session/src/story-assets.ts",
@@ -2455,8 +2475,13 @@
     },
     {
       "path": "game/packages/session/src/story-resource-edits.ts",
-      "sha256": "5bbfd301338524e8ca957aaedd04fdeb3df8b2e0f48ba430528d5394e134d192",
-      "bytes": 3009
+      "sha256": "9f63a2e5a643ea63a363dd46bd0c476b8d69c1148dd6b1f4054d5ab8ee6028bc",
+      "bytes": 3114
+    },
+    {
+      "path": "game/packages/session/src/story-resource-packages.ts",
+      "sha256": "0aa76c1340254b9cc6083d2998924b8460dc8aefdf8bac16d76e31d50b6e6fde",
+      "bytes": 1545
     },
     {
       "path": "game/packages/session/src/story-resource-transfer.ts",
@@ -2505,8 +2530,8 @@
     },
     {
       "path": "game/packages/session/src/story-workspace.ts",
-      "sha256": "e7d377251a3d769a03a0e011624e302d29711cc3cb39aedd4fa6800d1385fc6b",
-      "bytes": 14403
+      "sha256": "2dfea740d8f9918e66de24a72cd7af12053b817531574f113f24718aa4979b2f",
+      "bytes": 14481
     },
     {
       "path": "game/packages/session/src/world-aaf-character.ts",
@@ -2540,8 +2565,8 @@
     },
     {
       "path": "game/packages/session/src/world-authority.ts",
-      "sha256": "ec5674688823e200d05049c66deab678c5281e55e6e395ecf7bcec6325d65332",
-      "bytes": 17879
+      "sha256": "dd6ccce3451eb6141ec76bb2b03bdedf5beb538c325fe851f189e92952845d5e",
+      "bytes": 19275
     },
     {
       "path": "game/packages/session/src/world-catalog.ts",
@@ -2870,8 +2895,8 @@
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-      "sha256": "485388e34139981be44b90a89797adbf41301d956d4fd4e1599a3ddcc328ea53",
-      "bytes": 17985
+      "sha256": "575307d99ae91ef83a3a4e8dcbe14babe2290a6e98cebc8327f65d0361e47695",
+      "bytes": 18094
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/committedMotion.ts",
@@ -2962,6 +2987,11 @@
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/reinforcements.ts",
       "sha256": "4828a213837056b8957a53ce07da0868b9b3474c59b91ae9ed31b179acbb0709",
       "bytes": 4386
+    },
+    {
+      "path": "game/packages/tabletop-runtime/src/tabletop/lancer/resourceEquipment.ts",
+      "sha256": "51b0c87f9456a4173a62ddd727937a856065877a4909fe10db83f29b947fa99d",
+      "bytes": 3765
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/abilities.ts",
@@ -3132,6 +3162,11 @@
       "path": "game/packages/tabletop-runtime/src/tabletop/regions.ts",
       "sha256": "8d2147f511ad2928b19115b916ca752eefc94b11138b0ea5af811f6d02b16488",
       "bytes": 4777
+    },
+    {
+      "path": "game/packages/tabletop-runtime/src/tabletop/resourcePackages.ts",
+      "sha256": "e38d063ab46be7112b4214c6eb13a36708a0b95cd4cb2d70ba807938d105343c",
+      "bytes": 1181
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/sceneArchive.ts",

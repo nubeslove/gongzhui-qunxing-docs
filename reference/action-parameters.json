@@ -3149,7 +3149,7 @@
     "adjudication.apply": [
       {
         "source": "game/packages/session/src/world-authority.ts",
-        "line": 45,
+        "line": 46,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],

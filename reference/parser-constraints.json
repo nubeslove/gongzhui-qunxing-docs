@@ -433,6 +433,57 @@
       "delegatedTypes": []
     },
     {
+      "name": "parseCommunityPackage",
+      "source": "game/packages/contracts/src/community-center-validation.ts",
+      "line": 14,
+      "fields": [],
+      "checks": [
+        "parseRuntimeManifest(p.manifest)",
+        "parseResourcePackage(v.resources)"
+      ],
+      "rejectionConditions": [
+        "v.format!=='qianxing.community'||v.schemaVersion!==1",
+        "!supportedSections.length||new Set(supportedSections).size!==supportedSections.length",
+        "kind!=='plugin'&&supportedSections.length!==1",
+        "kind==='plugin'",
+        "v.resources!==undefined",
+        "pluginManifest.id!==manifest.id||pluginManifest.version!==manifest.version",
+        "v.plugin!==undefined",
+        "resources.packageId!==manifest.id||resources.version!==manifest.version",
+        "resources.systemId!==system"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseRuntimeManifest",
+      "source": "game/packages/contracts/src/community-plugin-runtime.ts",
+      "line": 33,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "v.apiVersion!==1",
+        "!/^[a-zA-Z0-9_-][a-zA-Z0-9_./-]*\\.js$/.test(entry)||entry.split('/').includes('..')",
+        "(p.sceneRead!==undefined&&p.sceneRead!==true)||(p.selectedFiles!==undefined&&p.selectedFiles!==true)",
+        "url.protocol!=='https:'||url.origin!==origin||url.username||url.password||url.port",
+        "path.includes('?')",
+        "x!=='GET'&&x!=='POST'",
+        "!pathPrefixes.length||!methods.length",
+        "typeof x!=='string'||!declared.has(x as RuntimePermission)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseRuntimeNodes",
+      "source": "game/packages/contracts/src/community-plugin-runtime.ts",
+      "line": 50,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "typeof r.value!=='string'||r.value.length>10000"
+      ],
+      "delegatedTypes": []
+    },
+    {
       "name": "parseCompendiumDocument",
       "source": "game/packages/contracts/src/compendium-documents.ts",
       "line": 34,
@@ -1662,7 +1713,7 @@
     {
       "name": "parseResourceAccess",
       "source": "game/packages/contracts/src/resource-access.ts",
-      "line": 3,
+      "line": 4,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -1699,9 +1750,65 @@
       "delegatedTypes": []
     },
     {
+      "name": "parseLancerPackageEquipment",
+      "source": "game/packages/contracts/src/resource-packages.ts",
+      "line": 20,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "parseLancerAutomation(v.automation,v.kind)",
+        "storyId(v.id)"
+      ],
+      "rejectionConditions": [
+        "v.kind!=='weapon'&&v.kind!=='system'",
+        "id.startsWith('package:')",
+        "!name.trim()",
+        "v.kind==='weapon'&&!['aux','main','heavy','superheavy'].includes(String(v.size))",
+        "v.kind==='system'&&v.size!==undefined",
+        "JSON.stringify(item).length>3500"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseResourcePackage",
+      "source": "game/packages/contracts/src/resource-packages.ts",
+      "line": 31,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "isGameSystemId(v.systemId)",
+        "storyId(v.packageId)",
+        "storyId(v.version)"
+      ],
+      "rejectionConditions": [
+        "v.schemaVersion!==1||!isGameSystemId(v.systemId)",
+        "!resources.length&&!lancerEquipment?.length",
+        "lancerEquipment?.length&&v.systemId!=='lancer'",
+        "active.has(id)||depth>16",
+        "!r"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseResourcePackageState",
+      "source": "game/packages/contracts/src/resource-packages.ts",
+      "line": 45,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "parseResourcePackage(x.package)",
+        "storyId(x.resourceId)",
+        "parseResource(x.world)"
+      ],
+      "rejectionConditions": [
+        "typeof x.enabled!=='boolean'||typeof x.hash!=='string'||!/^sha256:[a-f0-9]{64}$|^[a-f0-9]{64}$/.test(x.hash)"
+      ],
+      "delegatedTypes": []
+    },
+    {
       "name": "parseResourceFile",
       "source": "game/packages/contracts/src/resource-transfer.ts",
-      "line": 16,
+      "line": 17,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -2522,7 +2629,7 @@
     {
       "name": "parseResource",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 140,
+      "line": 141,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -2549,7 +2656,7 @@
     {
       "name": "parsePresentationState",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 151,
+      "line": 152,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -2564,7 +2671,7 @@
     {
       "name": "parseSceneEffects",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 155,
+      "line": 156,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -2578,7 +2685,7 @@
     {
       "name": "parseOnboarding",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 160,
+      "line": 161,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -2593,7 +2700,7 @@
     {
       "name": "parsePlayerProgress",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 163,
+      "line": 164,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -2610,7 +2717,7 @@
     {
       "name": "parseSceneNodes",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 169,
+      "line": 170,
       "fields": [],
       "checks": [
         "storyObject(rawNode)",
@@ -2634,7 +2741,7 @@
     {
       "name": "parseSceneGraph",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 183,
+      "line": 184,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -2650,7 +2757,7 @@
     {
       "name": "parseLegacySceneGraph",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 187,
+      "line": 188,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -2663,7 +2770,7 @@
     {
       "name": "parseSceneGraphLibrary",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 190,
+      "line": 191,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -2679,13 +2786,14 @@
     {
       "name": "parseStory",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 198,
+      "line": 199,
       "fields": [],
       "checks": [
         "storyObject(raw)",
         "storyObject(x)",
         "storyId(a.id)",
         "parseUserColor(a.color)",
+        "parseResourcePackageState(v.resourcePackages)",
         "storyId(a.actorId)",
         "storyId(a.resourceId)",
         "parseQuest(a.quest)",
@@ -2746,7 +2854,7 @@
         "!byId.has(c)||byId.get(c)!.systemId!==r.systemId",
         "path.has(id)",
         "depth>16",
-        "!byId.has(g.resourceId)",
+        "!retainedResourceIds.has(g.resourceId)",
         "v.sceneViews!==undefined",
         "rows.length>128",
         "v.paused!==undefined&&typeof v.paused!=='boolean'",
@@ -3837,7 +3945,7 @@
     {
       "name": "parseResourceUse",
       "source": "game/packages/session/src/resource-use.ts",
-      "line": 5,
+      "line": 6,
       "fields": [],
       "checks": [
         "storyObject(raw)",

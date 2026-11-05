@@ -26,307 +26,307 @@
   {
     "key": "lancer.defaultTriggers",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 15,
+    "line": 16,
     "expression": "actor.fields['lancer.defaultTriggers']"
   },
   {
     "key": "lancer.creation",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 18,
+    "line": 19,
     "expression": "actor.fields['lancer.creation']"
   },
   {
     "key": "lancer.npc",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 19,
+    "line": 20,
     "expression": "actor.fields['lancer.npc']"
   },
   {
     "key": "lancer.frame",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 22,
+    "line": 23,
     "expression": "actor.fields['lancer.frame']"
   },
   {
     "key": "lancer.loaded.${i}（插值）",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 26,
+    "line": 27,
     "expression": "actor.fields[`lancer.loaded.${i}`]"
   },
   {
     "key": "lancer.destroyed.weapon.${i}（插值）",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 26,
+    "line": 27,
     "expression": "actor.fields[`lancer.destroyed.weapon.${i}`]"
   },
   {
     "key": "lancer.rogue",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 34,
+    "line": 35,
     "expression": "actor.fields['lancer.rogue']"
   },
   {
     "key": "lancer.loaded.${i}（插值）",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 40,
+    "line": 41,
     "expression": "actor.fields[`lancer.loaded.${i}`]"
   },
   {
     "key": "lancer.destroyed.weapon.${i}（插值）",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 40,
+    "line": 41,
     "expression": "actor.fields[`lancer.destroyed.weapon.${i}`]"
   },
   {
     "key": "lancer.talentWeapon.fuel-rod.used",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 42,
+    "line": 43,
     "expression": "actor.fields['lancer.talentWeapon.fuel-rod.used']"
   },
   {
     "key": "lancer.talentWeapon.fuel-rod.destroyed",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 42,
+    "line": 43,
     "expression": "actor.fields['lancer.talentWeapon.fuel-rod.destroyed']"
   },
   {
     "key": "lancer.ai",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 44,
+    "line": 45,
     "expression": "actor.fields['lancer.ai']"
   },
   {
     "key": "lancer.ai",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 44,
+    "line": 45,
     "expression": "actor.fields['lancer.ai']"
   },
   {
     "key": "lancer.nhp",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 45,
+    "line": 46,
     "expression": "actor.fields['lancer.nhp']"
   },
   {
     "key": "lancer.nhp",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 45,
+    "line": 46,
     "expression": "actor.fields['lancer.nhp']"
   },
   {
     "key": "lancer.pilot.ejected",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 47,
+    "line": 48,
     "expression": "actor.fields['lancer.pilot.ejected']"
   },
   {
     "key": "lancer.side",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 47,
+    "line": 48,
     "expression": "actor.fields['lancer.side']"
   },
   {
     "key": "lancer.destroyed.unit",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 47,
+    "line": 48,
     "expression": "actor.fields['lancer.destroyed.unit']"
   },
   {
     "key": "lancer.dustgrave.mesmer",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 51,
+    "line": 52,
     "expression": "actor.fields['lancer.dustgrave.mesmer']"
   },
   {
     "key": "lancer.dustgrave.mesmerSix",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 51,
+    "line": 52,
     "expression": "actor.fields['lancer.dustgrave.mesmerSix']"
   },
   {
     "key": "lancer.leaderPool",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 51,
+    "line": 52,
     "expression": "actor.fields['lancer.leaderPool']"
   },
   {
     "key": "lancer.leaderPool",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 51,
+    "line": 52,
     "expression": "actor.fields['lancer.leaderPool']"
   },
   {
     "key": "lancer.torrentDie",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 51,
+    "line": 52,
     "expression": "actor.fields['lancer.torrentDie']"
   },
   {
     "key": "lancer.wreckLost",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 51,
+    "line": 52,
     "expression": "actor.fields['lancer.wreckLost']"
   },
   {
     "key": "lancer.brawlerDie",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 51,
+    "line": 52,
     "expression": "actor.fields['lancer.brawlerDie']"
   },
   {
     "key": "lancer.gunslingerDie",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 51,
+    "line": 52,
     "expression": "actor.fields['lancer.gunslingerDie']"
   },
   {
     "key": "lancer.destroyed.system.${i}（插值）",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 52,
+    "line": 53,
     "expression": "actor.fields[`lancer.destroyed.system.${i}`]"
   },
   {
     "key": "lancer.npc",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 72,
+    "line": 73,
     "expression": "actor.fields['lancer.npc']"
   },
   {
     "key": "lancer.dustgrave.mesmer",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 73,
+    "line": 74,
     "expression": "actor.fields['lancer.dustgrave.mesmer']"
   },
   {
     "key": "lancer.dustgrave.mesmerSix",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 73,
+    "line": 74,
     "expression": "actor.fields['lancer.dustgrave.mesmerSix']"
   },
   {
     "key": "lancer.defaultTriggers",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 74,
+    "line": 75,
     "expression": "actor.fields['lancer.defaultTriggers']"
   },
   {
     "key": "lancer.nhp",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 77,
+    "line": 78,
     "expression": "actor.fields['lancer.nhp']"
   },
   {
     "key": "lancer.ai",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 78,
+    "line": 79,
     "expression": "actor.fields['lancer.ai']"
   },
   {
     "key": "lancer.pilot.ejected",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 79,
+    "line": 80,
     "expression": "actor.fields['lancer.pilot.ejected']"
   },
   {
     "key": "lancer.leaderPool",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 80,
+    "line": 81,
     "expression": "actor.fields['lancer.leaderPool']"
   },
   {
     "key": "lancer.wreckLost",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 81,
+    "line": 82,
     "expression": "actor.fields['lancer.wreckLost']"
   },
   {
     "key": "lancer.conditions",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 82,
+    "line": 83,
     "expression": "actor.fields['lancer.conditions']"
   },
   {
     "key": "lancer.current.npc-weapon-${i}-used（插值）",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 83,
+    "line": 84,
     "expression": "actor.fields[`lancer.current.npc-weapon-${i}-used`]"
   },
   {
     "key": "lancer.current.${key}（插值）",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 84,
+    "line": 85,
     "expression": "actor.fields[`lancer.current.${key}`]"
   },
   {
     "key": "lancer.torrentDie",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 85,
+    "line": 86,
     "expression": "actor.fields['lancer.torrentDie']"
   },
   {
     "key": "lancer.brawlerDie",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 86,
+    "line": 87,
     "expression": "actor.fields['lancer.brawlerDie']"
   },
   {
     "key": "lancer.gunslingerDie",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 87,
+    "line": 88,
     "expression": "actor.fields['lancer.gunslingerDie']"
   },
   {
     "key": "lancer.destroyed.unit",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 88,
+    "line": 89,
     "expression": "actor.fields['lancer.destroyed.unit']"
   },
   {
     "key": "lancer.cp",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 88,
+    "line": 89,
     "expression": "actor.fields['lancer.cp']"
   },
   {
     "key": "lancer.overcharge",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 88,
+    "line": 89,
     "expression": "actor.fields['lancer.overcharge']"
   },
   {
     "key": "lancer.talentWeapon.${key}.used（插值）",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 89,
+    "line": 90,
     "expression": "actor.fields[`lancer.talentWeapon.${key}.used`]"
   },
   {
     "key": "lancer.talentWeapon.${key}.destroyed（插值）",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 89,
+    "line": 90,
     "expression": "actor.fields[`lancer.talentWeapon.${key}.destroyed`]"
   },
   {
     "key": "lancer.destroyed.${kind}.${i}（插值）",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 89,
+    "line": 90,
     "expression": "actor.fields[`lancer.destroyed.${kind}.${i}`]"
   },
   {
     "key": "lancer.loaded.${i}（插值）",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 89,
+    "line": 90,
     "expression": "actor.fields[`lancer.loaded.${i}`]"
   },
   {
     "key": "lancer.conditions",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 92,
+    "line": 93,
     "expression": "actor.fields['lancer.conditions']"
   },
   {
     "key": "lancer.hull",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-    "line": 97,
+    "line": 98,
     "expression": "a.fields['lancer.hull']"
   },
   {
@@ -2936,19 +2936,19 @@
   {
     "key": "lancer.frame",
     "source": "game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx",
-    "line": 31,
+    "line": 32,
     "expression": "actor.fields['lancer.frame']"
   },
   {
     "key": "机甲名",
     "source": "game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx",
-    "line": 35,
+    "line": 36,
     "expression": "actor.fields['机甲名']"
   },
   {
     "key": "机甲名",
     "source": "game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx",
-    "line": 35,
+    "line": 36,
     "expression": "actor.fields['机甲名']"
   },
   {

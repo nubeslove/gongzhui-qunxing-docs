@@ -7,6 +7,7 @@
 <details><summary>类型依赖</summary>
 
 ```ts
+import {effectiveStoryResources} from './resource-packages';
 import {storyObject,storyEnum,storyId,type StoryResource,type StoryWorkspace} from './story';
 import type {DocumentAccess,AccessLevel} from './world-library';
 ```
@@ -14,7 +15,7 @@ import type {DocumentAccess,AccessLevel} from './world-library';
 
 ## parseResourceAccess
 
-导出接口 · 源码第 3 行。
+导出接口 · 源码第 4 行。
 
 ```ts
 export function parseResourceAccess(raw: unknown): DocumentAccess;
@@ -26,7 +27,7 @@ export function parseResourceAccess(raw: unknown): DocumentAccess;
 
 ## resourceAccess
 
-导出接口 · 源码第 4 行。
+导出接口 · 源码第 5 行。
 
 ```ts
 export function resourceAccess(resource: StoryResource, playerId?: string, gm?: boolean): AccessLevel;
@@ -40,7 +41,7 @@ export function resourceAccess(resource: StoryResource, playerId?: string, gm?: 
 
 ## resourceReadable
 
-导出接口 · 源码第 5 行。
+导出接口 · 源码第 6 行。
 
 ```ts
 export const resourceReadable: (level: AccessLevel): level is "observer" | "owner";
@@ -48,7 +49,7 @@ export const resourceReadable: (level: AccessLevel): level is "observer" | "owne
 
 ## projectResources
 
-导出接口 · 源码第 6 行。
+导出接口 · 源码第 7 行。
 
 ```ts
 export function projectResources(story: StoryWorkspace, playerId?: string): StoryResource[];

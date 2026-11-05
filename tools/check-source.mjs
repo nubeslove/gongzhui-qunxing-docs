@@ -6,9 +6,11 @@ const snapshot=read('reference/source-snapshot.json');
 const platform=read('reference/platform-source-snapshot.json');
 for(const f of [...snapshot.files,...platform.files]){const p=path.join(source,f.path);if(!fs.existsSync(p)||createHash('sha256').update(fs.readFileSync(p)).digest('hex')!==f.sha256)failures.push('源码已变动: '+f.path);}
 const routes=new Set();
-for(const name of ['index','auth','community','publications','media','world-access','world-roles','world-transfer','world-deletion','updates']){
+for(const name of ['index','auth','community','publications','media','world-access','world-roles','world-transfer','world-deletion','updates','community-center-api']){
  const text=fs.readFileSync(path.join(source,'game/apps/server/src/'+name+'.ts'),'utf8');
  for(const m of text.matchAll(/app\.(get|post|put|delete)\(\s*['"]([^'"]+)['"]/g))if(m[2].startsWith('/api/'))routes.add(m[1]+' '+m[2].replace(/:(\w+)(?:\(\*\))?/g,'{$1}'));
+ const centerBase=text.match(/base\s*=\s*['"](\/api\/community-center\/:section)['"]/);
+ if(centerBase)for(const m of text.matchAll(/app\.(get|post|put|delete)\(\s*base(?:\s*\+\s*['"]([^'"]+)['"])?\s*,/g))routes.add(m[1]+' '+(centerBase[1]+(m[2]??'')).replace(/:(\w+)/g,'{$1}'));
  if(text.includes('app.post(`/api/auth/${action}`')){const list=text.match(/for \(const action of \[([^\]]+)\]/);if(!list)throw Error('账号路由列表变化，需要人工核对');for(const m of list[1].matchAll(/'([^']+)'/g))routes.add('post /api/auth/'+m[1]);}
 }
 const spec=read('api/openapi.json'),documented=new Set(Object.entries(spec.paths).flatMap(([p,ops])=>Object.keys(ops).filter(k=>['get','post','put','delete'].includes(k)).map(k=>k+' '+p)));

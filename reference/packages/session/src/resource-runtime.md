@@ -7,13 +7,14 @@
 <details><summary>类型依赖</summary>
 
 ```ts
+import {effectiveStoryResources} from '@aelzerant/contracts';
 import type { ResourceActivity, StoryWorkspace } from '@aelzerant/contracts';
 ```
 </details>
 
 ## ResourceSubject
 
-导出接口 · 源码第 3 行。
+导出接口 · 源码第 4 行。
 
 ```ts
 export interface ResourceSubject {
@@ -40,7 +41,7 @@ export interface ResourceSubject {
 
 ## ResourceResolution
 
-导出接口 · 源码第 4 行。
+导出接口 · 源码第 5 行。
 
 ```ts
 export interface ResourceResolution {
@@ -56,7 +57,7 @@ export interface ResourceResolution {
 
 ## resourceFormula
 
-导出接口 · 源码第 6 行。
+导出接口 · 源码第 7 行。
 
 Bounded dice syntax; no eval, property traversal or executable expressions.
 
@@ -71,7 +72,7 @@ export function resourceFormula(expression: string, roll: (sides:number)=>number
 
 ## resourceAutomationIssues
 
-导出接口 · 源码第 11 行。
+导出接口 · 源码第 12 行。
 
 ```ts
 export function resourceAutomationIssues(a: ResourceActivity): string[];
@@ -83,7 +84,7 @@ export function resourceAutomationIssues(a: ResourceActivity): string[];
 
 ## resolveResource
 
-导出接口 · 源码第 19 行。
+导出接口 · 源码第 20 行。
 
 Produces a complete candidate; adapters must commit all of it or nothing.
 
@@ -101,7 +102,7 @@ export function resolveResource(a: ResourceActivity, sourceId: string, targetIds
 
 ## grantedResourceIds
 
-导出接口 · 源码第 41 行。
+导出接口 · 源码第 42 行。
 
 ```ts
 export function grantedResourceIds(story: StoryWorkspace, actorId: string): Set<string>;

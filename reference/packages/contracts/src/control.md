@@ -6,7 +6,7 @@
 
 ## Capability
 
-导出接口 · 源码第 15 行。
+导出接口 · 源码第 16 行。
 
 ```ts
 export type Capability = keyof typeof CONTROL_CAPABILITIES;
@@ -14,13 +14,13 @@ export type Capability = keyof typeof CONTROL_CAPABILITIES;
 
 ## ControlScope
 
-导出接口 · 源码第 16 行。
+导出接口 · 源码第 17 行。
 
 ```ts
 export type ControlScope = {
     kind: 'global';
 } | {
-    kind: 'system' | 'world' | 'content';
+    kind: 'system' | 'world' | 'content' | 'section';
     id: string;
 };
 ```
@@ -28,18 +28,19 @@ export type ControlScope = {
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
 | `分支1.kind` | 否 | `'global'` | 见结构定义及所属功能文档 |
-| `分支2.kind` | 否 | `'system'&#124;'world'&#124;'content'` | 见结构定义及所属功能文档 |
+| `分支2.kind` | 否 | `'system'&#124;'world'&#124;'content'&#124;'section'` | 见结构定义及所属功能文档 |
 | `分支2.id` | 否 | `string` | 见结构定义及所属功能文档 |
 
 ## ControlTarget
 
-导出接口 · 源码第 17 行。
+导出接口 · 源码第 18 行。
 
 ```ts
 export interface ControlTarget {
     worldId?: string;
     systemId?: string;
     contentId?: string;
+    sectionId?: string;
 }
 ```
 
@@ -48,10 +49,11 @@ export interface ControlTarget {
 | `worldId` | 是 | `string` | 见结构定义及所属功能文档 |
 | `systemId` | 是 | `string` | 见结构定义及所属功能文档 |
 | `contentId` | 是 | `string` | 见结构定义及所属功能文档 |
+| `sectionId` | 是 | `string` | 见结构定义及所属功能文档 |
 
 ## ControlRole
 
-导出接口 · 源码第 18 行。
+导出接口 · 源码第 19 行。
 
 ```ts
 export interface ControlRole {
@@ -69,7 +71,7 @@ export interface ControlRole {
 
 ## RoleBinding
 
-导出接口 · 源码第 19 行。
+导出接口 · 源码第 20 行。
 
 ```ts
 export interface RoleBinding {
@@ -89,7 +91,7 @@ export interface RoleBinding {
 
 ## ControlAccess
 
-导出接口 · 源码第 20 行。
+导出接口 · 源码第 21 行。
 
 ```ts
 export interface ControlAccess {
@@ -110,7 +112,7 @@ export interface ControlAccess {
 
 ## ControlAuditEvidence
 
-导出接口 · 源码第 21 行。
+导出接口 · 源码第 22 行。
 
 ```ts
 export interface ControlAuditEvidence {
@@ -130,7 +132,7 @@ export interface ControlAuditEvidence {
 
 ## ControlAudit
 
-导出接口 · 源码第 22 行。
+导出接口 · 源码第 23 行。
 
 ```ts
 export interface ControlAudit {
@@ -162,7 +164,7 @@ export interface ControlAudit {
 
 ## ControlIssueKind
 
-导出接口 · 源码第 23 行。
+导出接口 · 源码第 24 行。
 
 ```ts
 export type ControlIssueKind = 'ownership' | 'deletion' | 'audit';
@@ -170,7 +172,7 @@ export type ControlIssueKind = 'ownership' | 'deletion' | 'audit';
 
 ## ControlIssue
 
-导出接口 · 源码第 24 行。
+导出接口 · 源码第 25 行。
 
 ```ts
 export interface ControlIssue {
@@ -192,7 +194,7 @@ export interface ControlIssue {
 
 ## ControlDiagnostics
 
-导出接口 · 源码第 25 行。
+导出接口 · 源码第 26 行。
 
 ```ts
 export interface ControlDiagnostics {
@@ -214,7 +216,7 @@ export interface ControlDiagnostics {
 
 ## capabilitySupportsScope
 
-导出接口 · 源码第 28 行。
+导出接口 · 源码第 29 行。
 
 Scope choices must match the target supplied by the corresponding service.
 
@@ -229,7 +231,7 @@ export function capabilitySupportsScope(capability: Capability, kind: ControlSco
 
 ## validCapability
 
-导出接口 · 源码第 33 行。
+导出接口 · 源码第 35 行。
 
 ```ts
 export function validCapability(value: unknown): value is Capability;
@@ -241,7 +243,7 @@ export function validCapability(value: unknown): value is Capability;
 
 ## scopeMatches
 
-导出接口 · 源码第 34 行。
+导出接口 · 源码第 36 行。
 
 ```ts
 export function scopeMatches(scope: ControlScope, target?: ControlTarget): boolean;
@@ -254,7 +256,7 @@ export function scopeMatches(scope: ControlScope, target?: ControlTarget): boole
 
 ## controlAllows
 
-导出接口 · 源码第 37 行。
+导出接口 · 源码第 39 行。
 
 ```ts
 export function controlAllows(access: ControlAccess, capability: Capability, target?: ControlTarget): boolean;
@@ -268,7 +270,7 @@ export function controlAllows(access: ControlAccess, capability: Capability, tar
 
 ## validControlScope
 
-导出接口 · 源码第 40 行。
+导出接口 · 源码第 42 行。
 
 ```ts
 export function validControlScope(value: unknown): value is ControlScope;

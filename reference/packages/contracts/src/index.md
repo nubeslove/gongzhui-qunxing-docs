@@ -201,6 +201,10 @@ export * from './lancer-recovery';
 export {applyOfficialWolfOutlines,applySirenEntryOutline,wolfSportStartingPosition} from './official-wolf-outlines';
 export {lancerActorNpcAppearance,officialSilhouette} from './lancer-official-token-art';
 export * from './block-cover-groups';
+export * from './community-plugin-runtime';
+export * from './resource-packages';
+export * from './community-center';
+export {parseCommunityPackage} from './community-center-validation';
 ```
 
 ## PlayerIdentity

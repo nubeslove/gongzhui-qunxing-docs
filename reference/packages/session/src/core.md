@@ -47,6 +47,7 @@ export {settleStoryProgress,setQuestObjective} from './story-progress';
 export * from './elevation-movement';
 export * from './world-publication';
 export * from './world-media';
+export * from './story-resource-packages';
 ```
 
 ## Bindings

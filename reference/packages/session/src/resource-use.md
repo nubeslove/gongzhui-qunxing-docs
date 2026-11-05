@@ -7,6 +7,7 @@
 <details><summary>类型依赖</summary>
 
 ```ts
+import {effectiveStoryResources} from '@aelzerant/contracts';
 import {ownedItemRoot,type OwnedItemActor} from '@aelzerant/contracts';
 import { resourceAccess,resourceReadable,storyGm, storyId, storyList, storyObject, type StoryWorkspace, type GameSystemId, type ResourceActivity } from '@aelzerant/contracts';
 import { grantedResourceIds } from './resource-runtime';
@@ -15,7 +16,7 @@ import { grantedResourceIds } from './resource-runtime';
 
 ## ResourceUse
 
-导出接口 · 源码第 4 行。
+导出接口 · 源码第 5 行。
 
 ```ts
 export interface ResourceUse {
@@ -37,7 +38,7 @@ export interface ResourceUse {
 
 ## parseResourceUse
 
-导出接口 · 源码第 5 行。
+导出接口 · 源码第 6 行。
 
 ```ts
 export function parseResourceUse(raw: unknown): ResourceUse;
@@ -49,7 +50,7 @@ export function parseResourceUse(raw: unknown): ResourceUse;
 
 ## authorizeResourceUse
 
-导出接口 · 源码第 6 行。
+导出接口 · 源码第 7 行。
 
 ```ts
 export function authorizeResourceUse(story: StoryWorkspace|undefined, request: ResourceUse, ownerId: string, senderId: string, controls: boolean, actor?: OwnedItemActor): { resource: import("@source/packages/contracts/src/story").StoryResource; activity: ResourceActivity; targets: string[]; gm: boolean; };
@@ -66,7 +67,7 @@ export function authorizeResourceUse(story: StoryWorkspace|undefined, request: R
 
 ## resourceUseIssues
 
-导出接口 · 源码第 17 行。
+导出接口 · 源码第 18 行。
 
 ```ts
 export function resourceUseIssues(system: GameSystemId, a: ResourceActivity): string[];

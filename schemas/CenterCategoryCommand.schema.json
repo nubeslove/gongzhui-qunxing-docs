@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CenterCategoryCommand",
+  "anyOf": [
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_762"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_763"
+    }
+  ]
+}

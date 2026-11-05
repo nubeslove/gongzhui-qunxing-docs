@@ -53,30 +53,6 @@
   "DndIntent": {
     "anyOf": [
       {
-        "$ref": "./contracts.schema.json#/$defs/Object_157"
-      },
-      {
-        "$ref": "./contracts.schema.json#/$defs/Object_158"
-      },
-      {
-        "$ref": "./contracts.schema.json#/$defs/Object_159"
-      },
-      {
-        "$ref": "./contracts.schema.json#/$defs/Object_160"
-      },
-      {
-        "$ref": "./contracts.schema.json#/$defs/Object_161"
-      },
-      {
-        "$ref": "./contracts.schema.json#/$defs/Object_162"
-      },
-      {
-        "$ref": "./contracts.schema.json#/$defs/Object_164"
-      },
-      {
-        "$ref": "./contracts.schema.json#/$defs/Object_165"
-      },
-      {
         "$ref": "./contracts.schema.json#/$defs/Object_166"
       },
       {
@@ -95,13 +71,16 @@
         "$ref": "./contracts.schema.json#/$defs/Object_171"
       },
       {
-        "$ref": "./contracts.schema.json#/$defs/Object_172"
-      },
-      {
         "$ref": "./contracts.schema.json#/$defs/Object_173"
       },
       {
         "$ref": "./contracts.schema.json#/$defs/Object_174"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_175"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_176"
       },
       {
         "$ref": "./contracts.schema.json#/$defs/Object_177"
@@ -113,6 +92,9 @@
         "$ref": "./contracts.schema.json#/$defs/Object_179"
       },
       {
+        "$ref": "./contracts.schema.json#/$defs/Object_180"
+      },
+      {
         "$ref": "./contracts.schema.json#/$defs/Object_181"
       },
       {
@@ -122,12 +104,6 @@
         "$ref": "./contracts.schema.json#/$defs/Object_183"
       },
       {
-        "$ref": "./contracts.schema.json#/$defs/Object_184"
-      },
-      {
-        "$ref": "./contracts.schema.json#/$defs/Object_185"
-      },
-      {
         "$ref": "./contracts.schema.json#/$defs/Object_186"
       },
       {
@@ -135,9 +111,6 @@
       },
       {
         "$ref": "./contracts.schema.json#/$defs/Object_188"
-      },
-      {
-        "$ref": "./contracts.schema.json#/$defs/Object_189"
       },
       {
         "$ref": "./contracts.schema.json#/$defs/Object_190"
@@ -153,6 +126,9 @@
       },
       {
         "$ref": "./contracts.schema.json#/$defs/Object_194"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_195"
       },
       {
         "$ref": "./contracts.schema.json#/$defs/Object_196"
@@ -179,20 +155,44 @@
         "$ref": "./contracts.schema.json#/$defs/Object_203"
       },
       {
-        "$ref": "./contracts.schema.json#/$defs/Object_204"
+        "$ref": "./contracts.schema.json#/$defs/Object_205"
       },
       {
-        "$ref": "./contracts.schema.json#/$defs/Object_205"
+        "$ref": "./contracts.schema.json#/$defs/Object_206"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_207"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_208"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_209"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_210"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_211"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_212"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_213"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_214"
       }
     ]
   },
   "LancerEquipmentAutomation": {
     "anyOf": [
       {
-        "$ref": "./contracts.schema.json#/$defs/Object_361"
+        "$ref": "./contracts.schema.json#/$defs/Object_31"
       },
       {
-        "$ref": "./contracts.schema.json#/$defs/Object_301"
+        "$ref": "./contracts.schema.json#/$defs/Object_34"
       }
     ]
   },
@@ -329,31 +329,10 @@
   "UtopiaIntent": {
     "anyOf": [
       {
-        "$ref": "./contracts.schema.json#/$defs/Object_64"
-      },
-      {
-        "$ref": "./contracts.schema.json#/$defs/Object_65"
-      },
-      {
-        "$ref": "./contracts.schema.json#/$defs/Object_66"
-      },
-      {
-        "$ref": "./contracts.schema.json#/$defs/Object_67"
-      },
-      {
-        "$ref": "./contracts.schema.json#/$defs/Object_68"
-      },
-      {
-        "$ref": "./contracts.schema.json#/$defs/Object_69"
-      },
-      {
-        "$ref": "./contracts.schema.json#/$defs/Object_70"
-      },
-      {
-        "$ref": "./contracts.schema.json#/$defs/Object_71"
-      },
-      {
         "$ref": "./contracts.schema.json#/$defs/Object_73"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_74"
       },
       {
         "$ref": "./contracts.schema.json#/$defs/Object_75"
@@ -377,13 +356,34 @@
         "$ref": "./contracts.schema.json#/$defs/Object_82"
       },
       {
-        "$ref": "./contracts.schema.json#/$defs/Object_83"
+        "$ref": "./contracts.schema.json#/$defs/Object_84"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_85"
       },
       {
         "$ref": "./contracts.schema.json#/$defs/Object_86"
       },
       {
         "$ref": "./contracts.schema.json#/$defs/Object_87"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_88"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_89"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_91"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_92"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_95"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_96"
       }
     ]
   },
@@ -659,5 +659,114 @@
         "$ref": "./contracts.schema.json#/$defs/Object_30"
       }
     ]
+  },
+  "CommunityPackageBody": {
+    "$ref": "./contracts.schema.json#/$defs/CommunityPackageBody"
+  },
+  "CenterCatalog": {
+    "$ref": "./contracts.schema.json#/$defs/CenterCatalog"
+  },
+  "CenterDetail": {
+    "$ref": "./contracts.schema.json#/$defs/CenterDetail"
+  },
+  "CenterPackageCommand": {
+    "anyOf": [
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_759"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_760"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_761"
+      }
+    ]
+  },
+  "CenterStatus": {
+    "anyOf": [
+      {
+        "const": "draft",
+        "type": "string"
+      },
+      {
+        "const": "listed",
+        "type": "string"
+      },
+      {
+        "const": "unlisted",
+        "type": "string"
+      },
+      {
+        "const": "deleted",
+        "type": "string"
+      },
+      {
+        "const": "disabled",
+        "type": "string"
+      }
+    ]
+  },
+  "CenterCategoryCommand": {
+    "anyOf": [
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_762"
+      },
+      {
+        "$ref": "./contracts.schema.json#/$defs/Object_763"
+      }
+    ]
+  },
+  "CenterCategory": {
+    "$ref": "./contracts.schema.json#/$defs/CenterCategory"
+  },
+  "CenterInstallPreview": {
+    "$ref": "./contracts.schema.json#/$defs/CenterInstallPreview"
+  },
+  "CenterInstallCommand": {
+    "$ref": "./contracts.schema.json#/$defs/CenterInstallCommand"
+  },
+  "CenterInstallation": {
+    "$ref": "./contracts.schema.json#/$defs/CenterInstallation"
+  },
+  "CenterWorldCommand": {
+    "$ref": "./contracts.schema.json#/$defs/CenterWorldCommand"
+  },
+  "CenterConsentCommand": {
+    "$ref": "./contracts.schema.json#/$defs/CenterConsentCommand"
+  },
+  "CenterRuntimeView": {
+    "$ref": "./contracts.schema.json#/$defs/CenterRuntimeView"
+  },
+  "RuntimeManifest": {
+    "$ref": "./contracts.schema.json#/$defs/RuntimeManifest"
+  },
+  "RuntimePermission": {
+    "anyOf": [
+      {
+        "const": "scene:read",
+        "type": "string"
+      },
+      {
+        "const": "files:selected",
+        "type": "string"
+      },
+      {
+        "type": "string",
+        "pattern": "^action:[\\s\\S]*$"
+      },
+      {
+        "type": "string",
+        "pattern": "^service:[\\s\\S]*$"
+      }
+    ]
+  },
+  "RuntimeServiceRequest": {
+    "$ref": "./contracts.schema.json#/$defs/RuntimeServiceRequest"
+  },
+  "RuntimeServiceResponse": {
+    "$ref": "./contracts.schema.json#/$defs/RuntimeServiceResponse"
+  },
+  "ResourcePackage": {
+    "$ref": "./contracts.schema.json#/$defs/ResourcePackage"
   }
 }

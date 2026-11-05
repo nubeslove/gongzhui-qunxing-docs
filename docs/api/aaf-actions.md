@@ -2498,7 +2498,7 @@
 
 ## adjudication.apply
 
-来源：`game/packages/session/src/world-authority.ts` 第45行。
+来源：`game/packages/session/src/world-authority.ts` 第46行。
 
 读取字段：无额外直接字段。
 

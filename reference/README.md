@@ -1,6 +1,6 @@
 # 源码字段与调用签名
 
-共 639 个文件、3445 项类型／函数／常量。按包拆分，每个文件包含字段表、联合类型全部分支、参数、返回类型和依赖。带内部依赖标记的类型不承诺可从包顶层导入。
+共 646 个文件、3514 项类型／函数／常量。按包拆分，每个文件包含字段表、联合类型全部分支、参数、返回类型和依赖。带内部依赖标记的类型不承诺可从包顶层导入。
 
 - [机器可读符号目录](symbols.json)
 - [源码指纹](source-snapshot.json)
@@ -49,6 +49,9 @@
 | [packages/contracts/src/chat-input.ts](packages/contracts/src/chat-input.md) | 2 |
 | [packages/contracts/src/combat-journal.ts](packages/contracts/src/combat-journal.md) | 21 |
 | [packages/contracts/src/combat-rollback.ts](packages/contracts/src/combat-rollback.md) | 5 |
+| [packages/contracts/src/community-center-validation.ts](packages/contracts/src/community-center-validation.md) | 9 |
+| [packages/contracts/src/community-center.ts](packages/contracts/src/community-center.md) | 25 |
+| [packages/contracts/src/community-plugin-runtime.ts](packages/contracts/src/community-plugin-runtime.md) | 11 |
 | [packages/contracts/src/community.ts](packages/contracts/src/community.md) | 9 |
 | [packages/contracts/src/compendium-directory.ts](packages/contracts/src/compendium-directory.md) | 4 |
 | [packages/contracts/src/compendium-documents.ts](packages/contracts/src/compendium-documents.md) | 13 |
@@ -145,6 +148,7 @@
 | [packages/contracts/src/resource-access.ts](packages/contracts/src/resource-access.md) | 4 |
 | [packages/contracts/src/resource-details.ts](packages/contracts/src/resource-details.md) | 4 |
 | [packages/contracts/src/resource-inventory.ts](packages/contracts/src/resource-inventory.md) | 7 |
+| [packages/contracts/src/resource-packages.ts](packages/contracts/src/resource-packages.md) | 17 |
 | [packages/contracts/src/resource-transfer.ts](packages/contracts/src/resource-transfer.md) | 7 |
 | [packages/contracts/src/resource-upload.ts](packages/contracts/src/resource-upload.md) | 2 |
 | [packages/contracts/src/resource-visual.ts](packages/contracts/src/resource-visual.md) | 4 |
@@ -499,6 +503,7 @@
 | [packages/session/src/story-presentation.ts](packages/session/src/story-presentation.md) | 2 |
 | [packages/session/src/story-progress.ts](packages/session/src/story-progress.md) | 3 |
 | [packages/session/src/story-resource-edits.ts](packages/session/src/story-resource-edits.md) | 1 |
+| [packages/session/src/story-resource-packages.ts](packages/session/src/story-resource-packages.md) | 2 |
 | [packages/session/src/story-resource-transfer.ts](packages/session/src/story-resource-transfer.md) | 1 |
 | [packages/session/src/story-scene-audio.ts](packages/session/src/story-scene-audio.md) | 1 |
 | [packages/session/src/story-scene-directory.ts](packages/session/src/story-scene-directory.md) | 1 |
@@ -600,6 +605,7 @@
 | [packages/tabletop-runtime/src/tabletop/lancer/progression.ts](packages/tabletop-runtime/src/tabletop/lancer/progression.md) | 14 |
 | [packages/tabletop-runtime/src/tabletop/lancer/prototypeEquipment.ts](packages/tabletop-runtime/src/tabletop/lancer/prototypeEquipment.md) | 6 |
 | [packages/tabletop-runtime/src/tabletop/lancer/reinforcements.ts](packages/tabletop-runtime/src/tabletop/lancer/reinforcements.md) | 3 |
+| [packages/tabletop-runtime/src/tabletop/lancer/resourceEquipment.ts](packages/tabletop-runtime/src/tabletop/lancer/resourceEquipment.md) | 3 |
 | [packages/tabletop-runtime/src/tabletop/lancer/rogue/abilities.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/abilities.md) | 4 |
 | [packages/tabletop-runtime/src/tabletop/lancer/rogue/ai.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/ai.md) | 3 |
 | [packages/tabletop-runtime/src/tabletop/lancer/rogue/arsenal.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/arsenal.md) | 2 |
@@ -634,6 +640,7 @@
 | [packages/tabletop-runtime/src/tabletop/pendingMovement.ts](packages/tabletop-runtime/src/tabletop/pendingMovement.md) | 1 |
 | [packages/tabletop-runtime/src/tabletop/regionTeleports.ts](packages/tabletop-runtime/src/tabletop/regionTeleports.md) | 2 |
 | [packages/tabletop-runtime/src/tabletop/regions.ts](packages/tabletop-runtime/src/tabletop/regions.md) | 2 |
+| [packages/tabletop-runtime/src/tabletop/resourcePackages.ts](packages/tabletop-runtime/src/tabletop/resourcePackages.md) | 2 |
 | [packages/tabletop-runtime/src/tabletop/sceneArchive.ts](packages/tabletop-runtime/src/tabletop/sceneArchive.md) | 3 |
 | [packages/tabletop-runtime/src/tabletop/sceneChannelVisits.ts](packages/tabletop-runtime/src/tabletop/sceneChannelVisits.md) | 1 |
 | [packages/tabletop-runtime/src/tabletop/sceneCopy.ts](packages/tabletop-runtime/src/tabletop/sceneCopy.md) | 1 |

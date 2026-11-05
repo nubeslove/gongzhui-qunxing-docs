@@ -7,6 +7,7 @@
 <details><summary>类型依赖</summary>
 
 ```ts
+import {parseResourcePackageState,projectResourcePackageEquipment,type ResourcePackageState} from './resource-packages';
 import {visibleSceneGraphs} from './scene-graph-visibility';
 import {parseSceneChannelVisits,type SceneChannelVisits} from './scene-channel-visits';
 import {parseLancerNodeRuns,projectLancerNodeRuns,parseLancerNodeRestPlan,parseLancerNodeEndPlan,type LancerNodeRun,type LancerNodeRestPlan,type LancerNodeEndPlan} from './lancer-node-execution';
@@ -64,7 +65,7 @@ export * from './story-delivery';
 
 ## ResourceKind
 
-导出接口 · 源码第 52 行。
+导出接口 · 源码第 53 行。
 
 ```ts
 export type ResourceKind = keyof typeof RESOURCE_KINDS;
@@ -72,7 +73,7 @@ export type ResourceKind = keyof typeof RESOURCE_KINDS;
 
 ## StoryChannel
 
-导出接口 · 源码第 53 行。
+导出接口 · 源码第 54 行。
 
 ```ts
 export type StoryChannel = keyof typeof STORY_CHANNELS;
@@ -80,7 +81,7 @@ export type StoryChannel = keyof typeof STORY_CHANNELS;
 
 ## StoryVisibility
 
-导出接口 · 源码第 54 行。
+导出接口 · 源码第 55 行。
 
 ```ts
 export type StoryVisibility = 'gm' | 'public';
@@ -88,7 +89,7 @@ export type StoryVisibility = 'gm' | 'public';
 
 ## StoryMember
 
-导出接口 · 源码第 55 行。
+导出接口 · 源码第 56 行。
 
 ```ts
 export interface StoryMember {
@@ -108,7 +109,7 @@ export interface StoryMember {
 
 ## StoryPack
 
-导出接口 · 源码第 56 行。
+导出接口 · 源码第 57 行。
 
 ```ts
 export interface StoryPack {
@@ -126,7 +127,7 @@ export interface StoryPack {
 
 ## ResourceEffect
 
-导出接口 · 源码第 57 行。
+导出接口 · 源码第 58 行。
 
 ```ts
 export interface ResourceEffect {
@@ -146,7 +147,7 @@ export interface ResourceEffect {
 
 ## ResourceActivity
 
-导出接口 · 源码第 63 行。
+导出接口 · 源码第 64 行。
 
 ```ts
 export interface ResourceActivity {
@@ -184,7 +185,7 @@ export interface ResourceActivity {
 
 ## StoryResource
 
-导出接口 · 源码第 73 行。
+导出接口 · 源码第 74 行。
 
 ```ts
 export interface StoryResource {
@@ -222,7 +223,7 @@ export interface StoryResource {
 
 ## StoryEntry
 
-导出接口 · 源码第 79 行。
+导出接口 · 源码第 80 行。
 
 ```ts
 export interface StoryEntry {
@@ -262,7 +263,7 @@ export interface StoryEntry {
 
 ## StoryMessage
 
-导出接口 · 源码第 80 行。
+导出接口 · 源码第 81 行。
 
 ```ts
 export interface StoryMessage extends MessageDetails {
@@ -288,7 +289,7 @@ export interface StoryMessage extends MessageDetails {
 
 ## ResourceGrant
 
-导出接口 · 源码第 81 行。
+导出接口 · 源码第 82 行。
 
 ```ts
 export interface ResourceGrant {
@@ -304,7 +305,7 @@ export interface ResourceGrant {
 
 ## StoryCounter
 
-导出接口 · 源码第 82 行。
+导出接口 · 源码第 83 行。
 
 ```ts
 export interface StoryCounter {
@@ -324,7 +325,7 @@ export interface StoryCounter {
 
 ## PRESENTATION_MODES
 
-导出接口 · 源码第 83 行。
+导出接口 · 源码第 84 行。
 
 ```ts
 export const PRESENTATION_MODES = ['terminal', 'scene', 'performance', 'deployment', 'battle'] as const;
@@ -332,7 +333,7 @@ export const PRESENTATION_MODES = ['terminal', 'scene', 'performance', 'deployme
 
 ## PresentationMode
 
-导出接口 · 源码第 84 行。
+导出接口 · 源码第 85 行。
 
 ```ts
 export type PresentationMode = typeof PRESENTATION_MODES[number];
@@ -340,7 +341,7 @@ export type PresentationMode = typeof PRESENTATION_MODES[number];
 
 ## PRESENTATION_TRANSITIONS
 
-导出接口 · 源码第 85 行。
+导出接口 · 源码第 86 行。
 
 ```ts
 export const PRESENTATION_TRANSITIONS = ['fade', 'iris', 'black', 'cut'] as const;
@@ -348,7 +349,7 @@ export const PRESENTATION_TRANSITIONS = ['fade', 'iris', 'black', 'cut'] as cons
 
 ## PresentationTransition
 
-导出接口 · 源码第 86 行。
+导出接口 · 源码第 87 行。
 
 ```ts
 export type PresentationTransition = typeof PRESENTATION_TRANSITIONS[number];
@@ -356,7 +357,7 @@ export type PresentationTransition = typeof PRESENTATION_TRANSITIONS[number];
 
 ## PRESENTATION_EFFECTS
 
-导出接口 · 源码第 87 行。
+导出接口 · 源码第 88 行。
 
 ```ts
 export const PRESENTATION_EFFECTS = ['rain', 'fog', 'embers', 'scan', 'glitch', 'impact'] as const;
@@ -364,7 +365,7 @@ export const PRESENTATION_EFFECTS = ['rain', 'fog', 'embers', 'scan', 'glitch', 
 
 ## PresentationEffect
 
-导出接口 · 源码第 88 行。
+导出接口 · 源码第 89 行。
 
 ```ts
 export type PresentationEffect = typeof PRESENTATION_EFFECTS[number];
@@ -372,7 +373,7 @@ export type PresentationEffect = typeof PRESENTATION_EFFECTS[number];
 
 ## PresentationState
 
-导出接口 · 源码第 89 行。
+导出接口 · 源码第 90 行。
 
 ```ts
 export interface PresentationState {
@@ -398,7 +399,7 @@ export interface PresentationState {
 
 ## SCENE_NODE_KINDS
 
-导出接口 · 源码第 98 行。
+导出接口 · 源码第 99 行。
 
 ```ts
 export const SCENE_NODE_KINDS = ['start', 'scene', 'battle', 'rest', 'event', 'branch', 'merge', 'end', 'note'] as const;
@@ -406,7 +407,7 @@ export const SCENE_NODE_KINDS = ['start', 'scene', 'battle', 'rest', 'event', 'b
 
 ## SceneNodeKind
 
-导出接口 · 源码第 99 行。
+导出接口 · 源码第 100 行。
 
 ```ts
 export type SceneNodeKind = typeof SCENE_NODE_KINDS[number];
@@ -414,7 +415,7 @@ export type SceneNodeKind = typeof SCENE_NODE_KINDS[number];
 
 ## SceneNode
 
-导出接口 · 源码第 100 行。
+导出接口 · 源码第 101 行。
 
 ```ts
 export interface SceneNode {
@@ -452,7 +453,7 @@ export interface SceneNode {
 
 ## SceneGraph
 
-导出接口 · 源码第 101 行。
+导出接口 · 源码第 102 行。
 
 ```ts
 export interface SceneGraph {
@@ -474,7 +475,7 @@ export interface SceneGraph {
 
 ## SceneGraphLibrary
 
-导出接口 · 源码第 102 行。
+导出接口 · 源码第 103 行。
 
 ```ts
 export interface SceneGraphLibrary {
@@ -494,7 +495,7 @@ export interface SceneGraphLibrary {
 
 ## PlayerProgress
 
-导出接口 · 源码第 103 行。
+导出接口 · 源码第 104 行。
 
 ```ts
 export type PlayerProgress = Record<string, number>;
@@ -502,7 +503,7 @@ export type PlayerProgress = Record<string, number>;
 
 ## StoryOnboarding
 
-导出接口 · 源码第 104 行。
+导出接口 · 源码第 105 行。
 
 ```ts
 export interface StoryOnboarding {
@@ -524,7 +525,7 @@ export interface StoryOnboarding {
 
 ## SceneEffectMap
 
-导出接口 · 源码第 105 行。
+导出接口 · 源码第 106 行。
 
 ```ts
 export type SceneEffectMap = Record<string, PresentationEffect[]>;
@@ -532,10 +533,11 @@ export type SceneEffectMap = Record<string, PresentationEffect[]>;
 
 ## StoryWorkspace
 
-导出接口 · 源码第 106 行。
+导出接口 · 源码第 107 行。
 
 ```ts
 export interface StoryWorkspace {
+    resourcePackages?: ResourcePackageState;
     progressDirectories?: ProgressDirectories;
     lancerNodeRuns?: Record<string, LancerNodeRun>;
     lancerScenePlans?: Record<string, LancerScenePlan>;
@@ -593,6 +595,7 @@ export interface StoryWorkspace {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `resourcePackages` | 是 | `ResourcePackageState` | 见结构定义及所属功能文档 |
 | `progressDirectories` | 是 | `ProgressDirectories` | 见结构定义及所属功能文档 |
 | `lancerNodeRuns` | 是 | `Record<string,LancerNodeRun>` | 见结构定义及所属功能文档 |
 | `lancerScenePlans` | 是 | `Record<string,LancerScenePlan>` | 见结构定义及所属功能文档 |
@@ -647,7 +650,7 @@ export interface StoryWorkspace {
 
 ## storyObject
 
-导出接口 · 源码第 128 行。
+导出接口 · 源码第 129 行。
 
 ```ts
 export const storyObject: (v: unknown): Record<string, unknown>;
@@ -655,7 +658,7 @@ export const storyObject: (v: unknown): Record<string, unknown>;
 
 ## storyText
 
-导出接口 · 源码第 129 行。
+导出接口 · 源码第 130 行。
 
 ```ts
 export const storyText: (v: unknown, max?: number): string;
@@ -663,7 +666,7 @@ export const storyText: (v: unknown, max?: number): string;
 
 ## storyId
 
-导出接口 · 源码第 130 行。
+导出接口 · 源码第 131 行。
 
 ```ts
 export const storyId: (v: unknown): string;
@@ -671,7 +674,7 @@ export const storyId: (v: unknown): string;
 
 ## storyNumber
 
-导出接口 · 源码第 131 行。
+导出接口 · 源码第 132 行。
 
 ```ts
 export const storyNumber: (v: unknown, min?: number, max?: number): number;
@@ -679,7 +682,7 @@ export const storyNumber: (v: unknown, min?: number, max?: number): number;
 
 ## storyList
 
-导出接口 · 源码第 132 行。
+导出接口 · 源码第 133 行。
 
 ```ts
 export const storyList: (v: unknown, max?: number): unknown[];
@@ -687,7 +690,7 @@ export const storyList: (v: unknown, max?: number): unknown[];
 
 ## storyEnum
 
-导出接口 · 源码第 133 行。
+导出接口 · 源码第 134 行。
 
 ```ts
 export const storyEnum: <T extends string>(v: unknown, values: readonly T[]): T;
@@ -695,7 +698,7 @@ export const storyEnum: <T extends string>(v: unknown, values: readonly T[]): T;
 
 ## emptyStory
 
-导出接口 · 源码第 137 行。
+导出接口 · 源码第 138 行。
 
 ```ts
 export function emptyStory(): StoryWorkspace;
@@ -703,7 +706,7 @@ export function emptyStory(): StoryWorkspace;
 
 ## blankResource
 
-导出接口 · 源码第 138 行。
+导出接口 · 源码第 139 行。
 
 ```ts
 export function blankResource(systemId: GameSystemId, id: string): StoryResource;
@@ -716,7 +719,7 @@ export function blankResource(systemId: GameSystemId, id: string): StoryResource
 
 ## blankActivity
 
-导出接口 · 源码第 139 行。
+导出接口 · 源码第 140 行。
 
 ```ts
 export function blankActivity(id: string): ResourceActivity;
@@ -728,7 +731,7 @@ export function blankActivity(id: string): ResourceActivity;
 
 ## parseResource
 
-导出接口 · 源码第 140 行。
+导出接口 · 源码第 141 行。
 
 ```ts
 export function parseResource(raw: unknown): StoryResource;
@@ -740,7 +743,7 @@ export function parseResource(raw: unknown): StoryResource;
 
 ## parsePresentationState
 
-导出接口 · 源码第 151 行。
+导出接口 · 源码第 152 行。
 
 ```ts
 export function parsePresentationState(raw: unknown): PresentationState;
@@ -752,7 +755,7 @@ export function parsePresentationState(raw: unknown): PresentationState;
 
 ## parseSceneEffects
 
-导出接口 · 源码第 155 行。
+导出接口 · 源码第 156 行。
 
 ```ts
 export function parseSceneEffects(raw: unknown): SceneEffectMap;
@@ -764,7 +767,7 @@ export function parseSceneEffects(raw: unknown): SceneEffectMap;
 
 ## parseOnboarding
 
-导出接口 · 源码第 160 行。
+导出接口 · 源码第 161 行。
 
 ```ts
 export function parseOnboarding(raw: unknown): StoryOnboarding;
@@ -776,7 +779,7 @@ export function parseOnboarding(raw: unknown): StoryOnboarding;
 
 ## parsePlayerProgress
 
-导出接口 · 源码第 163 行。
+导出接口 · 源码第 164 行。
 
 ```ts
 export function parsePlayerProgress(raw: unknown): Record<string,PlayerProgress>;
@@ -788,7 +791,7 @@ export function parsePlayerProgress(raw: unknown): Record<string,PlayerProgress>
 
 ## parseSceneGraph
 
-导出接口 · 源码第 183 行。
+导出接口 · 源码第 184 行。
 
 ```ts
 export function parseSceneGraph(raw: unknown): SceneGraph;
@@ -800,7 +803,7 @@ export function parseSceneGraph(raw: unknown): SceneGraph;
 
 ## parseLegacySceneGraph
 
-导出接口 · 源码第 187 行。
+导出接口 · 源码第 188 行。
 
 ```ts
 export function parseLegacySceneGraph(raw: unknown): SceneGraphLibrary;
@@ -812,7 +815,7 @@ export function parseLegacySceneGraph(raw: unknown): SceneGraphLibrary;
 
 ## parseSceneGraphLibrary
 
-导出接口 · 源码第 190 行。
+导出接口 · 源码第 191 行。
 
 ```ts
 export function parseSceneGraphLibrary(raw: unknown): SceneGraphLibrary;
@@ -824,7 +827,7 @@ export function parseSceneGraphLibrary(raw: unknown): SceneGraphLibrary;
 
 ## parseStory
 
-导出接口 · 源码第 198 行。
+导出接口 · 源码第 199 行。
 
 ```ts
 export function parseStory(raw: unknown): StoryWorkspace;
@@ -836,7 +839,7 @@ export function parseStory(raw: unknown): StoryWorkspace;
 
 ## storyGm
 
-导出接口 · 源码第 219 行。
+导出接口 · 源码第 222 行。
 
 ```ts
 export function storyGm(story: StoryWorkspace|undefined, ownerId: string, playerId: string): boolean;
@@ -850,7 +853,7 @@ export function storyGm(story: StoryWorkspace|undefined, ownerId: string, player
 
 ## projectStory
 
-导出接口 · 源码第 220 行。
+导出接口 · 源码第 223 行。
 
 ```ts
 export function projectStory(story: StoryWorkspace, ownerId: string, playerId: string|undefined, actorIds: ReadonlySet<string>, sceneIds?: ReadonlySet<string>, readableActorIds?: ReadonlySet<string>, combatActorIds?: ReadonlySet<string>, channelScenes?: ReadonlySet<string>): StoryWorkspace;
@@ -869,7 +872,7 @@ export function projectStory(story: StoryWorkspace, ownerId: string, playerId: s
 
 ## projectStoryValue
 
-导出接口 · 源码第 224 行。
+导出接口 · 源码第 227 行。
 
 Borrow projected values only while serializing or inside an enclosing detached copy.
 

@@ -7,6 +7,7 @@
 <details><summary>类型依赖</summary>
 
 ```ts
+import {effectiveStoryResources} from '@aelzerant/contracts';
 import type {TacticalCommand} from '@aelzerant/contracts';
 import {applyStoryProgress,settleStoryProgress} from './story-progress';
 import {applyTeamAssets} from './story-team-assets';
@@ -58,7 +59,7 @@ import type {LibraryCommand,ConversationCommand} from '@aelzerant/contracts';
 
 ## StoryCommand
 
-导出接口 · 源码第 48 行。
+导出接口 · 源码第 49 行。
 
 ```ts
 export type StoryCommand = ProgressDirectoryCommand | TacticalCommand | TeamAssetsCommand | StoryProgressCommand | WorldAssetCommand | CompendiumDirectoryCommand | CompendiumCatalogCommand | ResourceTransferCommand | EntityDirectoryCommand | JournalTransferCommand | JournalDirectoryCommand | JournalSecretCommand | JournalActionCommand | SceneJournalCommand | ScenePreloadCommand | SceneNavigationCommand | SceneDirectoryCommand | {
@@ -205,7 +206,7 @@ export type StoryCommand = ProgressDirectoryCommand | TacticalCommand | TeamAsse
 
 ## StoryContext
 
-导出接口 · 源码第 77 行。
+导出接口 · 源码第 78 行。
 
 ```ts
 export interface StoryContext {
@@ -261,7 +262,7 @@ export interface StoryContext {
 
 ## applyStoryCommand
 
-导出接口 · 源码第 79 行。
+导出接口 · 源码第 80 行。
 
 Called inside the world's existing atomic command queue, never directly on received snapshots.
 
