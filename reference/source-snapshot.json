@@ -1,6 +1,6 @@
 {
   "date": "2026-11-05",
-  "version": "0.2.34",
+  "version": "0.2.36",
   "scope": "Shared contracts, rules engine signatures, game core, session, transport, assets, world model and selected local authoring entry points. No rulebook prose or asset binaries.",
   "files": [
     {
@@ -970,7 +970,7 @@
     },
     {
       "path": "game/packages/contracts/src/story.ts",
-      "sha256": "2e3fef25676eee7c3e1b8c2cf3a9b7f986456d5a0a5ae2b17ec4c61d8b072015",
+      "sha256": "e53d4795bc7ec11eee01b90dda780f4295772bbbff75309f0c270cc62de349ac",
       "bytes": 34341
     },
     {
@@ -2440,7 +2440,7 @@
     },
     {
       "path": "game/packages/session/src/story-player-progress.ts",
-      "sha256": "60b37c64a265f31df3ab69660d6f704159a996dedb9917ba7883eaa0b4818792",
+      "sha256": "2bfbef5ae9bdd31f9cfc44c32730bcee7d4ab291ccf018202ae5ed9f2c615c77",
       "bytes": 1102
     },
     {

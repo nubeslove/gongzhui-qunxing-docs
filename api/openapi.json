@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "千星奇域平台 HTTP API",
-    "version": "0.2.34-pending-docs.20261105",
+    "version": "0.2.36-pending-docs.20261105",
     "description": "源码快照。未增加 API 版本前缀。GM 战斗命令、本地备团函数和 Tauri 命令不是这些 HTTP 路由。部分错误由 Express 返回文本或 HTML；调用方不要无条件 JSON.parse。"
   },
   "servers": [
