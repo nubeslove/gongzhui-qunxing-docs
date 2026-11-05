@@ -3,10 +3,10 @@
   "title": "LancerEquipmentAutomation",
   "anyOf": [
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_259"
+      "$ref": "./contracts.schema.json#/$defs/Object_361"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_182"
+      "$ref": "./contracts.schema.json#/$defs/Object_301"
     }
   ]
 }

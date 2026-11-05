@@ -1,0 +1,42 @@
+{
+  "classId": "custom-training-observer",
+  "tier": 1,
+  "template": "standard",
+  "options": [],
+  "profile": {
+    "hp": 8,
+    "structure": 1,
+    "stress": 1,
+    "heatCap": 6,
+    "armor": 0,
+    "evasion": 8,
+    "edef": 8,
+    "speed": 4,
+    "sensors": 10,
+    "save": 10,
+    "attack": 0,
+    "tech": 0,
+    "hull": 0,
+    "agility": 0,
+    "systems": 0,
+    "engineering": 0,
+    "name": "训练观察机",
+    "source": "自编接口示例；不代表官方 NPC 数值",
+    "size": 1,
+    "activations": 1,
+    "weapons": [],
+    "actions": [
+      {
+        "id": "report",
+        "name": "报告观测",
+        "cost": 1,
+        "description": "记录一次观测；具体情报由 GM 裁定。"
+      }
+    ],
+    "traits": [
+      "演示档案；未配置攻击武器。"
+    ],
+    "conditions": [],
+    "resistances": []
+  }
+}

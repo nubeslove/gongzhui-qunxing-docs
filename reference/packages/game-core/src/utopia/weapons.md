@@ -1,6 +1,6 @@
 # game/packages/game-core/src/utopia/weapons.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -32,7 +32,7 @@ type Attack = Extract<UtopiaStep, {
 导出接口 · 源码第 9 行。
 
 ```ts
-export function utopiaAttackArea(token: ManualToken, p: UtopiaWeaponProfile, point?: UtopiaPoint): { direction: number; x: number; y: number; z: number; kind: "line" | "cone" | "blast" | "burst"; size: number; } | undefined;
+export function utopiaAttackArea(token: ManualToken, p: UtopiaWeaponProfile, point?: UtopiaPoint): { direction: number; x: number; y: number; z: number; kind: "line" | "burst" | "cone" | "blast"; size: number; } | undefined;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
@@ -46,7 +46,7 @@ export function utopiaAttackArea(token: ManualToken, p: UtopiaWeaponProfile, poi
 导出接口 · 源码第 13 行。
 
 ```ts
-export function weaponTargets(x: UtopiaContext, s: Attack): { profile: UtopiaWeaponProfile; gear: import("@source/packages/contracts/src/utopia").UtopiaEquipment | undefined; targets: string[]; area: { direction: number; x: number; y: number; z: number; kind: "line" | "cone" | "blast" | "burst"; size: number; } | undefined; };
+export function weaponTargets(x: UtopiaContext, s: Attack): { profile: UtopiaWeaponProfile; gear: import("@source/packages/contracts/src/utopia").UtopiaEquipment | undefined; targets: string[]; area: { direction: number; x: number; y: number; z: number; kind: "line" | "burst" | "cone" | "blast"; size: number; } | undefined; };
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
@@ -59,7 +59,7 @@ export function weaponTargets(x: UtopiaContext, s: Attack): { profile: UtopiaWea
 导出接口 · 源码第 22 行。
 
 ```ts
-export function validateShot(x: UtopiaContext, s: Attack, overwatch?: boolean): { profile: UtopiaWeaponProfile; gear: import("@source/packages/contracts/src/utopia").UtopiaEquipment | undefined; targets: string[]; area: { direction: number; x: number; y: number; z: number; kind: "line" | "cone" | "blast" | "burst"; size: number; } | undefined; };
+export function validateShot(x: UtopiaContext, s: Attack, overwatch?: boolean): { profile: UtopiaWeaponProfile; gear: import("@source/packages/contracts/src/utopia").UtopiaEquipment | undefined; targets: string[]; area: { direction: number; x: number; y: number; z: number; kind: "line" | "burst" | "cone" | "blast"; size: number; } | undefined; };
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |

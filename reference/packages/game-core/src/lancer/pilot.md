@@ -1,6 +1,6 @@
 # game/packages/game-core/src/lancer/pilot.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -109,7 +109,7 @@ export function pilotOperationIssue(b: LancerBattle, map: ManualMap, u: LancerCo
 
 ## useLancerPilot
 
-导出接口 · 源码第 82 行。
+导出接口 · 源码第 85 行。
 
 ```ts
 export function useLancerPilot(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, i: Extract<LancerCombatIntent,{type:'pilot'}>, r: LancerRandom): void;
@@ -125,7 +125,7 @@ export function useLancerPilot(b: LancerBattle, map: ManualMap, u: LancerCombatU
 
 ## finishLancerEjection
 
-导出接口 · 源码第 100 行。
+导出接口 · 源码第 105 行。
 
 ```ts
 export function finishLancerEjection(b: LancerBattle, map: ManualMap, p: LancerCombatUnit): void;
@@ -139,7 +139,7 @@ export function finishLancerEjection(b: LancerBattle, map: ManualMap, p: LancerC
 
 ## refreshLancerPilots
 
-导出接口 · 源码第 102 行。
+导出接口 · 源码第 107 行。
 
 Preserve personal state and expose a surviving pilot when the cockpit is breached.
 
@@ -154,7 +154,7 @@ export function refreshLancerPilots(b: LancerBattle, map: ManualMap): void;
 
 ## lancerPilotSearchBonus
 
-导出接口 · 源码第 115 行。
+导出接口 · 源码第 121 行。
 
 ```ts
 export function lancerPilotSearchBonus(b: LancerBattle, u: LancerCombatUnit, trigger?: string): number;

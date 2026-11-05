@@ -1,6 +1,6 @@
 # game/packages/game-core/src/lancer/weapon-events.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -38,7 +38,7 @@ export function lancerWeaponRestriction(w: LancerCombatWeapon, special?: Special
 
 ## queueLancerWeaponReactions
 
-导出接口 · 源码第 25 行。
+导出接口 · 源码第 26 行。
 
 ```ts
 export function queueLancerWeaponReactions(b: LancerBattle, map: ManualMap, attacker: LancerCombatUnit, target: LancerCombatUnit, key: 'autopod'|'vorpal'): void;
@@ -54,7 +54,7 @@ export function queueLancerWeaponReactions(b: LancerBattle, map: ManualMap, atta
 
 ## offerLancerWeaponEvent
 
-导出接口 · 源码第 36 行。
+导出接口 · 源码第 37 行。
 
 ```ts
 export function offerLancerWeaponEvent(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, s: Extract<LancerBattleStep,{kind:'feature'}>): boolean;
@@ -69,7 +69,7 @@ export function offerLancerWeaponEvent(b: LancerBattle, map: ManualMap, u: Lance
 
 ## respondLancerWeaponEvent
 
-导出接口 · 源码第 46 行。
+导出接口 · 源码第 47 行。
 
 ```ts
 export function respondLancerWeaponEvent(b: LancerBattle, map: ManualMap, p: LancerDecision, option: string): boolean;

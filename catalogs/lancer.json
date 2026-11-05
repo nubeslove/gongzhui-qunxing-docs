@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-10",
+  "date": "2026-11-05",
   "scope": "ID and names only. Index inclusion does not establish automation or redistribution rights.",
   "entries": [
     {
@@ -8,7 +8,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[0]"
     },
     {
@@ -17,7 +17,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[1]"
     },
     {
@@ -26,7 +26,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[2]"
     },
     {
@@ -35,7 +35,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[3]"
     },
     {
@@ -44,7 +44,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[4]"
     },
     {
@@ -53,7 +53,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[5]"
     },
     {
@@ -62,7 +62,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[6]"
     },
     {
@@ -71,7 +71,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[7]"
     },
     {
@@ -80,7 +80,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[8]"
     },
     {
@@ -89,7 +89,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[9]"
     },
     {
@@ -98,7 +98,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[10]"
     },
     {
@@ -107,7 +107,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[11]"
     },
     {
@@ -116,7 +116,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[12]"
     },
     {
@@ -125,7 +125,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[13]"
     },
     {
@@ -134,7 +134,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[14]"
     },
     {
@@ -143,7 +143,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[15]"
     },
     {
@@ -152,7 +152,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[16]"
     },
     {
@@ -161,7 +161,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[17]"
     },
     {
@@ -170,7 +170,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[18]"
     },
     {
@@ -179,7 +179,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[19]"
     },
     {
@@ -188,7 +188,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[20]"
     },
     {
@@ -197,7 +197,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[21]"
     },
     {
@@ -206,7 +206,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[22]"
     },
     {
@@ -215,7 +215,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[23]"
     },
     {
@@ -224,7 +224,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[24]"
     },
     {
@@ -233,7 +233,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[25]"
     },
     {
@@ -242,7 +242,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[26]"
     },
     {
@@ -251,7 +251,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[27]"
     },
     {
@@ -260,7 +260,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[28]"
     },
     {
@@ -269,7 +269,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[29]"
     },
     {
@@ -278,7 +278,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[30]"
     },
     {
@@ -287,7 +287,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[31]"
     },
     {
@@ -296,7 +296,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[32]"
     },
     {
@@ -305,7 +305,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[33]"
     },
     {
@@ -314,7 +314,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[34]"
     },
     {
@@ -323,7 +323,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[35]"
     },
     {
@@ -332,7 +332,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[36]"
     },
     {
@@ -341,7 +341,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[37]"
     },
     {
@@ -350,7 +350,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[38]"
     },
     {
@@ -359,7 +359,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[39]"
     },
     {
@@ -368,7 +368,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[40]"
     },
     {
@@ -377,7 +377,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[41]"
     },
     {
@@ -386,7 +386,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[42]"
     },
     {
@@ -395,7 +395,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[43]"
     },
     {
@@ -404,7 +404,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[44]"
     },
     {
@@ -413,7 +413,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[45]"
     },
     {
@@ -422,7 +422,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[46]"
     },
     {
@@ -431,7 +431,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[47]"
     },
     {
@@ -440,7 +440,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[48]"
     },
     {
@@ -449,7 +449,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[49]"
     },
     {
@@ -458,7 +458,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[50]"
     },
     {
@@ -467,7 +467,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[51]"
     },
     {
@@ -476,7 +476,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[52]"
     },
     {
@@ -485,7 +485,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[53]"
     },
     {
@@ -494,7 +494,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[54]"
     },
     {
@@ -503,7 +503,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[55]"
     },
     {
@@ -512,7 +512,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[56]"
     },
     {
@@ -521,7 +521,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[57]"
     },
     {
@@ -530,7 +530,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[58]"
     },
     {
@@ -539,7 +539,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[59]"
     },
     {
@@ -548,7 +548,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[60]"
     },
     {
@@ -557,7 +557,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[61]"
     },
     {
@@ -566,7 +566,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[62]"
     },
     {
@@ -575,7 +575,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[63]"
     },
     {
@@ -584,7 +584,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[64]"
     },
     {
@@ -593,7 +593,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[65]"
     },
     {
@@ -602,7 +602,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[66]"
     },
     {
@@ -611,7 +611,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[67]"
     },
     {
@@ -620,7 +620,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[68]"
     },
     {
@@ -629,7 +629,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[69]"
     },
     {
@@ -638,7 +638,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[70]"
     },
     {
@@ -647,7 +647,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[71]"
     },
     {
@@ -656,7 +656,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[72]"
     },
     {
@@ -665,7 +665,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[73]"
     },
     {
@@ -674,7 +674,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[74]"
     },
     {
@@ -683,7 +683,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[75]"
     },
     {
@@ -692,7 +692,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[76]"
     },
     {
@@ -701,7 +701,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[77]"
     },
     {
@@ -710,7 +710,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[78]"
     },
     {
@@ -719,7 +719,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[79]"
     },
     {
@@ -728,7 +728,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[80]"
     },
     {
@@ -737,7 +737,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[81]"
     },
     {
@@ -746,7 +746,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[82]"
     },
     {
@@ -755,7 +755,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[83]"
     },
     {
@@ -764,7 +764,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[84]"
     },
     {
@@ -773,7 +773,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[85]"
     },
     {
@@ -782,7 +782,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[86]"
     },
     {
@@ -791,7 +791,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[87]"
     },
     {
@@ -800,7 +800,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[88]"
     },
     {
@@ -809,7 +809,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[89]"
     },
     {
@@ -818,7 +818,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[90]"
     },
     {
@@ -827,7 +827,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[91]"
     },
     {
@@ -836,7 +836,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[92]"
     },
     {
@@ -845,7 +845,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[93]"
     },
     {
@@ -854,7 +854,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[94]"
     },
     {
@@ -863,7 +863,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[95]"
     },
     {
@@ -872,7 +872,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[96]"
     },
     {
@@ -881,7 +881,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[97]"
     },
     {
@@ -890,7 +890,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[98]"
     },
     {
@@ -899,7 +899,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[99]"
     },
     {
@@ -908,7 +908,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[100]"
     },
     {
@@ -917,7 +917,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[101]"
     },
     {
@@ -926,7 +926,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[102]"
     },
     {
@@ -935,7 +935,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[103]"
     },
     {
@@ -944,7 +944,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[104]"
     },
     {
@@ -953,7 +953,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[105]"
     },
     {
@@ -962,7 +962,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[106]"
     },
     {
@@ -971,7 +971,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[107]"
     },
     {
@@ -980,7 +980,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[108]"
     },
     {
@@ -989,7 +989,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[109]"
     },
     {
@@ -998,7 +998,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[110]"
     },
     {
@@ -1007,7 +1007,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[111]"
     },
     {
@@ -1016,7 +1016,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[112]"
     },
     {
@@ -1025,7 +1025,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[113]"
     },
     {
@@ -1034,7 +1034,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[114]"
     },
     {
@@ -1043,7 +1043,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[115]"
     },
     {
@@ -1052,7 +1052,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[116]"
     },
     {
@@ -1061,7 +1061,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[117]"
     },
     {
@@ -1070,7 +1070,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[118]"
     },
     {
@@ -1079,7 +1079,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[119]"
     },
     {
@@ -1088,7 +1088,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[120]"
     },
     {
@@ -1097,7 +1097,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[121]"
     },
     {
@@ -1106,7 +1106,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[122]"
     },
     {
@@ -1115,7 +1115,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[123]"
     },
     {
@@ -1124,7 +1124,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[124]"
     },
     {
@@ -1133,7 +1133,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[125]"
     },
     {
@@ -1142,7 +1142,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[126]"
     },
     {
@@ -1151,7 +1151,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[127]"
     },
     {
@@ -1160,7 +1160,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[128]"
     },
     {
@@ -1169,7 +1169,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[129]"
     },
     {
@@ -1178,7 +1178,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[130]"
     },
     {
@@ -1187,7 +1187,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[131]"
     },
     {
@@ -1196,7 +1196,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[132]"
     },
     {
@@ -1205,7 +1205,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[133]"
     },
     {
@@ -1214,7 +1214,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[134]"
     },
     {
@@ -1223,7 +1223,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[135]"
     },
     {
@@ -1232,7 +1232,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[136]"
     },
     {
@@ -1241,7 +1241,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[137]"
     },
     {
@@ -1250,7 +1250,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[138]"
     },
     {
@@ -1259,7 +1259,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[139]"
     },
     {
@@ -1268,7 +1268,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[140]"
     },
     {
@@ -1277,7 +1277,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[141]"
     },
     {
@@ -1286,7 +1286,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[142]"
     },
     {
@@ -1295,7 +1295,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[143]"
     },
     {
@@ -1304,7 +1304,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[144]"
     },
     {
@@ -1313,7 +1313,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[145]"
     },
     {
@@ -1322,7 +1322,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[146]"
     },
     {
@@ -1331,7 +1331,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[147]"
     },
     {
@@ -1340,7 +1340,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[148]"
     },
     {
@@ -1349,7 +1349,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[149]"
     },
     {
@@ -1358,7 +1358,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[150]"
     },
     {
@@ -1367,7 +1367,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[151]"
     },
     {
@@ -1376,7 +1376,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[152]"
     },
     {
@@ -1385,7 +1385,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[153]"
     },
     {
@@ -1394,7 +1394,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[154]"
     },
     {
@@ -1403,7 +1403,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[155]"
     },
     {
@@ -1412,7 +1412,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[156]"
     },
     {
@@ -1421,7 +1421,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[157]"
     },
     {
@@ -1430,7 +1430,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[158]"
     },
     {
@@ -1439,7 +1439,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[159]"
     },
     {
@@ -1448,7 +1448,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[160]"
     },
     {
@@ -1457,7 +1457,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[161]"
     },
     {
@@ -1466,7 +1466,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[162]"
     },
     {
@@ -1475,7 +1475,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[163]"
     },
     {
@@ -1484,7 +1484,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[164]"
     },
     {
@@ -1493,7 +1493,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[165]"
     },
     {
@@ -1502,7 +1502,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[166]"
     },
     {
@@ -1511,7 +1511,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[167]"
     },
     {
@@ -1520,7 +1520,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[168]"
     },
     {
@@ -1529,7 +1529,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[169]"
     },
     {
@@ -1538,7 +1538,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[170]"
     },
     {
@@ -1547,7 +1547,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[171]"
     },
     {
@@ -1556,7 +1556,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[172]"
     },
     {
@@ -1565,7 +1565,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[173]"
     },
     {
@@ -1574,7 +1574,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[174]"
     },
     {
@@ -1583,7 +1583,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[175]"
     },
     {
@@ -1592,7 +1592,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[176]"
     },
     {
@@ -1601,7 +1601,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[177]"
     },
     {
@@ -1610,7 +1610,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[178]"
     },
     {
@@ -1619,7 +1619,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[179]"
     },
     {
@@ -1628,7 +1628,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[180]"
     },
     {
@@ -1637,7 +1637,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[181]"
     },
     {
@@ -1646,7 +1646,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[182]"
     },
     {
@@ -1655,7 +1655,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[183]"
     },
     {
@@ -1664,7 +1664,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[184]"
     },
     {
@@ -1673,7 +1673,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[185]"
     },
     {
@@ -1682,7 +1682,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[186]"
     },
     {
@@ -1691,7 +1691,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[187]"
     },
     {
@@ -1700,7 +1700,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[188]"
     },
     {
@@ -1709,7 +1709,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[189]"
     },
     {
@@ -1718,7 +1718,7 @@
       "kind": "system",
       "book": "lancer-1",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[190]"
     },
     {
@@ -1727,7 +1727,7 @@
       "kind": "weapon",
       "book": "lancer-2",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[191]"
     },
     {
@@ -1736,7 +1736,7 @@
       "kind": "system",
       "book": "lancer-2",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[192]"
     },
     {
@@ -1745,7 +1745,7 @@
       "kind": "system",
       "book": "lancer-2",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[193]"
     },
     {
@@ -1754,7 +1754,7 @@
       "kind": "system",
       "book": "lancer-2",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[194]"
     },
     {
@@ -1763,7 +1763,7 @@
       "kind": "system",
       "book": "lancer-2",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[195]"
     },
     {
@@ -1772,7 +1772,7 @@
       "kind": "weapon",
       "book": "lancer-2",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[196]"
     },
     {
@@ -1781,7 +1781,7 @@
       "kind": "weapon",
       "book": "lancer-2",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[197]"
     },
     {
@@ -1790,7 +1790,7 @@
       "kind": "system",
       "book": "lancer-2",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[198]"
     },
     {
@@ -1799,7 +1799,7 @@
       "kind": "weapon",
       "book": "lancer-2",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[199]"
     },
     {
@@ -1808,7 +1808,7 @@
       "kind": "system",
       "book": "lancer-2",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[200]"
     },
     {
@@ -1817,7 +1817,7 @@
       "kind": "system",
       "book": "lancer-2",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[201]"
     },
     {
@@ -1826,7 +1826,7 @@
       "kind": "system",
       "book": "lancer-2",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[202]"
     },
     {
@@ -1835,7 +1835,7 @@
       "kind": "system",
       "book": "lancer-2",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[203]"
     },
     {
@@ -1844,7 +1844,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[204]"
     },
     {
@@ -1853,7 +1853,7 @@
       "kind": "weapon",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[205]"
     },
     {
@@ -1862,7 +1862,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[206]"
     },
     {
@@ -1871,7 +1871,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[207]"
     },
     {
@@ -1880,7 +1880,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[208]"
     },
     {
@@ -1889,7 +1889,7 @@
       "kind": "weapon",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[209]"
     },
     {
@@ -1898,7 +1898,7 @@
       "kind": "weapon",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[210]"
     },
     {
@@ -1907,7 +1907,7 @@
       "kind": "weapon",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[211]"
     },
     {
@@ -1916,7 +1916,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[212]"
     },
     {
@@ -1925,7 +1925,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[213]"
     },
     {
@@ -1934,7 +1934,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[214]"
     },
     {
@@ -1943,7 +1943,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[215]"
     },
     {
@@ -1952,7 +1952,7 @@
       "kind": "weapon",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[216]"
     },
     {
@@ -1961,7 +1961,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[217]"
     },
     {
@@ -1970,7 +1970,7 @@
       "kind": "weapon",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[218]"
     },
     {
@@ -1979,7 +1979,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[219]"
     },
     {
@@ -1988,7 +1988,7 @@
       "kind": "weapon",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[220]"
     },
     {
@@ -1997,7 +1997,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[221]"
     },
     {
@@ -2006,7 +2006,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[222]"
     },
     {
@@ -2015,7 +2015,7 @@
       "kind": "weapon",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[223]"
     },
     {
@@ -2024,7 +2024,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[224]"
     },
     {
@@ -2033,7 +2033,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[225]"
     },
     {
@@ -2042,7 +2042,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[226]"
     },
     {
@@ -2051,7 +2051,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[227]"
     },
     {
@@ -2060,7 +2060,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[228]"
     },
     {
@@ -2069,7 +2069,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[229]"
     },
     {
@@ -2078,7 +2078,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[230]"
     },
     {
@@ -2087,7 +2087,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[231]"
     },
     {
@@ -2096,7 +2096,7 @@
       "kind": "weapon",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[232]"
     },
     {
@@ -2105,7 +2105,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[233]"
     },
     {
@@ -2114,7 +2114,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[234]"
     },
     {
@@ -2123,7 +2123,7 @@
       "kind": "weapon",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[235]"
     },
     {
@@ -2132,7 +2132,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[236]"
     },
     {
@@ -2141,7 +2141,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[237]"
     },
     {
@@ -2150,7 +2150,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[238]"
     },
     {
@@ -2159,7 +2159,7 @@
       "kind": "weapon",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[239]"
     },
     {
@@ -2168,7 +2168,7 @@
       "kind": "system",
       "book": "lancer-3",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[240]"
     },
     {
@@ -2177,7 +2177,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[241]"
     },
     {
@@ -2186,7 +2186,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[242]"
     },
     {
@@ -2195,7 +2195,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[243]"
     },
     {
@@ -2204,7 +2204,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[244]"
     },
     {
@@ -2213,7 +2213,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[245]"
     },
     {
@@ -2222,7 +2222,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[246]"
     },
     {
@@ -2231,7 +2231,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[247]"
     },
     {
@@ -2240,7 +2240,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[248]"
     },
     {
@@ -2249,7 +2249,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[249]"
     },
     {
@@ -2258,7 +2258,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[250]"
     },
     {
@@ -2267,7 +2267,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[251]"
     },
     {
@@ -2276,7 +2276,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[252]"
     },
     {
@@ -2285,7 +2285,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[253]"
     },
     {
@@ -2294,7 +2294,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[254]"
     },
     {
@@ -2303,7 +2303,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[255]"
     },
     {
@@ -2312,7 +2312,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[256]"
     },
     {
@@ -2321,7 +2321,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[257]"
     },
     {
@@ -2330,7 +2330,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[258]"
     },
     {
@@ -2339,7 +2339,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[259]"
     },
     {
@@ -2348,7 +2348,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[260]"
     },
     {
@@ -2357,7 +2357,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[261]"
     },
     {
@@ -2366,7 +2366,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[262]"
     },
     {
@@ -2375,7 +2375,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[263]"
     },
     {
@@ -2384,7 +2384,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[264]"
     },
     {
@@ -2393,7 +2393,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[265]"
     },
     {
@@ -2402,7 +2402,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[266]"
     },
     {
@@ -2411,7 +2411,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[267]"
     },
     {
@@ -2420,7 +2420,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[268]"
     },
     {
@@ -2429,7 +2429,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[269]"
     },
     {
@@ -2438,7 +2438,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[270]"
     },
     {
@@ -2447,7 +2447,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[271]"
     },
     {
@@ -2456,7 +2456,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[272]"
     },
     {
@@ -2465,7 +2465,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[273]"
     },
     {
@@ -2474,7 +2474,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[274]"
     },
     {
@@ -2483,7 +2483,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[275]"
     },
     {
@@ -2492,7 +2492,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[276]"
     },
     {
@@ -2501,7 +2501,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[277]"
     },
     {
@@ -2510,7 +2510,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[278]"
     },
     {
@@ -2519,7 +2519,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[279]"
     },
     {
@@ -2528,7 +2528,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[280]"
     },
     {
@@ -2537,7 +2537,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[281]"
     },
     {
@@ -2546,7 +2546,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[282]"
     },
     {
@@ -2555,7 +2555,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[283]"
     },
     {
@@ -2564,7 +2564,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[284]"
     },
     {
@@ -2573,7 +2573,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[285]"
     },
     {
@@ -2582,7 +2582,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[286]"
     },
     {
@@ -2591,7 +2591,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[287]"
     },
     {
@@ -2600,7 +2600,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[288]"
     },
     {
@@ -2609,7 +2609,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[289]"
     },
     {
@@ -2618,7 +2618,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[290]"
     },
     {
@@ -2627,7 +2627,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[291]"
     },
     {
@@ -2636,7 +2636,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[292]"
     },
     {
@@ -2645,7 +2645,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[293]"
     },
     {
@@ -2654,7 +2654,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[294]"
     },
     {
@@ -2663,7 +2663,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[295]"
     },
     {
@@ -2672,7 +2672,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[296]"
     },
     {
@@ -2681,7 +2681,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[297]"
     },
     {
@@ -2690,7 +2690,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[298]"
     },
     {
@@ -2699,7 +2699,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[299]"
     },
     {
@@ -2708,7 +2708,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[300]"
     },
     {
@@ -2717,7 +2717,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[301]"
     },
     {
@@ -2726,7 +2726,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[302]"
     },
     {
@@ -2735,7 +2735,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[303]"
     },
     {
@@ -2744,7 +2744,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[304]"
     },
     {
@@ -2753,7 +2753,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[305]"
     },
     {
@@ -2762,7 +2762,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[306]"
     },
     {
@@ -2771,7 +2771,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[307]"
     },
     {
@@ -2780,7 +2780,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[308]"
     },
     {
@@ -2789,7 +2789,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[309]"
     },
     {
@@ -2798,7 +2798,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[310]"
     },
     {
@@ -2807,7 +2807,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[311]"
     },
     {
@@ -2816,7 +2816,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[312]"
     },
     {
@@ -2825,7 +2825,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[313]"
     },
     {
@@ -2834,7 +2834,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[314]"
     },
     {
@@ -2843,7 +2843,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[315]"
     },
     {
@@ -2852,7 +2852,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[316]"
     },
     {
@@ -2861,7 +2861,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[317]"
     },
     {
@@ -2870,7 +2870,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[318]"
     },
     {
@@ -2879,7 +2879,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[319]"
     },
     {
@@ -2888,7 +2888,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[320]"
     },
     {
@@ -2897,7 +2897,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[321]"
     },
     {
@@ -2906,7 +2906,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[322]"
     },
     {
@@ -2915,7 +2915,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[323]"
     },
     {
@@ -2924,7 +2924,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[324]"
     },
     {
@@ -2933,7 +2933,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[325]"
     },
     {
@@ -2942,7 +2942,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[326]"
     },
     {
@@ -2951,7 +2951,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[327]"
     },
     {
@@ -2960,7 +2960,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[328]"
     },
     {
@@ -2969,7 +2969,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[329]"
     },
     {
@@ -2978,7 +2978,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[330]"
     },
     {
@@ -2987,7 +2987,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[331]"
     },
     {
@@ -2996,7 +2996,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[332]"
     },
     {
@@ -3005,7 +3005,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[333]"
     },
     {
@@ -3014,7 +3014,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[334]"
     },
     {
@@ -3023,7 +3023,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[335]"
     },
     {
@@ -3032,7 +3032,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[336]"
     },
     {
@@ -3041,7 +3041,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[337]"
     },
     {
@@ -3050,7 +3050,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[338]"
     },
     {
@@ -3059,7 +3059,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[339]"
     },
     {
@@ -3068,7 +3068,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[340]"
     },
     {
@@ -3077,7 +3077,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[341]"
     },
     {
@@ -3086,7 +3086,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[342]"
     },
     {
@@ -3095,7 +3095,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[343]"
     },
     {
@@ -3104,7 +3104,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[344]"
     },
     {
@@ -3113,7 +3113,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[345]"
     },
     {
@@ -3122,7 +3122,7 @@
       "kind": "system",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[346]"
     },
     {
@@ -3131,7 +3131,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[347]"
     },
     {
@@ -3140,7 +3140,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[348]"
     },
     {
@@ -3149,7 +3149,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[349]"
     },
     {
@@ -3158,7 +3158,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[350]"
     },
     {
@@ -3167,7 +3167,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[351]"
     },
     {
@@ -3176,7 +3176,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[352]"
     },
     {
@@ -3185,7 +3185,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[353]"
     },
     {
@@ -3194,7 +3194,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[354]"
     },
     {
@@ -3203,7 +3203,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[355]"
     },
     {
@@ -3212,7 +3212,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[356]"
     },
     {
@@ -3221,7 +3221,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[357]"
     },
     {
@@ -3230,7 +3230,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[358]"
     },
     {
@@ -3239,7 +3239,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[359]"
     },
     {
@@ -3248,7 +3248,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[360]"
     },
     {
@@ -3257,7 +3257,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[361]"
     },
     {
@@ -3266,7 +3266,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[362]"
     },
     {
@@ -3275,7 +3275,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[363]"
     },
     {
@@ -3284,7 +3284,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[364]"
     },
     {
@@ -3293,7 +3293,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[365]"
     },
     {
@@ -3302,7 +3302,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[366]"
     },
     {
@@ -3311,7 +3311,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[367]"
     },
     {
@@ -3320,7 +3320,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[368]"
     },
     {
@@ -3329,7 +3329,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[369]"
     },
     {
@@ -3338,7 +3338,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[370]"
     },
     {
@@ -3347,7 +3347,7 @@
       "kind": "weapon",
       "book": "lancer-4",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[371]"
     },
     {
@@ -3356,7 +3356,7 @@
       "kind": "weapon",
       "book": "lancer-5",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[372]"
     },
     {
@@ -3365,7 +3365,7 @@
       "kind": "system",
       "book": "lancer-5",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[373]"
     },
     {
@@ -3374,7 +3374,7 @@
       "kind": "system",
       "book": "lancer-5",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[374]"
     },
     {
@@ -3383,7 +3383,7 @@
       "kind": "system",
       "book": "lancer-5",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[375]"
     },
     {
@@ -3392,7 +3392,7 @@
       "kind": "system",
       "book": "lancer-5",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[376]"
     },
     {
@@ -3401,7 +3401,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[377]"
     },
     {
@@ -3410,7 +3410,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[378]"
     },
     {
@@ -3419,7 +3419,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[379]"
     },
     {
@@ -3428,7 +3428,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[380]"
     },
     {
@@ -3437,7 +3437,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[381]"
     },
     {
@@ -3446,7 +3446,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[382]"
     },
     {
@@ -3455,7 +3455,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[383]"
     },
     {
@@ -3464,7 +3464,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[384]"
     },
     {
@@ -3473,7 +3473,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[385]"
     },
     {
@@ -3482,7 +3482,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[386]"
     },
     {
@@ -3491,7 +3491,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[387]"
     },
     {
@@ -3500,7 +3500,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[388]"
     },
     {
@@ -3509,7 +3509,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[389]"
     },
     {
@@ -3518,7 +3518,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[390]"
     },
     {
@@ -3527,7 +3527,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[391]"
     },
     {
@@ -3536,7 +3536,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[392]"
     },
     {
@@ -3545,7 +3545,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[393]"
     },
     {
@@ -3554,7 +3554,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[394]"
     },
     {
@@ -3563,7 +3563,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[395]"
     },
     {
@@ -3572,7 +3572,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[396]"
     },
     {
@@ -3581,7 +3581,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[397]"
     },
     {
@@ -3590,7 +3590,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[398]"
     },
     {
@@ -3599,7 +3599,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[399]"
     },
     {
@@ -3608,7 +3608,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[400]"
     },
     {
@@ -3617,7 +3617,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[401]"
     },
     {
@@ -3626,7 +3626,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[402]"
     },
     {
@@ -3635,7 +3635,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[403]"
     },
     {
@@ -3644,7 +3644,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[404]"
     },
     {
@@ -3653,7 +3653,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[405]"
     },
     {
@@ -3662,7 +3662,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[406]"
     },
     {
@@ -3671,7 +3671,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[407]"
     },
     {
@@ -3680,7 +3680,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[408]"
     },
     {
@@ -3689,7 +3689,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[409]"
     },
     {
@@ -3698,7 +3698,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[410]"
     },
     {
@@ -3707,7 +3707,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[411]"
     },
     {
@@ -3716,7 +3716,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[412]"
     },
     {
@@ -3725,7 +3725,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[413]"
     },
     {
@@ -3734,7 +3734,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[414]"
     },
     {
@@ -3743,7 +3743,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[415]"
     },
     {
@@ -3752,7 +3752,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[416]"
     },
     {
@@ -3761,7 +3761,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[417]"
     },
     {
@@ -3770,7 +3770,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[418]"
     },
     {
@@ -3779,7 +3779,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[419]"
     },
     {
@@ -3788,7 +3788,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[420]"
     },
     {
@@ -3797,7 +3797,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[421]"
     },
     {
@@ -3806,7 +3806,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[422]"
     },
     {
@@ -3815,7 +3815,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[423]"
     },
     {
@@ -3824,7 +3824,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[424]"
     },
     {
@@ -3833,7 +3833,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[425]"
     },
     {
@@ -3842,7 +3842,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[426]"
     },
     {
@@ -3851,7 +3851,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[427]"
     },
     {
@@ -3860,7 +3860,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[428]"
     },
     {
@@ -3869,7 +3869,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[429]"
     },
     {
@@ -3878,7 +3878,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[430]"
     },
     {
@@ -3887,7 +3887,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[431]"
     },
     {
@@ -3896,7 +3896,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[432]"
     },
     {
@@ -3905,7 +3905,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[433]"
     },
     {
@@ -3914,7 +3914,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[434]"
     },
     {
@@ -3923,7 +3923,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[435]"
     },
     {
@@ -3932,7 +3932,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[436]"
     },
     {
@@ -3941,7 +3941,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[437]"
     },
     {
@@ -3950,7 +3950,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[438]"
     },
     {
@@ -3959,7 +3959,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[439]"
     },
     {
@@ -3968,7 +3968,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[440]"
     },
     {
@@ -3977,7 +3977,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[441]"
     },
     {
@@ -3986,7 +3986,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[442]"
     },
     {
@@ -3995,7 +3995,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[443]"
     },
     {
@@ -4004,7 +4004,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[444]"
     },
     {
@@ -4013,7 +4013,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[445]"
     },
     {
@@ -4022,7 +4022,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[446]"
     },
     {
@@ -4031,7 +4031,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[447]"
     },
     {
@@ -4040,7 +4040,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[448]"
     },
     {
@@ -4049,7 +4049,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[449]"
     },
     {
@@ -4058,7 +4058,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[450]"
     },
     {
@@ -4067,7 +4067,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[451]"
     },
     {
@@ -4076,7 +4076,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[452]"
     },
     {
@@ -4085,7 +4085,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[453]"
     },
     {
@@ -4094,7 +4094,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[454]"
     },
     {
@@ -4103,7 +4103,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[455]"
     },
     {
@@ -4112,7 +4112,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[456]"
     },
     {
@@ -4121,7 +4121,7 @@
       "kind": "weapon",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[457]"
     },
     {
@@ -4130,7 +4130,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[458]"
     },
     {
@@ -4139,7 +4139,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[459]"
     },
     {
@@ -4148,7 +4148,7 @@
       "kind": "system",
       "book": "lancer-6",
       "automation": "reference",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[460]"
     },
     {
@@ -4157,7 +4157,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[461]"
     },
     {
@@ -4166,7 +4166,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[462]"
     },
     {
@@ -4175,7 +4175,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[463]"
     },
     {
@@ -4184,7 +4184,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[464]"
     },
     {
@@ -4193,7 +4193,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[465]"
     },
     {
@@ -4202,7 +4202,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[466]"
     },
     {
@@ -4211,7 +4211,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[467]"
     },
     {
@@ -4220,7 +4220,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[468]"
     },
     {
@@ -4229,7 +4229,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[469]"
     },
     {
@@ -4238,7 +4238,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[470]"
     },
     {
@@ -4247,7 +4247,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[471]"
     },
     {
@@ -4256,7 +4256,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[472]"
     },
     {
@@ -4265,7 +4265,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[473]"
     },
     {
@@ -4274,7 +4274,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[474]"
     },
     {
@@ -4283,7 +4283,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[475]"
     },
     {
@@ -4292,7 +4292,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[476]"
     },
     {
@@ -4301,7 +4301,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[477]"
     },
     {
@@ -4310,7 +4310,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[478]"
     },
     {
@@ -4319,7 +4319,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[479]"
     },
     {
@@ -4328,7 +4328,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[480]"
     },
     {
@@ -4337,7 +4337,7 @@
       "kind": "weapon",
       "book": "lancer-1",
       "automation": "weapon",
-      "source": "game/apps/desktop/src/tabletop/lancer/data/catalog.json",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json",
       "location": "$.entries[481]"
     }
   ]

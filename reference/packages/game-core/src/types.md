@@ -1,6 +1,6 @@
 # game/packages/game-core/src/types.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -182,6 +182,7 @@ export interface CombatEvent {
     kind: "init" | "turn-start" | "turn-end" | "move" | "attack" | "damage" | "dot" | "down" | "invalid" | "rule";
     text: string;
     dice?: DiceLog;
+    check?: import('@aelzerant/contracts').AafCheckRecord;
     damage?: number;
     sourceId?: string;
     targetId?: string;
@@ -193,13 +194,14 @@ export interface CombatEvent {
 | `kind` | 否 | `"init" &#124; "turn-start" &#124; "turn-end" &#124; "move" &#124; "attack" &#124; "damage" &#124; "dot" &#124; "down" &#124; "invalid" &#124; "rule"` | 见结构定义及所属功能文档 |
 | `text` | 否 | `string` | 见结构定义及所属功能文档 |
 | `dice` | 是 | `DiceLog` | 见结构定义及所属功能文档 |
+| `check` | 是 | `import('@aelzerant/contracts').AafCheckRecord` | 见结构定义及所属功能文档 |
 | `damage` | 是 | `number` | 见结构定义及所属功能文档 |
 | `sourceId` | 是 | `string` | 见结构定义及所属功能文档 |
 | `targetId` | 是 | `string` | 见结构定义及所属功能文档 |
 
 ## ActionQuota
 
-导出接口 · 源码第 52 行。
+导出接口 · 源码第 53 行。
 
 ```ts
 export interface ActionQuota {
@@ -219,11 +221,15 @@ export interface ActionQuota {
 
 ## CombatState
 
-导出接口 · 源码第 53 行。
+导出接口 · 源码第 54 行。
 
 ```ts
 export interface CombatState {
     aafFlow?: import('@aelzerant/contracts').AafFlowFrame[];
+    aafTurnStart?: {
+        actorId: string;
+        wasInjured: boolean;
+    };
     schemaVersion: 1;
     seed: number;
     rngState: number;
@@ -248,6 +254,9 @@ export interface CombatState {
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
 | `aafFlow` | 是 | `import('@aelzerant/contracts').AafFlowFrame[]` | 见结构定义及所属功能文档 |
+| `aafTurnStart` | 是 | `{actorId:string;wasInjured:boolean}` | 见结构定义及所属功能文档 |
+| `aafTurnStart.actorId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `aafTurnStart.wasInjured` | 否 | `boolean` | 见结构定义及所属功能文档 |
 | `schemaVersion` | 否 | `1` | 见结构定义及所属功能文档 |
 | `seed` | 否 | `number` | 见结构定义及所属功能文档 |
 | `rngState` | 否 | `number` | 见结构定义及所属功能文档 |

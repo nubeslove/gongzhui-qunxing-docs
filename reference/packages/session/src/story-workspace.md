@@ -1,13 +1,16 @@
 # game/packages/session/src/story-workspace.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import type {TacticalCommand} from '@aelzerant/contracts';
 import {applyStoryProgress,settleStoryProgress} from './story-progress';
+import {applyTeamAssets} from './story-team-assets';
+import type {TeamAssetsCommand} from '@aelzerant/contracts';
 import type {StoryProgressCommand} from '@aelzerant/contracts';
 import {assignUserColor,parseUserColor} from '@aelzerant/contracts';
 import {applyWorldAssets} from './story-assets';
@@ -17,7 +20,7 @@ import type {CompendiumCatalogCommand,CompendiumDirectoryCommand} from '@aelzera
 import {applyResourceEdit} from './story-resource-edits';
 import {canonicalJson,type ResourceTransferCommand,type GameSystemId,type StoryResource} from '@aelzerant/contracts';
 import {applyResourceTransfer} from './story-resource-transfer';
-import {placeEntity,type EntityDirectoryCommand} from '@aelzerant/contracts';
+import {parseDocumentDirectory,type ProgressDirectoryCommand,placeEntity,type EntityDirectoryCommand} from '@aelzerant/contracts';
 import {applyEntityDirectory} from './story-entity-directory';
 import {applyJournalTransfer} from './story-journal-transfer';
 import type {JournalTransferCommand} from '@aelzerant/contracts';
@@ -39,6 +42,13 @@ import {applyRegionDecision} from './region-decisions';
 import {applyStoryDelivery} from './story-delivery';
 import {applyCalendarCommand} from './story-calendar';
 import type {CalendarCommand} from '@aelzerant/contracts';
+import {applyBossBarCommand,applyPluginCommand,applyTheatreCommand,type BossBarCommand,type PluginCommand,type TheatreCommand} from './story-theatre';
+import {applyPresentationCommand,type PresentationCommand} from './story-presentation';
+import {applySceneGraphCommand,type SceneGraphCommand} from './story-scene-graph';
+import {applyPlayerProgressCommand,type PlayerProgressCommand} from './story-player-progress';
+import {applyOnboardingCommand,type OnboardingCommand} from './story-onboarding';
+import {applySceneEffectsCommand,type SceneEffectsCommand} from './story-scene-effects';
+import {MONSTER_HP_VISIBILITIES,type MonsterHpVisibility} from '@aelzerant/contracts';
 import { journalDeletable, emptyStory, parseResource, parseStory, storyGm, storyId, storyText, storyObject, storyEnum, storyList, type StoryWorkspace, type StoryEntry, type StoryPack, type StoryCounter } from '@aelzerant/contracts';
 import {applyConversation} from './story-conversation';
 import {applyLibraryCommand} from './story-library';
@@ -48,10 +58,10 @@ import type {LibraryCommand,ConversationCommand} from '@aelzerant/contracts';
 
 ## StoryCommand
 
-导出接口 · 源码第 38 行。
+导出接口 · 源码第 48 行。
 
 ```ts
-export type StoryCommand = StoryProgressCommand | WorldAssetCommand | CompendiumDirectoryCommand | CompendiumCatalogCommand | ResourceTransferCommand | EntityDirectoryCommand | JournalTransferCommand | JournalDirectoryCommand | JournalSecretCommand | JournalActionCommand | SceneJournalCommand | ScenePreloadCommand | SceneNavigationCommand | SceneDirectoryCommand | {
+export type StoryCommand = ProgressDirectoryCommand | TacticalCommand | TeamAssetsCommand | StoryProgressCommand | WorldAssetCommand | CompendiumDirectoryCommand | CompendiumCatalogCommand | ResourceTransferCommand | EntityDirectoryCommand | JournalTransferCommand | JournalDirectoryCommand | JournalSecretCommand | JournalActionCommand | SceneJournalCommand | ScenePreloadCommand | SceneNavigationCommand | SceneDirectoryCommand | {
     type: 'region.environment';
     id: string;
     resolution: NonNullable<import('@aelzerant/contracts').EnvironmentDecision['resolution']>;
@@ -79,7 +89,7 @@ export type StoryCommand = StoryProgressCommand | WorldAssetCommand | Compendium
     nextSteps: string;
     sceneName: string;
     visibility: 'gm' | 'public';
-} | ConversationCommand | LibraryCommand | {
+} | ConversationCommand | LibraryCommand | TheatreCommand | PluginCommand | PresentationCommand | SceneGraphCommand | PlayerProgressCommand | OnboardingCommand | SceneEffectsCommand | BossBarCommand | {
     type: 'resource.save';
     resource: unknown;
     expectedResource?: StoryResource | null;
@@ -117,11 +127,15 @@ export type StoryCommand = StoryProgressCommand | WorldAssetCommand | Compendium
     seconds: number;
 } | {
     type: 'dnd.settings';
+    dawnHour?: number | null;
     outsideCombatTime: 'frozen' | 'realtime';
     backgroundAbilityUnbound: boolean;
 } | {
     type: 'packs.set';
     packs: StoryPack[];
+} | {
+    type: 'monsterHp.set';
+    value: MonsterHpVisibility;
 } | {
     type: 'counter.set';
     counter: StoryCounter;
@@ -130,65 +144,68 @@ export type StoryCommand = StoryProgressCommand | WorldAssetCommand | Compendium
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
-| `分支15.type` | 否 | `'region.environment'` | 见结构定义及所属功能文档 |
-| `分支15.id` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支15.resolution` | 否 | `NonNullable<import('@aelzerant/contracts').EnvironmentDecision['resolution']>` | 见结构定义及所属功能文档 |
-| `分支16.type` | 否 | `'region.answer'` | 见结构定义及所属功能文档 |
-| `分支16.id` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支16.accept` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支17.type` | 否 | `'region.hold'&#124;'region.timeout'&#124;'region.cancel'` | 见结构定义及所属功能文档 |
-| `分支17.id` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支18.type` | 否 | `'world.pause'` | 见结构定义及所属功能文档 |
-| `分支18.paused` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支20.type` | 否 | `'handout.show'` | 见结构定义及所属功能文档 |
-| `分支20.entryId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支20.pageId` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支20.recipients` | 否 | `string[]&#124;null` | 见结构定义及所属功能文档 |
-| `分支21.type` | 否 | `'handout.read'&#124;'handout.close'&#124;'handout.remove'&#124;'recap.remove'` | 见结构定义及所属功能文档 |
-| `分支21.id` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支22.type` | 否 | `'recap.save'` | 见结构定义及所属功能文档 |
-| `分支22.summary` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支22.nextSteps` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支22.sceneName` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支22.visibility` | 否 | `'gm'&#124;'public'` | 见结构定义及所属功能文档 |
-| `分支25.type` | 否 | `'resource.save'` | 见结构定义及所属功能文档 |
-| `分支25.resource` | 否 | `unknown` | 见结构定义及所属功能文档 |
-| `分支25.expectedResource` | 是 | `StoryResource&#124;null` | 见结构定义及所属功能文档 |
-| `分支25.folderId` | 是 | `string&#124;null` | 见结构定义及所属功能文档 |
-| `分支26.type` | 否 | `'resource.delete'` | 见结构定义及所属功能文档 |
-| `分支26.id` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支26.expectedResource` | 是 | `StoryResource` | 见结构定义及所属功能文档 |
-| `分支27.type` | 否 | `'resource.grant'` | 见结构定义及所属功能文档 |
-| `分支27.actorId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支27.resourceId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支27.remove` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支28.type` | 否 | `'entry.save'` | 见结构定义及所属功能文档 |
-| `分支28.entry` | 否 | `StoryEntry` | 见结构定义及所属功能文档 |
-| `分支28.folderId` | 是 | `string&#124;null` | 见结构定义及所属功能文档 |
-| `分支29.type` | 否 | `'entry.delete'` | 见结构定义及所属功能文档 |
-| `分支29.id` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支30.type` | 否 | `'member.set'` | 见结构定义及所属功能文档 |
-| `分支30.id` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支30.name` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支30.role` | 否 | `'gm'&#124;'player'` | 见结构定义及所属功能文档 |
-| `分支31.type` | 否 | `'member.join'` | 见结构定义及所属功能文档 |
-| `分支31.name` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支32.type` | 否 | `'member.color'` | 见结构定义及所属功能文档 |
-| `分支32.id` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支32.color` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支33.type` | 否 | `'decision.settings'` | 见结构定义及所属功能文档 |
-| `分支33.seconds` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支34.type` | 否 | `'dnd.settings'` | 见结构定义及所属功能文档 |
-| `分支34.outsideCombatTime` | 否 | `'frozen'&#124;'realtime'` | 见结构定义及所属功能文档 |
-| `分支34.backgroundAbilityUnbound` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支35.type` | 否 | `'packs.set'` | 见结构定义及所属功能文档 |
-| `分支35.packs` | 否 | `StoryPack[]` | 见结构定义及所属功能文档 |
-| `分支36.type` | 否 | `'counter.set'` | 见结构定义及所属功能文档 |
-| `分支36.counter` | 否 | `StoryCounter` | 见结构定义及所属功能文档 |
+| `分支18.type` | 否 | `'region.environment'` | 见结构定义及所属功能文档 |
+| `分支18.id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支18.resolution` | 否 | `NonNullable<import('@aelzerant/contracts').EnvironmentDecision['resolution']>` | 见结构定义及所属功能文档 |
+| `分支19.type` | 否 | `'region.answer'` | 见结构定义及所属功能文档 |
+| `分支19.id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支19.accept` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支20.type` | 否 | `'region.hold'&#124;'region.timeout'&#124;'region.cancel'` | 见结构定义及所属功能文档 |
+| `分支20.id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支21.type` | 否 | `'world.pause'` | 见结构定义及所属功能文档 |
+| `分支21.paused` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支23.type` | 否 | `'handout.show'` | 见结构定义及所属功能文档 |
+| `分支23.entryId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支23.pageId` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支23.recipients` | 否 | `string[]&#124;null` | 见结构定义及所属功能文档 |
+| `分支24.type` | 否 | `'handout.read'&#124;'handout.close'&#124;'handout.remove'&#124;'recap.remove'` | 见结构定义及所属功能文档 |
+| `分支24.id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支25.type` | 否 | `'recap.save'` | 见结构定义及所属功能文档 |
+| `分支25.summary` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支25.nextSteps` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支25.sceneName` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支25.visibility` | 否 | `'gm'&#124;'public'` | 见结构定义及所属功能文档 |
+| `分支36.type` | 否 | `'resource.save'` | 见结构定义及所属功能文档 |
+| `分支36.resource` | 否 | `unknown` | 见结构定义及所属功能文档 |
+| `分支36.expectedResource` | 是 | `StoryResource&#124;null` | 见结构定义及所属功能文档 |
+| `分支36.folderId` | 是 | `string&#124;null` | 见结构定义及所属功能文档 |
+| `分支37.type` | 否 | `'resource.delete'` | 见结构定义及所属功能文档 |
+| `分支37.id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支37.expectedResource` | 是 | `StoryResource` | 见结构定义及所属功能文档 |
+| `分支38.type` | 否 | `'resource.grant'` | 见结构定义及所属功能文档 |
+| `分支38.actorId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支38.resourceId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支38.remove` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支39.type` | 否 | `'entry.save'` | 见结构定义及所属功能文档 |
+| `分支39.entry` | 否 | `StoryEntry` | 见结构定义及所属功能文档 |
+| `分支39.folderId` | 是 | `string&#124;null` | 见结构定义及所属功能文档 |
+| `分支40.type` | 否 | `'entry.delete'` | 见结构定义及所属功能文档 |
+| `分支40.id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支41.type` | 否 | `'member.set'` | 见结构定义及所属功能文档 |
+| `分支41.id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支41.name` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支41.role` | 否 | `'gm'&#124;'player'` | 见结构定义及所属功能文档 |
+| `分支42.type` | 否 | `'member.join'` | 见结构定义及所属功能文档 |
+| `分支42.name` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支43.type` | 否 | `'member.color'` | 见结构定义及所属功能文档 |
+| `分支43.id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支43.color` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支44.type` | 否 | `'decision.settings'` | 见结构定义及所属功能文档 |
+| `分支44.seconds` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支45.type` | 否 | `'dnd.settings'` | 见结构定义及所属功能文档 |
+| `分支45.dawnHour` | 是 | `number&#124;null` | 见结构定义及所属功能文档 |
+| `分支45.outsideCombatTime` | 否 | `'frozen'&#124;'realtime'` | 见结构定义及所属功能文档 |
+| `分支45.backgroundAbilityUnbound` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支46.type` | 否 | `'packs.set'` | 见结构定义及所属功能文档 |
+| `分支46.packs` | 否 | `StoryPack[]` | 见结构定义及所属功能文档 |
+| `分支47.type` | 否 | `'monsterHp.set'` | 见结构定义及所属功能文档 |
+| `分支47.value` | 否 | `MonsterHpVisibility` | 见结构定义及所属功能文档 |
+| `分支48.type` | 否 | `'counter.set'` | 见结构定义及所属功能文档 |
+| `分支48.counter` | 否 | `StoryCounter` | 见结构定义及所属功能文档 |
 
 ## StoryContext
 
-导出接口 · 源码第 63 行。
+导出接口 · 源码第 77 行。
 
 ```ts
 export interface StoryContext {
@@ -244,7 +261,7 @@ export interface StoryContext {
 
 ## applyStoryCommand
 
-导出接口 · 源码第 65 行。
+导出接口 · 源码第 79 行。
 
 Called inside the world's existing atomic command queue, never directly on received snapshots.
 

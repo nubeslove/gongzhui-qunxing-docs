@@ -1,6 +1,6 @@
 # game/packages/rules-engine/src/dnd/creation-choices.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -10,6 +10,7 @@
 import {dndCreationEntries,DND_CATALOG,DND_SKILLS,dndEntry} from './index';
 import {terraBuildChoices} from '../terra/creation';
 import {dndClassRow} from './characters';
+import {dndClassMasteryCount,dndClassMasteryOptions} from './mastery-choices';
 import type {DndGuidedInput} from './creation';
 import type {DndEntry} from './catalog-types';
 ```
@@ -17,7 +18,7 @@ import type {DndEntry} from './catalog-types';
 
 ## DndBuildChoice
 
-导出接口 · 源码第 7 行。
+导出接口 · 源码第 8 行。
 
 ```ts
 export type DndBuildChoice = {
@@ -48,7 +49,7 @@ export type DndBuildChoice = {
 
 ## dndChoiceValues
 
-导出接口 · 源码第 8 行。
+导出接口 · 源码第 9 行。
 
 ```ts
 export const dndChoiceValues: (input: DndGuidedInput, key: string): string[];
@@ -56,7 +57,7 @@ export const dndChoiceValues: (input: DndGuidedInput, key: string): string[];
 
 ## DND_INSTRUMENTS
 
-导出接口 · 源码第 12 行。
+导出接口 · 源码第 13 行。
 
 ```ts
 export const DND_INSTRUMENTS = ['风笛', '鼓', '扬琴', '长笛', '鲁特琴', '里拉琴', '号角', '排箫', '芦笛', '提琴'];
@@ -64,7 +65,7 @@ export const DND_INSTRUMENTS = ['风笛', '鼓', '扬琴', '长笛', '鲁特琴'
 
 ## dndOriginFeats
 
-导出接口 · 源码第 13 行。
+导出接口 · 源码第 14 行。
 
 ```ts
 export function dndOriginFeats(input: DndGuidedInput): { key: string; entry: DndEntry; }[];
@@ -76,7 +77,7 @@ export function dndOriginFeats(input: DndGuidedInput): { key: string; entry: Dnd
 
 ## dndBuildChoices
 
-导出接口 · 源码第 17 行。
+导出接口 · 源码第 18 行。
 
 ```ts
 export function dndBuildChoices(input: DndGuidedInput): DndBuildChoice[];
@@ -88,7 +89,7 @@ export function dndBuildChoices(input: DndGuidedInput): DndBuildChoice[];
 
 ## validateDndBuildChoices
 
-导出接口 · 源码第 57 行。
+导出接口 · 源码第 58 行。
 
 ```ts
 export function validateDndBuildChoices(input: DndGuidedInput): { groups: DndBuildChoice[]; selectedEntries: DndEntry[]; };

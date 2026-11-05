@@ -1,6 +1,6 @@
 # game/packages/game-core/src/lancer/systems.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -8,7 +8,7 @@
 
 ```ts
 import {useCustomSystem} from './custom-equipment';
-import {parseLancerAutomation} from '@aelzerant/contracts';
+import {isHexGrid,hexInBounds,snapGridPoint,parseLancerAutomation} from '@aelzerant/contracts';
 import { useLancerCombatSystem } from './active-systems';
 import type { LancerArea, LancerBattle, LancerCombatIntent, LancerCombatSystem, LancerCombatUnit, ManualMap, ManualToken } from '@aelzerant/contracts';
 import { areaOrigin, lancerAreaContains } from './areas';
@@ -65,7 +65,7 @@ interface ExecutableSystem {
 
 ## lancerSystemDefinition
 
-导出接口 · 源码第 27 行。
+导出接口 · 源码第 28 行。
 
 ```ts
 export function lancerSystemDefinition(s: LancerCombatSystem): ExecutableSystem|undefined;
@@ -77,20 +77,20 @@ export function lancerSystemDefinition(s: LancerCombatSystem): ExecutableSystem|
 
 ## lancerSystemActionName
 
-导出接口 · 源码第 31 行。
+导出接口 · 源码第 32 行。
 
 ```ts
-export function lancerSystemActionName(s: LancerCombatSystem, mode?: string): string;
+export function lancerSystemActionName(s: LancerCombatSystem, _mode?: string): string;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | `s` | 否 | `LancerCombatSystem` | — |
-| `mode` | 是 | `string` | — |
+| `_mode` | 是 | `string` | — |
 
 ## Point
 
-内部依赖类型 · 源码第 32 行。
+内部依赖类型 · 源码第 33 行。
 
 ```ts
 type Point = {
@@ -108,7 +108,7 @@ type Point = {
 
 ## lancerSystemPointInRange
 
-导出接口 · 源码第 33 行。
+导出接口 · 源码第 34 行。
 
 ```ts
 export function lancerSystemPointInRange(map: ManualMap, u: LancerCombatUnit, p: Point|undefined, range: number): ManualToken;
@@ -123,7 +123,7 @@ export function lancerSystemPointInRange(map: ManualMap, u: LancerCombatUnit, p:
 
 ## useLancerSystem
 
-导出接口 · 源码第 57 行。
+导出接口 · 源码第 60 行。
 
 Returns self heat so the caller uses the same reactor settlement path as weapons.
 
@@ -141,7 +141,7 @@ export function useLancerSystem(b: LancerBattle, map: ManualMap, u: LancerCombat
 
 ## triggerLancerMines
 
-导出接口 · 源码第 100 行。
+导出接口 · 源码第 112 行。
 
 Check the entire traversed segment, not only its endpoint. Placing a mine does not trigger it.
 

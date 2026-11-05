@@ -1,0 +1,17 @@
+{
+  "active": true,
+  "cast": [
+    {
+      "actorId": "demo-guide",
+      "name": "渡口向导",
+      "position": 0,
+      "side": "left",
+      "portrait": ""
+    }
+  ],
+  "focus": "demo-guide",
+  "speech": null,
+  "revision": 1,
+  "sceneId": "initial",
+  "background": ""
+}

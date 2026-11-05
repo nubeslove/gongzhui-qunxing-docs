@@ -1,12 +1,13 @@
 # game/packages/game-core/src/lancer/attack-planning.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {auxiliaryContinuation} from './full-action';
 import type { LancerBattle, LancerCombatIntent, LancerCombatUnit, LancerCombatWeapon, LancerDecision, ManualMap, ManualToken } from '@aelzerant/contracts';
 import { selectedLancerTargets } from './weapon-sequences';
 import { feature } from './features';
@@ -19,7 +20,7 @@ import { has } from './state';
 
 ## Attack
 
-内部依赖类型 · 源码第 9 行。
+内部依赖类型 · 源码第 10 行。
 
 ```ts
 type Attack = Extract<LancerCombatIntent, {
@@ -29,7 +30,7 @@ type Attack = Extract<LancerCombatIntent, {
 
 ## Mobility
 
-内部依赖类型 · 源码第 10 行。
+内部依赖类型 · 源码第 11 行。
 
 ```ts
 type Mobility = {
@@ -45,7 +46,7 @@ type Mobility = {
 
 ## LancerAttackPlan
 
-导出接口 · 源码第 11 行。
+导出接口 · 源码第 12 行。
 
 ```ts
 export interface LancerAttackPlan {
@@ -68,7 +69,7 @@ export interface LancerAttackPlan {
 
 ## planLancerAttack
 
-导出接口 · 源码第 34 行。
+导出接口 · 源码第 35 行。
 
 Pure feasibility check: never spends, rolls or chooses movement on behalf of a player.
 

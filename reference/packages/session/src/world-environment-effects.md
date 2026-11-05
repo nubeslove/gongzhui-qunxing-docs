@@ -1,6 +1,6 @@
 # game/packages/session/src/world-environment-effects.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -11,16 +11,19 @@ import {worldMovePath,worldMovementModes,worldClimbTurn} from './world-elevation
 import {climbEnvironmentDecision,assertClimbAttempt} from './elevation-movement';
 import {emptyStory,canonicalJson,expandMovementPath,movementPath,type EnvironmentEffect,type ScenePoint,type RegionNotice,type EnvironmentDecision} from '@aelzerant/contracts';
 import {findPath,cellKey,nextRandom} from '@aelzerant/game-core';
-import {controlToken,sceneHandlers} from './world-scenes';
+import {controlToken} from './world-scenes';
 import {isAafSpeedMode,type MovementMode} from '@aelzerant/contracts';
 import {emptyEnvironmentEffect,jumpEnvironmentDecision,validateEnvironmentMove,requestEnvironmentDecision,rollEnvironmentDamage,movementEnvironmentSignature} from './environment-decisions';
 import type {WorldDocument,WorldAction,WorldContext,WorldHandler} from './world-types';
+import {AAF_CONDITIONS,type AafEffectOperation} from '@aelzerant/contracts';
+import {aafDamageType} from '@aelzerant/rules-engine';
+import {aafRuleHandlers} from './world-aaf-rules';
 ```
 </details>
 
 ## prepareWorldEnvironmentMove
 
-导出接口 · 源码第 9 行。
+导出接口 · 源码第 12 行。
 
 ```ts
 export function prepareWorldEnvironmentMove(world: WorldDocument, action: WorldAction, context: WorldContext): EnvironmentDecision|undefined;
@@ -34,7 +37,7 @@ export function prepareWorldEnvironmentMove(world: WorldDocument, action: WorldA
 
 ## applyWorldEnvironmentEffect
 
-导出接口 · 源码第 17 行。
+导出接口 · 源码第 20 行。
 
 ```ts
 export function applyWorldEnvironmentEffect(world: WorldDocument, sceneId: string, tokenId: string, effect: EnvironmentEffect, now: number): void;
@@ -50,7 +53,7 @@ export function applyWorldEnvironmentEffect(world: WorldDocument, sceneId: strin
 
 ## worldEnvironmentNotices
 
-导出接口 · 源码第 24 行。
+导出接口 · 源码第 28 行。
 
 ```ts
 export function worldEnvironmentNotices(world: WorldDocument, sceneId: string, notices: RegionNotice[], now: number): void;
@@ -65,7 +68,7 @@ export function worldEnvironmentNotices(world: WorldDocument, sceneId: string, n
 
 ## resolveWorldEnvironment
 
-导出接口 · 源码第 30 行。
+导出接口 · 源码第 34 行。
 
 ```ts
 export function resolveWorldEnvironment(world: WorldDocument, context: WorldContext, handlers: Readonly<Record<string,WorldHandler>>): {sceneId:string;tokenId:string;path:ScenePoint[]}|undefined;

@@ -1,15 +1,44 @@
 # game/packages/contracts/src/community.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
-## CommunityPost
+## COMMUNITY_SCOPES
 
 导出接口 · 源码第 1 行。
 
 ```ts
+export const COMMUNITY_SCOPES = ['aaf', 'dnd5e-2024', 'lancer', 'terra-walker', 'new-utopia', 'otherworld-journey'] as const;
+```
+
+## CommunityScope
+
+导出接口 · 源码第 2 行。
+
+```ts
+export type CommunityScope = typeof COMMUNITY_SCOPES[number];
+```
+
+## communityScope
+
+导出接口 · 源码第 3 行。
+
+```ts
+export function communityScope(value: unknown): CommunityScope | undefined;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `value` | 否 | `unknown` | — |
+
+## CommunityPost
+
+导出接口 · 源码第 8 行。
+
+```ts
 export interface CommunityPost {
+    scope?: CommunityScope;
     id: string;
     authorId: string;
     title: string;
@@ -18,11 +47,14 @@ export interface CommunityPost {
     createdAt: number;
     replies: CommunityReply[];
     deleted?: boolean;
+    pinned?: boolean;
+    featured?: boolean;
 }
 ```
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `scope` | 是 | `CommunityScope` | 见结构定义及所属功能文档 |
 | `id` | 否 | `string` | 见结构定义及所属功能文档 |
 | `authorId` | 否 | `string` | 见结构定义及所属功能文档 |
 | `title` | 否 | `string` | 见结构定义及所属功能文档 |
@@ -31,10 +63,12 @@ export interface CommunityPost {
 | `createdAt` | 否 | `number` | 见结构定义及所属功能文档 |
 | `replies` | 否 | `CommunityReply[]` | 见结构定义及所属功能文档 |
 | `deleted` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `pinned` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `featured` | 是 | `boolean` | 见结构定义及所属功能文档 |
 
 ## CommunityReply
 
-导出接口 · 源码第 2 行。
+导出接口 · 源码第 9 行。
 
 ```ts
 export interface CommunityReply {
@@ -54,10 +88,11 @@ export interface CommunityReply {
 
 ## CommunityNotice
 
-导出接口 · 源码第 3 行。
+导出接口 · 源码第 10 行。
 
 ```ts
 export interface CommunityNotice {
+    scope?: CommunityScope;
     id: string;
     title: string;
     body: string;
@@ -68,6 +103,7 @@ export interface CommunityNotice {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `scope` | 是 | `CommunityScope` | 见结构定义及所属功能文档 |
 | `id` | 否 | `string` | 见结构定义及所属功能文档 |
 | `title` | 否 | `string` | 见结构定义及所属功能文档 |
 | `body` | 否 | `string` | 见结构定义及所属功能文档 |
@@ -76,7 +112,7 @@ export interface CommunityNotice {
 
 ## Friendship
 
-导出接口 · 源码第 4 行。
+导出接口 · 源码第 11 行。
 
 ```ts
 export interface Friendship {
@@ -96,7 +132,7 @@ export interface Friendship {
 
 ## CommunityView
 
-导出接口 · 源码第 5 行。
+导出接口 · 源码第 12 行。
 
 ```ts
 export interface CommunityView {
@@ -116,7 +152,7 @@ export interface CommunityView {
 
 ## CommunityAction
 
-导出接口 · 源码第 6 行。
+导出接口 · 源码第 13 行。
 
 ```ts
 export type CommunityAction = {
@@ -124,6 +160,7 @@ export type CommunityAction = {
     title: string;
     body: string;
     category: CommunityPost["category"];
+    scope?: CommunityScope;
 } | {
     kind: "reply";
     postId: string;
@@ -138,9 +175,15 @@ export type CommunityAction = {
     kind: "friend-accept" | "friend-remove";
     id: string;
 } | {
+    kind: "moderate";
+    postId: string;
+    pinned?: boolean;
+    featured?: boolean;
+} | {
     kind: "notice";
     title: string;
     body: string;
+    scope?: CommunityScope;
 };
 ```
 
@@ -150,6 +193,7 @@ export type CommunityAction = {
 | `分支1.title` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支1.body` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支1.category` | 否 | `CommunityPost["category"]` | 见结构定义及所属功能文档 |
+| `分支1.scope` | 是 | `CommunityScope` | 见结构定义及所属功能文档 |
 | `分支2.kind` | 否 | `"reply"` | 见结构定义及所属功能文档 |
 | `分支2.postId` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支2.body` | 否 | `string` | 见结构定义及所属功能文档 |
@@ -159,6 +203,11 @@ export type CommunityAction = {
 | `分支4.playerId` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支5.kind` | 否 | `"friend-accept" &#124; "friend-remove"` | 见结构定义及所属功能文档 |
 | `分支5.id` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支6.kind` | 否 | `"notice"` | 见结构定义及所属功能文档 |
-| `分支6.title` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支6.body` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支6.kind` | 否 | `"moderate"` | 见结构定义及所属功能文档 |
+| `分支6.postId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支6.pinned` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支6.featured` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支7.kind` | 否 | `"notice"` | 见结构定义及所属功能文档 |
+| `分支7.title` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支7.body` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支7.scope` | 是 | `CommunityScope` | 见结构定义及所属功能文档 |

@@ -1,6 +1,6 @@
 # game/packages/contracts/src/region-coverage.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -36,7 +36,7 @@ type Point = {
 Integrates ordered shape unions/holes, without counting already-rounded grid cells.
 
 ```ts
-export function regionFootprintCoverage(r: SceneRegion, center: ScenePoint, size?: number): number;
+export function regionFootprintCoverage(r: SceneRegion, center: ScenePoint, size?: number, footprint?: Point[]): number;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
@@ -44,10 +44,11 @@ export function regionFootprintCoverage(r: SceneRegion, center: ScenePoint, size
 | `r` | 否 | `SceneRegion` | — |
 | `center` | 否 | `ScenePoint` | — |
 | `size` | 是 | `number` | 1 |
+| `footprint` | 是 | `Point[]` | — |
 
 ## regionAffectsFootprint
 
-导出接口 · 源码第 32 行。
+导出接口 · 源码第 36 行。
 
 ```ts
 export const regionAffectsFootprint: (r: SceneRegion, p: ScenePoint, size?: number): boolean;
@@ -55,7 +56,7 @@ export const regionAffectsFootprint: (r: SceneRegion, p: ScenePoint, size?: numb
 
 ## regionEffectPathEvents
 
-导出接口 · 源码第 33 行。
+导出接口 · 源码第 37 行。
 
 ```ts
 export function regionEffectPathEvents(r: SceneRegion, path: ScenePoint[], size?: number): RegionEventName[];

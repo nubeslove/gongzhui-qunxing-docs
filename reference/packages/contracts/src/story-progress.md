@@ -1,6 +1,6 @@
 # game/packages/contracts/src/story-progress.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -93,6 +93,7 @@ export interface QuestReward {
 
 ```ts
 export interface QuestDetails {
+    presentation?: 'objectives' | 'clocks';
     locked?: boolean;
     chain: string;
     order: number;
@@ -107,6 +108,7 @@ export interface QuestDetails {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `presentation` | 是 | `'objectives'&#124;'clocks'` | 见结构定义及所属功能文档 |
 | `locked` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `chain` | 否 | `string` | 见结构定义及所属功能文档 |
 | `order` | 否 | `number` | 见结构定义及所属功能文档 |

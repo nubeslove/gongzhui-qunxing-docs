@@ -1,0 +1,30 @@
+# game/packages/session/src/story-team-assets.ts
+
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+
+[全部索引](../../../README.md)
+
+<details><summary>类型依赖</summary>
+
+```ts
+import {assetCount,emptyTeamAssets,parseTeamAssets,storyEnum,storyId,storyObject,storyText,type StoryWorkspace} from '@aelzerant/contracts';
+import type {StoryContext} from './story-workspace';
+```
+</details>
+
+## applyTeamAssets
+
+导出接口 · 源码第 5 行。
+
+Runs inside the same authoritative command queue as all world edits.
+
+```ts
+export function applyTeamAssets(story: StoryWorkspace, command: Record<string,unknown>, c: StoryContext, gm: boolean): boolean;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `story` | 否 | `StoryWorkspace` | — |
+| `command` | 否 | `Record<string,unknown>` | — |
+| `c` | 否 | `StoryContext` | — |
+| `gm` | 否 | `boolean` | — |

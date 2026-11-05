@@ -1,16 +1,47 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "ServerWorldSummary",
-  "description": "WorldSummary 加当前 HTTP 响应的 inviteCode 扩展；按路由实现核对。",
+  "description": "当前显式构造的 WorldSummary；邀请码只从授权分享设置取得。",
   "type": "object",
   "properties": {
+    "worldMode": {
+      "anyOf": [
+        {
+          "const": "open",
+          "type": "string"
+        },
+        {
+          "const": "campaign",
+          "type": "string"
+        },
+        {
+          "const": "arena",
+          "type": "string"
+        }
+      ]
+    },
+    "visibility": {
+      "anyOf": [
+        {
+          "const": "public",
+          "type": "string"
+        },
+        {
+          "const": "invite",
+          "type": "string"
+        }
+      ]
+    },
+    "spiral": {
+      "$ref": "./contracts.schema.json#/$defs/SpiralSettings"
+    },
     "ruleVariant": {
       "anyOf": [
         {
-          "$ref": "./contracts.schema.json#/$defs/Object_24"
+          "$ref": "./contracts.schema.json#/$defs/Object_29"
         },
         {
-          "$ref": "./contracts.schema.json#/$defs/Object_25"
+          "$ref": "./contracts.schema.json#/$defs/Object_30"
         }
       ],
       "description": "Theme variants remain distinct even when they share a base rules engine."
@@ -60,10 +91,6 @@
     },
     "createdAt": {
       "type": "number"
-    },
-    "inviteCode": {
-      "type": "string",
-      "description": "当前服务器的目录响应可能附带；加入接口并未据此进行密码验证。"
     }
   },
   "required": [

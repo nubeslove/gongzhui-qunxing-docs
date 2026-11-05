@@ -1,6 +1,6 @@
 # game/packages/contracts/src/compendium-import-content.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -99,7 +99,7 @@ type Mapping = {
 Build the entire graph before changing any target document. Only registered references are rewritten.
 
 ```ts
-export function prepareCompendiumContent(batch: CompendiumImportBatch, original: StoryWorkspace|undefined, ownerId: string): {story:StoryWorkspace;actors:CompendiumActorImport[]};
+export function prepareCompendiumContent(batch: CompendiumImportBatch, original: StoryWorkspace|undefined, ownerId: string, referenceIssue?: (label:string)=>void): {story:StoryWorkspace;actors:CompendiumActorImport[]};
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
@@ -107,3 +107,4 @@ export function prepareCompendiumContent(batch: CompendiumImportBatch, original:
 | `batch` | 否 | `CompendiumImportBatch` | — |
 | `original` | 否 | `StoryWorkspace&#124;undefined` | — |
 | `ownerId` | 否 | `string` | — |
+| `referenceIssue` | 是 | `(label:string)=>void` | — |

@@ -1,8 +1,11 @@
 {
-  "files": 383,
-  "symbols": 2320,
-  "fields": 5284,
+  "files": 639,
+  "symbols": 3445,
+  "fields": 7770,
   "schemaRoots": [
+    "LancerNpc",
+    "TheatreState",
+    "QuestDetails",
     "ResourceFile",
     "ActorFile",
     "JournalFile",
@@ -46,6 +49,6 @@
     "WorldCommand",
     "RuleVariant"
   ],
-  "definitions": 867,
+  "definitions": 1171,
   "unsupported": []
 }

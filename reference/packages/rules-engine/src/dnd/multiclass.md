@@ -1,6 +1,6 @@
 # game/packages/rules-engine/src/dnd/multiclass.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -81,7 +81,7 @@ export function dndPactPool(c: DndCharacter): (import("@source/packages/contract
 导出接口 · 源码第 33 行。
 
 ```ts
-export function dndSpellSources(c: DndCharacter): Record<string, { ability: DndAbility; spells: string[]; }>;
+export function dndSpellSources(c: DndCharacter): Record<string, { ability: DndAbility; spells: string[]; atWill?: boolean; castLevel?: number; name?: string; freeCast?: { spell: string; resource: string; }; }>;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
@@ -107,12 +107,13 @@ export function dndCastingAbility(c: DndCharacter, spell: string, classId?: stri
 导出接口 · 源码第 40 行。
 
 ```ts
-export function dndClassSpellChoices(cls: DndCharacter['classes'][number]): { always: string[]; cantrips: number; prepared: number; maxLevel: number; spellbook: number; entries: import("@source/packages/rules-engine/src/index").DndEntry[]; } | { cantrips: number; prepared: number; maxLevel: number; spellbook: number; entries: import("@source/packages/rules-engine/src/index").DndEntry[]; };
+export function dndClassSpellChoices(cls: DndCharacter['classes'][number], choices?: Record<string,string>): Omit<import('./creation').DndSpellChoices,'always'> & {always?:string[]};
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | `cls` | 否 | `DndCharacter['classes'][number]` | — |
+| `choices` | 是 | `Record<string,string>` | {} |
 
 ## dndSpellSlot
 

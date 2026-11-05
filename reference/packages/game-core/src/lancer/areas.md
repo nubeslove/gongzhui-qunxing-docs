@@ -1,21 +1,24 @@
 # game/packages/game-core/src/lancer/areas.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {wallflowerSight} from './wallflower';
+import {isHexGrid} from '@aelzerant/contracts';
+import {hexGridCells,hexDistance,hexVertices} from '@aelzerant/contracts';
 import { lancerSystemActive } from './system-passives';
 import { parseLancerArea, type LancerArea, type LancerBattle, type LancerCombatUnit, type LancerCombatWeapon, type ManualMap, type ManualToken } from '@aelzerant/contracts';
-import { lancerFootprintPoints,lancerDistance, lancerLineOfSight, lancerUnitLineOfSight } from './geometry';
+import { lancerPolygonCoverage,lancerFootprintPoints,lancerDistance, lancerLineOfSight, lancerUnitLineOfSight } from './geometry';
 ```
 </details>
 
 ## areaOrigin
 
-导出接口 · 源码第 6 行。
+导出接口 · 源码第 9 行。
 
 ```ts
 export function areaOrigin(area: LancerArea): ManualToken;
@@ -27,12 +30,12 @@ export function areaOrigin(area: LancerArea): ManualToken;
 
 ## lancerAreaContains
 
-导出接口 · 源码第 8 行。
+导出接口 · 源码第 11 行。
 
 A cell is occupied in 3D; direction is clockwise from +X on the board.
 
 ```ts
-export function lancerAreaContains(area: LancerArea, token: ManualToken, source?: ManualToken): boolean;
+export function lancerAreaContains(area: LancerArea, token: ManualToken, source?: ManualToken, map?: ManualMap): boolean;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
@@ -40,10 +43,11 @@ export function lancerAreaContains(area: LancerArea, token: ManualToken, source?
 | `area` | 否 | `LancerArea` | — |
 | `token` | 否 | `ManualToken` | — |
 | `source` | 是 | `ManualToken` | — |
+| `map` | 是 | `ManualMap` | — |
 
 ## lancerAreaCells
 
-导出接口 · 源码第 20 行。
+导出接口 · 源码第 29 行。
 
 ```ts
 export function lancerAreaCells(map: ManualMap, area: LancerArea, source?: ManualToken): {x:number;y:number;z:number}[];
@@ -57,7 +61,7 @@ export function lancerAreaCells(map: ManualMap, area: LancerArea, source?: Manua
 
 ## validateLancerArea
 
-导出接口 · 源码第 26 行。
+导出接口 · 源码第 36 行。
 
 Validate the chosen origin; size and kind come exclusively from the installed weapon.
 
@@ -74,7 +78,7 @@ export function validateLancerArea(map: ManualMap, a: LancerCombatUnit, w: Lance
 
 ## lancerAreaTargets
 
-导出接口 · 源码第 38 行。
+导出接口 · 源码第 48 行。
 
 ```ts
 export function lancerAreaTargets(b: LancerBattle, map: ManualMap, a: LancerCombatUnit, w: LancerCombatWeapon, area: LancerArea): string[];

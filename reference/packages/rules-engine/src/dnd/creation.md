@@ -1,16 +1,19 @@
 # game/packages/rules-engine/src/dnd/creation.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {dndAlwaysPrepared,syncDndAlwaysPrepared} from './subclass-spells';
+import {syncDndClassResources,syncDndSpeciesSpells} from './traits';
 import {syncSorcery,spellfirePrepared} from './sorcery';
+import {addDndOriginSpells} from './origin-spells';
 import {isTerraSpecies} from '@aelzerant/contracts';
 import {terraSpeciesFields} from '../terra/creation';
-import {dndClassSpellAbility,dndPactPool} from './multiclass';
+import {dndClassSpellAbility,dndPactPool,dndClassSpellChoices} from './multiclass';
 import {DND_ABILITIES,type DndAbility,type DndDamageType,type DndInventoryItem} from '@aelzerant/contracts';
 import {DND_CATALOG,DND_SKILLS,DND_ABILITY_NAMES,dndEntry,dndMod} from './index';
 import {buildDndCharacter,changeDndAbility,dndClassRow,type DndBuildInput} from './characters';
@@ -21,7 +24,7 @@ import {dndChoiceValues,validateDndBuildChoices} from './creation-choices';
 
 ## DndGuidedInput
 
-导出接口 · 源码第 11 行。
+导出接口 · 源码第 14 行。
 
 ```ts
 export interface DndGuidedInput extends DndBuildInput {
@@ -70,7 +73,7 @@ export interface DndGuidedInput extends DndBuildInput {
 
 ## dndFact
 
-导出接口 · 源码第 17 行。
+导出接口 · 源码第 20 行。
 
 ```ts
 export const dndFact: (e: DndEntry | undefined, prefix: string): string;
@@ -78,7 +81,7 @@ export const dndFact: (e: DndEntry | undefined, prefix: string): string;
 
 ## dndClassSkills
 
-导出接口 · 源码第 18 行。
+导出接口 · 源码第 21 行。
 
 ```ts
 export function dndClassSkills(id: string): { count: number; ids: string[]; };
@@ -90,7 +93,7 @@ export function dndClassSkills(id: string): { count: number; ids: string[]; };
 
 ## dndBackgroundSkills
 
-导出接口 · 源码第 19 行。
+导出接口 · 源码第 22 行。
 
 ```ts
 export function dndBackgroundSkills(id: string): string[];
@@ -102,7 +105,7 @@ export function dndBackgroundSkills(id: string): string[];
 
 ## dndEquipmentOptions
 
-导出接口 · 源码第 20 行。
+导出接口 · 源码第 23 行。
 
 ```ts
 export function dndEquipmentOptions(id: string): { id: string; text: string; }[];
@@ -114,7 +117,7 @@ export function dndEquipmentOptions(id: string): { id: string; text: string; }[]
 
 ## dndStartingGear
 
-导出接口 · 源码第 21 行。
+导出接口 · 源码第 24 行。
 
 ```ts
 export function dndStartingGear(classId: string, backgroundId: string, classOption: string, backgroundOption: string): { inventory: DndInventoryItem[]; gp: number; weapons: string[]; armor: string | undefined; shield: boolean; };
@@ -127,12 +130,36 @@ export function dndStartingGear(classId: string, backgroundId: string, classOpti
 | `classOption` | 否 | `string` | — |
 | `backgroundOption` | 否 | `string` | — |
 
-## dndSpellChoices
+## DndSpellChoices
 
-导出接口 · 源码第 32 行。
+导出接口 · 源码第 35 行。
 
 ```ts
-export function dndSpellChoices(classId: string, level: number, choices?: Record<string,string>, subclass?: string): { always: string[]; cantrips: number; prepared: number; maxLevel: number; spellbook: number; entries: DndEntry[]; };
+export interface DndSpellChoices {
+    always: string[];
+    cantrips: number;
+    prepared: number;
+    maxLevel: number;
+    spellbook: number;
+    entries: DndEntry[];
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `always` | 否 | `string[]` | 见结构定义及所属功能文档 |
+| `cantrips` | 否 | `number` | 见结构定义及所属功能文档 |
+| `prepared` | 否 | `number` | 见结构定义及所属功能文档 |
+| `maxLevel` | 否 | `number` | 见结构定义及所属功能文档 |
+| `spellbook` | 否 | `number` | 见结构定义及所属功能文档 |
+| `entries` | 否 | `DndEntry[]` | 见结构定义及所属功能文档 |
+
+## dndSpellChoices
+
+导出接口 · 源码第 36 行。
+
+```ts
+export function dndSpellChoices(classId: string, level: number, choices?: Record<string,string>, subclass?: string): DndSpellChoices;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
@@ -144,7 +171,7 @@ export function dndSpellChoices(classId: string, level: number, choices?: Record
 
 ## dndFeatBoosts
 
-导出接口 · 源码第 39 行。
+导出接口 · 源码第 44 行。
 
 ```ts
 export function dndFeatBoosts(feat: DndEntry): { count: number; abilities: ("str" | "dex" | "con" | "int" | "wis" | "cha")[]; max: number; };
@@ -156,7 +183,7 @@ export function dndFeatBoosts(feat: DndEntry): { count: number; abilities: ("str
 
 ## dndGrowthLevels
 
-导出接口 · 源码第 45 行。
+导出接口 · 源码第 50 行。
 
 ```ts
 export function dndGrowthLevels(classId: string, level: number): number[];
@@ -169,7 +196,7 @@ export function dndGrowthLevels(classId: string, level: number): number[];
 
 ## recommendedDndInput
 
-导出接口 · 源码第 46 行。
+导出接口 · 源码第 51 行。
 
 ```ts
 export function recommendedDndInput(name?: string): DndGuidedInput;
@@ -181,7 +208,7 @@ export function recommendedDndInput(name?: string): DndGuidedInput;
 
 ## recommendedTerraInput
 
-导出接口 · 源码第 51 行。
+导出接口 · 源码第 56 行。
 
 Build-time choices become data and source text; they do not activate temporary powers.
 
@@ -195,7 +222,7 @@ export function recommendedTerraInput(name?: string): DndGuidedInput;
 
 ## buildDndGuidedCharacter
 
-导出接口 · 源码第 55 行。
+导出接口 · 源码第 60 行。
 
 ```ts
 export function buildDndGuidedCharacter(input: DndGuidedInput): { character: import("@source/packages/contracts/src/dnd").DndCharacter; fields: Record<string, string>; features: DndEntry[]; warnings: string[]; };

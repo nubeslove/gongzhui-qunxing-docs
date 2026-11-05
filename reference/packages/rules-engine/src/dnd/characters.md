@@ -1,12 +1,16 @@
 # game/packages/rules-engine/src/dnd/characters.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {importDndMonsterActions} from './monster-actions';
+import {addDndThrownAttacks,dndAttackAbility} from './equipment';
+import {dndWeaponTrained,syncDndClassResources} from './traits';
+import {dndMulticlassSlots,dndClassSpellAbility} from './multiclass';
 import {dndCreationEntries} from './index';
 import {applyTerraSpecies} from '../terra/creation';
 import {syncSorcery} from './sorcery';
@@ -17,7 +21,7 @@ import { DND_CATALOG, DND_ABILITY_NAMES, DND_DAMAGE_NAMES, DND_SKILLS, dndBase, 
 
 ## DndBuildInput
 
-导出接口 · 源码第 7 行。
+导出接口 · 源码第 11 行。
 
 ```ts
 export interface DndBuildInput {
@@ -57,7 +61,7 @@ export interface DndBuildInput {
 
 ## DND_STANDARD_ARRAY
 
-导出接口 · 源码第 8 行。
+导出接口 · 源码第 12 行。
 
 ```ts
 export const DND_STANDARD_ARRAY = [15, 14, 13, 12, 10, 8] as const;
@@ -65,7 +69,7 @@ export const DND_STANDARD_ARRAY = [15, 14, 13, 12, 10, 8] as const;
 
 ## validateDndScores
 
-导出接口 · 源码第 9 行。
+导出接口 · 源码第 13 行。
 
 ```ts
 export function validateDndScores(scores: Record<DndAbility,number>, method?: DndAbilityMethod): void;
@@ -78,7 +82,7 @@ export function validateDndScores(scores: Record<DndAbility,number>, method?: Dn
 
 ## dndClassRow
 
-导出接口 · 源码第 17 行。
+导出接口 · 源码第 21 行。
 
 ```ts
 export function dndClassRow(classId: string, level: number): string[];
@@ -91,7 +95,7 @@ export function dndClassRow(classId: string, level: number): string[];
 
 ## buildDndCharacter
 
-导出接口 · 源码第 18 行。
+导出接口 · 源码第 22 行。
 
 ```ts
 export function buildDndCharacter(input: DndBuildInput): {character:DndCharacter;warnings:string[]};
@@ -103,7 +107,7 @@ export function buildDndCharacter(input: DndBuildInput): {character:DndCharacter
 
 ## dndMonster
 
-导出接口 · 源码第 62 行。
+导出接口 · 源码第 66 行。
 
 ```ts
 export function dndMonster(id: string): DndCharacter;
@@ -115,7 +119,7 @@ export function dndMonster(id: string): DndCharacter;
 
 ## changeDndAbility
 
-导出接口 · 源码第 78 行。
+导出接口 · 源码第 81 行。
 
 Apply only the derived difference, preserving existing GM adjustments and wounds.
 

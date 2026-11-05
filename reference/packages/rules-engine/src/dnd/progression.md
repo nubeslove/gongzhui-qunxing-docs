@@ -1,12 +1,15 @@
 # game/packages/rules-engine/src/dnd/progression.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {syncDndAlwaysPrepared} from './subclass-spells';
+import {dndFeatBoosts} from './creation';
+import {syncDndClassResources,syncDndSpeciesSpells} from './traits';
 import {prepareDndSpells} from './preparation';
 import {syncSorcery} from './sorcery';
 import {dndMulticlassIssue,dndMulticlassTraining,dndMulticlassSlots,dndPactPool,dndSpellSources,dndClassSpellAbility} from './multiclass';
@@ -26,7 +29,7 @@ export type {DndLevelChoice} from '@aelzerant/contracts';
 
 ## DND_XP_THRESHOLDS
 
-导出接口 · 源码第 12 行。
+导出接口 · 源码第 15 行。
 
 PHB 2024, Character Advancement. Total XP, not XP to spend.
 
@@ -36,7 +39,7 @@ export const DND_XP_THRESHOLDS = [0, 300, 900, 2700, 6500, 14000, 23000, 34000, 
 
 ## dndHitDie
 
-导出接口 · 源码第 13 行。
+导出接口 · 源码第 16 行。
 
 ```ts
 export function dndHitDie(classId: string): number;
@@ -48,7 +51,7 @@ export function dndHitDie(classId: string): number;
 
 ## dndLevelFeatures
 
-导出接口 · 源码第 18 行。
+导出接口 · 源码第 21 行。
 
 ```ts
 export function dndLevelFeatures(c: DndCharacter, level: number, subclass?: string, classId?: string): import("@source/packages/rules-engine/src/index").DndEntry[];
@@ -63,7 +66,7 @@ export function dndLevelFeatures(c: DndCharacter, level: number, subclass?: stri
 
 ## levelUpDndCharacter
 
-导出接口 · 源码第 23 行。
+导出接口 · 源码第 26 行。
 
 Upgrade the existing character by one level. Never rebuild the card or refresh spent pools.
 

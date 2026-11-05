@@ -1,14 +1,19 @@
 # game/packages/contracts/src/tabletop.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {upgradeOfficialDeployment} from './official-deployment';
+import {upgradeOfficialMapAreas} from './official-wolf-outlines';
+import {restoreLancerNpcAppearance} from './lancer-official-token-art';
+import {parseLancerRogue,projectLancerRogue,type LancerRogueRun} from './lancer-rogue';
+import {parseDndMagicBarrier,type DndMagicBarrier} from './dnd-detection';
 import {validateHeartseaFields} from './heartsea';
-import {PORTRAIT_STATES,withCurrentStagePortraits} from './character-portraits';
+import {PORTRAIT_STATES,LANCER_MECH_PORTRAIT_STATES,withCurrentStagePortraits} from './character-portraits';
 import {projectWorldAtlas} from './world-atlas';
 import {ensureTerraSetting,TERRA_SETTING_PACK} from './terra-setting';
 import {parseUtopiaCharacter,parseUtopiaBattle,projectUtopiaBattle,type UtopiaCharacter,type UtopiaBattle} from './utopia';
@@ -18,6 +23,7 @@ import {parseLancerRide,type LancerRide} from './lancer-combat';
 import {dndPerception,dndPlayerSources,perceivedToken} from './dnd-perception';
 import {journalAssetPaths} from './story-journal';
 import {manualTokenObserver} from './manual-senses';
+import {monsterHpVisibilityFor} from './monster-health';
 import {seesInvisible,tremorDetects} from './scene-obscurity';
 import {encounterVisibleInScene} from './encounter';
 import {activatedSceneSounds} from './scene-sound';
@@ -26,7 +32,7 @@ import {partyVisionActor} from './party-vision';
 import {sceneFrameFeatures} from './scene-frame-features';
 import {assertCompendiumSystem} from './compendium';
 import {parseOwnedItems} from './owned-item';
-import {actorAccess,actorControlled,actorReadable,projectedActorAccess,parseActorAccess} from './actor-access';
+import {lancerHangarReadable,actorAccess,actorControlled,actorReadable,projectedActorAccess,parseActorAccess} from './actor-access';
 import {parseEntityDirectories} from './entity-directory';
 import {projectSceneCanvas,parseSceneCanvasStyle,type SceneCanvasStyle} from './scene-canvas';
 import {parseSceneSummaries,sceneSummaries,type SceneSummary} from './scene-navigation';
@@ -42,7 +48,7 @@ import {publicSceneFeatures} from './scene-perception';
 import { parseDndCharacter, parseDndBattle, parseDndPending, parseDndRest, type DndRestRequest, projectDndBattle, type DndCharacter, type DndBattle, type DndPending } from './dnd';
 import { emptySceneFeatures, parseSceneFeatures, sceneVisibleCells, type SceneFeatures } from './scene-features';
 import { isGameSystemId, type GameSystemId } from './systems';
-import { emptyStory, parseStory, projectStory, storyGm, type StoryWorkspace } from './story';
+import { emptyStory, parseStory, projectStory, projectStoryValue, storyGm, type StoryWorkspace } from './story';
 import { parseLancerMission, projectLancerMission, type LancerMission } from './lancer-maintenance';
 import { SCENE_MODEL_BY_ID } from './scene-assets';
 import { parseSceneKind, type SceneKind } from './world-calendar';
@@ -52,7 +58,7 @@ import { parseLancerBattle, parseLancerZone, projectLancerBattle, type LancerBat
 
 ## ManualActor
 
-导出接口 · 源码第 42 行。
+导出接口 · 源码第 48 行。
 
 ```ts
 export interface ManualActor {
@@ -92,10 +98,14 @@ export interface ManualActor {
 
 ## ManualToken
 
-导出接口 · 源码第 43 行。
+导出接口 · 源码第 49 行。
 
 ```ts
 export interface ManualToken {
+    lancerArt?: {
+        npc: string;
+        grunt?: boolean;
+    };
     sceneBlock?: string;
     objectFootprint?: {
         width: number;
@@ -128,6 +138,9 @@ export interface ManualToken {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `lancerArt` | 是 | `{npc:string;grunt?:boolean}` | 见结构定义及所属功能文档 |
+| `lancerArt.npc` | 否 | `string` | 见结构定义及所属功能文档 |
+| `lancerArt.grunt` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `sceneBlock` | 是 | `string` | 见结构定义及所属功能文档 |
 | `objectFootprint` | 是 | `{width:number;depth:number;height:number;rotation:number}` | 见结构定义及所属功能文档 |
 | `objectFootprint.width` | 否 | `number` | 见结构定义及所属功能文档 |
@@ -157,10 +170,12 @@ export interface ManualToken {
 
 ## ManualBlock
 
-导出接口 · 源码第 44 行。
+导出接口 · 源码第 50 行。
 
 ```ts
 export interface ManualBlock {
+    coverGroup?: string;
+    dndMagicBarrier?: DndMagicBarrier;
     lancer?: import('./lancer-scene').LancerSceneObject;
     collisionOnly?: boolean;
     terrain?: 'difficult' | 'dangerous' | 'difficult-dangerous';
@@ -182,6 +197,8 @@ export interface ManualBlock {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `coverGroup` | 是 | `string` | Explicit compound cover membership; each part retains its own collision and durability. |
+| `dndMagicBarrier` | 是 | `DndMagicBarrier` | 见结构定义及所属功能文档 |
 | `lancer` | 是 | `import('./lancer-scene').LancerSceneObject` | 见结构定义及所属功能文档 |
 | `collisionOnly` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `terrain` | 是 | `'difficult'&#124;'dangerous'&#124;'difficult-dangerous'` | 见结构定义及所属功能文档 |
@@ -201,10 +218,12 @@ export interface ManualBlock {
 
 ## ManualMap
 
-导出接口 · 源码第 45 行。
+导出接口 · 源码第 53 行。
 
 ```ts
 export interface ManualMap {
+    lancerCombatMode?: 'mech' | 'foot';
+    grid?: import('./scene-grid').SceneGrid;
     canvas?: SceneCanvasStyle;
     features?: SceneFeatures;
     width: number;
@@ -215,11 +234,14 @@ export interface ManualMap {
     environment?: 'normal' | 'zero-g' | 'underwater';
     gridOpacity?: number;
     deploymentZones?: LancerDeploymentZone[];
+    view?: '2d' | '3d';
 }
 ```
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `lancerCombatMode` | 是 | `'mech'&#124;'foot'` | 见结构定义及所属功能文档 |
+| `grid` | 是 | `import('./scene-grid').SceneGrid` | 见结构定义及所属功能文档 |
 | `canvas` | 是 | `SceneCanvasStyle` | 见结构定义及所属功能文档 |
 | `features` | 是 | `SceneFeatures` | 见结构定义及所属功能文档 |
 | `width` | 否 | `number` | 见结构定义及所属功能文档 |
@@ -230,10 +252,11 @@ export interface ManualMap {
 | `environment` | 是 | `'normal'&#124;'zero-g'&#124;'underwater'` | 见结构定义及所属功能文档 |
 | `gridOpacity` | 是 | `number` | 见结构定义及所属功能文档 |
 | `deploymentZones` | 是 | `LancerDeploymentZone[]` | 见结构定义及所属功能文档 |
+| `view` | 是 | `'2d'&#124;'3d'` | 见结构定义及所属功能文档 |
 
 ## ManualAsset
 
-导出接口 · 源码第 46 行。
+导出接口 · 源码第 54 行。
 
 ```ts
 export interface ManualAsset {
@@ -257,7 +280,7 @@ export interface ManualAsset {
 
 ## ManualMessage
 
-导出接口 · 源码第 47 行。
+导出接口 · 源码第 55 行。
 
 ```ts
 export interface ManualMessage {
@@ -279,7 +302,7 @@ export interface ManualMessage {
 
 ## ManualTable
 
-导出接口 · 源码第 48 行。
+导出接口 · 源码第 56 行。
 
 ```ts
 export interface ManualTable {
@@ -322,6 +345,7 @@ export interface ManualTable {
     dndPending?: DndPending;
     lancerBattle?: LancerBattle;
     lancerMission?: LancerMission;
+    lancerRogue?: LancerRogueRun;
 }
 ```
 
@@ -357,10 +381,11 @@ export interface ManualTable {
 | `dndPending` | 是 | `DndPending` | 见结构定义及所属功能文档 |
 | `lancerBattle` | 是 | `LancerBattle` | 见结构定义及所属功能文档 |
 | `lancerMission` | 是 | `LancerMission` | 见结构定义及所属功能文档 |
+| `lancerRogue` | 是 | `LancerRogueRun` | 见结构定义及所属功能文档 |
 
 ## PublicationFile
 
-导出接口 · 源码第 65 行。
+导出接口 · 源码第 74 行。
 
 ```ts
 export interface PublicationFile {
@@ -380,11 +405,12 @@ export interface PublicationFile {
 
 ## WorldPublication
 
-导出接口 · 源码第 66 行。
+导出接口 · 源码第 75 行。
 
 ```ts
 export interface WorldPublication {
     schemaVersion: 1;
+    format?: 'native';
     version: number;
     systemId: GameSystemId;
     systemVersion: string;
@@ -396,6 +422,7 @@ export interface WorldPublication {
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
 | `schemaVersion` | 否 | `1` | 见结构定义及所属功能文档 |
+| `format` | 是 | `'native'` | 见结构定义及所属功能文档 |
 | `version` | 否 | `number` | 见结构定义及所属功能文档 |
 | `systemId` | 否 | `GameSystemId` | 见结构定义及所属功能文档 |
 | `systemVersion` | 否 | `string` | 见结构定义及所属功能文档 |
@@ -404,7 +431,7 @@ export interface WorldPublication {
 
 ## validHash
 
-导出接口 · 源码第 67 行。
+导出接口 · 源码第 76 行。
 
 ```ts
 export const validHash: (value: unknown): value is string;
@@ -412,7 +439,7 @@ export const validHash: (value: unknown): value is string;
 
 ## validPublicationPath
 
-导出接口 · 源码第 68 行。
+导出接口 · 源码第 77 行。
 
 ```ts
 export const validPublicationPath: (value: unknown): value is string;
@@ -420,7 +447,7 @@ export const validPublicationPath: (value: unknown): value is string;
 
 ## parseManualActor
 
-导出接口 · 源码第 77 行。
+导出接口 · 源码第 86 行。
 
 ```ts
 export const parseManualActor: (raw: unknown): ManualActor;
@@ -428,7 +455,7 @@ export const parseManualActor: (raw: unknown): ManualActor;
 
 ## parseManualTable
 
-导出接口 · 源码第 78 行。
+导出接口 · 源码第 87 行。
 
 ```ts
 export function parseManualTable(raw: unknown): ManualTable;
@@ -438,11 +465,31 @@ export function parseManualTable(raw: unknown): ManualTable;
 | --- | --- | --- | --- |
 | `raw` | 否 | `unknown` | — |
 
-## publicTable
+## ReadonlyTableValue
 
-导出接口 · 源码第 141 行。
+内部依赖类型 · 源码第 157 行。
 
 A published pack contains only deliberately public preparation content, never live chat or GM notes.
+
+```ts
+type ReadonlyTableValue<T> = T extends object ? {
+    readonly [K in keyof T]: ReadonlyTableValue<T[K]>;
+} : T;
+```
+
+## ManualTableTransportView
+
+导出接口 · 源码第 158 行。
+
+```ts
+export type ManualTableTransportView = ReadonlyTableValue<ManualTable>;
+```
+
+## publicTable
+
+导出接口 · 源码第 160 行。
+
+Keeps the existing mutable projection contract for callers which edit their view.
 
 ```ts
 export function publicTable(table: ManualTable, playerId?: string): ManualTable;
@@ -453,9 +500,24 @@ export function publicTable(table: ManualTable, playerId?: string): ManualTable;
 | `table` | 否 | `ManualTable` | — |
 | `playerId` | 是 | `string` | — |
 
+## tableTransportView
+
+导出接口 · 源码第 162 行。
+
+Wire-only view borrows committed immutable state; never expose it to mutable consumers.
+
+```ts
+export function tableTransportView(table: ManualTable, playerId: string): ManualTableTransportView;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `table` | 否 | `ManualTable` | — |
+| `playerId` | 否 | `string` | — |
+
 ## parsePublication
 
-导出接口 · 源码第 181 行。
+导出接口 · 源码第 224 行。
 
 ```ts
 export function parsePublication(raw: unknown): WorldPublication;

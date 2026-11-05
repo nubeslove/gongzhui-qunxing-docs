@@ -61,5 +61,5 @@ try{
  let refused=false;try{await packWorld(path.join(root,'examples/heartsea/world.json'),sources,temp,output);}catch{refused=true;}if(!refused)throw Error('覆盖已有备份');packChecks++;
  const bad=path.join(temp,'bad.aafworld');fs.writeFileSync(bad,'bad');refused=false;try{await inspectWorld(bad);}catch{refused=true;}if(!refused)throw Error('损坏备份未拒绝');packChecks++;
 }catch(e){failures.push('pack: '+e.message);}finally{const resolved=path.resolve(temp),base=path.resolve(os.tmpdir())+path.sep;if(!resolved.startsWith(base)||!path.basename(resolved).startsWith('gongzhui-docs-'))throw Error('临时路径校验失败');fs.rmSync(resolved,{recursive:true});}
-const report={date:'2026-10-10',jsonFiles:json.size,localLinks:links,schemaRefs:refs,schemaExamples:examples,releaseChecks:2,packChecks,failures};
+const report={date:new Date().toISOString().slice(0,10),jsonFiles:json.size,localLinks:links,schemaRefs:refs,schemaExamples:examples,releaseChecks:2,packChecks,failures};
 fs.writeFileSync(path.join(root,'reference/docs-check-report.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));if(failures.length)process.exitCode=1;

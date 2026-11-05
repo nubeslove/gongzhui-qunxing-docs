@@ -1,101 +1,151 @@
 {
-  "date": "2026-10-10",
+  "date": "2026-11-05",
   "scope": "Manually documented HTTP, deployment, native and macro entry points; hashes only.",
   "files": [
     {
       "path": "game/apps/server/src/index.ts",
-      "sha256": "4abee30a9f8408fe711c3c43b8b35400b33ccf91e9ea6721fafe0216df576d02",
-      "bytes": 16656
+      "sha256": "3e283f938aa55ad832b320cd6605290b77b100474a2c7ce829433051b628da47",
+      "bytes": 40465
     },
     {
       "path": "game/apps/server/src/auth.ts",
-      "sha256": "35f01fecfb957ebb3693bd02b0822377c2e484116285259bf1f011ba09f8373a",
-      "bytes": 8518
+      "sha256": "42220da9572499d57f202549473c1c660a5121fd2e2c978f045153ba705af21c",
+      "bytes": 9260
     },
     {
       "path": "game/apps/server/src/auth-security.ts",
-      "sha256": "c492ff353a561dc36f27599f93c2ca3f0246cc1b9905c8dda7abd893c05fa960",
-      "bytes": 6019
+      "sha256": "bc072d9c84a1860e1dc0faa108864c3ef2e4808fde77bee0d3b3bb83171414d0",
+      "bytes": 5266
     },
     {
       "path": "game/apps/server/src/community.ts",
-      "sha256": "4e8d1d9c6b150371f0be71b3d7983fe564a18ddc459d78921692f7c64c99263d",
-      "bytes": 6821
+      "sha256": "ac81382de6358f542a829cde9cb22e65eccd702cdcce3c74d32574b8ac014073",
+      "bytes": 7889
     },
     {
       "path": "game/apps/server/src/media.ts",
-      "sha256": "a103723d213624a65556a32a0cafba2247796bcdc2ffbc44ddd321be447f91b7",
-      "bytes": 5234
+      "sha256": "5f229777e6e826df7b6e051ec8dc4f39cf8bbc62f88f5db273ec8c883cbc5e88",
+      "bytes": 8342
     },
     {
       "path": "game/apps/server/src/publications.ts",
-      "sha256": "8ef93e7e3ba1118a8bdc37956dbbc3f2cb956c11115eda4d72c70626f4eb93bb",
-      "bytes": 7393
+      "sha256": "74c37eb5606ed5b40929e554fd4dbb46a00dc74bfe235dda72c2b39ba47c4207",
+      "bytes": 14652
     },
     {
       "path": "game/apps/server/src/signaling.ts",
-      "sha256": "5f8ac824694f83ac50043c5b2a2910c024efe68efc1d471598d9fa7051afb513",
-      "bytes": 4518
+      "sha256": "b078877e4610aca2217e139f638e858802f8309d57c40751dc981c0c25a4cdb8",
+      "bytes": 5503
     },
     {
       "path": "game/apps/server/src/store.ts",
-      "sha256": "cd96f164d5bf09e2fe0ed777d3f4511a5d231669d07afc20b7b9b74a99462e4f",
-      "bytes": 6892
+      "sha256": "dc7df8b9fc1119893b01876cb1450ff44298afba7b17961f76ad4d9a0beee31a",
+      "bytes": 8962
+    },
+    {
+      "path": "game/apps/server/src/world-access.ts",
+      "sha256": "c79451f687c0fe6eb01f2a2ca64ef86379ba5999e4e5ed1c5489ff0a5968b709",
+      "bytes": 4715
+    },
+    {
+      "path": "game/apps/server/src/world-roles.ts",
+      "sha256": "1c2742ffeabecdd1ce2b1b0e02f21850b4141d953796bd4e11a9f9a176e7e78a",
+      "bytes": 5365
+    },
+    {
+      "path": "game/apps/server/src/world-transfer.ts",
+      "sha256": "1df3faf531bf1a2b7b438cf80896619e0357d9dfbd4c07b17b64edce8fb4f7ce",
+      "bytes": 5689
+    },
+    {
+      "path": "game/apps/server/src/world-deletion.ts",
+      "sha256": "db7e6b4182abf926cca3c6b4f1981bb0e5ac38067dd9802fbf53013096846ab5",
+      "bytes": 11934
+    },
+    {
+      "path": "game/apps/server/src/admins.ts",
+      "sha256": "2c09f238aa6cc5f48aa9a8205142529fe8c3348b9c917478e00db15ef67a6fac",
+      "bytes": 1615
+    },
+    {
+      "path": "game/apps/server/src/external-assets.ts",
+      "sha256": "93514fb77df25a756b59db6feabdd7a2ac89076e3b2a3305b46e65f25031548e",
+      "bytes": 6250
+    },
+    {
+      "path": "game/apps/server/src/updates.ts",
+      "sha256": "80693094c87e60f0bb39ba9e859a384c3c99d0250f604676dba7a5fdfcc3dcf2",
+      "bytes": 13889
     },
     {
       "path": "game/package.json",
-      "sha256": "5a86619b9f5b31f3547d733d88b7dea5e2401d950d43efc15ab05120547ccaa9",
-      "bytes": 517
+      "sha256": "ea730249f9c2c9e7ab3b7e3392e9ac54645d901b659e5bcd0498f5b2b85872e9",
+      "bytes": 591
     },
     {
       "path": "game/apps/server/package.json",
-      "sha256": "389ff03879f966adf015ea90728dd402b98587107b78ae305d2003ace10609c0",
-      "bytes": 631
+      "sha256": "a238093bc0215339c992ac684fcdacfd5d52e7bb598d74e79ac6792475c81853",
+      "bytes": 749
     },
     {
       "path": "game/apps/desktop/package.json",
-      "sha256": "c237f2ce69c5bd9ed957dcbe0a2c3cb4319452e630583fff766a6ff282c317cc",
-      "bytes": 1352
+      "sha256": "a71371238d4386db6dd062497514f9aa19d0d611bed0c7e320626196bfb1f717",
+      "bytes": 1548
     },
     {
       "path": "game/apps/desktop/src-tauri/tauri.conf.json",
-      "sha256": "8e8fed890af7ac9f11ab459b804a4244a0bdf7eb2f8011f8653572eaf26b8299",
-      "bytes": 1052
+      "sha256": "6676e16a1fb096fdb3ca7f3d267a049f0f2236ae62fc9cb3c2ff865affc0a3c7",
+      "bytes": 1368
     },
     {
       "path": "game/apps/desktop/src-tauri/src/lib.rs",
-      "sha256": "3085fc7a0e1bd4a771a9fa8610abbe5646ff92ebbfe9f67db34b8858f369c4f7",
-      "bytes": 469
+      "sha256": "f9eda82349b47f35d30faed27029ed869950a2331c73a1b2272d0e7012b718ab",
+      "bytes": 2119
     },
     {
       "path": "game/apps/desktop/src-tauri/src/wiki_backup.rs",
-      "sha256": "ab41c8df4c44e5fdc33005b0927febf3709631f2579d2e65e94fe782c0f09b51",
-      "bytes": 3552
+      "sha256": "2c2c0aeb00c0def448ddcd9cc1426edd714e49a34789240332600a40f1d9329e",
+      "bytes": 3615
     },
     {
       "path": "game/apps/desktop/src-tauri/src/world_assets.rs",
-      "sha256": "bcba883157aa43e781c53b0ce3f993eccfc920023f92c3f3cb210ce44a6a1c1a",
-      "bytes": 4202
+      "sha256": "1b1f06c8a35ce1f78cd068ec01215a710bdf71c55d00e5b97eea4be23605a499",
+      "bytes": 4880
     },
     {
       "path": "game/apps/desktop/src/net/BattleConnection.ts",
-      "sha256": "73f38ec00d5213609b4ff7b845fd295fcb3da3edf3495c9eeeb1919ae9182977",
-      "bytes": 8537
+      "sha256": "f5297a44bf2ef88eb7f3a1a8c3f2ab7bffb782202f42fb56f227bf6382ceef43",
+      "bytes": 11033
     },
     {
       "path": "game/apps/desktop/src/tabletop/ManualConnection.ts",
-      "sha256": "f6b59b29b788bf4d917cac941d4e00ff79a1312c13c8d5011f2272d69d557e8a",
-      "bytes": 9358
+      "sha256": "760524efa7a6f946beed6b3e9ea7936679489d249f82b2876de42d9147e86660",
+      "bytes": 9896
     },
     {
       "path": "game/apps/desktop/src/story/scriptMacro.ts",
-      "sha256": "89d2a93a2d775e3e808c627f7c27d05676abd15e6bdce4e6aabc45484c51c98d",
-      "bytes": 5484
+      "sha256": "ca5e03f2727bda78fbdd1aab6dd0b078920dc8dd66fc00e971ca0aeb296c2738",
+      "bytes": 5517
     },
     {
       "path": "game/apps/desktop/src/story/macroRunner.ts",
-      "sha256": "803743a74298d567f774e0ac74cf6de31472ffb6e3e22e7d64eab0a69a4d0dda",
-      "bytes": 3165
+      "sha256": "b29a1a3eb8ac801cde61300bbf1149aa73b67742fc2b127ade9bcf3c1cd59b49",
+      "bytes": 3182
+    },
+    {
+      "path": "game/tools/release-worker.mts",
+      "sha256": "b42ee382326d8f5fb2a872d5257b01d06295f4dec0cb176320cc498522b01b22",
+      "bytes": 7091
+    },
+    {
+      "path": "game/apps/desktop/src/platform/aiPreparation.ts",
+      "sha256": "e99d202a0dce90f4e0e448400aba143e3864f55dac68176b41a9f418cf9781f5",
+      "bytes": 2937
+    },
+    {
+      "path": "game/apps/desktop/src/platform/updates.ts",
+      "sha256": "97edbac5476d29060080a55bf41b72e3f297ddbbe64ee0561038b82764deeb3b",
+      "bytes": 1200
     }
   ]
 }

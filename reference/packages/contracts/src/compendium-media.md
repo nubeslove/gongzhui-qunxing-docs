@@ -1,6 +1,6 @@
 # game/packages/contracts/src/compendium-media.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -8,7 +8,7 @@
 
 ```ts
 import {storyList,storyObject,storyText} from './story';
-import {mapArchiveMedia} from './scene-archive-content';
+import {visitArchiveMedia} from './scene-archive-content';
 import type {SceneArchiveAsset} from './scene-archive';
 ```
 </details>

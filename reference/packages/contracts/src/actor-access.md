@@ -1,6 +1,6 @@
 # game/packages/contracts/src/actor-access.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -72,9 +72,25 @@ export const actorControlled: (actor: ActorAccessSource | undefined, playerId?: 
 export const actorReadable: (actor: ActorAccessSource | undefined, playerId?: string, gm?: boolean): boolean;
 ```
 
+## lancerHangarReadable
+
+导出接口 · 源码第 15 行。
+
+LANCER enemy sheets are private even when their map token is public.
+
+```ts
+export function lancerHangarReadable(actor: (ActorAccessSource&{fields?:Record<string,string>})|undefined, playerId?: string, gm?: boolean): boolean;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `actor` | 否 | `(ActorAccessSource&{fields?:Record<string,string>})&#124;undefined` | — |
+| `playerId` | 是 | `string` | — |
+| `gm` | 是 | `boolean` | false |
+
 ## actorOwnership
 
-导出接口 · 源码第 14 行。
+导出接口 · 源码第 20 行。
 
 ```ts
 export function actorOwnership(actor: ActorAccessSource): DocumentAccess;
@@ -86,7 +102,7 @@ export function actorOwnership(actor: ActorAccessSource): DocumentAccess;
 
 ## actorControllers
 
-导出接口 · 源码第 16 行。
+导出接口 · 源码第 22 行。
 
 Designated responders are deterministic; ownership of a document is not the right to answer another user's pending choice.
 
@@ -101,7 +117,7 @@ export function actorControllers(actor: ActorAccessSource, candidates?: Iterable
 
 ## actorController
 
-导出接口 · 源码第 17 行。
+导出接口 · 源码第 23 行。
 
 ```ts
 export function actorController(actor: ActorAccessSource, fallback: string): string;
@@ -114,7 +130,7 @@ export function actorController(actor: ActorAccessSource, fallback: string): str
 
 ## projectedActorAccess
 
-导出接口 · 源码第 18 行。
+导出接口 · 源码第 24 行。
 
 ```ts
 export function projectedActorAccess(actor: ActorAccessSource, playerId?: string): {access?:DocumentAccess};

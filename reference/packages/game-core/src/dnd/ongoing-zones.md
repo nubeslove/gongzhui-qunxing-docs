@@ -1,16 +1,18 @@
 # game/packages/game-core/src/dnd/ongoing-zones.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {dndContextTest} from './rolls';
+import {dndSaveDamageFactor} from '@aelzerant/rules-engine';
 import type {ManualTable,ManualActor,MovementPoint,DndMagicJob,SceneRegion} from '@aelzerant/contracts';
 import {DND_SPELL_EXECUTORS,dndEntry,dndTest,crownActive,dndIncapacitated} from '@aelzerant/rules-engine';
-import {dndEffectActive,dndEffectRollModifiers} from './effects';
-import {dndMagicRegion,dndRegionAffects} from './scene-spells';
+import {cleanDndEffects,dndEffectActive,dndEffectRollModifiers} from './effects';
+import {followDndSceneSpell,dndMagicRegion,dndRegionAffects} from './scene-spells';
 import {dndActorMagicBlock,dndCannotUseMagic} from './magic-fields';
 import {dndSpellArea} from './areas';
 ```
@@ -18,7 +20,7 @@ import {dndSpellArea} from './areas';
 
 ## dndZoneTurn
 
-导出接口 · 源码第 8 行。
+导出接口 · 源码第 10 行。
 
 ```ts
 export const dndZoneTurn: (table: ManualTable, now: number): string;
@@ -26,7 +28,7 @@ export const dndZoneTurn: (table: ManualTable, now: number): string;
 
 ## RollLog
 
-内部依赖类型 · 源码第 9 行。
+内部依赖类型 · 源码第 11 行。
 
 ```ts
 type RollLog = (a: ManualActor, label: string, r: ReturnType<typeof dndTest>) => void;
@@ -34,7 +36,7 @@ type RollLog = (a: ManualActor, label: string, r: ReturnType<typeof dndTest>) =>
 
 ## dndOngoingZoneJobs
 
-导出接口 · 源码第 12 行。
+导出接口 · 源码第 14 行。
 
 All four triggers share the same per-creature, per-global-turn record, including a passed save.
 
@@ -53,7 +55,7 @@ export function dndOngoingZoneJobs(table: ManualTable, a: ManualActor, now: numb
 
 ## dndZoneEntryJobs
 
-导出接口 · 源码第 25 行。
+导出接口 · 源码第 27 行。
 
 ```ts
 export function dndZoneEntryJobs(table: ManualTable, actorId: string, before: ManualTable, now: number, random: ()=>number, rollLog: RollLog): DndMagicJob[];
@@ -70,7 +72,7 @@ export function dndZoneEntryJobs(table: ManualTable, actorId: string, before: Ma
 
 ## dndMoveZonePreview
 
-导出接口 · 源码第 31 行。
+导出接口 · 源码第 40 行。
 
 Repositioning uses the existing instance and its original cast origin/slot, never recasts it.
 
@@ -87,7 +89,7 @@ export function dndMoveZonePreview(table: ManualTable, actorId: string, effectId
 
 ## moveDndZone
 
-导出接口 · 源码第 46 行。
+导出接口 · 源码第 55 行。
 
 ```ts
 export function moveDndZone(table: ManualTable, preview: ReturnType<typeof dndMoveZonePreview>, now: number, random: ()=>number, rollLog: RollLog): DndMagicJob[];
@@ -103,7 +105,7 @@ export function moveDndZone(table: ManualTable, preview: ReturnType<typeof dndMo
 
 ## combineDndZoneJobs
 
-导出接口 · 源码第 58 行。
+导出接口 · 源码第 67 行。
 
 Creatures hit by one creation or relocation share one damage roll.
 

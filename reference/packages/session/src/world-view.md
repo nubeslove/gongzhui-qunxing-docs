@@ -1,6 +1,6 @@
 # game/packages/session/src/world-view.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -8,6 +8,7 @@
 
 ```ts
 import {sceneObserverSees,observerConditions,tremorDetects,type SceneObserver} from '@aelzerant/contracts';
+import {monsterHpVisibilityFor} from '@aelzerant/contracts';
 import {encounterVisibleInScene} from '@aelzerant/contracts';
 import {activatedSceneSounds} from '@aelzerant/contracts';
 import {partyVisionActor,emptySceneFeatures,projectSceneCanvas,actorAccess,actorControlled,actorReadable,actorControllers} from '@aelzerant/contracts';
@@ -20,12 +21,13 @@ import { cellKey, gridDistance, hasLineOfSight, snapshotCombat } from "@aelzeran
 import type { ActorDocument, SceneDocument, TokenDocument, Visibility, WorldDocument } from "./world-types";
 import { illuminationQuery } from "./world-illumination";
 import { exploredFor, publicSceneFeatures, sceneObscured,sceneCellLit,magicalDarknessAt,isSmoke,lightActive, lightReaches, sceneVisibleCells, projectStory, storyGm } from '@aelzerant/contracts';
+import {projectSpiral} from '@aelzerant/game-core';
 ```
 </details>
 
 ## SceneView
 
-导出接口 · 源码第 14 行。
+导出接口 · 源码第 15 行。
 
 ```ts
 export interface SceneView {
@@ -63,10 +65,15 @@ export interface SceneView {
 
 ## WorldView
 
-导出接口 · 源码第 24 行。
+导出接口 · 源码第 25 行。
 
 ```ts
 export interface WorldView {
+    publication?: {
+        version: number;
+        files: import('@aelzerant/contracts').WorldAssetFile[];
+    };
+    spiral?: import('@aelzerant/game-core').SpiralView;
     aafCatalog?: WorldDocument['aafCatalog'];
     activeSceneId?: string | null;
     story?: WorldDocument["story"];
@@ -87,6 +94,10 @@ export interface WorldView {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `publication` | 是 | `{version:number;files:import('@aelzerant/contracts').WorldAssetFile[]}` | Server-projected, fixed release resources; absent on a local preparation draft. |
+| `publication.version` | 否 | `number` | 见结构定义及所属功能文档 |
+| `publication.files` | 否 | `import('@aelzerant/contracts').WorldAssetFile[]` | 见结构定义及所属功能文档 |
+| `spiral` | 是 | `import('@aelzerant/game-core').SpiralView` | 见结构定义及所属功能文档 |
 | `aafCatalog` | 是 | `WorldDocument['aafCatalog']` | 见结构定义及所属功能文档 |
 | `activeSceneId` | 是 | `string&#124;null` | 见结构定义及所属功能文档 |
 | `story` | 是 | `WorldDocument["story"]` | 见结构定义及所属功能文档 |
@@ -105,7 +116,7 @@ export interface WorldView {
 
 ## visibleCells
 
-导出接口 · 源码第 40 行。
+导出接口 · 源码第 44 行。
 
 ```ts
 export function visibleCells(world: WorldDocument, scene: SceneDocument, playerId: string, focus?: string): Set<string> | null;
@@ -120,7 +131,7 @@ export function visibleCells(world: WorldDocument, scene: SceneDocument, playerI
 
 ## visibleTokenIds
 
-导出接口 · 源码第 62 行。
+导出接口 · 源码第 66 行。
 
 ```ts
 export function visibleTokenIds(world: WorldDocument, scene: SceneDocument, playerId: string, cells?: Set<string> | null): Set<string>;
@@ -135,7 +146,7 @@ export function visibleTokenIds(world: WorldDocument, scene: SceneDocument, play
 
 ## worldSceneId
 
-导出接口 · 源码第 67 行。
+导出接口 · 源码第 71 行。
 
 Construct a recipient-specific allowlist. Never serialize the authoritative world for a player.
 
@@ -150,7 +161,7 @@ export function worldSceneId(world: WorldDocument, playerId: string): string | n
 
 ## projectWorld
 
-导出接口 · 源码第 68 行。
+导出接口 · 源码第 72 行。
 
 ```ts
 export function projectWorld(world: WorldDocument, playerId: string): WorldView;

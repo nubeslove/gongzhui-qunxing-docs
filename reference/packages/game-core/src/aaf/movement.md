@@ -1,15 +1,16 @@
 # game/packages/game-core/src/aaf/movement.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {aafDistance as gridDistance} from '@aelzerant/rules-engine';
 import {AAF_SPEED_MODES,elevationStep,elevationStepCost,elevationMovementBlocked,type AafSpeedMode,type AafFlowOperation,type AafMovementPool} from '@aelzerant/contracts';
 import type {CombatState,Combatant} from '../types';
-import {cellKey,gridDistance,movementCost,hasLineOfSight} from '../geometry';
+import {cellKey,movementCost,hasLineOfSight} from '../geometry';
 import {aafConditions,aafSpeedValue,aafId,aafLog,aafIncapacitated} from './state';
 import {aafSpendAction} from './turn';
 import {aafQueue} from './flow';
@@ -18,7 +19,7 @@ import {aafQueue} from './flow';
 
 ## aafMovementState
 
-导出接口 · 源码第 8 行。
+导出接口 · 源码第 9 行。
 
 ```ts
 export function aafMovementState(actor: Combatant): import("@source/packages/contracts/src/aaf-movement").AafTurnMovement;
@@ -30,7 +31,7 @@ export function aafMovementState(actor: Combatant): import("@source/packages/con
 
 ## aafRefreshMovement
 
-导出接口 · 源码第 9 行。
+导出接口 · 源码第 10 行。
 
 ```ts
 export function aafRefreshMovement(state: CombatState, actor: Combatant): void;
@@ -43,7 +44,7 @@ export function aafRefreshMovement(state: CombatState, actor: Combatant): void;
 
 ## aafGrantMovement
 
-导出接口 · 源码第 14 行。
+导出接口 · 源码第 16 行。
 
 ```ts
 export function aafGrantMovement(state: CombatState, actor: Combatant, mode: AafSpeedMode, distance?: number, outOfTurn?: boolean): AafMovementPool;
@@ -59,7 +60,7 @@ export function aafGrantMovement(state: CombatState, actor: Combatant, mode: Aaf
 
 ## aafMarch
 
-导出接口 · 源码第 21 行。
+导出接口 · 源码第 23 行。
 
 ```ts
 export function aafMarch(state: CombatState, actor: Combatant, mode: AafSpeedMode): AafMovementPool | undefined;
@@ -73,7 +74,7 @@ export function aafMarch(state: CombatState, actor: Combatant, mode: AafSpeedMod
 
 ## aafMove
 
-导出接口 · 源码第 42 行。
+导出接口 · 源码第 45 行。
 
 ```ts
 export function aafMove(state: CombatState, actor: Combatant, to: {x:number;y:number;z?:number}, requested: AafSpeedMode): void;
@@ -88,7 +89,7 @@ export function aafMove(state: CombatState, actor: Combatant, to: {x:number;y:nu
 
 ## aafCompleteMove
 
-导出接口 · 源码第 50 行。
+导出接口 · 源码第 53 行。
 
 ```ts
 export function aafCompleteMove(state: CombatState, actor: Combatant, o: Extract<AafFlowOperation,{kind:'move'}>): void;

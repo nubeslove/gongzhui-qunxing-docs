@@ -3,6 +3,7 @@ import path from 'node:path';
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 const source=path.resolve(process.argv[2]||'');if(!process.argv[2])throw Error('需要游戏源码根目录');
+const assetSource=path.resolve(process.argv[3]||source);
 const out=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const ts=createRequire(path.join(source,'game/apps/desktop/package.json'))('typescript');
 const write=(p,v)=>{fs.mkdirSync(path.dirname(path.join(out,p)),{recursive:true});fs.writeFileSync(path.join(out,p),typeof v==='string'?v:JSON.stringify(v,null,2)+'\n');};
@@ -10,7 +11,7 @@ const walk=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?
 const groups={
  aaf:['game/packages/rules-engine/src/aaf-catalog.generated.ts','game/packages/rules-engine/src/aaf-character-catalog.generated.ts'],
  'dnd5e-2024':['game/packages/rules-engine/src/dnd/catalog.generated.ts','game/packages/rules-engine/src/dnd/creation-options.generated.ts','game/packages/rules-engine/src/dnd/spellfire.generated.ts'],
- lancer:['game/apps/desktop/src/tabletop/lancer/data/catalog.json'],
+ lancer:['game/packages/tabletop-runtime/src/tabletop/lancer/data/catalog.json'],
  'terra-walker':['game/packages/rules-engine/src/terra/creation.generated.ts'],
  'new-utopia':['game/packages/rules-engine/src/utopia/catalog.generated.ts'],
  heartsea:['game/apps/desktop/public/heartsea/library.json']
@@ -18,16 +19,16 @@ const groups={
 const counts={};
 for(const [group,files] of Object.entries(groups)){
  const rows=[];
- for(const file of files){if(!fs.existsSync(path.join(source,file)))throw Error('Missing catalogue '+file);const text=fs.readFileSync(path.join(source,file),'utf8');
+ for(const file of files){const inputRoot=file==='game/apps/desktop/public/heartsea/library.json'?assetSource:source;if(!fs.existsSync(path.join(inputRoot,file)))throw Error('Missing catalogue '+file+' (可将已生成资源的源码根目录作为第二个参数)');const text=fs.readFileSync(path.join(inputRoot,file),'utf8');
   const take=(v,location)=>{if(!v||typeof v!=='object')return;if(typeof v.id==='string'&&(typeof v.name==='string'||typeof v.title==='string'))rows.push({id:v.id,name:v.name??v.title,...Object.fromEntries(['kind','category','type','book','level','origin','automation','status'].filter(k=>['string','number','boolean'].includes(typeof v[k])).map(k=>[k,v[k]])),source:file,location});};
   if(file.endsWith('.json')){const visit=(v,p)=>{take(v,p);if(Array.isArray(v))v.forEach((x,i)=>visit(x,p+'['+i+']'));else if(v&&typeof v==='object')for(const [k,x]of Object.entries(v))if(typeof x==='object'&&x!==null)visit(x,p+'.'+k);};visit(JSON.parse(text),'$');}
   else {const sf=ts.createSourceFile(file,text,ts.ScriptTarget.Latest,true);const visit=n=>{if(ts.isObjectLiteralExpression(n)){const v={};for(const p of n.properties)if(ts.isPropertyAssignment(p)){const val=p.initializer;if(ts.isStringLiteral(val)||ts.isNumericLiteral(val))v[p.name.getText(sf).replace(/^['"]|['"]$/g,'')]=ts.isNumericLiteral(val)?Number(val.text):val.text;}take(v,'line '+(sf.getLineAndCharacterOfPosition(n.getStart()).line+1));}ts.forEachChild(n,visit);};visit(sf);}
  }
- const unique=[...new Map(rows.map(r=>[r.source+'|'+r.id+'|'+r.location,r])).values()];write(`catalogs/${group}.json`,{date:'2026-10-10',scope:'ID and names only. Index inclusion does not establish automation or redistribution rights.',entries:unique});counts[group]=unique.length;
+ const unique=[...new Map(rows.map(r=>[r.source+'|'+r.id+'|'+r.location,r])).values()];write(`catalogs/${group}.json`,{date:new Date().toISOString().slice(0,10),scope:'ID and names only. Index inclusion does not establish automation or redistribution rights.',entries:unique});counts[group]=unique.length;
 }
 // String dictionaries are part of the interface, despite not having statically named TS properties.
 const dynamic=[];
-for(const dir of ['game/apps/desktop/src/tabletop/lancer','game/apps/desktop/src/heartsea','game/apps/desktop/src/terra','game/packages/game-core/src/lancer']){
+for(const dir of ['game/packages/tabletop-runtime/src/tabletop/lancer','game/packages/tabletop-runtime/src/heartsea','game/apps/desktop/src/tabletop/lancer','game/apps/desktop/src/heartsea','game/apps/desktop/src/terra','game/packages/game-core/src/lancer']){
  for(const file of walk(path.join(source,dir)).filter(f=>/\.tsx?$/.test(f)&&!/\.test\.|\.generated\./.test(f))){const text=fs.readFileSync(file,'utf8'),sf=ts.createSourceFile(file,text,ts.ScriptTarget.Latest,true);const visit=n=>{if(ts.isElementAccessExpression(n)&&n.argumentExpression&&/(?:fields|^f$)/.test(n.expression.getText(sf))){const arg=n.argumentExpression;let key=ts.isStringLiteral(arg)?arg.text:ts.isTemplateExpression(arg)?arg.getText(sf).slice(1,-1).replaceAll('${LC}','lancer.')+ '（插值）':null;if(key)dynamic.push({key,source:path.relative(source,file).replaceAll('\\','/'),line:sf.getLineAndCharacterOfPosition(n.getStart()).line+1,expression:n.getText(sf)});}ts.forEachChild(n,visit);};visit(sf);}
 }
 const keys=[...new Set(dynamic.map(x=>x.key))].sort();write('reference/dynamic-fields.json',dynamic);

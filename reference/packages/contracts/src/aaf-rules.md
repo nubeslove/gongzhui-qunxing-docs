@@ -1,6 +1,6 @@
 # game/packages/contracts/src/aaf-rules.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -455,7 +455,27 @@ export interface AafRuleState {
     };
     lastCheck?: AafCheckRecord;
     pending?: {
-        kind: 'attack' | 'check';
+        afterEffects?: AafEffectTask[];
+        kind: 'attack' | 'check' | 'ability-attack' | 'ability-save' | 'counter' | 'focus';
+        abilityResult?: {
+            ability: AafAbility;
+            effects: AafEffectOperation[];
+            targetId: string;
+            sourceId: string;
+            concentrationId?: string;
+        };
+        counterResult?: {
+            frameId?: string;
+            targetId?: string;
+            concentrationId?: string;
+        };
+        focusResult?: {
+            source: string;
+            ability?: AafAbility;
+            targets?: string[];
+            concentrationId?: string;
+        };
+        forceCritical?: boolean;
         targetId?: string;
         parts: AafDamagePart[];
         nonlethal: boolean;
@@ -559,8 +579,25 @@ export interface AafRuleState {
 | `turn.preludeUsed` | 否 | `boolean` | 见结构定义及所属功能文档 |
 | `turn.offhandReady` | 否 | `boolean` | 见结构定义及所属功能文档 |
 | `lastCheck` | 是 | `AafCheckRecord` | 见结构定义及所属功能文档 |
-| `pending` | 是 | `{kind:'attack'&#124;'check';targetId?:string;parts:AafDamagePart[];nonlethal:boolean;reroll?:{index:number;face:number}}` | 见结构定义及所属功能文档 |
-| `pending.kind` | 否 | `'attack'&#124;'check'` | 见结构定义及所属功能文档 |
+| `pending` | 是 | `{afterEffects?:AafEffectTask[];kind:'attack'&#124;'check'&#124;'ability-attack'&#124;'ability-save'&#124;'counter'&#124;'focus';abilityResult?:{ability:AafAbility;effects:AafEffectOperation[];targetId:string;sourceId:string;concentrationId?:string};counterResult?:{frameId?:string;targetId?:string;concentrationId?:string};focusResult?:{source:string;ability?:AafAbility;targets?:string[];concentrationId?:string};forceCritical?:boolean;targetId?:string;parts:AafDamagePart[];nonlethal:boolean;reroll?:{index:number;face:number}}` | 见结构定义及所属功能文档 |
+| `pending.afterEffects` | 是 | `AafEffectTask[]` | 见结构定义及所属功能文档 |
+| `pending.kind` | 否 | `'attack'&#124;'check'&#124;'ability-attack'&#124;'ability-save'&#124;'counter'&#124;'focus'` | 见结构定义及所属功能文档 |
+| `pending.abilityResult` | 是 | `{ability:AafAbility;effects:AafEffectOperation[];targetId:string;sourceId:string;concentrationId?:string}` | 见结构定义及所属功能文档 |
+| `pending.abilityResult.ability` | 否 | `AafAbility` | 见结构定义及所属功能文档 |
+| `pending.abilityResult.effects` | 否 | `AafEffectOperation[]` | 见结构定义及所属功能文档 |
+| `pending.abilityResult.targetId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `pending.abilityResult.sourceId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `pending.abilityResult.concentrationId` | 是 | `string` | 见结构定义及所属功能文档 |
+| `pending.counterResult` | 是 | `{frameId?:string;targetId?:string;concentrationId?:string}` | 见结构定义及所属功能文档 |
+| `pending.counterResult.frameId` | 是 | `string` | 见结构定义及所属功能文档 |
+| `pending.counterResult.targetId` | 是 | `string` | 见结构定义及所属功能文档 |
+| `pending.counterResult.concentrationId` | 是 | `string` | 见结构定义及所属功能文档 |
+| `pending.focusResult` | 是 | `{source:string;ability?:AafAbility;targets?:string[];concentrationId?:string}` | 见结构定义及所属功能文档 |
+| `pending.focusResult.source` | 否 | `string` | 见结构定义及所属功能文档 |
+| `pending.focusResult.ability` | 是 | `AafAbility` | 见结构定义及所属功能文档 |
+| `pending.focusResult.targets` | 是 | `string[]` | 见结构定义及所属功能文档 |
+| `pending.focusResult.concentrationId` | 是 | `string` | 见结构定义及所属功能文档 |
+| `pending.forceCritical` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `pending.targetId` | 是 | `string` | 见结构定义及所属功能文档 |
 | `pending.parts` | 否 | `AafDamagePart[]` | 见结构定义及所属功能文档 |
 | `pending.nonlethal` | 否 | `boolean` | 见结构定义及所属功能文档 |
@@ -585,9 +622,51 @@ export interface AafRuleState {
 | `movement` | 是 | `import('./aaf-movement').AafTurnMovement` | 见结构定义及所属功能文档 |
 | `controlCooldowns` | 否 | `Array<{source:string;condition:AafCondition;untilTurn:number}>` | 见结构定义及所属功能文档 |
 
-## AafDamagePart
+## AafEffectContext
 
 导出接口 · 源码第 40 行。
+
+```ts
+export interface AafEffectContext {
+    sourceId?: string;
+    source?: string;
+    duration?: AafDuration;
+    concentrationId?: string;
+    critical?: number;
+    half?: boolean;
+    unreducible?: boolean;
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `sourceId` | 是 | `string` | 见结构定义及所属功能文档 |
+| `source` | 是 | `string` | 见结构定义及所属功能文档 |
+| `duration` | 是 | `AafDuration` | 见结构定义及所属功能文档 |
+| `concentrationId` | 是 | `string` | 见结构定义及所属功能文档 |
+| `critical` | 是 | `number` | 见结构定义及所属功能文档 |
+| `half` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `unreducible` | 是 | `boolean` | 见结构定义及所属功能文档 |
+
+## AafEffectTask
+
+导出接口 · 源码第 41 行。
+
+```ts
+export interface AafEffectTask {
+    effect: AafEffectOperation;
+    options: AafEffectContext;
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `effect` | 否 | `AafEffectOperation` | 见结构定义及所属功能文档 |
+| `options` | 否 | `AafEffectContext` | 见结构定义及所属功能文档 |
+
+## AafDamagePart
+
+导出接口 · 源码第 42 行。
 
 ```ts
 export interface AafDamagePart {
@@ -612,7 +691,7 @@ export interface AafDamagePart {
 
 ## AafEffectOperation
 
-导出接口 · 源码第 41 行。
+导出接口 · 源码第 43 行。
 
 ```ts
 export type AafEffectOperation = {
@@ -673,7 +752,7 @@ export type AafEffectOperation = {
 
 ## AafAbility
 
-导出接口 · 源码第 49 行。
+导出接口 · 源码第 51 行。
 
 ```ts
 export interface AafAbility {
@@ -765,7 +844,7 @@ export interface AafAbility {
 
 ## aafCombatDuration
 
-导出接口 · 源码第 61 行。
+导出接口 · 源码第 63 行。
 
 ```ts
 export const aafCombatDuration: (): AafDuration;
@@ -773,7 +852,7 @@ export const aafCombatDuration: (): AafDuration;
 
 ## emptyAafRules
 
-导出接口 · 源码第 62 行。
+导出接口 · 源码第 64 行。
 
 ```ts
 export function emptyAafRules(level?: number, maxHp?: number, speed?: number): AafRuleState;
@@ -787,7 +866,7 @@ export function emptyAafRules(level?: number, maxHp?: number, speed?: number): A
 
 ## Guard
 
-内部依赖类型 · 源码第 69 行。
+内部依赖类型 · 源码第 71 行。
 
 ```ts
 type Guard = (v: unknown) => boolean;
@@ -795,7 +874,7 @@ type Guard = (v: unknown) => boolean;
 
 ## parseAafRules
 
-导出接口 · 源码第 87 行。
+导出接口 · 源码第 90 行。
 
 ```ts
 export function parseAafRules(v: unknown): AafRuleState;
@@ -807,7 +886,7 @@ export function parseAafRules(v: unknown): AafRuleState;
 
 ## isAafRules
 
-导出接口 · 源码第 88 行。
+导出接口 · 源码第 91 行。
 
 ```ts
 export function isAafRules(v: unknown): v is AafRuleState;
@@ -819,7 +898,7 @@ export function isAafRules(v: unknown): v is AafRuleState;
 
 ## parseAafAbility
 
-导出接口 · 源码第 89 行。
+导出接口 · 源码第 92 行。
 
 ```ts
 export function parseAafAbility(v: unknown): AafAbility;
@@ -831,7 +910,7 @@ export function parseAafAbility(v: unknown): AafAbility;
 
 ## parseAafOperation
 
-导出接口 · 源码第 90 行。
+导出接口 · 源码第 93 行。
 
 ```ts
 export function parseAafOperation(v: unknown): AafEffectOperation;
@@ -841,12 +920,36 @@ export function parseAafOperation(v: unknown): AafEffectOperation;
 | --- | --- | --- | --- |
 | `v` | 否 | `unknown` | — |
 
+## parseAafCheck
+
+导出接口 · 源码第 94 行。
+
+```ts
+export function parseAafCheck(v: unknown): AafCheckRecord;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `v` | 否 | `unknown` | — |
+
 ## parseAafDuration
 
-导出接口 · 源码第 91 行。
+导出接口 · 源码第 95 行。
 
 ```ts
 export function parseAafDuration(v: unknown): AafDuration;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `v` | 否 | `unknown` | — |
+
+## parseAafEffectTask
+
+导出接口 · 源码第 97 行。
+
+```ts
+export function parseAafEffectTask(v: unknown): AafEffectTask;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |

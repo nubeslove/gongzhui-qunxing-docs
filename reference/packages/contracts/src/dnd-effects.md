@@ -1,13 +1,13 @@
 # game/packages/contracts/src/dnd-effects.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
-import {storyObject as obj,storyId as id,storyNumber as num,storyList as list,storyEnum as one} from './story';
+import {storyText as str,storyObject as obj,storyId as id,storyNumber as num,storyList as list,storyEnum as one} from './story';
 import type {ScenePoint} from './scene-features';
 ```
 </details>
@@ -18,6 +18,19 @@ import type {ScenePoint} from './scene-features';
 
 ```ts
 export interface DndActiveEffect {
+    permanent?: boolean;
+    concealed?: boolean;
+    sizeChange?: {
+        order: number;
+        to?: number;
+        by?: number;
+    };
+    tokenSizes?: Record<string, number>;
+    brightLight?: number;
+    lightItem?: string;
+    lightColor?: string;
+    reveals?: boolean;
+    light?: number;
     id: string;
     spell: string;
     source: string;
@@ -28,6 +41,8 @@ export interface DndActiveEffect {
     castId?: string;
     concentration?: boolean;
     suppressed?: boolean;
+    nonmagical?: boolean;
+    label?: string;
     dc?: number;
     choice?: string;
     heightened?: boolean;
@@ -54,6 +69,18 @@ export interface DndActiveEffect {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `permanent` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `concealed` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `sizeChange` | 是 | `{order:number;to?:number;by?:number}` | 见结构定义及所属功能文档 |
+| `sizeChange.order` | 否 | `number` | 见结构定义及所属功能文档 |
+| `sizeChange.to` | 是 | `number` | 见结构定义及所属功能文档 |
+| `sizeChange.by` | 是 | `number` | 见结构定义及所属功能文档 |
+| `tokenSizes` | 是 | `Record<string,number>` | 见结构定义及所属功能文档 |
+| `brightLight` | 是 | `number` | 见结构定义及所属功能文档 |
+| `lightItem` | 是 | `string` | 见结构定义及所属功能文档 |
+| `lightColor` | 是 | `string` | 见结构定义及所属功能文档 |
+| `reveals` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `light` | 是 | `number` | 见结构定义及所属功能文档 |
 | `id` | 否 | `string` | 见结构定义及所属功能文档 |
 | `spell` | 否 | `string` | 见结构定义及所属功能文档 |
 | `source` | 否 | `string` | 见结构定义及所属功能文档 |
@@ -64,6 +91,8 @@ export interface DndActiveEffect {
 | `castId` | 是 | `string` | 见结构定义及所属功能文档 |
 | `concentration` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `suppressed` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `nonmagical` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `label` | 是 | `string` | 见结构定义及所属功能文档 |
 | `dc` | 是 | `number` | 见结构定义及所属功能文档 |
 | `choice` | 是 | `string` | 见结构定义及所属功能文档 |
 | `heightened` | 是 | `boolean` | 见结构定义及所属功能文档 |
@@ -86,12 +115,15 @@ export interface DndActiveEffect {
 
 ## DndSceneSpell
 
-导出接口 · 源码第 14 行。
+导出接口 · 源码第 17 行。
 
 One spell instance owns its template and all additional scene visuals.
 
 ```ts
 export interface DndSceneSpell extends DndActiveEffect {
+    included?: string[];
+    excluded?: string[];
+    silence?: boolean;
     boundActor?: string;
     field?: 'antimagic' | 'globe';
     blockLevel?: number;
@@ -109,6 +141,9 @@ export interface DndSceneSpell extends DndActiveEffect {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `included` | 是 | `string[]` | 见结构定义及所属功能文档 |
+| `excluded` | 是 | `string[]` | 见结构定义及所属功能文档 |
+| `silence` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `boundActor` | 是 | `string` | 见结构定义及所属功能文档 |
 | `field` | 是 | `'antimagic'&#124;'globe'` | 见结构定义及所属功能文档 |
 | `blockLevel` | 是 | `number` | 见结构定义及所属功能文档 |
@@ -123,7 +158,7 @@ export interface DndSceneSpell extends DndActiveEffect {
 
 ## parseDndActiveEffect
 
-导出接口 · 源码第 19 行。
+导出接口 · 源码第 22 行。
 
 ```ts
 export function parseDndActiveEffect(raw: unknown): DndActiveEffect;
@@ -135,7 +170,7 @@ export function parseDndActiveEffect(raw: unknown): DndActiveEffect;
 
 ## parseDndSceneSpell
 
-导出接口 · 源码第 26 行。
+导出接口 · 源码第 29 行。
 
 ```ts
 export function parseDndSceneSpell(raw: unknown): DndSceneSpell;

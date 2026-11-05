@@ -1,6 +1,6 @@
 # game/packages/game-core/src/dnd/combat-effects.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -11,12 +11,31 @@ import type {DndDamageType,ManualActor,ManualTable} from '@aelzerant/contracts';
 import {blindsightRange,dndObserver,dndCanSeeActor} from '@aelzerant/contracts';
 import {dndActiveSpellProfiles,dndDie,dndEntry,dndSpellEffectRule,dndHas} from '@aelzerant/rules-engine';
 import {cleanDndEffects,dndEffectApplies} from './effects';
+import {dndEffectRollModifiers} from './effects';
+import {dndContextTest} from './rolls';
+import type {SorceryContext} from './sorcery';
 ```
 </details>
 
+## dndDamageSpellSaves
+
+导出接口 · 源码第 10 行。
+
+Damage-triggered saves happen once per damage event, even when temporary HP absorbs it.
+
+```ts
+export function dndDamageSpellSaves(table: ManualTable, target: ManualActor, ctx: Pick<SorceryContext,'random'|'rollLog'>): void;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `table` | 否 | `ManualTable` | — |
+| `target` | 否 | `ManualActor` | — |
+| `ctx` | 否 | `Pick<SorceryContext,'random'&#124;'rollLog'>` | — |
+
 ## dndBlurDisadvantage
 
-导出接口 · 源码第 13 行。
+导出接口 · 源码第 23 行。
 
 ```ts
 export function dndBlurDisadvantage(table: ManualTable, source: ManualActor, target: ManualActor): boolean;
@@ -30,7 +49,7 @@ export function dndBlurDisadvantage(table: ManualTable, source: ManualActor, tar
 
 ## dndMirrorIntercept
 
-导出接口 · 源码第 14 行。
+导出接口 · 源码第 24 行。
 
 ```ts
 export function dndMirrorIntercept(table: ManualTable, source: ManualActor, target: ManualActor, random: ()=>number, log: (s:string,...a:ManualActor[])=>void): boolean;
@@ -46,7 +65,7 @@ export function dndMirrorIntercept(table: ManualTable, source: ManualActor, targ
 
 ## dndEndActionEffects
 
-导出接口 · 源码第 21 行。
+导出接口 · 源码第 31 行。
 
 ```ts
 export function dndEndActionEffects(table: ManualTable, actor: string, event: 'attackOrCast'|'dealDamage'): void;
@@ -60,7 +79,7 @@ export function dndEndActionEffects(table: ManualTable, actor: string, event: 'a
 
 ## dndDamageEndsEffects
 
-导出接口 · 源码第 25 行。
+导出接口 · 源码第 35 行。
 
 ```ts
 export function dndDamageEndsEffects(table: ManualTable, target: ManualActor, sourceId?: string): void;
@@ -74,7 +93,7 @@ export function dndDamageEndsEffects(table: ManualTable, target: ManualActor, so
 
 ## dndReduceSpellDamage
 
-导出接口 · 源码第 33 行。
+导出接口 · 源码第 44 行。
 
 Resistance is a flat reduction before resistance/vulnerability, once per global turn.
 
@@ -94,7 +113,7 @@ export function dndReduceSpellDamage(table: ManualTable, a: ManualActor, amount:
 
 ## dndUseDeathWard
 
-导出接口 · 源码第 41 行。
+导出接口 · 源码第 52 行。
 
 ```ts
 export function dndUseDeathWard(table: ManualTable, a: ManualActor): boolean;
@@ -107,7 +126,7 @@ export function dndUseDeathWard(table: ManualTable, a: ManualActor): boolean;
 
 ## dndRemoveSpellConditions
 
-导出接口 · 源码第 46 行。
+导出接口 · 源码第 57 行。
 
 ```ts
 export function dndRemoveSpellConditions(table: ManualTable, a: ManualActor, conditions: readonly import('@aelzerant/contracts').DndCondition[]): void;

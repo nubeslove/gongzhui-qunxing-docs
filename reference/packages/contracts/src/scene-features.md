@@ -1,12 +1,13 @@
 # game/packages/contracts/src/scene-features.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {parseDndMagicBarrier,type DndMagicBarrier} from './dnd-detection';
 import {dndSpellLightAt} from './dnd-magic-fields';
 import {parseSenseMarkers,type SenseMarker} from './sense-markers';
 import {parseTokenMotion,type TokenMotion} from './token-motion';
@@ -31,7 +32,7 @@ import {WALL_CHANNELS,WALL_RESTRICTIONS,wallRayRestriction,lightActive,lightReac
 
 ## ScenePoint
 
-导出接口 · 源码第 21 行。
+导出接口 · 源码第 22 行。
 
 ```ts
 export interface ScenePoint {
@@ -49,10 +50,11 @@ export interface ScenePoint {
 
 ## SceneWall
 
-导出接口 · 源码第 22 行。
+导出接口 · 源码第 23 行。
 
 ```ts
 export interface SceneWall {
+    dndMagicBarrier?: DndMagicBarrier;
     wallKind?: keyof typeof import('./scene-perception').WALL_PRESETS;
     access?: WallAccess;
     doorVisual?: DoorVisual;
@@ -77,6 +79,7 @@ export interface SceneWall {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `dndMagicBarrier` | 是 | `DndMagicBarrier` | 见结构定义及所属功能文档 |
 | `wallKind` | 是 | `keyof typeof import('./scene-perception').WALL_PRESETS` | 见结构定义及所属功能文档 |
 | `access` | 是 | `WallAccess` | 见结构定义及所属功能文档 |
 | `doorVisual` | 是 | `DoorVisual` | 见结构定义及所属功能文档 |
@@ -99,10 +102,14 @@ export interface SceneWall {
 
 ## SceneLight
 
-导出接口 · 源码第 23 行。
+导出接口 · 源码第 24 行。
 
 ```ts
 export interface SceneLight extends ScenePoint {
+    spellMagic?: {
+        slot: number;
+        origin?: ScenePoint;
+    };
     spellRegion?: string;
     kind?: 'light' | 'smoke-circle' | 'smoke-rectangle';
     width?: number;
@@ -126,6 +133,9 @@ export interface SceneLight extends ScenePoint {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `spellMagic` | 是 | `{slot:number;origin?:ScenePoint}` | 见结构定义及所属功能文档 |
+| `spellMagic.slot` | 否 | `number` | 见结构定义及所属功能文档 |
+| `spellMagic.origin` | 是 | `ScenePoint` | 见结构定义及所属功能文档 |
 | `spellRegion` | 是 | `string` | 见结构定义及所属功能文档 |
 | `kind` | 是 | `'light'&#124;'smoke-circle'&#124;'smoke-rectangle'` | 见结构定义及所属功能文档 |
 | `width` | 是 | `number` | 见结构定义及所属功能文档 |
@@ -147,7 +157,7 @@ export interface SceneLight extends ScenePoint {
 
 ## SceneDrawing
 
-导出接口 · 源码第 24 行。
+导出接口 · 源码第 25 行。
 
 ```ts
 export interface SceneDrawing extends DrawingStyleExtras {
@@ -193,7 +203,7 @@ export interface SceneDrawing extends DrawingStyleExtras {
 
 ## SceneFeatures
 
-导出接口 · 源码第 25 行。
+导出接口 · 源码第 26 行。
 
 ```ts
 export interface SceneFeatures {
@@ -269,7 +279,7 @@ export interface SceneFeatures {
 
 ## emptySceneFeatures
 
-导出接口 · 源码第 26 行。
+导出接口 · 源码第 27 行。
 
 ```ts
 export function emptySceneFeatures(): SceneFeatures;
@@ -277,7 +287,7 @@ export function emptySceneFeatures(): SceneFeatures;
 
 ## parseSceneFeatures
 
-导出接口 · 源码第 27 行。
+导出接口 · 源码第 28 行。
 
 ```ts
 export function parseSceneFeatures(raw: unknown, width: number, height: number): SceneFeatures;
@@ -291,7 +301,7 @@ export function parseSceneFeatures(raw: unknown, width: number, height: number):
 
 ## sceneRayTransmission
 
-导出接口 · 源码第 55 行。
+导出接口 · 源码第 56 行。
 
 ```ts
 export function sceneRayTransmission(features: SceneFeatures|undefined, a: ScenePoint, b: ScenePoint, channel: WallChannel, sourceRange?: number): number;
@@ -307,7 +317,7 @@ export function sceneRayTransmission(features: SceneFeatures|undefined, a: Scene
 
 ## sceneRayBlocked
 
-导出接口 · 源码第 59 行。
+导出接口 · 源码第 60 行。
 
 ```ts
 export function sceneRayBlocked(features: SceneFeatures|undefined, a: ScenePoint, b: ScenePoint, channel: WallChannel, sourceRange?: number): boolean;
@@ -323,7 +333,7 @@ export function sceneRayBlocked(features: SceneFeatures|undefined, a: ScenePoint
 
 ## sceneCellLit
 
-导出接口 · 源码第 61 行。
+导出接口 · 源码第 62 行。
 
 ```ts
 export function sceneCellLit(features: SceneFeatures, p: ScenePoint): boolean;
@@ -336,7 +346,7 @@ export function sceneCellLit(features: SceneFeatures, p: ScenePoint): boolean;
 
 ## sceneVisibleCells
 
-导出接口 · 源码第 68 行。
+导出接口 · 源码第 69 行。
 
 ```ts
 export function sceneVisibleCells(features: SceneFeatures, width: number, height: number, observers: SceneObserver[]): Set<string>;

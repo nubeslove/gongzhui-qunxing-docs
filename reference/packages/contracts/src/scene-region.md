@@ -1,6 +1,6 @@
 # game/packages/contracts/src/scene-region.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -149,9 +149,23 @@ export function validateRegionPolygon(points: ScenePoint[]): void;
 | --- | --- | --- | --- |
 | `points` | 否 | `ScenePoint[]` | — |
 
-## parseSceneRegions
+## parseRegionShape
 
 导出接口 · 源码第 27 行。
+
+```ts
+export function parseRegionShape(raw: unknown, width: number, height: number): RegionShape;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `raw` | 否 | `unknown` | — |
+| `width` | 否 | `number` | — |
+| `height` | 否 | `number` | — |
+
+## parseSceneRegions
+
+导出接口 · 源码第 32 行。
 
 ```ts
 export function parseSceneRegions(raw: unknown, width: number, height: number): SceneRegion[];
@@ -165,7 +179,7 @@ export function parseSceneRegions(raw: unknown, width: number, height: number): 
 
 ## regionShapes
 
-导出接口 · 源码第 39 行。
+导出接口 · 源码第 43 行。
 
 ```ts
 export function regionShapes(r: SceneRegion): RegionShape[];
@@ -177,7 +191,7 @@ export function regionShapes(r: SceneRegion): RegionShape[];
 
 ## regionLocalPoint
 
-导出接口 · 源码第 40 行。
+导出接口 · 源码第 44 行。
 
 ```ts
 export function regionLocalPoint(s: RegionShape, p: ScenePoint): ScenePoint;
@@ -190,7 +204,7 @@ export function regionLocalPoint(s: RegionShape, p: ScenePoint): ScenePoint;
 
 ## regionShapeContains
 
-导出接口 · 源码第 43 行。
+导出接口 · 源码第 47 行。
 
 ```ts
 export function regionShapeContains(s: RegionShape, point: ScenePoint): boolean;
@@ -203,7 +217,7 @@ export function regionShapeContains(s: RegionShape, point: ScenePoint): boolean;
 
 ## regionContains
 
-导出接口 · 源码第 49 行。
+导出接口 · 源码第 53 行。
 
 ```ts
 export function regionContains(r: SceneRegion, p: ScenePoint): boolean;
@@ -216,7 +230,7 @@ export function regionContains(r: SceneRegion, p: ScenePoint): boolean;
 
 ## regionPathStates
 
-导出接口 · 源码第 54 行。
+导出接口 · 源码第 58 行。
 
 Exact intersections with all shape edges and elevation planes; never fixed-distance path sampling.
 
@@ -231,7 +245,7 @@ export function regionPathStates(r: SceneRegion, path: ScenePoint[]): boolean[];
 
 ## regionPathEvents
 
-导出接口 · 源码第 71 行。
+导出接口 · 源码第 75 行。
 
 ```ts
 export function regionPathEvents(r: SceneRegion, path: ScenePoint[]): RegionEventName[];
@@ -244,7 +258,7 @@ export function regionPathEvents(r: SceneRegion, path: ScenePoint[]): RegionEven
 
 ## regionShapeFromWalls
 
-导出接口 · 源码第 78 行。
+导出接口 · 源码第 82 行。
 
 Selected walls must form one simple closed loop; disjoint loops are created separately.
 
@@ -259,7 +273,7 @@ export function regionShapeFromWalls(walls: SceneWall[], shapeId: string): Regio
 
 ## regionDarkness
 
-导出接口 · 源码第 85 行。
+导出接口 · 源码第 89 行。
 
 ```ts
 export function regionDarkness(regions: SceneRegion[]|undefined, p: ScenePoint, base: number): number;

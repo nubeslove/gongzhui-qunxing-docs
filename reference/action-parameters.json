@@ -1,12 +1,12 @@
 {
-  "date": "2026-10-10",
+  "date": "2026-11-05",
   "kind": "static-direct-expressions",
   "missing": [],
   "actions": {
     "aaf.level": [
       {
         "source": "game/packages/session/src/world-aaf.ts",
-        "line": 29,
+        "line": 30,
         "fields": [
           "actorId",
           "expected",
@@ -31,7 +31,7 @@
     "aaf.learning": [
       {
         "source": "game/packages/session/src/world-aaf.ts",
-        "line": 37,
+        "line": 38,
         "fields": [
           "actorId",
           "expected",
@@ -54,7 +54,7 @@
     "aaf.talent.learn": [
       {
         "source": "game/packages/session/src/world-aaf.ts",
-        "line": 43,
+        "line": 44,
         "fields": [
           "actorId",
           "expected",
@@ -76,7 +76,7 @@
     "aaf.talent.refund": [
       {
         "source": "game/packages/session/src/world-aaf.ts",
-        "line": 48,
+        "line": 49,
         "fields": [
           "actorId",
           "expected",
@@ -97,7 +97,7 @@
     "aaf.item.grant": [
       {
         "source": "game/packages/session/src/world-aaf.ts",
-        "line": 53,
+        "line": 54,
         "fields": [
           "actorId",
           "expected",
@@ -123,7 +123,7 @@
     "aaf.item.equip": [
       {
         "source": "game/packages/session/src/world-aaf.ts",
-        "line": 59,
+        "line": 60,
         "fields": [
           "actorId",
           "expected",
@@ -150,7 +150,7 @@
     "aaf.item.quality": [
       {
         "source": "game/packages/session/src/world-aaf.ts",
-        "line": 65,
+        "line": 66,
         "fields": [
           "actorId",
           "expected",
@@ -174,7 +174,7 @@
     "aaf.item.active": [
       {
         "source": "game/packages/session/src/world-aaf.ts",
-        "line": 71,
+        "line": 72,
         "fields": [
           "actorId",
           "expected",
@@ -200,7 +200,7 @@
     "aaf.item.transfer": [
       {
         "source": "game/packages/session/src/world-aaf.ts",
-        "line": 96,
+        "line": 97,
         "fields": [
           "actorId",
           "expected",
@@ -229,7 +229,7 @@
     "aaf.item.consume": [
       {
         "source": "game/packages/session/src/world-aaf.ts",
-        "line": 91,
+        "line": 92,
         "fields": [
           "actorId",
           "expected",
@@ -250,7 +250,7 @@
     "aaf.layout": [
       {
         "source": "game/packages/session/src/world-aaf.ts",
-        "line": 76,
+        "line": 77,
         "fields": [
           "actorId",
           "expected",
@@ -274,7 +274,7 @@
     "aaf.item.use": [
       {
         "source": "game/packages/session/src/world-aaf.ts",
-        "line": 82,
+        "line": 83,
         "fields": [
           "actorId",
           "expected",
@@ -297,7 +297,7 @@
     "aaf.rest.complete": [
       {
         "source": "game/packages/session/src/world-aaf.ts",
-        "line": 109,
+        "line": 110,
         "fields": [
           "actorId",
           "expected",
@@ -316,12 +316,29 @@
           "string[]"
         ],
         "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      },
+      {
+        "source": "game/packages/session/src/world-aaf.ts",
+        "line": 123,
+        "fields": [
+          "actorId",
+          "expected",
+          "heldItemIds",
+          "provisions"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision"
+        ],
+        "rejectionConditions": [],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
       }
     ],
     "aaf.resources.refresh": [
       {
         "source": "game/packages/session/src/world-aaf.ts",
-        "line": 24,
+        "line": 25,
         "fields": [
           "actorId",
           "expected",
@@ -343,7 +360,7 @@
     "aaf.build.save": [
       {
         "source": "game/packages/session/src/world-aaf-character.ts",
-        "line": 27,
+        "line": 25,
         "fields": [
           "actorId",
           "expected",
@@ -367,7 +384,7 @@
     "aaf.build.roll": [
       {
         "source": "game/packages/session/src/world-aaf-character.ts",
-        "line": 23,
+        "line": 21,
         "fields": [
           "actorId",
           "expected"
@@ -385,7 +402,7 @@
     "aaf.gear.equip": [
       {
         "source": "game/packages/session/src/world-aaf-character.ts",
-        "line": 66,
+        "line": 64,
         "fields": [
           "actorId",
           "expected",
@@ -406,7 +423,7 @@
     "aaf.gear.base": [
       {
         "source": "game/packages/session/src/world-aaf-character.ts",
-        "line": 58,
+        "line": 56,
         "fields": [
           "actorId",
           "expected",
@@ -430,7 +447,7 @@
     "aaf.gear.buy": [
       {
         "source": "game/packages/session/src/world-aaf-character.ts",
-        "line": 50,
+        "line": 48,
         "fields": [
           "actorId",
           "expected",
@@ -459,7 +476,7 @@
     "aaf.bag.move": [
       {
         "source": "game/packages/session/src/world-aaf-character.ts",
-        "line": 73,
+        "line": 71,
         "fields": [
           "actorId",
           "expected",
@@ -487,7 +504,7 @@
     "aaf.bag.split": [
       {
         "source": "game/packages/session/src/world-aaf-character.ts",
-        "line": 82,
+        "line": 80,
         "fields": [
           "actorId",
           "expected",
@@ -512,7 +529,7 @@
     "aaf.purse": [
       {
         "source": "game/packages/session/src/world-aaf-character.ts",
-        "line": 87,
+        "line": 85,
         "fields": [
           "actorId",
           "expected",
@@ -532,7 +549,7 @@
     "aaf.hand": [
       {
         "source": "game/packages/session/src/world-aaf-character.ts",
-        "line": 70,
+        "line": 68,
         "fields": [
           "actorId",
           "expected",
@@ -554,7 +571,7 @@
     "aaf.skill.roll": [
       {
         "source": "game/packages/session/src/world-aaf-character.ts",
-        "line": 16,
+        "line": 17,
         "fields": [
           "actorId",
           "expected",
@@ -578,7 +595,7 @@
     "aaf.speed.set": [
       {
         "source": "game/packages/session/src/world-aaf-character.ts",
-        "line": 12,
+        "line": 13,
         "fields": [
           "actorId",
           "expected",
@@ -600,7 +617,7 @@
     "aaf.catalog": [
       {
         "source": "game/packages/session/src/world-aaf.ts",
-        "line": 125,
+        "line": 127,
         "fields": [
           "expected",
           "catalog"
@@ -616,6 +633,14 @@
       }
     ],
     "encounter.manage": [
+      {
+        "source": "game/packages/session/src/world-combat-rollback.ts",
+        "line": 7,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
       {
         "source": "game/packages/session/src/world-encounter.ts",
         "line": 20,
@@ -653,6 +678,24 @@
           "scene.combat"
         ],
         "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
+        "line": 184,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
+        "line": 59,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [
+          "!gm"
+        ],
+        "delegatedTypes": []
       }
     ],
     "compendium.import": [
@@ -684,9 +727,35 @@
         "delegatedTypes": [
           "DirectoryTableCommand"
         ]
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
+        "line": 184,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
+        "line": 53,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [
+          "!gm"
+        ],
+        "delegatedTypes": []
       }
     ],
     "directory.delete": [
+      {
+        "source": "game/packages/contracts/src/world-edit-policy.ts",
+        "line": 34,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
       {
         "source": "game/packages/session/src/world-directory-delete.ts",
         "line": 5,
@@ -698,6 +767,22 @@
         "delegatedTypes": [
           "DirectoryDeleteCommand"
         ]
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
+        "line": 184,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
+        "line": 48,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
       }
     ],
     "directory.access": [
@@ -712,6 +797,24 @@
         "delegatedTypes": [
           "DirectoryAccessCommand"
         ]
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
+        "line": 184,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
+        "line": 56,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [
+          "!gm"
+        ],
+        "delegatedTypes": []
       }
     ],
     "actor.owned": [
@@ -728,6 +831,20 @@
         "delegatedTypes": [
           "OwnedItemCommand"
         ]
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
+        "line": 178,
+        "fields": [
+          "actorId"
+        ],
+        "checks": [
+          "parseManualTable(next)"
+        ],
+        "rejectionConditions": [
+          "!actor"
+        ],
+        "delegatedTypes": []
       }
     ],
     "actor.sheet": [
@@ -772,88 +889,140 @@
           "canonicalJson(actorOwnership(actor))!==canonicalJson(parseActorAccess(action.before))"
         ],
         "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
+        "line": 184,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
+        "line": 57,
+        "fields": [
+          "id",
+          "before",
+          "value"
+        ],
+        "checks": [
+          "parseActorAccess(action.before)",
+          "parseActorAccess(action.value)"
+        ],
+        "rejectionConditions": [
+          "!gm",
+          "!actor",
+          "canonicalJson(actorOwnership(actor))!==canonicalJson(parseActorAccess(action.before))"
+        ],
+        "delegatedTypes": []
       }
     ],
     "actor.copy": [
       {
         "source": "game/packages/session/src/world-actor-transfer.ts",
-        "line": 1,
+        "line": 9,
         "fields": [
-          "id",
-          "name",
-          "targetId",
-          "folderId",
           "sourceId",
-          "expected",
-          "file"
+          "expected"
         ],
         "checks": [
-          "parseActorFile(raw)",
-          "parseActor(file.actor)",
-          "requireId(action.id)",
-          "requireText(action.name,200)",
-          "requireId(action.targetId)",
           "requireId(action.sourceId)",
-          "parseActorFile(action.expected)",
-          "parseActorFile(action.file)",
-          "assertGm(context)"
+          "parseActorFile(action.expected)"
         ],
         "rejectionConditions": [
-          "!actor",
-          "!c",
-          "file.systemId!=='aaf'",
-          "action.kind==='actor.import'&&action.targetId!==undefined&&(!target||target.id!==id)",
-          "target?.tokenInstance",
-          "!target&&world.actors[id]",
-          "target&&action.folderId!==undefined",
-          "action.kind==='actor.copy'",
-          "canonicalJson(file)!==canonicalJson(parseActorFile(action.expected))",
-          "target&&canonicalJson(exportWorldActor(world,target.id))!==canonicalJson(parseActorFile(action.expected))"
+          "canonicalJson(file)!==canonicalJson(parseActorFile(action.expected))"
         ],
-        "delegatedTypes": [
-          "ActorTransferCommand"
-        ]
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/actorTransfer.ts",
+        "line": 8,
+        "fields": [
+          "sourceId",
+          "expected"
+        ],
+        "checks": [
+          "parseActorFile(action.expected)"
+        ],
+        "rejectionConditions": [
+          "canonicalJson(file)!==canonicalJson(parseActorFile(action.expected))"
+        ],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
+        "line": 184,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
+        "line": 74,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
       }
     ],
     "actor.import": [
       {
         "source": "game/packages/session/src/world-actor-transfer.ts",
-        "line": 1,
-        "fields": [
-          "id",
-          "name",
-          "targetId",
-          "folderId",
-          "sourceId",
-          "expected",
-          "file"
-        ],
-        "checks": [
-          "parseActorFile(raw)",
-          "parseActor(file.actor)",
-          "requireId(action.id)",
-          "requireText(action.name,200)",
-          "requireId(action.targetId)",
-          "requireId(action.sourceId)",
-          "parseActorFile(action.expected)",
-          "parseActorFile(action.file)",
-          "assertGm(context)"
-        ],
-        "rejectionConditions": [
-          "!actor",
-          "!c",
-          "file.systemId!=='aaf'",
-          "action.kind==='actor.import'&&action.targetId!==undefined&&(!target||target.id!==id)",
-          "target?.tokenInstance",
-          "!target&&world.actors[id]",
-          "target&&action.folderId!==undefined",
-          "action.kind==='actor.copy'",
-          "canonicalJson(file)!==canonicalJson(parseActorFile(action.expected))",
-          "target&&canonicalJson(exportWorldActor(world,target.id))!==canonicalJson(parseActorFile(action.expected))"
-        ],
-        "delegatedTypes": [
-          "ActorTransferCommand"
-        ]
+        "line": 8,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/session/src/world-actor-transfer.ts",
+        "line": 11,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/session/src/world-actor-transfer.ts",
+        "line": 12,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/actorTransfer.ts",
+        "line": 7,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/actorTransfer.ts",
+        "line": 10,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
+        "line": 184,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
+        "line": 74,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
       }
     ],
     "scene.import": [
@@ -875,6 +1044,30 @@
         ],
         "rejectionConditions": [
           "context.senderId!==world.hostId"
+        ],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
+        "line": 184,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
+        "line": 75,
+        "fields": [
+          "archive",
+          "id",
+          "name",
+          "folderId",
+          "replacement"
+        ],
+        "checks": [],
+        "rejectionConditions": [
+          "senderId!==next.hostId"
         ],
         "delegatedTypes": []
       }
@@ -905,6 +1098,27 @@
           "Object.keys(world.actors).length>=10000"
         ],
         "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
+        "line": 184,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
+        "line": 76,
+        "fields": [
+          "sourceId",
+          "id",
+          "name",
+          "folderId"
+        ],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
       }
     ],
     "actor.inheritance": [
@@ -927,6 +1141,28 @@
           "ActorInheritanceMode",
           "ActorInheritanceState"
         ]
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
+        "line": 184,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
+        "line": 58,
+        "fields": [
+          "id",
+          "mode",
+          "expected"
+        ],
+        "checks": [],
+        "rejectionConditions": [
+          "!gm"
+        ],
+        "delegatedTypes": []
       }
     ],
     "actor.prototype": [
@@ -948,6 +1184,31 @@
           "canonicalJson(action.before)!==canonicalJson(before)"
         ],
         "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
+        "line": 184,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
+        "line": 70,
+        "fields": [
+          "id",
+          "before",
+          "value"
+        ],
+        "checks": [
+          "parseTokenPrototype(action.value)"
+        ],
+        "rejectionConditions": [
+          "!actor||actor.tokenInstance",
+          "canonicalJson(action.before)!==canonicalJson(actorTokenPrototype(actor))"
+        ],
+        "delegatedTypes": []
       }
     ],
     "story.use": [
@@ -958,9 +1219,45 @@
         "checks": [],
         "rejectionConditions": [],
         "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/combatJournal.ts",
+        "line": 29,
+        "fields": [
+          "request"
+        ],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/combatJournal.ts",
+        "line": 56,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
+        "line": 183,
+        "fields": [
+          "request"
+        ],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
       }
     ],
     "story.command": [
+      {
+        "source": "game/packages/contracts/src/world-edit-policy.ts",
+        "line": 31,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
       {
         "source": "game/packages/session/src/world-story.ts",
         "line": 12,
@@ -978,7 +1275,7 @@
     "effect.tick": [
       {
         "source": "game/packages/session/src/world-actors.ts",
-        "line": 16,
+        "line": 17,
         "fields": [
           "tick",
           "actorId"
@@ -996,7 +1293,7 @@
     "actor.create": [
       {
         "source": "game/packages/session/src/world-actors.ts",
-        "line": 21,
+        "line": 22,
         "fields": [
           "id",
           "templateId",
@@ -1027,7 +1324,7 @@
     "actor.update": [
       {
         "source": "game/packages/session/src/world-actors.ts",
-        "line": 34,
+        "line": 35,
         "fields": [
           "id",
           "profile",
@@ -1047,7 +1344,7 @@
           "assetReference(action.portrait)",
           "optionalText(action.notes, 50000)",
           "requireInteger(action.mp, 0, actor.profile.mpMax ?? 0)",
-          "requireInteger(action.burnStacks, 0, 100)"
+          "requireInteger(action.burnStacks, 0, 10000)"
         ],
         "rejectionConditions": [],
         "delegatedTypes": []
@@ -1056,7 +1353,7 @@
     "actor.delete": [
       {
         "source": "game/packages/session/src/world-actors.ts",
-        "line": 49,
+        "line": 50,
         "fields": [
           "id"
         ],
@@ -1066,12 +1363,32 @@
         ],
         "rejectionConditions": [],
         "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
+        "line": 184,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
+        "line": 116,
+        "fields": [
+          "id"
+        ],
+        "checks": [],
+        "rejectionConditions": [
+          "liveBattle"
+        ],
+        "delegatedTypes": []
       }
     ],
     "inventory.grant": [
       {
         "source": "game/packages/session/src/world-actors.ts",
-        "line": 56,
+        "line": 57,
         "fields": [
           "actorId",
           "id",
@@ -1094,7 +1411,7 @@
     "inventory.quantity": [
       {
         "source": "game/packages/session/src/world-actors.ts",
-        "line": 64,
+        "line": 65,
         "fields": [
           "actorId",
           "id",
@@ -1115,7 +1432,7 @@
     "inventory.equip": [
       {
         "source": "game/packages/session/src/world-actors.ts",
-        "line": 73,
+        "line": 74,
         "fields": [
           "actorId",
           "id",
@@ -1137,7 +1454,7 @@
     "resource.set": [
       {
         "source": "game/packages/session/src/world-actors.ts",
-        "line": 83,
+        "line": 84,
         "fields": [
           "actorId",
           "id",
@@ -1160,7 +1477,7 @@
     "resource.delete": [
       {
         "source": "game/packages/session/src/world-actors.ts",
-        "line": 91,
+        "line": 92,
         "fields": [
           "actorId",
           "id"
@@ -1177,7 +1494,7 @@
     "effect.upsert": [
       {
         "source": "game/packages/session/src/world-actors.ts",
-        "line": 95,
+        "line": 96,
         "fields": [
           "actorId",
           "effect"
@@ -1202,7 +1519,7 @@
     "effect.delete": [
       {
         "source": "game/packages/session/src/world-actors.ts",
-        "line": 108,
+        "line": 110,
         "fields": [
           "actorId",
           "id"
@@ -1331,6 +1648,14 @@
     ],
     "dice.roll": [
       {
+        "source": "game/packages/session/src/world-combat-rollback.ts",
+        "line": 10,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
         "source": "game/packages/session/src/world-narrative.ts",
         "line": 22,
         "fields": [
@@ -1416,7 +1741,7 @@
     "combat.quota": [
       {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 54,
+        "line": 65,
         "fields": [
           "sceneId",
           "id",
@@ -1441,7 +1766,7 @@
     "combat.adjust": [
       {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 70,
+        "line": 81,
         "fields": [
           "sceneId",
           "id",
@@ -1454,7 +1779,7 @@
           "requireId(action.id)",
           "requireInteger(action.hp, 0, actor.maxHp)",
           "requireInteger(action.mp, 0, actor.mpMax ?? 0)",
-          "requireInteger(action.burnStacks, 0, 100)"
+          "requireInteger(action.burnStacks, 0, 10000)"
         ],
         "rejectionConditions": [
           "!combat || scene.id !== world.activeSceneId",
@@ -1466,7 +1791,7 @@
     "scene.bindings": [
       {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 89,
+        "line": 100,
         "fields": [
           "sceneId",
           "bindings"
@@ -1487,7 +1812,7 @@
     "scene.create": [
       {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 97,
+        "line": 108,
         "fields": [
           "id",
           "name",
@@ -1514,7 +1839,7 @@
     "scene.door": [
       {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 107,
+        "line": 118,
         "fields": [
           "sceneId",
           "id",
@@ -1531,8 +1856,16 @@
     ],
     "scene.perception": [
       {
+        "source": "game/packages/contracts/src/world-edit-policy.ts",
+        "line": 33,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 108,
+        "line": 119,
         "fields": [
           "id",
           "edit"
@@ -1546,8 +1879,16 @@
     ],
     "scene.features": [
       {
+        "source": "game/packages/contracts/src/world-edit-policy.ts",
+        "line": 32,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 109,
+        "line": 120,
         "fields": [
           "id",
           "edits"
@@ -1560,7 +1901,7 @@
     "scene.canvas": [
       {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 110,
+        "line": 121,
         "fields": [
           "sceneId",
           "before",
@@ -1572,12 +1913,35 @@
         ],
         "rejectionConditions": [],
         "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
+        "line": 184,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
+        "line": 60,
+        "fields": [
+          "sceneId",
+          "before",
+          "value"
+        ],
+        "checks": [],
+        "rejectionConditions": [
+          "!gm",
+          "!map"
+        ],
+        "delegatedTypes": []
       }
     ],
     "scene.update": [
       {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 111,
+        "line": 122,
         "fields": [
           "id",
           "name",
@@ -1601,7 +1965,7 @@
     "scene.delete": [
       {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 123,
+        "line": 134,
         "fields": [
           "id"
         ],
@@ -1615,7 +1979,7 @@
     "scene.activate": [
       {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 126,
+        "line": 137,
         "fields": [
           "id"
         ],
@@ -1631,7 +1995,7 @@
     "token.place": [
       {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 133,
+        "line": 144,
         "fields": [
           "sceneId",
           "id",
@@ -1657,10 +2021,38 @@
         "delegatedTypes": []
       }
     ],
+    "token.duplicate": [
+      {
+        "source": "game/packages/session/src/world-scenes.ts",
+        "line": 156,
+        "fields": [
+          "sceneId",
+          "sourceId",
+          "id",
+          "x",
+          "y"
+        ],
+        "checks": [
+          "requireId(action.id)",
+          "requireInteger(action.x, 0, scene.map.width - 1)",
+          "requireInteger(action.y, 0, scene.map.height - 1)"
+        ],
+        "rejectionConditions": [
+          "!context.isGm&&context.senderId!==context.hostId&&scene.id!==worldSceneId(world,context.senderId)",
+          "!actor",
+          "scene.tokens[id]",
+          "Object.keys(scene.tokens).length >= 512",
+          "Object.keys(world.actors).length >= 10000",
+          "!point",
+          "requested && !Number.isFinite(movementCost(scene.map, point, occupied))"
+        ],
+        "delegatedTypes": []
+      }
+    ],
     "token.remove": [
       {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 144,
+        "line": 177,
         "fields": [
           "sceneId",
           "id"
@@ -1676,7 +2068,7 @@
     "token.configure": [
       {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 147,
+        "line": 180,
         "fields": [
           "sceneId",
           "id",
@@ -1700,12 +2092,42 @@
           "canonicalJson(action.expectedConfiguration)!==canonicalJson(current)"
         ],
         "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
+        "line": 184,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
+        "line": 71,
+        "fields": [
+          "sceneId",
+          "id",
+          "before",
+          "value",
+          "binding"
+        ],
+        "checks": [
+          "parseTokenConfiguration(action.value)"
+        ],
+        "rejectionConditions": [
+          "action.sceneId!==(next.activeSceneId??'initial')",
+          "!token",
+          "canonicalJson(action.before)!==canonicalJson(tokenConfiguration(token))",
+          "action.binding",
+          "typeof action.binding.linked!=='boolean'||token.actorId!==action.binding.expectedActorId"
+        ],
+        "delegatedTypes": []
       }
     ],
     "token.move": [
       {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 156,
+        "line": 189,
         "fields": [
           "sceneId",
           "id",
@@ -1730,7 +2152,7 @@
     "combat.start": [
       {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 168,
+        "line": 201,
         "fields": [
           "sceneId",
           "seed"
@@ -1748,7 +2170,7 @@
     "combat.stop": [
       {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 182,
+        "line": 215,
         "fields": [
           "sceneId"
         ],
@@ -1761,8 +2183,28 @@
     ],
     "combat.action": [
       {
+        "source": "game/packages/session/src/world-combat-rollback.ts",
+        "line": 10,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": []
+      },
+      {
+        "source": "game/packages/session/src/world-environment-effects.ts",
+        "line": 13,
+        "fields": [
+          "intent"
+        ],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": [
+          "Record<string,unknown>"
+        ]
+      },
+      {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 185,
+        "line": 218,
         "fields": [
           "sceneId",
           "intent"
@@ -1782,7 +2224,7 @@
     "combat.move": [
       {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 197,
+        "line": 230,
         "fields": [
           "sceneId",
           "id",
@@ -1811,7 +2253,7 @@
     "scene.fog": [
       {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 222,
+        "line": 256,
         "fields": [
           "sceneId",
           "enabled",
@@ -1835,7 +2277,7 @@
     "annotation.upsert": [
       {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 231,
+        "line": 265,
         "fields": [
           "sceneId",
           "annotation"
@@ -1860,7 +2302,7 @@
     "annotation.delete": [
       {
         "source": "game/packages/session/src/world-scenes.ts",
-        "line": 242,
+        "line": 276,
         "fields": [
           "sceneId",
           "id"
@@ -1991,7 +2433,7 @@
     "aaf.rules.configure": [
       {
         "source": "game/packages/session/src/world-aaf-rules.ts",
-        "line": 39,
+        "line": 69,
         "fields": [
           "actorId",
           "expected",
@@ -2010,7 +2452,7 @@
     "aaf.rules.ability": [
       {
         "source": "game/packages/session/src/world-aaf-rules.ts",
-        "line": 40,
+        "line": 70,
         "fields": [
           "actorId",
           "expected",
@@ -2029,23 +2471,24 @@
     "aaf.rules.effect": [
       {
         "source": "game/packages/session/src/world-aaf-rules.ts",
-        "line": 41,
+        "line": 71,
         "fields": [
           "actorId",
           "expected",
+          "effects",
           "effect",
           "source",
-          "duration"
+          "duration",
+          "unreducible"
         ],
         "checks": [
           "ownedActor(world, action.actorId, context)",
           "action.expected === current.revision",
-          "parseAafOperation(action.effect)",
           "requireText(action.source)",
           "parseAafDuration(action.duration)"
         ],
         "rejectionConditions": [
-          "effect.kind==='shield'&&!ctx.combat"
+          "action.effects!==undefined&&(!Array.isArray(action.effects)||action.effects.length<1||action.effects.length>64)"
         ],
         "delegatedTypes": [],
         "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
@@ -2054,7 +2497,7 @@
     "aaf.rules.check": [
       {
         "source": "game/packages/session/src/world-aaf-rules.ts",
-        "line": 45,
+        "line": 78,
         "fields": [
           "actorId",
           "expected",
@@ -2068,8 +2511,30 @@
           "requireText(raw.skill)"
         ],
         "rejectionConditions": [
+          "aafPendingActor(s)||s.aafFlow?.length",
           "!['attribute','skill','save','initiative'].includes(String(raw.kind))",
           "!['str','dex','con','int','wis','cha'].includes(attribute)"
+        ],
+        "delegatedTypes": [],
+        "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
+      }
+    ],
+    "aaf.rules.check-dc": [
+      {
+        "source": "game/packages/session/src/world-aaf-rules.ts",
+        "line": 85,
+        "fields": [
+          "actorId",
+          "expected",
+          "dc"
+        ],
+        "checks": [
+          "ownedActor(world, action.actorId, context)",
+          "action.expected === current.revision",
+          "requireInteger(action.dc,0,1000)"
+        ],
+        "rejectionConditions": [
+          "!r.pending||r.pending.kind!=='check'||!r.lastCheck||r.pending.reroll"
         ],
         "delegatedTypes": [],
         "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
@@ -2078,12 +2543,13 @@
     "aaf.rules.rest": [
       {
         "source": "game/packages/session/src/world-aaf-rules.ts",
-        "line": 51,
+        "line": 88,
         "fields": [
           "actorId",
           "expected",
           "rest",
-          "provisions"
+          "provisions",
+          "heldItemIds"
         ],
         "checks": [
           "ownedActor(world, action.actorId, context)",
@@ -2092,7 +2558,9 @@
         "rejectionConditions": [
           "ctx.combat",
           "kind!=='short'&&kind!=='long'",
-          "kind==='short'&&r.shortRests>=2"
+          "kind==='short'&&r.shortRests>=2",
+          "kind==='long'",
+          "document.aaf"
         ],
         "delegatedTypes": [],
         "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
@@ -2101,7 +2569,7 @@
     "aaf.rules.boundary": [
       {
         "source": "game/packages/session/src/world-aaf-rules.ts",
-        "line": 66,
+        "line": 103,
         "fields": [
           "actorId",
           "expected",
@@ -2123,7 +2591,7 @@
     "aaf.rules.hero": [
       {
         "source": "game/packages/session/src/world-aaf-rules.ts",
-        "line": 69,
+        "line": 106,
         "fields": [
           "actorId",
           "expected",
@@ -2142,7 +2610,7 @@
     "aaf.rules.defeat": [
       {
         "source": "game/packages/session/src/world-aaf-rules.ts",
-        "line": 70,
+        "line": 107,
         "fields": [
           "actorId",
           "expected"
@@ -2159,7 +2627,7 @@
     "aaf.rules.respond": [
       {
         "source": "game/packages/session/src/world-aaf-rules.ts",
-        "line": 38,
+        "line": 68,
         "fields": [
           "actorId",
           "expected",
@@ -2177,10 +2645,511 @@
         "note": "共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。"
       }
     ],
+    "spiral.create": [
+      {
+        "source": "game/packages/session/src/world-spiral.ts",
+        "line": 6,
+        "fields": [
+          "settings"
+        ],
+        "checks": [
+          "parseSpiralSettings(action.settings)"
+        ],
+        "rejectionConditions": [
+          "ctx.senderId!==ctx.hostId||world.spiral||Object.keys(world.scenes).length||Object.keys(world.actors).length"
+        ],
+        "delegatedTypes": []
+      }
+    ],
+    "spiral.join": [
+      {
+        "source": "game/packages/game-core/src/spiral/index.ts",
+        "line": 122,
+        "fields": [
+          "name",
+          "classId",
+          "kitId"
+        ],
+        "checks": [
+          "isText(action.name,80)",
+          "isId(playerId)"
+        ],
+        "rejectionConditions": [
+          "d.phase!=='lobby'",
+          "!isText(action.name,80)||!String(action.name).trim()||!Object.hasOwn(SPIRAL_CLASSES,String(action.classId))",
+          "!member",
+          "d.members.length>=4",
+          "!isId(playerId)"
+        ],
+        "delegatedTypes": [
+          "keyof typeof SPIRAL_CLASSES"
+        ],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.ready": [
+      {
+        "source": "game/packages/game-core/src/spiral/index.ts",
+        "line": 147,
+        "fields": [
+          "ready"
+        ],
+        "checks": [],
+        "rejectionConditions": [
+          "d.phase!=='lobby'||typeof action.ready!=='boolean'"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.start": [
+      {
+        "source": "game/packages/game-core/src/spiral/index.ts",
+        "line": 148,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.vote": [
+      {
+        "source": "game/packages/game-core/src/spiral/index.ts",
+        "line": 149,
+        "fields": [
+          "roomId"
+        ],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.reward": [
+      {
+        "source": "game/packages/game-core/src/spiral/index.ts",
+        "line": 157,
+        "fields": [
+          "rewardId"
+        ],
+        "checks": [],
+        "rejectionConditions": [
+          "d.phase!=='reward'||!participants(s).includes(member)||member.chosenReward||!member.rewards.includes(String(action.rewardId))",
+          "!actor"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.rest": [
+      {
+        "source": "game/packages/game-core/src/spiral/index.ts",
+        "line": 162,
+        "fields": [
+          "choice"
+        ],
+        "checks": [],
+        "rejectionConditions": [
+          "d.phase!=='rest'||member.chosenReward||!['hp','mp'].includes(String(action.choice))||!expeditionActor(s,member.actorId)"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.end": [
+      {
+        "source": "game/packages/game-core/src/spiral/index.ts",
+        "line": 172,
+        "fields": [
+          "ready",
+          "threatRevision"
+        ],
+        "checks": [],
+        "rejectionConditions": [
+          "typeof action.ready!=='boolean'||aafPendingActor(battle)||battle.aafFlow?.length",
+          "action.ready&&action.threatRevision!==d.threatRevision"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.action": [
+      {
+        "source": "game/packages/game-core/src/spiral/index.ts",
+        "line": 177,
+        "fields": [
+          "action"
+        ],
+        "checks": [
+          "isRecord(action.action)",
+          "isInteger(a.x,0,99)",
+          "isInteger(a.y,0,99)",
+          "isId(a.targetId)",
+          "isAafAction(a)"
+        ],
+        "rejectionConditions": [
+          "!isRecord(action.action)"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.event": [
+      {
+        "source": "game/packages/game-core/src/spiral/index.ts",
+        "line": 167,
+        "fields": [
+          "choice"
+        ],
+        "checks": [],
+        "rejectionConditions": [
+          "d.phase!=='event'||member.chosenReward||!['help','leave'].includes(String(action.choice))"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.search": [
+      {
+        "source": "game/packages/game-core/src/spiral/index.ts",
+        "line": 143,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [
+          "d.phase!=='route'||!d.roomId||d.searched.includes(d.roomId)"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.presented": [
+      {
+        "source": "game/packages/game-core/src/spiral/index.ts",
+        "line": 134,
+        "fields": [
+          "presentationId"
+        ],
+        "checks": [],
+        "rejectionConditions": [
+          "!p||action.presentationId!==p.id"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.travel": [
+      {
+        "source": "game/packages/game-core/src/spiral/exploration.ts",
+        "line": 70,
+        "fields": [
+          "day",
+          "motion",
+          "q",
+          "r"
+        ],
+        "checks": [
+          "isInteger(action.q,0,j.width-1)",
+          "isInteger(action.r,0,j.height-1)"
+        ],
+        "rejectionConditions": [
+          "action.day!==j.day||action.motion!==traveller.motion",
+          "!isInteger(action.q,0,j.width-1)||!isInteger(action.r,0,j.height-1)",
+          "!route||!route.path.length||route.cost>traveller.remaining"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.travelEnd": [
+      {
+        "source": "game/packages/game-core/src/spiral/exploration.ts",
+        "line": 63,
+        "fields": [
+          "ready"
+        ],
+        "checks": [],
+        "rejectionConditions": [
+          "typeof action.ready!=='boolean'"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.visit": [
+      {
+        "source": "game/packages/game-core/src/spiral/exploration.ts",
+        "line": 119,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [
+          "spiralHexDistance(traveller,site)!==0",
+          "traveller.mode==='sail'",
+          "site.kind==='event'",
+          "site.kind==='enemy'",
+          "site.cleared",
+          "site.kind==='town'||site.kind==='port'",
+          "j.gold<8||traveller.remaining<2",
+          "site.kind==='dungeon'",
+          "traveller.remaining<1"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.rally": [
+      {
+        "source": "game/packages/game-core/src/spiral/exploration.ts",
+        "line": 108,
+        "fields": [
+          "ready"
+        ],
+        "checks": [],
+        "rejectionConditions": [
+          "site.kind!=='dungeon'||site.cleared||traveller.mode==='sail'||spiralHexDistance(traveller,site)>1||typeof action.ready!=='boolean'",
+          "j.rally&&j.rally.siteId!==site.id&&j.rally.readyPlayers.length"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.retreat": [
+      {
+        "source": "game/packages/game-core/src/spiral/exploration.ts",
+        "line": 57,
+        "fields": [
+          "ready"
+        ],
+        "checks": [],
+        "rejectionConditions": [
+          "j.location!=='dungeon'||d.phase==='combat'||!['route','reward','rest','event'].includes(d.phase)||typeof action.ready!=='boolean'",
+          "d.phase==='rest'||d.phase==='event'"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.rescue": [
+      {
+        "source": "game/packages/game-core/src/spiral/exploration.ts",
+        "line": 78,
+        "fields": [
+          "playerId"
+        ],
+        "checks": [],
+        "rejectionConditions": [
+          "!t||!fallen||fallen.hp>0||spiralHexDistance(t,traveller)>1||traveller.remaining<2"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.finish": [
+      {
+        "source": "game/packages/game-core/src/spiral/exploration.ts",
+        "line": 104,
+        "fields": [
+          "ready"
+        ],
+        "checks": [],
+        "rejectionConditions": [
+          "typeof action.ready!=='boolean'"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.embark": [
+      {
+        "source": "game/packages/game-core/src/spiral/exploration.ts",
+        "line": 83,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [
+          "site.kind!=='port'||spiralHexDistance(traveller,site)!==0",
+          "kind==='spiral.disembark'",
+          "traveller.mode!=='sail'",
+          "traveller.mode==='sail'",
+          "j.gold<price||traveller.remaining<SPIRAL_TRAVEL_RULES.embarkMovement"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.disembark": [
+      {
+        "source": "game/packages/game-core/src/spiral/exploration.ts",
+        "line": 83,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [
+          "site.kind!=='port'||spiralHexDistance(traveller,site)!==0",
+          "kind==='spiral.disembark'",
+          "traveller.mode!=='sail'",
+          "traveller.mode==='sail'",
+          "j.gold<price||traveller.remaining<SPIRAL_TRAVEL_RULES.embarkMovement"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      },
+      {
+        "source": "game/packages/game-core/src/spiral/exploration.ts",
+        "line": 85,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [
+          "traveller.mode!=='sail'"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.resolveEvent": [
+      {
+        "source": "game/packages/game-core/src/spiral/exploration.ts",
+        "line": 93,
+        "fields": [
+          "choice"
+        ],
+        "checks": [],
+        "rejectionConditions": [
+          "site.kind!=='event'||!site.event||site.cleared||spiralHexDistance(traveller,site)!==0",
+          "site.event==='wreck'&&traveller.mode!=='sail'",
+          "!choice",
+          "traveller.remaining<choice.movement||j.gold<(choice.goldCost??0)||actor.mp<(choice.mpCost??0)"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.assign": [
+      {
+        "source": "game/packages/game-core/src/spiral/index.ts",
+        "line": 116,
+        "fields": [
+          "playerId",
+          "actorId"
+        ],
+        "checks": [
+          "isId(action.playerId)"
+        ],
+        "rejectionConditions": [
+          "!target"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      },
+      {
+        "source": "game/packages/session/src/world-spiral.ts",
+        "line": 4,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.recruit": [
+      {
+        "source": "game/packages/game-core/src/spiral/index.ts",
+        "line": 131,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [
+          "playerId!==hostId||d.settings.scenario!=='ruen'||d.phase!=='lobby'"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.ruenTravel": [
+      {
+        "source": "game/packages/game-core/src/spiral/ruen.ts",
+        "line": 40,
+        "fields": [
+          "siteId",
+          "from"
+        ],
+        "checks": [],
+        "rejectionConditions": [
+          "!target||!(site.links as readonly string[]).includes(target.id)||action.from!==p.position"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.ruenCamp": [
+      {
+        "source": "game/packages/game-core/src/spiral/ruen.ts",
+        "line": 47,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [
+          "p.supplies<2"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.ruenEnter": [
+      {
+        "source": "game/packages/game-core/src/spiral/ruen.ts",
+        "line": 50,
+        "fields": [],
+        "checks": [],
+        "rejectionConditions": [
+          "site.kind!=='dungeon'&&site.kind!=='battle'||landmark.cleared",
+          "site.id==='pump'&&!p.flags.includes('charts')",
+          "site.id==='lock'&&!p.flags.includes('pump')"
+        ],
+        "delegatedTypes": [],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
+    "spiral.ruenChoice": [
+      {
+        "source": "game/packages/game-core/src/spiral/ruen.ts",
+        "line": 1,
+        "fields": [
+          "siteId",
+          "from",
+          "choice"
+        ],
+        "checks": [],
+        "rejectionConditions": [
+          "siteId!=='pump'&&siteId!=='lock'",
+          "!p||!j||d.phase!=='overworld'||j.location!=='surface'",
+          "kind==='spiral.ruenTravel'",
+          "!target||!(site.links as readonly string[]).includes(target.id)||action.from!==p.position",
+          "kind==='spiral.ruenCamp'",
+          "p.supplies<2",
+          "kind==='spiral.ruenEnter'",
+          "site.kind!=='dungeon'&&site.kind!=='battle'||landmark.cleared",
+          "site.id==='pump'&&!p.flags.includes('charts')",
+          "site.id==='lock'&&!p.flags.includes('pump')",
+          "kind!=='spiral.ruenChoice'",
+          "site.id==='harbor'",
+          "choice==='supply'",
+          "j.gold<8",
+          "p.supplies>93",
+          "choice==='rest'",
+          "choice==='work'",
+          "j.gold>=8||p.supplies>2",
+          "site.id==='ferry'&&!has('engineer')&&!has('cargo')",
+          "site.id==='orchard'&&!has('orchard')&&!has('orchard-trade')",
+          "choice==='trade'",
+          "j.gold<6"
+        ],
+        "delegatedTypes": [
+          "SpiralData"
+        ],
+        "note": "分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。"
+      }
+    ],
     "adjudication.apply": [
       {
         "source": "game/packages/session/src/world-authority.ts",
-        "line": 44,
+        "line": 45,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -2202,30 +3171,14 @@
     ],
     "combat.rollback": [
       {
-        "source": "game/packages/session/src/world-combat-rollback.ts",
-        "line": 1,
-        "fields": [
-          "command",
-          "actorId",
-          "sceneId",
-          "intent",
-          "confirmed",
-          "id",
-          "rollbackKind"
+        "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
+        "line": 128,
+        "fields": [],
+        "checks": [
+          "parseManualTable(personal!==global?tableScene(restored,global):restored)"
         ],
-        "checks": [],
-        "rejectionConditions": [
-          "!storyGm(world.story,world.hostId,sender)||action.confirmed!==true",
-          "!row||row.sceneId!==action.sceneId||!row.kinds.includes(action.rollbackKind as RollbackKind)",
-          "!scene",
-          "!a"
-        ],
-        "delegatedTypes": [
-          "{op?:string}|undefined",
-          "{kind?:string}",
-          "RollbackKind",
-          "CombatRollbackCommand"
-        ]
+        "rejectionConditions": [],
+        "delegatedTypes": []
       }
     ]
   }

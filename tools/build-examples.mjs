@@ -30,6 +30,9 @@ function actorFile(system,a){return{format:'aaf-actor',version:1,systemId:system
 for(const [folder,system,a]of [['dnd5e-2024','dnd5e-2024',dndActor],['heartsea','otherworld-journey',heartseaActor],['new-utopia','lancer',utopiaActor],['lancer','lancer',lancerActor]])save(folder+'/actor.json',actorFile(system,a),C.parseActorFile,'ActorFile');
 const weapon={name:'训练步枪',sp:0,limited:0,used:0,notes:'自编接口示例；平衡性由GM决定。',resourceId:'custom:demo-rifle',size:'main',mount:0,brace:-1,damage:'1d6 kinetic',range:'10',tags:'',automation:{version:1,kind:'weapon',profile:{weaponType:'rifle',damageParts:[{damage:'1d6',type:'kinetic'}],range:10,threat:1,accuracy:0,selfHeat:0,reliable:0,knockback:0,tags:[]}}};
 save('lancer/weapon.json',weapon,parseWeapon,null);save('lancer/automation.json',weapon.automation,C.parseLancerAutomation,'LancerEquipmentAutomation');
+save('lancer/npc-profile.json',{classId:'custom-training-observer',tier:1,template:'standard',options:[],profile:{name:'训练观察机',source:'自编接口示例；不代表官方 NPC 数值',size:1,activations:1,hp:8,heatCap:6,structure:1,stress:1,armor:0,evasion:8,edef:8,speed:4,sensors:10,save:10,attack:0,tech:0,hull:0,agility:0,systems:0,engineering:0,weapons:[],actions:[{id:'report',name:'报告观测',cost:1,description:'记录一次观测；具体情报由 GM 裁定。'}],traits:['演示档案；未配置攻击武器。'],conditions:[],resistances:[]}},C.parseLancerNpc,'LancerNpc');
+save('shared/theatre-state.json',{active:true,sceneId:'initial',background:'',cast:[{actorId:'demo-guide',name:'渡口向导',portrait:'',position:0,side:'left'}],focus:'demo-guide',speech:null,revision:1},C.parseTheatreState,'TheatreState');
+save('shared/clock-board.json',{presentation:'clocks',chain:'示例交涉',order:1,predecessors:[],revealWhenUnlocked:false,autoComplete:false,objectives:[{id:'time',text:'剩余发言轮次',current:4,target:4,optional:false},{id:'guide',text:'向导',current:1,target:6,optional:false}],rewards:[]},C.parseQuest,'QuestDetails');
 save('aaf/catalog.json',{version:1,revision:'demo-1',talents:[{id:'demo-pathfinder',name:'熟悉道路',branch:'示例',description:'示例天赋，只记录学习，不声称附带自动数值。',cost:1,requires:[],x:0,y:0}],items:[]},C.parseAafCatalog,'AafCatalog');
 const aaf=WorldAuthority.create('demo-aaf','demo-gm','AAF 空白备团草稿',12345).exportSave();save('aaf/world.json',aaf,v=>restoreWorld(v,'demo-aaf','demo-gm'),'WorldDocument');
 const aafAuthor=WorldAuthority.create('demo-aaf-actor','demo-gm','独立角色示例',12345);
@@ -56,6 +59,6 @@ for(const [folder,system,variant,a]of [['dnd5e-2024','dnd5e-2024',null,dndActor]
 // Exercise an actual local authoring command on a copy; do not publish injected built-in setting prose.
 const empty=base('dnd5e-2024');empty.story.adventure=C.emptyAdventure();const drafted=applyDraft(empty,[{kind:'adventure',command:{op:'stage.save',expected:null,value:stage}}]);
 if(!drafted.story.adventure.stage.scripts.some(s=>s.id===stage.id))throw Error('Stage authoring failed');checks++;
-fs.writeFileSync(path.join(out,'examples/manifest.json'),JSON.stringify({date:'2026-10-10',checks,files:manifest},null,2)+'\n');
+fs.writeFileSync(path.join(out,'examples/manifest.json'),JSON.stringify({date:new Date().toISOString().slice(0,10),checks,files:manifest},null,2)+'\n');
 fs.writeFileSync(path.join(out,'reference/world-command-kinds.json'),JSON.stringify(worldCommandKinds,null,2)+'\n');
 console.log(JSON.stringify({examples:manifest.length,checks,aafCommands:worldCommandKinds.length}));

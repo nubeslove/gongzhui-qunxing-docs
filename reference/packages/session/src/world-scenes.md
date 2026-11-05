@@ -1,6 +1,6 @@
 # game/packages/session/src/world-scenes.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -16,7 +16,7 @@ import {movementPath,expandMovementPath,sceneRayBlocked} from '@aelzerant/contra
 import {actorControlled,actorControllers} from '@aelzerant/contracts';
 import {changeSceneCanvas,sceneCanvasStyle} from '@aelzerant/contracts';
 import {placeInSceneDirectory,removeFromSceneDirectory,emptyStory} from '@aelzerant/contracts';
-import {actorTokenPrototype,tokenPrototypeConfiguration} from '@aelzerant/contracts';
+import {actorTokenPrototype,tokenPrototypeConfiguration,duplicateTokenActor,numberedTokenName,surroundingCellOffsets,copyTokenActorStory} from '@aelzerant/contracts';
 import {bindWorldToken,removeWorldTokenActor,requestedTokenBinding} from './world-token-instances';
 import {assertTokenRotationChange} from '@aelzerant/contracts';
 import {tokenConfiguration,parseTokenConfiguration,canonicalJson} from '@aelzerant/contracts';
@@ -72,9 +72,24 @@ export function controlToken(world: WorldDocument, scene: SceneDocument, tokenId
 | `tokenId` | 否 | `unknown` | — |
 | `context` | 否 | `WorldContext` | — |
 
-## deleteWorldScenes
+## freeSceneCell
 
 导出接口 · 源码第 43 行。
+
+Nearest passable free cell to the source, so consecutive pastes fill a ring around the original.
+
+```ts
+export function freeSceneCell(scene: SceneDocument, origin: {x:number;y:number}): {x:number;y:number}|null;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `scene` | 否 | `SceneDocument` | — |
+| `origin` | 否 | `{x:number;y:number}` | — |
+
+## deleteWorldScenes
+
+导出接口 · 源码第 54 行。
 
 Delete all selected scenes before choosing a fallback or changing scene audio.
 

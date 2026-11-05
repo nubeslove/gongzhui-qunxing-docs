@@ -1,6 +1,6 @@
 # game/packages/game-core/src/combat.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -10,6 +10,7 @@
 import {elevationCellKey,emptyAafRules} from '@aelzerant/contracts';
 import {aafAction,aafAttack,aafPendingActor,aafDrainFlow} from './aaf/actions';
 import {aafReactionWindow} from './aaf/flow';
+import {aafMove,aafRefreshMovement} from './aaf/movement';
 import {aafTurnStart,aafTurnEnd,aafSpendAction} from './aaf/turn';
 import {aafConditions,aafIncapacitated,aafSpeedValue,aafSyncQuota} from './aaf/state';
 import {elevationMovementBlocked,elevationStep,elevationStepCost,sceneRayBlocked} from '@aelzerant/contracts';
@@ -24,7 +25,7 @@ import type { ActionQuota, Combatant, CombatantInput, CombatState } from "./type
 
 ## initCombat
 
-导出接口 · 源码第 22 行。
+导出接口 · 源码第 23 行。
 
 ```ts
 export function initCombat(inputs: CombatantInput[], seed: number, map?: SceneMap, prepared?: Record<string,number>): CombatState;
@@ -39,7 +40,7 @@ export function initCombat(inputs: CombatantInput[], seed: number, map?: SceneMa
 
 ## advance
 
-导出接口 · 源码第 84 行。
+导出接口 · 源码第 85 行。
 
 ```ts
 export function advance(state: CombatState): CombatState;
@@ -49,9 +50,23 @@ export function advance(state: CombatState): CombatState;
 | --- | --- | --- | --- |
 | `state` | 否 | `CombatState` | — |
 
+## settleAafCombat
+
+导出接口 · 源码第 92 行。
+
+Reconcile derived movement and defeat after a complete effect, never during a pending decision.
+
+```ts
+export function settleAafCombat(state: CombatState): void;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `state` | 否 | `CombatState` | — |
+
 ## applyIntent
 
-导出接口 · 源码第 94 行。
+导出接口 · 源码第 102 行。
 
 Unknown is intentional: this boundary is also used for untrusted network intents.
 
@@ -66,7 +81,7 @@ export function applyIntent(state: CombatState, intent: unknown): CombatState;
 
 ## setCombatMap
 
-导出接口 · 源码第 161 行。
+导出接口 · 源码第 167 行。
 
 ```ts
 export function setCombatMap(state: CombatState, map: SceneMap): CombatState;
@@ -79,7 +94,7 @@ export function setCombatMap(state: CombatState, map: SceneMap): CombatState;
 
 ## snapshotCombat
 
-导出接口 · 源码第 166 行。
+导出接口 · 源码第 172 行。
 
 ```ts
 export function snapshotCombat(state: CombatState): CombatStatePayload;

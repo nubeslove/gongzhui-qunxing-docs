@@ -1,24 +1,31 @@
 # game/packages/game-core/src/dnd/adjudication.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
-import {dndSpellCanTargetObjects,dndCastingAbility,dndSpellSlot,spendDndSpellSlot} from '@aelzerant/rules-engine';
+import {cancelDndReady,dndReadyMatches} from './ready';
+import {selectedDndLegendary,payDndLegendary} from './legendary';
+import {dndCastingReady,stopDndCasting} from './long-casting';
+import {dndRitualCharacter} from '@aelzerant/rules-engine';
+import {dndVerbalProblem,consumeDndMaterial} from './spell-components';
+import {dndRaging,dndUntrainedArmor} from '@aelzerant/rules-engine';
+import {cleanDndEffects} from './effects';
+import {dndSpellCanTargetObjects,dndCastingAbility,dndSpellPayment,spendDndSpellPayment} from '@aelzerant/rules-engine';
 import {dndPlayerCanTarget} from '@aelzerant/contracts';
 import {dndCover} from './geometry';
 import {dndDistance} from './index';
 import {actorAccess,actorControlled,createTimedDecision,DND_CONDITIONS,DND_DAMAGE_TYPES,parseDndHudRef,type CombatVisual,type DndIntent,type DndAdjudicationResult,type ManualActor,type ManualTable} from '@aelzerant/contracts';
-import {dndEntry,dndSpellTargets,dndHudActions,dndHudKey,dndIncapacitated,type DndHudAction} from '@aelzerant/rules-engine';
+import {dndFeatureEffect,dndEntry,dndSpellTargets,dndHudActions,dndHudKey,dndIncapacitated,type DndHudAction} from '@aelzerant/rules-engine';
 ```
 </details>
 
 ## Hooks
 
-内部依赖类型 · 源码第 7 行。
+内部依赖类型 · 源码第 14 行。
 
 ```ts
 type Hooks = {
@@ -46,7 +53,7 @@ type Hooks = {
 
 ## adjudicateDnd
 
-导出接口 · 源码第 12 行。
+导出接口 · 源码第 19 行。
 
 A held GM decision: no automatic timeout, no cost until the GM commits the result.
 

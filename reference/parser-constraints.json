@@ -1,7 +1,36 @@
 {
-  "date": "2026-10-10",
+  "date": "2026-11-05",
   "scope": "Direct parser/validator call arguments and rejection predicates. Not exhaustive interprocedural validation.",
   "validators": [
+    {
+      "name": "parseAssetPackIndex",
+      "source": "game/packages/assets/src/asset-packs.ts",
+      "line": 46,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!raw || typeof raw !== 'object' || Array.isArray(raw)",
+        "value.version !== 1 || !Array.isArray(value.packs) || value.packs.length > 512",
+        "!entry || typeof entry !== 'object' || Array.isArray(entry)",
+        "!idPattern.test(id) || seen.has(id)",
+        "!Array.isArray(pack.files) || pack.files.length === 0 || pack.files.length > 20000",
+        "!item || typeof item !== 'object' || Array.isArray(item)",
+        "paths.has(filePath)",
+        "typeof file.sha256 !== 'string' || !sha.test(file.sha256)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parsePackReference",
+      "source": "game/packages/assets/src/asset-packs.ts",
+      "line": 83,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!idPattern.test(packId) || !filePath"
+      ],
+      "delegatedTypes": []
+    },
     {
       "name": "parseAafBuild",
       "source": "game/packages/contracts/src/aaf-build.ts",
@@ -40,13 +69,17 @@
     {
       "name": "parseAafFlow",
       "source": "game/packages/contracts/src/aaf-flow.ts",
-      "line": 19,
+      "line": 22,
       "fields": [],
-      "checks": [],
+      "checks": [
+        "parseAafAbility(o.ability)"
+      ],
       "rejectionConditions": [
         "!Array.isArray(value)||value.length>128",
         "!obj(f)||!id(f.id)||!id(f.actorId)||!id(f.label)||!['cast','attack','move','stand','item','manual'].includes(String(f.event))||!ids(f.eligible)||!ids(f.opportunity)||!ids(f.passed)||typeof f.cancelled!=='boolean'||!obj(f.operation)",
         "!id(o.abilityId)||!ids(o.targets)||o.concentrationId!==undefined&&!id(o.concentrationId)",
+        "!ids(o.targets)||!Array.isArray(o.effects)||o.effects.length>64||o.concentrationId!==undefined&&!id(o.concentrationId)",
+        "!id(o.targetId)||!Array.isArray(o.tasks)||o.tasks.length>64",
         "!id(o.abilityId)||!id(o.frameId)",
         "!id(o.abilityId)||!id(o.targetId)||!id(o.concentrationId)"
       ],
@@ -77,7 +110,7 @@
     {
       "name": "parseAafRules",
       "source": "game/packages/contracts/src/aaf-rules.ts",
-      "line": 87,
+      "line": 90,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
@@ -88,7 +121,7 @@
     {
       "name": "isAafRules",
       "source": "game/packages/contracts/src/aaf-rules.ts",
-      "line": 88,
+      "line": 91,
       "fields": [],
       "checks": [
         "parseAafRules(v)"
@@ -99,7 +132,7 @@
     {
       "name": "parseAafAbility",
       "source": "game/packages/contracts/src/aaf-rules.ts",
-      "line": 89,
+      "line": 92,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
@@ -111,7 +144,7 @@
     {
       "name": "parseAafOperation",
       "source": "game/packages/contracts/src/aaf-rules.ts",
-      "line": 90,
+      "line": 93,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
@@ -120,9 +153,20 @@
       "delegatedTypes": []
     },
     {
+      "name": "parseAafCheck",
+      "source": "game/packages/contracts/src/aaf-rules.ts",
+      "line": 94,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!checkRecord(v)"
+      ],
+      "delegatedTypes": []
+    },
+    {
       "name": "parseAafDuration",
       "source": "game/packages/contracts/src/aaf-rules.ts",
-      "line": 91,
+      "line": 95,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
@@ -131,9 +175,20 @@
       "delegatedTypes": []
     },
     {
+      "name": "parseAafEffectTask",
+      "source": "game/packages/contracts/src/aaf-rules.ts",
+      "line": 97,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!effectTask(v)"
+      ],
+      "delegatedTypes": []
+    },
+    {
       "name": "parseAafItemDefinition",
       "source": "game/packages/contracts/src/aaf.ts",
-      "line": 65,
+      "line": 66,
       "fields": [],
       "checks": [
         "parseAafPhysical(d.physical)"
@@ -149,7 +204,7 @@
     {
       "name": "parseAafCatalog",
       "source": "game/packages/contracts/src/aaf.ts",
-      "line": 99,
+      "line": 100,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
@@ -162,7 +217,7 @@
     {
       "name": "parseAafCharacter",
       "source": "game/packages/contracts/src/aaf.ts",
-      "line": 107,
+      "line": 108,
       "fields": [],
       "checks": [
         "parseAafTalent(l.node)",
@@ -218,7 +273,7 @@
     {
       "name": "parseAdventureEffects",
       "source": "game/packages/contracts/src/adventure-events.ts",
-      "line": 59,
+      "line": 62,
       "fields": [],
       "checks": [
         "parseAdventureSelector(v.targets)",
@@ -227,6 +282,7 @@
       ],
       "rejectionConditions": [
         "!/^(?:\\d{1,4}|(?:[1-9]|[1-9]\\d)d(?:[2-9]|[1-9]\\d{1,3})(?:[+-]\\d{1,3})?)$/i.test(formula)",
+        "!title",
         "!Number.isInteger(value)"
       ],
       "delegatedTypes": []
@@ -234,7 +290,7 @@
     {
       "name": "parseAdventureEvent",
       "source": "game/packages/contracts/src/adventure-events.ts",
-      "line": 79,
+      "line": 84,
       "fields": [],
       "checks": [
         "parseAdventureEffects(o.effects)",
@@ -246,7 +302,7 @@
     {
       "name": "parseAdventureTrigger",
       "source": "game/packages/contracts/src/adventure-events.ts",
-      "line": 80,
+      "line": 85,
       "fields": [],
       "checks": [
         "parseAdventureSelector(v.filter)",
@@ -258,7 +314,7 @@
     {
       "name": "parseAdventure",
       "source": "game/packages/contracts/src/adventure-events.ts",
-      "line": 81,
+      "line": 86,
       "fields": [],
       "checks": [
         "parseAdventureBallot(r.ballot)",
@@ -270,6 +326,19 @@
         "Object.keys(flags).length>=1000",
         "Object.keys(fired).length>=10000",
         "Object.keys(presence).length>=10000"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseBossBarState",
+      "source": "game/packages/contracts/src/boss-bar.ts",
+      "line": 27,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "extra.length",
+        "typeof v.active!=='boolean'",
+        "!name"
       ],
       "delegatedTypes": []
     },
@@ -332,7 +401,7 @@
     {
       "name": "parseCombatStep",
       "source": "game/packages/contracts/src/combat-journal.ts",
-      "line": 24,
+      "line": 30,
       "fields": [],
       "checks": [
         "parseCombatRoll(s.roll)"
@@ -343,7 +412,7 @@
     {
       "name": "parseCombatCard",
       "source": "game/packages/contracts/src/combat-journal.ts",
-      "line": 29,
+      "line": 35,
       "fields": [],
       "checks": [
         "parseCombatVisual(c.visual)"
@@ -354,10 +423,11 @@
     {
       "name": "parseCombatJournal",
       "source": "game/packages/contracts/src/combat-journal.ts",
-      "line": 33,
+      "line": 48,
       "fields": [],
       "checks": [
-        "parseCombatCard(d.root)"
+        "parseCombatCard(d.root)",
+        "parseCombatLogSession(j.session)"
       ],
       "rejectionConditions": [],
       "delegatedTypes": []
@@ -583,6 +653,97 @@
       "delegatedTypes": []
     },
     {
+      "name": "parseContentDistributionCommand",
+      "source": "game/packages/contracts/src/content-distribution.ts",
+      "line": 7,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!raw||typeof raw!=='object'||Array.isArray(raw)",
+        "typeof value.requestId!=='string'||!value.requestId||value.requestId.length>120",
+        "typeof value.expectedRevision!=='number'||!Number.isSafeInteger(value.expectedRevision)||value.expectedRevision<0||value.expectedRevision===Number.MAX_SAFE_INTEGER",
+        "typeof value.audience!=='string'||!Object.hasOwn(CONTENT_AUDIENCES,value.audience)",
+        "typeof value.reason!=='string'||!value.reason.trim()||value.reason.trim().length>300"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseContentDraft",
+      "source": "game/packages/contracts/src/content-drafts.ts",
+      "line": 26,
+      "fields": [],
+      "checks": [
+        "isGameSystemId(value.systemId)",
+        "parsePluginManifest(input.manifest)",
+        "isBuiltinPluginId(manifest.id)",
+        "parseCompendiumBody(input.entry)"
+      ],
+      "rejectionConditions": [
+        "!name",
+        "!isGameSystemId(value.systemId)",
+        "input.kind==='plugin'",
+        "isBuiltinPluginId(manifest.id)",
+        "!['theatre-preset','boss-bar-preset','utility'].includes(manifest.capability)",
+        "manifest.systemId&&manifest.systemId!==value.systemId",
+        "input.kind==='compendium-entry'",
+        "entry.projected",
+        "entry.systemId!==value.systemId",
+        "new TextEncoder().encode(JSON.stringify(body)).length>CONTENT_DRAFT_LIMITS.bytes"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseContentInstallationCommand",
+      "source": "game/packages/contracts/src/content-installation.ts",
+      "line": 10,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!raw||typeof raw!=='object'||Array.isArray(raw)",
+        "typeof value.requestId!=='string'||!value.requestId||value.requestId.length>120",
+        "typeof value.releaseVersion!=='number'||!Number.isSafeInteger(value.releaseVersion)||value.releaseVersion<1||value.releaseVersion===Number.MAX_SAFE_INTEGER",
+        "typeof value.expectedHash!=='string'||!/^[a-f0-9]{64}$/.test(value.expectedHash)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseContentReleaseCommand",
+      "source": "game/packages/contracts/src/content-release.ts",
+      "line": 17,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!raw||typeof raw!=='object'||Array.isArray(raw)",
+        "typeof value.requestId!=='string'||!value.requestId||value.requestId.length>120",
+        "typeof value.reason!=='string'||!value.reason.trim()||value.reason.trim().length>300",
+        "typeof number!=='number'||!Number.isSafeInteger(number)||number<min||number===Number.MAX_SAFE_INTEGER",
+        "publish",
+        "typeof value.expectedHash!=='string'||!/^[a-f0-9]{64}$/.test(value.expectedHash)"
+      ],
+      "delegatedTypes": [
+        "ContentReleaseAction",
+        "'withdraw'|'relist'|'disable'"
+      ]
+    },
+    {
+      "name": "parseContentReviewCommand",
+      "source": "game/packages/contracts/src/content-review.ts",
+      "line": 9,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!raw||typeof raw!=='object'||Array.isArray(raw)",
+        "typeof value.requestId!=='string'||!value.requestId||value.requestId.length>120",
+        "!CONTENT_REVIEW_ACTIONS.includes(value.action as ContentReviewAction)",
+        "typeof value.expectedHash!=='string'||!/^[a-f0-9]{64}$/.test(value.expectedHash)",
+        "!Number.isSafeInteger(value.contentRevision)||Number(value.contentRevision)<1||!Number.isSafeInteger(value.expectedReviewRevision)||Number(value.expectedReviewRevision)<0||Number(value.expectedReviewRevision)>=Number.MAX_SAFE_INTEGER",
+        "typeof value.reason!=='string'||!value.reason.trim()||value.reason.trim().length>300"
+      ],
+      "delegatedTypes": [
+        "ContentReviewAction"
+      ]
+    },
+    {
       "name": "parseConversationChannel",
       "source": "game/packages/contracts/src/conversation-channels.ts",
       "line": 5,
@@ -649,21 +810,48 @@
       "delegatedTypes": []
     },
     {
+      "name": "parseDndItemAura",
+      "source": "game/packages/contracts/src/dnd-detection.ts",
+      "line": 11,
+      "fields": [],
+      "checks": [
+        "parseDndMagicBarrier(v.barrier)"
+      ],
+      "rejectionConditions": [
+        "v[k]!==undefined",
+        "typeof v[k]!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseDndMagicDetection",
+      "source": "game/packages/contracts/src/dnd-detection.ts",
+      "line": 16,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "typeof x!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
       "name": "parseDndActiveEffect",
       "source": "game/packages/contracts/src/dnd-effects.ts",
-      "line": 19,
+      "line": 22,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
         "typeof v!=='boolean'",
-        "!Number.isSafeInteger(n)"
+        "!Number.isSafeInteger(n)",
+        "!/^#[0-9a-f]{6}$/i.test(c)",
+        "(s.to===undefined)===(s.by===undefined)"
       ],
       "delegatedTypes": []
     },
     {
       "name": "parseDndSceneSpell",
       "source": "game/packages/contracts/src/dnd-effects.ts",
-      "line": 26,
+      "line": 29,
       "fields": [],
       "checks": [
         "parseDndActiveEffect(e)"
@@ -674,7 +862,7 @@
     {
       "name": "parseDndPointEffect",
       "source": "game/packages/contracts/src/dnd-magic.ts",
-      "line": 32,
+      "line": 54,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
@@ -685,13 +873,13 @@
     {
       "name": "parseDndMagicPrompt",
       "source": "game/packages/contracts/src/dnd-magic.ts",
-      "line": 34,
+      "line": 56,
       "fields": [],
       "checks": [
         "parseDndPointEffect(x.pointEffect)"
       ],
       "rejectionConditions": [
-        "!['burst','counter','empower','burning','effect-target','choose-point'].includes(kind)",
+        "!['willing-effect','resize','feather-fall','arcane-recovery','cleave','mastery','attack-defense','redirect','burst','counter','empower','burning','effect-target','choose-point'].includes(kind)",
         "!['created','turnStart'].includes(String(x.phase))"
       ],
       "delegatedTypes": []
@@ -699,7 +887,7 @@
     {
       "name": "parseDndMagic",
       "source": "game/packages/contracts/src/dnd-magic.ts",
-      "line": 36,
+      "line": 58,
       "fields": [],
       "checks": [
         "parseDndPointEffect(j.effect)",
@@ -710,22 +898,35 @@
       "rejectionConditions": [
         "depth>15",
         "++count>500",
+        "kind==='unarmed-save'",
+        "!['grapple','shove-prone','shove-away'].includes(String(j.action))||j.ability!==undefined&&!['str','dex','fail'].includes(String(j.ability))",
+        "kind==='grapple-escape'",
+        "j.skill!==undefined&&!['athletics','acrobatics'].includes(String(j.skill))",
+        "kind==='resize'",
+        "!['enlarge','reduce'].includes(String(j.choice))",
+        "kind==='fall-step'",
+        "typeof j.feet!=='number'||!Number.isFinite(feet)||feet<0||feet>1500",
+        "kind==='mastery'",
+        "!['cleave','push','graze','sap','slow','topple','vex'].includes(String(j.mastery))||!['str','dex','con','int','wis','cha'].includes(String(j.ability))",
         "kind==='counter'",
         "!['spell','pact'].includes(String(f.slotType))",
         "kind==='effect-target'",
         "!['created','turnStart'].includes(String(j.phase))",
         "kind==='cast'",
         "!['spell','pact'].includes(slotType)",
+        "!/^#[0-9a-f]{6}$/i.test(color)",
         "kind==='damage'",
         "!['acid','bludgeoning','cold','fire','force','lightning','necrotic','piercing','poison','psychic','radiant','slashing','thunder'].includes(String(j.damageType))",
         "![0,.5,1].includes(Number(t.factor))"
       ],
-      "delegatedTypes": []
+      "delegatedTypes": [
+        "'grapple'|'shove-prone'|'shove-away'"
+      ]
     },
     {
       "name": "parseDndRest",
       "source": "game/packages/contracts/src/dnd.ts",
-      "line": 108,
+      "line": 130,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
@@ -737,9 +938,14 @@
     {
       "name": "parseDndCharacter",
       "source": "game/packages/contracts/src/dnd.ts",
-      "line": 109,
+      "line": 132,
       "fields": [],
       "checks": [
+        "parseDndItemAura(item.aura)",
+        "parseDndActiveEffect(item.spellEffect)",
+        "parseDndMagicDetection(v.magicDetection)",
+        "parseDndCharacter(w.original)",
+        "parseTokenSenses(w.senses)",
         "parseDndSorcery(v.sorcery)"
       ],
       "rejectionConditions": [
@@ -750,16 +956,20 @@
         "slots.length!==9",
         "typeof item.weight!=='number'||!Number.isFinite(item.weight)||item.weight<0||item.weight>100000",
         "typeof item.notes!=='string'||item.notes.length>4000",
-        "['__proto__','constructor','prototype'].includes(id)"
+        "object(w.original).wildShape",
+        "['__proto__','constructor','prototype'].includes(id)",
+        "free&&(!spells.includes(str(free.spell))||!Object.hasOwn(parsedResources,str(free.resource,80)))"
       ],
       "delegatedTypes": []
     },
     {
       "name": "parseDndBattle",
       "source": "game/packages/contracts/src/dnd.ts",
-      "line": 137,
+      "line": 164,
       "fields": [],
-      "checks": [],
+      "checks": [
+        "parseDndLegendaryWindow(v.legendary)"
+      ],
       "rejectionConditions": [
         "v.version!==1",
         "typeof t.initiative!=='number'||!Number.isFinite(t.initiative)||t.initiative < -1000||t.initiative>1000",
@@ -770,16 +980,21 @@
     {
       "name": "parseDndPending",
       "source": "game/packages/contracts/src/dnd.ts",
-      "line": 149,
+      "line": 176,
       "fields": [],
       "checks": [
         "parseTimedDecision(v.gate)",
+        "parseDndPending(r.prior)",
         "parseDndMagic({prompt:{kind:'burst',actor:'validation'},jobs:v.followups},parseDndPending)",
         "parseDndMagic(v.magic,parseDndPending)",
         "parseDndMagicPrompt(v.magicPrompt)",
         "parseDndHudRef(d.source)"
       ],
       "rejectionConditions": [
+        "v.roll!==undefined",
+        "JSON.stringify(intent).length>60000",
+        "typeof n!=='number'||!Number.isFinite(n)||n<0||n>=1",
+        "v.heroicDice!==undefined",
         "v.adjudication!==undefined",
         "pending.magic&&(pending.attack||pending.opportunity||pending.move||pending.adjudication)",
         "pending.adjudication&&(pending.attack||pending.opportunity||pending.move)||pending.attack&&pending.opportunity||pending.opportunity&&!pending.move"
@@ -966,7 +1181,7 @@
     {
       "name": "parseEffect",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 138,
+      "line": 189,
       "fields": [],
       "checks": [
         "parseLancerArea(v.area)"
@@ -977,7 +1192,7 @@
     {
       "name": "parseSalvo",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 139,
+      "line": 190,
       "fields": [],
       "checks": [
         "parseLancerArea(v.area)"
@@ -986,9 +1201,33 @@
       "delegatedTypes": []
     },
     {
+      "name": "parseLancerZone",
+      "source": "game/packages/contracts/src/lancer-combat.ts",
+      "line": 191,
+      "fields": [],
+      "checks": [
+        "parseRegionShape(v.shape,x+width+1e-7,y+depth+1e-7)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseLancerNpc",
+      "source": "game/packages/contracts/src/lancer-combat.ts",
+      "line": 195,
+      "fields": [],
+      "checks": [
+        "parseLancerNpcProfile(v.profile)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": [
+        "const"
+      ]
+    },
+    {
       "name": "parseLancerPilotProfile",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 144,
+      "line": 208,
       "fields": [],
       "checks": [
         "parsePilotConditions(p.conditions)"
@@ -1001,7 +1240,7 @@
     {
       "name": "parseLancerUnit",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 150,
+      "line": 214,
       "fields": [],
       "checks": [
         "parsePilotConditions(v.conditions)",
@@ -1010,8 +1249,10 @@
         "parseLancerReadyReference(q.ref)",
         "parseLancerAutomation(s.automation,'system')",
         "parseLancerNpc(v.npc)",
+        "parseLancerPilotProfile(p.profile)",
         "parseLancerRide(v.riding)",
-        "parseLancerPilotProfile(c.profile)"
+        "parseLancerPilotProfile(c.profile)",
+        "parseLancerPlayerMemory(v.manual)"
       ],
       "rejectionConditions": [
         "v.counters!==undefined",
@@ -1025,7 +1266,7 @@
     {
       "name": "parseStep",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 181,
+      "line": 249,
       "fields": [],
       "checks": [
         "parseStepBody(raw)"
@@ -1036,9 +1277,10 @@
     {
       "name": "parseStepBody",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 184,
+      "line": 252,
       "fields": [],
       "checks": [
+        "parseLancerPlayerEffect(v.effect)",
         "parseLancerSceneEffect(v.effect)",
         "parseStep(v.shot)",
         "parseReplay(c.replay)",
@@ -1057,12 +1299,14 @@
     {
       "name": "parseLancerBattle",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 205,
+      "line": 274,
       "fields": [],
       "checks": [
+        "parseLancerEntry(v.entry)",
         "parsePoint(p.defaultPoint)",
         "parseStep(p.step)",
         "parseLancerArea(q.area)",
+        "parseLancerRecovery(v.recovery)",
         "parseLancerReadyReference(w.prepared)",
         "parseCombatStep({text:l.text,movement:l.movement})",
         "parseCombatRoll(l.roll)"
@@ -1112,6 +1356,110 @@
       "delegatedTypes": []
     },
     {
+      "name": "parseLancerNodeEndPlan",
+      "source": "game/packages/contracts/src/lancer-node-execution.ts",
+      "line": 12,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "level!==null&&!Number.isInteger(level)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseLancerNodeRuns",
+      "source": "game/packages/contracts/src/lancer-node-execution.ts",
+      "line": 14,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "rows.length>8192"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseLancerPlayerMemory",
+      "source": "game/packages/contracts/src/lancer-player-ability.ts",
+      "line": 25,
+      "fields": [],
+      "checks": [
+        "parseCounts(v.uses)",
+        "parseCounts(v.counts)"
+      ],
+      "rejectionConditions": [
+        "values.length>200",
+        "!Array.isArray(v.receipts)||v.receipts.length>500"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseLancerPlayerEffect",
+      "source": "game/packages/contracts/src/lancer-player-ability.ts",
+      "line": 30,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "typeof n!=='number'||!Number.isFinite(n)||n<0||n>200",
+        "![.5,1,2].includes(v.size as number)",
+        "typeof v!=='number'||!Number.isFinite(v)||v<0||v>200"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseLancerPlayerAbility",
+      "source": "game/packages/contracts/src/lancer-player-ability.ts",
+      "line": 44,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!Array.isArray(v.effects)||v.effects.length>20"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseLancerRecovery",
+      "source": "game/packages/contracts/src/lancer-recovery.ts",
+      "line": 6,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!raw||typeof raw!=='object'",
+        "typeof r[key]!=='string'||(r[key] as string).length>300",
+        "r.source!=='queue'&&r.source!=='manual'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseLancerRogue",
+      "source": "game/packages/contracts/src/lancer-rogue.ts",
+      "line": 46,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "p.retraining!==undefined",
+        "r.pausedAt!==undefined&&!(typeof r.pausedAt==='number'&&Number.isFinite(r.pausedAt)&&r.pausedAt>=0)",
+        "r.challenge!==undefined&&!['strong','boss'].includes(r.challenge)",
+        "e.formation!==undefined&&!n(e.formation,0,2)||e.legion!==undefined&&!s(e.legion)||e.modifier!==undefined&&!['fortified','mobile','volatile'].includes(e.modifier)||e.threat!==undefined&&!n(e.threat,0,100)",
+        "r.scenario"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseLancerScenePlans",
+      "source": "game/packages/contracts/src/lancer-scene-plan.ts",
+      "line": 3,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyId(id)"
+      ],
+      "rejectionConditions": [
+        "rows.length>256",
+        "new Set(actorIds).size!==actorIds.length"
+      ],
+      "delegatedTypes": []
+    },
+    {
       "name": "parseLancerSceneObject",
       "source": "game/packages/contracts/src/lancer-scene.ts",
       "line": 53,
@@ -1151,6 +1499,26 @@
         "!['kinetic','energy','explosive','burn','heat'].includes(String(v.damageType))",
         "v.save!==undefined",
         "!s||!['hull','agility','systems','engineering'].includes(String(s.skill))||typeof s.half!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseLancerStartingGrants",
+      "source": "game/packages/contracts/src/lancer-starting-grants.ts",
+      "line": 3,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyNumber(v.amount,1,24)",
+        "storyId(v.id)"
+      ],
+      "rejectionConditions": [
+        "!Number.isInteger(amount)||kind==='triggers'&&amount%2",
+        "target&&amount>(kind==='talents'?3:6)",
+        "kind==='skills'&&target&&!['hull','agility','systems','engineering'].includes(target)||kind==='sp'&&target",
+        "!reason.trim()",
+        "total>(row.kind==='talents'?3:6)",
+        "JSON.stringify(rows).length>3800"
       ],
       "delegatedTypes": []
     },
@@ -1229,6 +1597,18 @@
       "delegatedTypes": []
     },
     {
+      "name": "parseProgressDirectories",
+      "source": "game/packages/contracts/src/progress-directory.ts",
+      "line": 8,
+      "fields": [],
+      "checks": [
+        "parseDocumentDirectory(value.quest,quests)",
+        "parseDocumentDirectory(value.event,events)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
       "name": "parseRegionDecisions",
       "source": "game/packages/contracts/src/region-decision.ts",
       "line": 7,
@@ -1255,6 +1635,27 @@
         "v.accepted!==undefined&&typeof v.accepted!=='boolean'",
         "v.kind==='environment'",
         "gate.pausedAt!==gate.createdAt"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseRelease",
+      "source": "game/packages/contracts/src/releases.ts",
+      "line": 7,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!input||typeof input!=='object'",
+        "typeof r.id!=='string'||!/^release-[a-zA-Z0-9.-]{1,80}$/.test(r.id)",
+        "newerRelease(r.minClientVersion,r.version)",
+        "!/^[0-9a-f]{40}$/.test(r.commit)||!/^[0-9a-f]{40}$/.test(r.docsCommit)",
+        "!Number.isSafeInteger(r.protocol)||r.protocol<1||r.protocol>10000||typeof r.notes!=='string'||r.notes.length>12000||!Number.isFinite(Date.parse(r.publishedAt))",
+        "!r.artifacts||typeof r.artifacts!=='object'||!Object.keys(r.artifacts).length",
+        "!/^(windows|darwin|linux)-(x86_64|aarch64|i686|armv7)$/.test(target)",
+        "url.protocol!=='https:'||url.username||url.password||!allowedOrigins.has(url.origin)",
+        "typeof a.signature!=='string'||a.signature.length<40||a.signature.length>4096||!/^[0-9a-f]{64}$/.test(a.sha256)",
+        "r.serverWindows",
+        "url.protocol!=='https:'||url.username||url.password||!allowedOrigins.has(url.origin)||!/^[0-9a-f]{64}$/.test(a.sha256)"
       ],
       "delegatedTypes": []
     },
@@ -1458,6 +1859,21 @@
       "delegatedTypes": []
     },
     {
+      "name": "parseSceneChannelVisits",
+      "source": "game/packages/contracts/src/scene-channel-visits.ts",
+      "line": 3,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyId(user)",
+        "storyId(row.id)"
+      ],
+      "rejectionConditions": [
+        "users.length>128"
+      ],
+      "delegatedTypes": []
+    },
+    {
       "name": "parseSceneDirectory",
       "source": "game/packages/contracts/src/scene-directory.ts",
       "line": 6,
@@ -1522,9 +1938,10 @@
     {
       "name": "parseSceneFeatures",
       "source": "game/packages/contracts/src/scene-features.ts",
-      "line": 27,
+      "line": 28,
       "fields": [],
       "checks": [
+        "parseDndMagicBarrier(w.dndMagicBarrier)",
         "parseWallAccess(w.access)",
         "parseDoorVisual(w.doorVisual)",
         "parseDoorSound(w.doorSound)",
@@ -1743,12 +2160,25 @@
       "delegatedTypes": []
     },
     {
-      "name": "parseSceneRegions",
+      "name": "parseRegionShape",
       "source": "game/packages/contracts/src/scene-region.ts",
       "line": 27,
       "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "typeof v!=='boolean'",
+        "Math.abs(a.x-b.x)<EPS||Math.abs(a.y-b.y)<EPS"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneRegions",
+      "source": "game/packages/contracts/src/scene-region.ts",
+      "line": 32,
+      "fields": [],
       "checks": [
         "parseSceneTemplate(v.template,width,height)",
+        "parseRegionShape(s,width,height)",
         "parseEnvironmentEffect(b.effect)",
         "parseDndSceneSpell(v.magic)",
         "parseRegionEnvironment(v.environment)"
@@ -1758,7 +2188,6 @@
         "new Set(ids).size!==ids.length",
         "!/^#[0-9a-f]{6}$/i.test(color)",
         "template&&list(v.shapes,512).length",
-        "Math.abs(a.x-b.x)<EPS||Math.abs(a.y-b.y)<EPS",
         "!Number.isInteger(n*4)",
         "!Number.isInteger(n)"
       ],
@@ -1914,6 +2343,85 @@
       "delegatedTypes": []
     },
     {
+      "name": "parseSpiralJourney",
+      "source": "game/packages/contracts/src/spiral-exploration.ts",
+      "line": 44,
+      "fields": [],
+      "checks": [
+        "isText(t.name,100)",
+        "isText(r.name,100)"
+      ],
+      "rejectionConditions": [
+        "v.version!==1&&v.version!==2",
+        "!isText(t.name,100)",
+        "v.version===2&&(typeof v.chart!=='string'||v.chart.length!==width*height||!/^[#~]+$/.test(v.chart))",
+        "!isText(r.name,100)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseRuenProgress",
+      "source": "game/packages/contracts/src/spiral-ruen.ts",
+      "line": 18,
+      "fields": [],
+      "checks": [
+        "isRecord(value)",
+        "isInteger(value.supplies,0,99)",
+        "isInteger(value.moves,0,100000)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSpiralSettings",
+      "source": "game/packages/contracts/src/spiral.ts",
+      "line": 18,
+      "fields": [],
+      "checks": [
+        "isRecord(value)",
+        "isInteger(value.startLevel,3,9)"
+      ],
+      "rejectionConditions": [
+        "!isRecord(value)||!Object.hasOwn(SPIRAL_DIFFICULTIES,String(value.difficulty))||![3,6,9].includes(Number(value.startLevel))||!isInteger(value.startLevel,3,9)",
+        "value.scenario!==undefined&&!['deep-spiral','ruen'].includes(String(value.scenario))"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parsePresentation",
+      "source": "game/packages/contracts/src/spiral.ts",
+      "line": 72,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "new Set(common.acknowledged).size!==common.acknowledged.length",
+        "p.kind!=='battle'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSpiralData",
+      "source": "game/packages/contracts/src/spiral.ts",
+      "line": 81,
+      "fields": [],
+      "checks": [
+        "parseSpiralSettings(v.settings)",
+        "parsePresentation(v.presentation)",
+        "parseSpiralJourney(v.journey,parseSpiralRoom)",
+        "parseRuenProgress(v.ruen)"
+      ],
+      "rejectionConditions": [
+        "v.version!==SPIRAL_VERSION",
+        "roomId&&!roomIds.has(roomId)",
+        "new Set(readyPlayers).size!==readyPlayers.length||!Array.isArray(v.themeOrder)||v.themeOrder.length!==4||new Set(v.themeOrder).size!==4",
+        "presentation&&(presentation.id>int(v.presentationSequence??0)||presentation.kind==='battle'&&(v.phase!=='combat'||!presentation.frames.length)||presentation.kind==='route'&&v.phase!=='route')",
+        "journey",
+        "v.phase==='overworld'&&j.location!=='surface'||j.location==='surface'&&j.participants.length",
+        "(ruen&&parseSpiralSettings(v.settings).scenario!=='ruen')||(parseSpiralSettings(v.settings).scenario==='ruen'&&v.phase!=='lobby'&&!ruen)"
+      ],
+      "delegatedTypes": []
+    },
+    {
       "name": "parseHandouts",
       "source": "game/packages/contracts/src/story-delivery.ts",
       "line": 13,
@@ -2014,7 +2522,7 @@
     {
       "name": "parseResource",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 100,
+      "line": 140,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -2039,9 +2547,139 @@
       "delegatedTypes": []
     },
     {
+      "name": "parsePresentationState",
+      "source": "game/packages/contracts/src/story.ts",
+      "line": 151,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyNumber(v.id,0,Number.MAX_SAFE_INTEGER)",
+        "storyId(v.sceneId)",
+        "storyNumber(v.startedAt,0,Number.MAX_SAFE_INTEGER)",
+        "storyNumber(v.revision,0,Number.MAX_SAFE_INTEGER)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneEffects",
+      "source": "game/packages/contracts/src/story.ts",
+      "line": 155,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyId(scene)"
+      ],
+      "rejectionConditions": [
+        "rows.length>128"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseOnboarding",
+      "source": "game/packages/contracts/src/story.ts",
+      "line": 160,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "parseLancerStartingGrants(v.startingGrants)",
+        "storyNumber(v.startingLevel,0,12)"
+      ],
+      "rejectionConditions": [
+        "typeof v.allowPlayerCreate!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parsePlayerProgress",
+      "source": "game/packages/contracts/src/story.ts",
+      "line": 163,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyId(player)",
+        "storyObject(value)",
+        "storyNumber(at,0,Number.MAX_SAFE_INTEGER)"
+      ],
+      "rejectionConditions": [
+        "rows.length>128",
+        "!/^[a-z][a-z0-9-]{0,31}$/.test(key)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneNodes",
+      "source": "game/packages/contracts/src/story.ts",
+      "line": 169,
+      "fields": [],
+      "checks": [
+        "storyObject(rawNode)",
+        "storyId(n.id)",
+        "parseLancerNodeRestPlan(n.rest)",
+        "parseLancerNodeEndPlan(n.ending)",
+        "storyId(n.sceneId)",
+        "storyId(n.eventId)",
+        "storyNumber(n.x,-10000,10000)",
+        "storyNumber(n.y,-10000,10000)"
+      ],
+      "rejectionConditions": [
+        "requires.includes(storyId(n.id))",
+        "n.kind==='note'&&(n.sceneId||n.eventId||n.rest||n.ending)",
+        "n.hidden!==undefined&&typeof n.hidden!=='boolean'",
+        "!ids.has(r)",
+        "s===1"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneGraph",
+      "source": "game/packages/contracts/src/story.ts",
+      "line": 183,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyId(v.id)",
+        "storyNumber(v.revision,0,Number.MAX_SAFE_INTEGER)",
+        "parseSceneNodes(v.nodes)"
+      ],
+      "rejectionConditions": [
+        "v.version!==1"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseLegacySceneGraph",
+      "source": "game/packages/contracts/src/story.ts",
+      "line": 187,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "parseSceneNodes(v.nodes)",
+        "storyNumber(v.revision??0,0,Number.MAX_SAFE_INTEGER)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneGraphLibrary",
+      "source": "game/packages/contracts/src/story.ts",
+      "line": 190,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyId(v.activeId)",
+        "storyNumber(v.revision,0,Number.MAX_SAFE_INTEGER)"
+      ],
+      "rejectionConditions": [
+        "v.version!==1",
+        "!graphs.length"
+      ],
+      "delegatedTypes": []
+    },
+    {
       "name": "parseStory",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 111,
+      "line": 198,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -2067,10 +2705,15 @@
         "storyObject(v.sceneViews)",
         "storyId(user)",
         "storyId(scene)",
+        "parseAdventure(v.adventure)",
+        "parseLancerNodeRuns(v.lancerNodeRuns)",
+        "parseLancerScenePlans(v.lancerScenePlans)",
+        "parseTacticalMissions(v.tacticalMissions)",
+        "parseTeamAssets(v.teamAssets)",
         "storyObject(v.climbAttempts)",
         "parseWorldAtlas(v.atlas)",
-        "parseAdventure(v.adventure)",
         "storyObject(v.dndRules)",
+        "storyNumber(r.dawnHour,0,999)",
         "storyNumber(v.reactionSeconds,5,300)",
         "parseCombatJournal(v.combatJournal)",
         "parseCombatCheckpoints(v.combatCheckpoints)",
@@ -2082,8 +2725,18 @@
         "parseScenePreloads(v.scenePreloads)",
         "parseSceneNavigation(v.sceneNavigation)",
         "parseSceneDirectory(v.sceneDirectory)",
+        "parseSceneChannelVisits(v.sceneChannelVisits)",
         "parseWorldLibrary(v.library)",
-        "parseWorldCalendar(v.calendar)"
+        "parseWorldCalendar(v.calendar)",
+        "parseStoryPlugins(v.plugins)",
+        "parsePresentationState(v.presentation)",
+        "parseSceneEffects(v.sceneEffects)",
+        "parseLegacySceneGraph(v.sceneGraph)",
+        "parseSceneGraphLibrary(v.sceneGraphs)",
+        "parsePlayerProgress(v.playerProgress)",
+        "parseOnboarding(v.onboarding)",
+        "parseTheatreState(v.theatre)",
+        "parseBossBarState(v.bossBar)"
       ],
       "rejectionConditions": [
         "v.version!==1",
@@ -2116,7 +2769,7 @@
     {
       "name": "parseManualTable",
       "source": "game/packages/contracts/src/tabletop.ts",
-      "line": 78,
+      "line": 87,
       "fields": [],
       "checks": [
         "isGameSystemId(v.systemId)",
@@ -2128,12 +2781,14 @@
         "parseOwnedItems(a.ownedItems,v.systemId)",
         "parseTokenAppearance(t.appearance)",
         "parseLancerRide(t.lancerRiding)",
+        "parseDndMagicBarrier(b.dndMagicBarrier)",
         "parseLancerSceneObject(b.lancer)",
         "parseSceneCanvasStyle(map.canvas)",
         "parseDndRest(v.dndRest)",
         "parseDndPending(v.dndPending)",
         "parseDndBattle(v.dndBattle)",
         "parseLancerBattle(v.lancerBattle)",
+        "parseLancerRogue(v.lancerRogue)",
         "parseLancerMission(v.lancerMission)",
         "parseSceneSummaries(v.sceneSummaries)",
         "parseSceneKind(v.activeSceneKind)"
@@ -2153,24 +2808,80 @@
         "canvas?.foreground&&!sceneMediaExists(canvas.foreground.src,canvas.foreground.media)",
         "dndPending && v.systemId !== 'dnd5e-2024'",
         "dndPending",
+        "lancerRogue&&(v.systemId!=='lancer'||variant)",
         "lancerMission&&v.systemId!=='lancer'",
         "map.environment!==undefined&&!['normal','zero-g','underwater'].includes(String(map.environment))",
-        "lancerBattle && v.systemId !== 'lancer'"
+        "lancerBattle && v.systemId !== 'lancer'",
+        "map.lancerCombatMode!=='mech'&&map.lancerCombatMode!=='foot'",
+        "map.grid!=='hex'&&map.grid!=='hex-flat'&&map.grid!=='square'",
+        "map.view!=='2d'&&map.view!=='3d'"
       ],
       "delegatedTypes": []
     },
     {
       "name": "parsePublication",
       "source": "game/packages/contracts/src/tabletop.ts",
-      "line": 181,
+      "line": 224,
       "fields": [],
       "checks": [
         "isGameSystemId(v.systemId)"
       ],
       "rejectionConditions": [
         "v.schemaVersion !== 1 || !isGameSystemId(v.systemId)",
-        "!validPublicationPath(f.path) || !validHash(f.hash)"
+        "v.format!==undefined&&(v.format!=='native'||v.systemId!=='aaf')",
+        "!(validPublicationPath(f.path)||v.format==='native'&&f.path==='world.json') || !validHash(f.hash)",
+        "v.format==='native'&&files.length!==1"
       ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseTacticalConfig",
+      "source": "game/packages/contracts/src/tactical-mission.ts",
+      "line": 32,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyObject(c.assignments)",
+        "storyObject(c.eligibility)",
+        "storyObject(v)",
+        "storyObject(c.escort)"
+      ],
+      "rejectionConditions": [
+        "typeof v!=='boolean'",
+        "mode==='control'&&!points.length",
+        "mode==='flag'&&(flags.length<2||flags.length!==ts.length)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseTacticalMissions",
+      "source": "game/packages/contracts/src/tactical-mission.ts",
+      "line": 48,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyObject(value)",
+        "storyObject(v.scores)",
+        "storyObject(v.escort)",
+        "parseTacticalConfig(v.config)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseTeamAssets",
+      "source": "game/packages/contracts/src/team-assets.ts",
+      "line": 7,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyObject(r.held)",
+        "storyId(id)",
+        "storyId(r.id)",
+        "storyNumber(r.at,0,Number.MAX_SAFE_INTEGER)",
+        "storyId(r.operator)"
+      ],
+      "rejectionConditions": [],
       "delegatedTypes": []
     },
     {
@@ -2186,6 +2897,52 @@
       ],
       "rejectionConditions": [
         "species&&!isTerraSpecies(species)&&species!==old?.dnd?.species"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parsePluginManifest",
+      "source": "game/packages/contracts/src/theatre.ts",
+      "line": 56,
+      "fields": [],
+      "checks": [
+        "isGameSystemId(systemId)"
+      ],
+      "rejectionConditions": [
+        "extra.length",
+        "!name",
+        "!version",
+        "!Object.hasOwn(PLUGIN_CATEGORIES,category)",
+        "!PLUGIN_CAPABILITIES.includes(capability as PluginCapability)",
+        "systemId!==undefined&&!isGameSystemId(systemId)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseStoryPlugins",
+      "source": "game/packages/contracts/src/theatre.ts",
+      "line": 81,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "extra.length",
+        "new Set(enabled).size!==enabled.length",
+        "v.calendar!==undefined&&typeof v.calendar!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseTheatreState",
+      "source": "game/packages/contracts/src/theatre.ts",
+      "line": 128,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "extra.length",
+        "typeof v.active!=='boolean'",
+        "slotExtra.length",
+        "emote!==undefined&&!THEATRE_EMOTES.includes(emote as TheatreEmote)",
+        "!THEATRE_ACTION_IDS.includes(kind as TheatreAction)"
       ],
       "delegatedTypes": []
     },
@@ -2236,7 +2993,7 @@
         "storyNumber(r.max,0,1000000)"
       ],
       "rejectionConditions": [
-        "typeof v.owned!=='boolean'||!Array.isArray(v.resources)||v.resources.length>130"
+        "typeof v.owned!=='boolean'||!Array.isArray(v.resources)||v.resources.length>130||v.badges!==undefined&&(!Array.isArray(v.badges)||v.badges.length>100)"
       ],
       "delegatedTypes": []
     },
@@ -2309,11 +3066,24 @@
     {
       "name": "parseSceneObject",
       "source": "game/packages/contracts/src/unit-inspection.ts",
-      "line": 13,
+      "line": 14,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
-        "v.blocksMovement!==undefined&&typeof v.blocksMovement!=='boolean'"
+        "v.blocksMovement!==undefined&&typeof v.blocksMovement!=='boolean'",
+        "v[key]!==undefined",
+        "typeof v[key]!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseUnitInspection",
+      "source": "game/packages/contracts/src/unit-inspection.ts",
+      "line": 15,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "o[k]!==undefined&&typeof o[k]!=='boolean'"
       ],
       "delegatedTypes": []
     },
@@ -2496,6 +3266,8 @@
         "parseMessageDetails({roll:r.roll})"
       ],
       "rejectionConditions": [
+        "v.important!==undefined",
+        "typeof v.important!=='boolean'",
         "v.inline!==undefined",
         "rows.length!==expected.length",
         "r[key]!==comparison[key]",
@@ -2593,6 +3365,17 @@
       "delegatedTypes": []
     },
     {
+      "name": "assertDndLegendaryIntent",
+      "source": "game/packages/game-core/src/dnd/legendary.ts",
+      "line": 36,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!o||w.executing||!('actor'in intent)||intent.actor!==w.remaining[0]"
+      ],
+      "delegatedTypes": []
+    },
+    {
       "name": "validateDndLights",
       "source": "game/packages/game-core/src/dnd/lights.ts",
       "line": 3,
@@ -2611,7 +3394,7 @@
     {
       "name": "validateLancerArea",
       "source": "game/packages/game-core/src/lancer/areas.ts",
-      "line": 26,
+      "line": 36,
       "fields": [],
       "checks": [
         "parseLancerArea(raw)"
@@ -2635,7 +3418,7 @@
       "checks": [],
       "rejectionConditions": [
         "!t||t.id===previous.id||selected.includes(t.id)||t.side!==u.side||!alive(t)||!character(t)||!a||!v",
-        "lancerDistance(a,v)>3",
+        "lancerDistance(a,v,map)>3",
         "!(previous.id===u.id?lancerUnitLineOfSight(map,u,v):lancerLineOfSight(map,a,v))"
       ],
       "delegatedTypes": []
@@ -2643,11 +3426,12 @@
     {
       "name": "validateLancerFlight",
       "source": "game/packages/game-core/src/lancer/flight.ts",
-      "line": 21,
+      "line": 32,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
         "!option",
+        "id==='npc-flight'&&u.npc?.profile?.flight?.height!==undefined&&Math.abs(z-lancerFloor(map,{...t,x,y,z})-u.npc.profile.flight.height)>.1",
         "option.boostOnly&&(counter(u,'boosted')!==u.turns||counter(u,'flight-boost')<=0)",
         "has(u,'prone')",
         "length===0",
@@ -2657,9 +3441,42 @@
       "delegatedTypes": []
     },
     {
+      "name": "validateLancerJump",
+      "source": "game/packages/game-core/src/lancer/jump.ts",
+      "line": 6,
+      "fields": [],
+      "checks": [
+        "isHexGrid(map.grid)"
+      ],
+      "rejectionConditions": [
+        "has(u,'prone')||has(u,'immobilized')||has(u,'stunned')||has(u,'shutdown')||u.braceUntil",
+        "t.z>lancerFloor(map,t)+.1",
+        "distance===0&&to.z===t.z",
+        "kind==='horizontal'&&(to.z>t.z+.01||distance>Math.floor(u.speed/2))",
+        "kind==='vertical'&&(distance>1||to.z-t.z>t.size||to.z<t.z)",
+        "cost>u.movement"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateNpcTemplates",
+      "source": "game/packages/game-core/src/lancer/npc-templates.ts",
+      "line": 2,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!ts.includes(key as typeof ts[number])||values.length>limit||new Set(values).size!==values.length",
+        "new Set(ts).size!==ts.length",
+        "id==='human'&&(ts.length||n.template!=='standard')",
+        "n.template==='elite'&&ts.includes('ultra')",
+        "ts.includes('ship')&&ts.includes('vehicle')"
+      ],
+      "delegatedTypes": []
+    },
+    {
       "name": "validateLancerNpcTarget",
       "source": "game/packages/game-core/src/lancer/npc.ts",
-      "line": 79,
+      "line": 75,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
@@ -2671,27 +3488,33 @@
     {
       "name": "validateLancerPoint",
       "source": "game/packages/game-core/src/lancer/point-decision.ts",
-      "line": 9,
+      "line": 12,
       "fields": [],
-      "checks": [],
+      "checks": [
+        "isHexGrid(map.grid)"
+      ],
       "rejectionConditions": [
         "spec.mode==='hazard'",
         "spec.mode==='push'||spec.mode==='puppet'",
-        "u.destroyed||u.phasedUntil||distance<=0||distance>spec.range||to.z!==t.z||!Number.isInteger(to.x)||!Number.isInteger(to.y)",
+        "u.destroyed||u.phasedUntil||distance<=0||distance>spec.range||Math.abs(to.z-t.z)>1e-6||Math.abs(snap.x-to.x)>1e-6||Math.abs(snap.y-to.y)>1e-6",
+        "spec.mode==='push'",
+        "u.entity?.kind==='scenery'||feature(u,'cb_fomorian_frame')&&source&&t.size>source.size",
+        "!end",
+        "Math.abs(end.x-to.x)>1e-6||Math.abs(end.y-to.y)>1e-6",
         "u.destroyed||u.phasedUntil||has(u,'stunned')||has(u,'shutdown')||has(u,'slowed')||spec.mode!=='teleport'&&has(u,'immobilized')",
         "cost>spec.range||cost<=0",
         "spec.mode==='ground'&&to.z-lancerFloor(map,{...t,...to})>.11",
         "spec.adjacent",
-        "!target||lancerDistance({...t,...to},target)>1",
+        "!target||lancerDistance({...t,...to},target,map)>1",
         "spec.toward",
-        "!target||lancerDistance({...t,...to},target)>=lancerDistance(t,target)"
+        "!target||lancerDistance({...t,...to},target,map)>=lancerDistance(t,target,map)"
       ],
       "delegatedTypes": []
     },
     {
       "name": "validateLancerWeaponUse",
       "source": "game/packages/game-core/src/lancer/resolution.ts",
-      "line": 59,
+      "line": 75,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
@@ -2700,39 +3523,54 @@
         "a.phasedUntil",
         "lancerSystemActive(a,'ms_siege_stabilizers')&&w.tags.includes('melee')",
         "a.counters?.highAltitude||has(a,'jammed')&&!w.tags.includes('unarmed')||has(a,'shutdown')||has(a,'stunned')",
-        "w.tags.includes('ordnance')&&!a.counters?.['ready-ordnance']&&(reaction||!committed&&(a.actions.length>0||a.movement<a.speed))"
+        "w.tags.includes('ordnance')&&!a.counters?.['ready-ordnance']&&(reaction||!committed&&!fullActionOrdnance(a)&&(a.actions.length>0||a.counters?.actionTurn===a.turns||a.counters?.moved===a.turns||a.movement<a.speed))"
       ],
       "delegatedTypes": []
     },
     {
       "name": "validateWeapon",
       "source": "game/packages/game-core/src/lancer/resolution.ts",
-      "line": 67,
+      "line": 83,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
         "a.counters?.highAltitude",
+        "dustgraveProtected(target)",
         "a.phasedUntil||target.phasedUntil",
         "has(a,'jammed')&&!w.tags.includes('unarmed')||has(a,'shutdown')||has(a,'stunned')",
         "a.pilot&&w.tags.includes('antique')&&!feature(target,'biological')",
         "target.destroyed||!target.deployed||!area&&(!secondary?.area&&has(target,'hidden')||!secondary&&target.id===a.id)",
         "!planningRange&&!w.tags.includes('seeking')&&!w.tags.includes('arcing')&&!(area?.kind==='blast'?lancerLineOfSight(map,areaOrigin(area),tt):secondary?lancerLineOfSight(map,at,tt):lancerUnitLineOfSight(map,a,tt))",
-        "w.tags.includes('ordnance')&&a.side!==target.side&&!!a.pilot===!!target.pilot&&!has(target,'hidden')&&lancerDistance(source,tt)<=1",
-        "area?!lancerAreaContains(area,tt,at):lancerDistance(at,tt)>(secondary?(secondary.area?1:3):w.tags.includes('melee')?w.threat:w.range)+reachBonus+planningRange",
-        "w.tags.includes('ordnance')&&!a.counters?.['ready-ordnance']&&(reaction||!committed&&(a.actions.length>0||a.movement<a.speed))"
+        "!wallflowerSight(b,map,a,tt)",
+        "w.tags.includes('ordnance')&&!w.tags.includes('wallflower-memetic')&&a.side!==target.side&&!!a.pilot===!!target.pilot&&!has(target,'hidden')&&lancerDistance(source,tt,map)<=1",
+        "area?!lancerAreaContains(area,tt,at,map):lancerDistance(at,tt,map)>(secondary?(secondary.area?1:3):w.tags.includes('melee')?w.threat:w.range)+reachBonus+planningRange",
+        "w.tags.includes('ordnance')&&!a.counters?.['ready-ordnance']&&(reaction||!committed&&!fullActionOrdnance(a)&&(a.actions.length>0||a.counters?.actionTurn===a.turns||a.counters?.moved===a.turns||a.movement<a.speed))"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateMap",
+      "source": "game/packages/game-core/src/lancer/tactical-mission.ts",
+      "line": 20,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!t",
+        "t.hidden",
+        "p.x<0||p.y<0||p.x>=table.map.width||p.y>=table.map.depth||p.z< -100||p.z>200"
       ],
       "delegatedTypes": []
     },
     {
       "name": "validateLancerActionTarget",
       "source": "game/packages/game-core/src/lancer/targeting.ts",
-      "line": 37,
+      "line": 39,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
-        "!target||target.id===u.id||target.destroyed||target.phasedUntil||!target.deployed",
+        "!target||dustgraveProtected(target)||target.id===u.id||target.destroyed||target.phasedUntil||!target.deployed",
         "!a||!t",
-        "lancerDistance(a,t)>(['ram','grapple','improvised'].includes(action)?1:u.sensors)",
+        "lancerDistance(a,t,map)>(['ram','grapple','improvised'].includes(action)?1:u.sensors)",
         "['lockon','invade'].includes(action)&&(has(u,'jammed')||has(u,'tech-disabled')||has(target,'shutdown'))",
         "action==='invade'&&target.features?.includes('biological')",
         "action==='search'",
@@ -2750,35 +3588,84 @@
       "fields": [],
       "checks": [],
       "rejectionConditions": [
-        "source&&lancerDistance({...from,...to},source)<lancerDistance(from,source)"
+        "source&&lancerDistance({...from,...to},source,map)<lancerDistance(from,source,map)"
       ],
       "delegatedTypes": []
     },
     {
       "name": "validateTechTarget",
       "source": "game/packages/game-core/src/lancer/tech.ts",
-      "line": 59,
+      "line": 69,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
-        "!t||t.id===u.id||!t.deployed||t.destroyed||t.phasedUntil||has(t,'hidden')&&!(i.option==='bolster'&&t.side===u.side)||!at||!tt",
+        "!t||dustgraveProtected(t)||t.id===u.id||!t.deployed||t.destroyed||t.phasedUntil||has(t,'hidden')&&!(i.option==='bolster'&&t.side===u.side)||!at||!tt",
         "has(u,'jammed')||has(u,'tech-disabled')",
         "has(t,'shutdown')||i.option!=='scan'&&object||!['scan','lockon'].includes(i.option)&&feature(t,'biological')",
         "i.option==='bolster'&&(has(t,'jammed')||has(t,'tech-disabled'))",
-        "lancerDistance(at,tt)>u.sensors||i.option!=='bolster'&&!lancerUnitLineOfSight(map,u,tt)",
+        "!wide&&b&&!wallflowerSight(b,map,u,tt)",
+        "lancerDistance(at,tt,map)>u.sensors||!wide&&i.option!=='bolster'&&!lancerUnitLineOfSight(map,u,tt)",
         "i.consumeLock&&!has(t,'lockon')"
       ],
       "delegatedTypes": []
     },
     {
+      "name": "validateLancerPath",
+      "source": "game/packages/game-core/src/lancer/voluntary-movement.ts",
+      "line": 17,
+      "fields": [],
+      "checks": [
+        "isHexGrid(map.grid)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
       "name": "isWeaponReady",
       "source": "game/packages/game-core/src/persistence.ts",
-      "line": 72,
+      "line": 74,
       "fields": [],
       "checks": [
         "isRecord(actor)"
       ],
       "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSpiralState",
+      "source": "game/packages/game-core/src/spiral/index.ts",
+      "line": 30,
+      "fields": [],
+      "checks": [
+        "isRecord(value)",
+        "isInteger(value.rngState,0,0xffffffff)",
+        "parseSpiralData(value.data)",
+        "isRecord(value.party)"
+      ],
+      "rejectionConditions": [
+        "!isRecord(value)||!isInteger(value.rngState,0,0xffffffff)",
+        "value.party!==undefined"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSpiralView",
+      "source": "game/packages/game-core/src/spiral/index.ts",
+      "line": 49,
+      "fields": [],
+      "checks": [
+        "isRecord(value)",
+        "parseSpiralData(value.data)",
+        "isRecord(b)",
+        "isInteger(b.round,1)",
+        "isRecord(e)",
+        "isText(e.text,10000)",
+        "parseSceneMap(b.map)"
+      ],
+      "rejectionConditions": [
+        "!isRecord(value)",
+        "value.party!==undefined&&(!Array.isArray(value.party)||value.party.length>4||!value.party.every(validActor))"
+      ],
       "delegatedTypes": []
     },
     {
@@ -2849,7 +3736,7 @@
         "isInteger(score, 0, 10000)",
         "isInteger(value.mpMax, 0, 1000000)",
         "isInteger(value.mp, 0, typeof value.mpMax === \"number\" ? value.mpMax : 0)",
-        "isInteger(value.burnStacks, 0, 100)",
+        "isInteger(value.burnStacks, 0, 10000)",
         "isWeapon(value.weapon)",
         "isWeapon(value.offhandWeapon)"
       ],
@@ -2888,7 +3775,7 @@
     {
       "name": "validateDndScores",
       "source": "game/packages/rules-engine/src/dnd/characters.ts",
-      "line": 9,
+      "line": 13,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
@@ -2900,7 +3787,7 @@
     {
       "name": "validateDndBuildChoices",
       "source": "game/packages/rules-engine/src/dnd/creation-choices.ts",
-      "line": 57,
+      "line": 58,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
@@ -2963,6 +3850,18 @@
       "delegatedTypes": []
     },
     {
+      "name": "assertNativeMediaCommand",
+      "source": "game/packages/session/src/world-media.ts",
+      "line": 18,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "typeof value==='string'",
+        "value.includes(path)"
+      ],
+      "delegatedTypes": []
+    },
+    {
       "name": "parseActor",
       "source": "game/packages/session/src/world-persistence.ts",
       "line": 24,
@@ -2986,7 +3885,7 @@
         "parseTokenActorInstance(raw.tokenInstance)",
         "requireId(raw.id)",
         "requireInteger(raw.mp, 0, profile.mpMax ?? 0)",
-        "requireInteger(raw.burnStacks, 0, 100)",
+        "requireInteger(raw.burnStacks, 0, 10000)",
         "parseActorAccess(raw.access)",
         "idList(raw.owners)",
         "visibility(raw.visibility)",
@@ -3189,6 +4088,8 @@
         "requireId(raw.id)",
         "requireId(raw.hostId)",
         "requireInteger(raw.revision, 0, Number.MAX_SAFE_INTEGER)",
+        "requireRecord(raw.publication)",
+        "requireInteger(p.version,0,Number.MAX_SAFE_INTEGER)",
         "parseActor(value)",
         "parseSceneThumbnailSource(scene.thumbnail)",
         "requireId(scene.id)",
@@ -3207,7 +4108,7 @@
         "requireText(actor.name)",
         "requireNumber(actor.z??0,-100,200)",
         "requireNumber(actor.ac, -100000, 100000)",
-        "requireInteger(actor.burnStacks, 0, 100)",
+        "requireInteger(actor.burnStacks, 0, 10000)",
         "requireId(actor.actorId)",
         "requireBoolean(actor.injured)",
         "requireRecord(actor.actions)",
@@ -3215,6 +4116,9 @@
         "requireInteger(a.quick,0,100)",
         "requireInteger(a.move,0,100)",
         "requireInteger(a.reaction,0,100)",
+        "requireRecord(actor.effectiveSpeeds)",
+        "requireNumber(v[k],0,10000)",
+        "isAafTurnMovement(value)",
         "requireNumber(actor.initiative,-100000,100000)",
         "requireInteger(actor.mp, 0, 1000000)",
         "requireInteger(actor.mpMax, 0, 1000000)",
@@ -3259,6 +4163,7 @@
         "requireBoolean(item.inCombat)",
         "parseTokenPresentation(value)",
         "requireId(item.combatId)",
+        "parseSpiralView(raw.spiral)",
         "parseAafCatalog(raw.aafCatalog)",
         "requireId(raw.activeSceneId)"
       ],
@@ -3266,6 +4171,7 @@
         "actor.id !== id",
         "raw.scene !== null",
         "(actor.faction !== \"pc\" && actor.faction !== \"npc\") || alive !== (hp > 0||actor.injured===true) || actor.injured===true&&hp!==0",
+        "!isAafTurnMovement(value)",
         "ids.size !== combatants.length",
         "!ids.has(id)",
         "event.dice !== undefined",
@@ -3282,6 +4188,165 @@
         "typeof value !== \"string\" || !/^\\d+,\\d+$/.test(value)",
         "item.hiddenTokenIds!==undefined",
         "new Set(scene.hiddenTokenIds).size!==scene.hiddenTokenIds.length"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseCompendiumFile",
+      "source": "game/packages/tabletop-runtime/src/story/compendiumFiles.ts",
+      "line": 15,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "parseCompendiumPack(v.pack)",
+        "parseCompendiumIndex(v.index)",
+        "storyObject(v.bodies)",
+        "storyObject(v.media)",
+        "parseCompendiumBody(rawBodies[entry.hash])",
+        "parseCompendiumMediaChunk(rawMedia[hash])"
+      ],
+      "rejectionConditions": [
+        "new TextEncoder().encode(JSON.stringify(raw)).length>COMPENDIUM_LIMITS.archiveBytes",
+        "v.format!=='aaf-compendium'||v.version!==1",
+        "pack.systemId!==systemId||index.kind!==pack.kind||index.entries.length!==pack.count||await compendiumObjectHash(canonicalJson(index))!==pack.indexHash",
+        "body.projected||body.systemId!==systemId||body.document.kind!==pack.kind||body.document.id!==entry.id||body.document.name!==entry.name||await compendiumObjectHash(canonicalJson(body))!==entry.hash",
+        "Object.keys(rawMedia).length!==Object.keys(media).length",
+        "Object.keys(rawBodies).length!==Object.keys(bodies).length"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseSceneObjectConfig",
+      "source": "game/packages/tabletop-runtime/src/tabletop/dnd/sceneObjects.ts",
+      "line": 17,
+      "fields": [],
+      "checks": [
+        "parseSceneObject(c)"
+      ],
+      "rejectionConditions": [
+        "!name",
+        "typeof c.blocksMovement!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateWorldLancerCreation",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/creation.ts",
+      "line": 31,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!actorControlled(previous,playerId)&&!storyGm(table.story,table.hostId,playerId)",
+        "!storyGm(table.story,table.hostId,playerId)",
+        "levelOf(submitted)!==(exception?.level??table.story?.onboarding?.startingLevel??0)",
+        "(JSON.parse(submitted.fields['lancer.contentPacks']??'[]') as string[]).sort().join('|')!==expected"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateDustgraveReinforcements",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/dustgraveReinforcements.ts",
+      "line": 6,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "key==='arena'||key==='extraction'",
+        "key==='extraction'&&b.round<wave",
+        "prior.length+placements.length>2"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseEquipment",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/model.ts",
+      "line": 20,
+      "fields": [],
+      "checks": [
+        "isObject(raw)",
+        "parseLancerAutomation(raw.automation)"
+      ],
+      "rejectionConditions": [
+        "!isObject(raw)",
+        "raw.automation!==undefined&&(!String(raw.resourceId??'').startsWith('custom:')||JSON.stringify(raw).length>3900)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseWeapon",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/model.ts",
+      "line": 25,
+      "fields": [],
+      "checks": [
+        "parseEquipment(raw)",
+        "isObject(raw)"
+      ],
+      "rejectionConditions": [
+        "base.automation?.kind==='system'",
+        "!isObject(raw) || typeof raw.size !== 'string' || !Object.hasOwn(LANCER_WEAPON_SIZES,raw.size)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateArenaInteraction",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
+      "line": 13,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "['cargo','rescue'].includes(d.rule)&&Object.values(s.carriers).includes(i.unit)",
+        "r.selected!.map==='arena-4-1'",
+        "index>0&&!objectDone(t,index-1)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "assertWorldStartingGrants",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/startingGrants.ts",
+      "line": 6,
+      "fields": [],
+      "checks": [
+        "parseLancerStartingGrants(raw)"
+      ],
+      "rejectionConditions": [
+        "row.kind==='talents'&&row.target",
+        "!talent||!packs.includes(talent.book)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateWallflowerReinforcements",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/wallflowerReinforcements.ts",
+      "line": 4,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "key==='sins'",
+        "!token||b.round<2",
+        "['engineers','homecoming','doors'].includes(key)&&b.round<Number(actors[0]!.fields['module.wallflower.wave'])",
+        "key==='roadblock'",
+        "(grunts>0&&grunts!==actors.length)||(grunts>0?actors.length>4:actors.length>2)",
+        "key==='burial'",
+        "pending.length!==actors.length"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateWinterReinforcements",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/winterReinforcements.ts",
+      "line": 17,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "key==='boneyard'",
+        "key==='depot'||key==='cargo'",
+        "prior.length+placements.length>2",
+        "key==='coast'",
+        "placements.length!==pending.length",
+        "key==='depot'",
+        "!zones.length",
+        "key==='reactor'",
+        "grunts.length&&b.round<2",
+        "grunts.length+already.length>4"
       ],
       "delegatedTypes": []
     }

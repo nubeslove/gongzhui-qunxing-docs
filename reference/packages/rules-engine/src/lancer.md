@@ -1,6 +1,6 @@
 # game/packages/rules-engine/src/lancer.ts
 
-源码核对日：2026-10-10。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -68,6 +68,7 @@ export interface LancerBuild {
     skills: LancerSkills;
     base: LancerBase;
     modifiers: LancerModifiers;
+    growthCredits?: Partial<Record<'skills' | 'talents' | 'triggerPoints', number>>;
 }
 ```
 
@@ -77,6 +78,7 @@ export interface LancerBuild {
 | `skills` | 否 | `LancerSkills` | 见结构定义及所属功能文档 |
 | `base` | 否 | `LancerBase` | 见结构定义及所属功能文档 |
 | `modifiers` | 否 | `LancerModifiers` | 见结构定义及所属功能文档 |
+| `growthCredits` | 是 | `Partial<Record<'skills'&#124;'talents'&#124;'triggerPoints',number>>` | 见结构定义及所属功能文档 |
 
 ## LancerStatResult
 
@@ -128,7 +130,7 @@ export function calculateLancer(build: LancerBuild): { growth: ReturnType<typeof
 
 ## LancerMount
 
-导出接口 · 源码第 57 行。
+导出接口 · 源码第 58 行。
 
 ```ts
 export type LancerMount = keyof typeof LANCER_MOUNTS;
@@ -136,7 +138,7 @@ export type LancerMount = keyof typeof LANCER_MOUNTS;
 
 ## LancerWeaponSize
 
-导出接口 · 源码第 59 行。
+导出接口 · 源码第 60 行。
 
 ```ts
 export type LancerWeaponSize = keyof typeof LANCER_WEAPON_SIZES;
@@ -144,7 +146,7 @@ export type LancerWeaponSize = keyof typeof LANCER_WEAPON_SIZES;
 
 ## LancerEquipment
 
-导出接口 · 源码第 60 行。
+导出接口 · 源码第 61 行。
 
 ```ts
 export interface LancerEquipment {
@@ -170,10 +172,11 @@ export interface LancerEquipment {
 
 ## LancerWeapon
 
-导出接口 · 源码第 61 行。
+导出接口 · 源码第 62 行。
 
 ```ts
 export interface LancerWeapon extends LancerEquipment {
+    slot?: 0 | 1;
     size: LancerWeaponSize;
     mount: number;
     brace: number;
@@ -185,6 +188,7 @@ export interface LancerWeapon extends LancerEquipment {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `slot` | 是 | `0&#124;1` | 见结构定义及所属功能文档 |
 | `size` | 否 | `LancerWeaponSize` | 见结构定义及所属功能文档 |
 | `mount` | 否 | `number` | 见结构定义及所属功能文档 |
 | `brace` | 否 | `number` | 见结构定义及所属功能文档 |
@@ -194,7 +198,7 @@ export interface LancerWeapon extends LancerEquipment {
 
 ## checkLancerLoadout
 
-导出接口 · 源码第 62 行。
+导出接口 · 源码第 63 行。
 
 ```ts
 export function checkLancerLoadout(mounts: LancerMount[], weapons: LancerWeapon[], systems: LancerEquipment[], capacity: number): { spent: number; remaining: number; warnings: string[]; };
@@ -209,7 +213,7 @@ export function checkLancerLoadout(mounts: LancerMount[], weapons: LancerWeapon[
 
 ## LANCER_OVERCHARGE
 
-导出接口 · 源码第 88 行。
+导出接口 · 源码第 89 行。
 
 ```ts
 export const LANCER_OVERCHARGE = ['1', '1d3', '1d6', '1d6+4'] as const;

@@ -1,6 +1,6 @@
 # AAF世界动作参数
 
-当前注册103个命令。下面从实际处理器提取读取的action字段、直接校验表达式、拒绝条件和转交类型；不是凭命令名称猜测的接口。嵌套结构和业务检查继续沿“转交类型”到[符号索引](../../reference/README.md)查询。
+当前注册133个命令。下面从实际处理器提取读取的action字段、直接校验表达式、拒绝条件和转交类型；不是凭命令名称猜测的接口。嵌套结构和业务检查继续沿“转交类型”到[符号索引](../../reference/README.md)查询。
 
 完整外层为WorldCommand：requestId、expectedRevision、action.kind。静态提取中的条件为**拒绝条件**，不是应填入JSON的值；局部变量需结合对应类型理解。参数表不把“代码读取过”误写成“所有场景都必填”，可选性以联合类型／解析器为准。
 
@@ -10,7 +10,7 @@
 
 ## aaf.level
 
-来源：`game/packages/session/src/world-aaf.ts` 第29行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf.ts` 第30行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`level`、`extraTp`。
 
@@ -31,7 +31,7 @@
 
 ## aaf.learning
 
-来源：`game/packages/session/src/world-aaf.ts` 第37行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf.ts` 第38行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`window`。
 
@@ -51,7 +51,7 @@
 
 ## aaf.talent.learn
 
-来源：`game/packages/session/src/world-aaf.ts` 第43行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf.ts` 第44行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`nodeId`。
 
@@ -70,7 +70,7 @@
 
 ## aaf.talent.refund
 
-来源：`game/packages/session/src/world-aaf.ts` 第48行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf.ts` 第49行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`nodeId`。
 
@@ -88,7 +88,7 @@
 
 ## aaf.item.grant
 
-来源：`game/packages/session/src/world-aaf.ts` 第53行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf.ts` 第54行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`definition`、`definitionId`、`id`。
 
@@ -109,7 +109,7 @@
 
 ## aaf.item.equip
 
-来源：`game/packages/session/src/world-aaf.ts` 第59行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf.ts` 第60行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`id`、`equipped`、`slot`、`hostId`。
 
@@ -130,7 +130,7 @@
 
 ## aaf.item.quality
 
-来源：`game/packages/session/src/world-aaf.ts` 第65行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf.ts` 第66行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`id`、`defective`。
 
@@ -150,7 +150,7 @@
 
 ## aaf.item.active
 
-来源：`game/packages/session/src/world-aaf.ts` 第71行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf.ts` 第72行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`reason`、`id`、`equipped`。
 
@@ -171,7 +171,7 @@
 
 ## aaf.item.transfer
 
-来源：`game/packages/session/src/world-aaf.ts` 第96行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf.ts` 第97行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`id`、`targetId`、`targetExpected`。
 
@@ -195,7 +195,7 @@
 
 ## aaf.item.consume
 
-来源：`game/packages/session/src/world-aaf.ts` 第91行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf.ts` 第92行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`id`。
 
@@ -213,7 +213,7 @@
 
 ## aaf.layout
 
-来源：`game/packages/session/src/world-aaf.ts` 第76行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf.ts` 第77行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`preparationMinutes`、`placements`、`automatic`、`targets`。
 
@@ -231,7 +231,7 @@
 
 ## aaf.item.use
 
-来源：`game/packages/session/src/world-aaf.ts` 第82行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf.ts` 第83行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`id`。
 
@@ -251,7 +251,7 @@
 
 ## aaf.rest.complete
 
-来源：`game/packages/session/src/world-aaf.ts` 第109行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf.ts` 第110行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`heldThroughout`、`heldItemIds`。
 
@@ -269,9 +269,18 @@
 
 </details>
 
+来源：`game/packages/session/src/world-aaf.ts` 第123行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+
+读取字段：`actorId`、`expected`、`heldItemIds`、`provisions`。
+
+直接校验：
+
+- `ownedActor(world, action.actorId, context)`
+- `action.expected === current.revision`
+
 ## aaf.resources.refresh
 
-来源：`game/packages/session/src/world-aaf.ts` 第24行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf.ts` 第25行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`catalogRevision`。
 
@@ -290,7 +299,7 @@
 
 ## aaf.build.save
 
-来源：`game/packages/session/src/world-aaf-character.ts` 第27行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf-character.ts` 第25行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`build`、`apply`。
 
@@ -310,7 +319,7 @@
 
 ## aaf.build.roll
 
-来源：`game/packages/session/src/world-aaf-character.ts` 第23行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf-character.ts` 第21行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`。
 
@@ -322,7 +331,7 @@
 
 ## aaf.gear.equip
 
-来源：`game/packages/session/src/world-aaf-character.ts` 第66行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf-character.ts` 第64行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`slot`、`id`。
 
@@ -335,7 +344,7 @@
 
 ## aaf.gear.base
 
-来源：`game/packages/session/src/world-aaf-character.ts` 第58行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf-character.ts` 第56行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`id`、`definitionId`。
 
@@ -355,7 +364,7 @@
 
 ## aaf.gear.buy
 
-来源：`game/packages/session/src/world-aaf-character.ts` 第50行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf-character.ts` 第48行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`definitionId`、`quantity`、`id`、`grant`。
 
@@ -378,7 +387,7 @@
 
 ## aaf.bag.move
 
-来源：`game/packages/session/src/world-aaf-character.ts` 第73行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf-character.ts` 第71行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`id`、`index`、`stow`。
 
@@ -401,7 +410,7 @@
 
 ## aaf.bag.split
 
-来源：`game/packages/session/src/world-aaf-character.ts` 第82行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf-character.ts` 第80行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`id`、`newId`、`quantity`。
 
@@ -421,7 +430,7 @@
 
 ## aaf.purse
 
-来源：`game/packages/session/src/world-aaf-character.ts` 第87行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf-character.ts` 第85行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`value`。
 
@@ -434,7 +443,7 @@
 
 ## aaf.hand
 
-来源：`game/packages/session/src/world-aaf-character.ts` 第70行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf-character.ts` 第68行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`hand`。
 
@@ -453,7 +462,7 @@
 
 ## aaf.skill.roll
 
-来源：`game/packages/session/src/world-aaf-character.ts` 第16行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf-character.ts` 第17行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`skill`、`messageId`。
 
@@ -473,7 +482,7 @@
 
 ## aaf.speed.set
 
-来源：`game/packages/session/src/world-aaf-character.ts` 第12行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf-character.ts` 第13行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`speeds`。
 
@@ -492,7 +501,7 @@
 
 ## aaf.catalog
 
-来源：`game/packages/session/src/world-aaf.ts` 第125行。
+来源：`game/packages/session/src/world-aaf.ts` 第127行。
 
 读取字段：`expected`、`catalog`。
 
@@ -508,6 +517,10 @@
 </details>
 
 ## encounter.manage
+
+来源：`game/packages/session/src/world-combat-rollback.ts` 第7行。
+
+读取字段：无额外直接字段。
 
 来源：`game/packages/session/src/world-encounter.ts` 第20行。
 
@@ -542,6 +555,20 @@
 
 </details>
 
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+
+读取字段：无额外直接字段。
+
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第59行。
+
+读取字段：无额外直接字段。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `!gm`
+
+</details>
+
 ## compendium.import
 
 来源：`game/packages/session/src/world-compendium-import.ts` 第13行。
@@ -571,7 +598,25 @@
 
 - `assertGm(context)`
 
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+
+读取字段：无额外直接字段。
+
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第53行。
+
+读取字段：无额外直接字段。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `!gm`
+
+</details>
+
 ## directory.delete
+
+来源：`game/packages/contracts/src/world-edit-policy.ts` 第34行。
+
+读取字段：无额外直接字段。
 
 来源：`game/packages/session/src/world-directory-delete.ts` 第5行。
 
@@ -582,6 +627,14 @@
 直接校验：
 
 - `assertGm(context)`
+
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+
+读取字段：无额外直接字段。
+
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第48行。
+
+读取字段：无额外直接字段。
 
 ## directory.access
 
@@ -595,6 +648,20 @@
 
 - `assertGm(context)`
 
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+
+读取字段：无额外直接字段。
+
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第56行。
+
+读取字段：无额外直接字段。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `!gm`
+
+</details>
+
 ## actor.owned
 
 来源：`game/packages/session/src/world-owned-items.ts` 第6行。
@@ -606,6 +673,20 @@
 直接校验：
 
 - `ownedActor(world,action.actorId,context)`
+
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第178行。
+
+读取字段：`actorId`。
+
+直接校验：
+
+- `parseManualTable(next)`
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `!actor`
+
+</details>
 
 ## actor.sheet
 
@@ -647,75 +728,95 @@
 
 </details>
 
-## actor.copy
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
 
-来源：`game/packages/session/src/world-actor-transfer.ts` 第1行。
+读取字段：无额外直接字段。
 
-读取字段：`id`、`name`、`targetId`、`folderId`、`sourceId`、`expected`、`file`。
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第57行。
 
-转交类型：`ActorTransferCommand`。
+读取字段：`id`、`before`、`value`。
 
 直接校验：
 
-- `parseActorFile(raw)`
-- `parseActor(file.actor)`
-- `requireId(action.id)`
-- `requireText(action.name,200)`
-- `requireId(action.targetId)`
-- `requireId(action.sourceId)`
-- `parseActorFile(action.expected)`
-- `parseActorFile(action.file)`
-- `assertGm(context)`
+- `parseActorAccess(action.before)`
+- `parseActorAccess(action.value)`
 
 <details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
 
+- `!gm`
 - `!actor`
-- `!c`
-- `file.systemId!=='aaf'`
-- `action.kind==='actor.import'&&action.targetId!==undefined&&(!target&#124;&#124;target.id!==id)`
-- `target?.tokenInstance`
-- `!target&&world.actors[id]`
-- `target&&action.folderId!==undefined`
-- `action.kind==='actor.copy'`
-- `canonicalJson(file)!==canonicalJson(parseActorFile(action.expected))`
-- `target&&canonicalJson(exportWorldActor(world,target.id))!==canonicalJson(parseActorFile(action.expected))`
+- `canonicalJson(actorOwnership(actor))!==canonicalJson(parseActorAccess(action.before))`
 
 </details>
+
+## actor.copy
+
+来源：`game/packages/session/src/world-actor-transfer.ts` 第9行。
+
+读取字段：`sourceId`、`expected`。
+
+直接校验：
+
+- `requireId(action.sourceId)`
+- `parseActorFile(action.expected)`
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `canonicalJson(file)!==canonicalJson(parseActorFile(action.expected))`
+
+</details>
+
+来源：`game/packages/tabletop-runtime/src/tabletop/actorTransfer.ts` 第8行。
+
+读取字段：`sourceId`、`expected`。
+
+直接校验：
+
+- `parseActorFile(action.expected)`
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `canonicalJson(file)!==canonicalJson(parseActorFile(action.expected))`
+
+</details>
+
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+
+读取字段：无额外直接字段。
+
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第74行。
+
+读取字段：无额外直接字段。
 
 ## actor.import
 
-来源：`game/packages/session/src/world-actor-transfer.ts` 第1行。
+来源：`game/packages/session/src/world-actor-transfer.ts` 第8行。
 
-读取字段：`id`、`name`、`targetId`、`folderId`、`sourceId`、`expected`、`file`。
+读取字段：无额外直接字段。
 
-转交类型：`ActorTransferCommand`。
+来源：`game/packages/session/src/world-actor-transfer.ts` 第11行。
 
-直接校验：
+读取字段：无额外直接字段。
 
-- `parseActorFile(raw)`
-- `parseActor(file.actor)`
-- `requireId(action.id)`
-- `requireText(action.name,200)`
-- `requireId(action.targetId)`
-- `requireId(action.sourceId)`
-- `parseActorFile(action.expected)`
-- `parseActorFile(action.file)`
-- `assertGm(context)`
+来源：`game/packages/session/src/world-actor-transfer.ts` 第12行。
 
-<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+读取字段：无额外直接字段。
 
-- `!actor`
-- `!c`
-- `file.systemId!=='aaf'`
-- `action.kind==='actor.import'&&action.targetId!==undefined&&(!target&#124;&#124;target.id!==id)`
-- `target?.tokenInstance`
-- `!target&&world.actors[id]`
-- `target&&action.folderId!==undefined`
-- `action.kind==='actor.copy'`
-- `canonicalJson(file)!==canonicalJson(parseActorFile(action.expected))`
-- `target&&canonicalJson(exportWorldActor(world,target.id))!==canonicalJson(parseActorFile(action.expected))`
+来源：`game/packages/tabletop-runtime/src/tabletop/actorTransfer.ts` 第7行。
 
-</details>
+读取字段：无额外直接字段。
+
+来源：`game/packages/tabletop-runtime/src/tabletop/actorTransfer.ts` 第10行。
+
+读取字段：无额外直接字段。
+
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+
+读取字段：无额外直接字段。
+
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第74行。
+
+读取字段：无额外直接字段。
 
 ## scene.import
 
@@ -733,6 +834,20 @@
 <details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
 
 - `context.senderId!==world.hostId`
+
+</details>
+
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+
+读取字段：无额外直接字段。
+
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第75行。
+
+读取字段：`archive`、`id`、`name`、`folderId`、`replacement`。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `senderId!==next.hostId`
 
 </details>
 
@@ -761,6 +876,14 @@
 
 </details>
 
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+
+读取字段：无额外直接字段。
+
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第76行。
+
+读取字段：`sourceId`、`id`、`name`、`folderId`。
+
 ## actor.inheritance
 
 来源：`game/packages/session/src/world-token-instances.ts` 第13行。
@@ -777,6 +900,20 @@
 <details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
 
 - `!actor?.tokenInstance`
+
+</details>
+
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+
+读取字段：无额外直接字段。
+
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第58行。
+
+读取字段：`id`、`mode`、`expected`。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `!gm`
 
 </details>
 
@@ -799,13 +936,48 @@
 
 </details>
 
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+
+读取字段：无额外直接字段。
+
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第70行。
+
+读取字段：`id`、`before`、`value`。
+
+直接校验：
+
+- `parseTokenPrototype(action.value)`
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `!actor&#124;&#124;actor.tokenInstance`
+- `canonicalJson(action.before)!==canonicalJson(actorTokenPrototype(actor))`
+
+</details>
+
 ## story.use
 
 来源：`game/packages/session/src/world-story.ts` 第11行。
 
 读取字段：无额外直接字段。
 
+来源：`game/packages/tabletop-runtime/src/tabletop/combatJournal.ts` 第29行。
+
+读取字段：`request`。
+
+来源：`game/packages/tabletop-runtime/src/tabletop/combatJournal.ts` 第56行。
+
+读取字段：无额外直接字段。
+
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第183行。
+
+读取字段：`request`。
+
 ## story.command
+
+来源：`game/packages/contracts/src/world-edit-policy.ts` 第31行。
+
+读取字段：无额外直接字段。
 
 来源：`game/packages/session/src/world-story.ts` 第12行。
 
@@ -817,7 +989,7 @@
 
 ## effect.tick
 
-来源：`game/packages/session/src/world-actors.ts` 第16行。
+来源：`game/packages/session/src/world-actors.ts` 第17行。
 
 读取字段：`tick`、`actorId`。
 
@@ -834,7 +1006,7 @@
 
 ## actor.create
 
-来源：`game/packages/session/src/world-actors.ts` 第21行。
+来源：`game/packages/session/src/world-actors.ts` 第22行。
 
 读取字段：`id`、`templateId`、`profile`、`folderId`、`owners`、`visibility`、`portrait`、`aafCreation`。
 
@@ -858,7 +1030,7 @@
 
 ## actor.update
 
-来源：`game/packages/session/src/world-actors.ts` 第34行。
+来源：`game/packages/session/src/world-actors.ts` 第35行。
 
 读取字段：`id`、`profile`、`mp`、`burnStacks`、`owners`、`visibility`、`portrait`、`notes`。
 
@@ -872,11 +1044,11 @@
 - `assetReference(action.portrait)`
 - `optionalText(action.notes, 50000)`
 - `requireInteger(action.mp, 0, actor.profile.mpMax ?? 0)`
-- `requireInteger(action.burnStacks, 0, 100)`
+- `requireInteger(action.burnStacks, 0, 10000)`
 
 ## actor.delete
 
-来源：`game/packages/session/src/world-actors.ts` 第49行。
+来源：`game/packages/session/src/world-actors.ts` 第50行。
 
 读取字段：`id`。
 
@@ -885,9 +1057,23 @@
 - `assertGm(context)`
 - `ownedActor(world, action.id, context)`
 
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+
+读取字段：无额外直接字段。
+
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第116行。
+
+读取字段：`id`。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `liveBattle`
+
+</details>
+
 ## inventory.grant
 
-来源：`game/packages/session/src/world-actors.ts` 第56行。
+来源：`game/packages/session/src/world-actors.ts` 第57行。
 
 读取字段：`actorId`、`id`、`itemId`、`quantity`。
 
@@ -907,7 +1093,7 @@
 
 ## inventory.quantity
 
-来源：`game/packages/session/src/world-actors.ts` 第64行。
+来源：`game/packages/session/src/world-actors.ts` 第65行。
 
 读取字段：`actorId`、`id`、`quantity`。
 
@@ -926,7 +1112,7 @@
 
 ## inventory.equip
 
-来源：`game/packages/session/src/world-actors.ts` 第73行。
+来源：`game/packages/session/src/world-actors.ts` 第74行。
 
 读取字段：`actorId`、`id`、`slot`、`equipped`。
 
@@ -945,7 +1131,7 @@
 
 ## resource.set
 
-来源：`game/packages/session/src/world-actors.ts` 第83行。
+来源：`game/packages/session/src/world-actors.ts` 第84行。
 
 读取字段：`actorId`、`id`、`max`、`value`。
 
@@ -965,7 +1151,7 @@
 
 ## resource.delete
 
-来源：`game/packages/session/src/world-actors.ts` 第91行。
+来源：`game/packages/session/src/world-actors.ts` 第92行。
 
 读取字段：`actorId`、`id`。
 
@@ -977,7 +1163,7 @@
 
 ## effect.upsert
 
-来源：`game/packages/session/src/world-actors.ts` 第95行。
+来源：`game/packages/session/src/world-actors.ts` 第96行。
 
 读取字段：`actorId`、`effect`。
 
@@ -1001,7 +1187,7 @@
 
 ## effect.delete
 
-来源：`game/packages/session/src/world-actors.ts` 第108行。
+来源：`game/packages/session/src/world-actors.ts` 第110行。
 
 读取字段：`actorId`、`id`。
 
@@ -1106,6 +1292,10 @@
 
 ## dice.roll
 
+来源：`game/packages/session/src/world-combat-rollback.ts` 第10行。
+
+读取字段：无额外直接字段。
+
 来源：`game/packages/session/src/world-narrative.ts` 第22行。
 
 读取字段：`id`、`count`、`sides`、`modifier`、`recipients`、`text`。
@@ -1171,7 +1361,7 @@
 
 ## combat.quota
 
-来源：`game/packages/session/src/world-scenes.ts` 第54行。
+来源：`game/packages/session/src/world-scenes.ts` 第65行。
 
 读取字段：`sceneId`、`id`、`quota`、`available`。
 
@@ -1193,7 +1383,7 @@
 
 ## combat.adjust
 
-来源：`game/packages/session/src/world-scenes.ts` 第70行。
+来源：`game/packages/session/src/world-scenes.ts` 第81行。
 
 读取字段：`sceneId`、`id`、`hp`、`mp`、`burnStacks`。
 
@@ -1203,7 +1393,7 @@
 - `requireId(action.id)`
 - `requireInteger(action.hp, 0, actor.maxHp)`
 - `requireInteger(action.mp, 0, actor.mpMax ?? 0)`
-- `requireInteger(action.burnStacks, 0, 100)`
+- `requireInteger(action.burnStacks, 0, 10000)`
 
 <details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
 
@@ -1214,7 +1404,7 @@
 
 ## scene.bindings
 
-来源：`game/packages/session/src/world-scenes.ts` 第89行。
+来源：`game/packages/session/src/world-scenes.ts` 第100行。
 
 读取字段：`sceneId`、`bindings`。
 
@@ -1234,7 +1424,7 @@
 
 ## scene.create
 
-来源：`game/packages/session/src/world-scenes.ts` 第97行。
+来源：`game/packages/session/src/world-scenes.ts` 第108行。
 
 读取字段：`id`、`name`、`sceneKind`、`map`、`background`、`folderId`。
 
@@ -1256,7 +1446,7 @@
 
 ## scene.door
 
-来源：`game/packages/session/src/world-scenes.ts` 第107行。
+来源：`game/packages/session/src/world-scenes.ts` 第118行。
 
 读取字段：`sceneId`、`id`、`intent`。
 
@@ -1272,7 +1462,11 @@
 
 ## scene.perception
 
-来源：`game/packages/session/src/world-scenes.ts` 第108行。
+来源：`game/packages/contracts/src/world-edit-policy.ts` 第33行。
+
+读取字段：无额外直接字段。
+
+来源：`game/packages/session/src/world-scenes.ts` 第119行。
 
 读取字段：`id`、`edit`。
 
@@ -1282,13 +1476,17 @@
 
 ## scene.features
 
-来源：`game/packages/session/src/world-scenes.ts` 第109行。
+来源：`game/packages/contracts/src/world-edit-policy.ts` 第32行。
+
+读取字段：无额外直接字段。
+
+来源：`game/packages/session/src/world-scenes.ts` 第120行。
 
 读取字段：`id`、`edits`。
 
 ## scene.canvas
 
-来源：`game/packages/session/src/world-scenes.ts` 第110行。
+来源：`game/packages/session/src/world-scenes.ts` 第121行。
 
 读取字段：`sceneId`、`before`、`value`。
 
@@ -1297,9 +1495,24 @@
 - `assertGm(context)`
 - `assetReference(value.background)`
 
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+
+读取字段：无额外直接字段。
+
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第60行。
+
+读取字段：`sceneId`、`before`、`value`。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `!gm`
+- `!map`
+
+</details>
+
 ## scene.update
 
-来源：`game/packages/session/src/world-scenes.ts` 第111行。
+来源：`game/packages/session/src/world-scenes.ts` 第122行。
 
 读取字段：`id`、`name`、`sceneKind`、`background`、`map`。
 
@@ -1319,7 +1532,7 @@
 
 ## scene.delete
 
-来源：`game/packages/session/src/world-scenes.ts` 第123行。
+来源：`game/packages/session/src/world-scenes.ts` 第134行。
 
 读取字段：`id`。
 
@@ -1329,7 +1542,7 @@
 
 ## scene.activate
 
-来源：`game/packages/session/src/world-scenes.ts` 第126行。
+来源：`game/packages/session/src/world-scenes.ts` 第137行。
 
 读取字段：`id`。
 
@@ -1345,7 +1558,7 @@
 
 ## token.place
 
-来源：`game/packages/session/src/world-scenes.ts` 第133行。
+来源：`game/packages/session/src/world-scenes.ts` 第144行。
 
 读取字段：`sceneId`、`id`、`actorId`、`x`、`y`、`hidden`、`visionFeet`。
 
@@ -1366,9 +1579,33 @@
 
 </details>
 
+## token.duplicate
+
+来源：`game/packages/session/src/world-scenes.ts` 第156行。
+
+读取字段：`sceneId`、`sourceId`、`id`、`x`、`y`。
+
+直接校验：
+
+- `requireId(action.id)`
+- `requireInteger(action.x, 0, scene.map.width - 1)`
+- `requireInteger(action.y, 0, scene.map.height - 1)`
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `!context.isGm&&context.senderId!==context.hostId&&scene.id!==worldSceneId(world,context.senderId)`
+- `!actor`
+- `scene.tokens[id]`
+- `Object.keys(scene.tokens).length >= 512`
+- `Object.keys(world.actors).length >= 10000`
+- `!point`
+- `requested && !Number.isFinite(movementCost(scene.map, point, occupied))`
+
+</details>
+
 ## token.remove
 
-来源：`game/packages/session/src/world-scenes.ts` 第144行。
+来源：`game/packages/session/src/world-scenes.ts` 第177行。
 
 读取字段：`sceneId`、`id`。
 
@@ -1379,7 +1616,7 @@
 
 ## token.configure
 
-来源：`game/packages/session/src/world-scenes.ts` 第147行。
+来源：`game/packages/session/src/world-scenes.ts` 第180行。
 
 读取字段：`sceneId`、`id`、`configuration`、`expectedConfiguration`、`binding`、`toggleHidden`、`hidden`、`visionFeet`。
 
@@ -1399,9 +1636,31 @@
 
 </details>
 
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+
+读取字段：无额外直接字段。
+
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第71行。
+
+读取字段：`sceneId`、`id`、`before`、`value`、`binding`。
+
+直接校验：
+
+- `parseTokenConfiguration(action.value)`
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `action.sceneId!==(next.activeSceneId??'initial')`
+- `!token`
+- `canonicalJson(action.before)!==canonicalJson(tokenConfiguration(token))`
+- `action.binding`
+- `typeof action.binding.linked!=='boolean'&#124;&#124;token.actorId!==action.binding.expectedActorId`
+
+</details>
+
 ## token.move
 
-来源：`game/packages/session/src/world-scenes.ts` 第156行。
+来源：`game/packages/session/src/world-scenes.ts` 第189行。
 
 读取字段：`sceneId`、`id`、`x`、`y`、`mode`。
 
@@ -1422,7 +1681,7 @@
 
 ## combat.start
 
-来源：`game/packages/session/src/world-scenes.ts` 第168行。
+来源：`game/packages/session/src/world-scenes.ts` 第201行。
 
 读取字段：`sceneId`、`seed`。
 
@@ -1439,7 +1698,7 @@
 
 ## combat.stop
 
-来源：`game/packages/session/src/world-scenes.ts` 第182行。
+来源：`game/packages/session/src/world-scenes.ts` 第215行。
 
 读取字段：`sceneId`。
 
@@ -1449,7 +1708,17 @@
 
 ## combat.action
 
-来源：`game/packages/session/src/world-scenes.ts` 第185行。
+来源：`game/packages/session/src/world-combat-rollback.ts` 第10行。
+
+读取字段：无额外直接字段。
+
+来源：`game/packages/session/src/world-environment-effects.ts` 第13行。
+
+读取字段：`intent`。
+
+转交类型：`Record<string,unknown>`。
+
+来源：`game/packages/session/src/world-scenes.ts` 第218行。
 
 读取字段：`sceneId`、`intent`。
 
@@ -1468,7 +1737,7 @@
 
 ## combat.move
 
-来源：`game/packages/session/src/world-scenes.ts` 第197行。
+来源：`game/packages/session/src/world-scenes.ts` 第230行。
 
 读取字段：`sceneId`、`id`、`x`、`y`、`mode`。
 
@@ -1493,7 +1762,7 @@
 
 ## scene.fog
 
-来源：`game/packages/session/src/world-scenes.ts` 第222行。
+来源：`game/packages/session/src/world-scenes.ts` 第256行。
 
 读取字段：`sceneId`、`enabled`、`cells`、`reveal`。
 
@@ -1514,7 +1783,7 @@
 
 ## annotation.upsert
 
-来源：`game/packages/session/src/world-scenes.ts` 第231行。
+来源：`game/packages/session/src/world-scenes.ts` 第265行。
 
 读取字段：`sceneId`、`annotation`。
 
@@ -1538,7 +1807,7 @@
 
 ## annotation.delete
 
-来源：`game/packages/session/src/world-scenes.ts` 第242行。
+来源：`game/packages/session/src/world-scenes.ts` 第276行。
 
 读取字段：`sceneId`、`id`。
 
@@ -1646,7 +1915,7 @@
 
 ## aaf.rules.configure
 
-来源：`game/packages/session/src/world-aaf-rules.ts` 第39行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf-rules.ts` 第69行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`rules`。
 
@@ -1658,7 +1927,7 @@
 
 ## aaf.rules.ability
 
-来源：`game/packages/session/src/world-aaf-rules.ts` 第40行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf-rules.ts` 第70行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`ability`。
 
@@ -1670,27 +1939,26 @@
 
 ## aaf.rules.effect
 
-来源：`game/packages/session/src/world-aaf-rules.ts` 第41行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf-rules.ts` 第71行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
-读取字段：`actorId`、`expected`、`effect`、`source`、`duration`。
+读取字段：`actorId`、`expected`、`effects`、`effect`、`source`、`duration`、`unreducible`。
 
 直接校验：
 
 - `ownedActor(world, action.actorId, context)`
 - `action.expected === current.revision`
-- `parseAafOperation(action.effect)`
 - `requireText(action.source)`
 - `parseAafDuration(action.duration)`
 
 <details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
 
-- `effect.kind==='shield'&&!ctx.combat`
+- `action.effects!==undefined&&(!Array.isArray(action.effects)&#124;&#124;action.effects.length<1&#124;&#124;action.effects.length>64)`
 
 </details>
 
 ## aaf.rules.check
 
-来源：`game/packages/session/src/world-aaf-rules.ts` 第45行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf-rules.ts` 第78行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`check`。
 
@@ -1704,16 +1972,35 @@
 
 <details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
 
+- `aafPendingActor(s)&#124;&#124;s.aafFlow?.length`
 - `!['attribute','skill','save','initiative'].includes(String(raw.kind))`
 - `!['str','dex','con','int','wis','cha'].includes(attribute)`
 
 </details>
 
+## aaf.rules.check-dc
+
+来源：`game/packages/session/src/world-aaf-rules.ts` 第85行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+
+读取字段：`actorId`、`expected`、`dc`。
+
+直接校验：
+
+- `ownedActor(world, action.actorId, context)`
+- `action.expected === current.revision`
+- `requireInteger(action.dc,0,1000)`
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `!r.pending&#124;&#124;r.pending.kind!=='check'&#124;&#124;!r.lastCheck&#124;&#124;r.pending.reroll`
+
+</details>
+
 ## aaf.rules.rest
 
-来源：`game/packages/session/src/world-aaf-rules.ts` 第51行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf-rules.ts` 第88行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
-读取字段：`actorId`、`expected`、`rest`、`provisions`。
+读取字段：`actorId`、`expected`、`rest`、`provisions`、`heldItemIds`。
 
 直接校验：
 
@@ -1725,12 +2012,14 @@
 - `ctx.combat`
 - `kind!=='short'&&kind!=='long'`
 - `kind==='short'&&r.shortRests>=2`
+- `kind==='long'`
+- `document.aaf`
 
 </details>
 
 ## aaf.rules.boundary
 
-来源：`game/packages/session/src/world-aaf-rules.ts` 第66行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf-rules.ts` 第103行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`event`。
 
@@ -1749,7 +2038,7 @@
 
 ## aaf.rules.hero
 
-来源：`game/packages/session/src/world-aaf-rules.ts` 第69行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf-rules.ts` 第106行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`active`、`sacrifice`。
 
@@ -1760,7 +2049,7 @@
 
 ## aaf.rules.defeat
 
-来源：`game/packages/session/src/world-aaf-rules.ts` 第70行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf-rules.ts` 第107行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`。
 
@@ -1771,7 +2060,7 @@
 
 ## aaf.rules.respond
 
-来源：`game/packages/session/src/world-aaf-rules.ts` 第38行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
+来源：`game/packages/session/src/world-aaf-rules.ts` 第68行。共享world-aaf入口还检查战斗锁、角色一致性并递增aaf.revision；具体分支可有额外GM限制。
 
 读取字段：`actorId`、`expected`、`action`。
 
@@ -1787,9 +2076,429 @@
 
 </details>
 
+## spiral.create
+
+来源：`game/packages/session/src/world-spiral.ts` 第6行。
+
+读取字段：`settings`。
+
+直接校验：
+
+- `parseSpiralSettings(action.settings)`
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `ctx.senderId!==ctx.hostId&#124;&#124;world.spiral&#124;&#124;Object.keys(world.scenes).length&#124;&#124;Object.keys(world.actors).length`
+
+</details>
+
+## spiral.join
+
+来源：`game/packages/game-core/src/spiral/index.ts` 第122行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：`name`、`classId`、`kitId`。
+
+转交类型：`keyof typeof SPIRAL_CLASSES`。
+
+直接校验：
+
+- `isText(action.name,80)`
+- `isId(playerId)`
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `d.phase!=='lobby'`
+- `!isText(action.name,80)&#124;&#124;!String(action.name).trim()&#124;&#124;!Object.hasOwn(SPIRAL_CLASSES,String(action.classId))`
+- `!member`
+- `d.members.length>=4`
+- `!isId(playerId)`
+
+</details>
+
+## spiral.ready
+
+来源：`game/packages/game-core/src/spiral/index.ts` 第147行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：`ready`。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `d.phase!=='lobby'&#124;&#124;typeof action.ready!=='boolean'`
+
+</details>
+
+## spiral.start
+
+来源：`game/packages/game-core/src/spiral/index.ts` 第148行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：无额外直接字段。
+
+## spiral.vote
+
+来源：`game/packages/game-core/src/spiral/index.ts` 第149行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：`roomId`。
+
+## spiral.reward
+
+来源：`game/packages/game-core/src/spiral/index.ts` 第157行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：`rewardId`。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `d.phase!=='reward'&#124;&#124;!participants(s).includes(member)&#124;&#124;member.chosenReward&#124;&#124;!member.rewards.includes(String(action.rewardId))`
+- `!actor`
+
+</details>
+
+## spiral.rest
+
+来源：`game/packages/game-core/src/spiral/index.ts` 第162行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：`choice`。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `d.phase!=='rest'&#124;&#124;member.chosenReward&#124;&#124;!['hp','mp'].includes(String(action.choice))&#124;&#124;!expeditionActor(s,member.actorId)`
+
+</details>
+
+## spiral.end
+
+来源：`game/packages/game-core/src/spiral/index.ts` 第172行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：`ready`、`threatRevision`。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `typeof action.ready!=='boolean'&#124;&#124;aafPendingActor(battle)&#124;&#124;battle.aafFlow?.length`
+- `action.ready&&action.threatRevision!==d.threatRevision`
+
+</details>
+
+## spiral.action
+
+来源：`game/packages/game-core/src/spiral/index.ts` 第177行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：`action`。
+
+直接校验：
+
+- `isRecord(action.action)`
+- `isInteger(a.x,0,99)`
+- `isInteger(a.y,0,99)`
+- `isId(a.targetId)`
+- `isAafAction(a)`
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `!isRecord(action.action)`
+
+</details>
+
+## spiral.event
+
+来源：`game/packages/game-core/src/spiral/index.ts` 第167行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：`choice`。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `d.phase!=='event'&#124;&#124;member.chosenReward&#124;&#124;!['help','leave'].includes(String(action.choice))`
+
+</details>
+
+## spiral.search
+
+来源：`game/packages/game-core/src/spiral/index.ts` 第143行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：无额外直接字段。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `d.phase!=='route'&#124;&#124;!d.roomId&#124;&#124;d.searched.includes(d.roomId)`
+
+</details>
+
+## spiral.presented
+
+来源：`game/packages/game-core/src/spiral/index.ts` 第134行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：`presentationId`。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `!p&#124;&#124;action.presentationId!==p.id`
+
+</details>
+
+## spiral.travel
+
+来源：`game/packages/game-core/src/spiral/exploration.ts` 第70行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：`day`、`motion`、`q`、`r`。
+
+直接校验：
+
+- `isInteger(action.q,0,j.width-1)`
+- `isInteger(action.r,0,j.height-1)`
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `action.day!==j.day&#124;&#124;action.motion!==traveller.motion`
+- `!isInteger(action.q,0,j.width-1)&#124;&#124;!isInteger(action.r,0,j.height-1)`
+- `!route&#124;&#124;!route.path.length&#124;&#124;route.cost>traveller.remaining`
+
+</details>
+
+## spiral.travelEnd
+
+来源：`game/packages/game-core/src/spiral/exploration.ts` 第63行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：`ready`。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `typeof action.ready!=='boolean'`
+
+</details>
+
+## spiral.visit
+
+来源：`game/packages/game-core/src/spiral/exploration.ts` 第119行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：无额外直接字段。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `spiralHexDistance(traveller,site)!==0`
+- `traveller.mode==='sail'`
+- `site.kind==='event'`
+- `site.kind==='enemy'`
+- `site.cleared`
+- `site.kind==='town'&#124;&#124;site.kind==='port'`
+- `j.gold<8&#124;&#124;traveller.remaining<2`
+- `site.kind==='dungeon'`
+- `traveller.remaining<1`
+
+</details>
+
+## spiral.rally
+
+来源：`game/packages/game-core/src/spiral/exploration.ts` 第108行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：`ready`。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `site.kind!=='dungeon'&#124;&#124;site.cleared&#124;&#124;traveller.mode==='sail'&#124;&#124;spiralHexDistance(traveller,site)>1&#124;&#124;typeof action.ready!=='boolean'`
+- `j.rally&&j.rally.siteId!==site.id&&j.rally.readyPlayers.length`
+
+</details>
+
+## spiral.retreat
+
+来源：`game/packages/game-core/src/spiral/exploration.ts` 第57行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：`ready`。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `j.location!=='dungeon'&#124;&#124;d.phase==='combat'&#124;&#124;!['route','reward','rest','event'].includes(d.phase)&#124;&#124;typeof action.ready!=='boolean'`
+- `d.phase==='rest'&#124;&#124;d.phase==='event'`
+
+</details>
+
+## spiral.rescue
+
+来源：`game/packages/game-core/src/spiral/exploration.ts` 第78行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：`playerId`。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `!t&#124;&#124;!fallen&#124;&#124;fallen.hp>0&#124;&#124;spiralHexDistance(t,traveller)>1&#124;&#124;traveller.remaining<2`
+
+</details>
+
+## spiral.finish
+
+来源：`game/packages/game-core/src/spiral/exploration.ts` 第104行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：`ready`。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `typeof action.ready!=='boolean'`
+
+</details>
+
+## spiral.embark
+
+来源：`game/packages/game-core/src/spiral/exploration.ts` 第83行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：无额外直接字段。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `site.kind!=='port'&#124;&#124;spiralHexDistance(traveller,site)!==0`
+- `kind==='spiral.disembark'`
+- `traveller.mode!=='sail'`
+- `traveller.mode==='sail'`
+- `j.gold<price&#124;&#124;traveller.remaining<SPIRAL_TRAVEL_RULES.embarkMovement`
+
+</details>
+
+## spiral.disembark
+
+来源：`game/packages/game-core/src/spiral/exploration.ts` 第83行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：无额外直接字段。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `site.kind!=='port'&#124;&#124;spiralHexDistance(traveller,site)!==0`
+- `kind==='spiral.disembark'`
+- `traveller.mode!=='sail'`
+- `traveller.mode==='sail'`
+- `j.gold<price&#124;&#124;traveller.remaining<SPIRAL_TRAVEL_RULES.embarkMovement`
+
+</details>
+
+来源：`game/packages/game-core/src/spiral/exploration.ts` 第85行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：无额外直接字段。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `traveller.mode!=='sail'`
+
+</details>
+
+## spiral.resolveEvent
+
+来源：`game/packages/game-core/src/spiral/exploration.ts` 第93行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：`choice`。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `site.kind!=='event'&#124;&#124;!site.event&#124;&#124;site.cleared&#124;&#124;spiralHexDistance(traveller,site)!==0`
+- `site.event==='wreck'&&traveller.mode!=='sail'`
+- `!choice`
+- `traveller.remaining<choice.movement&#124;&#124;j.gold<(choice.goldCost??0)&#124;&#124;actor.mp<(choice.mpCost??0)`
+
+</details>
+
+## spiral.assign
+
+来源：`game/packages/game-core/src/spiral/index.ts` 第116行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：`playerId`、`actorId`。
+
+直接校验：
+
+- `isId(action.playerId)`
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `!target`
+
+</details>
+
+来源：`game/packages/session/src/world-spiral.ts` 第4行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：无额外直接字段。
+
+## spiral.recruit
+
+来源：`game/packages/game-core/src/spiral/index.ts` 第131行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：无额外直接字段。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `playerId!==hostId&#124;&#124;d.settings.scenario!=='ruen'&#124;&#124;d.phase!=='lobby'`
+
+</details>
+
+## spiral.ruenTravel
+
+来源：`game/packages/game-core/src/spiral/ruen.ts` 第40行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：`siteId`、`from`。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `!target&#124;&#124;!(site.links as readonly string[]).includes(target.id)&#124;&#124;action.from!==p.position`
+
+</details>
+
+## spiral.ruenCamp
+
+来源：`game/packages/game-core/src/spiral/ruen.ts` 第47行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：无额外直接字段。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `p.supplies<2`
+
+</details>
+
+## spiral.ruenEnter
+
+来源：`game/packages/game-core/src/spiral/ruen.ts` 第50行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：无额外直接字段。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `site.kind!=='dungeon'&&site.kind!=='battle'&#124;&#124;landmark.cleared`
+- `site.id==='pump'&&!p.flags.includes('charts')`
+- `site.id==='lock'&&!p.flags.includes('pump')`
+
+</details>
+
+## spiral.ruenChoice
+
+来源：`game/packages/game-core/src/spiral/ruen.ts` 第1行。分支还受 commandSpiral 的共享成员、阶段和演出状态检查；房主不能借此使用普通 GM 编辑命令。
+
+读取字段：`siteId`、`from`、`choice`。
+
+转交类型：`SpiralData`。
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `siteId!=='pump'&&siteId!=='lock'`
+- `!p&#124;&#124;!j&#124;&#124;d.phase!=='overworld'&#124;&#124;j.location!=='surface'`
+- `kind==='spiral.ruenTravel'`
+- `!target&#124;&#124;!(site.links as readonly string[]).includes(target.id)&#124;&#124;action.from!==p.position`
+- `kind==='spiral.ruenCamp'`
+- `p.supplies<2`
+- `kind==='spiral.ruenEnter'`
+- `site.kind!=='dungeon'&&site.kind!=='battle'&#124;&#124;landmark.cleared`
+- `site.id==='pump'&&!p.flags.includes('charts')`
+- `site.id==='lock'&&!p.flags.includes('pump')`
+- `kind!=='spiral.ruenChoice'`
+- `site.id==='harbor'`
+- `choice==='supply'`
+- `j.gold<8`
+- `p.supplies>93`
+- `choice==='rest'`
+- `choice==='work'`
+- `j.gold>=8&#124;&#124;p.supplies>2`
+- `site.id==='ferry'&&!has('engineer')&&!has('cargo')`
+- `site.id==='orchard'&&!has('orchard')&&!has('orchard-trade')`
+- `choice==='trade'`
+- `j.gold<6`
+
+</details>
+
 ## adjudication.apply
 
-来源：`game/packages/session/src/world-authority.ts` 第44行。
+来源：`game/packages/session/src/world-authority.ts` 第45行。
 
 读取字段：无额外直接字段。
 
@@ -1806,17 +2515,10 @@
 
 ## combat.rollback
 
-来源：`game/packages/session/src/world-combat-rollback.ts` 第1行。
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第128行。
 
-读取字段：`command`、`actorId`、`sceneId`、`intent`、`confirmed`、`id`、`rollbackKind`。
+读取字段：无额外直接字段。
 
-转交类型：`{op?:string}|undefined`、`{kind?:string}`、`RollbackKind`、`CombatRollbackCommand`。
+直接校验：
 
-<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
-
-- `!storyGm(world.story,world.hostId,sender)&#124;&#124;action.confirmed!==true`
-- `!row&#124;&#124;row.sceneId!==action.sceneId&#124;&#124;!row.kinds.includes(action.rollbackKind as RollbackKind)`
-- `!scene`
-- `!a`
-
-</details>
+- `parseManualTable(personal!==global?tableScene(restored,global):restored)`
