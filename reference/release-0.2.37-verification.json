@@ -1,0 +1,18 @@
+{
+  "at": "2026-11-05T09:22:29.798Z",
+  "version": "0.2.37",
+  "commit": "d08f5bd0f45d3119be253159b5adaeffd8658460",
+  "ready": true,
+  "players": 6,
+  "worlds": 1,
+  "pairedClientVersion": "0.2.37",
+  "privateRuntimeStatus": 401,
+  "matchingBrowserBuild": true,
+  "cosResourceRedirect": true,
+  "desktop": {
+    "version": "0.2.37",
+    "connected": true,
+    "verification": "正常安装目录程序文件版本与设置页当前界面版本一致；已进入大厅，设置页显示已连接服务器。"
+  },
+  "githubLatest": "https://github.com/nubeslove/gongzhui-qunxing-releases/releases/tag/v0.2.37"
+}
