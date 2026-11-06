@@ -8688,6 +8688,194 @@
         }
       }
     },
+    "/api/player/presence": {
+      "get": {
+        "operationId": "get__api_player_presence",
+        "summary": "读取本人的隐身设置",
+        "description": "仅返回当前登录账号的持久隐身偏好；响应禁止缓存。其他人的公开在线状态通过账号目录读取。\n权限：有效账号。",
+        "tags": [
+          "平台"
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "invisible": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "invisible"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "put__api_player_presence",
+        "summary": "保存本人的隐身设置",
+        "description": "只允许修改当前登录账号。隐身对其他账号显示离线，并隐藏活动时间和所在世界；不会改变更新排空使用的真实连接状态。\n权限：有效账号。",
+        "tags": [
+          "平台"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "invisible": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "invisible"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "invisible": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "invisible"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数、版本或业务校验失败",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "令牌无效或账号密码错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "请求体过大",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/internal/updates/claim": {
       "post": {
         "operationId": "post__api_internal_updates_claim",

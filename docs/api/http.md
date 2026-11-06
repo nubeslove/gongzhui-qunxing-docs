@@ -1,6 +1,6 @@
 # 平台 HTTP 接口
 
-核对源码：server 的 index/auth/community/media/publications/world-access/world-roles/world-transfer/world-deletion/updates/community-center-api；其他独立管理模块未在此穷举。共 73 个 method + path 组合（含停用的旧注册入口）。[OpenAPI 3.1](../../api/openapi.json) 收录每个请求、路径参数、返回结构和状态码。
+核对源码：server 的 index/auth/community/media/publications/world-access/world-roles/world-transfer/world-deletion/updates/community-center-api；其他独立管理模块未在此穷举。共 75 个 method + path 组合（含停用的旧注册入口）。[OpenAPI 3.1](../../api/openapi.json) 收录每个请求、路径参数、返回结构和状态码。
 
 ## 通用约定
 
@@ -72,6 +72,8 @@
 | GET | `/api/worlds/{id}/deletion` | 创建者／平台管理员 | 查询世界清理回执 |
 | GET | `/api/worlds/{id}/transfer` | 创建者／平台管理员 | 查询转让资格和回执 |
 | POST | `/api/client/presence` | 已登录 | 报告当前客户端在线状态 |
+| GET | `/api/player/presence` | 已登录 | 读取本人的隐身设置 |
+| PUT | `/api/player/presence` | 已登录 | 保存本人的隐身设置 |
 | POST | `/api/internal/updates/claim` | 匿名 | 本机更新代理领取审核任务 |
 | GET | `/api/admin/releases/check` | 更新管理员 | 读取发行源并检查新版本 |
 | POST | `/api/admin/releases/jobs/{id}/approve` | 更新管理员 | 站长批准空闲更新 |
@@ -2429,6 +2431,64 @@ Tauri 签名更新检查。无更新或不支持该平台返回 204，无 JSON �
   },
   "required": [
     "ready"
+  ]
+}
+```
+
+## GET /api/player/presence
+
+读取本人的隐身设置。仅返回当前登录账号的持久隐身偏好；响应禁止缓存。其他人的公开在线状态通过账号目录读取。
+
+无需请求正文。
+
+成功：200。返回结构：
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "invisible": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "invisible"
+  ]
+}
+```
+
+## PUT /api/player/presence
+
+保存本人的隐身设置。只允许修改当前登录账号。隐身对其他账号显示离线，并隐藏活动时间和所在世界；不会改变更新排空使用的真实连接状态。
+
+请求正文：
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "invisible": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "invisible"
+  ]
+}
+```
+
+成功：200。返回结构：
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "invisible": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "invisible"
   ]
 }
 ```

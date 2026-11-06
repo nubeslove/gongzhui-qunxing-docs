@@ -7,7 +7,8 @@
 <details><summary>类型依赖</summary>
 
 ```ts
-import type { LancerBattle, LancerCombatUnit } from '@aelzerant/contracts';
+import {activateApocalypseRail} from './apocalypse-rail';
+import { lancerActionFeedback, type LancerBattle, type LancerCombatUnit } from '@aelzerant/contracts';
 import { clear, condition, has, log } from './state';
 import {lancerAIControlling} from './control-state';
 ```
@@ -15,7 +16,7 @@ import {lancerAIControlling} from './control-state';
 
 ## lancerRaleighReloadAvailable
 
-导出接口 · 源码第 5 行。
+导出接口 · 源码第 6 行。
 
 Full Metal Jacket grants a free action, so incapacitated bodies cannot offer or resolve it.
 
@@ -29,7 +30,7 @@ export function lancerRaleighReloadAvailable(u: LancerCombatUnit): boolean;
 
 ## LANCER_EXECUTABLE_FEATURES
 
-导出接口 · 源码第 8 行。
+导出接口 · 源码第 9 行。
 
 ```ts
 export const LANCER_EXECUTABLE_FEATURES: Record<string, {
@@ -42,7 +43,7 @@ export const LANCER_EXECUTABLE_FEATURES: Record<string, {
 
 ## feature
 
-导出接口 · 源码第 52 行。
+导出接口 · 源码第 54 行。
 
 ```ts
 export const feature: (u: LancerCombatUnit, id: string): boolean;
@@ -50,7 +51,7 @@ export const feature: (u: LancerCombatUnit, id: string): boolean;
 
 ## counter
 
-导出接口 · 源码第 53 行。
+导出接口 · 源码第 55 行。
 
 ```ts
 export const counter: (u: LancerCombatUnit, id: string): number;
@@ -58,7 +59,7 @@ export const counter: (u: LancerCombatUnit, id: string): number;
 
 ## count
 
-导出接口 · 源码第 54 行。
+导出接口 · 源码第 56 行。
 
 ```ts
 export function count(u: LancerCombatUnit, id: string, value: number): void;
@@ -72,7 +73,7 @@ export function count(u: LancerCombatUnit, id: string, value: number): void;
 
 ## activateLancerFeature
 
-导出接口 · 源码第 55 行。
+导出接口 · 源码第 57 行。
 
 ```ts
 export function activateLancerFeature(b: LancerBattle, u: LancerCombatUnit, id: string): void;
@@ -86,7 +87,7 @@ export function activateLancerFeature(b: LancerBattle, u: LancerCombatUnit, id: 
 
 ## lancerUniversalAccuracy
 
-导出接口 · 源码第 70 行。
+导出接口 · 源码第 74 行。
 
 ```ts
 export function lancerUniversalAccuracy(u: LancerCombatUnit): number;
@@ -98,7 +99,7 @@ export function lancerUniversalAccuracy(u: LancerCombatUnit): number;
 
 ## consumeLancerSkillAccuracy
 
-导出接口 · 源码第 72 行。
+导出接口 · 源码第 76 行。
 
 Consume only at the actual roll, never while previewing a target or validating an action.
 
@@ -114,7 +115,7 @@ export function consumeLancerSkillAccuracy(u: LancerCombatUnit, skill: 'hull'|'a
 
 ## lancerSaveAccuracy
 
-导出接口 · 源码第 76 行。
+导出接口 · 源码第 80 行。
 
 ```ts
 export function lancerSaveAccuracy(u: LancerCombatUnit, skill: 'hull'|'agility'|'systems'|'engineering'): number;
@@ -127,7 +128,7 @@ export function lancerSaveAccuracy(u: LancerCombatUnit, skill: 'hull'|'agility'|
 
 ## lancerSkillAccuracy
 
-导出接口 · 源码第 77 行。
+导出接口 · 源码第 81 行。
 
 ```ts
 export function lancerSkillAccuracy(u: LancerCombatUnit, skill: 'hull'|'agility'|'systems'|'engineering'): number;
@@ -140,7 +141,7 @@ export function lancerSkillAccuracy(u: LancerCombatUnit, skill: 'hull'|'agility'
 
 ## lancerReactionEvaded
 
-导出接口 · 源码第 84 行。
+导出接口 · 源码第 88 行。
 
 ```ts
 export function lancerReactionEvaded(b: LancerBattle, target: LancerCombatUnit, reaction?: boolean): boolean;

@@ -1,6 +1,6 @@
 # 源码字段与调用签名
 
-共 687 个文件、3713 项类型／函数／常量。按包拆分，每个文件包含字段表、联合类型全部分支、参数、返回类型和依赖。带内部依赖标记的类型不承诺可从包顶层导入。
+共 690 个文件、3727 项类型／函数／常量。按包拆分，每个文件包含字段表、联合类型全部分支、参数、返回类型和依赖。带内部依赖标记的类型不承诺可从包顶层导入。
 
 - [机器可读符号目录](symbols.json)
 - [源码指纹](source-snapshot.json)
@@ -104,7 +104,7 @@
 | [packages/contracts/src/environment-decision.ts](packages/contracts/src/environment-decision.md) | 3 |
 | [packages/contracts/src/glb.ts](packages/contracts/src/glb.md) | 1 |
 | [packages/contracts/src/heartsea.ts](packages/contracts/src/heartsea.md) | 1 |
-| [packages/contracts/src/index.ts](packages/contracts/src/index.md) | 23 |
+| [packages/contracts/src/index.ts](packages/contracts/src/index.md) | 24 |
 | [packages/contracts/src/inline-roll.ts](packages/contracts/src/inline-roll.md) | 7 |
 | [packages/contracts/src/journal-access.ts](packages/contracts/src/journal-access.md) | 10 |
 | [packages/contracts/src/journal-actions.ts](packages/contracts/src/journal-actions.md) | 6 |
@@ -129,6 +129,7 @@
 | [packages/contracts/src/lancer-scene.ts](packages/contracts/src/lancer-scene.md) | 13 |
 | [packages/contracts/src/lancer-starting-grants.ts](packages/contracts/src/lancer-starting-grants.md) | 2 |
 | [packages/contracts/src/lancer-transport.ts](packages/contracts/src/lancer-transport.md) | 2 |
+| [packages/contracts/src/lancer-weapon-presentation-map.ts](packages/contracts/src/lancer-weapon-presentation-map.md) | 1 |
 | [packages/contracts/src/library-directory.ts](packages/contracts/src/library-directory.md) | 7 |
 | [packages/contracts/src/manual-senses.ts](packages/contracts/src/manual-senses.md) | 1 |
 | [packages/contracts/src/media-policy.ts](packages/contracts/src/media-policy.md) | 4 |
@@ -321,6 +322,7 @@
 | [packages/game-core/src/lancer/action-availability.ts](packages/game-core/src/lancer/action-availability.md) | 1 |
 | [packages/game-core/src/lancer/active-systems.ts](packages/game-core/src/lancer/active-systems.md) | 2 |
 | [packages/game-core/src/lancer/ai-control.ts](packages/game-core/src/lancer/ai-control.md) | 6 |
+| [packages/game-core/src/lancer/apocalypse-rail.ts](packages/game-core/src/lancer/apocalypse-rail.md) | 7 |
 | [packages/game-core/src/lancer/areas.ts](packages/game-core/src/lancer/areas.md) | 5 |
 | [packages/game-core/src/lancer/attack-planning.ts](packages/game-core/src/lancer/attack-planning.md) | 4 |
 | [packages/game-core/src/lancer/battle.ts](packages/game-core/src/lancer/battle.md) | 3 |
@@ -333,6 +335,7 @@
 | [packages/game-core/src/lancer/deployment-position.ts](packages/game-core/src/lancer/deployment-position.md) | 2 |
 | [packages/game-core/src/lancer/dice.ts](packages/game-core/src/lancer/dice.md) | 7 |
 | [packages/game-core/src/lancer/displacement.ts](packages/game-core/src/lancer/displacement.md) | 6 |
+| [packages/game-core/src/lancer/drone-fields.ts](packages/game-core/src/lancer/drone-fields.md) | 4 |
 | [packages/game-core/src/lancer/drone-talents.ts](packages/game-core/src/lancer/drone-talents.md) | 8 |
 | [packages/game-core/src/lancer/duelist.ts](packages/game-core/src/lancer/duelist.md) | 9 |
 | [packages/game-core/src/lancer/dustgrave.ts](packages/game-core/src/lancer/dustgrave.md) | 4 |
@@ -375,7 +378,7 @@
 | [packages/game-core/src/lancer/ranged-talents.ts](packages/game-core/src/lancer/ranged-talents.md) | 7 |
 | [packages/game-core/src/lancer/ready.ts](packages/game-core/src/lancer/ready.md) | 7 |
 | [packages/game-core/src/lancer/recovery.ts](packages/game-core/src/lancer/recovery.md) | 4 |
-| [packages/game-core/src/lancer/resolution.ts](packages/game-core/src/lancer/resolution.md) | 7 |
+| [packages/game-core/src/lancer/resolution.ts](packages/game-core/src/lancer/resolution.md) | 8 |
 | [packages/game-core/src/lancer/riding.ts](packages/game-core/src/lancer/riding.md) | 6 |
 | [packages/game-core/src/lancer/round-clock.ts](packages/game-core/src/lancer/round-clock.md) | 2 |
 | [packages/game-core/src/lancer/sacrificial-bolt.ts](packages/game-core/src/lancer/sacrificial-bolt.md) | 1 |

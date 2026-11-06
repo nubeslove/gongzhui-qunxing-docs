@@ -7,6 +7,7 @@
 <details><summary>类型依赖</summary>
 
 ```ts
+import {lancerActionFeedback} from '@aelzerant/contracts';
 import { LANCER_COMBAT_SYSTEM_PASSIVES, equippedLancerSystem, reloadLancerWeapons } from './system-passives';
 import type { LancerBattle, LancerCombatUnit, LancerCondition, LancerTimedCondition, ManualMap } from '@aelzerant/contracts';
 import { count, feature } from './features';
@@ -24,7 +25,7 @@ export { equippedLancerSystem } from './system-passives';
 
 ## LANCER_SYSTEM_PASSIVES
 
-导出接口 · 源码第 9 行。
+导出接口 · 源码第 10 行。
 
 ```ts
 export const LANCER_SYSTEM_PASSIVES: Record<string, {
@@ -36,7 +37,7 @@ export const LANCER_SYSTEM_PASSIVES: Record<string, {
 
 ## queueLancerVents
 
-导出接口 · 源码第 17 行。
+导出接口 · 源码第 18 行。
 
 ```ts
 export function queueLancerVents(b: LancerBattle, u: LancerCombatUnit): void;
@@ -49,7 +50,7 @@ export function queueLancerVents(b: LancerBattle, u: LancerCombatUnit): void;
 
 ## clearLancerHeat
 
-导出接口 · 源码第 21 行。
+导出接口 · 源码第 22 行。
 
 ```ts
 export function clearLancerHeat(b: LancerBattle, u: LancerCombatUnit): void;
@@ -62,7 +63,7 @@ export function clearLancerHeat(b: LancerBattle, u: LancerCombatUnit): void;
 
 ## invalidateLancerCooler
 
-导出接口 · 源码第 25 行。
+导出接口 · 源码第 26 行。
 
 ```ts
 export function invalidateLancerCooler(u: LancerCombatUnit): void;
@@ -74,7 +75,7 @@ export function invalidateLancerCooler(u: LancerCombatUnit): void;
 
 ## beginLancerThermalTurn
 
-导出接口 · 源码第 26 行。
+导出接口 · 源码第 27 行。
 
 ```ts
 export function beginLancerThermalTurn(b: LancerBattle, u: LancerCombatUnit): void;
@@ -87,7 +88,7 @@ export function beginLancerThermalTurn(b: LancerBattle, u: LancerCombatUnit): vo
 
 ## lancerHeatResistance
 
-导出接口 · 源码第 33 行。
+导出接口 · 源码第 34 行。
 
 ```ts
 export function lancerHeatResistance(b: LancerBattle, u: LancerCombatUnit): boolean;
@@ -100,7 +101,7 @@ export function lancerHeatResistance(b: LancerBattle, u: LancerCombatUnit): bool
 
 ## resolveLancerVents
 
-导出接口 · 源码第 34 行。
+导出接口 · 源码第 35 行。
 
 ```ts
 export function resolveLancerVents(b: LancerBattle, map: ManualMap, u: LancerCombatUnit): void;
@@ -114,7 +115,7 @@ export function resolveLancerVents(b: LancerBattle, map: ManualMap, u: LancerCom
 
 ## breakLancerBatteries
 
-导出接口 · 源码第 40 行。
+导出接口 · 源码第 41 行。
 
 ```ts
 export function breakLancerBatteries(b: LancerBattle, u: LancerCombatUnit, r: LancerRandom): void;
@@ -128,7 +129,7 @@ export function breakLancerBatteries(b: LancerBattle, u: LancerCombatUnit, r: La
 
 ## canStabilizeCondition
 
-导出接口 · 源码第 49 行。
+导出接口 · 源码第 50 行。
 
 Only standard conditions imposed by another character can be cleared by Stabilize.
 
@@ -143,7 +144,7 @@ export function canStabilizeCondition(u: LancerCombatUnit, c: LancerTimedConditi
 
 ## stabilizeLancer
 
-导出接口 · 源码第 52 行。
+导出接口 · 源码第 53 行。
 
 ```ts
 export function stabilizeLancer(b: LancerBattle, u: LancerCombatUnit, primary: 'cool'|'repair', secondary?: 'reload'|'burn'|'condition', remove?: LancerCondition, map?: ManualMap, recipient?: LancerCombatUnit): void;

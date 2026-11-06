@@ -15,12 +15,13 @@ import {parseLancerEntry,type LancerEntry} from './lancer-entry';
 import {parseLancerAutomation,type LancerCustomSystemAutomation} from './lancer-custom';
 import {parseLancerSceneEffect,type LancerSceneEffect} from './lancer-scene';
 import {parseLancerPlayerEffect,parseLancerPlayerMemory,type LancerPlayerAbility,type LancerPlayerEffect,type LancerPlayerMemory} from './lancer-player-ability';
+import {LANCER_WEAPON_PRESENTATION_CUES} from './lancer-weapon-presentation-map';
 ```
 </details>
 
 ## LancerLeadershipPurpose
 
-导出接口 · 源码第 11 行。
+导出接口 · 源码第 12 行。
 
 ```ts
 export type LancerLeadershipPurpose = keyof typeof LANCER_LEADERSHIP_PURPOSES;
@@ -28,7 +29,7 @@ export type LancerLeadershipPurpose = keyof typeof LANCER_LEADERSHIP_PURPOSES;
 
 ## LancerSide
 
-导出接口 · 源码第 12 行。
+导出接口 · 源码第 13 行。
 
 ```ts
 export type LancerSide = 'players' | 'hostiles';
@@ -36,7 +37,7 @@ export type LancerSide = 'players' | 'hostiles';
 
 ## LancerDamageType
 
-导出接口 · 源码第 13 行。
+导出接口 · 源码第 14 行。
 
 ```ts
 export type LancerDamageType = 'kinetic' | 'energy' | 'explosive' | 'burn' | 'heat';
@@ -44,7 +45,7 @@ export type LancerDamageType = 'kinetic' | 'energy' | 'explosive' | 'burn' | 'he
 
 ## LANCER_CONDITIONS
 
-导出接口 · 源码第 14 行。
+导出接口 · 源码第 15 行。
 
 ```ts
 export const LANCER_CONDITIONS = ['impaired', 'slowed', 'immobilized', 'stunned', 'jammed', 'exposed', 'prone', 'hidden', 'invisible', 'shutdown', 'lockon', 'shredded', 'engaged', 'shortsighted', 'swarmed', 'reactionless', 'life-support', 'tech-disabled', 'cockpit-jammed', 'bolstered'] as const;
@@ -52,7 +53,7 @@ export const LANCER_CONDITIONS = ['impaired', 'slowed', 'immobilized', 'stunned'
 
 ## LancerCondition
 
-导出接口 · 源码第 15 行。
+导出接口 · 源码第 16 行。
 
 ```ts
 export type LancerCondition = typeof LANCER_CONDITIONS[number];
@@ -60,7 +61,7 @@ export type LancerCondition = typeof LANCER_CONDITIONS[number];
 
 ## LANCER_CONDITION_NAMES
 
-导出接口 · 源码第 16 行。
+导出接口 · 源码第 17 行。
 
 ```ts
 export const LANCER_CONDITION_NAMES: Record<LancerCondition, string>;
@@ -68,7 +69,7 @@ export const LANCER_CONDITION_NAMES: Record<LancerCondition, string>;
 
 ## LancerDeploymentZone
 
-导出接口 · 源码第 17 行。
+导出接口 · 源码第 18 行。
 
 ```ts
 export interface LancerDeploymentZone {
@@ -109,7 +110,7 @@ export interface LancerDeploymentZone {
 
 ## LancerArea
 
-导出接口 · 源码第 18 行。
+导出接口 · 源码第 19 行。
 
 ```ts
 export interface LancerArea {
@@ -133,7 +134,7 @@ export interface LancerArea {
 
 ## LancerDamagePool
 
-导出接口 · 源码第 19 行。
+导出接口 · 源码第 20 行。
 
 ```ts
 export interface LancerDamagePool {
@@ -155,7 +156,7 @@ export interface LancerDamagePool {
 
 ## LancerSalvo
 
-导出接口 · 源码第 20 行。
+导出接口 · 源码第 21 行。
 
 ```ts
 export interface LancerSalvo {
@@ -193,16 +194,17 @@ export interface LancerSalvo {
 
 ## LancerEffect
 
-导出接口 · 源码第 21 行。
+导出接口 · 源码第 22 行。
 
 ```ts
 export interface LancerEffect {
+    suppressed?: boolean;
     clock?: 'target';
     amount?: number;
     id: string;
     owner: string;
     target?: string;
-    key: 'smoke' | 'projected-shield' | 'soft-cover' | 'resistance' | 'thinking' | 'combined-melee' | 'combined-ranged' | 'plasma' | 'duelist-feint' | 'duelist-trip' | 'supersonic' | 'tech-shrike' | 'tech-mirage' | 'tech-stalk' | 'tech-terrify' | 'tech-banish' | 'tech-prometheus' | 'tech-excommunicate' | 'tech-logic' | 'ejected-cores' | 'gms-invade' | 'sacrificial-bolt';
+    key: 'smoke' | 'projected-shield' | 'soft-cover' | 'resistance' | 'thinking' | 'combined-melee' | 'combined-ranged' | 'plasma' | 'apocalypse-fire' | 'iceout-field' | 'hive-field' | 'duelist-feint' | 'duelist-trip' | 'supersonic' | 'tech-shrike' | 'tech-mirage' | 'tech-stalk' | 'tech-terrify' | 'tech-banish' | 'tech-prometheus' | 'tech-excommunicate' | 'tech-logic' | 'ejected-cores' | 'gms-invade' | 'sacrificial-bolt';
     until: number;
     at: 'start' | 'end';
     area?: LancerArea;
@@ -221,12 +223,13 @@ export interface LancerEffect {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `suppressed` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `clock` | 是 | `'target'` | 见结构定义及所属功能文档 |
 | `amount` | 是 | `number` | 见结构定义及所属功能文档 |
 | `id` | 否 | `string` | 见结构定义及所属功能文档 |
 | `owner` | 否 | `string` | 见结构定义及所属功能文档 |
 | `target` | 是 | `string` | 见结构定义及所属功能文档 |
-| `key` | 否 | `'smoke'&#124;'projected-shield'&#124;'soft-cover'&#124;'resistance'&#124;'thinking'&#124;'combined-melee'&#124;'combined-ranged'&#124;'plasma'&#124;'duelist-feint'&#124;'duelist-trip'&#124;'supersonic'&#124;'tech-shrike'&#124;'tech-mirage'&#124;'tech-stalk'&#124;'tech-terrify'&#124;'tech-banish'&#124;'tech-prometheus'&#124;'tech-excommunicate'&#124;'tech-logic'&#124;'ejected-cores'&#124;'gms-invade'&#124;'sacrificial-bolt'` | 见结构定义及所属功能文档 |
+| `key` | 否 | `'smoke'&#124;'projected-shield'&#124;'soft-cover'&#124;'resistance'&#124;'thinking'&#124;'combined-melee'&#124;'combined-ranged'&#124;'plasma'&#124;'apocalypse-fire'&#124;'iceout-field'&#124;'hive-field'&#124;'duelist-feint'&#124;'duelist-trip'&#124;'supersonic'&#124;'tech-shrike'&#124;'tech-mirage'&#124;'tech-stalk'&#124;'tech-terrify'&#124;'tech-banish'&#124;'tech-prometheus'&#124;'tech-excommunicate'&#124;'tech-logic'&#124;'ejected-cores'&#124;'gms-invade'&#124;'sacrificial-bolt'` | 见结构定义及所属功能文档 |
 | `until` | 否 | `number` | 见结构定义及所属功能文档 |
 | `at` | 否 | `'start'&#124;'end'` | 见结构定义及所属功能文档 |
 | `area` | 是 | `LancerArea` | 见结构定义及所属功能文档 |
@@ -241,7 +244,7 @@ export interface LancerEffect {
 
 ## LancerCombatWeapon
 
-导出接口 · 源码第 22 行。
+导出接口 · 源码第 23 行。
 
 ```ts
 export interface LancerCombatWeapon {
@@ -307,7 +310,7 @@ export interface LancerCombatWeapon {
 
 ## LancerCombatSystem
 
-导出接口 · 源码第 28 行。
+导出接口 · 源码第 29 行。
 
 ```ts
 export interface LancerCombatSystem {
@@ -333,7 +336,7 @@ export interface LancerCombatSystem {
 
 ## LancerPilotGear
 
-导出接口 · 源码第 29 行。
+导出接口 · 源码第 30 行。
 
 ```ts
 export interface LancerPilotGear {
@@ -351,7 +354,7 @@ export interface LancerPilotGear {
 
 ## LancerPilotProfile
 
-导出接口 · 源码第 30 行。
+导出接口 · 源码第 31 行。
 
 ```ts
 export interface LancerPilotProfile {
@@ -400,10 +403,11 @@ export interface LancerPilotProfile {
 
 ## LancerTimedCondition
 
-导出接口 · 源码第 36 行。
+导出接口 · 源码第 37 行。
 
 ```ts
 export interface LancerTimedCondition {
+    suppressed?: boolean;
     origin?: 'tech';
     id: LancerCondition;
     until: number | null;
@@ -416,6 +420,7 @@ export interface LancerTimedCondition {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `suppressed` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `origin` | 是 | `'tech'` | 见结构定义及所属功能文档 |
 | `id` | 否 | `LancerCondition` | 见结构定义及所属功能文档 |
 | `until` | 否 | `number&#124;null` | 见结构定义及所属功能文档 |
@@ -426,7 +431,7 @@ export interface LancerTimedCondition {
 
 ## LancerNpcProfile
 
-导出接口 · 源码第 39 行。
+导出接口 · 源码第 40 行。
 
 A portable stat block. Narrative-only traits stay in the actor's GM notes;
 manual actions spend their declared resource and write an adjudication record.
@@ -511,7 +516,7 @@ export interface LancerNpcProfile {
 
 ## LANCER_NPC_TEMPLATES
 
-导出接口 · 源码第 47 行。
+导出接口 · 源码第 48 行。
 
 ```ts
 export const LANCER_NPC_TEMPLATES = ['veteran', 'ultra', 'commander', 'rpv', 'exotic', 'mercenary', 'pirate', 'ship', 'spacer', 'vehicle'] as const;
@@ -519,7 +524,7 @@ export const LANCER_NPC_TEMPLATES = ['veteran', 'ultra', 'commander', 'rpv', 'ex
 
 ## LancerNpcTemplate
 
-导出接口 · 源码第 48 行。
+导出接口 · 源码第 49 行。
 
 ```ts
 export type LancerNpcTemplate = typeof LANCER_NPC_TEMPLATES[number];
@@ -527,7 +532,7 @@ export type LancerNpcTemplate = typeof LANCER_NPC_TEMPLATES[number];
 
 ## LancerNpc
 
-导出接口 · 源码第 49 行。
+导出接口 · 源码第 50 行。
 
 ```ts
 export interface LancerNpc {
@@ -561,7 +566,7 @@ export interface LancerNpc {
 
 ## LancerReadyReference
 
-导出接口 · 源码第 50 行。
+导出接口 · 源码第 51 行。
 
 ```ts
 export interface LancerReadyReference {
@@ -581,7 +586,7 @@ export interface LancerReadyReference {
 
 ## LancerReady
 
-导出接口 · 源码第 51 行。
+导出接口 · 源码第 52 行。
 
 ```ts
 export interface LancerReady {
@@ -609,7 +614,7 @@ export interface LancerReady {
 
 ## LancerTurnBudget
 
-导出接口 · 源码第 52 行。
+导出接口 · 源码第 53 行。
 
 ```ts
 export interface LancerTurnBudget {
@@ -633,7 +638,7 @@ export interface LancerTurnBudget {
 
 ## LancerAI
 
-导出接口 · 源码第 53 行。
+导出接口 · 源码第 54 行。
 
 ```ts
 export interface LancerAI {
@@ -655,7 +660,7 @@ export interface LancerAI {
 
 ## LancerNhp
 
-导出接口 · 源码第 54 行。
+导出接口 · 源码第 55 行。
 
 ```ts
 export interface LancerNhp {
@@ -695,7 +700,7 @@ export interface LancerNhp {
 
 ## LancerCombatUnit
 
-导出接口 · 源码第 55 行。
+导出接口 · 源码第 56 行。
 
 ```ts
 export interface LancerCombatUnit {
@@ -892,7 +897,7 @@ export interface LancerCombatUnit {
 
 ## LancerRide
 
-导出接口 · 源码第 76 行。
+导出接口 · 源码第 77 行。
 
 ```ts
 export interface LancerRide {
@@ -910,7 +915,7 @@ export interface LancerRide {
 
 ## LancerAttackReplay
 
-导出接口 · 源码第 77 行。
+导出接口 · 源码第 78 行。
 
 ```ts
 export interface LancerAttackReplay {
@@ -938,7 +943,7 @@ export interface LancerAttackReplay {
 
 ## LancerCheckResult
 
-导出接口 · 源码第 78 行。
+导出接口 · 源码第 79 行。
 
 ```ts
 export interface LancerCheckResult {
@@ -956,7 +961,7 @@ export interface LancerCheckResult {
 
 ## LancerAttackOutcome
 
-导出接口 · 源码第 79 行。
+导出接口 · 源码第 80 行。
 
 ```ts
 export interface LancerAttackOutcome {
@@ -982,7 +987,7 @@ export interface LancerAttackOutcome {
 
 ## LancerAttackStep
 
-导出接口 · 源码第 80 行。
+导出接口 · 源码第 81 行。
 
 ```ts
 export type LancerAttackStep = Extract<LancerBattleStep, {
@@ -992,7 +997,7 @@ export type LancerAttackStep = Extract<LancerBattleStep, {
 
 ## LancerBattleStep
 
-导出接口 · 源码第 81 行。
+导出接口 · 源码第 82 行。
 
 ```ts
 export type LancerBattleStep = {
@@ -1006,6 +1011,7 @@ export type LancerBattleStep = {
     kind: 'playerEffect';
     unit: string;
     source: string;
+    resource?: string;
     effect: LancerPlayerEffect;
 } | {
     kind: 'customEffect';
@@ -1021,6 +1027,11 @@ export type LancerBattleStep = {
     y: number;
     z: number;
     cost: number;
+    engagementOrigin?: {
+        x: number;
+        y: number;
+        z: number;
+    };
     standard?: boolean;
     involuntary?: boolean;
     forced?: boolean;
@@ -1232,6 +1243,7 @@ export type LancerBattleStep = {
 | `分支1.kind` | 否 | `'playerEffect'` | 见结构定义及所属功能文档 |
 | `分支1.unit` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支1.source` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支1.resource` | 是 | `string` | 见结构定义及所属功能文档 |
 | `分支1.effect` | 否 | `LancerPlayerEffect` | 见结构定义及所属功能文档 |
 | `分支2.kind` | 否 | `'customEffect'` | 见结构定义及所属功能文档 |
 | `分支2.unit` | 否 | `string` | 见结构定义及所属功能文档 |
@@ -1245,6 +1257,10 @@ export type LancerBattleStep = {
 | `分支3.y` | 否 | `number` | 见结构定义及所属功能文档 |
 | `分支3.z` | 否 | `number` | 见结构定义及所属功能文档 |
 | `分支3.cost` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支3.engagementOrigin` | 是 | `{x:number;y:number;z:number}` | 见结构定义及所属功能文档 |
+| `分支3.engagementOrigin.x` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支3.engagementOrigin.y` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支3.engagementOrigin.z` | 否 | `number` | 见结构定义及所属功能文档 |
 | `分支3.standard` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `分支3.involuntary` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `分支3.forced` | 是 | `boolean` | 见结构定义及所属功能文档 |
@@ -1421,7 +1437,7 @@ export type LancerBattleStep = {
 
 ## LancerDecision
 
-导出接口 · 源码第 100 行。
+导出接口 · 源码第 101 行。
 
 ```ts
 export interface LancerDecision {
@@ -1510,7 +1526,7 @@ export interface LancerDecision {
 
 ## LancerDamageReport
 
-导出接口 · 源码第 109 行。
+导出接口 · 源码第 110 行。
 
 ```ts
 export interface LancerDamageReport {
@@ -1532,15 +1548,15 @@ export interface LancerDamageReport {
 
 ## LANCER_FEEDBACK_CUES
 
-导出接口 · 源码第 110 行。
+导出接口 · 源码第 111 行。
 
 ```ts
-export const LANCER_FEEDBACK_CUES = ['ballistic', 'artillery', 'sniper', 'ricochet', 'melee', 'tech', 'lockon', 'bolster', 'core', 'move', 'skirmish', 'barrage', 'fragment-signal'] as const;
+export const LANCER_FEEDBACK_CUES = ['ballistic', 'artillery', 'explosion', 'sniper', 'ricochet', 'melee', 'tech', 'lockon', 'bolster', 'core', 'move', 'skirmish', 'barrage', 'fragment-signal', 'laser', 'plasma', 'flame', 'missile', 'shotgun', 'shield', 'cooling', 'cloak', 'teleport', 'drone', 'gravity'] as const;
 ```
 
 ## LancerFeedbackCue
 
-导出接口 · 源码第 111 行。
+导出接口 · 源码第 112 行。
 
 ```ts
 export type LancerFeedbackCue = typeof LANCER_FEEDBACK_CUES[number];
@@ -1548,7 +1564,7 @@ export type LancerFeedbackCue = typeof LANCER_FEEDBACK_CUES[number];
 
 ## LancerCombatPresentation
 
-导出接口 · 源码第 113 行。
+导出接口 · 源码第 114 行。
 
 Presentation metadata records the resolved weapon and actual bounce order, never hypothetical targets.
 
@@ -1556,6 +1572,14 @@ Presentation metadata records the resolved weapon and actual bounce order, never
 export interface LancerCombatPresentation {
     cue: LancerFeedbackCue;
     weapon?: string;
+    resource?: string;
+    area?: LancerArea;
+    impact?: {
+        x: number;
+        y: number;
+        z: number;
+    };
+    group?: string;
     origin?: {
         x: number;
         y: number;
@@ -1569,6 +1593,13 @@ export interface LancerCombatPresentation {
 | --- | --- | --- | --- |
 | `cue` | 否 | `LancerFeedbackCue` | 见结构定义及所属功能文档 |
 | `weapon` | 是 | `string` | 见结构定义及所属功能文档 |
+| `resource` | 是 | `string` | 见结构定义及所属功能文档 |
+| `area` | 是 | `LancerArea` | 见结构定义及所属功能文档 |
+| `impact` | 是 | `{x:number;y:number;z:number}` | 见结构定义及所属功能文档 |
+| `impact.x` | 否 | `number` | 见结构定义及所属功能文档 |
+| `impact.y` | 否 | `number` | 见结构定义及所属功能文档 |
+| `impact.z` | 否 | `number` | 见结构定义及所属功能文档 |
+| `group` | 是 | `string` | 见结构定义及所属功能文档 |
 | `origin` | 是 | `{x:number;y:number;z:number}` | 见结构定义及所属功能文档 |
 | `origin.x` | 否 | `number` | 见结构定义及所属功能文档 |
 | `origin.y` | 否 | `number` | 见结构定义及所属功能文档 |
@@ -1577,7 +1608,7 @@ export interface LancerCombatPresentation {
 
 ## LancerCombatFeedback
 
-导出接口 · 源码第 114 行。
+导出接口 · 源码第 115 行。
 
 ```ts
 export interface LancerCombatFeedback {
@@ -1601,24 +1632,24 @@ export interface LancerCombatFeedback {
 
 ## lancerWeaponPresentation
 
-导出接口 · 源码第 116 行。
+导出接口 · 源码第 117 行。
 
 Shared cue selection for authority producers and clients; never infer a bounce target.
 
 ```ts
-export function lancerWeaponPresentation(w: Pick<LancerCombatWeapon,'id'|'resourceId'|'weaponType'|'tags'>): LancerCombatPresentation;
+export function lancerWeaponPresentation(w: Pick<LancerCombatWeapon,'id'|'resourceId'|'weaponType'|'tags'>&Partial<Pick<LancerCombatWeapon,'type'>>): LancerCombatPresentation;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| `w` | 否 | `Pick<LancerCombatWeapon,'id'&#124;'resourceId'&#124;'weaponType'&#124;'tags'>` | — |
+| `w` | 否 | `Pick<LancerCombatWeapon,'id'&#124;'resourceId'&#124;'weaponType'&#124;'tags'>&Partial<Pick<LancerCombatWeapon,'type'>>` | — |
 
 ## lancerActionFeedback
 
-导出接口 · 源码第 124 行。
+导出接口 · 源码第 126 行。
 
 ```ts
-export function lancerActionFeedback(source: string, cue: LancerFeedbackCue, target?: string): LancerCombatFeedback;
+export function lancerActionFeedback(source: string, cue: LancerFeedbackCue, target?: string, details?: Omit<LancerCombatPresentation,'cue'>): LancerCombatFeedback;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
@@ -1626,10 +1657,11 @@ export function lancerActionFeedback(source: string, cue: LancerFeedbackCue, tar
 | `source` | 否 | `string` | — |
 | `cue` | 否 | `LancerFeedbackCue` | — |
 | `target` | 是 | `string` | source |
+| `details` | 是 | `Omit<LancerCombatPresentation,'cue'>` | {} |
 
 ## LancerCombatLog
 
-导出接口 · 源码第 127 行。
+导出接口 · 源码第 129 行。
 
 ```ts
 export interface LancerCombatLog {
@@ -1663,7 +1695,7 @@ export interface LancerCombatLog {
 
 ## LancerGrapple
 
-导出接口 · 源码第 128 行。
+导出接口 · 源码第 130 行。
 
 ```ts
 export interface LancerGrapple {
@@ -1681,7 +1713,7 @@ export interface LancerGrapple {
 
 ## LancerIntelSection
 
-导出接口 · 源码第 129 行。
+导出接口 · 源码第 131 行。
 
 ```ts
 export interface LancerIntelSection {
@@ -1701,7 +1733,7 @@ export interface LancerIntelSection {
 
 ## LancerIntel
 
-导出接口 · 源码第 130 行。
+导出接口 · 源码第 132 行。
 
 ```ts
 export interface LancerIntel {
@@ -1739,7 +1771,7 @@ export interface LancerIntel {
 
 ## LancerQuickReaction
 
-导出接口 · 源码第 131 行。
+导出接口 · 源码第 133 行。
 
 ```ts
 export interface LancerQuickReaction {
@@ -1776,7 +1808,7 @@ export interface LancerQuickReaction {
 
 ## LancerBattle
 
-导出接口 · 源码第 132 行。
+导出接口 · 源码第 134 行。
 
 ```ts
 export interface LancerBattle {
@@ -1847,7 +1879,7 @@ export interface LancerBattle {
 
 ## LancerCombatIntent
 
-导出接口 · 源码第 145 行。
+导出接口 · 源码第 147 行。
 
 ```ts
 export type LancerCombatIntent = ({
@@ -2330,7 +2362,7 @@ export type LancerCombatIntent = ({
 
 ## parseLancerRide
 
-导出接口 · 源码第 189 行。
+导出接口 · 源码第 191 行。
 
 ```ts
 export function parseLancerRide(raw: unknown): LancerRide;
@@ -2342,7 +2374,7 @@ export function parseLancerRide(raw: unknown): LancerRide;
 
 ## parseLancerArea
 
-导出接口 · 源码第 190 行。
+导出接口 · 源码第 192 行。
 
 ```ts
 export function parseLancerArea(raw: unknown): LancerArea;
@@ -2354,7 +2386,7 @@ export function parseLancerArea(raw: unknown): LancerArea;
 
 ## parseLancerZone
 
-导出接口 · 源码第 194 行。
+导出接口 · 源码第 196 行。
 
 ```ts
 export function parseLancerZone(raw: unknown): LancerDeploymentZone;
@@ -2366,7 +2398,7 @@ export function parseLancerZone(raw: unknown): LancerDeploymentZone;
 
 ## parseLancerNpc
 
-导出接口 · 源码第 198 行。
+导出接口 · 源码第 200 行。
 
 ```ts
 export function parseLancerNpc(raw: unknown): LancerNpc;
@@ -2378,7 +2410,7 @@ export function parseLancerNpc(raw: unknown): LancerNpc;
 
 ## parseLancerNpcProfile
 
-导出接口 · 源码第 199 行。
+导出接口 · 源码第 201 行。
 
 ```ts
 export function parseLancerNpcProfile(raw: unknown): LancerNpcProfile;
@@ -2390,7 +2422,7 @@ export function parseLancerNpcProfile(raw: unknown): LancerNpcProfile;
 
 ## parseLancerWeapon
 
-导出接口 · 源码第 209 行。
+导出接口 · 源码第 211 行。
 
 ```ts
 export function parseLancerWeapon(raw: unknown): LancerCombatWeapon;
@@ -2402,7 +2434,7 @@ export function parseLancerWeapon(raw: unknown): LancerCombatWeapon;
 
 ## parseLancerPilotProfile
 
-导出接口 · 源码第 211 行。
+导出接口 · 源码第 213 行。
 
 ```ts
 export function parseLancerPilotProfile(raw: unknown): LancerPilotProfile;
@@ -2414,7 +2446,7 @@ export function parseLancerPilotProfile(raw: unknown): LancerPilotProfile;
 
 ## parseLancerAI
 
-导出接口 · 源码第 214 行。
+导出接口 · 源码第 216 行。
 
 ```ts
 export function parseLancerAI(raw: unknown): LancerAI;
@@ -2426,7 +2458,7 @@ export function parseLancerAI(raw: unknown): LancerAI;
 
 ## parseLancerNhp
 
-导出接口 · 源码第 215 行。
+导出接口 · 源码第 217 行。
 
 ```ts
 export function parseLancerNhp(raw: unknown): LancerNhp;
@@ -2438,7 +2470,7 @@ export function parseLancerNhp(raw: unknown): LancerNhp;
 
 ## parseLancerReadyReference
 
-导出接口 · 源码第 216 行。
+导出接口 · 源码第 218 行。
 
 ```ts
 export function parseLancerReadyReference(raw: unknown): LancerReadyReference;
@@ -2450,7 +2482,7 @@ export function parseLancerReadyReference(raw: unknown): LancerReadyReference;
 
 ## parseLancerUnit
 
-导出接口 · 源码第 217 行。
+导出接口 · 源码第 219 行。
 
 ```ts
 export function parseLancerUnit(raw: unknown): LancerCombatUnit;
@@ -2462,7 +2494,7 @@ export function parseLancerUnit(raw: unknown): LancerCombatUnit;
 
 ## parseLancerBattle
 
-导出接口 · 源码第 277 行。
+导出接口 · 源码第 279 行。
 
 ```ts
 export function parseLancerBattle(raw: unknown): LancerBattle;
@@ -2474,7 +2506,7 @@ export function parseLancerBattle(raw: unknown): LancerBattle;
 
 ## projectLancerBattle
 
-导出接口 · 源码第 290 行。
+导出接口 · 源码第 292 行。
 
 Only the GM retains continuations and hidden-unit details. Pending choices remain durable on the host.
 

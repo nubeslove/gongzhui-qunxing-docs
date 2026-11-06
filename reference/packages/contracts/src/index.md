@@ -231,12 +231,21 @@ export interface PlayerIdentity {
 | `deviceCode` | 否 | `string` | 设备码（本地生成的稳定标识，用于找回身份） |
 | `token` | 否 | `string` | 服务器签发（轻量 token，非严格 JWT） |
 
-## PlayerInfo
+## PlayerPresence
 
 导出接口 · 源码第 44 行。
 
 ```ts
+export type PlayerPresence = "online" | "offline" | "playing";
+```
+
+## PlayerInfo
+
+导出接口 · 源码第 45 行。
+
+```ts
 export interface PlayerInfo {
+    presence?: PlayerPresence;
     playerId: string;
     nickname: string;
     onlineAt: number;
@@ -246,6 +255,7 @@ export interface PlayerInfo {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `presence` | 是 | `PlayerPresence` | Server-projected live presence; hidden accounts are offline. |
 | `playerId` | 否 | `string` | 见结构定义及所属功能文档 |
 | `nickname` | 否 | `string` | 见结构定义及所属功能文档 |
 | `onlineAt` | 否 | `number` | 上线时间（服务器时间戳 ms） |
@@ -253,7 +263,7 @@ export interface PlayerInfo {
 
 ## WorldSummary
 
-导出接口 · 源码第 58 行。
+导出接口 · 源码第 61 行。
 
 ```ts
 export interface WorldSummary {
@@ -291,7 +301,7 @@ export interface WorldSummary {
 
 ## NetMessageKind
 
-导出接口 · 源码第 79 行。
+导出接口 · 源码第 82 行。
 
 ```ts
 export type NetMessageKind = "event.world" | "meta.heartbeat" | "meta.invite" | "meta.world-deleted" | "intent.action" | "role.request" | "event.sync" | "event.log" | "event.session" | "event.state" | "event.battle" | "event.receipt";
@@ -299,7 +309,7 @@ export type NetMessageKind = "event.world" | "meta.heartbeat" | "meta.invite" | 
 
 ## NetMessage
 
-导出接口 · 源码第 97 行。
+导出接口 · 源码第 100 行。
 
 ```ts
 export interface NetMessage<T = unknown> {
@@ -319,7 +329,7 @@ export interface NetMessage<T = unknown> {
 
 ## SignalKind
 
-导出接口 · 源码第 108 行。
+导出接口 · 源码第 111 行。
 
 ```ts
 export type SignalKind = "offer" | "answer" | "ice" | "reconnect";
@@ -327,7 +337,7 @@ export type SignalKind = "offer" | "answer" | "ice" | "reconnect";
 
 ## SignalMessage
 
-导出接口 · 源码第 110 行。
+导出接口 · 源码第 113 行。
 
 ```ts
 export interface SignalMessage {
@@ -354,7 +364,7 @@ export interface SignalMessage {
 
 ## HeartbeatPayload
 
-导出接口 · 源码第 124 行。
+导出接口 · 源码第 127 行。
 
 meta.heartbeat 载荷：玩家断档起点
 
@@ -370,7 +380,7 @@ export interface HeartbeatPayload {
 
 ## SyncEventsPayload
 
-导出接口 · 源码第 129 行。
+导出接口 · 源码第 132 行。
 
 event.sync 载荷：GM 事件日志回放
 
@@ -386,7 +396,7 @@ export interface SyncEventsPayload {
 
 ## SessionStatePayload
 
-导出接口 · 源码第 136 行。
+导出接口 · 源码第 139 行。
 
 event.session 载荷：GM 权威的 token↔玩家绑定表 + 会话参与者
 
@@ -404,7 +414,7 @@ export interface SessionStatePayload {
 
 ## CombatStatePayload
 
-导出接口 · 源码第 142 行。
+导出接口 · 源码第 145 行。
 
 event.state 载荷：GM 权威战斗快照（玩家端只读渲染/意图预览）
 
@@ -487,7 +497,7 @@ export interface CombatStatePayload {
 
 ## TransferWorldRequest
 
-导出接口 · 源码第 172 行。
+导出接口 · 源码第 175 行。
 
 ```ts
 export interface TransferWorldRequest {
@@ -509,7 +519,7 @@ export interface TransferWorldRequest {
 
 ## RegisterRequest
 
-导出接口 · 源码第 182 行。
+导出接口 · 源码第 185 行。
 
 ```ts
 export interface RegisterRequest {
@@ -525,7 +535,7 @@ export interface RegisterRequest {
 
 ## RegisterResponse
 
-导出接口 · 源码第 187 行。
+导出接口 · 源码第 190 行。
 
 ```ts
 export interface RegisterResponse {
@@ -541,7 +551,7 @@ export interface RegisterResponse {
 
 ## CreateWorldRequest
 
-导出接口 · 源码第 193 行。
+导出接口 · 源码第 196 行。
 
 ```ts
 export interface CreateWorldRequest {
@@ -572,7 +582,7 @@ export interface CreateWorldRequest {
 
 ## CreateWorldResponse
 
-导出接口 · 源码第 204 行。
+导出接口 · 源码第 207 行。
 
 ```ts
 export interface CreateWorldResponse {
@@ -586,7 +596,7 @@ export interface CreateWorldResponse {
 
 ## InviteResponse
 
-导出接口 · 源码第 208 行。
+导出接口 · 源码第 211 行。
 
 ```ts
 export interface InviteResponse {
@@ -600,7 +610,7 @@ export interface InviteResponse {
 
 ## WorldSnapshot
 
-导出接口 · 源码第 214 行。
+导出接口 · 源码第 217 行。
 
 M5.1 世界快照（GM 备份最新一份；内容=GM 端权威状态，schema 随 M5.2 世界会话定）
 
@@ -620,7 +630,7 @@ export interface WorldSnapshot {
 
 ## AssetFileMeta
 
-导出接口 · 源码第 223 行。
+导出接口 · 源码第 226 行。
 
 资源包=JSON 文件集合（规则数据/怪物图鉴/物品表等的引擎数据）
 
@@ -640,7 +650,7 @@ export interface AssetFileMeta {
 
 ## AssetManifest
 
-导出接口 · 源码第 230 行。
+导出接口 · 源码第 233 行。
 
 ```ts
 export interface AssetManifest {
@@ -656,7 +666,7 @@ export interface AssetManifest {
 
 ## AssetPayload
 
-导出接口 · 源码第 236 行。
+导出接口 · 源码第 239 行。
 
 ```ts
 export interface AssetPayload {
@@ -674,7 +684,7 @@ export interface AssetPayload {
 
 ## UploadAssetsRequest
 
-导出接口 · 源码第 243 行。
+导出接口 · 源码第 246 行。
 
 GM 上传资源包请求（files: path → 数据）
 
@@ -690,7 +700,7 @@ export interface UploadAssetsRequest {
 
 ## canonicalJson
 
-导出接口 · 源码第 252 行。
+导出接口 · 源码第 255 行。
 
 ```ts
 export function canonicalJson(value: unknown): string;

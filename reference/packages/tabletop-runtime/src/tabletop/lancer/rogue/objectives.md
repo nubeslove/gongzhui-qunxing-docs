@@ -80,7 +80,7 @@ export function resolveArenaHazard(t: ManualTable, apply: (t:ManualTable,i:Lance
 
 ## settleArenaObjectives
 
-导出接口 · 源码第 71 行。
+导出接口 · 源码第 72 行。
 
 Called only after normal combat/reaction queues have drained.
 

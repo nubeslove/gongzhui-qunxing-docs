@@ -7,6 +7,7 @@
 <details><summary>类型依赖</summary>
 
 ```ts
+import {apocalypseActionIssue} from './apocalypse-rail';
 import {fullActionIssue,fullActionOrdnance,fullActionCredit,auxiliaryContinuation} from './full-action';
 import {nhpOperationIssue} from './nhp';
 import {lancerTurnContains} from './control-state';
@@ -32,7 +33,7 @@ import { lancerSystemActionName, lancerSystemDefinition } from './systems';
 
 ## lancerActionIssue
 
-导出接口 · 源码第 29 行。
+导出接口 · 源码第 30 行。
 
 Does not roll dice, consume resources, enqueue triggers or mutate battle state.
 

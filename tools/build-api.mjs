@@ -84,6 +84,8 @@ add('post','/api/world-lifecycle/query','查询已下架的世界',{body:obj({wo
 add('get','/api/worlds/{id}/deletion','查询世界清理回执',{auth:'gm',result:obj({job:{type:'object'}}),errors:[403,404]});
 add('get','/api/worlds/{id}/transfer','查询转让资格和回执',{auth:'gm',result:obj({ownerId:str,version:num,recovering:bool,canTransfer:bool,receipt:{type:'object'},members:arr(obj({id:str,name:str}))},['ownerId','version','recovering','canTransfer','members']),errors:[403,404,503],description:'原转让操作者可查询自己的回执；可选成员由服务器按当前资格筛选。'});
 add('post','/api/client/presence','报告当前客户端在线状态',{body:obj({clientId:str,leaving:bool},['clientId']),result:obj({ready:bool}),errors:[503],description:'用于在线会话与更新排空判断；不是地图标记或聊天接口。'});
+add('get','/api/player/presence','读取本人的隐身设置',{result:obj({invisible:bool}),description:'仅返回当前登录账号的持久隐身偏好；响应禁止缓存。其他人的公开在线状态通过账号目录读取。'});
+add('put','/api/player/presence','保存本人的隐身设置',{body:obj({invisible:bool}),result:obj({invisible:bool}),errors:[400],description:'只允许修改当前登录账号。隐身对其他账号显示离线，并隐藏活动时间和所在世界；不会改变更新排空使用的真实连接状态。'});
 add('post','/api/internal/updates/claim','本机更新代理领取审核任务',{auth:'none',body:obj({jobId:str,phase:{enum:['prepare'] }},['jobId']),result:{type:'object'},errors:[403,409],description:'仅服务器本机更新代理持有的 X-Update-Key 可调用；无账号 Bearer 不代表公开权限。需要先有站长审核，AI 备团不得调用。省略 phase 进入停机前领取检查。'});
 paths['/api/internal/updates/claim'].post.security=[{updateKey:[]}];
 add('get','/api/admin/releases/check','读取发行源并检查新版本',{auth:'admin',result:obj({latest:releaseSchema,currentVersion:str,available:bool}),errors:[403,409]});

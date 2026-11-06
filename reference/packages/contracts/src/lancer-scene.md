@@ -169,6 +169,14 @@ export interface LancerSceneObject {
     inactive?: LancerSceneState | null;
     template?: boolean;
     used?: string[];
+    motion?: {
+        id: string;
+        path: {
+            x: number;
+            y: number;
+            z: number;
+        }[];
+    };
     entrance?: {
         id: string;
         from: {
@@ -197,6 +205,12 @@ export interface LancerSceneObject {
 | `inactive` | 是 | `LancerSceneState&#124;null` | 见结构定义及所属功能文档 |
 | `template` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `used` | 是 | `string[]` | 见结构定义及所属功能文档 |
+| `motion` | 是 | `{id:string;path:{x:number;y:number;z:number}[]}` | 见结构定义及所属功能文档 |
+| `motion.id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `motion.path` | 否 | `{x:number;y:number;z:number}[]` | 见结构定义及所属功能文档 |
+| `motion.path.[].x` | 否 | `number` | 见结构定义及所属功能文档 |
+| `motion.path.[].y` | 否 | `number` | 见结构定义及所属功能文档 |
+| `motion.path.[].z` | 否 | `number` | 见结构定义及所属功能文档 |
 | `entrance` | 是 | `{id:string;from:{x:number;y:number;z:number}}` | 见结构定义及所属功能文档 |
 | `entrance.id` | 否 | `string` | 见结构定义及所属功能文档 |
 | `entrance.from` | 否 | `{x:number;y:number;z:number}` | 见结构定义及所属功能文档 |
@@ -206,7 +220,7 @@ export interface LancerSceneObject {
 
 ## lancerObject
 
-导出接口 · 源码第 27 行。
+导出接口 · 源码第 28 行。
 
 ```ts
 export function lancerObject(block: ManualBlock): LancerSceneObject;
@@ -218,7 +232,7 @@ export function lancerObject(block: ManualBlock): LancerSceneObject;
 
 ## lancerObjectActive
 
-导出接口 · 源码第 34 行。
+导出接口 · 源码第 35 行。
 
 ```ts
 export const lancerObjectActive: (b: ManualBlock): boolean;
@@ -226,7 +240,7 @@ export const lancerObjectActive: (b: ManualBlock): boolean;
 
 ## lancerEffectiveBlock
 
-导出接口 · 源码第 35 行。
+导出接口 · 源码第 36 行。
 
 ```ts
 export function lancerEffectiveBlock(block: ManualBlock): ManualBlock;
@@ -238,7 +252,7 @@ export function lancerEffectiveBlock(block: ManualBlock): ManualBlock;
 
 ## lancerObjectId
 
-导出接口 · 源码第 41 行。
+导出接口 · 源码第 42 行。
 
 ```ts
 export const lancerObjectId: (blockId: string): string;
@@ -246,7 +260,7 @@ export const lancerObjectId: (blockId: string): string;
 
 ## lancerObjectToken
 
-导出接口 · 源码第 42 行。
+导出接口 · 源码第 43 行。
 
 ```ts
 export function lancerObjectToken(b: ManualBlock): ManualToken;
@@ -258,7 +272,7 @@ export function lancerObjectToken(b: ManualBlock): ManualToken;
 
 ## lancerLitFeatures
 
-导出接口 · 源码第 47 行。
+导出接口 · 源码第 48 行。
 
 LANCER does not use dungeon exploration lighting; smoke/regions remain meaningful.
 
@@ -272,7 +286,7 @@ export function lancerLitFeatures(f: SceneFeatures|undefined): SceneFeatures|und
 
 ## lancerLitMap
 
-导出接口 · 源码第 52 行。
+导出接口 · 源码第 53 行。
 
 ```ts
 export const lancerLitMap: (map: ManualMap): ManualMap;
@@ -280,7 +294,7 @@ export const lancerLitMap: (map: ManualMap): ManualMap;
 
 ## parseLancerSceneObject
 
-导出接口 · 源码第 53 行。
+导出接口 · 源码第 54 行。
 
 ```ts
 export function parseLancerSceneObject(raw: unknown): LancerSceneObject;
@@ -292,7 +306,7 @@ export function parseLancerSceneObject(raw: unknown): LancerSceneObject;
 
 ## parseLancerSceneEffect
 
-导出接口 · 源码第 71 行。
+导出接口 · 源码第 73 行。
 
 ```ts
 export function parseLancerSceneEffect(raw: unknown): LancerSceneEffect;

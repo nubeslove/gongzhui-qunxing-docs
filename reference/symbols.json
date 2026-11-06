@@ -13698,7 +13698,7 @@
     "kind": "interface",
     "exported": true,
     "description": "",
-    "declaration": "export interface CommunityPost {\n    scope?: CommunityScope;\n    id: string;\n    authorId: string;\n    title: string;\n    body: string;\n    category: \"discussion\" | \"party\" | \"feedback\";\n    createdAt: number;\n    replies: CommunityReply[];\n    deleted?: boolean;\n    pinned?: boolean;\n    featured?: boolean;\n}",
+    "declaration": "export interface CommunityPost {\n    scope?: CommunityScope;\n    id: string;\n    authorId: string;\n    title: string;\n    body: string;\n    category: \"discussion\" | \"party\" | \"feedback\";\n    createdAt: number;\n    replies: CommunityReply[];\n    views?: number;\n    deleted?: boolean;\n    pinned?: boolean;\n    featured?: boolean;\n}",
     "fields": [
       {
         "name": "scope",
@@ -13746,6 +13746,12 @@
         "name": "replies",
         "optional": false,
         "type": "CommunityReply[]",
+        "description": ""
+      },
+      {
+        "name": "views",
+        "optional": true,
+        "type": "number",
         "description": ""
       },
       {
@@ -13937,7 +13943,7 @@
     "kind": "type",
     "exported": true,
     "description": "",
-    "declaration": "export type CommunityAction = {\n    kind: \"post\";\n    title: string;\n    body: string;\n    category: CommunityPost[\"category\"];\n    scope?: CommunityScope;\n} | {\n    kind: \"reply\";\n    postId: string;\n    body: string;\n} | {\n    kind: \"delete-post\";\n    postId: string;\n} | {\n    kind: \"friend-request\";\n    playerId: string;\n} | {\n    kind: \"friend-accept\" | \"friend-remove\";\n    id: string;\n} | {\n    kind: \"moderate\";\n    postId: string;\n    pinned?: boolean;\n    featured?: boolean;\n} | {\n    kind: \"notice\";\n    title: string;\n    body: string;\n    scope?: CommunityScope;\n};",
+    "declaration": "export type CommunityAction = {\n    kind: \"post\";\n    title: string;\n    body: string;\n    category: CommunityPost[\"category\"];\n    scope?: CommunityScope;\n} | {\n    kind: \"reply\";\n    postId: string;\n    body: string;\n} | {\n    kind: \"read-post\";\n    postId: string;\n} | {\n    kind: \"delete-post\";\n    postId: string;\n} | {\n    kind: \"friend-request\";\n    playerId: string;\n} | {\n    kind: \"friend-accept\" | \"friend-remove\";\n    id: string;\n} | {\n    kind: \"moderate\";\n    postId: string;\n    pinned?: boolean;\n    featured?: boolean;\n} | {\n    kind: \"notice\";\n    title: string;\n    body: string;\n    scope?: CommunityScope;\n};",
     "fields": [
       {
         "name": "分支1.kind",
@@ -13990,7 +13996,7 @@
       {
         "name": "分支3.kind",
         "optional": false,
-        "type": "\"delete-post\"",
+        "type": "\"read-post\"",
         "description": ""
       },
       {
@@ -14002,11 +14008,11 @@
       {
         "name": "分支4.kind",
         "optional": false,
-        "type": "\"friend-request\"",
+        "type": "\"delete-post\"",
         "description": ""
       },
       {
-        "name": "分支4.playerId",
+        "name": "分支4.postId",
         "optional": false,
         "type": "string",
         "description": ""
@@ -14014,11 +14020,11 @@
       {
         "name": "分支5.kind",
         "optional": false,
-        "type": "\"friend-accept\" | \"friend-remove\"",
+        "type": "\"friend-request\"",
         "description": ""
       },
       {
-        "name": "分支5.id",
+        "name": "分支5.playerId",
         "optional": false,
         "type": "string",
         "description": ""
@@ -14026,47 +14032,59 @@
       {
         "name": "分支6.kind",
         "optional": false,
-        "type": "\"moderate\"",
+        "type": "\"friend-accept\" | \"friend-remove\"",
         "description": ""
       },
       {
-        "name": "分支6.postId",
+        "name": "分支6.id",
         "optional": false,
         "type": "string",
-        "description": ""
-      },
-      {
-        "name": "分支6.pinned",
-        "optional": true,
-        "type": "boolean",
-        "description": ""
-      },
-      {
-        "name": "分支6.featured",
-        "optional": true,
-        "type": "boolean",
         "description": ""
       },
       {
         "name": "分支7.kind",
         "optional": false,
+        "type": "\"moderate\"",
+        "description": ""
+      },
+      {
+        "name": "分支7.postId",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "分支7.pinned",
+        "optional": true,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "分支7.featured",
+        "optional": true,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "分支8.kind",
+        "optional": false,
         "type": "\"notice\"",
         "description": ""
       },
       {
-        "name": "分支7.title",
+        "name": "分支8.title",
         "optional": false,
         "type": "string",
         "description": ""
       },
       {
-        "name": "分支7.body",
+        "name": "分支8.body",
         "optional": false,
         "type": "string",
         "description": ""
       },
       {
-        "name": "分支7.scope",
+        "name": "分支8.scope",
         "optional": true,
         "type": "CommunityScope",
         "description": ""
@@ -28536,12 +28554,30 @@
     "anchor": "playeridentity"
   },
   {
+    "name": "PlayerPresence",
+    "kind": "type",
+    "exported": true,
+    "description": "",
+    "declaration": "export type PlayerPresence = \"online\" | \"offline\" | \"playing\";",
+    "fields": [],
+    "line": 44,
+    "source": "game/packages/contracts/src/index.ts",
+    "document": "reference/packages/contracts/src/index.md",
+    "anchor": "playerpresence"
+  },
+  {
     "name": "PlayerInfo",
     "kind": "interface",
     "exported": true,
     "description": "",
-    "declaration": "export interface PlayerInfo {\n    playerId: string;\n    nickname: string;\n    onlineAt: number;\n    worldId: string | null;\n}",
+    "declaration": "export interface PlayerInfo {\n    presence?: PlayerPresence;\n    playerId: string;\n    nickname: string;\n    onlineAt: number;\n    worldId: string | null;\n}",
     "fields": [
+      {
+        "name": "presence",
+        "optional": true,
+        "type": "PlayerPresence",
+        "description": "Server-projected live presence; hidden accounts are offline."
+      },
       {
         "name": "playerId",
         "optional": false,
@@ -28567,7 +28603,7 @@
         "description": "当前所在世界（无 → null）"
       }
     ],
-    "line": 44,
+    "line": 45,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "playerinfo"
@@ -28658,7 +28694,7 @@
         "description": ""
       }
     ],
-    "line": 58,
+    "line": 61,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "worldsummary"
@@ -28670,7 +28706,7 @@
     "description": "",
     "declaration": "export type NetMessageKind = \"event.world\" | \"meta.heartbeat\" | \"meta.invite\" | \"meta.world-deleted\" | \"intent.action\" | \"role.request\" | \"event.sync\" | \"event.log\" | \"event.session\" | \"event.state\" | \"event.battle\" | \"event.receipt\";",
     "fields": [],
-    "line": 79,
+    "line": 82,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "netmessagekind"
@@ -28707,7 +28743,7 @@
         "description": ""
       }
     ],
-    "line": 97,
+    "line": 100,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "netmessage"
@@ -28719,7 +28755,7 @@
     "description": "",
     "declaration": "export type SignalKind = \"offer\" | \"answer\" | \"ice\" | \"reconnect\";",
     "fields": [],
-    "line": 108,
+    "line": 111,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "signalkind"
@@ -28774,7 +28810,7 @@
         "description": ""
       }
     ],
-    "line": 110,
+    "line": 113,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "signalmessage"
@@ -28793,7 +28829,7 @@
         "description": ""
       }
     ],
-    "line": 124,
+    "line": 127,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "heartbeatpayload"
@@ -28812,7 +28848,7 @@
         "description": ""
       }
     ],
-    "line": 129,
+    "line": 132,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "synceventspayload"
@@ -28837,7 +28873,7 @@
         "description": ""
       }
     ],
-    "line": 136,
+    "line": 139,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "sessionstatepayload"
@@ -28898,7 +28934,7 @@
         "description": ""
       }
     ],
-    "line": 142,
+    "line": 145,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "combatstatepayload"
@@ -28941,7 +28977,7 @@
         "description": ""
       }
     ],
-    "line": 172,
+    "line": 175,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "transferworldrequest"
@@ -28966,7 +29002,7 @@
         "description": ""
       }
     ],
-    "line": 182,
+    "line": 185,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "registerrequest"
@@ -28991,7 +29027,7 @@
         "description": ""
       }
     ],
-    "line": 187,
+    "line": 190,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "registerresponse"
@@ -29058,7 +29094,7 @@
         "description": ""
       }
     ],
-    "line": 193,
+    "line": 196,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "createworldrequest"
@@ -29077,7 +29113,7 @@
         "description": ""
       }
     ],
-    "line": 204,
+    "line": 207,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "createworldresponse"
@@ -29096,7 +29132,7 @@
         "description": "邀请码（5 位；对方在大厅输入加入）"
       }
     ],
-    "line": 208,
+    "line": 211,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "inviteresponse"
@@ -29127,7 +29163,7 @@
         "description": ""
       }
     ],
-    "line": 214,
+    "line": 217,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "worldsnapshot"
@@ -29158,7 +29194,7 @@
         "description": ""
       }
     ],
-    "line": 223,
+    "line": 226,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "assetfilemeta"
@@ -29183,7 +29219,7 @@
         "description": ""
       }
     ],
-    "line": 230,
+    "line": 233,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "assetmanifest"
@@ -29214,7 +29250,7 @@
         "description": ""
       }
     ],
-    "line": 236,
+    "line": 239,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "assetpayload"
@@ -29233,7 +29269,7 @@
         "description": ""
       }
     ],
-    "line": 243,
+    "line": 246,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "uploadassetsrequest"
@@ -29252,7 +29288,7 @@
     ],
     "returns": "string",
     "declaration": "export function canonicalJson(value: unknown): string;",
-    "line": 252,
+    "line": 255,
     "source": "game/packages/contracts/src/index.ts",
     "document": "reference/packages/contracts/src/index.md",
     "anchor": "canonicaljson"
@@ -30780,7 +30816,7 @@
     "description": "",
     "declaration": "export type LancerLeadershipPurpose = keyof typeof LANCER_LEADERSHIP_PURPOSES;",
     "fields": [],
-    "line": 11,
+    "line": 12,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerleadershippurpose"
@@ -30792,7 +30828,7 @@
     "description": "",
     "declaration": "export type LancerSide = 'players' | 'hostiles';",
     "fields": [],
-    "line": 12,
+    "line": 13,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerside"
@@ -30804,7 +30840,7 @@
     "description": "",
     "declaration": "export type LancerDamageType = 'kinetic' | 'energy' | 'explosive' | 'burn' | 'heat';",
     "fields": [],
-    "line": 13,
+    "line": 14,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerdamagetype"
@@ -30815,7 +30851,7 @@
     "exported": true,
     "declaration": "export const LANCER_CONDITIONS = ['impaired', 'slowed', 'immobilized', 'stunned', 'jammed', 'exposed', 'prone', 'hidden', 'invisible', 'shutdown', 'lockon', 'shredded', 'engaged', 'shortsighted', 'swarmed', 'reactionless', 'life-support', 'tech-disabled', 'cockpit-jammed', 'bolstered'] as const;",
     "description": "",
-    "line": 14,
+    "line": 15,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancer_conditions"
@@ -30827,7 +30863,7 @@
     "description": "",
     "declaration": "export type LancerCondition = typeof LANCER_CONDITIONS[number];",
     "fields": [],
-    "line": 15,
+    "line": 16,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancercondition"
@@ -30838,7 +30874,7 @@
     "exported": true,
     "declaration": "export const LANCER_CONDITION_NAMES: Record<LancerCondition, string>;",
     "description": "",
-    "line": 16,
+    "line": 17,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancer_condition_names"
@@ -30935,7 +30971,7 @@
         "description": ""
       }
     ],
-    "line": 17,
+    "line": 18,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerdeploymentzone"
@@ -30984,7 +31020,7 @@
         "description": ""
       }
     ],
-    "line": 18,
+    "line": 19,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerarea"
@@ -31027,7 +31063,7 @@
         "description": ""
       }
     ],
-    "line": 19,
+    "line": 20,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerdamagepool"
@@ -31118,7 +31154,7 @@
         "description": ""
       }
     ],
-    "line": 20,
+    "line": 21,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancersalvo"
@@ -31128,8 +31164,14 @@
     "kind": "interface",
     "exported": true,
     "description": "",
-    "declaration": "export interface LancerEffect {\n    clock?: 'target';\n    amount?: number;\n    id: string;\n    owner: string;\n    target?: string;\n    key: 'smoke' | 'projected-shield' | 'soft-cover' | 'resistance' | 'thinking' | 'combined-melee' | 'combined-ranged' | 'plasma' | 'duelist-feint' | 'duelist-trip' | 'supersonic' | 'tech-shrike' | 'tech-mirage' | 'tech-stalk' | 'tech-terrify' | 'tech-banish' | 'tech-prometheus' | 'tech-excommunicate' | 'tech-logic' | 'ejected-cores' | 'gms-invade' | 'sacrificial-bolt';\n    until: number;\n    at: 'start' | 'end';\n    area?: LancerArea;\n    source?: string;\n    cells?: {\n        x: number;\n        y: number;\n        z: number;\n    }[];\n    seen?: {\n        unit: string;\n        round: number;\n    }[];\n}",
+    "declaration": "export interface LancerEffect {\n    suppressed?: boolean;\n    clock?: 'target';\n    amount?: number;\n    id: string;\n    owner: string;\n    target?: string;\n    key: 'smoke' | 'projected-shield' | 'soft-cover' | 'resistance' | 'thinking' | 'combined-melee' | 'combined-ranged' | 'plasma' | 'apocalypse-fire' | 'iceout-field' | 'hive-field' | 'duelist-feint' | 'duelist-trip' | 'supersonic' | 'tech-shrike' | 'tech-mirage' | 'tech-stalk' | 'tech-terrify' | 'tech-banish' | 'tech-prometheus' | 'tech-excommunicate' | 'tech-logic' | 'ejected-cores' | 'gms-invade' | 'sacrificial-bolt';\n    until: number;\n    at: 'start' | 'end';\n    area?: LancerArea;\n    source?: string;\n    cells?: {\n        x: number;\n        y: number;\n        z: number;\n    }[];\n    seen?: {\n        unit: string;\n        round: number;\n    }[];\n}",
     "fields": [
+      {
+        "name": "suppressed",
+        "optional": true,
+        "type": "boolean",
+        "description": ""
+      },
       {
         "name": "clock",
         "optional": true,
@@ -31163,7 +31205,7 @@
       {
         "name": "key",
         "optional": false,
-        "type": "'smoke'|'projected-shield'|'soft-cover'|'resistance'|'thinking'|'combined-melee'|'combined-ranged'|'plasma'|'duelist-feint'|'duelist-trip'|'supersonic'|'tech-shrike'|'tech-mirage'|'tech-stalk'|'tech-terrify'|'tech-banish'|'tech-prometheus'|'tech-excommunicate'|'tech-logic'|'ejected-cores'|'gms-invade'|'sacrificial-bolt'",
+        "type": "'smoke'|'projected-shield'|'soft-cover'|'resistance'|'thinking'|'combined-melee'|'combined-ranged'|'plasma'|'apocalypse-fire'|'iceout-field'|'hive-field'|'duelist-feint'|'duelist-trip'|'supersonic'|'tech-shrike'|'tech-mirage'|'tech-stalk'|'tech-terrify'|'tech-banish'|'tech-prometheus'|'tech-excommunicate'|'tech-logic'|'ejected-cores'|'gms-invade'|'sacrificial-bolt'",
         "description": ""
       },
       {
@@ -31233,7 +31275,7 @@
         "description": ""
       }
     ],
-    "line": 21,
+    "line": 22,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancereffect"
@@ -31402,7 +31444,7 @@
         "description": ""
       }
     ],
-    "line": 22,
+    "line": 23,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancercombatweapon"
@@ -31457,7 +31499,7 @@
         "description": ""
       }
     ],
-    "line": 28,
+    "line": 29,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancercombatsystem"
@@ -31488,7 +31530,7 @@
         "description": ""
       }
     ],
-    "line": 29,
+    "line": 30,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerpilotgear"
@@ -31609,7 +31651,7 @@
         "description": ""
       }
     ],
-    "line": 30,
+    "line": 31,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerpilotprofile"
@@ -31619,8 +31661,14 @@
     "kind": "interface",
     "exported": true,
     "description": "",
-    "declaration": "export interface LancerTimedCondition {\n    origin?: 'tech';\n    id: LancerCondition;\n    until: number | null;\n    source: string;\n    expireOwner?: string;\n    untilTurn?: number;\n    expireAt?: 'start' | 'end';\n}",
+    "declaration": "export interface LancerTimedCondition {\n    suppressed?: boolean;\n    origin?: 'tech';\n    id: LancerCondition;\n    until: number | null;\n    source: string;\n    expireOwner?: string;\n    untilTurn?: number;\n    expireAt?: 'start' | 'end';\n}",
     "fields": [
+      {
+        "name": "suppressed",
+        "optional": true,
+        "type": "boolean",
+        "description": ""
+      },
       {
         "name": "origin",
         "optional": true,
@@ -31664,7 +31712,7 @@
         "description": ""
       }
     ],
-    "line": 36,
+    "line": 37,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancertimedcondition"
@@ -31881,7 +31929,7 @@
         "description": ""
       }
     ],
-    "line": 39,
+    "line": 40,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancernpcprofile"
@@ -31892,7 +31940,7 @@
     "exported": true,
     "declaration": "export const LANCER_NPC_TEMPLATES = ['veteran', 'ultra', 'commander', 'rpv', 'exotic', 'mercenary', 'pirate', 'ship', 'spacer', 'vehicle'] as const;",
     "description": "",
-    "line": 47,
+    "line": 48,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancer_npc_templates"
@@ -31904,7 +31952,7 @@
     "description": "",
     "declaration": "export type LancerNpcTemplate = typeof LANCER_NPC_TEMPLATES[number];",
     "fields": [],
-    "line": 48,
+    "line": 49,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancernpctemplate"
@@ -31983,7 +32031,7 @@
         "description": ""
       }
     ],
-    "line": 49,
+    "line": 50,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancernpc"
@@ -32020,7 +32068,7 @@
         "description": ""
       }
     ],
-    "line": 50,
+    "line": 51,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerreadyreference"
@@ -32081,7 +32129,7 @@
         "description": ""
       }
     ],
-    "line": 51,
+    "line": 52,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerready"
@@ -32130,7 +32178,7 @@
         "description": ""
       }
     ],
-    "line": 52,
+    "line": 53,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerturnbudget"
@@ -32173,7 +32221,7 @@
         "description": ""
       }
     ],
-    "line": 53,
+    "line": 54,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerai"
@@ -32270,7 +32318,7 @@
         "description": ""
       }
     ],
-    "line": 54,
+    "line": 55,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancernhp"
@@ -32817,7 +32865,7 @@
         "description": ""
       }
     ],
-    "line": 55,
+    "line": 56,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancercombatunit"
@@ -32848,7 +32896,7 @@
         "description": ""
       }
     ],
-    "line": 76,
+    "line": 77,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerride"
@@ -32909,7 +32957,7 @@
         "description": ""
       }
     ],
-    "line": 77,
+    "line": 78,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerattackreplay"
@@ -32940,7 +32988,7 @@
         "description": ""
       }
     ],
-    "line": 78,
+    "line": 79,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancercheckresult"
@@ -32995,7 +33043,7 @@
         "description": ""
       }
     ],
-    "line": 79,
+    "line": 80,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerattackoutcome"
@@ -33007,7 +33055,7 @@
     "description": "",
     "declaration": "export type LancerAttackStep = Extract<LancerBattleStep, {\n    kind: 'attack';\n}>;",
     "fields": [],
-    "line": 80,
+    "line": 81,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerattackstep"
@@ -33017,7 +33065,7 @@
     "kind": "type",
     "exported": true,
     "description": "",
-    "declaration": "export type LancerBattleStep = {\n    attackLogId?: string;\n    manualTriggers?: string[];\n    leaderChecks?: {\n        reviewed: string[];\n        boosted: string[];\n    };\n} & ({\n    kind: 'playerEffect';\n    unit: string;\n    source: string;\n    effect: LancerPlayerEffect;\n} | {\n    kind: 'customEffect';\n    unit: string;\n    target: string;\n    system: string;\n    mode: string;\n    effect: number;\n} | {\n    kind: 'move';\n    unit: string;\n    x: number;\n    y: number;\n    z: number;\n    cost: number;\n    standard?: boolean;\n    involuntary?: boolean;\n    forced?: boolean;\n    teleport?: boolean;\n    group?: string;\n    ignoreReactions?: boolean;\n} | {\n    kind: 'attackResult';\n    unit: string;\n    shot: LancerAttackStep;\n    rolls: LancerCheckResult[];\n    selected: number;\n    context: LancerAttackOutcome;\n} | {\n    kind: 'techResult';\n    unit: string;\n    shot: Extract<LancerBattleStep, {\n        kind: 'tech';\n    }>;\n    rolls: LancerCheckResult[];\n    selected: number;\n    nuclear: boolean;\n    locked: boolean;\n    hiddenMiss: boolean;\n} | {\n    kind: 'watch';\n    unit: string;\n    target: string;\n    cqbOnly?: boolean;\n    group?: string;\n    involuntary?: boolean;\n} | {\n    kind: 'attack';\n    unit: string;\n    target: string;\n    weapon: string;\n    orderAccuracy?: boolean;\n    accuracy: number;\n    cover: number;\n    consumeLock: boolean;\n    lockConsumed?: boolean;\n    lockChoiceMade?: boolean;\n    halfDamage?: boolean;\n    halfHeat?: boolean;\n    preflight?: boolean;\n    replay?: LancerAttackReplay;\n    talents?: string[];\n    emptyArea?: boolean;\n    special?: 'autopod' | 'vorpal' | 'autogun' | 'npc-melt' | 'npc-pulse';\n    profile?: string;\n    reaction?: boolean;\n    guarded?: string[];\n    salvo?: string;\n    noBonus?: boolean;\n    secondary?: boolean;\n    origin?: {\n        x: number;\n        y: number;\n        z: number;\n        size?: number;\n    };\n} | {\n    kind: 'tech';\n    unit: string;\n    target: string;\n    option: string;\n    wide?: boolean;\n    orderAccuracy?: boolean;\n    reaction?: boolean;\n    consumeLock: boolean;\n    lockConsumed?: boolean;\n    lockChoiceMade?: boolean;\n    accuracy: number;\n    guarded?: string[];\n    preflight?: boolean;\n    ally?: string;\n    consent?: 'requested' | 'accepted' | 'declined';\n} | {\n    kind: 'melee';\n    unit: string;\n    mode: 'cleave' | 'sweep' | 'reroll';\n    shot: LancerAttackStep;\n    selected?: string[];\n} | {\n    kind: 'scene';\n    unit: string;\n    group: string;\n    effect: LancerSceneEffect;\n} | {\n    kind: 'damage';\n    unit: string;\n    target: string;\n    amount: number;\n    type: LancerDamageType;\n    ap: boolean;\n    attack: boolean;\n    leaderBonus?: {\n        critical: boolean;\n        half: boolean;\n        max: boolean;\n    };\n    leaderChoice?: 'bonus' | 'reduce';\n    leaderOffered?: boolean;\n    leaderDefended?: boolean;\n    leaderReduction?: number;\n    halfDamage?: boolean;\n    halfHeat?: boolean;\n    weaponKind?: 'melee' | 'ranged';\n    duelistReady?: boolean;\n    resisted?: boolean;\n    chooseType?: boolean;\n    braced?: boolean;\n    ready?: boolean;\n    parts?: {\n        amount: number;\n        type: LancerDamageType;\n    }[];\n    bonus?: {\n        key: string;\n        critical: boolean;\n        half: boolean;\n        max?: boolean;\n    };\n    unreducible?: boolean;\n} | {\n    kind: 'harm';\n    unit: string;\n    target: string;\n    amount: number;\n    leaderDefended?: boolean;\n    absorbShield?: boolean;\n} | {\n    kind: 'feature';\n    unit: string;\n    feature: string;\n    orderAccuracy?: boolean;\n    reaction?: boolean;\n    lockConsumed?: boolean;\n    selected?: string[];\n    weapon?: string;\n    target?: string;\n    amount?: number;\n    salvo?: string;\n    origin?: {\n        x: number;\n        y: number;\n        z: number;\n        size?: number;\n    };\n} | {\n    kind: 'save';\n    unit: string;\n    target: string;\n    amount: number;\n    type: LancerDamageType;\n    skill: 'hull' | 'agility' | 'systems' | 'engineering';\n    dc: number;\n    half: boolean;\n    ap?: boolean;\n    parts?: {\n        amount: number;\n        type: LancerDamageType;\n    }[];\n    conditions?: LancerCondition[];\n    successConditions?: LancerCondition[];\n    failureFeature?: string;\n    pushOrigin?: {\n        x: number;\n        y: number;\n        z: number;\n    };\n    conditionAt?: 'start' | 'end';\n    conditionClock?: 'source';\n    push?: number;\n    pullCenter?: {\n        x: number;\n        y: number;\n        z: number;\n    };\n    noCoreBonus?: boolean;\n} | {\n    kind: 'trigger';\n    unit: string;\n    target: string;\n    source: string;\n    key: 'turret';\n} | {\n    kind: 'overheat';\n    unit: string;\n    remaining: number;\n    dice: number[];\n    rerolled: boolean;\n} | {\n    kind: 'fall';\n    unit: string;\n} | {\n    kind: 'finish';\n    unit: string;\n});",
+    "declaration": "export type LancerBattleStep = {\n    attackLogId?: string;\n    manualTriggers?: string[];\n    leaderChecks?: {\n        reviewed: string[];\n        boosted: string[];\n    };\n} & ({\n    kind: 'playerEffect';\n    unit: string;\n    source: string;\n    resource?: string;\n    effect: LancerPlayerEffect;\n} | {\n    kind: 'customEffect';\n    unit: string;\n    target: string;\n    system: string;\n    mode: string;\n    effect: number;\n} | {\n    kind: 'move';\n    unit: string;\n    x: number;\n    y: number;\n    z: number;\n    cost: number;\n    engagementOrigin?: {\n        x: number;\n        y: number;\n        z: number;\n    };\n    standard?: boolean;\n    involuntary?: boolean;\n    forced?: boolean;\n    teleport?: boolean;\n    group?: string;\n    ignoreReactions?: boolean;\n} | {\n    kind: 'attackResult';\n    unit: string;\n    shot: LancerAttackStep;\n    rolls: LancerCheckResult[];\n    selected: number;\n    context: LancerAttackOutcome;\n} | {\n    kind: 'techResult';\n    unit: string;\n    shot: Extract<LancerBattleStep, {\n        kind: 'tech';\n    }>;\n    rolls: LancerCheckResult[];\n    selected: number;\n    nuclear: boolean;\n    locked: boolean;\n    hiddenMiss: boolean;\n} | {\n    kind: 'watch';\n    unit: string;\n    target: string;\n    cqbOnly?: boolean;\n    group?: string;\n    involuntary?: boolean;\n} | {\n    kind: 'attack';\n    unit: string;\n    target: string;\n    weapon: string;\n    orderAccuracy?: boolean;\n    accuracy: number;\n    cover: number;\n    consumeLock: boolean;\n    lockConsumed?: boolean;\n    lockChoiceMade?: boolean;\n    halfDamage?: boolean;\n    halfHeat?: boolean;\n    preflight?: boolean;\n    replay?: LancerAttackReplay;\n    talents?: string[];\n    emptyArea?: boolean;\n    special?: 'autopod' | 'vorpal' | 'autogun' | 'npc-melt' | 'npc-pulse';\n    profile?: string;\n    reaction?: boolean;\n    guarded?: string[];\n    salvo?: string;\n    noBonus?: boolean;\n    secondary?: boolean;\n    origin?: {\n        x: number;\n        y: number;\n        z: number;\n        size?: number;\n    };\n} | {\n    kind: 'tech';\n    unit: string;\n    target: string;\n    option: string;\n    wide?: boolean;\n    orderAccuracy?: boolean;\n    reaction?: boolean;\n    consumeLock: boolean;\n    lockConsumed?: boolean;\n    lockChoiceMade?: boolean;\n    accuracy: number;\n    guarded?: string[];\n    preflight?: boolean;\n    ally?: string;\n    consent?: 'requested' | 'accepted' | 'declined';\n} | {\n    kind: 'melee';\n    unit: string;\n    mode: 'cleave' | 'sweep' | 'reroll';\n    shot: LancerAttackStep;\n    selected?: string[];\n} | {\n    kind: 'scene';\n    unit: string;\n    group: string;\n    effect: LancerSceneEffect;\n} | {\n    kind: 'damage';\n    unit: string;\n    target: string;\n    amount: number;\n    type: LancerDamageType;\n    ap: boolean;\n    attack: boolean;\n    leaderBonus?: {\n        critical: boolean;\n        half: boolean;\n        max: boolean;\n    };\n    leaderChoice?: 'bonus' | 'reduce';\n    leaderOffered?: boolean;\n    leaderDefended?: boolean;\n    leaderReduction?: number;\n    halfDamage?: boolean;\n    halfHeat?: boolean;\n    weaponKind?: 'melee' | 'ranged';\n    duelistReady?: boolean;\n    resisted?: boolean;\n    chooseType?: boolean;\n    braced?: boolean;\n    ready?: boolean;\n    parts?: {\n        amount: number;\n        type: LancerDamageType;\n    }[];\n    bonus?: {\n        key: string;\n        critical: boolean;\n        half: boolean;\n        max?: boolean;\n    };\n    unreducible?: boolean;\n} | {\n    kind: 'harm';\n    unit: string;\n    target: string;\n    amount: number;\n    leaderDefended?: boolean;\n    absorbShield?: boolean;\n} | {\n    kind: 'feature';\n    unit: string;\n    feature: string;\n    orderAccuracy?: boolean;\n    reaction?: boolean;\n    lockConsumed?: boolean;\n    selected?: string[];\n    weapon?: string;\n    target?: string;\n    amount?: number;\n    salvo?: string;\n    origin?: {\n        x: number;\n        y: number;\n        z: number;\n        size?: number;\n    };\n} | {\n    kind: 'save';\n    unit: string;\n    target: string;\n    amount: number;\n    type: LancerDamageType;\n    skill: 'hull' | 'agility' | 'systems' | 'engineering';\n    dc: number;\n    half: boolean;\n    ap?: boolean;\n    parts?: {\n        amount: number;\n        type: LancerDamageType;\n    }[];\n    conditions?: LancerCondition[];\n    successConditions?: LancerCondition[];\n    failureFeature?: string;\n    pushOrigin?: {\n        x: number;\n        y: number;\n        z: number;\n    };\n    conditionAt?: 'start' | 'end';\n    conditionClock?: 'source';\n    push?: number;\n    pullCenter?: {\n        x: number;\n        y: number;\n        z: number;\n    };\n    noCoreBonus?: boolean;\n} | {\n    kind: 'trigger';\n    unit: string;\n    target: string;\n    source: string;\n    key: 'turret';\n} | {\n    kind: 'overheat';\n    unit: string;\n    remaining: number;\n    dice: number[];\n    rerolled: boolean;\n} | {\n    kind: 'fall';\n    unit: string;\n} | {\n    kind: 'finish';\n    unit: string;\n});",
     "fields": [
       {
         "name": "attackLogId",
@@ -33064,6 +33112,12 @@
       {
         "name": "分支1.source",
         "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "分支1.resource",
+        "optional": true,
         "type": "string",
         "description": ""
       },
@@ -33141,6 +33195,30 @@
       },
       {
         "name": "分支3.cost",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "分支3.engagementOrigin",
+        "optional": true,
+        "type": "{x:number;y:number;z:number}",
+        "description": ""
+      },
+      {
+        "name": "分支3.engagementOrigin.x",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "分支3.engagementOrigin.y",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "分支3.engagementOrigin.z",
         "optional": false,
         "type": "number",
         "description": ""
@@ -34184,7 +34262,7 @@
         "description": ""
       }
     ],
-    "line": 81,
+    "line": 82,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerbattlestep"
@@ -34413,7 +34491,7 @@
         "description": ""
       }
     ],
-    "line": 100,
+    "line": 101,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerdecision"
@@ -34456,7 +34534,7 @@
         "description": ""
       }
     ],
-    "line": 109,
+    "line": 110,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerdamagereport"
@@ -34465,9 +34543,9 @@
     "name": "LANCER_FEEDBACK_CUES",
     "kind": "constant",
     "exported": true,
-    "declaration": "export const LANCER_FEEDBACK_CUES = ['ballistic', 'artillery', 'sniper', 'ricochet', 'melee', 'tech', 'lockon', 'bolster', 'core', 'move', 'skirmish', 'barrage', 'fragment-signal'] as const;",
+    "declaration": "export const LANCER_FEEDBACK_CUES = ['ballistic', 'artillery', 'explosion', 'sniper', 'ricochet', 'melee', 'tech', 'lockon', 'bolster', 'core', 'move', 'skirmish', 'barrage', 'fragment-signal', 'laser', 'plasma', 'flame', 'missile', 'shotgun', 'shield', 'cooling', 'cloak', 'teleport', 'drone', 'gravity'] as const;",
     "description": "",
-    "line": 110,
+    "line": 111,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancer_feedback_cues"
@@ -34479,7 +34557,7 @@
     "description": "",
     "declaration": "export type LancerFeedbackCue = typeof LANCER_FEEDBACK_CUES[number];",
     "fields": [],
-    "line": 111,
+    "line": 112,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerfeedbackcue"
@@ -34489,7 +34567,7 @@
     "kind": "interface",
     "exported": true,
     "description": "Presentation metadata records the resolved weapon and actual bounce order, never hypothetical targets.",
-    "declaration": "export interface LancerCombatPresentation {\n    cue: LancerFeedbackCue;\n    weapon?: string;\n    origin?: {\n        x: number;\n        y: number;\n        z: number;\n    };\n    via?: string[];\n}",
+    "declaration": "export interface LancerCombatPresentation {\n    cue: LancerFeedbackCue;\n    weapon?: string;\n    resource?: string;\n    area?: LancerArea;\n    impact?: {\n        x: number;\n        y: number;\n        z: number;\n    };\n    group?: string;\n    origin?: {\n        x: number;\n        y: number;\n        z: number;\n    };\n    via?: string[];\n}",
     "fields": [
       {
         "name": "cue",
@@ -34499,6 +34577,48 @@
       },
       {
         "name": "weapon",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "resource",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "area",
+        "optional": true,
+        "type": "LancerArea",
+        "description": ""
+      },
+      {
+        "name": "impact",
+        "optional": true,
+        "type": "{x:number;y:number;z:number}",
+        "description": ""
+      },
+      {
+        "name": "impact.x",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "impact.y",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "impact.z",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "group",
         "optional": true,
         "type": "string",
         "description": ""
@@ -34534,7 +34654,7 @@
         "description": ""
       }
     ],
-    "line": 113,
+    "line": 114,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancercombatpresentation"
@@ -34583,7 +34703,7 @@
         "description": ""
       }
     ],
-    "line": 114,
+    "line": 115,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancercombatfeedback"
@@ -34597,12 +34717,12 @@
       {
         "name": "w",
         "optional": false,
-        "type": "Pick<LancerCombatWeapon,'id'|'resourceId'|'weaponType'|'tags'>"
+        "type": "Pick<LancerCombatWeapon,'id'|'resourceId'|'weaponType'|'tags'>&Partial<Pick<LancerCombatWeapon,'type'>>"
       }
     ],
     "returns": "LancerCombatPresentation",
-    "declaration": "export function lancerWeaponPresentation(w: Pick<LancerCombatWeapon,'id'|'resourceId'|'weaponType'|'tags'>): LancerCombatPresentation;",
-    "line": 116,
+    "declaration": "export function lancerWeaponPresentation(w: Pick<LancerCombatWeapon,'id'|'resourceId'|'weaponType'|'tags'>&Partial<Pick<LancerCombatWeapon,'type'>>): LancerCombatPresentation;",
+    "line": 117,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerweaponpresentation"
@@ -34628,11 +34748,17 @@
         "optional": true,
         "type": "string",
         "default": "source"
+      },
+      {
+        "name": "details",
+        "optional": true,
+        "type": "Omit<LancerCombatPresentation,'cue'>",
+        "default": "{}"
       }
     ],
     "returns": "LancerCombatFeedback",
-    "declaration": "export function lancerActionFeedback(source: string, cue: LancerFeedbackCue, target?: string): LancerCombatFeedback;",
-    "line": 124,
+    "declaration": "export function lancerActionFeedback(source: string, cue: LancerFeedbackCue, target?: string, details?: Omit<LancerCombatPresentation,'cue'>): LancerCombatFeedback;",
+    "line": 126,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lanceractionfeedback"
@@ -34711,7 +34837,7 @@
         "description": ""
       }
     ],
-    "line": 127,
+    "line": 129,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancercombatlog"
@@ -34742,7 +34868,7 @@
         "description": ""
       }
     ],
-    "line": 128,
+    "line": 130,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancergrapple"
@@ -34779,7 +34905,7 @@
         "description": ""
       }
     ],
-    "line": 129,
+    "line": 131,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerintelsection"
@@ -34870,7 +34996,7 @@
         "description": ""
       }
     ],
-    "line": 130,
+    "line": 132,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerintel"
@@ -34955,7 +35081,7 @@
         "description": ""
       }
     ],
-    "line": 131,
+    "line": 133,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerquickreaction"
@@ -35136,7 +35262,7 @@
         "description": ""
       }
     ],
-    "line": 132,
+    "line": 134,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancerbattle"
@@ -36415,7 +36541,7 @@
         "description": ""
       }
     ],
-    "line": 145,
+    "line": 147,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "lancercombatintent"
@@ -36434,7 +36560,7 @@
     ],
     "returns": "LancerRide",
     "declaration": "export function parseLancerRide(raw: unknown): LancerRide;",
-    "line": 189,
+    "line": 191,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "parselancerride"
@@ -36453,7 +36579,7 @@
     ],
     "returns": "LancerArea",
     "declaration": "export function parseLancerArea(raw: unknown): LancerArea;",
-    "line": 190,
+    "line": 192,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "parselancerarea"
@@ -36472,7 +36598,7 @@
     ],
     "returns": "LancerDeploymentZone",
     "declaration": "export function parseLancerZone(raw: unknown): LancerDeploymentZone;",
-    "line": 194,
+    "line": 196,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "parselancerzone"
@@ -36491,7 +36617,7 @@
     ],
     "returns": "LancerNpc",
     "declaration": "export function parseLancerNpc(raw: unknown): LancerNpc;",
-    "line": 198,
+    "line": 200,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "parselancernpc"
@@ -36510,7 +36636,7 @@
     ],
     "returns": "LancerNpcProfile",
     "declaration": "export function parseLancerNpcProfile(raw: unknown): LancerNpcProfile;",
-    "line": 199,
+    "line": 201,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "parselancernpcprofile"
@@ -36529,7 +36655,7 @@
     ],
     "returns": "LancerCombatWeapon",
     "declaration": "export function parseLancerWeapon(raw: unknown): LancerCombatWeapon;",
-    "line": 209,
+    "line": 211,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "parselancerweapon"
@@ -36548,7 +36674,7 @@
     ],
     "returns": "LancerPilotProfile",
     "declaration": "export function parseLancerPilotProfile(raw: unknown): LancerPilotProfile;",
-    "line": 211,
+    "line": 213,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "parselancerpilotprofile"
@@ -36567,7 +36693,7 @@
     ],
     "returns": "LancerAI",
     "declaration": "export function parseLancerAI(raw: unknown): LancerAI;",
-    "line": 214,
+    "line": 216,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "parselancerai"
@@ -36586,7 +36712,7 @@
     ],
     "returns": "LancerNhp",
     "declaration": "export function parseLancerNhp(raw: unknown): LancerNhp;",
-    "line": 215,
+    "line": 217,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "parselancernhp"
@@ -36605,7 +36731,7 @@
     ],
     "returns": "LancerReadyReference",
     "declaration": "export function parseLancerReadyReference(raw: unknown): LancerReadyReference;",
-    "line": 216,
+    "line": 218,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "parselancerreadyreference"
@@ -36624,7 +36750,7 @@
     ],
     "returns": "LancerCombatUnit",
     "declaration": "export function parseLancerUnit(raw: unknown): LancerCombatUnit;",
-    "line": 217,
+    "line": 219,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "parselancerunit"
@@ -36643,7 +36769,7 @@
     ],
     "returns": "LancerBattle",
     "declaration": "export function parseLancerBattle(raw: unknown): LancerBattle;",
-    "line": 277,
+    "line": 279,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "parselancerbattle"
@@ -36677,7 +36803,7 @@
     ],
     "returns": "LancerBattle",
     "declaration": "export function projectLancerBattle(b: LancerBattle, visibleTokens: Set<string>, playerId?: string, canControl?: (actorId:string)=>boolean): LancerBattle;",
-    "line": 290,
+    "line": 292,
     "source": "game/packages/contracts/src/lancer-combat.ts",
     "document": "reference/packages/contracts/src/lancer-combat.md",
     "anchor": "projectlancerbattle"
@@ -40500,7 +40626,7 @@
     "kind": "interface",
     "exported": true,
     "description": "",
-    "declaration": "export interface LancerSceneObject {\n    solid: boolean;\n    sight: boolean;\n    cover: 'none' | 'soft' | 'hard';\n    walkable: boolean;\n    enabled: boolean;\n    durability?: {\n        hp: number;\n        maxHp: number;\n        armor: number;\n        evasion: number;\n    };\n    actions: LancerSceneAction[];\n    activeName?: string;\n    inactive?: LancerSceneState | null;\n    template?: boolean;\n    used?: string[];\n    entrance?: {\n        id: string;\n        from: {\n            x: number;\n            y: number;\n            z: number;\n        };\n    };\n}",
+    "declaration": "export interface LancerSceneObject {\n    solid: boolean;\n    sight: boolean;\n    cover: 'none' | 'soft' | 'hard';\n    walkable: boolean;\n    enabled: boolean;\n    durability?: {\n        hp: number;\n        maxHp: number;\n        armor: number;\n        evasion: number;\n    };\n    actions: LancerSceneAction[];\n    activeName?: string;\n    inactive?: LancerSceneState | null;\n    template?: boolean;\n    used?: string[];\n    motion?: {\n        id: string;\n        path: {\n            x: number;\n            y: number;\n            z: number;\n        }[];\n    };\n    entrance?: {\n        id: string;\n        from: {\n            x: number;\n            y: number;\n            z: number;\n        };\n    };\n}",
     "fields": [
       {
         "name": "solid",
@@ -40593,6 +40719,42 @@
         "description": ""
       },
       {
+        "name": "motion",
+        "optional": true,
+        "type": "{id:string;path:{x:number;y:number;z:number}[]}",
+        "description": ""
+      },
+      {
+        "name": "motion.id",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "motion.path",
+        "optional": false,
+        "type": "{x:number;y:number;z:number}[]",
+        "description": ""
+      },
+      {
+        "name": "motion.path.[].x",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "motion.path.[].y",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "motion.path.[].z",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
         "name": "entrance",
         "optional": true,
         "type": "{id:string;from:{x:number;y:number;z:number}}",
@@ -40648,7 +40810,7 @@
     ],
     "returns": "LancerSceneObject",
     "declaration": "export function lancerObject(block: ManualBlock): LancerSceneObject;",
-    "line": 27,
+    "line": 28,
     "source": "game/packages/contracts/src/lancer-scene.ts",
     "document": "reference/packages/contracts/src/lancer-scene.md",
     "anchor": "lancerobject"
@@ -40659,7 +40821,7 @@
     "exported": true,
     "declaration": "export const lancerObjectActive: (b: ManualBlock): boolean;",
     "description": "",
-    "line": 34,
+    "line": 35,
     "source": "game/packages/contracts/src/lancer-scene.ts",
     "document": "reference/packages/contracts/src/lancer-scene.md",
     "anchor": "lancerobjectactive"
@@ -40678,7 +40840,7 @@
     ],
     "returns": "ManualBlock",
     "declaration": "export function lancerEffectiveBlock(block: ManualBlock): ManualBlock;",
-    "line": 35,
+    "line": 36,
     "source": "game/packages/contracts/src/lancer-scene.ts",
     "document": "reference/packages/contracts/src/lancer-scene.md",
     "anchor": "lancereffectiveblock"
@@ -40689,7 +40851,7 @@
     "exported": true,
     "declaration": "export const lancerObjectId: (blockId: string): string;",
     "description": "",
-    "line": 41,
+    "line": 42,
     "source": "game/packages/contracts/src/lancer-scene.ts",
     "document": "reference/packages/contracts/src/lancer-scene.md",
     "anchor": "lancerobjectid"
@@ -40708,7 +40870,7 @@
     ],
     "returns": "ManualToken",
     "declaration": "export function lancerObjectToken(b: ManualBlock): ManualToken;",
-    "line": 42,
+    "line": 43,
     "source": "game/packages/contracts/src/lancer-scene.ts",
     "document": "reference/packages/contracts/src/lancer-scene.md",
     "anchor": "lancerobjecttoken"
@@ -40727,7 +40889,7 @@
     ],
     "returns": "SceneFeatures|undefined",
     "declaration": "export function lancerLitFeatures(f: SceneFeatures|undefined): SceneFeatures|undefined;",
-    "line": 47,
+    "line": 48,
     "source": "game/packages/contracts/src/lancer-scene.ts",
     "document": "reference/packages/contracts/src/lancer-scene.md",
     "anchor": "lancerlitfeatures"
@@ -40738,7 +40900,7 @@
     "exported": true,
     "declaration": "export const lancerLitMap: (map: ManualMap): ManualMap;",
     "description": "",
-    "line": 52,
+    "line": 53,
     "source": "game/packages/contracts/src/lancer-scene.ts",
     "document": "reference/packages/contracts/src/lancer-scene.md",
     "anchor": "lancerlitmap"
@@ -40757,7 +40919,7 @@
     ],
     "returns": "LancerSceneObject",
     "declaration": "export function parseLancerSceneObject(raw: unknown): LancerSceneObject;",
-    "line": 53,
+    "line": 54,
     "source": "game/packages/contracts/src/lancer-scene.ts",
     "document": "reference/packages/contracts/src/lancer-scene.md",
     "anchor": "parselancersceneobject"
@@ -40776,7 +40938,7 @@
     ],
     "returns": "LancerSceneEffect",
     "declaration": "export function parseLancerSceneEffect(raw: unknown): LancerSceneEffect;",
-    "line": 71,
+    "line": 73,
     "source": "game/packages/contracts/src/lancer-scene.ts",
     "document": "reference/packages/contracts/src/lancer-scene.md",
     "anchor": "parselancersceneeffect"
@@ -40958,6 +41120,17 @@
     "source": "game/packages/contracts/src/lancer-transport.ts",
     "document": "reference/packages/contracts/src/lancer-transport.md",
     "anchor": "parselancertransport"
+  },
+  {
+    "name": "LANCER_WEAPON_PRESENTATION_CUES",
+    "kind": "constant",
+    "exported": true,
+    "declaration": "export const LANCER_WEAPON_PRESENTATION_CUES: Readonly<Record<string, LancerFeedbackCue>>;",
+    "description": "Audited catalog identities, including original arena equipment. Mode-dependent shots remain resolved by the shared helper.",
+    "line": 4,
+    "source": "game/packages/contracts/src/lancer-weapon-presentation-map.ts",
+    "document": "reference/packages/contracts/src/lancer-weapon-presentation-map.md",
+    "anchor": "lancer_weapon_presentation_cues"
   },
   {
     "name": "LibraryDirectories",
@@ -80678,7 +80851,7 @@
     ],
     "returns": "string|null",
     "declaration": "export function lancerActionIssue(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, i: LancerCombatIntent): string|null;",
-    "line": 29,
+    "line": 30,
     "source": "game/packages/game-core/src/lancer/action-availability.ts",
     "document": "reference/packages/game-core/src/lancer/action-availability.md",
     "anchor": "lanceractionissue"
@@ -80903,6 +81076,176 @@
     "anchor": "respondlancerai"
   },
   {
+    "name": "APOCALYPSE_RAIL",
+    "kind": "constant",
+    "exported": true,
+    "declaration": "export const APOCALYPSE_RAIL = 'apocalypse-rail';",
+    "description": "",
+    "line": 5,
+    "source": "game/packages/game-core/src/lancer/apocalypse-rail.ts",
+    "document": "reference/packages/game-core/src/lancer/apocalypse-rail.md",
+    "anchor": "apocalypse_rail"
+  },
+  {
+    "name": "activateApocalypseRail",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "b",
+        "optional": false,
+        "type": "LancerBattle"
+      },
+      {
+        "name": "u",
+        "optional": false,
+        "type": "LancerCombatUnit"
+      }
+    ],
+    "returns": "void",
+    "declaration": "export function activateApocalypseRail(b: LancerBattle, u: LancerCombatUnit): void;",
+    "line": 6,
+    "source": "game/packages/game-core/src/lancer/apocalypse-rail.ts",
+    "document": "reference/packages/game-core/src/lancer/apocalypse-rail.md",
+    "anchor": "activateapocalypserail"
+  },
+  {
+    "name": "advanceApocalypseRail",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "u",
+        "optional": false,
+        "type": "LancerCombatUnit"
+      }
+    ],
+    "returns": "void",
+    "declaration": "export function advanceApocalypseRail(u: LancerCombatUnit): void;",
+    "line": 11,
+    "source": "game/packages/game-core/src/lancer/apocalypse-rail.ts",
+    "document": "reference/packages/game-core/src/lancer/apocalypse-rail.md",
+    "anchor": "advanceapocalypserail"
+  },
+  {
+    "name": "apocalypseActionIssue",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "u",
+        "optional": false,
+        "type": "LancerCombatUnit"
+      },
+      {
+        "name": "i",
+        "optional": false,
+        "type": "LancerCombatIntent"
+      }
+    ],
+    "returns": "string|null",
+    "declaration": "export function apocalypseActionIssue(u: LancerCombatUnit, i: LancerCombatIntent): string|null;",
+    "line": 16,
+    "source": "game/packages/game-core/src/lancer/apocalypse-rail.ts",
+    "document": "reference/packages/game-core/src/lancer/apocalypse-rail.md",
+    "anchor": "apocalypseactionissue"
+  },
+  {
+    "name": "finishApocalypseShot",
+    "kind": "function",
+    "exported": true,
+    "description": "Called only after the shot actually spends its salvo, including an empty blast.",
+    "parameters": [
+      {
+        "name": "b",
+        "optional": false,
+        "type": "LancerBattle"
+      },
+      {
+        "name": "map",
+        "optional": false,
+        "type": "ManualMap"
+      },
+      {
+        "name": "u",
+        "optional": false,
+        "type": "LancerCombatUnit"
+      },
+      {
+        "name": "salvoId",
+        "optional": false,
+        "type": "string"
+      },
+      {
+        "name": "die",
+        "optional": false,
+        "type": "number"
+      }
+    ],
+    "returns": "void",
+    "declaration": "export function finishApocalypseShot(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, salvoId: string, die: number): void;",
+    "line": 25,
+    "source": "game/packages/game-core/src/lancer/apocalypse-rail.ts",
+    "document": "reference/packages/game-core/src/lancer/apocalypse-rail.md",
+    "anchor": "finishapocalypseshot"
+  },
+  {
+    "name": "endApocalypseRail",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "b",
+        "optional": false,
+        "type": "LancerBattle"
+      },
+      {
+        "name": "map",
+        "optional": false,
+        "type": "ManualMap"
+      }
+    ],
+    "returns": "void",
+    "declaration": "export function endApocalypseRail(b: LancerBattle, map: ManualMap): void;",
+    "line": 36,
+    "source": "game/packages/game-core/src/lancer/apocalypse-rail.ts",
+    "document": "reference/packages/game-core/src/lancer/apocalypse-rail.md",
+    "anchor": "endapocalypserail"
+  },
+  {
+    "name": "syncApocalypsePosition",
+    "kind": "function",
+    "exported": true,
+    "description": "Also catches carried movement and teleports outside the normal movement queue.",
+    "parameters": [
+      {
+        "name": "b",
+        "optional": false,
+        "type": "LancerBattle"
+      },
+      {
+        "name": "map",
+        "optional": false,
+        "type": "ManualMap"
+      },
+      {
+        "name": "before",
+        "optional": false,
+        "type": "ManualMap"
+      }
+    ],
+    "returns": "void",
+    "declaration": "export function syncApocalypsePosition(b: LancerBattle, map: ManualMap, before: ManualMap): void;",
+    "line": 41,
+    "source": "game/packages/game-core/src/lancer/apocalypse-rail.ts",
+    "document": "reference/packages/game-core/src/lancer/apocalypse-rail.md",
+    "anchor": "syncapocalypseposition"
+  },
+  {
     "name": "areaOrigin",
     "kind": "function",
     "exported": true,
@@ -81052,7 +81395,7 @@
     ],
     "returns": "string[]",
     "declaration": "export function lancerAreaTargets(b: LancerBattle, map: ManualMap, a: LancerCombatUnit, w: LancerCombatWeapon, area: LancerArea): string[];",
-    "line": 48,
+    "line": 49,
     "source": "game/packages/game-core/src/lancer/areas.ts",
     "document": "reference/packages/game-core/src/lancer/areas.md",
     "anchor": "lancerareatargets"
@@ -81185,7 +81528,7 @@
     ],
     "returns": "string|null",
     "declaration": "export function lancerStartIssue(b: Pick<LancerBattle,'phase'|'units'|'entry'>): string|null;",
-    "line": 67,
+    "line": 68,
     "source": "game/packages/game-core/src/lancer/battle.ts",
     "document": "reference/packages/game-core/src/lancer/battle.md",
     "anchor": "lancerstartissue"
@@ -81252,7 +81595,7 @@
         "description": ""
       }
     ],
-    "line": 74,
+    "line": 75,
     "source": "game/packages/game-core/src/lancer/battle.ts",
     "document": "reference/packages/game-core/src/lancer/battle.md",
     "anchor": "lancerbattlecontext"
@@ -81286,7 +81629,7 @@
     ],
     "returns": "{battle:LancerBattle;map:ManualMap}",
     "declaration": "export function applyLancerIntent(current: LancerBattle|undefined, sourceMap: ManualMap, intent: LancerCombatIntent, ctx: LancerBattleContext): {battle:LancerBattle;map:ManualMap};",
-    "line": 78,
+    "line": 80,
     "source": "game/packages/game-core/src/lancer/battle.ts",
     "document": "reference/packages/game-core/src/lancer/battle.md",
     "anchor": "applylancerintent"
@@ -82333,6 +82676,102 @@
     "anchor": "nearestlancerspaces"
   },
   {
+    "name": "inDroneField",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "b",
+        "optional": false,
+        "type": "LancerBattle"
+      },
+      {
+        "name": "map",
+        "optional": false,
+        "type": "ManualMap"
+      },
+      {
+        "name": "e",
+        "optional": false,
+        "type": "LancerEffect"
+      },
+      {
+        "name": "t",
+        "optional": false,
+        "type": "ManualToken"
+      }
+    ],
+    "returns": "boolean",
+    "declaration": "export function inDroneField(b: LancerBattle, map: ManualMap, e: LancerEffect, t: ManualToken): boolean;",
+    "line": 5,
+    "source": "game/packages/game-core/src/lancer/drone-fields.ts",
+    "document": "reference/packages/game-core/src/lancer/drone-fields.md",
+    "anchor": "indronefield"
+  },
+  {
+    "name": "refreshLancerDroneFields",
+    "kind": "function",
+    "exported": true,
+    "description": "Entity positions are authoritative; cells and immunity are rebuilt after movement or destruction.",
+    "parameters": [
+      {
+        "name": "b",
+        "optional": false,
+        "type": "LancerBattle"
+      },
+      {
+        "name": "map",
+        "optional": false,
+        "type": "ManualMap"
+      }
+    ],
+    "returns": "void",
+    "declaration": "export function refreshLancerDroneFields(b: LancerBattle, map: ManualMap): void;",
+    "line": 10,
+    "source": "game/packages/game-core/src/lancer/drone-fields.ts",
+    "document": "reference/packages/game-core/src/lancer/drone-fields.md",
+    "anchor": "refreshlancerdronefields"
+  },
+  {
+    "name": "endLancerDroneFields",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "b",
+        "optional": false,
+        "type": "LancerBattle"
+      }
+    ],
+    "returns": "void",
+    "declaration": "export function endLancerDroneFields(b: LancerBattle): void;",
+    "line": 26,
+    "source": "game/packages/game-core/src/lancer/drone-fields.ts",
+    "document": "reference/packages/game-core/src/lancer/drone-fields.md",
+    "anchor": "endlancerdronefields"
+  },
+  {
+    "name": "droneFieldTechIssue",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "u",
+        "optional": false,
+        "type": "LancerCombatUnit"
+      }
+    ],
+    "returns": "string|null",
+    "declaration": "export function droneFieldTechIssue(u: LancerCombatUnit): string|null;",
+    "line": 30,
+    "source": "game/packages/game-core/src/lancer/drone-fields.ts",
+    "document": "reference/packages/game-core/src/lancer/drone-fields.md",
+    "anchor": "dronefieldtechissue"
+  },
+  {
     "name": "Event",
     "kind": "type",
     "exported": false,
@@ -82935,7 +83374,7 @@
     ],
     "returns": "void",
     "declaration": "export function expireLancerEffects(b: LancerBattle, u: LancerCombatUnit, at: 'start'|'end'): void;",
-    "line": 7,
+    "line": 8,
     "source": "game/packages/game-core/src/lancer/effects.ts",
     "document": "reference/packages/game-core/src/lancer/effects.md",
     "anchor": "expirelancereffects"
@@ -82964,7 +83403,7 @@
     ],
     "returns": "number",
     "declaration": "export function lancerShieldDifficulty(b: LancerBattle, a: LancerCombatUnit, t: LancerCombatUnit): number;",
-    "line": 13,
+    "line": 14,
     "source": "game/packages/game-core/src/lancer/effects.ts",
     "document": "reference/packages/game-core/src/lancer/effects.md",
     "anchor": "lancershielddifficulty"
@@ -82998,7 +83437,7 @@
     ],
     "returns": "number",
     "declaration": "export function lancerCover(b: LancerBattle, map: ManualMap, origin: ManualToken, target: LancerCombatUnit): number;",
-    "line": 16,
+    "line": 17,
     "source": "game/packages/game-core/src/lancer/effects.ts",
     "document": "reference/packages/game-core/src/lancer/effects.md",
     "anchor": "lancercover"
@@ -83170,7 +83609,7 @@
     ],
     "returns": "boolean",
     "declaration": "export function lancerRaleighReloadAvailable(u: LancerCombatUnit): boolean;",
-    "line": 5,
+    "line": 6,
     "source": "game/packages/game-core/src/lancer/features.ts",
     "document": "reference/packages/game-core/src/lancer/features.md",
     "anchor": "lancerraleighreloadavailable"
@@ -83181,7 +83620,7 @@
     "exported": true,
     "declaration": "export const LANCER_EXECUTABLE_FEATURES: Record<string, {\n    name: string;\n    source: string;\n    action?: boolean;\n    description: string;\n}>;",
     "description": "",
-    "line": 8,
+    "line": 9,
     "source": "game/packages/game-core/src/lancer/features.ts",
     "document": "reference/packages/game-core/src/lancer/features.md",
     "anchor": "lancer_executable_features"
@@ -83192,7 +83631,7 @@
     "exported": true,
     "declaration": "export const feature: (u: LancerCombatUnit, id: string): boolean;",
     "description": "",
-    "line": 52,
+    "line": 54,
     "source": "game/packages/game-core/src/lancer/features.ts",
     "document": "reference/packages/game-core/src/lancer/features.md",
     "anchor": "feature"
@@ -83203,7 +83642,7 @@
     "exported": true,
     "declaration": "export const counter: (u: LancerCombatUnit, id: string): number;",
     "description": "",
-    "line": 53,
+    "line": 55,
     "source": "game/packages/game-core/src/lancer/features.ts",
     "document": "reference/packages/game-core/src/lancer/features.md",
     "anchor": "counter"
@@ -83232,7 +83671,7 @@
     ],
     "returns": "void",
     "declaration": "export function count(u: LancerCombatUnit, id: string, value: number): void;",
-    "line": 54,
+    "line": 56,
     "source": "game/packages/game-core/src/lancer/features.ts",
     "document": "reference/packages/game-core/src/lancer/features.md",
     "anchor": "count"
@@ -83261,7 +83700,7 @@
     ],
     "returns": "void",
     "declaration": "export function activateLancerFeature(b: LancerBattle, u: LancerCombatUnit, id: string): void;",
-    "line": 55,
+    "line": 57,
     "source": "game/packages/game-core/src/lancer/features.ts",
     "document": "reference/packages/game-core/src/lancer/features.md",
     "anchor": "activatelancerfeature"
@@ -83280,7 +83719,7 @@
     ],
     "returns": "number",
     "declaration": "export function lancerUniversalAccuracy(u: LancerCombatUnit): number;",
-    "line": 70,
+    "line": 74,
     "source": "game/packages/game-core/src/lancer/features.ts",
     "document": "reference/packages/game-core/src/lancer/features.md",
     "anchor": "lanceruniversalaccuracy"
@@ -83310,7 +83749,7 @@
     ],
     "returns": "number",
     "declaration": "export function consumeLancerSkillAccuracy(u: LancerCombatUnit, skill: 'hull'|'agility'|'systems'|'engineering', save?: boolean): number;",
-    "line": 72,
+    "line": 76,
     "source": "game/packages/game-core/src/lancer/features.ts",
     "document": "reference/packages/game-core/src/lancer/features.md",
     "anchor": "consumelancerskillaccuracy"
@@ -83334,7 +83773,7 @@
     ],
     "returns": "number",
     "declaration": "export function lancerSaveAccuracy(u: LancerCombatUnit, skill: 'hull'|'agility'|'systems'|'engineering'): number;",
-    "line": 76,
+    "line": 80,
     "source": "game/packages/game-core/src/lancer/features.ts",
     "document": "reference/packages/game-core/src/lancer/features.md",
     "anchor": "lancersaveaccuracy"
@@ -83358,7 +83797,7 @@
     ],
     "returns": "number",
     "declaration": "export function lancerSkillAccuracy(u: LancerCombatUnit, skill: 'hull'|'agility'|'systems'|'engineering'): number;",
-    "line": 77,
+    "line": 81,
     "source": "game/packages/game-core/src/lancer/features.ts",
     "document": "reference/packages/game-core/src/lancer/features.md",
     "anchor": "lancerskillaccuracy"
@@ -83388,7 +83827,7 @@
     ],
     "returns": "boolean",
     "declaration": "export function lancerReactionEvaded(b: LancerBattle, target: LancerCombatUnit, reaction?: boolean): boolean;",
-    "line": 84,
+    "line": 88,
     "source": "game/packages/game-core/src/lancer/features.ts",
     "document": "reference/packages/game-core/src/lancer/features.md",
     "anchor": "lancerreactionevaded"
@@ -85040,7 +85479,7 @@
         "description": ""
       }
     ],
-    "line": 7,
+    "line": 8,
     "source": "game/packages/game-core/src/lancer/hazards.ts",
     "document": "reference/packages/game-core/src/lancer/hazards.md",
     "anchor": "point"
@@ -85074,7 +85513,7 @@
     ],
     "returns": "boolean",
     "declaration": "export function offerLancerPlasma(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, s: Extract<LancerBattleStep,{kind:'feature'}>): boolean;",
-    "line": 12,
+    "line": 13,
     "source": "game/packages/game-core/src/lancer/hazards.ts",
     "document": "reference/packages/game-core/src/lancer/hazards.md",
     "anchor": "offerlancerplasma"
@@ -85108,7 +85547,7 @@
     ],
     "returns": "boolean",
     "declaration": "export function respondLancerPlasma(b: LancerBattle, map: ManualMap, p: LancerDecision, to?: Point): boolean;",
-    "line": 23,
+    "line": 24,
     "source": "game/packages/game-core/src/lancer/hazards.ts",
     "document": "reference/packages/game-core/src/lancer/hazards.md",
     "anchor": "respondlancerplasma"
@@ -85152,7 +85591,7 @@
     ],
     "returns": "void",
     "declaration": "export function triggerLancerHazards(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, at: 'start'|'enter', r: LancerRandom, from?: Point): void;",
-    "line": 34,
+    "line": 35,
     "source": "game/packages/game-core/src/lancer/hazards.ts",
     "document": "reference/packages/game-core/src/lancer/hazards.md",
     "anchor": "triggerlancerhazards"
@@ -87668,10 +88107,15 @@
         "name": "r",
         "optional": false,
         "type": "LancerRandom"
+      },
+      {
+        "name": "resource",
+        "optional": true,
+        "type": "string"
       }
     ],
     "returns": "void",
-    "declaration": "export function resolvePlayerEffect(b: LancerBattle, map: ManualMap, actor: string, source: string, e: LancerPlayerEffect, r: LancerRandom): void;",
+    "declaration": "export function resolvePlayerEffect(b: LancerBattle, map: ManualMap, actor: string, source: string, e: LancerPlayerEffect, r: LancerRandom, resource?: string): void;",
     "line": 47,
     "source": "game/packages/game-core/src/lancer/player-ability.ts",
     "document": "reference/packages/game-core/src/lancer/player-ability.md",
@@ -88643,7 +89087,7 @@
     ],
     "returns": "boolean",
     "declaration": "export function availableWeapon(w: LancerCombatWeapon): boolean;",
-    "line": 76,
+    "line": 78,
     "source": "game/packages/game-core/src/lancer/resolution.ts",
     "document": "reference/packages/game-core/src/lancer/resolution.md",
     "anchor": "availableweapon"
@@ -88690,10 +89134,21 @@
     ],
     "returns": "void",
     "declaration": "export function validateLancerWeaponUse(a: LancerCombatUnit, w: LancerCombatWeapon, reaction?: boolean, committed?: boolean, spent?: boolean, special?: Extract<LancerBattleStep,{kind:'attack'}>['special']): void;",
-    "line": 77,
+    "line": 79,
     "source": "game/packages/game-core/src/lancer/resolution.ts",
     "document": "reference/packages/game-core/src/lancer/resolution.md",
     "anchor": "validatelancerweaponuse"
+  },
+  {
+    "name": "lancerWeaponReach",
+    "kind": "function-value",
+    "exported": true,
+    "declaration": "export const lancerWeaponReach: (a: LancerCombatUnit, w: LancerCombatWeapon): number;",
+    "description": "",
+    "line": 88,
+    "source": "game/packages/game-core/src/lancer/resolution.ts",
+    "document": "reference/packages/game-core/src/lancer/resolution.md",
+    "anchor": "lancerweaponreach"
   },
   {
     "name": "validateWeapon",
@@ -88768,7 +89223,7 @@
     ],
     "returns": "void",
     "declaration": "export function validateWeapon(b: LancerBattle, map: ManualMap, a: LancerCombatUnit, target: LancerCombatUnit, w: LancerCombatWeapon, reaction?: boolean, committed?: boolean, area?: LancerArea, spent?: boolean, planningRange?: number, special?: Extract<LancerBattleStep,{kind:'attack'}>['special'], secondary?: {origin:{x:number;y:number;z:number;size?:number};area:boolean}): void;",
-    "line": 85,
+    "line": 89,
     "source": "game/packages/game-core/src/lancer/resolution.ts",
     "document": "reference/packages/game-core/src/lancer/resolution.md",
     "anchor": "validateweapon"
@@ -88797,7 +89252,7 @@
     ],
     "returns": "void",
     "declaration": "export function stress(b: LancerBattle, u: LancerCombatUnit, r: LancerRandom): void;",
-    "line": 130,
+    "line": 134,
     "source": "game/packages/game-core/src/lancer/resolution.ts",
     "document": "reference/packages/game-core/src/lancer/resolution.md",
     "anchor": "stress"
@@ -88837,7 +89292,7 @@
     ],
     "returns": "void",
     "declaration": "export function applyHeat(b: LancerBattle, u: LancerCombatUnit, amount: number, r: LancerRandom, resistanceApplied?: boolean): void;",
-    "line": 150,
+    "line": 154,
     "source": "game/packages/game-core/src/lancer/resolution.ts",
     "document": "reference/packages/game-core/src/lancer/resolution.md",
     "anchor": "applyheat"
@@ -88866,7 +89321,7 @@
     ],
     "returns": "void",
     "declaration": "export function drainLancer(b: LancerBattle, map: ManualMap, r: LancerRandom): void;",
-    "line": 309,
+    "line": 316,
     "source": "game/packages/game-core/src/lancer/resolution.ts",
     "document": "reference/packages/game-core/src/lancer/resolution.md",
     "anchor": "drainlancer"
@@ -88920,7 +89375,7 @@
     ],
     "returns": "void",
     "declaration": "export function respondLancer(b: LancerBattle, option: string, gmOverride: boolean, map: ManualMap, r: LancerRandom, point?: {x:number;y:number;z:number}, text?: string, purpose?: import('@aelzerant/contracts').LancerLeadershipPurpose): void;",
-    "line": 457,
+    "line": 465,
     "source": "game/packages/game-core/src/lancer/resolution.ts",
     "document": "reference/packages/game-core/src/lancer/resolution.md",
     "anchor": "respondlancer"
@@ -90329,7 +90784,7 @@
         "description": ""
       }
     ],
-    "line": 11,
+    "line": 12,
     "source": "game/packages/game-core/src/lancer/systems.ts",
     "document": "reference/packages/game-core/src/lancer/systems.md",
     "anchor": "systemmode"
@@ -90360,7 +90815,7 @@
         "description": ""
       }
     ],
-    "line": 12,
+    "line": 13,
     "source": "game/packages/game-core/src/lancer/systems.ts",
     "document": "reference/packages/game-core/src/lancer/systems.md",
     "anchor": "executablesystem"
@@ -90371,7 +90826,7 @@
     "exported": true,
     "declaration": "export const LANCER_EXECUTABLE_SYSTEMS: Record<string, ExecutableSystem>;",
     "description": "",
-    "line": 13,
+    "line": 14,
     "source": "game/packages/game-core/src/lancer/systems.ts",
     "document": "reference/packages/game-core/src/lancer/systems.md",
     "anchor": "lancer_executable_systems"
@@ -90390,7 +90845,7 @@
     ],
     "returns": "ExecutableSystem|undefined",
     "declaration": "export function lancerSystemDefinition(s: LancerCombatSystem): ExecutableSystem|undefined;",
-    "line": 28,
+    "line": 31,
     "source": "game/packages/game-core/src/lancer/systems.ts",
     "document": "reference/packages/game-core/src/lancer/systems.md",
     "anchor": "lancersystemdefinition"
@@ -90414,7 +90869,7 @@
     ],
     "returns": "string",
     "declaration": "export function lancerSystemActionName(s: LancerCombatSystem, _mode?: string): string;",
-    "line": 32,
+    "line": 35,
     "source": "game/packages/game-core/src/lancer/systems.ts",
     "document": "reference/packages/game-core/src/lancer/systems.md",
     "anchor": "lancersystemactionname"
@@ -90445,7 +90900,7 @@
         "description": ""
       }
     ],
-    "line": 33,
+    "line": 36,
     "source": "game/packages/game-core/src/lancer/systems.ts",
     "document": "reference/packages/game-core/src/lancer/systems.md",
     "anchor": "point"
@@ -90475,53 +90930,20 @@
         "name": "range",
         "optional": false,
         "type": "number"
+      },
+      {
+        "name": "requireSight",
+        "optional": true,
+        "type": "boolean",
+        "default": "true"
       }
     ],
     "returns": "ManualToken",
-    "declaration": "export function lancerSystemPointInRange(map: ManualMap, u: LancerCombatUnit, p: Point|undefined, range: number): ManualToken;",
-    "line": 34,
+    "declaration": "export function lancerSystemPointInRange(map: ManualMap, u: LancerCombatUnit, p: Point|undefined, range: number, requireSight?: boolean): ManualToken;",
+    "line": 37,
     "source": "game/packages/game-core/src/lancer/systems.ts",
     "document": "reference/packages/game-core/src/lancer/systems.md",
     "anchor": "lancersystempointinrange"
-  },
-  {
-    "name": "useLancerSystem",
-    "kind": "function",
-    "exported": true,
-    "description": "Returns self heat so the caller uses the same reactor settlement path as weapons.",
-    "parameters": [
-      {
-        "name": "b",
-        "optional": false,
-        "type": "LancerBattle"
-      },
-      {
-        "name": "map",
-        "optional": false,
-        "type": "ManualMap"
-      },
-      {
-        "name": "u",
-        "optional": false,
-        "type": "LancerCombatUnit"
-      },
-      {
-        "name": "intent",
-        "optional": false,
-        "type": "Extract<LancerCombatIntent,{type:'system'}>"
-      },
-      {
-        "name": "r",
-        "optional": false,
-        "type": "LancerRandom"
-      }
-    ],
-    "returns": "number",
-    "declaration": "export function useLancerSystem(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, intent: Extract<LancerCombatIntent,{type:'system'}>, r: LancerRandom): number;",
-    "line": 60,
-    "source": "game/packages/game-core/src/lancer/systems.ts",
-    "document": "reference/packages/game-core/src/lancer/systems.md",
-    "anchor": "uselancersystem"
   },
   {
     "name": "triggerLancerMines",
@@ -90562,10 +90984,49 @@
     ],
     "returns": "void",
     "declaration": "export function triggerLancerMines(b: LancerBattle, map: ManualMap, mover: LancerCombatUnit, from: Point, to: Point, r: LancerRandom): void;",
-    "line": 112,
+    "line": 129,
     "source": "game/packages/game-core/src/lancer/systems.ts",
     "document": "reference/packages/game-core/src/lancer/systems.md",
     "anchor": "triggerlancermines"
+  },
+  {
+    "name": "useLancerSystem",
+    "kind": "function",
+    "exported": true,
+    "description": "Attach source-aware feedback before the caller resolves reactor heat.",
+    "parameters": [
+      {
+        "name": "b",
+        "optional": false,
+        "type": "LancerBattle"
+      },
+      {
+        "name": "map",
+        "optional": false,
+        "type": "ManualMap"
+      },
+      {
+        "name": "u",
+        "optional": false,
+        "type": "LancerCombatUnit"
+      },
+      {
+        "name": "intent",
+        "optional": false,
+        "type": "Extract<LancerCombatIntent,{type:'system'}>"
+      },
+      {
+        "name": "r",
+        "optional": false,
+        "type": "LancerRandom"
+      }
+    ],
+    "returns": "number",
+    "declaration": "export function useLancerSystem(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, intent: Extract<LancerCombatIntent,{type:'system'}>, r: LancerRandom): number;",
+    "line": 142,
+    "source": "game/packages/game-core/src/lancer/systems.ts",
+    "document": "reference/packages/game-core/src/lancer/systems.md",
+    "anchor": "uselancersystem"
   },
   {
     "name": "applyTacticalCommand",
@@ -91793,7 +92254,7 @@
         "description": ""
       }
     ],
-    "line": 27,
+    "line": 28,
     "source": "game/packages/game-core/src/lancer/tech.ts",
     "document": "reference/packages/game-core/src/lancer/tech.md",
     "anchor": "lancertechoption"
@@ -91804,7 +92265,7 @@
     "exported": true,
     "declaration": "export const LANCER_TECH_SYSTEMS: Record<string, string>;",
     "description": "",
-    "line": 28,
+    "line": 29,
     "source": "game/packages/game-core/src/lancer/tech.ts",
     "document": "reference/packages/game-core/src/lancer/tech.md",
     "anchor": "lancer_tech_systems"
@@ -91815,7 +92276,7 @@
     "exported": true,
     "declaration": "export const LANCER_TECH_OPTIONS: Record<string, LancerTechOption>;",
     "description": "",
-    "line": 29,
+    "line": 30,
     "source": "game/packages/game-core/src/lancer/tech.ts",
     "document": "reference/packages/game-core/src/lancer/tech.md",
     "anchor": "lancer_tech_options"
@@ -91839,7 +92300,7 @@
     ],
     "returns": "[string,LancerTechOption][]",
     "declaration": "export function availableLancerTech(u: LancerCombatUnit, b?: LancerBattle): [string,LancerTechOption][];",
-    "line": 56,
+    "line": 57,
     "source": "game/packages/game-core/src/lancer/tech.ts",
     "document": "reference/packages/game-core/src/lancer/tech.md",
     "anchor": "availablelancertech"
@@ -91868,7 +92329,7 @@
     ],
     "returns": "string|null",
     "declaration": "export function techActionIssue(u: LancerCombatUnit, i: Extract<LancerCombatIntent,{type:'tech'}>, b?: LancerBattle): string|null;",
-    "line": 57,
+    "line": 58,
     "source": "game/packages/game-core/src/lancer/tech.ts",
     "document": "reference/packages/game-core/src/lancer/tech.md",
     "anchor": "techactionissue"
@@ -91913,7 +92374,7 @@
     ],
     "returns": "void",
     "declaration": "export function validateTechTarget(map: ManualMap, u: LancerCombatUnit, t: LancerCombatUnit|undefined, i: Extract<LancerCombatIntent,{type:'tech'}>, b?: LancerBattle, wide?: boolean): void;",
-    "line": 69,
+    "line": 71,
     "source": "game/packages/game-core/src/lancer/tech.ts",
     "document": "reference/packages/game-core/src/lancer/tech.md",
     "anchor": "validatetechtarget"
@@ -91952,7 +92413,7 @@
     ],
     "returns": "void",
     "declaration": "export function useLancerTech(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, i: Extract<LancerCombatIntent,{type:'tech'}>, r: LancerRandom): void;",
-    "line": 83,
+    "line": 86,
     "source": "game/packages/game-core/src/lancer/tech.ts",
     "document": "reference/packages/game-core/src/lancer/tech.md",
     "anchor": "uselancertech"
@@ -91986,7 +92447,7 @@
     ],
     "returns": "boolean",
     "declaration": "export function resolveLancerRepairCheck(b: LancerBattle, u: LancerCombatUnit, s: Extract<LancerBattleStep,{kind:'feature'}>, r: LancerRandom): boolean;",
-    "line": 94,
+    "line": 97,
     "source": "game/packages/game-core/src/lancer/tech.ts",
     "document": "reference/packages/game-core/src/lancer/tech.md",
     "anchor": "resolvelancerrepaircheck"
@@ -92020,7 +92481,7 @@
     ],
     "returns": "void",
     "declaration": "export function resolveLancerTech(b: LancerBattle, map: ManualMap, s: Extract<LancerBattleStep,{kind:'tech'}>, r: LancerRandom): void;",
-    "line": 105,
+    "line": 108,
     "source": "game/packages/game-core/src/lancer/tech.ts",
     "document": "reference/packages/game-core/src/lancer/tech.md",
     "anchor": "resolvelancertech"
@@ -92054,7 +92515,7 @@
     ],
     "returns": "void",
     "declaration": "export function resolveTechResult(b: LancerBattle, map: ManualMap, result: Extract<LancerBattleStep,{kind:'techResult'}>, r: LancerRandom): void;",
-    "line": 139,
+    "line": 142,
     "source": "game/packages/game-core/src/lancer/tech.ts",
     "document": "reference/packages/game-core/src/lancer/tech.md",
     "anchor": "resolvetechresult"
@@ -92088,7 +92549,7 @@
     ],
     "returns": "boolean",
     "declaration": "export function offerTechFeature(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, s: Extract<LancerBattleStep,{kind:'feature'}>): boolean;",
-    "line": 162,
+    "line": 165,
     "source": "game/packages/game-core/src/lancer/tech.ts",
     "document": "reference/packages/game-core/src/lancer/tech.md",
     "anchor": "offertechfeature"
@@ -92127,7 +92588,7 @@
     ],
     "returns": "boolean",
     "declaration": "export function respondTechFeature(b: LancerBattle, map: ManualMap, p: LancerDecision, option: string, text?: string): boolean;",
-    "line": 167,
+    "line": 170,
     "source": "game/packages/game-core/src/lancer/tech.ts",
     "document": "reference/packages/game-core/src/lancer/tech.md",
     "anchor": "respondtechfeature"
@@ -92161,7 +92622,7 @@
     ],
     "returns": "void",
     "declaration": "export function useFullTech(b: LancerBattle, u: LancerCombatUnit, map?: ManualMap, choices?: Extract<LancerCombatIntent,{type:'fullTech'}>['choices']): void;",
-    "line": 181,
+    "line": 184,
     "source": "game/packages/game-core/src/lancer/tech.ts",
     "document": "reference/packages/game-core/src/lancer/tech.md",
     "anchor": "usefulltech"
@@ -92240,7 +92701,7 @@
     "exported": true,
     "declaration": "export const LANCER_SYSTEM_PASSIVES: Record<string, {\n    name: string;\n    page: number;\n    description: string;\n}>;",
     "description": "",
-    "line": 9,
+    "line": 10,
     "source": "game/packages/game-core/src/lancer/thermal-systems.ts",
     "document": "reference/packages/game-core/src/lancer/thermal-systems.md",
     "anchor": "lancer_system_passives"
@@ -92264,7 +92725,7 @@
     ],
     "returns": "void",
     "declaration": "export function queueLancerVents(b: LancerBattle, u: LancerCombatUnit): void;",
-    "line": 17,
+    "line": 18,
     "source": "game/packages/game-core/src/lancer/thermal-systems.ts",
     "document": "reference/packages/game-core/src/lancer/thermal-systems.md",
     "anchor": "queuelancervents"
@@ -92288,7 +92749,7 @@
     ],
     "returns": "void",
     "declaration": "export function clearLancerHeat(b: LancerBattle, u: LancerCombatUnit): void;",
-    "line": 21,
+    "line": 22,
     "source": "game/packages/game-core/src/lancer/thermal-systems.ts",
     "document": "reference/packages/game-core/src/lancer/thermal-systems.md",
     "anchor": "clearlancerheat"
@@ -92307,7 +92768,7 @@
     ],
     "returns": "void",
     "declaration": "export function invalidateLancerCooler(u: LancerCombatUnit): void;",
-    "line": 25,
+    "line": 26,
     "source": "game/packages/game-core/src/lancer/thermal-systems.ts",
     "document": "reference/packages/game-core/src/lancer/thermal-systems.md",
     "anchor": "invalidatelancercooler"
@@ -92331,7 +92792,7 @@
     ],
     "returns": "void",
     "declaration": "export function beginLancerThermalTurn(b: LancerBattle, u: LancerCombatUnit): void;",
-    "line": 26,
+    "line": 27,
     "source": "game/packages/game-core/src/lancer/thermal-systems.ts",
     "document": "reference/packages/game-core/src/lancer/thermal-systems.md",
     "anchor": "beginlancerthermalturn"
@@ -92355,7 +92816,7 @@
     ],
     "returns": "boolean",
     "declaration": "export function lancerHeatResistance(b: LancerBattle, u: LancerCombatUnit): boolean;",
-    "line": 33,
+    "line": 34,
     "source": "game/packages/game-core/src/lancer/thermal-systems.ts",
     "document": "reference/packages/game-core/src/lancer/thermal-systems.md",
     "anchor": "lancerheatresistance"
@@ -92384,7 +92845,7 @@
     ],
     "returns": "void",
     "declaration": "export function resolveLancerVents(b: LancerBattle, map: ManualMap, u: LancerCombatUnit): void;",
-    "line": 34,
+    "line": 35,
     "source": "game/packages/game-core/src/lancer/thermal-systems.ts",
     "document": "reference/packages/game-core/src/lancer/thermal-systems.md",
     "anchor": "resolvelancervents"
@@ -92413,7 +92874,7 @@
     ],
     "returns": "void",
     "declaration": "export function breakLancerBatteries(b: LancerBattle, u: LancerCombatUnit, r: LancerRandom): void;",
-    "line": 40,
+    "line": 41,
     "source": "game/packages/game-core/src/lancer/thermal-systems.ts",
     "document": "reference/packages/game-core/src/lancer/thermal-systems.md",
     "anchor": "breaklancerbatteries"
@@ -92437,7 +92898,7 @@
     ],
     "returns": "boolean",
     "declaration": "export function canStabilizeCondition(u: LancerCombatUnit, c: LancerTimedCondition): boolean;",
-    "line": 49,
+    "line": 50,
     "source": "game/packages/game-core/src/lancer/thermal-systems.ts",
     "document": "reference/packages/game-core/src/lancer/thermal-systems.md",
     "anchor": "canstabilizecondition"
@@ -92488,7 +92949,7 @@
     ],
     "returns": "void",
     "declaration": "export function stabilizeLancer(b: LancerBattle, u: LancerCombatUnit, primary: 'cool'|'repair', secondary?: 'reload'|'burn'|'condition', remove?: LancerCondition, map?: ManualMap, recipient?: LancerCombatUnit): void;",
-    "line": 52,
+    "line": 53,
     "source": "game/packages/game-core/src/lancer/thermal-systems.ts",
     "document": "reference/packages/game-core/src/lancer/thermal-systems.md",
     "anchor": "stabilizelancer"
@@ -93220,7 +93681,7 @@
     ],
     "returns": "void",
     "declaration": "export function lancerWeaponHitEffects(b: LancerBattle, map: ManualMap, a: LancerCombatUnit, t: LancerCombatUnit, w: LancerCombatWeapon, critical: boolean, r: LancerRandom): void;",
-    "line": 35,
+    "line": 36,
     "source": "game/packages/game-core/src/lancer/weapon-effects.ts",
     "document": "reference/packages/game-core/src/lancer/weapon-effects.md",
     "anchor": "lancerweaponhiteffects"
@@ -93254,7 +93715,7 @@
     ],
     "returns": "{amount:number;type:LancerDamageType;text:string}|null",
     "declaration": "export function lancerWeaponCriticalBonus(w: LancerCombatWeapon, r: LancerRandom, maximum: boolean, half: boolean): {amount:number;type:LancerDamageType;text:string}|null;",
-    "line": 47,
+    "line": 48,
     "source": "game/packages/game-core/src/lancer/weapon-effects.ts",
     "document": "reference/packages/game-core/src/lancer/weapon-effects.md",
     "anchor": "lancerweaponcriticalbonus"
@@ -93293,7 +93754,7 @@
     ],
     "returns": "void",
     "declaration": "export function lancerWeaponAreaAfter(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, id: string, r: LancerRandom): void;",
-    "line": 50,
+    "line": 51,
     "source": "game/packages/game-core/src/lancer/weapon-effects.ts",
     "document": "reference/packages/game-core/src/lancer/weapon-effects.md",
     "anchor": "lancerweaponareaafter"
@@ -122541,7 +123002,7 @@
     ],
     "returns": "boolean",
     "declaration": "export function settleArenaObjectives(t: ManualTable): boolean;",
-    "line": 71,
+    "line": 72,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.md",
     "anchor": "settlearenaobjectives"

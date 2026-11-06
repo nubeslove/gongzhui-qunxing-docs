@@ -38,7 +38,7 @@ export function queuePlayerAbility(b: LancerBattle, map: ManualMap, u: LancerCom
 Effects stay in the ordinary durable queue, including reactions between targets.
 
 ```ts
-export function resolvePlayerEffect(b: LancerBattle, map: ManualMap, actor: string, source: string, e: LancerPlayerEffect, r: LancerRandom): void;
+export function resolvePlayerEffect(b: LancerBattle, map: ManualMap, actor: string, source: string, e: LancerPlayerEffect, r: LancerRandom, resource?: string): void;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
@@ -49,3 +49,4 @@ export function resolvePlayerEffect(b: LancerBattle, map: ManualMap, actor: stri
 | `source` | 否 | `string` | — |
 | `e` | 否 | `LancerPlayerEffect` | — |
 | `r` | 否 | `LancerRandom` | — |
+| `resource` | 是 | `string` | — |

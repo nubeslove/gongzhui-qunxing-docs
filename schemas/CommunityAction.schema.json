@@ -3,18 +3,6 @@
   "title": "CommunityAction",
   "anyOf": [
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_431"
-    },
-    {
-      "$ref": "./contracts.schema.json#/$defs/Object_432"
-    },
-    {
-      "$ref": "./contracts.schema.json#/$defs/Object_433"
-    },
-    {
-      "$ref": "./contracts.schema.json#/$defs/Object_434"
-    },
-    {
       "$ref": "./contracts.schema.json#/$defs/Object_435"
     },
     {
@@ -22,6 +10,21 @@
     },
     {
       "$ref": "./contracts.schema.json#/$defs/Object_437"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_438"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_439"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_440"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_441"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_442"
     }
   ]
 }

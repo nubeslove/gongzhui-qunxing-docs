@@ -1670,19 +1670,19 @@
   {
     "key": "lancer.rogue.boss",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
-    "line": 61,
+    "line": 62,
     "expression": "t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.boss']"
   },
   {
     "key": "lancer.rogue.target",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
-    "line": 73,
+    "line": 74,
     "expression": "t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.target']"
   },
   {
     "key": "lancer.rogue.boss",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
-    "line": 73,
+    "line": 74,
     "expression": "t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.boss']"
   },
   {

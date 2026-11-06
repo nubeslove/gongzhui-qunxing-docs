@@ -3,12 +3,6 @@
   "title": "DndIntent",
   "anyOf": [
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_177"
-    },
-    {
-      "$ref": "./contracts.schema.json#/$defs/Object_178"
-    },
-    {
       "$ref": "./contracts.schema.json#/$defs/Object_179"
     },
     {
@@ -21,10 +15,10 @@
       "$ref": "./contracts.schema.json#/$defs/Object_182"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_184"
+      "$ref": "./contracts.schema.json#/$defs/Object_183"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_185"
+      "$ref": "./contracts.schema.json#/$defs/Object_184"
     },
     {
       "$ref": "./contracts.schema.json#/$defs/Object_186"
@@ -54,19 +48,19 @@
       "$ref": "./contracts.schema.json#/$defs/Object_194"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_197"
+      "$ref": "./contracts.schema.json#/$defs/Object_195"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_198"
+      "$ref": "./contracts.schema.json#/$defs/Object_196"
     },
     {
       "$ref": "./contracts.schema.json#/$defs/Object_199"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_201"
+      "$ref": "./contracts.schema.json#/$defs/Object_200"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_202"
+      "$ref": "./contracts.schema.json#/$defs/Object_201"
     },
     {
       "$ref": "./contracts.schema.json#/$defs/Object_203"
@@ -105,10 +99,10 @@
       "$ref": "./contracts.schema.json#/$defs/Object_214"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_216"
+      "$ref": "./contracts.schema.json#/$defs/Object_215"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_217"
+      "$ref": "./contracts.schema.json#/$defs/Object_216"
     },
     {
       "$ref": "./contracts.schema.json#/$defs/Object_218"
@@ -133,6 +127,12 @@
     },
     {
       "$ref": "./contracts.schema.json#/$defs/Object_225"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_226"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_227"
     }
   ]
 }

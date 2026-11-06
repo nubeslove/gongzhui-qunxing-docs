@@ -640,8 +640,8 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 ## `lancer.rogue.boss`
 
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts:20` → `a.fields['lancer.rogue.boss']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts:61` → `t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.boss']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts:73` → `t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.boss']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts:62` → `t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.boss']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts:74` → `t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.boss']`
 
 ## `lancer.rogue.bounty`
 
@@ -695,7 +695,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/ai.ts:35` → `t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.target']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts:20` → `a.fields['lancer.rogue.target']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts:20` → `a.fields['lancer.rogue.target']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts:73` → `t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.target']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts:74` → `t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.target']`
 - `game/apps/desktop/src/tabletop/lancer/rogue/missionStatus.ts:13` → `table.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.target']`
 
 ## `lancer.side`

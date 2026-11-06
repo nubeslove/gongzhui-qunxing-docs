@@ -1,0 +1,109 @@
+{
+  "at": "2026-11-06T17:20:49.578Z",
+  "version": "0.2.45",
+  "commit": "4815ff3bfae576754967edc9753c43c28f3571eb",
+  "ready": true,
+  "players": 7,
+  "worlds": 1,
+  "pairedClientVersion": "0.2.45",
+  "privateRuntimeStatus": 401,
+  "matchingBrowserBuild": true,
+  "cosResourceRedirect": true,
+  "desktop": {
+    "version": "0.2.45",
+    "connected": true,
+    "verification": "本机 0.2.44 客户端自动安装并重启为 0.2.45，正常进入 NAA 大厅；连接与更新页显示已连接服务器及当前界面版本 0.2.45。",
+    "snapshot": "7ed806dc-4"
+  },
+  "githubLatest": "https://github.com/nubeslove/gongzhui-qunxing-releases/releases/tag/v0.2.45",
+  "githubAssetsVerified": 10,
+  "domesticReleaseAssets": "verified",
+  "domesticVerification": {
+    "at": "2026-11-06T17:16:49.857188+00:00",
+    "version": "0.2.45",
+    "origin": "https://naa-1350123687.cos.ap-guangzhou.myqcloud.com",
+    "verifiedAssets": 10,
+    "bytes": 117761291,
+    "publicAccess": true,
+    "latestManifestVersion": "0.2.45",
+    "checks": [
+      "size",
+      "sha256-metadata",
+      "crc64",
+      "anonymous-HEAD"
+    ],
+    "resourcePacksReused": 13,
+    "objects": [
+      {
+        "key": "releases/v0.2.45/latest.json",
+        "bytes": 2540,
+        "sha256": "207fb23dc89a613613e21c494c2aea941e404f941d1e9e28109cebd0e3ab959c",
+        "crc64": "10232526602063807373",
+        "publicHeadStatus": 200
+      },
+      {
+        "key": "releases/v0.2.45/qianxing-qiyu-0.2.45-x64-setup.exe",
+        "bytes": 18231908,
+        "sha256": "8075948b379bb7a501b609007ecdd21932f87418c429bff6b71f4f775873e057",
+        "crc64": "12652757321345166513",
+        "publicHeadStatus": 200
+      },
+      {
+        "key": "releases/v0.2.45/qianxing-qiyu-0.2.45-x64-setup.exe.sig",
+        "bytes": 424,
+        "sha256": "116be8b17b46f04a56ffeb10888a536692ab1138038d8cb3a9e78a5ce6f7e920",
+        "crc64": "9605587168684460921",
+        "publicHeadStatus": 200
+      },
+      {
+        "key": "releases/v0.2.45/qianxing-qiyu-server-0.2.45-windows.zip",
+        "bytes": 76108472,
+        "sha256": "00796154f675081a9d23a31c0a680e4ec3e568a7282615f1bbcf06bfdea5a311",
+        "crc64": "1488057433244775543",
+        "publicHeadStatus": 200
+      },
+      {
+        "key": "releases/v0.2.45/release-notes.md",
+        "bytes": 2310,
+        "sha256": "59e3382ce675333cd2ef0ce5791ca1696ed25db06724cf7266a3de892eed3b9c",
+        "crc64": "14214926280840643327",
+        "publicHeadStatus": 200
+      },
+      {
+        "key": "releases/v0.2.45/release.json",
+        "bytes": 3038,
+        "sha256": "94dabfdcc7e47821698e3cf5f16a59c5ae276539214db335023d8d311bb84bf1",
+        "crc64": "16884453654985673537",
+        "publicHeadStatus": 200
+      },
+      {
+        "key": "releases/v0.2.45/resources.json",
+        "bytes": 1661814,
+        "sha256": "bb119e6405237e0155b82ec3eec3e2c5bf588a0bdf718e1539089f75a964b1bf",
+        "crc64": "2017767417350053090",
+        "publicHeadStatus": 200
+      },
+      {
+        "key": "releases/v0.2.45/server-update.zip",
+        "bytes": 21745657,
+        "sha256": "0e40a9e85a2f58c910c345130ddd08b4410b96ccb66e6a5d9b25fc77355fc71d",
+        "crc64": "2919950411122256103",
+        "publicHeadStatus": 200
+      },
+      {
+        "key": "releases/v0.2.45/Setup.ps1",
+        "bytes": 4335,
+        "sha256": "b747493ca5b30df94b60a2be38cb83d526bf8ade5f07a246bb79e7e618bbdda8",
+        "crc64": "13774524933493914278",
+        "publicHeadStatus": 200
+      },
+      {
+        "key": "releases/v0.2.45/SHA256SUMS",
+        "bytes": 793,
+        "sha256": "f5940f377787665fdee2d1061b8604ba9e824769164aacfdfada3949fa9b5f79",
+        "crc64": "15293576225304039332",
+        "publicHeadStatus": 200
+      }
+    ]
+  }
+}

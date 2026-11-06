@@ -7,7 +7,7 @@
 <details><summary>类型依赖</summary>
 
 ```ts
-import {lancerObject,lancerObjectActive,lancerEffectiveBlock,regionAffectsFootprint,type LancerSceneAction,type LancerSceneEffect,type ManualMap,type ManualBlock,type LancerBattle,type ManualToken} from '@aelzerant/contracts';
+import {regionShapes,lancerObject,lancerObjectActive,lancerEffectiveBlock,regionAffectsFootprint,type LancerSceneAction,type LancerSceneEffect,type ManualMap,type ManualBlock,type LancerBattle,type ManualToken} from '@aelzerant/contracts';
 import {lancerBlockOverlaps,lancerRegionContains} from './geometry';
 import {refreshLancerAltitude} from './flight';
 import {lancerRoll,type LancerRandom} from './dice';

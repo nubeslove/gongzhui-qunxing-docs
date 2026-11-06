@@ -7,6 +7,7 @@
 <details><summary>类型依赖</summary>
 
 ```ts
+import {droneFieldTechIssue} from './drone-fields';
 import {offerLancerLockOn} from './lockon-choice';
 import {lancerActionFeedback} from '@aelzerant/contracts';
 import {wallflowerSight} from './wallflower';
@@ -37,7 +38,7 @@ import { askLancerPoint,lancerPushPointCells } from './point-decision';
 
 ## LancerTechOption
 
-导出接口 · 源码第 27 行。
+导出接口 · 源码第 28 行。
 
 ```ts
 export interface LancerTechOption {
@@ -69,7 +70,7 @@ export interface LancerTechOption {
 
 ## LANCER_TECH_SYSTEMS
 
-导出接口 · 源码第 28 行。
+导出接口 · 源码第 29 行。
 
 ```ts
 export const LANCER_TECH_SYSTEMS: Record<string, string>;
@@ -77,7 +78,7 @@ export const LANCER_TECH_SYSTEMS: Record<string, string>;
 
 ## LANCER_TECH_OPTIONS
 
-导出接口 · 源码第 29 行。
+导出接口 · 源码第 30 行。
 
 ```ts
 export const LANCER_TECH_OPTIONS: Record<string, LancerTechOption>;
@@ -85,7 +86,7 @@ export const LANCER_TECH_OPTIONS: Record<string, LancerTechOption>;
 
 ## availableLancerTech
 
-导出接口 · 源码第 56 行。
+导出接口 · 源码第 57 行。
 
 ```ts
 export function availableLancerTech(u: LancerCombatUnit, b?: LancerBattle): [string,LancerTechOption][];
@@ -98,7 +99,7 @@ export function availableLancerTech(u: LancerCombatUnit, b?: LancerBattle): [str
 
 ## techActionIssue
 
-导出接口 · 源码第 57 行。
+导出接口 · 源码第 58 行。
 
 ```ts
 export function techActionIssue(u: LancerCombatUnit, i: Extract<LancerCombatIntent,{type:'tech'}>, b?: LancerBattle): string|null;
@@ -112,7 +113,7 @@ export function techActionIssue(u: LancerCombatUnit, i: Extract<LancerCombatInte
 
 ## validateTechTarget
 
-导出接口 · 源码第 69 行。
+导出接口 · 源码第 71 行。
 
 ```ts
 export function validateTechTarget(map: ManualMap, u: LancerCombatUnit, t: LancerCombatUnit|undefined, i: Extract<LancerCombatIntent,{type:'tech'}>, b?: LancerBattle, wide?: boolean): void;
@@ -129,7 +130,7 @@ export function validateTechTarget(map: ManualMap, u: LancerCombatUnit, t: Lance
 
 ## useLancerTech
 
-导出接口 · 源码第 83 行。
+导出接口 · 源码第 86 行。
 
 ```ts
 export function useLancerTech(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, i: Extract<LancerCombatIntent,{type:'tech'}>, r: LancerRandom): void;
@@ -145,7 +146,7 @@ export function useLancerTech(b: LancerBattle, map: ManualMap, u: LancerCombatUn
 
 ## resolveLancerRepairCheck
 
-导出接口 · 源码第 94 行。
+导出接口 · 源码第 97 行。
 
 ```ts
 export function resolveLancerRepairCheck(b: LancerBattle, u: LancerCombatUnit, s: Extract<LancerBattleStep,{kind:'feature'}>, r: LancerRandom): boolean;
@@ -160,7 +161,7 @@ export function resolveLancerRepairCheck(b: LancerBattle, u: LancerCombatUnit, s
 
 ## resolveLancerTech
 
-导出接口 · 源码第 105 行。
+导出接口 · 源码第 108 行。
 
 ```ts
 export function resolveLancerTech(b: LancerBattle, map: ManualMap, s: Extract<LancerBattleStep,{kind:'tech'}>, r: LancerRandom): void;
@@ -175,7 +176,7 @@ export function resolveLancerTech(b: LancerBattle, map: ManualMap, s: Extract<La
 
 ## resolveTechResult
 
-导出接口 · 源码第 139 行。
+导出接口 · 源码第 142 行。
 
 ```ts
 export function resolveTechResult(b: LancerBattle, map: ManualMap, result: Extract<LancerBattleStep,{kind:'techResult'}>, r: LancerRandom): void;
@@ -190,7 +191,7 @@ export function resolveTechResult(b: LancerBattle, map: ManualMap, result: Extra
 
 ## offerTechFeature
 
-导出接口 · 源码第 162 行。
+导出接口 · 源码第 165 行。
 
 ```ts
 export function offerTechFeature(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, s: Extract<LancerBattleStep,{kind:'feature'}>): boolean;
@@ -205,7 +206,7 @@ export function offerTechFeature(b: LancerBattle, map: ManualMap, u: LancerComba
 
 ## respondTechFeature
 
-导出接口 · 源码第 167 行。
+导出接口 · 源码第 170 行。
 
 ```ts
 export function respondTechFeature(b: LancerBattle, map: ManualMap, p: LancerDecision, option: string, text?: string): boolean;
@@ -221,7 +222,7 @@ export function respondTechFeature(b: LancerBattle, map: ManualMap, p: LancerDec
 
 ## useFullTech
 
-导出接口 · 源码第 181 行。
+导出接口 · 源码第 184 行。
 
 ```ts
 export function useFullTech(b: LancerBattle, u: LancerCombatUnit, map?: ManualMap, choices?: Extract<LancerCombatIntent,{type:'fullTech'}>['choices']): void;

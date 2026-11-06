@@ -7,6 +7,7 @@
 <details><summary>类型依赖</summary>
 
 ```ts
+import {inDroneField,refreshLancerDroneFields} from './drone-fields';
 import type { LancerBattle, LancerBattleStep, LancerCombatUnit, LancerDecision, LancerEffect, ManualMap, ManualToken } from '@aelzerant/contracts';
 import { areaOrigin, lancerAreaCells, lancerAreaContains } from './areas';
 import { lancerPosition } from './geometry';
@@ -17,7 +18,7 @@ import { log } from './state';
 
 ## Point
 
-内部依赖类型 · 源码第 7 行。
+内部依赖类型 · 源码第 8 行。
 
 ```ts
 type Point = {
@@ -35,7 +36,7 @@ type Point = {
 
 ## offerLancerPlasma
 
-导出接口 · 源码第 12 行。
+导出接口 · 源码第 13 行。
 
 ```ts
 export function offerLancerPlasma(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, s: Extract<LancerBattleStep,{kind:'feature'}>): boolean;
@@ -50,7 +51,7 @@ export function offerLancerPlasma(b: LancerBattle, map: ManualMap, u: LancerComb
 
 ## respondLancerPlasma
 
-导出接口 · 源码第 23 行。
+导出接口 · 源码第 24 行。
 
 ```ts
 export function respondLancerPlasma(b: LancerBattle, map: ManualMap, p: LancerDecision, to?: Point): boolean;
@@ -65,7 +66,7 @@ export function respondLancerPlasma(b: LancerBattle, map: ManualMap, p: LancerDe
 
 ## triggerLancerHazards
 
-导出接口 · 源码第 34 行。
+导出接口 · 源码第 35 行。
 
 Start-of-turn damage is separate from the once-per-round entry trigger.
 

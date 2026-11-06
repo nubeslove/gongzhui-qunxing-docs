@@ -2,7 +2,7 @@
 
 为 GM、资源作者和开发者提供可核对的接口、共享字段、分规则扩展说明、离线示例及部署规范。整个天星阁系统／千星奇域正式名称为 **NAA**，原名共坠群星；AAF 仅指其中的单一规则。历史仓库名、文件扩展名和规则身份不会随显示名称更改。
 
-**本版核对日期：2026-11-06；文档对应已发布的 0.2.44。** 接口生成与正式构建基点为 `e5b264d8620e1c8b515a4eace134481e72bb8903`。本版恢复 LANCER 全员确认与完整出击演出，改进 GM 连续部署并接入独立科幻大厅配乐。正式服、网页版与本机客户端均已更新，GitHub Latest 为 v0.2.44；10 个发行附件已同步国内并通过匿名访问及完整性核对，13 个原有资源包与《故乡》模组继续复用。见[实际发布核对](VALIDATION.md#0244-正式发布核对)与[源码快照](reference/source-snapshot.json)。
+**本版核对日期：2026-11-07；文档对应已发布的 0.2.45。** 接口生成与正式构建基点为 `4815ff3bfae576754967edc9753c43c28f3571eb`。本版更新论坛与同门状态，修正 LANCER 移动、测距和范围辨识，并扩充二维武器、系统和持续区域反馈。正式服、网页版与本机客户端均已更新，GitHub Latest 为 v0.2.45；10 个发行附件通过国内匿名访问及完整性核对，13 个原有资源包与《故乡》模组继续复用。逐项目录已核对，尚缺专属自动规则的条目仍明确列为未完成。见[实际发布核对](VALIDATION.md#0245-正式发布核对)、[LANCER 范围与缺口](docs/systems/lancer.md#战场反馈与持续范围0245)及[源码快照](reference/source-snapshot.json)。
 
 ## 从这里开始
 
@@ -13,6 +13,7 @@
 | 制作章节、演出、投票、探索图及战斗遭遇 | [备团工作流](docs/authoring/workflows.md) |
 | 为 LANCER 准备六角战场、角色、章节和休整 | [LANCER 备团指南](docs/authoring/lancer-preparation.md) |
 | 准备扩展、插件或私设包（0.2.37 已上线） | [中心制作与使用说明](docs/authoring/community-center.md) |
+| 使用论坛分类、管理员置顶与精华，了解同门状态与隐身 | [论坛与同门](docs/authoring/forum-and-friends.md) |
 | 编排 QTE、制作小游戏或扩展题型 | [小游戏与 QTE DIY](docs/authoring/minigames.md) |
 | 查询一个字段、参数或动作 | [字段与函数总索引](reference/README.md)、[离线查询工具](tools/README.md) |
 | 对接账号、世界目录和资源服务 | [HTTP 接口](docs/api/http.md)、[OpenAPI](api/openapi.json) |
@@ -40,7 +41,7 @@
 - `schemas/` 提供规范化数据的 JSON Schema；数值约束、依赖引用与权限仍以游戏解析器为准。
 - `catalogs/` 只列可引用的资源 ID、名称及分类，不转载完整规则条文或插图。
 - `examples/` 使用专门编写的虚构内容；[验证记录](VALIDATION.md) 说明实际经过哪些解析器和备份恢复检查。
-- [源码指纹](reference/source-snapshot.json) 记录生成依据。本次冻结源码为 `e5b264d8620e1c8b515a4eace134481e72bb8903`；逐文件指纹用于核对生成输入，不将源码提交等同于发布状态。
+- [源码指纹](reference/source-snapshot.json) 记录生成依据。本次冻结源码为 `4815ff3bfae576754967edc9753c43c28f3571eb`；逐文件指纹用于核对生成输入，不将源码提交等同于发布状态。
 - [平台源码指纹](reference/platform-source-snapshot.json) 另记录HTTP、原生命令、宏和发行配置的人工核对来源。
 
 ## 当前支持的边界

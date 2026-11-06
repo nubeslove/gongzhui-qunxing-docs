@@ -1232,7 +1232,7 @@
     {
       "name": "parseEffect",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 192,
+      "line": 194,
       "fields": [],
       "checks": [
         "parseLancerArea(v.area)"
@@ -1243,7 +1243,7 @@
     {
       "name": "parseSalvo",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 193,
+      "line": 195,
       "fields": [],
       "checks": [
         "parseLancerArea(v.area)"
@@ -1254,7 +1254,7 @@
     {
       "name": "parseLancerZone",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 194,
+      "line": 196,
       "fields": [],
       "checks": [
         "parseRegionShape(v.shape,x+width+1e-7,y+depth+1e-7)"
@@ -1265,7 +1265,7 @@
     {
       "name": "parseLancerNpc",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 198,
+      "line": 200,
       "fields": [],
       "checks": [
         "parseLancerNpcProfile(v.profile)"
@@ -1278,7 +1278,7 @@
     {
       "name": "parseLancerPilotProfile",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 211,
+      "line": 213,
       "fields": [],
       "checks": [
         "parsePilotConditions(p.conditions)"
@@ -1291,7 +1291,7 @@
     {
       "name": "parseLancerUnit",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 217,
+      "line": 219,
       "fields": [],
       "checks": [
         "parsePilotConditions(v.conditions)",
@@ -1317,7 +1317,7 @@
     {
       "name": "parseStep",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 252,
+      "line": 254,
       "fields": [],
       "checks": [
         "parseStepBody(raw)"
@@ -1328,7 +1328,7 @@
     {
       "name": "parseStepBody",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 255,
+      "line": 257,
       "fields": [],
       "checks": [
         "parseLancerPlayerEffect(v.effect)",
@@ -1350,7 +1350,7 @@
     {
       "name": "parseLancerBattle",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 277,
+      "line": 279,
       "fields": [],
       "checks": [
         "parseLancerEntry(v.entry)",
@@ -1360,6 +1360,8 @@
         "parseLancerTransport(v.transport)",
         "parseLancerRecovery(v.recovery)",
         "parseLancerReadyReference(w.prepared)",
+        "parseLancerArea(p.area)",
+        "parsePoint(p.impact)",
         "parseCombatStep({text:l.text,movement:l.movement})",
         "parseCombatRoll(l.roll)"
       ],
@@ -1526,7 +1528,7 @@
     {
       "name": "parseLancerSceneObject",
       "source": "game/packages/contracts/src/lancer-scene.ts",
-      "line": 53,
+      "line": 54,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
@@ -1542,14 +1544,15 @@
         "durability&&durability.hp>durability.maxHp",
         "typeof s[k]!=='boolean'",
         "!['none','soft','hard'].includes(String(s.cover))",
-        "v.template!==undefined&&typeof v.template!=='boolean'"
+        "v.template!==undefined&&typeof v.template!=='boolean'",
+        "!Array.isArray(m.path)||m.path.length<2||m.path.length>200"
       ],
       "delegatedTypes": []
     },
     {
       "name": "parseLancerSceneEffect",
       "source": "game/packages/contracts/src/lancer-scene.ts",
-      "line": 71,
+      "line": 73,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
@@ -3620,6 +3623,7 @@
       "rejectionConditions": [
         "!w.area||area.kind!==w.area.kind||area.size!==w.area.size",
         "area.x>=map.width||area.y>=map.depth",
+        "w.resourceId==='apocalypse-rail'&&distance<=5",
         "area.kind==='blast'&&lancerSystemActive(a,'ms_siege_stabilizers')&&distance<=5",
         "area.kind==='blast'||w.range>0",
         "distance>w.range",
@@ -3732,10 +3736,11 @@
     {
       "name": "validateLancerWeaponUse",
       "source": "game/packages/game-core/src/lancer/resolution.ts",
-      "line": 77,
+      "line": 79,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
+        "w.id===APOCALYPSE_RAIL&&(reaction||!a.counters?.['barbarossa-core']||(a.counters['apocalypse-die']??4)>3)",
         "restricted",
         "a.destroyed||w.destroyed||!spent&&!availableWeapon(w)",
         "a.phasedUntil",
@@ -3748,7 +3753,7 @@
     {
       "name": "validateWeapon",
       "source": "game/packages/game-core/src/lancer/resolution.ts",
-      "line": 85,
+      "line": 89,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
@@ -3813,12 +3818,13 @@
     {
       "name": "validateTechTarget",
       "source": "game/packages/game-core/src/lancer/tech.ts",
-      "line": 69,
+      "line": 71,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
         "!t||dustgraveProtected(t)||t.id===u.id||!t.deployed||t.destroyed||t.phasedUntil||has(t,'hidden')&&!(i.option==='bolster'&&t.side===u.side)||!at||!tt",
         "has(u,'jammed')||has(u,'tech-disabled')",
+        "droneFieldTechIssue(u)||droneFieldTechIssue(t)",
         "has(t,'shutdown')||i.option!=='scan'&&object||!['scan','lockon'].includes(i.option)&&feature(t,'biological')",
         "i.option==='bolster'&&(has(t,'jammed')||has(t,'tech-disabled'))",
         "!wide&&b&&!wallflowerSight(b,map,u,tt)",

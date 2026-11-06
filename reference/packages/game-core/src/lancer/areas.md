@@ -78,7 +78,7 @@ export function validateLancerArea(map: ManualMap, a: LancerCombatUnit, w: Lance
 
 ## lancerAreaTargets
 
-导出接口 · 源码第 48 行。
+导出接口 · 源码第 49 行。
 
 ```ts
 export function lancerAreaTargets(b: LancerBattle, map: ManualMap, a: LancerCombatUnit, w: LancerCombatWeapon, area: LancerArea): string[];

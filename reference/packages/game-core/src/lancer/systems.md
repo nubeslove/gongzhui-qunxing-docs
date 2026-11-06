@@ -7,8 +7,9 @@
 <details><summary>类型依赖</summary>
 
 ```ts
+import {DRONE_FIELD_SYSTEMS,refreshLancerDroneFields} from './drone-fields';
 import {useCustomSystem} from './custom-equipment';
-import {isHexGrid,hexInBounds,snapGridPoint,parseLancerAutomation} from '@aelzerant/contracts';
+import {lancerActionFeedback,isHexGrid,hexInBounds,snapGridPoint,parseLancerAutomation} from '@aelzerant/contracts';
 import { useLancerCombatSystem } from './active-systems';
 import type { LancerArea, LancerBattle, LancerCombatIntent, LancerCombatSystem, LancerCombatUnit, ManualMap, ManualToken } from '@aelzerant/contracts';
 import { areaOrigin, lancerAreaContains } from './areas';
@@ -21,7 +22,7 @@ import { clear, has, log, spend, unit } from './state';
 
 ## SystemMode
 
-内部依赖类型 · 源码第 11 行。
+内部依赖类型 · 源码第 12 行。
 
 ```ts
 interface SystemMode {
@@ -47,7 +48,7 @@ interface SystemMode {
 
 ## ExecutableSystem
 
-内部依赖类型 · 源码第 12 行。
+内部依赖类型 · 源码第 13 行。
 
 ```ts
 interface ExecutableSystem {
@@ -65,7 +66,7 @@ interface ExecutableSystem {
 
 ## LANCER_EXECUTABLE_SYSTEMS
 
-导出接口 · 源码第 13 行。
+导出接口 · 源码第 14 行。
 
 ```ts
 export const LANCER_EXECUTABLE_SYSTEMS: Record<string, ExecutableSystem>;
@@ -73,7 +74,7 @@ export const LANCER_EXECUTABLE_SYSTEMS: Record<string, ExecutableSystem>;
 
 ## lancerSystemDefinition
 
-导出接口 · 源码第 28 行。
+导出接口 · 源码第 31 行。
 
 ```ts
 export function lancerSystemDefinition(s: LancerCombatSystem): ExecutableSystem|undefined;
@@ -85,7 +86,7 @@ export function lancerSystemDefinition(s: LancerCombatSystem): ExecutableSystem|
 
 ## lancerSystemActionName
 
-导出接口 · 源码第 32 行。
+导出接口 · 源码第 35 行。
 
 ```ts
 export function lancerSystemActionName(s: LancerCombatSystem, _mode?: string): string;
@@ -98,7 +99,7 @@ export function lancerSystemActionName(s: LancerCombatSystem, _mode?: string): s
 
 ## Point
 
-内部依赖类型 · 源码第 33 行。
+内部依赖类型 · 源码第 36 行。
 
 ```ts
 type Point = {
@@ -116,10 +117,10 @@ type Point = {
 
 ## lancerSystemPointInRange
 
-导出接口 · 源码第 34 行。
+导出接口 · 源码第 37 行。
 
 ```ts
-export function lancerSystemPointInRange(map: ManualMap, u: LancerCombatUnit, p: Point|undefined, range: number): ManualToken;
+export function lancerSystemPointInRange(map: ManualMap, u: LancerCombatUnit, p: Point|undefined, range: number, requireSight?: boolean): ManualToken;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
@@ -128,28 +129,11 @@ export function lancerSystemPointInRange(map: ManualMap, u: LancerCombatUnit, p:
 | `u` | 否 | `LancerCombatUnit` | — |
 | `p` | 否 | `Point&#124;undefined` | — |
 | `range` | 否 | `number` | — |
-
-## useLancerSystem
-
-导出接口 · 源码第 60 行。
-
-Returns self heat so the caller uses the same reactor settlement path as weapons.
-
-```ts
-export function useLancerSystem(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, intent: Extract<LancerCombatIntent,{type:'system'}>, r: LancerRandom): number;
-```
-
-| 参数 | 可选 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| `b` | 否 | `LancerBattle` | — |
-| `map` | 否 | `ManualMap` | — |
-| `u` | 否 | `LancerCombatUnit` | — |
-| `intent` | 否 | `Extract<LancerCombatIntent,{type:'system'}>` | — |
-| `r` | 否 | `LancerRandom` | — |
+| `requireSight` | 是 | `boolean` | true |
 
 ## triggerLancerMines
 
-导出接口 · 源码第 112 行。
+导出接口 · 源码第 129 行。
 
 Check the entire traversed segment, not only its endpoint. Placing a mine does not trigger it.
 
@@ -164,4 +148,22 @@ export function triggerLancerMines(b: LancerBattle, map: ManualMap, mover: Lance
 | `mover` | 否 | `LancerCombatUnit` | — |
 | `from` | 否 | `Point` | — |
 | `to` | 否 | `Point` | — |
+| `r` | 否 | `LancerRandom` | — |
+
+## useLancerSystem
+
+导出接口 · 源码第 142 行。
+
+Attach source-aware feedback before the caller resolves reactor heat.
+
+```ts
+export function useLancerSystem(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, intent: Extract<LancerCombatIntent,{type:'system'}>, r: LancerRandom): number;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `b` | 否 | `LancerBattle` | — |
+| `map` | 否 | `ManualMap` | — |
+| `u` | 否 | `LancerCombatUnit` | — |
+| `intent` | 否 | `Extract<LancerCombatIntent,{type:'system'}>` | — |
 | `r` | 否 | `LancerRandom` | — |

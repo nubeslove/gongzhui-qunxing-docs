@@ -7,6 +7,7 @@
 <details><summary>类型依赖</summary>
 
 ```ts
+import {refreshLancerDroneFields,endLancerDroneFields} from './drone-fields';
 import {lancerRaleighReloadAvailable} from './features';
 import {startMissionTransport} from './mission-transport';
 import {applyLancerRecovery,recoveryOwner} from './recovery';
@@ -71,7 +72,8 @@ import { returnLancer } from './phase';
 import { breakLancerPassiveCover } from './talents';
 import { useLancerSystem } from './systems';
 import { expireLancerEffects } from './effects';
-import { validateLancerArea, lancerAreaTargets, LANCER_AREA_NAMES } from './areas';
+import { lancerAreaCells, validateLancerArea, lancerAreaTargets, LANCER_AREA_NAMES } from './areas';
+import {APOCALYPSE_RAIL,advanceApocalypseRail,apocalypseActionIssue,endApocalypseRail,syncApocalypsePosition} from './apocalypse-rail';
 ```
 </details>
 
@@ -85,7 +87,7 @@ export { LANCER_EXECUTABLE_FEATURES } from './features';
 
 ## lancerStartIssue
 
-导出接口 · 源码第 67 行。
+导出接口 · 源码第 68 行。
 
 Shared by the deployment UI and the authority transition.
 
@@ -99,7 +101,7 @@ export function lancerStartIssue(b: Pick<LancerBattle,'phase'|'units'|'entry'>):
 
 ## LancerBattleContext
 
-导出接口 · 源码第 74 行。
+导出接口 · 源码第 75 行。
 
 ```ts
 export interface LancerBattleContext {
@@ -129,7 +131,7 @@ export interface LancerBattleContext {
 
 ## applyLancerIntent
 
-导出接口 · 源码第 78 行。
+导出接口 · 源码第 80 行。
 
 ```ts
 export function applyLancerIntent(current: LancerBattle|undefined, sourceMap: ManualMap, intent: LancerCombatIntent, ctx: LancerBattleContext): {battle:LancerBattle;map:ManualMap};

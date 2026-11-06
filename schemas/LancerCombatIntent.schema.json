@@ -3,25 +3,13 @@
   "title": "LancerCombatIntent",
   "anyOf": [
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_377"
+      "$ref": "./contracts.schema.json#/$defs/Object_381"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_378"
-    },
-    {
-      "$ref": "./contracts.schema.json#/$defs/Object_379"
+      "$ref": "./contracts.schema.json#/$defs/Object_382"
     },
     {
       "$ref": "./contracts.schema.json#/$defs/Object_383"
-    },
-    {
-      "$ref": "./contracts.schema.json#/$defs/Object_384"
-    },
-    {
-      "$ref": "./contracts.schema.json#/$defs/Object_385"
-    },
-    {
-      "$ref": "./contracts.schema.json#/$defs/Object_386"
     },
     {
       "$ref": "./contracts.schema.json#/$defs/Object_387"
@@ -63,6 +51,9 @@
       "$ref": "./contracts.schema.json#/$defs/Object_399"
     },
     {
+      "$ref": "./contracts.schema.json#/$defs/Object_400"
+    },
+    {
       "$ref": "./contracts.schema.json#/$defs/Object_401"
     },
     {
@@ -75,19 +66,19 @@
       "$ref": "./contracts.schema.json#/$defs/Object_405"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_407"
+      "$ref": "./contracts.schema.json#/$defs/Object_406"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_408"
+      "$ref": "./contracts.schema.json#/$defs/Object_407"
     },
     {
       "$ref": "./contracts.schema.json#/$defs/Object_409"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_410"
+      "$ref": "./contracts.schema.json#/$defs/Object_411"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_411"
+      "$ref": "./contracts.schema.json#/$defs/Object_412"
     },
     {
       "$ref": "./contracts.schema.json#/$defs/Object_413"
@@ -108,9 +99,6 @@
       "$ref": "./contracts.schema.json#/$defs/Object_419"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_420"
-    },
-    {
       "$ref": "./contracts.schema.json#/$defs/Object_421"
     },
     {
@@ -120,16 +108,28 @@
       "$ref": "./contracts.schema.json#/$defs/Object_423"
     },
     {
+      "$ref": "./contracts.schema.json#/$defs/Object_424"
+    },
+    {
       "$ref": "./contracts.schema.json#/$defs/Object_425"
     },
     {
       "$ref": "./contracts.schema.json#/$defs/Object_426"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_428"
+      "$ref": "./contracts.schema.json#/$defs/Object_427"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_429"
     },
     {
       "$ref": "./contracts.schema.json#/$defs/Object_430"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_432"
+    },
+    {
+      "$ref": "./contracts.schema.json#/$defs/Object_434"
     }
   ]
 }

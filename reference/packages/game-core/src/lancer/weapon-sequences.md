@@ -7,7 +7,7 @@
 <details><summary>类型依赖</summary>
 
 ```ts
-import type { LancerBattle, LancerBattleStep, LancerCombatUnit, LancerCombatWeapon, LancerDecision, LancerSalvo, ManualMap } from '@aelzerant/contracts';
+import { lancerActionFeedback, type LancerBattle, type LancerBattleStep, type LancerCombatUnit, type LancerCombatWeapon, type LancerDecision, type LancerSalvo, type ManualMap } from '@aelzerant/contracts';
 import { lancerDistance, lancerLineOfSight } from './geometry';
 import { has, log } from './state';
 import { lancerRoll, type LancerRandom } from './dice';

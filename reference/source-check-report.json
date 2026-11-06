@@ -1,8 +1,8 @@
 {
   "date": "2026-11-06",
-  "sourceFiles": 687,
+  "sourceFiles": 690,
   "platformSourceFiles": 35,
-  "httpOperations": 73,
+  "httpOperations": 75,
   "aafCommands": 133,
   "failures": []
 }

@@ -1,6 +1,6 @@
 {
   "date": "2026-11-06",
-  "version": "0.2.44",
+  "version": "0.2.45",
   "scope": "Shared contracts, rules engine signatures, game core, session, transport, assets, world model and selected local authoring entry points. No rulebook prose or asset binaries.",
   "files": [
     {
@@ -255,8 +255,8 @@
     },
     {
       "path": "game/packages/contracts/src/community.ts",
-      "sha256": "23f17765b6b3ab24c425d259243715133d4f309fe404e062a28b7ec84b4d95ed",
-      "bytes": 1734
+      "sha256": "4823eb09791386ad7b9a065dce3c8a53eb36b7dd8970ed7d2e094d8b6c9dff6f",
+      "bytes": 1793
     },
     {
       "path": "game/packages/contracts/src/compendium-directory.ts",
@@ -485,8 +485,8 @@
     },
     {
       "path": "game/packages/contracts/src/index.ts",
-      "sha256": "7f2d53881a4d49d13b200e31bdba7112f3d7f1acb1aa6d46232ee20d4437ccdd",
-      "bytes": 15558
+      "sha256": "8189998665e67d87326ddc71f37924a99da908bee0fe7819cabc414fb04befd0",
+      "bytes": 15723
     },
     {
       "path": "game/packages/contracts/src/inline-roll.ts",
@@ -535,8 +535,8 @@
     },
     {
       "path": "game/packages/contracts/src/lancer-combat.ts",
-      "sha256": "b7941800c0789f70745befa173ef2508269cf4b35c45822ab9af19adb3332ce6",
-      "bytes": 55406
+      "sha256": "a670d54d0d9d0d3e4919f4d207c9e3a53fe34cffb5d807a13f46e2da79284893",
+      "bytes": 56783
     },
     {
       "path": "game/packages/contracts/src/lancer-custom.ts",
@@ -595,8 +595,8 @@
     },
     {
       "path": "game/packages/contracts/src/lancer-scene.ts",
-      "sha256": "3ae2efdff1f1138c201a8667239ca84fb757460883b780d15a67c527b452d8fc",
-      "bytes": 9732
+      "sha256": "69242b18573441b1dcaeccaf6b516fe30f4cbb18fade81ec375113c4631e223d",
+      "bytes": 10119
     },
     {
       "path": "game/packages/contracts/src/lancer-starting-grants.ts",
@@ -607,6 +607,11 @@
       "path": "game/packages/contracts/src/lancer-transport.ts",
       "sha256": "a06864501be2b79fc7f2010a712a47abc12143a211a19de360312f80add05f24",
       "bytes": 1249
+    },
+    {
+      "path": "game/packages/contracts/src/lancer-weapon-presentation-map.ts",
+      "sha256": "67c84458332ad4d481a43805c8fd1c619086367b682c0d93ca17d4e895b8d30e",
+      "bytes": 13633
     },
     {
       "path": "game/packages/contracts/src/library-directory.ts",
@@ -1555,8 +1560,8 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/action-availability.ts",
-      "sha256": "7c0236bb25e85d7299c02c750ee0e71000627e6eb5a57109226698df76cfe1fd",
-      "bytes": 10481
+      "sha256": "45a6762ec7f5228c81795f0e066cd9fefa63249686b5fffcfc8275c0e9d53961",
+      "bytes": 10732
     },
     {
       "path": "game/packages/game-core/src/lancer/active-systems.ts",
@@ -1569,9 +1574,14 @@
       "bytes": 4980
     },
     {
+      "path": "game/packages/game-core/src/lancer/apocalypse-rail.ts",
+      "sha256": "d2a74ce4f2dbe7c02a3dd186da5883946d01565b1eac69b542ebe6d7ae3f2774",
+      "bytes": 4139
+    },
+    {
       "path": "game/packages/game-core/src/lancer/areas.ts",
-      "sha256": "d952cf01a2fa4fe8c37752ad5f990652155298ca3586f069bcdcf4b391dcabac",
-      "bytes": 4663
+      "sha256": "15c8eec816afbbc035e72c37f26d071effd642a1741631141b7b9765fc873b1a",
+      "bytes": 4813
     },
     {
       "path": "game/packages/game-core/src/lancer/attack-planning.ts",
@@ -1580,8 +1590,8 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/battle.ts",
-      "sha256": "f6a16fb0e2993f33aced09066876d0916b97d50151146c31977c52f97c4a2c25",
-      "bytes": 51488
+      "sha256": "2d0e5b14e72b824cf23f09e8cc01af7bc43aa1861737a77641d6fa93c4711cd6",
+      "bytes": 52516
     },
     {
       "path": "game/packages/game-core/src/lancer/concealment.ts",
@@ -1600,8 +1610,8 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/custom-equipment.ts",
-      "sha256": "8475a96628ba02fd2e640c257e80ff68693f08c1c487f4e224577055fc81beb4",
-      "bytes": 5352
+      "sha256": "4d4e0557da40914a3b4fa26f72371d72a3967fe0ea4efc8ffe739b380e8c5605",
+      "bytes": 5367
     },
     {
       "path": "game/packages/game-core/src/lancer/decisions.ts",
@@ -1629,6 +1639,11 @@
       "bytes": 7199
     },
     {
+      "path": "game/packages/game-core/src/lancer/drone-fields.ts",
+      "sha256": "2cabc9c67a72ba6a9939400c43d08e8c6ece30b0bf21fb07bb736563b382192a",
+      "bytes": 2751
+    },
+    {
       "path": "game/packages/game-core/src/lancer/drone-talents.ts",
       "sha256": "656f60a4217a6dcb04ef75ec25c7c72ddfe1ea2c2fa48dc3ea83d333de9c626e",
       "bytes": 8666
@@ -1645,8 +1660,8 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/effects.ts",
-      "sha256": "30e8dd2dc1d6704ed461ccda95f8609a76115796daf2744e711c9cbb2ecd44a3",
-      "bytes": 2790
+      "sha256": "1caffd427513e23a029474c5f9ad5569ec7f4156a3ed4f950c93fe458210256b",
+      "bytes": 2990
     },
     {
       "path": "game/packages/game-core/src/lancer/entry.ts",
@@ -1660,8 +1675,8 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/features.ts",
-      "sha256": "e57a486888db88172b853124b0650337368c1e017427d1ac52a559d9a24ac7ff",
-      "bytes": 11808
+      "sha256": "e50ae90d94b82d0a36a8c00e91af23d54dabd3ee2156f14591224597015ab4e7",
+      "bytes": 12357
     },
     {
       "path": "game/packages/game-core/src/lancer/flight-route.ts",
@@ -1685,8 +1700,8 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/geometry.ts",
-      "sha256": "bfee285c38bbce8d3f1dbb4afbb521054e465c36ff925fbe3178eafdaa2c0a89",
-      "bytes": 17250
+      "sha256": "dd9e9e50412a8f310559aef9651e147983c872ff86644f76114f79002b0cc896",
+      "bytes": 17265
     },
     {
       "path": "game/packages/game-core/src/lancer/gms.ts",
@@ -1700,8 +1715,8 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/hazards.ts",
-      "sha256": "f9fac21d7a8ccf4d9da7862f5405a581a95c1af12ef2c66e424d253c57a0e3d6",
-      "bytes": 4388
+      "sha256": "84f80a35e2b0b9e5152117e3ee31914ff4a5a6ca109cd5537d5ec358c1eeee17",
+      "bytes": 5612
     },
     {
       "path": "game/packages/game-core/src/lancer/jump.ts",
@@ -1735,8 +1750,8 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/mission-transport.ts",
-      "sha256": "a74d59133c2ba16a65f7f3b310a39c11c8fcc623fca4e1bdc7ed77d349b60647",
-      "bytes": 4656
+      "sha256": "ea40c714a7280d1db4ff517aac4fb312bc7aec997e88315acf01009cb0c5a343",
+      "bytes": 4673
     },
     {
       "path": "game/packages/game-core/src/lancer/mission-withdrawal.ts",
@@ -1745,8 +1760,8 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/nhp.ts",
-      "sha256": "c4c06f5b9c80b506b798296a1f7fa5bb91e341381902cf850139568df2cb7e4b",
-      "bytes": 11414
+      "sha256": "6798bd12f84fa385709e374e54f8616d86426cc5a54c9f77fa4aa2bd431f7ad4",
+      "bytes": 11429
     },
     {
       "path": "game/packages/game-core/src/lancer/npc-options.ts",
@@ -1810,8 +1825,8 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/player-ability.ts",
-      "sha256": "4ca2ff74dab2e384a51d9c8664fe2f49e646ea3f7d25f79860d3cdc75d3a1e3e",
-      "bytes": 9667
+      "sha256": "3ea1f94ba20ba223341c8a1d8f3489188d93647842e38cb3ce7bbd9701cece6e",
+      "bytes": 10429
     },
     {
       "path": "game/packages/game-core/src/lancer/point-decision.ts",
@@ -1840,8 +1855,8 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/resolution.ts",
-      "sha256": "a98a782b5c42a523c0fdef51fdc0b10745ac969ddf616825a49d0aa457f302b6",
-      "bytes": 76327
+      "sha256": "b1d895827f2bf0f9cfda93f5672f5326d8289956910c6ec43f0a99354e2d790b",
+      "bytes": 78724
     },
     {
       "path": "game/packages/game-core/src/lancer/riding.ts",
@@ -1875,8 +1890,8 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/scene-events.ts",
-      "sha256": "0eebe5300b5c59ad2636121c2f21c1e1dbd8bc7349f864673fd12cbc5be3a18d",
-      "bytes": 6234
+      "sha256": "2a2faaf4aedcecd8c719b37bb72340d65cbc693b27bdb692648c2cb19b79a1f1",
+      "bytes": 6645
     },
     {
       "path": "game/packages/game-core/src/lancer/scene-grid.ts",
@@ -1905,8 +1920,8 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/state.ts",
-      "sha256": "a0766dfca3d79d6b09a9de894bbbc3bf638c4b03d6eba9b354926bfeab822457",
-      "bytes": 5344
+      "sha256": "01e77e2812c092272677d85e7586012d9515ae10011f585eea155f9ee0c5d4e7",
+      "bytes": 5525
     },
     {
       "path": "game/packages/game-core/src/lancer/system-choices.ts",
@@ -1920,13 +1935,13 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/systems.ts",
-      "sha256": "23f8139c855b553ea56b34cf0ccf8acb6f65a7ef30263bbbfb61046c53d2c29a",
-      "bytes": 15778
+      "sha256": "53541f94f2f6dae68d966abec6b74e0c00ef8d166ab7edeba4e5de51c7f1407d",
+      "bytes": 19279
     },
     {
       "path": "game/packages/game-core/src/lancer/tactical-mission.ts",
-      "sha256": "bd1b3f8e931139cc6edc758725d556aa025a3b03a385e7c8549bae93e9a101b1",
-      "bytes": 21014
+      "sha256": "79f1c585b67c9d25b4ee7b9e2368902a755f21bbfadcd99df2ab60463fa18d58",
+      "bytes": 21031
     },
     {
       "path": "game/packages/game-core/src/lancer/talent-actions.ts",
@@ -1945,13 +1960,13 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/targeting.ts",
-      "sha256": "f821b34101dfad69b6451ad55f93e75504acc46387eecc22fb1cec5da661a243",
-      "bytes": 8110
+      "sha256": "f88c3dc684fb0d0473978f43ffca6f34db777e05496f9550f8c3208dfca39a82",
+      "bytes": 8125
     },
     {
       "path": "game/packages/game-core/src/lancer/tech-effects.ts",
-      "sha256": "5bb24bf6dc9cee7af3484aef8c61fd1be979e147d4936d78c8b00db976593cab",
-      "bytes": 9415
+      "sha256": "ee80da383772054f547332aca398faa5399f336de27436bb45ca626cc010fce1",
+      "bytes": 9636
     },
     {
       "path": "game/packages/game-core/src/lancer/tech-support.ts",
@@ -1960,8 +1975,8 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/tech.ts",
-      "sha256": "7e9a045498c4c33d20283100e92723813a8682b801e7bdc32f0edf6305e73d2c",
-      "bytes": 28310
+      "sha256": "7dec8ab4e53b885423336986645a459b4baf3956e18cb1529d503dd715ba1cfd",
+      "bytes": 28745
     },
     {
       "path": "game/packages/game-core/src/lancer/terrain-hazards.ts",
@@ -1970,8 +1985,8 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/thermal-systems.ts",
-      "sha256": "4c4cc2463ea613271474f0abc83601cf0b83ced8533323dbb7862affd22c0d1a",
-      "bytes": 6879
+      "sha256": "f186ff0989e17b8b1d29fe9320d0d9128f522976c1220546add3d967c89ed702",
+      "bytes": 7199
     },
     {
       "path": "game/packages/game-core/src/lancer/timing.ts",
@@ -1990,8 +2005,8 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/voluntary-movement.ts",
-      "sha256": "c8d74f10fc8a4844ff3d9ea43f8727b0aa4e8bfbf177dfba5a1e4b1eee8bc997",
-      "bytes": 4813
+      "sha256": "449632ad36c872ee1e86ed93bc8cc7839f1ce296b2b2f63331863eab5c14ce43",
+      "bytes": 4892
     },
     {
       "path": "game/packages/game-core/src/lancer/wallflower.ts",
@@ -2000,8 +2015,8 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/weapon-effects.ts",
-      "sha256": "031002fb3a9e05b30c6bda26f85960eee0ee4ba2237aa3b89269900844880b79",
-      "bytes": 6747
+      "sha256": "4c8cbd4a90ec5dcc58b02ce287f9faf983b8fa26947cfee641a409f04c5006c2",
+      "bytes": 7060
     },
     {
       "path": "game/packages/game-core/src/lancer/weapon-events.ts",
@@ -2020,8 +2035,8 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/weapon-sequences.ts",
-      "sha256": "1808368221a188131c65627d669a6aa9ce7c40393b73d9a52101b93434cb0c47",
-      "bytes": 6384
+      "sha256": "9a9d35e8fe7fc3a4f7846213995e01a00ce2bca7ac7f8f99774eb089f0709411",
+      "bytes": 6617
     },
     {
       "path": "game/packages/game-core/src/persistence.ts",
@@ -3070,8 +3085,8 @@
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts",
-      "sha256": "575307d99ae91ef83a3a4e8dcbe14babe2290a6e98cebc8327f65d0361e47695",
-      "bytes": 18094
+      "sha256": "364776690a8698e7e08300a1506f657676a10040a5b66de15c675c839fe7f801",
+      "bytes": 18112
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/committedMotion.ts",
@@ -3250,8 +3265,8 @@
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
-      "sha256": "779d22ae8a59532a2e7fa06ae65eb70f7f95d495c1d8b1c53dac330a6a9973c9",
-      "bytes": 14036
+      "sha256": "fd758dfd1fe95a47261ccbdf2b52e79d05c5b855487b36a26ce099a8b90dfca1",
+      "bytes": 14170
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/resources.ts",

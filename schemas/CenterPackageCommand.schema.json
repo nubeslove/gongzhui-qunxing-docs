@@ -3,13 +3,13 @@
   "title": "CenterPackageCommand",
   "anyOf": [
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_792"
+      "$ref": "./contracts.schema.json#/$defs/Object_797"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_793"
+      "$ref": "./contracts.schema.json#/$defs/Object_798"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_794"
+      "$ref": "./contracts.schema.json#/$defs/Object_799"
     }
   ]
 }

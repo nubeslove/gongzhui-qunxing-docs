@@ -7,14 +7,16 @@
 <details><summary>类型依赖</summary>
 
 ```ts
+import {APOCALYPSE_RAIL,finishApocalypseShot} from './apocalypse-rail';
 import {lancerRaleighReloadAvailable} from './features';
 import {finishMissionTransport,moveMissionTransport} from './mission-transport';
 import {pauseLancerRecovery} from './recovery';
-import {lancerWeaponPresentation} from '@aelzerant/contracts';
+import {lancerActionFeedback,lancerWeaponPresentation} from '@aelzerant/contracts';
 import {offerLancerLockOn,respondLancerLockOn} from './lockon-choice';
 import {offerLancerTiming,respondLancerTiming,refreshLancerTiming} from './timing';
 import {beginLancerThermalTurn} from './thermal-systems';
 import {beginLancerNpcTurn} from './npc';
+import {refreshLancerDroneFields} from './drone-fields';
 import {resolveSacrificialBolts} from './sacrificial-bolt';
 import {breakWallflowerLayer,wallflowerImmune,wallflowerDamageImmune,wallflowerLayer,isWallflowerEidolon,isWallflowerShard,wallflowerSight,shatterWallflowerShards} from './wallflower';
 import {dustgraveBoss,dustgraveProtected,dustgraveShieldBreak,refreshDustgraveBoss} from './dustgrave';
@@ -85,7 +87,7 @@ import {resolveLancerSceneEffect} from './scene-objects';
 
 ## availableWeapon
 
-导出接口 · 源码第 76 行。
+导出接口 · 源码第 78 行。
 
 ```ts
 export function availableWeapon(w: LancerCombatWeapon): boolean;
@@ -97,7 +99,7 @@ export function availableWeapon(w: LancerCombatWeapon): boolean;
 
 ## validateLancerWeaponUse
 
-导出接口 · 源码第 77 行。
+导出接口 · 源码第 79 行。
 
 ```ts
 export function validateLancerWeaponUse(a: LancerCombatUnit, w: LancerCombatWeapon, reaction?: boolean, committed?: boolean, spent?: boolean, special?: Extract<LancerBattleStep,{kind:'attack'}>['special']): void;
@@ -112,9 +114,17 @@ export function validateLancerWeaponUse(a: LancerCombatUnit, w: LancerCombatWeap
 | `spent` | 是 | `boolean` | false |
 | `special` | 是 | `Extract<LancerBattleStep,{kind:'attack'}>['special']` | — |
 
+## lancerWeaponReach
+
+导出接口 · 源码第 88 行。
+
+```ts
+export const lancerWeaponReach: (a: LancerCombatUnit, w: LancerCombatWeapon): number;
+```
+
 ## validateWeapon
 
-导出接口 · 源码第 85 行。
+导出接口 · 源码第 89 行。
 
 ```ts
 export function validateWeapon(b: LancerBattle, map: ManualMap, a: LancerCombatUnit, target: LancerCombatUnit, w: LancerCombatWeapon, reaction?: boolean, committed?: boolean, area?: LancerArea, spent?: boolean, planningRange?: number, special?: Extract<LancerBattleStep,{kind:'attack'}>['special'], secondary?: {origin:{x:number;y:number;z:number;size?:number};area:boolean}): void;
@@ -137,7 +147,7 @@ export function validateWeapon(b: LancerBattle, map: ManualMap, a: LancerCombatU
 
 ## stress
 
-导出接口 · 源码第 130 行。
+导出接口 · 源码第 134 行。
 
 ```ts
 export function stress(b: LancerBattle, u: LancerCombatUnit, r: LancerRandom): void;
@@ -151,7 +161,7 @@ export function stress(b: LancerBattle, u: LancerCombatUnit, r: LancerRandom): v
 
 ## applyHeat
 
-导出接口 · 源码第 150 行。
+导出接口 · 源码第 154 行。
 
 ```ts
 export function applyHeat(b: LancerBattle, u: LancerCombatUnit, amount: number, r: LancerRandom, resistanceApplied?: boolean): void;
@@ -167,7 +177,7 @@ export function applyHeat(b: LancerBattle, u: LancerCombatUnit, amount: number, 
 
 ## drainLancer
 
-导出接口 · 源码第 309 行。
+导出接口 · 源码第 316 行。
 
 ```ts
 export function drainLancer(b: LancerBattle, map: ManualMap, r: LancerRandom): void;
@@ -181,7 +191,7 @@ export function drainLancer(b: LancerBattle, map: ManualMap, r: LancerRandom): v
 
 ## respondLancer
 
-导出接口 · 源码第 457 行。
+导出接口 · 源码第 465 行。
 
 ```ts
 export function respondLancer(b: LancerBattle, option: string, gmOverride: boolean, map: ManualMap, r: LancerRandom, point?: {x:number;y:number;z:number}, text?: string, purpose?: import('@aelzerant/contracts').LancerLeadershipPurpose): void;

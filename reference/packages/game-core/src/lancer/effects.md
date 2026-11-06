@@ -7,6 +7,7 @@
 <details><summary>类型依赖</summary>
 
 ```ts
+import {inDroneField} from './drone-fields';
 import type { LancerBattle, LancerCombatUnit, ManualMap, ManualToken } from '@aelzerant/contracts';
 import { lancerAreaContains } from './areas';
 import { lancerDistance, lancerTerrainCover } from './geometry';
@@ -17,7 +18,7 @@ import { log } from './state';
 
 ## expireLancerEffects
 
-导出接口 · 源码第 7 行。
+导出接口 · 源码第 8 行。
 
 ```ts
 export function expireLancerEffects(b: LancerBattle, u: LancerCombatUnit, at: 'start'|'end'): void;
@@ -31,7 +32,7 @@ export function expireLancerEffects(b: LancerBattle, u: LancerCombatUnit, at: 's
 
 ## lancerShieldDifficulty
 
-导出接口 · 源码第 13 行。
+导出接口 · 源码第 14 行。
 
 ```ts
 export function lancerShieldDifficulty(b: LancerBattle, a: LancerCombatUnit, t: LancerCombatUnit): number;
@@ -45,7 +46,7 @@ export function lancerShieldDifficulty(b: LancerBattle, a: LancerCombatUnit, t: 
 
 ## lancerCover
 
-导出接口 · 源码第 16 行。
+导出接口 · 源码第 17 行。
 
 ```ts
 export function lancerCover(b: LancerBattle, map: ManualMap, origin: ManualToken, target: LancerCombatUnit): number;

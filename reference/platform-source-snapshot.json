@@ -4,8 +4,8 @@
   "files": [
     {
       "path": "game/apps/server/src/index.ts",
-      "sha256": "04673f9e48547df6443c0d3a13ac02954403b5a6dc026d3edf14cd72adfb39fa",
-      "bytes": 42118
+      "sha256": "df5758e690e20f6839934405e1ba505a1e9ff4ab3f3a392c61d89e448fe8aa02",
+      "bytes": 43151
     },
     {
       "path": "game/apps/server/src/auth.ts",
@@ -19,8 +19,8 @@
     },
     {
       "path": "game/apps/server/src/community.ts",
-      "sha256": "ac81382de6358f542a829cde9cb22e65eccd702cdcce3c74d32574b8ac014073",
-      "bytes": 7889
+      "sha256": "beb5cad1246e9a41031ae6f3ec5b02fe4bbf1a21871af9082128c47641a69bfa",
+      "bytes": 8220
     },
     {
       "path": "game/apps/server/src/media.ts",
@@ -39,8 +39,8 @@
     },
     {
       "path": "game/apps/server/src/store.ts",
-      "sha256": "dc7df8b9fc1119893b01876cb1450ff44298afba7b17961f76ad4d9a0beee31a",
-      "bytes": 8962
+      "sha256": "ce179de8388043b4c7bfdd7aa65052b7d99a8721b706d182fb560f135ea776ee",
+      "bytes": 9053
     },
     {
       "path": "game/apps/server/src/world-access.ts",
@@ -124,7 +124,7 @@
     },
     {
       "path": "game/apps/desktop/src-tauri/tauri.conf.json",
-      "sha256": "28a055d758eb4f85ae3dc3a26422bb0acb3f4bda33246e696d3dc000ec1b4c3a",
+      "sha256": "807f868c44f9ecc2af03a384638cd59e51abd14af473ce1bf75b544a39a76611",
       "bytes": 1375
     },
     {

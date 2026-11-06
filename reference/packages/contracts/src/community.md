@@ -46,6 +46,7 @@ export interface CommunityPost {
     category: "discussion" | "party" | "feedback";
     createdAt: number;
     replies: CommunityReply[];
+    views?: number;
     deleted?: boolean;
     pinned?: boolean;
     featured?: boolean;
@@ -62,6 +63,7 @@ export interface CommunityPost {
 | `category` | 否 | `"discussion" &#124; "party" &#124; "feedback"` | 见结构定义及所属功能文档 |
 | `createdAt` | 否 | `number` | 见结构定义及所属功能文档 |
 | `replies` | 否 | `CommunityReply[]` | 见结构定义及所属功能文档 |
+| `views` | 是 | `number` | 见结构定义及所属功能文档 |
 | `deleted` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `pinned` | 是 | `boolean` | 见结构定义及所属功能文档 |
 | `featured` | 是 | `boolean` | 见结构定义及所属功能文档 |
@@ -166,6 +168,9 @@ export type CommunityAction = {
     postId: string;
     body: string;
 } | {
+    kind: "read-post";
+    postId: string;
+} | {
     kind: "delete-post";
     postId: string;
 } | {
@@ -197,17 +202,19 @@ export type CommunityAction = {
 | `分支2.kind` | 否 | `"reply"` | 见结构定义及所属功能文档 |
 | `分支2.postId` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支2.body` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支3.kind` | 否 | `"delete-post"` | 见结构定义及所属功能文档 |
+| `分支3.kind` | 否 | `"read-post"` | 见结构定义及所属功能文档 |
 | `分支3.postId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支4.kind` | 否 | `"friend-request"` | 见结构定义及所属功能文档 |
-| `分支4.playerId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支5.kind` | 否 | `"friend-accept" &#124; "friend-remove"` | 见结构定义及所属功能文档 |
-| `分支5.id` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支6.kind` | 否 | `"moderate"` | 见结构定义及所属功能文档 |
-| `分支6.postId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支6.pinned` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支6.featured` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支7.kind` | 否 | `"notice"` | 见结构定义及所属功能文档 |
-| `分支7.title` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支7.body` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支7.scope` | 是 | `CommunityScope` | 见结构定义及所属功能文档 |
+| `分支4.kind` | 否 | `"delete-post"` | 见结构定义及所属功能文档 |
+| `分支4.postId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支5.kind` | 否 | `"friend-request"` | 见结构定义及所属功能文档 |
+| `分支5.playerId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支6.kind` | 否 | `"friend-accept" &#124; "friend-remove"` | 见结构定义及所属功能文档 |
+| `分支6.id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支7.kind` | 否 | `"moderate"` | 见结构定义及所属功能文档 |
+| `分支7.postId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支7.pinned` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支7.featured` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支8.kind` | 否 | `"notice"` | 见结构定义及所属功能文档 |
+| `分支8.title` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支8.body` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支8.scope` | 是 | `CommunityScope` | 见结构定义及所属功能文档 |

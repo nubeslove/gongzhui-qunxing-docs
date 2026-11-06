@@ -7,7 +7,7 @@
 <details><summary>类型依赖</summary>
 
 ```ts
-import type { LancerBattle, LancerCombatUnit, LancerCombatWeapon, LancerDamageType, ManualMap } from '@aelzerant/contracts';
+import { lancerActionFeedback, type LancerBattle, type LancerCombatUnit, type LancerCombatWeapon, type LancerDamageType, type ManualMap } from '@aelzerant/contracts';
 import { condition, log } from './state';
 import { lancerDie, lancerRoll, type LancerRandom } from './dice';
 import { lancerAreaTargets } from './areas';
@@ -45,7 +45,7 @@ export function lancerWeaponOnAttack(b: LancerBattle, map: ManualMap, a: LancerC
 
 ## lancerWeaponHitEffects
 
-导出接口 · 源码第 35 行。
+导出接口 · 源码第 36 行。
 
 Enqueue source-defined hit riders; they resolve after this attack's damage.
 
@@ -65,7 +65,7 @@ export function lancerWeaponHitEffects(b: LancerBattle, map: ManualMap, a: Lance
 
 ## lancerWeaponCriticalBonus
 
-导出接口 · 源码第 47 行。
+导出接口 · 源码第 48 行。
 
 ```ts
 export function lancerWeaponCriticalBonus(w: LancerCombatWeapon, r: LancerRandom, maximum: boolean, half: boolean): {amount:number;type:LancerDamageType;text:string}|null;
@@ -80,7 +80,7 @@ export function lancerWeaponCriticalBonus(w: LancerCombatWeapon, r: LancerRandom
 
 ## lancerWeaponAreaAfter
 
-导出接口 · 源码第 50 行。
+导出接口 · 源码第 51 行。
 
 ```ts
 export function lancerWeaponAreaAfter(b: LancerBattle, map: ManualMap, u: LancerCombatUnit, id: string, r: LancerRandom): void;
