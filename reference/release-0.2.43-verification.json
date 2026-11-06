@@ -1,0 +1,20 @@
+{
+  "at": "2026-11-06T10:53:14.509Z",
+  "version": "0.2.43",
+  "commit": "4be3bb5782c7415054bfdc9082f5090f997243e1",
+  "ready": true,
+  "players": 6,
+  "worlds": 1,
+  "pairedClientVersion": "0.2.43",
+  "privateRuntimeStatus": 401,
+  "matchingBrowserBuild": true,
+  "cosResourceRedirect": true,
+  "desktop": {
+    "version": "0.2.43",
+    "connected": true,
+    "verification": "本机客户端自动重启后正常进入 NAA 大厅，连接与更新页显示已连接服务器及当前界面版本 0.2.43。"
+  },
+  "githubLatest": "https://github.com/nubeslove/gongzhui-qunxing-releases/releases/tag/v0.2.43",
+  "githubAssetsVerified": 11,
+  "domesticReleaseAssets": "pending-local-credentials"
+}
