@@ -1,6 +1,6 @@
 # game/packages/game-core/src/lancer/recovery.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -22,6 +22,7 @@ type Authority = {
     senderId: string;
     hostId: string;
     recoveryHostId?: string;
+    now?: number;
 };
 ```
 
@@ -30,6 +31,7 @@ type Authority = {
 | `senderId` | 否 | `string` | 见结构定义及所属功能文档 |
 | `hostId` | 否 | `string` | 见结构定义及所属功能文档 |
 | `recoveryHostId` | 是 | `string` | 见结构定义及所属功能文档 |
+| `now` | 是 | `number` | 见结构定义及所属功能文档 |
 
 ## recoveryOwner
 
@@ -50,14 +52,14 @@ export function recoveryOwner(b: LancerBattle, u: LancerCombatUnit, ctx: Authori
 导出接口 · 源码第 7 行。
 
 ```ts
-export function pauseLancerRecovery(b: LancerBattle, unit: string, source: 'queue'|'manual', title: string): void;
+export function pauseLancerRecovery(b: LancerBattle, unit: string, source: 'queue'|'manual'|'automatic', title: string): void;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | `b` | 否 | `LancerBattle` | — |
 | `unit` | 否 | `string` | — |
-| `source` | 否 | `'queue'&#124;'manual'` | — |
+| `source` | 否 | `'queue'&#124;'manual'&#124;'automatic'` | — |
 | `title` | 否 | `string` | — |
 
 ## applyLancerRecovery

@@ -1,6 +1,6 @@
 # game/packages/tabletop-runtime/src/story/compendiumBackup.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -28,30 +28,32 @@ export type CompendiumBackupObjects = Record<string, unknown>;
 The same closure is used by file export, server backup, and restoration.
 
 ```ts
-export function collectCompendiumObjects(packs: readonly CompendiumPack[], store: CompendiumObjects): Promise<CompendiumBackupObjects>;
+export function collectCompendiumObjects(packs: readonly CompendiumPack[], store: CompendiumObjects, progress?: (completed:number,total:number)=>void): Promise<CompendiumBackupObjects>;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | `packs` | 否 | `readonly CompendiumPack[]` | — |
 | `store` | 否 | `CompendiumObjects` | — |
+| `progress` | 是 | `(completed:number,total:number)=>void` | — |
 
 ## attachCompendiumObjects
 
-导出接口 · 源码第 12 行。
+导出接口 · 源码第 13 行。
 
 ```ts
-export function attachCompendiumObjects<T extends {story?:StoryWorkspace}>(world: T, store: CompendiumObjects): Promise<T & {compendiumObjects?:CompendiumBackupObjects}>;
+export function attachCompendiumObjects<T extends {story?:StoryWorkspace}>(world: T, store: CompendiumObjects, progress?: (completed:number,total:number)=>void): Promise<T & {compendiumObjects?:CompendiumBackupObjects}>;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | `world` | 否 | `T` | — |
 | `store` | 否 | `CompendiumObjects` | — |
+| `progress` | 是 | `(completed:number,total:number)=>void` | — |
 
 ## restoreCompendiumObjects
 
-导出接口 · 源码第 13 行。
+导出接口 · 源码第 14 行。
 
 ```ts
 export function restoreCompendiumObjects(raw: unknown, store: CompendiumObjects): Promise<void>;

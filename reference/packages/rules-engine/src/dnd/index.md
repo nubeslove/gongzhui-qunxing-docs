@@ -1,6 +1,6 @@
 # game/packages/rules-engine/src/dnd/index.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -64,6 +64,41 @@ export const dndCreationEntries: (speciesId: string): import("@source/packages/r
 
 ```ts
 export const dndEntry: (id: string): import("@source/packages/rules-engine/src/index").DndEntry | undefined;
+```
+
+## DND_ABILITY_NAMES
+
+导出接口 · 源码第 23 行。
+
+```ts
+export const DND_ABILITY_NAMES: Record<DndAbility, string>;
+```
+
+## DND_SKILLS
+
+导出接口 · 源码第 24 行。
+
+```ts
+export const DND_SKILLS: Record<string, {
+    name: string;
+    ability: DndAbility;
+}>;
+```
+
+## DND_CONDITION_NAMES
+
+导出接口 · 源码第 25 行。
+
+```ts
+export const DND_CONDITION_NAMES: Record<DndCondition, string>;
+```
+
+## DND_DAMAGE_NAMES
+
+导出接口 · 源码第 26 行。
+
+```ts
+export const DND_DAMAGE_NAMES: Record<DndDamageType, string>;
 ```
 
 ## dndMod

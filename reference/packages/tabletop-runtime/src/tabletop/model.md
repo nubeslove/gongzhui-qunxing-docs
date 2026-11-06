@@ -1,12 +1,14 @@
 # game/packages/tabletop-runtime/src/tabletop/model.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {campaignFrameCore} from './lancer/frameCore';
+import {deploymentConfirmationKey} from './lancer/deploymentConfirmation';
 import {prepareWallflowerFinale} from './lancer/wallflowerTools';
 import {applyMapPing,type MapPingAction} from './mapPing';
 import {isHexGrid} from '@aelzerant/contracts';
@@ -78,7 +80,7 @@ import { applyTableStory, type TableStoryAction } from './storyActions';
 
 ## blankActor
 
-导出接口 · 源码第 83 行。
+导出接口 · 源码第 85 行。
 
 ```ts
 export function blankActor(name: string, ownerId: string): ManualActor;
@@ -91,7 +93,7 @@ export function blankActor(name: string, ownerId: string): ManualActor;
 
 ## TableAction
 
-导出接口 · 源码第 84 行。
+导出接口 · 源码第 86 行。
 
 ```ts
 export type TableAction = {
@@ -243,7 +245,7 @@ export type TableAction = {
 
 ## rollDice
 
-导出接口 · 源码第 85 行。
+导出接口 · 源码第 87 行。
 
 ```ts
 export function rollDice(expression: string, random?: () => number): string;
@@ -256,7 +258,7 @@ export function rollDice(expression: string, random?: () => number): string;
 
 ## applyTableAction
 
-导出接口 · 源码第 91 行。
+导出接口 · 源码第 93 行。
 
 ```ts
 export function applyTableAction(table: ManualTable, senderId: string, action: TableAction, nickname: string, memberIds?: ReadonlySet<string>, onlineIds?: ReadonlySet<string>): ManualTable;

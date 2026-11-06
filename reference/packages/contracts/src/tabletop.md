@@ -1,6 +1,6 @@
 # game/packages/contracts/src/tabletop.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -22,6 +22,7 @@ import {inspectDndUnit,parseUnitInspection,parseSceneObject,type UnitInspection,
 import {parseLancerRide,type LancerRide} from './lancer-combat';
 import {dndPerception,dndPlayerSources,perceivedToken} from './dnd-perception';
 import {journalAssetPaths} from './story-journal';
+import {documentAccess} from './world-library';
 import {manualTokenObserver} from './manual-senses';
 import {monsterHpVisibilityFor} from './monster-health';
 import {seesInvisible,tremorDetects} from './scene-obscurity';
@@ -58,7 +59,7 @@ import { parseLancerBattle, parseLancerZone, projectLancerBattle, type LancerBat
 
 ## ManualActor
 
-导出接口 · 源码第 48 行。
+导出接口 · 源码第 49 行。
 
 ```ts
 export interface ManualActor {
@@ -98,7 +99,7 @@ export interface ManualActor {
 
 ## ManualToken
 
-导出接口 · 源码第 49 行。
+导出接口 · 源码第 50 行。
 
 ```ts
 export interface ManualToken {
@@ -170,7 +171,7 @@ export interface ManualToken {
 
 ## ManualBlock
 
-导出接口 · 源码第 50 行。
+导出接口 · 源码第 51 行。
 
 ```ts
 export interface ManualBlock {
@@ -218,7 +219,7 @@ export interface ManualBlock {
 
 ## ManualMap
 
-导出接口 · 源码第 53 行。
+导出接口 · 源码第 54 行。
 
 ```ts
 export interface ManualMap {
@@ -256,7 +257,7 @@ export interface ManualMap {
 
 ## ManualAsset
 
-导出接口 · 源码第 54 行。
+导出接口 · 源码第 55 行。
 
 ```ts
 export interface ManualAsset {
@@ -280,7 +281,7 @@ export interface ManualAsset {
 
 ## ManualMessage
 
-导出接口 · 源码第 55 行。
+导出接口 · 源码第 56 行。
 
 ```ts
 export interface ManualMessage {
@@ -302,7 +303,7 @@ export interface ManualMessage {
 
 ## ManualTable
 
-导出接口 · 源码第 56 行。
+导出接口 · 源码第 57 行。
 
 ```ts
 export interface ManualTable {
@@ -385,7 +386,7 @@ export interface ManualTable {
 
 ## PublicationFile
 
-导出接口 · 源码第 74 行。
+导出接口 · 源码第 75 行。
 
 ```ts
 export interface PublicationFile {
@@ -405,7 +406,7 @@ export interface PublicationFile {
 
 ## WorldPublication
 
-导出接口 · 源码第 75 行。
+导出接口 · 源码第 76 行。
 
 ```ts
 export interface WorldPublication {
@@ -431,7 +432,7 @@ export interface WorldPublication {
 
 ## validHash
 
-导出接口 · 源码第 76 行。
+导出接口 · 源码第 77 行。
 
 ```ts
 export const validHash: (value: unknown): value is string;
@@ -439,7 +440,7 @@ export const validHash: (value: unknown): value is string;
 
 ## validPublicationPath
 
-导出接口 · 源码第 77 行。
+导出接口 · 源码第 78 行。
 
 ```ts
 export const validPublicationPath: (value: unknown): value is string;
@@ -447,7 +448,7 @@ export const validPublicationPath: (value: unknown): value is string;
 
 ## parseManualActor
 
-导出接口 · 源码第 86 行。
+导出接口 · 源码第 87 行。
 
 ```ts
 export const parseManualActor: (raw: unknown): ManualActor;
@@ -455,7 +456,7 @@ export const parseManualActor: (raw: unknown): ManualActor;
 
 ## parseManualTable
 
-导出接口 · 源码第 87 行。
+导出接口 · 源码第 88 行。
 
 ```ts
 export function parseManualTable(raw: unknown): ManualTable;
@@ -467,7 +468,7 @@ export function parseManualTable(raw: unknown): ManualTable;
 
 ## ReadonlyTableValue
 
-内部依赖类型 · 源码第 157 行。
+内部依赖类型 · 源码第 163 行。
 
 A published pack contains only deliberately public preparation content, never live chat or GM notes.
 
@@ -479,7 +480,7 @@ type ReadonlyTableValue<T> = T extends object ? {
 
 ## ManualTableTransportView
 
-导出接口 · 源码第 158 行。
+导出接口 · 源码第 164 行。
 
 ```ts
 export type ManualTableTransportView = ReadonlyTableValue<ManualTable>;
@@ -487,7 +488,7 @@ export type ManualTableTransportView = ReadonlyTableValue<ManualTable>;
 
 ## publicTable
 
-导出接口 · 源码第 160 行。
+导出接口 · 源码第 166 行。
 
 Keeps the existing mutable projection contract for callers which edit their view.
 
@@ -502,7 +503,7 @@ export function publicTable(table: ManualTable, playerId?: string): ManualTable;
 
 ## tableTransportView
 
-导出接口 · 源码第 162 行。
+导出接口 · 源码第 168 行。
 
 Wire-only view borrows committed immutable state; never expose it to mutable consumers.
 
@@ -517,7 +518,7 @@ export function tableTransportView(table: ManualTable, playerId: string): Manual
 
 ## parsePublication
 
-导出接口 · 源码第 224 行。
+导出接口 · 源码第 233 行。
 
 ```ts
 export function parsePublication(raw: unknown): WorldPublication;

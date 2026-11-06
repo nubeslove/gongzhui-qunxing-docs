@@ -1,0 +1,51 @@
+{
+  "id": "demo-ferry-signal",
+  "name": "渡口信号练习",
+  "pluginId": "qte",
+  "revision": 0,
+  "definition": {
+    "version": 1,
+    "cues": [
+      {
+        "id": "cue-1",
+        "type": "tap",
+        "label": "按下按键",
+        "at": 0,
+        "duration": 1800,
+        "timing": "reaction",
+        "targetMs": 800,
+        "keys": [
+          "Space"
+        ],
+        "holdMs": 600,
+        "hits": 5,
+        "direction": "right",
+        "distance": 140,
+        "grades": [
+          {
+            "id": "perfect",
+            "label": "完美",
+            "windowMs": 280,
+            "score": 100
+          },
+          {
+            "id": "good",
+            "label": "成功",
+            "windowMs": 1400,
+            "score": 60
+          }
+        ],
+        "config": {}
+      }
+    ],
+    "passScore": 60,
+    "missScore": 0,
+    "config": {}
+  },
+  "interruption": "gm",
+  "team": {
+    "mode": "all",
+    "threshold": 1
+  },
+  "consequences": []
+}

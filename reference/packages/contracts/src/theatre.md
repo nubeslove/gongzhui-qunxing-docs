@@ -1,6 +1,6 @@
 # game/packages/contracts/src/theatre.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -25,7 +25,7 @@ export type PluginCategory = keyof typeof PLUGIN_CATEGORIES;
 导出接口 · 源码第 13 行。
 
 ```ts
-export const PLUGIN_CAPABILITIES = ['theatre', 'theatre-preset', 'boss-bar', 'boss-bar-preset', 'world-calendar', 'system-terminal', 'fx', 'chat-alert', 'utility'] as const;
+export const PLUGIN_CAPABILITIES = ['theatre', 'theatre-preset', 'boss-bar', 'boss-bar-preset', 'world-calendar', 'system-terminal', 'fx', 'chat-alert', 'utility', 'minigame-host', 'minigame'] as const;
 ```
 
 ## PluginCapability
@@ -51,7 +51,7 @@ export const WORLD_CALENDAR_PLUGIN = 'world-calendar';
 Imported presets may not shadow application-owned switches or capabilities.
 
 ```ts
-export const BUILTIN_PLUGIN_IDS = ['tactical-missions', 'log-export', 'theatre', 'boss-bar', 'world-calendar', 'chat-alert', 'fx', 'system-terminal'] as const;
+export const BUILTIN_PLUGIN_IDS = ['tactical-missions', 'log-export', 'theatre', 'boss-bar', 'world-calendar', 'chat-alert', 'fx', 'system-terminal', 'minigame-foundation', 'qte'] as const;
 ```
 
 ## BuiltinPluginId
@@ -74,12 +74,31 @@ export function isBuiltinPluginId(id: string): id is BuiltinPluginId;
 | --- | --- | --- | --- |
 | `id` | 否 | `string` | — |
 
-## PluginManifest
+## PluginRequirement
 
 导出接口 · 源码第 21 行。
 
 ```ts
+export interface PluginRequirement {
+    id: string;
+    minimum?: string;
+    before?: string;
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `minimum` | 是 | `string` | 见结构定义及所属功能文档 |
+| `before` | 是 | `string` | 见结构定义及所属功能文档 |
+
+## PluginManifest
+
+导出接口 · 源码第 22 行。
+
+```ts
 export interface PluginManifest {
+    requires?: PluginRequirement[];
     id: string;
     name: string;
     version: string;
@@ -94,6 +113,7 @@ export interface PluginManifest {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `requires` | 是 | `PluginRequirement[]` | 见结构定义及所属功能文档 |
 | `id` | 否 | `string` | 见结构定义及所属功能文档 |
 | `name` | 否 | `string` | 见结构定义及所属功能文档 |
 | `version` | 否 | `string` | 见结构定义及所属功能文档 |
@@ -106,7 +126,7 @@ export interface PluginManifest {
 
 ## StoryPlugins
 
-导出接口 · 源码第 28 行。
+导出接口 · 源码第 30 行。
 
 ```ts
 export interface StoryPlugins {
@@ -124,7 +144,7 @@ export interface StoryPlugins {
 
 ## parsePluginManifest
 
-导出接口 · 源码第 56 行。
+导出接口 · 源码第 58 行。
 
 ```ts
 export function parsePluginManifest(raw: unknown): PluginManifest;
@@ -134,9 +154,23 @@ export function parsePluginManifest(raw: unknown): PluginManifest;
 | --- | --- | --- | --- |
 | `raw` | 否 | `unknown` | — |
 
+## theatrePluginEnabled
+
+导出接口 · 源码第 91 行。
+
+Missing plugin settings use defaults; an explicit enabled list remains authoritative.
+
+```ts
+export function theatrePluginEnabled(plugins: StoryPlugins|undefined): boolean;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `plugins` | 否 | `StoryPlugins&#124;undefined` | — |
+
 ## emptyStoryPlugins
 
-导出接口 · 源码第 80 行。
+导出接口 · 源码第 92 行。
 
 ```ts
 export function emptyStoryPlugins(): StoryPlugins;
@@ -144,7 +178,7 @@ export function emptyStoryPlugins(): StoryPlugins;
 
 ## parseStoryPlugins
 
-导出接口 · 源码第 81 行。
+导出接口 · 源码第 93 行。
 
 ```ts
 export function parseStoryPlugins(raw: unknown): StoryPlugins;
@@ -156,7 +190,7 @@ export function parseStoryPlugins(raw: unknown): StoryPlugins;
 
 ## worldCalendarPluginEnabled
 
-导出接口 · 源码第 93 行。
+导出接口 · 源码第 105 行。
 
 World calendar is opt-out; LANCER family is opt-in by default.
 
@@ -171,7 +205,7 @@ export function worldCalendarPluginEnabled(plugins: StoryPlugins|undefined, syst
 
 ## THEATRE_EMOTES
 
-导出接口 · 源码第 99 行。
+导出接口 · 源码第 111 行。
 
 ```ts
 export const THEATRE_EMOTES = ['happy', 'surprise', 'question', 'angry', 'sad', 'heart', 'thinking', 'nervous', 'music', 'sleepy'] as const;
@@ -179,15 +213,23 @@ export const THEATRE_EMOTES = ['happy', 'surprise', 'question', 'angry', 'sad', 
 
 ## TheatreEmote
 
-导出接口 · 源码第 100 行。
+导出接口 · 源码第 112 行。
 
 ```ts
 export type TheatreEmote = typeof THEATRE_EMOTES[number];
 ```
 
+## THEATRE_EMOTE_NAMES
+
+导出接口 · 源码第 113 行。
+
+```ts
+export const THEATRE_EMOTE_NAMES: Record<TheatreEmote, string>;
+```
+
 ## TheatreAction
 
-导出接口 · 源码第 116 行。
+导出接口 · 源码第 128 行。
 
 ```ts
 export type TheatreAction = keyof typeof THEATRE_ACTIONS;
@@ -195,7 +237,7 @@ export type TheatreAction = keyof typeof THEATRE_ACTIONS;
 
 ## TheatreSide
 
-导出接口 · 源码第 118 行。
+导出接口 · 源码第 130 行。
 
 ```ts
 export type TheatreSide = 'left' | 'right';
@@ -203,7 +245,7 @@ export type TheatreSide = 'left' | 'right';
 
 ## TheatreActionEvent
 
-导出接口 · 源码第 119 行。
+导出接口 · 源码第 131 行。
 
 ```ts
 export interface TheatreActionEvent {
@@ -221,7 +263,7 @@ export interface TheatreActionEvent {
 
 ## TheatreSlot
 
-导出接口 · 源码第 120 行。
+导出接口 · 源码第 132 行。
 
 ```ts
 export interface TheatreSlot {
@@ -253,7 +295,7 @@ export interface TheatreSlot {
 
 ## TheatreSpeech
 
-导出接口 · 源码第 125 行。
+导出接口 · 源码第 137 行。
 
 ```ts
 export interface TheatreSpeech {
@@ -275,7 +317,7 @@ export interface TheatreSpeech {
 
 ## TheatreState
 
-导出接口 · 源码第 126 行。
+导出接口 · 源码第 138 行。
 
 ```ts
 export interface TheatreState {
@@ -301,7 +343,7 @@ export interface TheatreState {
 
 ## emptyTheatreState
 
-导出接口 · 源码第 127 行。
+导出接口 · 源码第 139 行。
 
 ```ts
 export function emptyTheatreState(): TheatreState;
@@ -309,7 +351,7 @@ export function emptyTheatreState(): TheatreState;
 
 ## parseTheatreState
 
-导出接口 · 源码第 128 行。
+导出接口 · 源码第 140 行。
 
 ```ts
 export function parseTheatreState(raw: unknown): TheatreState;
@@ -321,7 +363,7 @@ export function parseTheatreState(raw: unknown): TheatreState;
 
 ## theatreSide
 
-导出接口 · 源码第 167 行。
+导出接口 · 源码第 179 行。
 
 ```ts
 export function theatreSide(slot: {side?:TheatreSide;position:number}): TheatreSide;
@@ -333,7 +375,7 @@ export function theatreSide(slot: {side?:TheatreSide;position:number}): TheatreS
 
 ## theatreLayout
 
-导出接口 · 源码第 169 行。
+导出接口 · 源码第 181 行。
 
 Stable edge grouping: changing speaker never moves other portraits.
 

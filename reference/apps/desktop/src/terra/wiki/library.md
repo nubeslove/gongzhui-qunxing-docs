@@ -1,6 +1,6 @@
 # game/apps/desktop/src/terra/wiki/library.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../../README.md)
 
@@ -113,6 +113,28 @@ export interface RulePage {
 export const PHB = 'dnd-f473a607f72c5a164e';
 ```
 
+## categories
+
+导出接口 · 源码第 15 行。
+
+```ts
+export const categories: {
+    id: Category;
+    title: string;
+    label: string;
+    icon: string;
+    description: string;
+}[];
+```
+
+## kindNames
+
+导出接口 · 源码第 27 行。
+
+```ts
+export const kindNames: Record<string, string>;
+```
+
 ## sourceLabel
 
 导出接口 · 源码第 28 行。
@@ -179,6 +201,14 @@ export interface Filters {
 | `group` | 否 | `string` | 见结构定义及所属功能文档 |
 | `concentration` | 否 | `boolean` | 见结构定义及所属功能文档 |
 | `ritual` | 否 | `boolean` | 见结构定义及所属功能文档 |
+
+## emptyFilters
+
+导出接口 · 源码第 125 行。
+
+```ts
+export const emptyFilters: Filters;
+```
 
 ## searchEntries
 

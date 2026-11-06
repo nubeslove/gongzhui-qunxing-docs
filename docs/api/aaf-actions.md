@@ -555,11 +555,11 @@
 
 </details>
 
-来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第198行。
 
 读取字段：无额外直接字段。
 
-来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第59行。
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第60行。
 
 读取字段：无额外直接字段。
 
@@ -598,11 +598,11 @@
 
 - `assertGm(context)`
 
-来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第198行。
 
 读取字段：无额外直接字段。
 
-来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第53行。
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第54行。
 
 读取字段：无额外直接字段。
 
@@ -614,7 +614,7 @@
 
 ## directory.delete
 
-来源：`game/packages/contracts/src/world-edit-policy.ts` 第34行。
+来源：`game/packages/contracts/src/world-edit-policy.ts` 第36行。
 
 读取字段：无额外直接字段。
 
@@ -628,11 +628,11 @@
 
 - `assertGm(context)`
 
-来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第198行。
 
 读取字段：无额外直接字段。
 
-来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第48行。
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第49行。
 
 读取字段：无额外直接字段。
 
@@ -648,11 +648,11 @@
 
 - `assertGm(context)`
 
-来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第198行。
 
 读取字段：无额外直接字段。
 
-来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第56行。
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第57行。
 
 读取字段：无额外直接字段。
 
@@ -674,7 +674,7 @@
 
 - `ownedActor(world,action.actorId,context)`
 
-来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第178行。
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第192行。
 
 读取字段：`actorId`。
 
@@ -728,11 +728,11 @@
 
 </details>
 
-来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第198行。
 
 读取字段：无额外直接字段。
 
-来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第57行。
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第58行。
 
 读取字段：`id`、`before`、`value`。
 
@@ -780,11 +780,11 @@
 
 </details>
 
-来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第198行。
 
 读取字段：无额外直接字段。
 
-来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第74行。
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第75行。
 
 读取字段：无额外直接字段。
 
@@ -810,11 +810,11 @@
 
 读取字段：无额外直接字段。
 
-来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第198行。
 
 读取字段：无额外直接字段。
 
-来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第74行。
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第75行。
 
 读取字段：无额外直接字段。
 
@@ -837,11 +837,11 @@
 
 </details>
 
-来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第198行。
 
 读取字段：无额外直接字段。
 
-来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第75行。
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第76行。
 
 读取字段：`archive`、`id`、`name`、`folderId`、`replacement`。
 
@@ -876,11 +876,11 @@
 
 </details>
 
-来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第198行。
 
 读取字段：无额外直接字段。
 
-来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第76行。
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第77行。
 
 读取字段：`sourceId`、`id`、`name`、`folderId`。
 
@@ -903,11 +903,11 @@
 
 </details>
 
-来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第198行。
 
 读取字段：无额外直接字段。
 
-来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第58行。
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第59行。
 
 读取字段：`id`、`mode`、`expected`。
 
@@ -936,11 +936,11 @@
 
 </details>
 
-来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第198行。
 
 读取字段：无额外直接字段。
 
-来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第70行。
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第71行。
 
 读取字段：`id`、`before`、`value`。
 
@@ -957,7 +957,7 @@
 
 ## story.use
 
-来源：`game/packages/session/src/world-story.ts` 第11行。
+来源：`game/packages/session/src/world-story.ts` 第12行。
 
 读取字段：无额外直接字段。
 
@@ -969,23 +969,29 @@
 
 读取字段：无额外直接字段。
 
-来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第183行。
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第197行。
 
 读取字段：`request`。
 
 ## story.command
 
-来源：`game/packages/contracts/src/world-edit-policy.ts` 第31行。
+来源：`game/packages/contracts/src/world-edit-policy.ts` 第33行。
 
 读取字段：无额外直接字段。
 
-来源：`game/packages/session/src/world-story.ts` 第12行。
+来源：`game/packages/session/src/world-story.ts` 第13行。
 
 读取字段：`command`、`messageId`。
 
 直接校验：
 
 - `isRecord(action.command)`
+
+<details><summary>检测到的拒绝条件（按各自代码分支生效）</summary>
+
+- `!actor`
+
+</details>
 
 ## effect.tick
 
@@ -1057,11 +1063,11 @@
 - `assertGm(context)`
 - `ownedActor(world, action.id, context)`
 
-来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第198行。
 
 读取字段：无额外直接字段。
 
-来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第116行。
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第117行。
 
 读取字段：`id`。
 
@@ -1462,7 +1468,7 @@
 
 ## scene.perception
 
-来源：`game/packages/contracts/src/world-edit-policy.ts` 第33行。
+来源：`game/packages/contracts/src/world-edit-policy.ts` 第35行。
 
 读取字段：无额外直接字段。
 
@@ -1476,7 +1482,7 @@
 
 ## scene.features
 
-来源：`game/packages/contracts/src/world-edit-policy.ts` 第32行。
+来源：`game/packages/contracts/src/world-edit-policy.ts` 第34行。
 
 读取字段：无额外直接字段。
 
@@ -1495,11 +1501,11 @@
 - `assertGm(context)`
 - `assetReference(value.background)`
 
-来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第198行。
 
 读取字段：无额外直接字段。
 
-来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第60行。
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第61行。
 
 读取字段：`sceneId`、`before`、`value`。
 
@@ -1636,11 +1642,11 @@
 
 </details>
 
-来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第184行。
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第198行。
 
 读取字段：无额外直接字段。
 
-来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第71行。
+来源：`game/packages/tabletop-runtime/src/tabletop/storyActions.ts` 第72行。
 
 读取字段：`sceneId`、`id`、`before`、`value`、`binding`。
 
@@ -2498,7 +2504,7 @@
 
 ## adjudication.apply
 
-来源：`game/packages/session/src/world-authority.ts` 第46行。
+来源：`game/packages/session/src/world-authority.ts` 第47行。
 
 读取字段：无额外直接字段。
 
@@ -2515,7 +2521,7 @@
 
 ## combat.rollback
 
-来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第128行。
+来源：`game/packages/tabletop-runtime/src/tabletop/model.ts` 第131行。
 
 读取字段：无额外直接字段。
 

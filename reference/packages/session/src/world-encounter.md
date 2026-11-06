@@ -1,6 +1,6 @@
 # game/packages/session/src/world-encounter.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -45,3 +45,11 @@ export function worldEncounterState(world: WorldDocument, scene: SceneDocument):
 | --- | --- | --- | --- |
 | `world` | 否 | `WorldDocument` | — |
 | `scene` | 否 | `SceneDocument` | — |
+
+## encounterHandlers
+
+导出接口 · 源码第 19 行。
+
+```ts
+export const encounterHandlers: Record<string, WorldHandler>;
+```

@@ -1,12 +1,13 @@
 # game/packages/session/src/story-workspace.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {applyMinigameCommand,cancelDisabledMinigame,type MinigameCommand} from './story-minigame';
 import {effectiveStoryResources} from '@aelzerant/contracts';
 import type {TacticalCommand} from '@aelzerant/contracts';
 import {applyStoryProgress,settleStoryProgress} from './story-progress';
@@ -59,7 +60,7 @@ import type {LibraryCommand,ConversationCommand} from '@aelzerant/contracts';
 
 ## StoryCommand
 
-导出接口 · 源码第 49 行。
+导出接口 · 源码第 50 行。
 
 ```ts
 export type StoryCommand = ProgressDirectoryCommand | TacticalCommand | TeamAssetsCommand | StoryProgressCommand | WorldAssetCommand | CompendiumDirectoryCommand | CompendiumCatalogCommand | ResourceTransferCommand | EntityDirectoryCommand | JournalTransferCommand | JournalDirectoryCommand | JournalSecretCommand | JournalActionCommand | SceneJournalCommand | ScenePreloadCommand | SceneNavigationCommand | SceneDirectoryCommand | {
@@ -90,7 +91,7 @@ export type StoryCommand = ProgressDirectoryCommand | TacticalCommand | TeamAsse
     nextSteps: string;
     sceneName: string;
     visibility: 'gm' | 'public';
-} | ConversationCommand | LibraryCommand | TheatreCommand | PluginCommand | PresentationCommand | SceneGraphCommand | PlayerProgressCommand | OnboardingCommand | SceneEffectsCommand | BossBarCommand | {
+} | ConversationCommand | LibraryCommand | TheatreCommand | MinigameCommand | PluginCommand | PresentationCommand | SceneGraphCommand | PlayerProgressCommand | OnboardingCommand | SceneEffectsCommand | BossBarCommand | {
     type: 'resource.save';
     resource: unknown;
     expectedResource?: StoryResource | null;
@@ -166,50 +167,51 @@ export type StoryCommand = ProgressDirectoryCommand | TacticalCommand | TeamAsse
 | `分支25.nextSteps` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支25.sceneName` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支25.visibility` | 否 | `'gm'&#124;'public'` | 见结构定义及所属功能文档 |
-| `分支36.type` | 否 | `'resource.save'` | 见结构定义及所属功能文档 |
-| `分支36.resource` | 否 | `unknown` | 见结构定义及所属功能文档 |
-| `分支36.expectedResource` | 是 | `StoryResource&#124;null` | 见结构定义及所属功能文档 |
-| `分支36.folderId` | 是 | `string&#124;null` | 见结构定义及所属功能文档 |
-| `分支37.type` | 否 | `'resource.delete'` | 见结构定义及所属功能文档 |
-| `分支37.id` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支37.expectedResource` | 是 | `StoryResource` | 见结构定义及所属功能文档 |
-| `分支38.type` | 否 | `'resource.grant'` | 见结构定义及所属功能文档 |
-| `分支38.actorId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支38.resourceId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支38.remove` | 是 | `boolean` | 见结构定义及所属功能文档 |
-| `分支39.type` | 否 | `'entry.save'` | 见结构定义及所属功能文档 |
-| `分支39.entry` | 否 | `StoryEntry` | 见结构定义及所属功能文档 |
-| `分支39.folderId` | 是 | `string&#124;null` | 见结构定义及所属功能文档 |
-| `分支40.type` | 否 | `'entry.delete'` | 见结构定义及所属功能文档 |
-| `分支40.id` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支41.type` | 否 | `'member.set'` | 见结构定义及所属功能文档 |
+| `分支37.type` | 否 | `'resource.save'` | 见结构定义及所属功能文档 |
+| `分支37.resource` | 否 | `unknown` | 见结构定义及所属功能文档 |
+| `分支37.expectedResource` | 是 | `StoryResource&#124;null` | 见结构定义及所属功能文档 |
+| `分支37.folderId` | 是 | `string&#124;null` | 见结构定义及所属功能文档 |
+| `分支38.type` | 否 | `'resource.delete'` | 见结构定义及所属功能文档 |
+| `分支38.id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支38.expectedResource` | 是 | `StoryResource` | 见结构定义及所属功能文档 |
+| `分支39.type` | 否 | `'resource.grant'` | 见结构定义及所属功能文档 |
+| `分支39.actorId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支39.resourceId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支39.remove` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支40.type` | 否 | `'entry.save'` | 见结构定义及所属功能文档 |
+| `分支40.entry` | 否 | `StoryEntry` | 见结构定义及所属功能文档 |
+| `分支40.folderId` | 是 | `string&#124;null` | 见结构定义及所属功能文档 |
+| `分支41.type` | 否 | `'entry.delete'` | 见结构定义及所属功能文档 |
 | `分支41.id` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支41.name` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支41.role` | 否 | `'gm'&#124;'player'` | 见结构定义及所属功能文档 |
-| `分支42.type` | 否 | `'member.join'` | 见结构定义及所属功能文档 |
+| `分支42.type` | 否 | `'member.set'` | 见结构定义及所属功能文档 |
+| `分支42.id` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支42.name` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支43.type` | 否 | `'member.color'` | 见结构定义及所属功能文档 |
-| `分支43.id` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支43.color` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支44.type` | 否 | `'decision.settings'` | 见结构定义及所属功能文档 |
-| `分支44.seconds` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支45.type` | 否 | `'dnd.settings'` | 见结构定义及所属功能文档 |
-| `分支45.dawnHour` | 是 | `number&#124;null` | 见结构定义及所属功能文档 |
-| `分支45.outsideCombatTime` | 否 | `'frozen'&#124;'realtime'` | 见结构定义及所属功能文档 |
-| `分支45.backgroundAbilityUnbound` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支46.type` | 否 | `'packs.set'` | 见结构定义及所属功能文档 |
-| `分支46.packs` | 否 | `StoryPack[]` | 见结构定义及所属功能文档 |
-| `分支47.type` | 否 | `'monsterHp.set'` | 见结构定义及所属功能文档 |
-| `分支47.value` | 否 | `MonsterHpVisibility` | 见结构定义及所属功能文档 |
-| `分支48.type` | 否 | `'counter.set'` | 见结构定义及所属功能文档 |
-| `分支48.counter` | 否 | `StoryCounter` | 见结构定义及所属功能文档 |
+| `分支42.role` | 否 | `'gm'&#124;'player'` | 见结构定义及所属功能文档 |
+| `分支43.type` | 否 | `'member.join'` | 见结构定义及所属功能文档 |
+| `分支43.name` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支44.type` | 否 | `'member.color'` | 见结构定义及所属功能文档 |
+| `分支44.id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支44.color` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支45.type` | 否 | `'decision.settings'` | 见结构定义及所属功能文档 |
+| `分支45.seconds` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支46.type` | 否 | `'dnd.settings'` | 见结构定义及所属功能文档 |
+| `分支46.dawnHour` | 是 | `number&#124;null` | 见结构定义及所属功能文档 |
+| `分支46.outsideCombatTime` | 否 | `'frozen'&#124;'realtime'` | 见结构定义及所属功能文档 |
+| `分支46.backgroundAbilityUnbound` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支47.type` | 否 | `'packs.set'` | 见结构定义及所属功能文档 |
+| `分支47.packs` | 否 | `StoryPack[]` | 见结构定义及所属功能文档 |
+| `分支48.type` | 否 | `'monsterHp.set'` | 见结构定义及所属功能文档 |
+| `分支48.value` | 否 | `MonsterHpVisibility` | 见结构定义及所属功能文档 |
+| `分支49.type` | 否 | `'counter.set'` | 见结构定义及所属功能文档 |
+| `分支49.counter` | 否 | `StoryCounter` | 见结构定义及所属功能文档 |
 
 ## StoryContext
 
-导出接口 · 源码第 78 行。
+导出接口 · 源码第 79 行。
 
 ```ts
 export interface StoryContext {
+    applyMinigameStatus?: (actorId: string, status: string, remove: boolean) => void;
     worldRevision?: number;
     actorDocumentIds?: ReadonlySet<string>;
     sceneDocumentIds?: ReadonlySet<string>;
@@ -239,6 +241,7 @@ export interface StoryContext {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `applyMinigameStatus` | 是 | `(actorId:string,status:string,remove:boolean)=>void` | 见结构定义及所属功能文档 |
 | `worldRevision` | 是 | `number` | 见结构定义及所属功能文档 |
 | `actorDocumentIds` | 是 | `ReadonlySet<string>` | 见结构定义及所属功能文档 |
 | `sceneDocumentIds` | 是 | `ReadonlySet<string>` | 见结构定义及所属功能文档 |
@@ -262,7 +265,7 @@ export interface StoryContext {
 
 ## applyStoryCommand
 
-导出接口 · 源码第 80 行。
+导出接口 · 源码第 81 行。
 
 Called inside the world's existing atomic command queue, never directly on received snapshots.
 

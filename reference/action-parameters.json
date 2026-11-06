@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-05",
+  "date": "2026-11-06",
   "kind": "static-direct-expressions",
   "missing": [],
   "actions": {
@@ -681,7 +681,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
-        "line": 184,
+        "line": 198,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -689,7 +689,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
-        "line": 59,
+        "line": 60,
         "fields": [],
         "checks": [],
         "rejectionConditions": [
@@ -730,7 +730,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
-        "line": 184,
+        "line": 198,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -738,7 +738,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
-        "line": 53,
+        "line": 54,
         "fields": [],
         "checks": [],
         "rejectionConditions": [
@@ -750,7 +750,7 @@
     "directory.delete": [
       {
         "source": "game/packages/contracts/src/world-edit-policy.ts",
-        "line": 34,
+        "line": 36,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -770,7 +770,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
-        "line": 184,
+        "line": 198,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -778,7 +778,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
-        "line": 48,
+        "line": 49,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -800,7 +800,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
-        "line": 184,
+        "line": 198,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -808,7 +808,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
-        "line": 56,
+        "line": 57,
         "fields": [],
         "checks": [],
         "rejectionConditions": [
@@ -834,7 +834,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
-        "line": 178,
+        "line": 192,
         "fields": [
           "actorId"
         ],
@@ -892,7 +892,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
-        "line": 184,
+        "line": 198,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -900,7 +900,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
-        "line": 57,
+        "line": 58,
         "fields": [
           "id",
           "before",
@@ -952,7 +952,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
-        "line": 184,
+        "line": 198,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -960,7 +960,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
-        "line": 74,
+        "line": 75,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -1010,7 +1010,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
-        "line": 184,
+        "line": 198,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -1018,7 +1018,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
-        "line": 74,
+        "line": 75,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -1049,7 +1049,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
-        "line": 184,
+        "line": 198,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -1057,7 +1057,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
-        "line": 75,
+        "line": 76,
         "fields": [
           "archive",
           "id",
@@ -1101,7 +1101,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
-        "line": 184,
+        "line": 198,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -1109,7 +1109,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
-        "line": 76,
+        "line": 77,
         "fields": [
           "sourceId",
           "id",
@@ -1144,7 +1144,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
-        "line": 184,
+        "line": 198,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -1152,7 +1152,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
-        "line": 58,
+        "line": 59,
         "fields": [
           "id",
           "mode",
@@ -1187,7 +1187,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
-        "line": 184,
+        "line": 198,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -1195,7 +1195,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
-        "line": 70,
+        "line": 71,
         "fields": [
           "id",
           "before",
@@ -1214,7 +1214,7 @@
     "story.use": [
       {
         "source": "game/packages/session/src/world-story.ts",
-        "line": 11,
+        "line": 12,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -1240,7 +1240,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
-        "line": 183,
+        "line": 197,
         "fields": [
           "request"
         ],
@@ -1252,7 +1252,7 @@
     "story.command": [
       {
         "source": "game/packages/contracts/src/world-edit-policy.ts",
-        "line": 31,
+        "line": 33,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -1260,7 +1260,7 @@
       },
       {
         "source": "game/packages/session/src/world-story.ts",
-        "line": 12,
+        "line": 13,
         "fields": [
           "command",
           "messageId"
@@ -1268,7 +1268,9 @@
         "checks": [
           "isRecord(action.command)"
         ],
-        "rejectionConditions": [],
+        "rejectionConditions": [
+          "!actor"
+        ],
         "delegatedTypes": []
       }
     ],
@@ -1366,7 +1368,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
-        "line": 184,
+        "line": 198,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -1374,7 +1376,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
-        "line": 116,
+        "line": 117,
         "fields": [
           "id"
         ],
@@ -1857,7 +1859,7 @@
     "scene.perception": [
       {
         "source": "game/packages/contracts/src/world-edit-policy.ts",
-        "line": 33,
+        "line": 35,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -1880,7 +1882,7 @@
     "scene.features": [
       {
         "source": "game/packages/contracts/src/world-edit-policy.ts",
-        "line": 32,
+        "line": 34,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -1916,7 +1918,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
-        "line": 184,
+        "line": 198,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -1924,7 +1926,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
-        "line": 60,
+        "line": 61,
         "fields": [
           "sceneId",
           "before",
@@ -2095,7 +2097,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
-        "line": 184,
+        "line": 198,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -2103,7 +2105,7 @@
       },
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
-        "line": 71,
+        "line": 72,
         "fields": [
           "sceneId",
           "id",
@@ -3149,7 +3151,7 @@
     "adjudication.apply": [
       {
         "source": "game/packages/session/src/world-authority.ts",
-        "line": 46,
+        "line": 47,
         "fields": [],
         "checks": [],
         "rejectionConditions": [],
@@ -3172,7 +3174,7 @@
     "combat.rollback": [
       {
         "source": "game/packages/tabletop-runtime/src/tabletop/model.ts",
-        "line": 128,
+        "line": 131,
         "fields": [],
         "checks": [
           "parseManualTable(personal!==global?tableScene(restored,global):restored)"

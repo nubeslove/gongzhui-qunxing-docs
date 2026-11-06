@@ -1,6 +1,6 @@
 # game/packages/contracts/src/combat-rollback.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -32,7 +32,7 @@ export interface CombatCheckpoint {
     at: number;
     label: string;
     kinds: RollbackKind[];
-    data: Record<string, unknown>;
+    data: Record<string, unknown> | string;
 }
 ```
 
@@ -43,11 +43,27 @@ export interface CombatCheckpoint {
 | `at` | 否 | `number` | 见结构定义及所属功能文档 |
 | `label` | 否 | `string` | 见结构定义及所属功能文档 |
 | `kinds` | 否 | `RollbackKind[]` | 见结构定义及所属功能文档 |
-| `data` | 否 | `Record<string,unknown>` | 见结构定义及所属功能文档 |
+| `data` | 否 | `Record<string,unknown>&#124;string` | 见结构定义及所属功能文档 |
+
+## checkpointData
+
+导出接口 · 源码第 9 行。
+
+Complete JSON recovery payload. Strings stay immutable through ordinary saves;
+decoding is needed only for recovery/history maintenance. Object input is the
+legacy save format and remains readable. Never omit this payload from backups.
+
+```ts
+export function checkpointData(row: Pick<CombatCheckpoint,'data'>): Record<string,unknown>;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `row` | 否 | `Pick<CombatCheckpoint,'data'>` | — |
 
 ## parseCombatCheckpoints
 
-导出接口 · 源码第 6 行。
+导出接口 · 源码第 13 行。
 
 ```ts
 export function parseCombatCheckpoints(raw: unknown): CombatCheckpoint[];
@@ -59,7 +75,7 @@ export function parseCombatCheckpoints(raw: unknown): CombatCheckpoint[];
 
 ## checkpointFor
 
-导出接口 · 源码第 7 行。
+导出接口 · 源码第 20 行。
 
 ```ts
 export function checkpointFor(rows: CombatCheckpoint[]|undefined, sceneId: string, kind: RollbackKind): CombatCheckpoint | undefined;
@@ -73,7 +89,7 @@ export function checkpointFor(rows: CombatCheckpoint[]|undefined, sceneId: strin
 
 ## recordCheckpoint
 
-导出接口 · 源码第 8 行。
+导出接口 · 源码第 21 行。
 
 ```ts
 export function recordCheckpoint(rows: CombatCheckpoint[]|undefined, sceneId: string, kinds: RollbackKind[], label: string, data: Record<string,unknown>): CombatCheckpoint[];

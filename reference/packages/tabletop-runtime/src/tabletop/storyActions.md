@@ -1,12 +1,13 @@
 # game/packages/tabletop-runtime/src/tabletop/storyActions.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {applyTableMinigameStatus} from './minigameStatus';
 import {assertWorldStartingGrants} from './lancer/startingGrants';
 import {applyLancerScenePreparation,type LancerScenePreparationAction} from './lancer/scenePreparation';
 import {applyTacticalCommand} from '@aelzerant/game-core';
@@ -46,7 +47,7 @@ import type {SceneResizeCommand} from '@aelzerant/contracts';
 
 ## TableStoryAction
 
-导出接口 · 源码第 36 行。
+导出接口 · 源码第 37 行。
 
 ```ts
 export type TableStoryAction = LancerScenePreparationAction | SceneResizeCommand | DirectoryTableCommand | DirectoryDeleteCommand | DirectoryAccessCommand | {
@@ -212,7 +213,7 @@ export type TableStoryAction = LancerScenePreparationAction | SceneResizeCommand
 
 ## applyTableStory
 
-导出接口 · 源码第 47 行。
+导出接口 · 源码第 48 行。
 
 ```ts
 export function applyTableStory(table: ManualTable, action: TableStoryAction, senderId: string, memberIds?: ReadonlySet<string>): ManualTable;

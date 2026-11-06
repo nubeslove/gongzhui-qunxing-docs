@@ -1,6 +1,6 @@
 # game/packages/contracts/src/world-library.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -449,6 +449,7 @@ export type LibraryCommand = CardStackImportCommand | CardStackCommand | CardDea
     type: 'library.delete';
     id: string;
     expectedRevision: number;
+    kind?: LibraryKind;
 } | {
     type: 'table.draw';
     id: string;
@@ -524,6 +525,7 @@ export type LibraryCommand = CardStackImportCommand | CardStackCommand | CardDea
 | `分支10.type` | 否 | `'library.delete'` | 见结构定义及所属功能文档 |
 | `分支10.id` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支10.expectedRevision` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支10.kind` | 是 | `LibraryKind` | 见结构定义及所属功能文档 |
 | `分支11.type` | 否 | `'table.draw'` | 见结构定义及所属功能文档 |
 | `分支11.id` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支11.count` | 否 | `number` | 见结构定义及所属功能文档 |

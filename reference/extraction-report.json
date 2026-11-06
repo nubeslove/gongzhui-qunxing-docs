@@ -1,7 +1,7 @@
 {
-  "files": 646,
-  "symbols": 3514,
-  "fields": 7990,
+  "files": 687,
+  "symbols": 3713,
+  "fields": 8299,
   "schemaRoots": [
     "LancerNpc",
     "TheatreState",
@@ -65,8 +65,12 @@
     "RuntimePermission",
     "RuntimeServiceRequest",
     "RuntimeServiceResponse",
-    "ResourcePackage"
+    "ResourcePackage",
+    "MinigamePreset",
+    "MinigameInput",
+    "MinigameWorkspace",
+    "QteDefinition"
   ],
-  "definitions": 1212,
+  "definitions": 1260,
   "unsupported": []
 }

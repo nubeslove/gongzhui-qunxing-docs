@@ -1,6 +1,6 @@
 # game/packages/contracts/src/dice-functions.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -21,3 +21,13 @@ interface DiceMathFunction {
 | `min` | 否 | `number` | 见结构定义及所属功能文档 |
 | `max` | 否 | `number` | 见结构定义及所属功能文档 |
 | `run` | 否 | `(...values:number[])=>number` | 见结构定义及所属功能文档 |
+
+## DICE_MATH_FUNCTIONS
+
+导出接口 · 源码第 4 行。
+
+Explicit deterministic functions only: no ambient Math.random or object access.
+
+```ts
+export const DICE_MATH_FUNCTIONS: Readonly<Record<string, DiceMathFunction>>;
+```

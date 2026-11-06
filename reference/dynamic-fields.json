@@ -654,6 +654,18 @@
     "expression": "f['module.dustgrave.carry']"
   },
   {
+    "key": "lancer.npc",
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/frameCore.ts",
+    "line": 8,
+    "expression": "actor.fields['lancer.npc']"
+  },
+  {
+    "key": "lancer.frame",
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/frameCore.ts",
+    "line": 9,
+    "expression": "actor.fields['lancer.frame']"
+  },
+  {
     "key": "lancer.version",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/importPilot.ts",
     "line": 9,
@@ -1514,19 +1526,19 @@
   {
     "key": "lancer.npc",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/reinforcements.ts",
-    "line": 26,
+    "line": 28,
     "expression": "actor?.fields['lancer.npc']"
   },
   {
     "key": "module.scene",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/reinforcements.ts",
-    "line": 30,
+    "line": 32,
     "expression": "actor.fields['module.scene']"
   },
   {
     "key": "module.scene",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/reinforcements.ts",
-    "line": 30,
+    "line": 32,
     "expression": "actor.fields['module.scene']"
   },
   {
@@ -2034,6 +2046,36 @@
     "expression": "f['module.siren.liftRound']"
   },
   {
+    "key": "module.scene",
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/solsticeReinforcements.ts",
+    "line": 12,
+    "expression": "a.fields['module.scene']"
+  },
+  {
+    "key": "module.reserve",
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/solsticeReinforcements.ts",
+    "line": 12,
+    "expression": "a.fields['module.reserve']"
+  },
+  {
+    "key": "lancer.npc",
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/solsticeReinforcements.ts",
+    "line": 12,
+    "expression": "a.fields['lancer.npc']"
+  },
+  {
+    "key": "lancer.npc",
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/solsticeReinforcements.ts",
+    "line": 13,
+    "expression": "a!.fields['lancer.npc']"
+  },
+  {
+    "key": "module.scene",
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/solsticeReinforcements.ts",
+    "line": 13,
+    "expression": "a.fields['module.scene']"
+  },
+  {
     "key": "lancer.startingGrants",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/startingGrants.ts",
     "line": 4,
@@ -2350,6 +2392,18 @@
     "source": "game/apps/desktop/src/tabletop/lancer/actorGroup.ts",
     "line": 8,
     "expression": "actor.fields['lancer.npc']"
+  },
+  {
+    "key": "机甲型号",
+    "source": "game/apps/desktop/src/tabletop/lancer/battleBoardModel.ts",
+    "line": 7,
+    "expression": "actor?.fields['机甲型号']"
+  },
+  {
+    "key": "lancer.frame",
+    "source": "game/apps/desktop/src/tabletop/lancer/battleBoardModel.ts",
+    "line": 7,
+    "expression": "actor?.fields['lancer.frame']"
   },
   {
     "key": "lancer.rogue.portrait",
@@ -2714,55 +2768,61 @@
   {
     "key": "lancer.creation",
     "source": "game/apps/desktop/src/tabletop/lancer/LancerCharacter.tsx",
-    "line": 39,
+    "line": 40,
     "expression": "a.fields['lancer.creation']"
   },
   {
     "key": "lancer.levelGrant",
     "source": "game/apps/desktop/src/tabletop/lancer/LancerCharacter.tsx",
-    "line": 47,
+    "line": 49,
     "expression": "actor.fields['lancer.levelGrant']"
   },
   {
     "key": "lancer.creation",
     "source": "game/apps/desktop/src/tabletop/lancer/LancerCharacter.tsx",
-    "line": 63,
+    "line": 62,
+    "expression": "actor.fields['lancer.creation']"
+  },
+  {
+    "key": "lancer.creation",
+    "source": "game/apps/desktop/src/tabletop/lancer/LancerCharacter.tsx",
+    "line": 65,
     "expression": "actor.fields['lancer.creation']"
   },
   {
     "key": "lancer.npc",
     "source": "game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx",
-    "line": 86,
+    "line": 91,
     "expression": "a.fields['lancer.npc']"
   },
   {
     "key": "lancer.side",
     "source": "game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx",
-    "line": 86,
+    "line": 91,
     "expression": "a.fields['lancer.side']"
   },
   {
     "key": "lancer.npc",
     "source": "game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx",
-    "line": 166,
+    "line": 173,
     "expression": "hangarActor?.fields['lancer.npc']"
   },
   {
     "key": "lancer.creation",
     "source": "game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx",
-    "line": 166,
+    "line": 173,
     "expression": "hangarActor?.fields['lancer.creation']"
   },
   {
     "key": "lancer.creation",
     "source": "game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx",
-    "line": 168,
+    "line": 175,
     "expression": "hangarActor?.fields['lancer.creation']"
   },
   {
     "key": "lancer.creation",
     "source": "game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx",
-    "line": 168,
+    "line": 175,
     "expression": "hangarActor?.fields['lancer.creation']"
   },
   {
@@ -2936,19 +2996,19 @@
   {
     "key": "lancer.frame",
     "source": "game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx",
-    "line": 32,
+    "line": 33,
     "expression": "actor.fields['lancer.frame']"
   },
   {
     "key": "机甲名",
     "source": "game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx",
-    "line": 36,
+    "line": 37,
     "expression": "actor.fields['机甲名']"
   },
   {
     "key": "机甲名",
     "source": "game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx",
-    "line": 36,
+    "line": 37,
     "expression": "actor.fields['机甲名']"
   },
   {
@@ -3254,37 +3314,37 @@
   {
     "key": "lancer.rogue.portrait",
     "source": "game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx",
-    "line": 59,
+    "line": 60,
     "expression": "a?.fields['lancer.rogue.portrait']"
   },
   {
     "key": "立绘",
     "source": "game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx",
-    "line": 59,
+    "line": 60,
     "expression": "a?.fields['立绘']"
   },
   {
     "key": "lancer.rogue.portrait",
     "source": "game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx",
-    "line": 59,
+    "line": 60,
     "expression": "a.fields['lancer.rogue.portrait']"
   },
   {
     "key": "立绘",
     "source": "game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx",
-    "line": 59,
+    "line": 60,
     "expression": "a.fields['立绘']"
   },
   {
     "key": "呼号",
     "source": "game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx",
-    "line": 59,
+    "line": 60,
     "expression": "a?.fields['呼号']"
   },
   {
     "key": "呼号",
     "source": "game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx",
-    "line": 59,
+    "line": 60,
     "expression": "a?.fields['呼号']"
   },
   {
@@ -3486,6 +3546,12 @@
     "expression": "a.fields['heartsea.kind']"
   },
   {
+    "key": "图鉴编号",
+    "source": "game/apps/desktop/src/terra/enemyArt.ts",
+    "line": 8,
+    "expression": "actor.fields['图鉴编号']"
+  },
+  {
     "key": "lancer.conditions",
     "source": "game/packages/game-core/src/lancer/npc-profile.ts",
     "line": 5,
@@ -3574,5 +3640,71 @@
     "source": "game/packages/game-core/src/lancer/npc.ts",
     "line": 56,
     "expression": "actor.fields['lancer.destroyed.unit']"
+  },
+  {
+    "key": "module.scene",
+    "source": "game/packages/game-core/src/lancer/official-tactical-mission.ts",
+    "line": 19,
+    "expression": "a.fields['module.scene']"
+  },
+  {
+    "key": "lancer.npc",
+    "source": "game/packages/game-core/src/lancer/official-tactical-mission.ts",
+    "line": 19,
+    "expression": "a.fields['lancer.npc']"
+  },
+  {
+    "key": "lancer.side",
+    "source": "game/packages/game-core/src/lancer/official-tactical-mission.ts",
+    "line": 19,
+    "expression": "a.fields['lancer.side']"
+  },
+  {
+    "key": "module.reserve",
+    "source": "game/packages/game-core/src/lancer/official-tactical-mission.ts",
+    "line": 20,
+    "expression": "a.fields['module.reserve']"
+  },
+  {
+    "key": "module.requires",
+    "source": "game/packages/game-core/src/lancer/official-tactical-mission.ts",
+    "line": 21,
+    "expression": "a.fields['module.requires']"
+  },
+  {
+    "key": "module.phase",
+    "source": "game/packages/game-core/src/lancer/official-tactical-mission.ts",
+    "line": 22,
+    "expression": "a.fields['module.phase']"
+  },
+  {
+    "key": "module.phase",
+    "source": "game/packages/game-core/src/lancer/official-tactical-mission.ts",
+    "line": 22,
+    "expression": "a.fields['module.phase']"
+  },
+  {
+    "key": "lancer.npc",
+    "source": "game/packages/game-core/src/lancer/official-tactical-mission.ts",
+    "line": 23,
+    "expression": "a.fields['lancer.npc']"
+  },
+  {
+    "key": "module.scene",
+    "source": "game/packages/game-core/src/lancer/official-tactical-mission.ts",
+    "line": 173,
+    "expression": "a.fields['module.scene']"
+  },
+  {
+    "key": "lancer.npc",
+    "source": "game/packages/game-core/src/lancer/official-tactical-mission.ts",
+    "line": 173,
+    "expression": "a.fields['lancer.npc']"
+  },
+  {
+    "key": "module.dustgrave.wave",
+    "source": "game/packages/game-core/src/lancer/official-tactical-mission.ts",
+    "line": 173,
+    "expression": "a.fields['module.dustgrave.wave']"
   }
 ]

@@ -1,6 +1,6 @@
 # game/packages/tabletop-runtime/src/tabletop/lancer/content.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../../README.md)
 
@@ -12,6 +12,16 @@ import {LANCER_TALENTS,LANCER_CORE_BONUSES,type LancerCoreDefinition,type Lancer
 import data from './data/content-registry.json';
 ```
 </details>
+
+## ALL_CORE
+
+导出接口 · 源码第 6 行。
+
+```ts
+export const ALL_CORE: (LancerCoreDefinition & {
+    book: string;
+})[];
+```
 
 ## EquipmentAccess
 
@@ -34,6 +44,14 @@ export type EquipmentAccess = {
 | `licenseId` | 是 | `string` | 见结构定义及所属功能文档 |
 | `rank` | 是 | `number` | 见结构定义及所属功能文档 |
 | `frameId` | 是 | `string` | 见结构定义及所属功能文档 |
+
+## EQUIPMENT_ACCESS
+
+导出接口 · 源码第 11 行。
+
+```ts
+export const EQUIPMENT_ACCESS: Record<string, EquipmentAccess>;
+```
 
 ## bookName
 

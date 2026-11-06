@@ -1,6 +1,6 @@
 # game/packages/tabletop-runtime/src/tabletop/lancer/rogue/resources.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../../../README.md)
 
@@ -51,6 +51,22 @@ export const rogueSlotCapacity: (player: string | RoguePlayer, kind: string): nu
 export const rogueUnlockedFrames: (p: RoguePlayer): string[];
 ```
 
+## ROGUE_KIND_NAMES
+
+导出接口 · 源码第 33 行。
+
+```ts
+export const ROGUE_KIND_NAMES: Record<RogueKind, string>;
+```
+
+## ROGUE_RARITIES
+
+导出接口 · 源码第 34 行。
+
+```ts
+export const ROGUE_RARITIES: Record<RogueRarity, string>;
+```
+
 ## RogueResource
 
 导出接口 · 源码第 36 行。
@@ -92,6 +108,14 @@ export function resourceTags(text: string): string[];
 | 参数 | 可选 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | `text` | 否 | `string` | — |
+
+## ROGUE_RESOURCES
+
+导出接口 · 源码第 52 行。
+
+```ts
+export const ROGUE_RESOURCES: RogueResource[];
+```
 
 ## rogueRandom
 

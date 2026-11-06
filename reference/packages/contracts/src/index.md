@@ -1,6 +1,6 @@
 # game/packages/contracts/src/index.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -175,6 +175,7 @@ export * from './monster-health';
 export * from './releases';
 export * from './team-assets';
 export * from './tactical-mission';
+export * from './official-tactical-missions';
 export * from './scene-grid';
 export * from './table-sync';
 export * from './world-deletion';
@@ -205,6 +206,11 @@ export * from './community-plugin-runtime';
 export * from './resource-packages';
 export * from './community-center';
 export {parseCommunityPackage} from './community-center-validation';
+export * from './conversation-actors';
+export * from './plugin-dependencies';
+export * from './minigame';
+export * from './qte';
+export * from './plugin-registry';
 ```
 
 ## PlayerIdentity

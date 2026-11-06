@@ -1,6 +1,6 @@
 # game/packages/game-core/src/lancer/talents.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -16,6 +16,23 @@ import { lancerGrappleGroup } from './grapple';
 import { has } from './state';
 ```
 </details>
+
+## LANCER_TALENT_EFFECTS
+
+导出接口 · 源码第 8 行。
+
+```ts
+export const LANCER_TALENT_EFFECTS: Record<string, {
+    name: string;
+    description: string;
+    action?: boolean;
+    actions?: readonly {
+        id: string;
+        name: string;
+        description: string;
+    }[];
+}>;
+```
 
 ## lancerTalentAccuracy
 

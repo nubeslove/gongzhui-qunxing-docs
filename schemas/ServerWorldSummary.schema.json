@@ -7,15 +7,15 @@
     "worldMode": {
       "anyOf": [
         {
+          "const": "arena",
+          "type": "string"
+        },
+        {
           "const": "open",
           "type": "string"
         },
         {
           "const": "campaign",
-          "type": "string"
-        },
-        {
-          "const": "arena",
           "type": "string"
         }
       ]

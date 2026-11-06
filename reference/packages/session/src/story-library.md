@@ -1,12 +1,13 @@
 # game/packages/session/src/story-library.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {applyMinigameCommand} from './story-minigame';
 import {importCardStack} from './story-card-stack-file';
 import {applyCardStackCommand,touchSourceStacks} from './story-card-stacks';
 import {resetCardTemplate} from '@aelzerant/contracts';
@@ -25,7 +26,7 @@ import {applyConversation} from './story-conversation';
 
 ## applyLibraryCommand
 
-导出接口 · 源码第 14 行。
+导出接口 · 源码第 15 行。
 
 ```ts
 export function applyLibraryCommand(story: StoryWorkspace, cmd: Record<string,unknown>, c: StoryContext, gm: boolean): boolean;

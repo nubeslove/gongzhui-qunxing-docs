@@ -1,6 +1,6 @@
 # game/packages/contracts/src/scene.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -109,6 +109,22 @@ export interface SceneMap {
 | `tilePx` | 否 | `number` | 网格左上角世界像素坐标（渲染层用） |
 | `tiles` | 否 | `TileSpec[]` | 见结构定义及所属功能文档 |
 | `tokens` | 否 | `TokenSpec[]` | 见结构定义及所属功能文档 |
+
+## TERRAIN_LABELS
+
+导出接口 · 源码第 52 行。
+
+```ts
+export const TERRAIN_LABELS: Record<TerrainTag, string>;
+```
+
+## TERRAIN_PASSABLE
+
+导出接口 · 源码第 64 行。
+
+```ts
+export const TERRAIN_PASSABLE: Record<TerrainTag, boolean>;
+```
 
 ## terrainExtraCost
 

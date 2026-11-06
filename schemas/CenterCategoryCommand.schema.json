@@ -3,10 +3,10 @@
   "title": "CenterCategoryCommand",
   "anyOf": [
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_762"
+      "$ref": "./contracts.schema.json#/$defs/Object_795"
     },
     {
-      "$ref": "./contracts.schema.json#/$defs/Object_763"
+      "$ref": "./contracts.schema.json#/$defs/Object_796"
     }
   ]
 }

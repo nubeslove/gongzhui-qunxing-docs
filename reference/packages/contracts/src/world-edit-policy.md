@@ -1,6 +1,6 @@
 # game/packages/contracts/src/world-edit-policy.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -36,7 +36,7 @@ export function preparationAction(raw: unknown): boolean;
 
 ## preparationCompendium
 
-导出接口 · 源码第 24 行。
+导出接口 · 源码第 26 行。
 
 ```ts
 export function preparationCompendium(raw: unknown): boolean;
@@ -48,7 +48,7 @@ export function preparationCompendium(raw: unknown): boolean;
 
 ## nativePreparationAction
 
-导出接口 · 源码第 27 行。
+导出接口 · 源码第 29 行。
 
 WorldAuthority uses native command names while sharing the same preparation boundary.
 
@@ -62,7 +62,7 @@ export function nativePreparationAction(raw: unknown): boolean;
 
 ## Change
 
-内部依赖类型 · 源码第 38 行。
+内部依赖类型 · 源码第 40 行。
 
 ```ts
 type Change<T> = {
@@ -80,7 +80,7 @@ type Change<T> = {
 
 ## RuntimeEdit
 
-导出接口 · 源码第 39 行。
+导出接口 · 源码第 41 行。
 
 ```ts
 export type RuntimeEdit = {
@@ -96,7 +96,7 @@ export type RuntimeEdit = {
 
 ## runtimeEdit
 
-导出接口 · 源码第 46 行。
+导出接口 · 源码第 48 行。
 
 Compatibility for existing actor/token editors; never carries a full world or authored map.
 
@@ -111,7 +111,7 @@ export function runtimeEdit(before: ManualTable, after: ManualTable): RuntimeEdi
 
 ## applyRuntimeEdits
 
-导出接口 · 源码第 51 行。
+导出接口 · 源码第 53 行。
 
 ```ts
 export function applyRuntimeEdits<T extends {id:string}>(rows: T[], raw: Change<T>[]): T[];

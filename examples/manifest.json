@@ -1,7 +1,13 @@
 {
-  "date": "2026-11-05",
-  "checks": 47,
+  "date": "2026-11-06",
+  "checks": 48,
   "files": [
+    {
+      "file": "examples/shared/qte-preset.json",
+      "schema": "MinigamePreset",
+      "parser": "parseMinigamePreset",
+      "status": "runtime-parser-passed"
+    },
     {
       "file": "examples/aaf/resource.json",
       "schema": "ResourceFile",

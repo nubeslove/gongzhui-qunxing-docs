@@ -1,6 +1,6 @@
 # game/packages/rules-engine/src/dnd/class-features.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -104,7 +104,7 @@ export function dndRageDamage(c: DndCharacter): 2 | 3 | 4;
 导出接口 · 源码第 25 行。
 
 ```ts
-export function dndMartialDie(c: DndCharacter): 6 | 8 | 10 | 12;
+export function dndMartialDie(c: DndCharacter): 12 | 6 | 8 | 10;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |

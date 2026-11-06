@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-05",
+  "date": "2026-11-06",
   "scope": "Manually documented HTTP, deployment, native and macro entry points; hashes only.",
   "files": [
     {
@@ -79,23 +79,23 @@
     },
     {
       "path": "game/apps/server/src/community-center-api.ts",
-      "sha256": "bb9dadc02d15e4c6a6253e9dff19091cf0d9757ad029699db2863047fc2605db",
-      "bytes": 15670
+      "sha256": "dc95c79c76e89abcb9025d6cdf318c5c602bffd841994a566d74a8dd8a0872e2",
+      "bytes": 15772
     },
     {
       "path": "game/apps/server/src/community-center-store.ts",
-      "sha256": "69b99fca563a364b48435826d85e8be04b9122a84db4c4ffdaed786046b9b51d",
-      "bytes": 26890
+      "sha256": "adc7959608c9aa907a6e156f55381f6ca44801d6468accb1d357a0455a227a32",
+      "bytes": 27073
     },
     {
       "path": "game/apps/server/src/community-center-access.ts",
-      "sha256": "a0cf7a17d06188b2e22762a40723590b09ed58ade3d18f5e1b4ce6ad02b4118e",
-      "bytes": 2195
+      "sha256": "8da38d76bc4ff5b390eea7f27b2542dbbfc7b573dc34e90a6a1aaa5c1e5e57bf",
+      "bytes": 2225
     },
     {
       "path": "game/apps/server/src/community-service.ts",
-      "sha256": "c518eaed46f5f49bc768890d7aef6d3d680a9f221431d69cb09717aa1a5776a8",
-      "bytes": 3817
+      "sha256": "e592ddded2c9c1c02401fb803f9a0b3cf037a30febeae2171da1293fae920891",
+      "bytes": 3849
     },
     {
       "path": "game/apps/server/src/resource-package-adapter.ts",
@@ -124,8 +124,8 @@
     },
     {
       "path": "game/apps/desktop/src-tauri/tauri.conf.json",
-      "sha256": "9b13b4c0a69faf548e3974d49cffe7b9e01e2a948b4f06440ecfc6e91d43a42f",
-      "bytes": 1368
+      "sha256": "4b4a7cf2d78b8b6aafd44a11d09f07430325cd66481982988efeb08159ce1d25",
+      "bytes": 1319
     },
     {
       "path": "game/apps/desktop/src-tauri/src/lib.rs",
@@ -154,8 +154,8 @@
     },
     {
       "path": "game/apps/desktop/src/story/scriptMacro.ts",
-      "sha256": "ca5e03f2727bda78fbdd1aab6dd0b078920dc8dd66fc00e971ca0aeb296c2738",
-      "bytes": 5517
+      "sha256": "e20eafc58f66a097c71594d81a9470390044fce775ebaa072422802f57f068f0",
+      "bytes": 5610
     },
     {
       "path": "game/apps/desktop/src/story/macroRunner.ts",
@@ -169,8 +169,8 @@
     },
     {
       "path": "game/apps/desktop/src/platform/aiPreparation.ts",
-      "sha256": "e99d202a0dce90f4e0e448400aba143e3864f55dac68176b41a9f418cf9781f5",
-      "bytes": 2937
+      "sha256": "38d3544b2915d1da0280a40d6480647e327940df1896aae7880b1138754b94e4",
+      "bytes": 2915
     },
     {
       "path": "game/apps/desktop/src/platform/updates.ts",

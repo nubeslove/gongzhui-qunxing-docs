@@ -1,12 +1,14 @@
 # game/packages/game-core/src/lancer/battle.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {lancerRaleighReloadAvailable} from './features';
+import {startMissionTransport} from './mission-transport';
 import {applyLancerRecovery,recoveryOwner} from './recovery';
 import {markLancerRoundClock,migrateLancerRoundClock} from './round-clock';
 import {refreshLancerIntel} from './live-intel';
@@ -54,7 +56,7 @@ import { validateLancerActionTarget } from './targeting';
 import { beginLancerFlight, refreshLancerAltitude, validateLancerFlight, validateLancerFlightHeading, lancerFlightOptions } from './flight';
 import { lancerFloor } from './geometry';
 import { lancerCheck, lancerRoll, type LancerRandom } from './dice';
-import { lancerDistance, lancerMovementCost, lancerPosition, lancerLineOfSight } from './geometry';
+import { lancerDistance, lancerMovementCost, lancerTraversalBlocks, lancerPosition, lancerLineOfSight } from './geometry';
 import { applyHeat, drainLancer, respondLancer, validateWeapon, validateLancerWeaponUse } from './resolution';
 import { queueLancerActionBurn, canReact, clear, condition, has, log, spend, unit } from './state';
 import { activateLancerFeature, count, counter, feature, lancerUniversalAccuracy, lancerSkillAccuracy } from './features';
@@ -83,7 +85,7 @@ export { LANCER_EXECUTABLE_FEATURES } from './features';
 
 ## lancerStartIssue
 
-导出接口 · 源码第 65 行。
+导出接口 · 源码第 67 行。
 
 Shared by the deployment UI and the authority transition.
 
@@ -97,10 +99,11 @@ export function lancerStartIssue(b: Pick<LancerBattle,'phase'|'units'|'entry'>):
 
 ## LancerBattleContext
 
-导出接口 · 源码第 72 行。
+导出接口 · 源码第 74 行。
 
 ```ts
 export interface LancerBattleContext {
+    canSettleAbility?: (unit: LancerCombatUnit, source: string) => boolean;
     recoveryHostId?: string;
     createToken?: (unit: LancerCombatUnit) => ManualToken;
     senderId: string;
@@ -114,6 +117,7 @@ export interface LancerBattleContext {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `canSettleAbility` | 是 | `(unit:LancerCombatUnit,source:string)=>boolean` | 见结构定义及所属功能文档 |
 | `recoveryHostId` | 是 | `string` | 见结构定义及所属功能文档 |
 | `createToken` | 是 | `(unit:LancerCombatUnit)=>ManualToken` | 见结构定义及所属功能文档 |
 | `senderId` | 否 | `string` | 见结构定义及所属功能文档 |
@@ -125,7 +129,7 @@ export interface LancerBattleContext {
 
 ## applyLancerIntent
 
-导出接口 · 源码第 76 行。
+导出接口 · 源码第 78 行。
 
 ```ts
 export function applyLancerIntent(current: LancerBattle|undefined, sourceMap: ManualMap, intent: LancerCombatIntent, ctx: LancerBattleContext): {battle:LancerBattle;map:ManualMap};

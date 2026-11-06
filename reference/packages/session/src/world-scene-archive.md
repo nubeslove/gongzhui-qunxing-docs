@@ -1,6 +1,6 @@
 # game/packages/session/src/world-scene-archive.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -59,3 +59,11 @@ export function importWorldScene(world: WorldDocument, raw: unknown, id: string,
 | `name` | 否 | `string` | — |
 | `folderId` | 否 | `string&#124;null` | — |
 | `replacement` | 是 | `unknown` | — |
+
+## sceneArchiveHandlers
+
+导出接口 · 源码第 32 行。
+
+```ts
+export const sceneArchiveHandlers: Record<string, WorldHandler>;
+```

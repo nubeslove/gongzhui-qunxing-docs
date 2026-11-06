@@ -1,12 +1,18 @@
 # game/packages/game-core/src/lancer/tactical-mission.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {log as battleLog} from './state';
+import {recordMissionWithdrawal} from './mission-withdrawal';
+import {canEvacuate,evacuateMissionUnit} from './mission-transport';
+import {actorControlled,officialTacticalSummary,installOfficialTacticalMissions} from '@aelzerant/contracts';
+import {applyLancerIntent} from './battle';
+import {settleOfficialTacticalMission} from './official-tactical-mission';
 import {TACTICAL_PLUGIN,regionAffectsFootprint,newTacticalMission,parseTacticalConfig,storyGm,storyObject,storyText,storyNumber,emptyStory,type ManualTable,type ManualToken,type TacticalMission,type TacticalConfig,type TacticalPoint} from '@aelzerant/contracts';
 import {emptySceneFeatures,lancerEffectiveBlock,lancerObject,lancerObjectActive,type SceneDrawing} from '@aelzerant/contracts';
 import {lancerRegionContains,lancerBlockOverlaps} from './geometry';
@@ -15,7 +21,7 @@ import {lancerRegionContains,lancerBlockOverlaps} from './geometry';
 
 ## applyTacticalCommand
 
-导出接口 · 源码第 39 行。
+导出接口 · 源码第 45 行。
 
 Invoked inside the existing authoritative table transaction.
 
@@ -31,7 +37,7 @@ export function applyTacticalCommand(table: ManualTable, raw: unknown, sender: s
 
 ## settleTacticalMission
 
-导出接口 · 源码第 121 行。
+导出接口 · 源码第 184 行。
 
 Called once after a successful command, never from a render or a client timer.
 

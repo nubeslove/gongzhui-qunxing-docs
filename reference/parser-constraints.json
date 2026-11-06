@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-05",
+  "date": "2026-11-06",
   "scope": "Direct parser/validator call arguments and rejection predicates. Not exhaustive interprocedural validation.",
   "validators": [
     {
@@ -1232,7 +1232,7 @@
     {
       "name": "parseEffect",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 189,
+      "line": 192,
       "fields": [],
       "checks": [
         "parseLancerArea(v.area)"
@@ -1243,7 +1243,7 @@
     {
       "name": "parseSalvo",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 190,
+      "line": 193,
       "fields": [],
       "checks": [
         "parseLancerArea(v.area)"
@@ -1254,7 +1254,7 @@
     {
       "name": "parseLancerZone",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 191,
+      "line": 194,
       "fields": [],
       "checks": [
         "parseRegionShape(v.shape,x+width+1e-7,y+depth+1e-7)"
@@ -1265,7 +1265,7 @@
     {
       "name": "parseLancerNpc",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 195,
+      "line": 198,
       "fields": [],
       "checks": [
         "parseLancerNpcProfile(v.profile)"
@@ -1278,7 +1278,7 @@
     {
       "name": "parseLancerPilotProfile",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 208,
+      "line": 211,
       "fields": [],
       "checks": [
         "parsePilotConditions(p.conditions)"
@@ -1291,7 +1291,7 @@
     {
       "name": "parseLancerUnit",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 214,
+      "line": 217,
       "fields": [],
       "checks": [
         "parsePilotConditions(v.conditions)",
@@ -1317,7 +1317,7 @@
     {
       "name": "parseStep",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 249,
+      "line": 252,
       "fields": [],
       "checks": [
         "parseStepBody(raw)"
@@ -1328,7 +1328,7 @@
     {
       "name": "parseStepBody",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 252,
+      "line": 255,
       "fields": [],
       "checks": [
         "parseLancerPlayerEffect(v.effect)",
@@ -1350,13 +1350,14 @@
     {
       "name": "parseLancerBattle",
       "source": "game/packages/contracts/src/lancer-combat.ts",
-      "line": 274,
+      "line": 277,
       "fields": [],
       "checks": [
         "parseLancerEntry(v.entry)",
         "parsePoint(p.defaultPoint)",
         "parseStep(p.step)",
         "parseLancerArea(q.area)",
+        "parseLancerTransport(v.transport)",
         "parseLancerRecovery(v.recovery)",
         "parseLancerReadyReference(w.prepared)",
         "parseCombatStep({text:l.text,movement:l.movement})",
@@ -1476,7 +1477,8 @@
       "rejectionConditions": [
         "!raw||typeof raw!=='object'",
         "typeof r[key]!=='string'||(r[key] as string).length>300",
-        "r.source!=='queue'&&r.source!=='manual'"
+        "resume!==undefined&&(!resume||typeof resume.id!=='string'||resume.id.length>300||typeof resume.remainingMs!=='number'||!Number.isFinite(resume.remainingMs)||resume.remainingMs<0||resume.remainingMs>300000)",
+        "r.source!=='queue'&&r.source!=='manual'&&r.source!=='automatic'"
       ],
       "delegatedTypes": []
     },
@@ -1574,6 +1576,21 @@
       "delegatedTypes": []
     },
     {
+      "name": "parseLancerTransport",
+      "source": "game/packages/contracts/src/lancer-transport.ts",
+      "line": 8,
+      "fields": [],
+      "checks": [
+        "storyObject(raw)",
+        "storyNumber(v.window,0,1000000)",
+        "storyObject(v.following)",
+        "storyNumber(f.turn,0,1000000)",
+        "storyNumber(f.remaining,0,1000)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
       "name": "parseLibraryDirectories",
       "source": "game/packages/contracts/src/library-directory.ts",
       "line": 7,
@@ -1602,6 +1619,42 @@
         "!isRecord(value) || !isAssetPath(value.path) || paths.has(value.path) || typeof value.hash !== \"string\" || !/^[a-f0-9]{64}$/.test(value.hash) || !isInteger(value.size, 1, 32000000) || !MEDIA_TYPES.includes(value.mime as MediaType)",
         "total > 512000000"
       ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseMinigameInput",
+      "source": "game/packages/contracts/src/minigame.ts",
+      "line": 52,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!Number.isInteger(seq)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseMinigameResult",
+      "source": "game/packages/contracts/src/minigame.ts",
+      "line": 56,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "typeof v.success!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseMinigameWorkspace",
+      "source": "game/packages/contracts/src/minigame.ts",
+      "line": 60,
+      "fields": [],
+      "checks": [
+        "parseMinigameResult(p.result)",
+        "parseMinigamePreset(s.preset)",
+        "parseMinigameResult(s.teamResult)",
+        "parseConsequence({id:'effect',label:'effect',when:'always',scope:'team',mode:'confirm',action:e.action})"
+      ],
+      "rejectionConditions": [],
       "delegatedTypes": []
     },
     {
@@ -1648,6 +1701,17 @@
       "delegatedTypes": []
     },
     {
+      "name": "validateActivePlugins",
+      "source": "game/packages/contracts/src/plugin-dependencies.ts",
+      "line": 43,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "!enabled.has(id)"
+      ],
+      "delegatedTypes": []
+    },
+    {
       "name": "parseProgressDirectories",
       "source": "game/packages/contracts/src/progress-directory.ts",
       "line": 8,
@@ -1657,6 +1721,20 @@
         "parseDocumentDirectory(value.event,events)"
       ],
       "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseQteDefinition",
+      "source": "game/packages/contracts/src/qte.ts",
+      "line": 11,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "v.version!==1",
+        "config.sharedInput!==undefined&&typeof config.sharedInput!=='boolean'",
+        "!keys.length||new Set(keys).size!==keys.length",
+        "config[key]!==undefined&&typeof config[key]!=='boolean'"
+      ],
       "delegatedTypes": []
     },
     {
@@ -2629,7 +2707,7 @@
     {
       "name": "parseResource",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 141,
+      "line": 143,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -2656,7 +2734,7 @@
     {
       "name": "parsePresentationState",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 152,
+      "line": 154,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -2671,7 +2749,7 @@
     {
       "name": "parseSceneEffects",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 156,
+      "line": 158,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -2685,7 +2763,7 @@
     {
       "name": "parseOnboarding",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 161,
+      "line": 163,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -2700,7 +2778,7 @@
     {
       "name": "parsePlayerProgress",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 164,
+      "line": 166,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -2717,7 +2795,7 @@
     {
       "name": "parseSceneNodes",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 170,
+      "line": 172,
       "fields": [],
       "checks": [
         "storyObject(rawNode)",
@@ -2741,7 +2819,7 @@
     {
       "name": "parseSceneGraph",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 184,
+      "line": 186,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -2757,7 +2835,7 @@
     {
       "name": "parseLegacySceneGraph",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 188,
+      "line": 190,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -2770,7 +2848,7 @@
     {
       "name": "parseSceneGraphLibrary",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 191,
+      "line": 193,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -2786,7 +2864,7 @@
     {
       "name": "parseStory",
       "source": "game/packages/contracts/src/story.ts",
-      "line": 199,
+      "line": 201,
       "fields": [],
       "checks": [
         "storyObject(raw)",
@@ -2814,6 +2892,7 @@
         "storyId(user)",
         "storyId(scene)",
         "parseAdventure(v.adventure)",
+        "parseMinigameWorkspace(v.minigames)",
         "parseLancerNodeRuns(v.lancerNodeRuns)",
         "parseLancerScenePlans(v.lancerScenePlans)",
         "parseTacticalMissions(v.tacticalMissions)",
@@ -2877,16 +2956,27 @@
     {
       "name": "parseManualTable",
       "source": "game/packages/contracts/src/tabletop.ts",
-      "line": 87,
+      "line": 88,
+      "fields": [],
+      "checks": [
+        "parseManualTableValue(raw)"
+      ],
+      "rejectionConditions": [],
+      "delegatedTypes": []
+    },
+    {
+      "name": "parseManualTableValue",
+      "source": "game/packages/contracts/src/tabletop.ts",
+      "line": 93,
       "fields": [],
       "checks": [
         "isGameSystemId(v.systemId)",
         "parseRuleVariant(v.ruleVariant,v.systemId)",
         "parseUtopiaBattle(v.utopiaBattle)",
         "parseStory(storyInput)",
-        "parseManualTable({...v,story:undefined,scenes:undefined,activeSceneId:undefined,activeSceneName:undefined,activeSceneKind:undefined,map:s.map,utopiaBattle:s.utopiaBattle,dndBattle:s.dndBattle,lancerBattle:s.lancerBattle,dndPending:s.dndPending})",
-        "parseSceneKind(s.kind)",
         "parseOwnedItems(a.ownedItems,v.systemId)",
+        "parseManualTableValue({...v,story:undefined,scenes:undefined,activeSceneId:undefined,activeSceneName:undefined,activeSceneKind:undefined,map:s.map,utopiaBattle:s.utopiaBattle,dndBattle:s.dndBattle,lancerBattle:s.lancerBattle,dndPending:s.dndPending},actors)",
+        "parseSceneKind(s.kind)",
         "parseTokenAppearance(t.appearance)",
         "parseLancerRide(t.lancerRiding)",
         "parseDndMagicBarrier(b.dndMagicBarrier)",
@@ -2929,7 +3019,7 @@
     {
       "name": "parsePublication",
       "source": "game/packages/contracts/src/tabletop.ts",
-      "line": 224,
+      "line": 233,
       "fields": [],
       "checks": [
         "isGameSystemId(v.systemId)"
@@ -2945,17 +3035,21 @@
     {
       "name": "parseTacticalConfig",
       "source": "game/packages/contracts/src/tactical-mission.ts",
-      "line": 32,
+      "line": 51,
       "fields": [],
       "checks": [
         "storyObject(raw)",
         "storyObject(c.assignments)",
         "storyObject(c.eligibility)",
         "storyObject(v)",
-        "storyObject(c.escort)"
+        "storyObject(c.escort)",
+        "storyObject(c.official)"
       ],
       "rejectionConditions": [
         "typeof v!=='boolean'",
+        "c.official!==undefined",
+        "['control','zone','holdout','recon','capture'].includes(config.official.rule)&&(mode!=='control'||!config.roundLimit)",
+        "config.official&&['destroy','demolition','escape','protect'].includes(config.official.rule)&&(!config.official.targets?.length||!config.roundLimit||config.official.rule==='escape'&&points.length!==1)",
         "mode==='control'&&!points.length",
         "mode==='flag'&&(flags.length<2||flags.length!==ts.length)"
       ],
@@ -2964,14 +3058,18 @@
     {
       "name": "parseTacticalMissions",
       "source": "game/packages/contracts/src/tactical-mission.ts",
-      "line": 48,
+      "line": 69,
       "fields": [],
       "checks": [
         "storyObject(raw)",
         "storyObject(value)",
         "storyObject(v.scores)",
         "storyObject(v.escort)",
-        "parseTacticalConfig(v.config)"
+        "parseTacticalConfig(v.config)",
+        "storyObject(v.transcendence)",
+        "storyObject(v.arena)",
+        "storyObject(v.withdrawal)",
+        "storyObject(v.evacuation)"
       ],
       "rejectionConditions": [],
       "delegatedTypes": []
@@ -3011,7 +3109,7 @@
     {
       "name": "parsePluginManifest",
       "source": "game/packages/contracts/src/theatre.ts",
-      "line": 56,
+      "line": 58,
       "fields": [],
       "checks": [
         "isGameSystemId(systemId)"
@@ -3022,14 +3120,15 @@
         "!version",
         "!Object.hasOwn(PLUGIN_CATEGORIES,category)",
         "!PLUGIN_CAPABILITIES.includes(capability as PluginCapability)",
-        "systemId!==undefined&&!isGameSystemId(systemId)"
+        "systemId!==undefined&&!isGameSystemId(systemId)",
+        "!/^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$/.test(s)"
       ],
       "delegatedTypes": []
     },
     {
       "name": "parseStoryPlugins",
       "source": "game/packages/contracts/src/theatre.ts",
-      "line": 81,
+      "line": 93,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
@@ -3042,7 +3141,7 @@
     {
       "name": "parseTheatreState",
       "source": "game/packages/contracts/src/theatre.ts",
-      "line": 128,
+      "line": 140,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
@@ -3622,7 +3721,7 @@
     {
       "name": "validateLancerWeaponUse",
       "source": "game/packages/game-core/src/lancer/resolution.ts",
-      "line": 75,
+      "line": 77,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
@@ -3638,7 +3737,7 @@
     {
       "name": "validateWeapon",
       "source": "game/packages/game-core/src/lancer/resolution.ts",
-      "line": 83,
+      "line": 85,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
@@ -3659,7 +3758,7 @@
     {
       "name": "validateMap",
       "source": "game/packages/game-core/src/lancer/tactical-mission.ts",
-      "line": 20,
+      "line": 26,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
@@ -4404,6 +4503,20 @@
         "['cargo','rescue'].includes(d.rule)&&Object.values(s.carriers).includes(i.unit)",
         "r.selected!.map==='arena-4-1'",
         "index>0&&!objectDone(t,index-1)"
+      ],
+      "delegatedTypes": []
+    },
+    {
+      "name": "validateSolsticeReinforcements",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/solsticeReinforcements.ts",
+      "line": 6,
+      "fields": [],
+      "checks": [
+        "parseLancerNpc(JSON.parse(a!.fields['lancer.npc']))"
+      ],
+      "rejectionConditions": [
+        "b.round<2||b.active||b.acted.length",
+        "prior.length+npcs.length>4"
       ],
       "delegatedTypes": []
     },

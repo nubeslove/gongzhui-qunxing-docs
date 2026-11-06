@@ -1,6 +1,6 @@
 # game/packages/game-core/src/lancer/tech.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -66,6 +66,22 @@ export interface LancerTechOption {
 | `repair` | 是 | `LancerCondition` | 见结构定义及所属功能文档 |
 | `skill` | 是 | `'systems'&#124;'engineering'` | 见结构定义及所属功能文档 |
 | `invade` | 是 | `boolean` | 见结构定义及所属功能文档 |
+
+## LANCER_TECH_SYSTEMS
+
+导出接口 · 源码第 28 行。
+
+```ts
+export const LANCER_TECH_SYSTEMS: Record<string, string>;
+```
+
+## LANCER_TECH_OPTIONS
+
+导出接口 · 源码第 29 行。
+
+```ts
+export const LANCER_TECH_OPTIONS: Record<string, LancerTechOption>;
+```
 
 ## availableLancerTech
 

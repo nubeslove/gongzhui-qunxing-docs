@@ -1,6 +1,6 @@
 # game/packages/game-core/src/lancer/pilot-equipment.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -24,3 +24,17 @@ export function lancerPilotWeapon(id: keyof typeof LANCER_PILOT_WEAPONS, slot: n
 | `id` | 否 | `keyof typeof LANCER_PILOT_WEAPONS` | — |
 | `slot` | 否 | `number` | — |
 | `type` | 是 | `'kinetic'&#124;'energy'&#124;'explosive'` | 'kinetic' |
+
+## LANCER_PILOT_GEAR
+
+导出接口 · 源码第 36 行。
+
+```ts
+export const LANCER_PILOT_GEAR: Record<string, {
+    name: string;
+    limited: number;
+    cost: 0 | 1 | 2;
+    target: 'self' | 'unit' | 'point';
+    text: string;
+}>;
+```

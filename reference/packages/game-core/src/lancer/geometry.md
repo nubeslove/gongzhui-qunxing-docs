@@ -1,6 +1,6 @@
 # game/packages/game-core/src/lancer/geometry.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -277,9 +277,24 @@ export function lancerFloor(map: ManualMap, t: ManualToken, ceiling?: number): n
 | `t` | 否 | `ManualToken` | — |
 | `ceiling` | 是 | `number` | t.z |
 
+## lancerTraversalBlocks
+
+导出接口 · 源码第 155 行。
+
+Small obstacles may be crossed, but floors below the feet and terrain costs remain present.
+
+```ts
+export function lancerTraversalBlocks(map: ManualMap, t: ManualToken): ManualBlock[];
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `map` | 否 | `ManualMap` | — |
+| `t` | 否 | `ManualToken` | — |
+
 ## lancerPolygonCoverage
 
-导出接口 · 源码第 156 行。
+导出接口 · 源码第 160 行。
 
 Convex polygon intersection, used for the half-cell terrain and template rule.
 

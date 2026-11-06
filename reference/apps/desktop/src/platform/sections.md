@@ -1,6 +1,6 @@
 # game/apps/desktop/src/platform/sections.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../README.md)
 
@@ -16,7 +16,7 @@ import { GAME_SYSTEMS, type GameSystemId } from '@aelzerant/contracts';
 导出接口 · 源码第 3 行。
 
 ```ts
-export const PLATFORM_NAME = '千星奇域';
+export const PLATFORM_NAME = 'NAA';
 ```
 
 ## APPLICATION_NAME
@@ -24,7 +24,7 @@ export const PLATFORM_NAME = '千星奇域';
 导出接口 · 源码第 4 行。
 
 ```ts
-export const APPLICATION_NAME = '千星奇域_V0.1_TRPG在线跑团客户端';
+export const APPLICATION_NAME = 'NAA · 千星奇域 TRPG 在线跑团客户端';
 ```
 
 ## SectionId

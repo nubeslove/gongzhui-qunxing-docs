@@ -65,5 +65,9 @@ JSON Schema Draft 2020-12，来源为当前 TypeScript 合同。这里是**规�
 - [RuntimeServiceRequest](RuntimeServiceRequest.schema.json)
 - [RuntimeServiceResponse](RuntimeServiceResponse.schema.json)
 - [ResourcePackage](ResourcePackage.schema.json)
+- [MinigamePreset](MinigamePreset.schema.json)
+- [MinigameInput](MinigameInput.schema.json)
+- [MinigameWorkspace](MinigameWorkspace.schema.json)
+- [QteDefinition](QteDefinition.schema.json)
 
 底层 [contracts.schema.json](contracts.schema.json) 收集全部递归定义；离线使用时请保留同目录文件。

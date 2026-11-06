@@ -1,12 +1,13 @@
 # game/packages/tabletop-runtime/src/tabletop/lancer/reinforcements.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {validateSolsticeReinforcements} from './solsticeReinforcements';
 import {validateWallflowerReinforcements} from './wallflowerReinforcements';
 import {parseLancerBattle,storyGm,type ManualTable,type ManualToken} from '@aelzerant/contracts';
 import {lancerPosition,lancerPlacementCandidates,lancerDeploymentFits} from '@aelzerant/game-core';
@@ -20,7 +21,7 @@ import {validateDustgraveReinforcements} from './dustgraveReinforcements';
 
 ## ReinforcementPlacement
 
-导出接口 · 源码第 10 行。
+导出接口 · 源码第 11 行。
 
 ```ts
 export type ReinforcementPlacement = {
@@ -40,7 +41,7 @@ export type ReinforcementPlacement = {
 
 ## applyLancerReinforcements
 
-导出接口 · 源码第 13 行。
+导出接口 · 源码第 14 行。
 
 Derive stats from authoritative character cards, never from a submitted unit.
 
@@ -56,7 +57,7 @@ export function applyLancerReinforcements(table: ManualTable, sender: string, pl
 
 ## planLancerReinforcements
 
-导出接口 · 源码第 43 行。
+导出接口 · 源码第 45 行。
 
 The preview uses the same size/collision rules as placement. No live data is mutated.
 

@@ -1,6 +1,6 @@
 # game/packages/contracts/src/tactical-mission.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -65,12 +65,63 @@ export interface TacticalTeam {
 | `color` | 否 | `string` | 见结构定义及所属功能文档 |
 | `side` | 否 | `'players'&#124;'hostiles'&#124;'custom'` | 见结构定义及所属功能文档 |
 
-## TacticalConfig
+## OfficialTacticalRule
 
 导出接口 · 源码第 7 行。
 
 ```ts
+export interface OfficialTacticalRule {
+    moduleId: string;
+    encounter: string;
+    source: string;
+    description: string;
+    targets?: string[];
+    targetActors?: string[];
+    reconRegionId?: string;
+    reconRequired?: boolean;
+    targetLoss?: 'hostiles' | 'draw';
+    evacuationEnd?: 'party';
+    npcEvacuation?: 'alone';
+    rule: 'control' | 'zone' | 'holdout' | 'eliminate' | 'survive' | 'bomb' | 'destroy' | 'demolition' | 'escape' | 'protect' | 'recon' | 'endure' | 'defeat' | 'eidolon' | 'escort' | 'evacuate' | 'capture' | 'regret' | 'rout' | 'breakpoint' | 'arena' | 'transcendence' | 'gm';
+    tie: 'players' | 'hostiles' | 'draw';
+    weighted: boolean;
+    allPointsBonus: number;
+    enemyLimit: number;
+    eliminate: boolean;
+    ignoreGrunts?: boolean;
+    mechsOnly?: boolean;
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `moduleId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `encounter` | 否 | `string` | 见结构定义及所属功能文档 |
+| `source` | 否 | `string` | 见结构定义及所属功能文档 |
+| `description` | 否 | `string` | 见结构定义及所属功能文档 |
+| `targets` | 是 | `string[]` | 见结构定义及所属功能文档 |
+| `targetActors` | 是 | `string[]` | 见结构定义及所属功能文档 |
+| `reconRegionId` | 是 | `string` | 见结构定义及所属功能文档 |
+| `reconRequired` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `targetLoss` | 是 | `'hostiles'&#124;'draw'` | 见结构定义及所属功能文档 |
+| `evacuationEnd` | 是 | `'party'` | 见结构定义及所属功能文档 |
+| `npcEvacuation` | 是 | `'alone'` | 见结构定义及所属功能文档 |
+| `rule` | 否 | `'control'&#124;'zone'&#124;'holdout'&#124;'eliminate'&#124;'survive'&#124;'bomb'&#124;'destroy'&#124;'demolition'&#124;'escape'&#124;'protect'&#124;'recon'&#124;'endure'&#124;'defeat'&#124;'eidolon'&#124;'escort'&#124;'evacuate'&#124;'capture'&#124;'regret'&#124;'rout'&#124;'breakpoint'&#124;'arena'&#124;'transcendence'&#124;'gm'` | 见结构定义及所属功能文档 |
+| `tie` | 否 | `'players'&#124;'hostiles'&#124;'draw'` | 见结构定义及所属功能文档 |
+| `weighted` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `allPointsBonus` | 否 | `number` | 见结构定义及所属功能文档 |
+| `enemyLimit` | 否 | `number` | 见结构定义及所属功能文档 |
+| `eliminate` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `ignoreGrunts` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `mechsOnly` | 是 | `boolean` | 见结构定义及所属功能文档 |
+
+## TacticalConfig
+
+导出接口 · 源码第 12 行。
+
+```ts
 export interface TacticalConfig {
+    official?: OfficialTacticalRule;
     name: string;
     mode: TacticalMode;
     teams: TacticalTeam[];
@@ -104,6 +155,7 @@ export interface TacticalConfig {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `official` | 是 | `OfficialTacticalRule` | 见结构定义及所属功能文档 |
 | `name` | 否 | `string` | 见结构定义及所属功能文档 |
 | `mode` | 否 | `TacticalMode` | 见结构定义及所属功能文档 |
 | `teams` | 否 | `TacticalTeam[]` | 见结构定义及所属功能文档 |
@@ -132,10 +184,36 @@ export interface TacticalConfig {
 
 ## TacticalMission
 
-导出接口 · 源码第 14 行。
+导出接口 · 源码第 20 行。
 
 ```ts
 export interface TacticalMission {
+    transcendence?: {
+        stage: 'combat' | 'choice' | 'lastRound' | 'retreated' | 'catastrophe';
+    };
+    arena?: {
+        wave: number;
+        pending: number | null;
+    };
+    withdrawal?: {
+        units: {
+            unit: string;
+            reason: 'routed' | 'surrendered';
+        }[];
+    };
+    evacuation?: {
+        timing: 'own' | 'any';
+        units: string[];
+        targets: string[];
+        allies?: boolean;
+    };
+    captured?: string[];
+    recon?: {
+        pointId: string;
+        result: 'true' | 'false';
+    }[];
+    status?: string;
+    outcome?: 'players' | 'hostiles' | 'draw';
     target: number;
     roundLimit: number;
     config: TacticalConfig | null;
@@ -172,6 +250,26 @@ export interface TacticalMission {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
+| `transcendence` | 是 | `{stage:'combat'&#124;'choice'&#124;'lastRound'&#124;'retreated'&#124;'catastrophe'}` | 见结构定义及所属功能文档 |
+| `transcendence.stage` | 否 | `'combat'&#124;'choice'&#124;'lastRound'&#124;'retreated'&#124;'catastrophe'` | 见结构定义及所属功能文档 |
+| `arena` | 是 | `{wave:number;pending:number&#124;null}` | 见结构定义及所属功能文档 |
+| `arena.wave` | 否 | `number` | 见结构定义及所属功能文档 |
+| `arena.pending` | 否 | `number&#124;null` | 见结构定义及所属功能文档 |
+| `withdrawal` | 是 | `{units:{unit:string;reason:'routed'&#124;'surrendered'}[]}` | 见结构定义及所属功能文档 |
+| `withdrawal.units` | 否 | `{unit:string;reason:'routed'&#124;'surrendered'}[]` | 见结构定义及所属功能文档 |
+| `withdrawal.units.[].unit` | 否 | `string` | 见结构定义及所属功能文档 |
+| `withdrawal.units.[].reason` | 否 | `'routed'&#124;'surrendered'` | 见结构定义及所属功能文档 |
+| `evacuation` | 是 | `{timing:'own'&#124;'any';units:string[];targets:string[];allies?:boolean}` | 见结构定义及所属功能文档 |
+| `evacuation.timing` | 否 | `'own'&#124;'any'` | 见结构定义及所属功能文档 |
+| `evacuation.units` | 否 | `string[]` | 见结构定义及所属功能文档 |
+| `evacuation.targets` | 否 | `string[]` | 见结构定义及所属功能文档 |
+| `evacuation.allies` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `captured` | 是 | `string[]` | 见结构定义及所属功能文档 |
+| `recon` | 是 | `{pointId:string;result:'true'&#124;'false'}[]` | 见结构定义及所属功能文档 |
+| `recon.[].pointId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `recon.[].result` | 否 | `'true'&#124;'false'` | 见结构定义及所属功能文档 |
+| `status` | 是 | `string` | 见结构定义及所属功能文档 |
+| `outcome` | 是 | `'players'&#124;'hostiles'&#124;'draw'` | 见结构定义及所属功能文档 |
 | `target` | 否 | `number` | 见结构定义及所属功能文档 |
 | `roundLimit` | 否 | `number` | 见结构定义及所属功能文档 |
 | `config` | 否 | `TacticalConfig&#124;null` | 见结构定义及所属功能文档 |
@@ -203,10 +301,41 @@ export interface TacticalMission {
 
 ## TacticalCommand
 
-导出接口 · 源码第 22 行。
+导出接口 · 源码第 35 行。
 
 ```ts
 export type TacticalCommand = {
+    type: 'tactical.transcendence';
+    sceneId: string;
+    expected: number;
+    choice: 'retreat' | 'stay';
+} | {
+    type: 'tactical.concede';
+    sceneId: string;
+    expected: number;
+} | {
+    type: 'tactical.withdraw';
+    sceneId: string;
+    expected: number;
+    unit: string;
+    reason: 'routed' | 'surrendered';
+} | {
+    type: 'tactical.evacuate';
+    sceneId: string;
+    expected: number;
+    unit: string;
+} | {
+    type: 'tactical.reconTarget';
+    sceneId: string;
+    expected: number;
+    pointId: string;
+} | {
+    type: 'tactical.recon' | 'tactical.capture';
+    sceneId: string;
+    expected: number;
+    unit: string;
+    pointId: string;
+} | {
     type: 'tactical.configure';
     sceneId: string;
     expected: number;
@@ -227,23 +356,48 @@ export type TacticalCommand = {
 
 | 字段 | 可选 | 类型 | 含义／来源注释 |
 | --- | --- | --- | --- |
-| `分支1.type` | 否 | `'tactical.configure'` | 见结构定义及所属功能文档 |
+| `分支1.type` | 否 | `'tactical.transcendence'` | 见结构定义及所属功能文档 |
 | `分支1.sceneId` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支1.expected` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支1.config` | 否 | `TacticalConfig` | 见结构定义及所属功能文档 |
-| `分支2.type` | 否 | `'tactical.start'&#124;'tactical.pause'&#124;'tactical.resume'&#124;'tactical.finish'` | 见结构定义及所属功能文档 |
+| `分支1.choice` | 否 | `'retreat'&#124;'stay'` | 见结构定义及所属功能文档 |
+| `分支2.type` | 否 | `'tactical.concede'` | 见结构定义及所属功能文档 |
 | `分支2.sceneId` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支2.expected` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支3.type` | 否 | `'tactical.adjust'` | 见结构定义及所属功能文档 |
+| `分支3.type` | 否 | `'tactical.withdraw'` | 见结构定义及所属功能文档 |
 | `分支3.sceneId` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支3.expected` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支3.team` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支3.delta` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支3.reason` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支3.unit` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支3.reason` | 否 | `'routed'&#124;'surrendered'` | 见结构定义及所属功能文档 |
+| `分支4.type` | 否 | `'tactical.evacuate'` | 见结构定义及所属功能文档 |
+| `分支4.sceneId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支4.expected` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支4.unit` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支5.type` | 否 | `'tactical.reconTarget'` | 见结构定义及所属功能文档 |
+| `分支5.sceneId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支5.expected` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支5.pointId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支6.type` | 否 | `'tactical.recon'&#124;'tactical.capture'` | 见结构定义及所属功能文档 |
+| `分支6.sceneId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支6.expected` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支6.unit` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支6.pointId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支7.type` | 否 | `'tactical.configure'` | 见结构定义及所属功能文档 |
+| `分支7.sceneId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支7.expected` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支7.config` | 否 | `TacticalConfig` | 见结构定义及所属功能文档 |
+| `分支8.type` | 否 | `'tactical.start'&#124;'tactical.pause'&#124;'tactical.resume'&#124;'tactical.finish'` | 见结构定义及所属功能文档 |
+| `分支8.sceneId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支8.expected` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支9.type` | 否 | `'tactical.adjust'` | 见结构定义及所属功能文档 |
+| `分支9.sceneId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支9.expected` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支9.team` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支9.delta` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支9.reason` | 否 | `string` | 见结构定义及所属功能文档 |
 
 ## parseTacticalConfig
 
-导出接口 · 源码第 32 行。
+导出接口 · 源码第 51 行。
 
 ```ts
 export function parseTacticalConfig(raw: unknown): TacticalConfig;
@@ -255,7 +409,7 @@ export function parseTacticalConfig(raw: unknown): TacticalConfig;
 
 ## newTacticalConfig
 
-导出接口 · 源码第 46 行。
+导出接口 · 源码第 67 行。
 
 ```ts
 export function newTacticalConfig(): TacticalConfig;
@@ -263,7 +417,7 @@ export function newTacticalConfig(): TacticalConfig;
 
 ## newTacticalMission
 
-导出接口 · 源码第 47 行。
+导出接口 · 源码第 68 行。
 
 ```ts
 export function newTacticalMission(c: TacticalConfig, revision?: number): TacticalMission;
@@ -276,7 +430,7 @@ export function newTacticalMission(c: TacticalConfig, revision?: number): Tactic
 
 ## parseTacticalMissions
 
-导出接口 · 源码第 48 行。
+导出接口 · 源码第 69 行。
 
 ```ts
 export function parseTacticalMissions(raw: unknown): Record<string,TacticalMission>;
@@ -288,7 +442,7 @@ export function parseTacticalMissions(raw: unknown): Record<string,TacticalMissi
 
 ## projectTacticalMissions
 
-导出接口 · 源码第 60 行。
+导出接口 · 源码第 88 行。
 
 ```ts
 export function projectTacticalMissions(missions: Record<string,TacticalMission>, sceneIds?: ReadonlySet<string>): Record<string,TacticalMission>;
@@ -298,3 +452,17 @@ export function projectTacticalMissions(missions: Record<string,TacticalMission>
 | --- | --- | --- | --- |
 | `missions` | 否 | `Record<string,TacticalMission>` | — |
 | `sceneIds` | 是 | `ReadonlySet<string>` | — |
+
+## officialTacticalSummary
+
+导出接口 · 源码第 93 行。
+
+Player-safe objective text; source notes and later story consequences stay in private config.
+
+```ts
+export function officialTacticalSummary(c: TacticalConfig): string;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `c` | 否 | `TacticalConfig` | — |

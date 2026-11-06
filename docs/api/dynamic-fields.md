@@ -138,11 +138,12 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/apps/desktop/src/tabletop/lancer/Hangar.tsx:36` → `actor.fields['lancer.creation']`
 - `game/apps/desktop/src/tabletop/lancer/Hangar.tsx:37` → `a.fields['lancer.creation']`
 - `game/apps/desktop/src/tabletop/lancer/LancerCharacter.tsx:25` → `actor.fields['lancer.creation']`
-- `game/apps/desktop/src/tabletop/lancer/LancerCharacter.tsx:39` → `a.fields['lancer.creation']`
-- `game/apps/desktop/src/tabletop/lancer/LancerCharacter.tsx:63` → `actor.fields['lancer.creation']`
-- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:166` → `hangarActor?.fields['lancer.creation']`
-- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:168` → `hangarActor?.fields['lancer.creation']`
-- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:168` → `hangarActor?.fields['lancer.creation']`
+- `game/apps/desktop/src/tabletop/lancer/LancerCharacter.tsx:40` → `a.fields['lancer.creation']`
+- `game/apps/desktop/src/tabletop/lancer/LancerCharacter.tsx:62` → `actor.fields['lancer.creation']`
+- `game/apps/desktop/src/tabletop/lancer/LancerCharacter.tsx:65` → `actor.fields['lancer.creation']`
+- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:173` → `hangarActor?.fields['lancer.creation']`
+- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:175` → `hangarActor?.fields['lancer.creation']`
+- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:175` → `hangarActor?.fields['lancer.creation']`
 - `game/apps/desktop/src/tabletop/lancer/LancerHome.tsx:52` → `actor?.fields['lancer.creation']`
 - `game/apps/desktop/src/tabletop/lancer/manualNodeControls.ts:7` → `a.fields['lancer.creation']`
 - `game/apps/desktop/src/tabletop/lancer/PilotImport.tsx:14` → `a.fields['lancer.creation']`
@@ -279,16 +280,18 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 - `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:23` → `actor.fields['lancer.frame']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/content.ts:42` → `a.fields['lancer.frame']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/frameCore.ts:9` → `actor.fields['lancer.frame']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:18` → `a.fields['lancer.frame']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:23` → `next.fields['lancer.frame']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:23` → `next.fields['lancer.frame']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/abilities.ts:10` → `actor?.fields['lancer.frame']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/retraining.ts:34` → `actor.fields['lancer.frame']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:133` → `a.fields['lancer.frame']`
+- `game/apps/desktop/src/tabletop/lancer/battleBoardModel.ts:7` → `actor?.fields['lancer.frame']`
 - `game/apps/desktop/src/tabletop/lancer/compcon.ts:30` → `f['lancer.frame']`
 - `game/apps/desktop/src/tabletop/lancer/FramePicker.tsx:10` → `actor.fields['lancer.frame']`
 - `game/apps/desktop/src/tabletop/lancer/FramePicker.tsx:14` → `actor.fields['lancer.frame']`
-- `game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx:32` → `actor.fields['lancer.frame']`
+- `game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx:33` → `actor.fields['lancer.frame']`
 - `game/apps/desktop/src/tabletop/lancer/ResourceCatalog.tsx:20` → `actor?.fields['lancer.frame']`
 - `game/apps/desktop/src/tabletop/lancer/rogue/RogueRetraining.tsx:14` → `actor.fields['lancer.frame']`
 - `game/apps/desktop/src/tabletop/lancer/rogue/tokenArt.ts:53` → `actor?.fields['lancer.frame']`
@@ -383,7 +386,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 - `game/packages/tabletop-runtime/src/tabletop/lancer/nodeExecution.ts:39` → `a.fields['lancer.levelGrant']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/nodeExecution.ts:39` → `a.fields['lancer.levelGrant']`
-- `game/apps/desktop/src/tabletop/lancer/LancerCharacter.tsx:47` → `actor.fields['lancer.levelGrant']`
+- `game/apps/desktop/src/tabletop/lancer/LancerCharacter.tsx:49` → `actor.fields['lancer.levelGrant']`
 
 ## `lancer.level（插值）`
 
@@ -458,10 +461,13 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/packages/tabletop-runtime/src/tabletop/lancer/deployment.ts:30` → `a.fields['lancer.npc']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/deployment.ts:30` → `a.fields['lancer.npc']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/deployment.ts:62` → `table.actors.find(a=>a.id===u.actorId)?.fields['lancer.npc']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/frameCore.ts:8` → `actor.fields['lancer.npc']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/importPilot.ts:9` → `actor.fields['lancer.npc']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/maintenance.ts:21` → `a.fields['lancer.npc']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/nodeExecution.ts:14` → `a.fields['lancer.npc']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/reinforcements.ts:26` → `actor?.fields['lancer.npc']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/reinforcements.ts:28` → `actor?.fields['lancer.npc']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/solsticeReinforcements.ts:12` → `a.fields['lancer.npc']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/solsticeReinforcements.ts:13` → `a!.fields['lancer.npc']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/wallflowerTools.ts:16` → `a.fields['lancer.npc']`
 - `game/apps/desktop/src/tabletop/lancer/actorGroup.ts:8` → `actor.fields['lancer.npc']`
 - `game/apps/desktop/src/tabletop/lancer/DeploymentPanel.tsx:15` → `table.actors.find(v=>v.id===a.id)?.fields['lancer.npc']`
@@ -471,8 +477,8 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/apps/desktop/src/tabletop/lancer/hud/ImportantBroadcast.tsx:19` → `a.fields['lancer.npc']`
 - `game/apps/desktop/src/tabletop/lancer/hud/sceneStatusModel.ts:10` → `actor?.fields['lancer.npc']`
 - `game/apps/desktop/src/tabletop/lancer/hud/sceneStatusModel.ts:15` → `a.fields['lancer.npc']`
-- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:86` → `a.fields['lancer.npc']`
-- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:166` → `hangarActor?.fields['lancer.npc']`
+- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:91` → `a.fields['lancer.npc']`
+- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:173` → `hangarActor?.fields['lancer.npc']`
 - `game/apps/desktop/src/tabletop/lancer/MaintenancePanel.tsx:17` → `a.fields['lancer.npc']`
 - `game/apps/desktop/src/tabletop/lancer/manualNodeControls.ts:7` → `a.fields['lancer.npc']`
 - `game/apps/desktop/src/tabletop/lancer/npcImport.ts:43` → `actor.fields['lancer.npc']`
@@ -482,6 +488,9 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/apps/desktop/src/tabletop/lancer/WorldPilotImport.tsx:16` → `a.fields['lancer.npc']`
 - `game/packages/game-core/src/lancer/npc.ts:25` → `actor.fields['lancer.npc']`
 - `game/packages/game-core/src/lancer/npc.ts:26` → `actor.fields['lancer.npc']`
+- `game/packages/game-core/src/lancer/official-tactical-mission.ts:19` → `a.fields['lancer.npc']`
+- `game/packages/game-core/src/lancer/official-tactical-mission.ts:23` → `a.fields['lancer.npc']`
+- `game/packages/game-core/src/lancer/official-tactical-mission.ts:173` → `a.fields['lancer.npc']`
 
 ## `lancer.npc.source`
 
@@ -678,8 +687,8 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:98` → `a.fields['lancer.rogue.portrait']`
 - `game/apps/desktop/src/tabletop/lancer/CharacterReadView.tsx:22` → `actor.fields['lancer.rogue.portrait']`
 - `game/apps/desktop/src/tabletop/lancer/rogue/RogueBase.tsx:38` → `actor.fields['lancer.rogue.portrait']`
-- `game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx:59` → `a?.fields['lancer.rogue.portrait']`
-- `game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx:59` → `a.fields['lancer.rogue.portrait']`
+- `game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx:60` → `a?.fields['lancer.rogue.portrait']`
+- `game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx:60` → `a.fields['lancer.rogue.portrait']`
 
 ## `lancer.rogue.target`
 
@@ -710,7 +719,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/apps/desktop/src/tabletop/lancer/Hangar.tsx:41` → `t.actors.find(a=>a.id===actor.id)!.fields['lancer.side']`
 - `game/apps/desktop/src/tabletop/lancer/hud/ImportantBroadcast.tsx:19` → `a.fields['lancer.side']`
 - `game/apps/desktop/src/tabletop/lancer/hud/sceneStatusModel.ts:15` → `a.fields['lancer.side']`
-- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:86` → `a.fields['lancer.side']`
+- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:91` → `a.fields['lancer.side']`
 - `game/apps/desktop/src/tabletop/lancer/MaintenancePanel.tsx:17` → `a.fields['lancer.side']`
 - `game/apps/desktop/src/tabletop/lancer/MaintenancePanel.tsx:17` → `a.fields['lancer.side']`
 - `game/apps/desktop/src/tabletop/lancer/MaintenancePanel.tsx:17` → `actor.fields['lancer.side']`
@@ -721,6 +730,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/apps/desktop/src/tabletop/lancer/NpcSheet.tsx:23` → `actor.fields['lancer.side']`
 - `game/packages/game-core/src/lancer/npc-profile.ts:15` → `actor.fields['lancer.side']`
 - `game/packages/game-core/src/lancer/npc.ts:56` → `actor.fields['lancer.side']`
+- `game/packages/game-core/src/lancer/official-tactical-mission.ts:19` → `a.fields['lancer.side']`
 
 ## `lancer.startingBonus`
 
@@ -887,6 +897,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 - `game/packages/tabletop-runtime/src/tabletop/lancer/dustgraveReinforcements.ts:15` → `a.fields['module.dustgrave.wave']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/dustgraveReinforcements.ts:15` → `a.fields['module.dustgrave.wave']`
+- `game/packages/game-core/src/lancer/official-tactical-mission.ts:173` → `a.fields['module.dustgrave.wave']`
 
 ## `module.encounter`
 
@@ -910,12 +921,15 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 - `game/packages/tabletop-runtime/src/tabletop/lancer/deployment.ts:29` → `a.fields['module.phase']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/deployment.ts:29` → `a.fields['module.phase']`
+- `game/packages/game-core/src/lancer/official-tactical-mission.ts:22` → `a.fields['module.phase']`
+- `game/packages/game-core/src/lancer/official-tactical-mission.ts:22` → `a.fields['module.phase']`
 
 ## `module.requires`
 
 - `game/packages/tabletop-runtime/src/tabletop/lancer/dustgraveTools.ts:14` → `actor.fields['module.requires']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/dustgraveTools.ts:22` → `a.fields['module.requires']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/winterReinforcements.ts:7` → `actor.fields['module.requires']`
+- `game/packages/game-core/src/lancer/official-tactical-mission.ts:21` → `a.fields['module.requires']`
 
 ## `module.reserve`
 
@@ -923,8 +937,10 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/packages/tabletop-runtime/src/tabletop/lancer/deployment.ts:27` → `a.fields['module.reserve']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/deployment.ts:30` → `a.fields['module.reserve']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/dustgraveReinforcements.ts:14` → `a.fields['module.reserve']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/solsticeReinforcements.ts:12` → `a.fields['module.reserve']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/wallflowerReinforcements.ts:6` → `a.fields['module.reserve']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/winterReinforcements.ts:30` → `a.fields['module.reserve']`
+- `game/packages/game-core/src/lancer/official-tactical-mission.ts:20` → `a.fields['module.reserve']`
 
 ## `module.result.magma-route`
 
@@ -941,12 +957,16 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/packages/tabletop-runtime/src/tabletop/lancer/dustgraveReinforcements.ts:14` → `a.fields['module.scene']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/dustgraveTools.ts:22` → `a.fields['module.scene']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/dustgraveTools.ts:33` → `a.fields['module.scene']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/reinforcements.ts:30` → `actor.fields['module.scene']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/reinforcements.ts:30` → `actor.fields['module.scene']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/reinforcements.ts:32` → `actor.fields['module.scene']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/reinforcements.ts:32` → `actor.fields['module.scene']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/solsticeReinforcements.ts:12` → `a.fields['module.scene']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/solsticeReinforcements.ts:13` → `a.fields['module.scene']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/wallflowerReinforcements.ts:21` → `a.fields['module.scene']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/wallflowerTools.ts:24` → `a.fields['module.scene']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/wallflowerTools.ts:66` → `a.fields['module.scene']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/winterReinforcements.ts:30` → `a.fields['module.scene']`
+- `game/packages/game-core/src/lancer/official-tactical-mission.ts:19` → `a.fields['module.scene']`
+- `game/packages/game-core/src/lancer/official-tactical-mission.ts:173` → `a.fields['module.scene']`
 
 ## `module.siren.liftRound`
 
@@ -1046,12 +1066,16 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/apps/desktop/src/tabletop/lancer/LancerSheet.tsx:40` → `actor.fields['呼号']`
 - `game/apps/desktop/src/tabletop/lancer/rogue/RogueBase.tsx:38` → `actor.fields['呼号']`
 - `game/apps/desktop/src/tabletop/lancer/rogue/RogueBase.tsx:43` → `actors.find(a=>a.id===target.actor)?.fields['呼号']`
-- `game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx:59` → `a?.fields['呼号']`
-- `game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx:59` → `a?.fields['呼号']`
+- `game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx:60` → `a?.fields['呼号']`
+- `game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx:60` → `a?.fields['呼号']`
 - `game/apps/desktop/src/tabletop/lancer/terminal/Directories.tsx:44` → `actor.fields['呼号']`
 - `game/apps/desktop/src/tabletop/lancer/validationWorld.ts:13` → `pilot.fields['呼号']`
 - `game/apps/desktop/src/tabletop/lancer/validationWorld.ts:13` → `contact.fields['呼号']`
 - `game/apps/desktop/src/tabletop/lancer/validationWorld.ts:13` → `enemy.fields['呼号']`
+
+## `图鉴编号`
+
+- `game/apps/desktop/src/terra/enemyArt.ts:8` → `actor.fields['图鉴编号']`
 
 ## `天赋`
 
@@ -1074,14 +1098,15 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/apps/desktop/src/tabletop/lancer/CharacterReadView.tsx:25` → `actor.fields['机甲名']`
 - `game/apps/desktop/src/tabletop/lancer/compcon.ts:32` → `f['机甲名']`
 - `game/apps/desktop/src/tabletop/lancer/LancerSheet.tsx:40` → `actor.fields['机甲名']`
-- `game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx:36` → `actor.fields['机甲名']`
-- `game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx:36` → `actor.fields['机甲名']`
+- `game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx:37` → `actor.fields['机甲名']`
+- `game/apps/desktop/src/tabletop/lancer/MechAssembly.tsx:37` → `actor.fields['机甲名']`
 - `game/apps/desktop/src/tabletop/lancer/terminal/Directories.tsx:44` → `actor.fields['机甲名']`
 
 ## `机甲型号`
 
 - `game/packages/tabletop-runtime/src/tabletop/lancer/model.ts:11` → `actor.fields['机甲型号']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/model.ts:114` → `actor.fields['机甲型号']`
+- `game/apps/desktop/src/tabletop/lancer/battleBoardModel.ts:7` → `actor?.fields['机甲型号']`
 - `game/apps/desktop/src/tabletop/lancer/LancerSheet.tsx:49` → `actor.fields['机甲型号']`
 
 ## `核心加成`
@@ -1098,8 +1123,8 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:98` → `a.fields['立绘']`
 - `game/apps/desktop/src/tabletop/lancer/npcImport.ts:44` → `actor.fields['立绘']`
 - `game/apps/desktop/src/tabletop/lancer/rogue/RogueBase.tsx:38` → `actor.fields['立绘']`
-- `game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx:59` → `a?.fields['立绘']`
-- `game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx:59` → `a.fields['立绘']`
+- `game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx:60` → `a?.fields['立绘']`
+- `game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx:60` → `a.fields['立绘']`
 
 ## `背景`
 

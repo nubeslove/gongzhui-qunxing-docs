@@ -1,6 +1,6 @@
 # game/packages/contracts/src/control.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -214,6 +214,14 @@ export interface ControlDiagnostics {
 | `issues` | 否 | `ControlIssue[]` | 见结构定义及所属功能文档 |
 | `checkedAt` | 否 | `number` | 见结构定义及所属功能文档 |
 
+## OWNER_CAPABILITIES
+
+导出接口 · 源码第 27 行。
+
+```ts
+export const OWNER_CAPABILITIES: ReadonlySet<Capability>;
+```
+
 ## capabilitySupportsScope
 
 导出接口 · 源码第 29 行。
@@ -279,3 +287,11 @@ export function validControlScope(value: unknown): value is ControlScope;
 | 参数 | 可选 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | `value` | 否 | `unknown` | — |
+
+## DEFAULT_CONTROL_ROLES
+
+导出接口 · 源码第 47 行。
+
+```ts
+export const DEFAULT_CONTROL_ROLES: ReadonlyArray<ControlRole>;
+```

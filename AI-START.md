@@ -9,7 +9,7 @@
 3. [文件格式](docs/authoring/formats.md) 和所需 [备团工作流](docs/authoring/workflows.md)。
 4. 只查询本次涉及的类型与 [示例清单](examples/README.md)，不必把全部参考页塞进一次上下文。
 
-LANCER 另读 [备团指南](docs/authoring/lancer-preparation.md)。本轮对应 **0.2.37 正式发行源码**；正式服、网页版及本机客户端均已确认更新为 0.2.37。中心与插件宿主已完成本地验收，另读 [中心说明](docs/authoring/community-center.md)；确认目标版本已发布且具备入口前，不生成“上传插件中心即可运行”的正式版交付步骤。
+LANCER 另读 [备团指南](docs/authoring/lancer-preparation.md)。本轮对应 **0.2.43 候选源码**，本次同步不证明其已正式发行。中心与插件宿主已完成本地验收，另读 [中心说明](docs/authoring/community-center.md)；确认目标版本已发布且具备入口前，不生成“上传插件中心即可运行”的正式版交付步骤。
 
 ```sh
 node tools/query.mjs StoryResource
@@ -19,11 +19,13 @@ node tools/query.mjs --action actor.create
 node tools/query.mjs --catalog lancer
 ```
 
+小游戏编排与代码扩展另读 [小游戏与 QTE DIY](docs/authoring/minigames.md)。JSON 预设可直接编辑；自定义玩法代码需要维护者在服务端和客户端分别安装，导入清单不会执行代码。
+
 ## 可直接交给 AI 的任务模板
 
 ```text
-请依据千星奇域文档快照 2026-11-05，为我的团制作可导入资料。
-本文对应 0.2.37 正式发行源码；已确认正式版本为 0.2.37。须先核对目标版本，不同版本的可用接口须分别核对。
+请依据NAA／千星奇域文档快照 2026-11-06，为我的团制作可导入资料。
+本文对应 0.2.43 候选源码；需单独确认实际发行状态。须先核对目标版本，不同版本的可用接口须分别核对。
 目标分区：填写分区名称。
 systemId / systemVersion / ruleVariant：按兼容矩阵填写。
 客户端来源与构建版本：填写实际版本；若不清楚先核对。

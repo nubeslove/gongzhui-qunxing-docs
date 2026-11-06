@@ -1,6 +1,6 @@
 # game/packages/session/src/story-theatre.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -8,8 +8,8 @@
 
 ```ts
 import {
-  THEATRE_ACTIONS,THEATRE_ACTION_IDS,THEATRE_EMOTES,WORLD_CALENDAR_PLUGIN,emptyBossBarState,emptyTheatreState,parseBossBarState,parsePluginManifest,parseStoryPlugins,
-  stageMedia,storyEnum,storyObject,storyText,type PluginManifest,type StoryWorkspace,type TheatreAction,type TheatreEmote,
+  THEATRE_ACTIONS,THEATRE_ACTION_IDS,THEATRE_EMOTES,WORLD_CALENDAR_PLUGIN,emptyStoryPlugins,emptyBossBarState,emptyTheatreState,parseBossBarState,parsePluginManifest,parseStoryPlugins,
+  isBuiltinPluginId,validateActivePlugins,pluginStateToken,type GameSystemId,stageMedia,storyEnum,storyObject,storyText,type PluginManifest,type StoryWorkspace,type TheatreAction,type TheatreEmote,
 } from '@aelzerant/contracts';
 import type {StoryContext} from './story-workspace';
 ```
@@ -32,6 +32,17 @@ export type TheatreCommand = {
     }[];
 } | {
     type: 'theatre.close';
+} | {
+    type: 'theatre.enter';
+    sceneId: string;
+    actorId: string;
+    name: string;
+    portrait?: string;
+    side?: 'left' | 'right';
+} | {
+    type: 'theatre.leave';
+    sceneId: string;
+    actorId: string;
 } | {
     type: 'theatre.focus';
     actorId: string | null;
@@ -71,40 +82,52 @@ export type TheatreCommand = {
 | `分支1.cast.[].portrait` | 是 | `string` | 见结构定义及所属功能文档 |
 | `分支1.cast.[].side` | 是 | `'left'&#124;'right'` | 见结构定义及所属功能文档 |
 | `分支2.type` | 否 | `'theatre.close'` | 见结构定义及所属功能文档 |
-| `分支3.type` | 否 | `'theatre.focus'` | 见结构定义及所属功能文档 |
-| `分支3.actorId` | 否 | `string&#124;null` | 见结构定义及所属功能文档 |
-| `分支4.type` | 否 | `'theatre.speech'` | 见结构定义及所属功能文档 |
+| `分支3.type` | 否 | `'theatre.enter'` | 见结构定义及所属功能文档 |
+| `分支3.sceneId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支3.actorId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支3.name` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支3.portrait` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支3.side` | 是 | `'left'&#124;'right'` | 见结构定义及所属功能文档 |
+| `分支4.type` | 否 | `'theatre.leave'` | 见结构定义及所属功能文档 |
+| `分支4.sceneId` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支4.actorId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支4.text` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支5.type` | 否 | `'theatre.clear'` | 见结构定义及所属功能文档 |
-| `分支6.type` | 否 | `'theatre.emote'` | 见结构定义及所属功能文档 |
+| `分支5.type` | 否 | `'theatre.focus'` | 见结构定义及所属功能文档 |
+| `分支5.actorId` | 否 | `string&#124;null` | 见结构定义及所属功能文档 |
+| `分支6.type` | 否 | `'theatre.speech'` | 见结构定义及所属功能文档 |
 | `分支6.actorId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支6.emote` | 否 | `TheatreEmote&#124;null` | 见结构定义及所属功能文档 |
-| `分支7.type` | 否 | `'theatre.action'` | 见结构定义及所属功能文档 |
-| `分支7.actorId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支7.action` | 否 | `TheatreAction` | 见结构定义及所属功能文档 |
-| `分支8.type` | 否 | `'theatre.mirror'` | 见结构定义及所属功能文档 |
+| `分支6.text` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支7.type` | 否 | `'theatre.clear'` | 见结构定义及所属功能文档 |
+| `分支8.type` | 否 | `'theatre.emote'` | 见结构定义及所属功能文档 |
 | `分支8.actorId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支8.mirrored` | 否 | `boolean` | 见结构定义及所属功能文档 |
-| `分支9.type` | 否 | `'theatre.side'` | 见结构定义及所属功能文档 |
+| `分支8.emote` | 否 | `TheatreEmote&#124;null` | 见结构定义及所属功能文档 |
+| `分支9.type` | 否 | `'theatre.action'` | 见结构定义及所属功能文档 |
 | `分支9.actorId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支9.side` | 否 | `'left'&#124;'right'` | 见结构定义及所属功能文档 |
+| `分支9.action` | 否 | `TheatreAction` | 见结构定义及所属功能文档 |
+| `分支10.type` | 否 | `'theatre.mirror'` | 见结构定义及所属功能文档 |
+| `分支10.actorId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支10.mirrored` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支11.type` | 否 | `'theatre.side'` | 见结构定义及所属功能文档 |
+| `分支11.actorId` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支11.side` | 否 | `'left'&#124;'right'` | 见结构定义及所属功能文档 |
 
 ## PluginCommand
 
-导出接口 · 源码第 17 行。
+导出接口 · 源码第 19 行。
 
 ```ts
 export type PluginCommand = {
     type: 'plugins.set';
     enabled: string[];
     calendar?: boolean;
+    expected?: string;
 } | {
     type: 'plugins.import';
     manifest: PluginManifest;
 } | {
     type: 'plugins.remove';
     id: string;
+    enabled?: string[];
+    expected?: string;
 };
 ```
 
@@ -113,14 +136,17 @@ export type PluginCommand = {
 | `分支1.type` | 否 | `'plugins.set'` | 见结构定义及所属功能文档 |
 | `分支1.enabled` | 否 | `string[]` | 见结构定义及所属功能文档 |
 | `分支1.calendar` | 是 | `boolean` | 见结构定义及所属功能文档 |
+| `分支1.expected` | 是 | `string` | 见结构定义及所属功能文档 |
 | `分支2.type` | 否 | `'plugins.import'` | 见结构定义及所属功能文档 |
 | `分支2.manifest` | 否 | `PluginManifest` | 见结构定义及所属功能文档 |
 | `分支3.type` | 否 | `'plugins.remove'` | 见结构定义及所属功能文档 |
 | `分支3.id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支3.enabled` | 是 | `string[]` | 见结构定义及所属功能文档 |
+| `分支3.expected` | 是 | `string` | 见结构定义及所属功能文档 |
 
 ## BossBarCommand
 
-导出接口 · 源码第 21 行。
+导出接口 · 源码第 23 行。
 
 ```ts
 export type BossBarCommand = {
@@ -172,7 +198,7 @@ export type BossBarCommand = {
 
 ## applyTheatreCommand
 
-导出接口 · 源码第 31 行。
+导出接口 · 源码第 33 行。
 
 ```ts
 export function applyTheatreCommand(story: StoryWorkspace, raw: unknown, c: StoryContext, gm: boolean): boolean;
@@ -187,7 +213,7 @@ export function applyTheatreCommand(story: StoryWorkspace, raw: unknown, c: Stor
 
 ## applyBossBarCommand
 
-导出接口 · 源码第 112 行。
+导出接口 · 源码第 137 行。
 
 ```ts
 export function applyBossBarCommand(story: StoryWorkspace, raw: unknown, gm: boolean): boolean;
@@ -201,10 +227,10 @@ export function applyBossBarCommand(story: StoryWorkspace, raw: unknown, gm: boo
 
 ## applyPluginCommand
 
-导出接口 · 源码第 135 行。
+导出接口 · 源码第 160 行。
 
 ```ts
-export function applyPluginCommand(story: StoryWorkspace, raw: unknown, gm: boolean): boolean;
+export function applyPluginCommand(story: StoryWorkspace, raw: unknown, gm: boolean, systemId?: GameSystemId): boolean;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
@@ -212,3 +238,4 @@ export function applyPluginCommand(story: StoryWorkspace, raw: unknown, gm: bool
 | `story` | 否 | `StoryWorkspace` | — |
 | `raw` | 否 | `unknown` | — |
 | `gm` | 否 | `boolean` | — |
+| `systemId` | 是 | `GameSystemId` | 'aaf' |

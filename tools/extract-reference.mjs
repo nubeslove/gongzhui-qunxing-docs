@@ -17,8 +17,8 @@ const write=(p,s)=>{fs.mkdirSync(path.dirname(path.join(out,p)),{recursive:true}
 const json=(p,v)=>write(p,JSON.stringify(v,null,2)+'\n');
 const walk=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)]);
 const roots=['contracts','tabletop-runtime','rules-engine','game-core','session','network','assets','world-model'].map(p=>`game/packages/${p}/src`);
-const extra=['game/apps/desktop/src/tabletop/lancer/reinforcements.ts','game/apps/desktop/src/tabletop/lancer/creation.ts','game/apps/desktop/src/tabletop/lancer/deployment.ts','game/tools/preparation.ts','game/apps/desktop/src/tabletop/model.ts','game/apps/desktop/src/tabletop/worldBackup.ts','game/apps/desktop/src/story/compendiumObjects.ts','game/apps/desktop/src/heartsea/readerContent.ts','game/apps/desktop/src/heartsea/characters.ts','game/apps/desktop/src/tabletop/lancer/model.ts','game/apps/desktop/src/tabletop/lancer/progression.ts','game/apps/desktop/src/tabletop/lancer/pilot.ts','game/apps/desktop/src/tabletop/lancer/catalog.ts','game/apps/desktop/src/terra/wiki/library.ts','game/apps/desktop/src/platform/sections.ts','game/apps/desktop/src/tabletop/storage.ts'].filter(p=>fs.existsSync(path.join(root,p)));
-const files=[...roots.flatMap(d=>fs.existsSync(path.join(root,d))?walk(path.join(root,d)):[]),...extra.map(p=>path.join(root,p))].filter(p=>p.endsWith('.ts')&&!/\.(test|generated)\.ts$|test-helpers\.ts$/.test(p)).sort();
+const extra=['game/apps/desktop/src/story/minigames/index.ts','game/apps/desktop/src/story/minigames/sdk.tsx','game/apps/desktop/src/story/minigames/input.ts','game/apps/desktop/src/story/minigames/layout.ts','game/apps/desktop/src/story/minigames/QteView.tsx','game/apps/desktop/src/story/minigames/examples/NumberTap.tsx','game/apps/desktop/src/tabletop/lancer/reinforcements.ts','game/apps/desktop/src/tabletop/lancer/creation.ts','game/apps/desktop/src/tabletop/lancer/deployment.ts','game/tools/preparation.ts','game/apps/desktop/src/tabletop/model.ts','game/apps/desktop/src/tabletop/worldBackup.ts','game/apps/desktop/src/story/compendiumObjects.ts','game/apps/desktop/src/heartsea/readerContent.ts','game/apps/desktop/src/heartsea/characters.ts','game/apps/desktop/src/tabletop/lancer/model.ts','game/apps/desktop/src/tabletop/lancer/progression.ts','game/apps/desktop/src/tabletop/lancer/pilot.ts','game/apps/desktop/src/tabletop/lancer/catalog.ts','game/apps/desktop/src/terra/wiki/library.ts','game/apps/desktop/src/platform/sections.ts','game/apps/desktop/src/tabletop/storage.ts'].filter(p=>fs.existsSync(path.join(root,p)));
+const files=[...roots.flatMap(d=>fs.existsSync(path.join(root,d))?walk(path.join(root,d)):[]),...extra.map(p=>path.join(root,p))].filter(p=>/\.tsx?$/.test(p)&&!/\.(test|generated)\.ts$|test-helpers\.ts$/.test(p)).sort();
 const program=ts.createProgram(files,{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext,moduleResolution:ts.ModuleResolutionKind.Bundler,strict:true,skipLibCheck:true,resolveJsonModule:true,jsx:ts.JsxEmit.ReactJSX});
 const checker=program.getTypeChecker(),printer=ts.createPrinter({newLine:ts.NewLineKind.LineFeed,removeComments:true});
 const escaped=s=>String(s).replaceAll('|','&#124;').replaceAll('\n',' ').replaceAll('\r','');
@@ -42,7 +42,7 @@ function fields(node,prefix='',out=[]){
 }
 for(const file of files){
  const sf=program.getSourceFile(file);if(!sf)continue;
- const source=rel(file),dest='reference/'+source.replace(/^game\//,'').replace(/\.ts$/,'.md');
+ const source=rel(file),dest='reference/'+source.replace(/^game\//,'').replace(/\.tsx?$/,'.md');
  const entries=[];
  for(const n of sf.statements){
   if(ts.isInterfaceDeclaration(n)||ts.isTypeAliasDeclaration(n)){
@@ -59,6 +59,7 @@ for(const file of files){
     const name=d.name.text,t=checker.getTypeAtLocation(d.name),sigs=t.getCallSignatures();
     if(sigs.length){const signature=checker.signatureToString(sigs[0],d,ts.TypeFormatFlags.NoTruncation);if(signature.length<16000)entries.push({name,kind:'function-value',exported:true,declaration:`export const ${name}: ${signature};`,description:doc(d),line:sf.getLineAndCharacterOfPosition(d.getStart()).line+1});}
     else {let init=d.initializer;while(init&&(ts.isAsExpression(init)||ts.isSatisfiesExpression(init)))init=init.expression;const literal=init&&(ts.isStringLiteral(init)||ts.isNumericLiteral(init)||init.kind===ts.SyntaxKind.TrueKeyword||init.kind===ts.SyntaxKind.FalseKeyword||ts.isArrayLiteralExpression(init)&&init.elements.every(x=>ts.isStringLiteral(x)||ts.isNumericLiteral(x)));
+     if(d.type&&!literal)entries.push({name,kind:'constant',exported:true,declaration:`export const ${name}: ${typetext(d.type,sf)};`,description:doc(d),line:sf.getLineAndCharacterOfPosition(d.getStart()).line+1});
      if(literal)entries.push({name,kind:'constant',exported:true,declaration:`export const ${name} = ${typetext(d.initializer,sf)};`,description:doc(d),line:sf.getLineAndCharacterOfPosition(d.getStart()).line+1});
     }
    }
@@ -90,7 +91,7 @@ json('reference/symbols.json',index);
 json('reference/source-snapshot.json',{date:snapshotDate,version:JSON.parse(fs.readFileSync(path.join(root,'game/apps/desktop/src-tauri/tauri.conf.json'),'utf8')).version,scope:'Shared contracts, rules engine signatures, game core, session, transport, assets, world model and selected local authoring entry points. No rulebook prose or asset binaries.',files:fingerprints});
 const platformFiles=['index','auth','auth-security','community','media','publications','signaling','store','world-access','world-roles','world-transfer','world-deletion','admins','external-assets','updates','community-center-api','community-center-store','community-center-access','community-service','resource-package-adapter','native-resource-package-adapter'].map(n=>'game/apps/server/src/'+n+'.ts').concat(['game/package.json','game/apps/server/package.json','game/apps/desktop/package.json','game/apps/desktop/src-tauri/tauri.conf.json','game/apps/desktop/src-tauri/src/lib.rs','game/apps/desktop/src-tauri/src/wiki_backup.rs','game/apps/desktop/src-tauri/src/world_assets.rs','game/apps/desktop/src/net/BattleConnection.ts','game/apps/desktop/src/tabletop/ManualConnection.ts','game/apps/desktop/src/story/scriptMacro.ts','game/apps/desktop/src/story/macroRunner.ts','game/tools/release-worker.mts','game/apps/desktop/src/platform/aiPreparation.ts','game/apps/desktop/src/platform/updates.ts']);
 json('reference/platform-source-snapshot.json',{date:snapshotDate,scope:'Manually documented HTTP, deployment, native and macro entry points; hashes only.',files:platformFiles.map(p=>{const bytes=fs.readFileSync(path.join(root,p));return{path:p,sha256:createHash('sha256').update(bytes).digest('hex'),bytes:bytes.length};})});
-write('reference/README.md',`# 源码字段与调用签名\n\n共 ${fingerprints.length} 个文件、${index.length} 项类型／函数／常量。按包拆分，每个文件包含字段表、联合类型全部分支、参数、返回类型和依赖。带内部依赖标记的类型不承诺可从包顶层导入。\n\n- [机器可读符号目录](symbols.json)\n- [源码指纹](source-snapshot.json)\n- [规范化 JSON 结构](../schemas/README.md)\n\n| 源文件 | 声明数 |\n| --- | --- |\n`+fingerprints.map(f=>`| [${f.path.replace('game/','')}](${path.posix.relative('reference','reference/'+f.path.replace(/^game\//,'').replace(/\.ts$/,'.md'))}) | ${index.filter(e=>e.source===f.path).length} |`).join('\n')+'\n');
+write('reference/README.md',`# 源码字段与调用签名\n\n共 ${fingerprints.length} 个文件、${index.length} 项类型／函数／常量。按包拆分，每个文件包含字段表、联合类型全部分支、参数、返回类型和依赖。带内部依赖标记的类型不承诺可从包顶层导入。\n\n- [机器可读符号目录](symbols.json)\n- [源码指纹](source-snapshot.json)\n- [规范化 JSON 结构](../schemas/README.md)\n\n| 源文件 | 声明数 |\n| --- | --- |\n`+fingerprints.map(f=>`| [${f.path.replace('game/','')}](${path.posix.relative('reference','reference/'+f.path.replace(/^game\//,'').replace(/\.tsx?$/,'.md'))}) | ${index.filter(e=>e.source===f.path).length} |`).join('\n')+'\n');
 // JSON schemas describe normalized serializable data, not parser defaults, permissions or action semantics.
 const definitions={},seen=new Map(),unsupported=[];
 const candidates=[
@@ -99,7 +100,7 @@ const candidates=[
 candidates.push(['RuleVariant','rule-variant']);
 for(const name of ['CommunityPackageBody','CenterCatalog','CenterDetail','CenterPackageCommand','CenterStatus','CenterCategoryCommand','CenterCategory','CenterInstallPreview','CenterInstallCommand','CenterInstallation','CenterWorldCommand','CenterConsentCommand','CenterRuntimeView'])candidates.push([name,'community-center']);
 for(const name of ['RuntimeManifest','RuntimePermission','RuntimeServiceRequest','RuntimeServiceResponse'])candidates.push([name,'community-plugin-runtime']);
-candidates.push(['ResourcePackage','resource-packages']);
+candidates.push(['ResourcePackage','resource-packages'],['MinigamePreset','minigame'],['MinigameInput','minigame'],['MinigameWorkspace','minigame'],['QteDefinition','qte']);
 
 let anonymous=0;
 function schema(t,depth=0){

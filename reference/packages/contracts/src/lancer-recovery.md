@@ -1,6 +1,6 @@
 # game/packages/contracts/src/lancer-recovery.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -29,8 +29,12 @@ export interface LancerRecovery {
     id: string;
     unit: string;
     ownerId: string;
-    source: 'queue' | 'manual';
+    source: 'queue' | 'manual' | 'automatic';
     title: string;
+    resumeDecision?: {
+        id: string;
+        remainingMs: number;
+    };
 }
 ```
 
@@ -39,8 +43,11 @@ export interface LancerRecovery {
 | `id` | 否 | `string` | 见结构定义及所属功能文档 |
 | `unit` | 否 | `string` | 见结构定义及所属功能文档 |
 | `ownerId` | 否 | `string` | 见结构定义及所属功能文档 |
-| `source` | 否 | `'queue'&#124;'manual'` | 见结构定义及所属功能文档 |
+| `source` | 否 | `'queue'&#124;'manual'&#124;'automatic'` | 见结构定义及所属功能文档 |
 | `title` | 否 | `string` | 见结构定义及所属功能文档 |
+| `resumeDecision` | 是 | `{id:string;remainingMs:number}` | 见结构定义及所属功能文档 |
+| `resumeDecision.id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `resumeDecision.remainingMs` | 否 | `number` | 见结构定义及所属功能文档 |
 
 ## LancerRecoveryPatch
 
@@ -93,6 +100,10 @@ export type LancerRecoveryIntent = {
     unit: string;
 } | {
     type: 'recovery';
+    op: 'cancel';
+    id: string;
+} | {
+    type: 'recovery';
     op: 'resolve';
     id: string;
     note: string;
@@ -107,11 +118,14 @@ export type LancerRecoveryIntent = {
 | `分支1.op` | 否 | `'open'` | 见结构定义及所属功能文档 |
 | `分支1.unit` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支2.type` | 否 | `'recovery'` | 见结构定义及所属功能文档 |
-| `分支2.op` | 否 | `'resolve'` | 见结构定义及所属功能文档 |
+| `分支2.op` | 否 | `'cancel'` | 见结构定义及所属功能文档 |
 | `分支2.id` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支2.note` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支2.patches` | 否 | `LancerRecoveryPatch[]` | 见结构定义及所属功能文档 |
-| `分支2.continuation` | 否 | `'resume'&#124;'finish'` | 见结构定义及所属功能文档 |
+| `分支3.type` | 否 | `'recovery'` | 见结构定义及所属功能文档 |
+| `分支3.op` | 否 | `'resolve'` | 见结构定义及所属功能文档 |
+| `分支3.id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支3.note` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支3.patches` | 否 | `LancerRecoveryPatch[]` | 见结构定义及所属功能文档 |
+| `分支3.continuation` | 否 | `'resume'&#124;'finish'` | 见结构定义及所属功能文档 |
 
 ## parseLancerRecovery
 

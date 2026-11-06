@@ -1,8 +1,8 @@
 # 千星奇域 · 开发与 AI 备团文档
 
-为 GM、资源作者和开发者提供可核对的接口、共享字段、分规则扩展说明、离线示例及部署规范。产品名为 **千星奇域**，原名共坠群星；历史仓库名、文件扩展名和规则身份不会随显示名称更改。
+为 GM、资源作者和开发者提供可核对的接口、共享字段、分规则扩展说明、离线示例及部署规范。整个天星阁系统／千星奇域正式名称为 **NAA**，原名共坠群星；AAF 仅指其中的单一规则。历史仓库名、文件扩展名和规则身份不会随显示名称更改。
 
-**本版核对日期：2026-11-05；文档对应 0.2.37 正式发行源码。** 生成基点为 `d08f5bd0f45d3119be253159b5adaeffd8658460`，中心与插件宿主已通过本地真实服务验收；正式服、配套网页版与本机客户端均已确认更新为 0.2.37；使用前核对实际客户端和服务端版本。实际生成版本及文件指纹见 [源码快照](reference/source-snapshot.json)。
+**本版核对日期：2026-11-06；文档对应 0.2.43 候选源码。** 生成基点为 `57c4c477612d0a909f045f9c04779910be041872`。小游戏前置、QTE、插件依赖和客户端 SDK 已接入该源码；本次文档同步不代表 0.2.43 已发布、已部署或客户端已更新。使用前核对目标服务端和客户端版本，逐文件依据见 [源码快照](reference/source-snapshot.json)。
 
 ## 从这里开始
 
@@ -13,6 +13,7 @@
 | 制作章节、演出、投票、探索图及战斗遭遇 | [备团工作流](docs/authoring/workflows.md) |
 | 为 LANCER 准备六角战场、角色、章节和休整 | [LANCER 备团指南](docs/authoring/lancer-preparation.md) |
 | 准备扩展、插件或私设包（0.2.37 已上线） | [中心制作与使用说明](docs/authoring/community-center.md) |
+| 编排 QTE、制作小游戏或扩展题型 | [小游戏与 QTE DIY](docs/authoring/minigames.md) |
 | 查询一个字段、参数或动作 | [字段与函数总索引](reference/README.md)、[离线查询工具](tools/README.md) |
 | 对接账号、世界目录和资源服务 | [HTTP 接口](docs/api/http.md)、[OpenAPI](api/openapi.json) |
 | 扩展运行时或联机 | [架构](docs/development/architecture.md)、[命令与联机](docs/api/commands-and-network.md) |
@@ -39,7 +40,7 @@
 - `schemas/` 提供规范化数据的 JSON Schema；数值约束、依赖引用与权限仍以游戏解析器为准。
 - `catalogs/` 只列可引用的资源 ID、名称及分类，不转载完整规则条文或插图。
 - `examples/` 使用专门编写的虚构内容；[验证记录](VALIDATION.md) 说明实际经过哪些解析器和备份恢复检查。
-- [源码指纹](reference/source-snapshot.json) 记录生成依据。本次冻结源码为 `d08f5bd0f45d3119be253159b5adaeffd8658460`；逐文件指纹用于核对生成输入，不将源码提交等同于发布状态。
+- [源码指纹](reference/source-snapshot.json) 记录生成依据。本次冻结源码为 `57c4c477612d0a909f045f9c04779910be041872`；逐文件指纹用于核对生成输入，不将源码提交等同于发布状态。
 - [平台源码指纹](reference/platform-source-snapshot.json) 另记录HTTP、原生命令、宏和发行配置的人工核对来源。
 
 ## 当前支持的边界

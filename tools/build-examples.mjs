@@ -16,6 +16,7 @@ const preparation=await load('game/tools/preparation.ts');
 const {applyDraft,validateDraft,previewForPlayer}=preparation.default??preparation;
 const manifest=[];let checks=0;
 function save(file,data,parser,schema){const value=parser(data);checks++;const p='examples/'+file;fs.mkdirSync(path.dirname(path.join(out,p)),{recursive:true});fs.writeFileSync(path.join(out,p),JSON.stringify(value,null,2)+'\n');manifest.push({file:p,schema,parser:parser.name||'adapter',status:'runtime-parser-passed'});return value;}
+const qteExample=C.newQtePreset('demo-ferry-signal');qteExample.name='渡口信号练习';qteExample.definition=C.parseQteDefinition(qteExample.definition);save('shared/qte-preset.json',qteExample,C.parseMinigamePreset,'MinigamePreset');
 const base=(system,variant)=>({schemaVersion:1,id:'demo-'+(variant?.id??system),systemId:system,systemVersion:C.GAME_SYSTEMS[system].version,...(variant?{ruleVariant:variant}:{}),name:'渡口的一天 · 接口示例',hostId:'demo-gm',revision:0,publishedVersion:0,updatedAt:1791475200000,activeSceneId:'initial',activeSceneName:'旧渡口',actors:[],assets:[],map:{width:24,depth:18,background:null,blocks:[],tokens:[]},journal:'',privateNotes:'示例秘密：渡船明天才会抵达。',messages:[],story:C.emptyStory()});
 const actor=(id,name)=>({id,name,ownerId:'',public:false,fields:{},notes:''});
 const resource=(system)=>({format:'aaf-resources',version:1,systemId:system,rootId:'demo-lantern',resources:[{id:'demo-lantern',systemId:system,name:'渡口提灯',kind:'item',description:'一盏可供演出使用的提灯。它不自动产生光源或修改数值。',packId:'homebrew',visibility:'gm',tags:['示例'],children:[],activities:[]}]});

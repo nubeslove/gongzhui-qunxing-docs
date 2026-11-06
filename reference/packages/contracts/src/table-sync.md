@@ -1,6 +1,6 @@
 # game/packages/contracts/src/table-sync.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -73,22 +73,25 @@ export function revisionPatch<T extends {revision:number}>(before: T, after: T, 
 
 ## applyRevisionPatch
 
-导出接口 · 源码第 31 行。
+导出接口 · 源码第 33 行。
 
 Pure application. Full schema parsing and world ownership checks still run at the receiver.
+shareUnchanged is for JSON trees immediately passed through a detaching schema parser;
+other callers retain the fully detached result, including unchanged branches.
 
 ```ts
-export function applyRevisionPatch<T extends {revision:number}>(before: T, patch: RevisionPatch): T;
+export function applyRevisionPatch<T extends {revision:number}>(before: T, patch: RevisionPatch, options?: {shareUnchanged:boolean}): T;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | `before` | 否 | `T` | — |
 | `patch` | 否 | `RevisionPatch` | — |
+| `options` | 是 | `{shareUnchanged:boolean}` | — |
 
 ## TablePatch
 
-导出接口 · 源码第 47 行。
+导出接口 · 源码第 59 行。
 
 ```ts
 export type TablePatch = RevisionPatch;
@@ -96,7 +99,7 @@ export type TablePatch = RevisionPatch;
 
 ## tablePatch
 
-导出接口 · 源码第 48 行。
+导出接口 · 源码第 60 行。
 
 ```ts
 export const tablePatch: (before: ManualTable, after: ManualTable): RevisionPatch;
@@ -104,8 +107,8 @@ export const tablePatch: (before: ManualTable, after: ManualTable): RevisionPatc
 
 ## applyTablePatch
 
-导出接口 · 源码第 49 行。
+导出接口 · 源码第 61 行。
 
 ```ts
-export const applyTablePatch: (before: ManualTable, patch: TablePatch): ManualTable;
+export const applyTablePatch: (before: ManualTable, patch: TablePatch, options?: { shareUnchanged: boolean; }): ManualTable;
 ```

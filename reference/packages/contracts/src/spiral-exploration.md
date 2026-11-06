@@ -1,6 +1,6 @@
 # game/packages/contracts/src/spiral-exploration.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -93,6 +93,17 @@ export interface SpiralEventChoice {
 | `mp` | 是 | `number` | 见结构定义及所属功能文档 |
 | `focus` | 是 | `number` | 见结构定义及所属功能文档 |
 | `reveal` | 是 | `number` | 见结构定义及所属功能文档 |
+
+## SPIRAL_SURFACE_EVENTS
+
+导出接口 · 源码第 15 行。
+
+```ts
+export const SPIRAL_SURFACE_EVENTS: Record<SpiralSurfaceEvent, {
+    name: string;
+    choices: SpiralEventChoice[];
+}>;
+```
 
 ## SpiralSite
 

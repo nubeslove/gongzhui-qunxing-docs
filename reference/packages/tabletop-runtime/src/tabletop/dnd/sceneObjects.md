@@ -1,6 +1,6 @@
 # game/packages/tabletop-runtime/src/tabletop/dnd/sceneObjects.ts
 
-源码核对日：2026-11-05。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../../README.md)
 
@@ -88,6 +88,14 @@ export type SceneObjectCommand = {
 | `分支3.expected` | 否 | `SceneObjectConfig` | 见结构定义及所属功能文档 |
 | `分支4.op` | 否 | `'resetDamage'` | 见结构定义及所属功能文档 |
 | `分支4.id` | 否 | `string` | 见结构定义及所属功能文档 |
+
+## OBJECT_PRESETS
+
+导出接口 · 源码第 6 行。
+
+```ts
+export const OBJECT_PRESETS: Record<string, Partial<SceneObjectConfig>>;
+```
 
 ## newSceneObjectConfig
 
