@@ -1397,6 +1397,17 @@
       "delegatedTypes": []
     },
     {
+      "name": "parseLancerEntry",
+      "source": "game/packages/contracts/src/lancer-entry.ts",
+      "line": 9,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "v?.freeDeployment!==undefined&&typeof v.freeDeployment!=='boolean'"
+      ],
+      "delegatedTypes": []
+    },
+    {
       "name": "parseLancerMission",
       "source": "game/packages/contracts/src/lancer-maintenance.ts",
       "line": 34,

@@ -19,7 +19,7 @@ import {registerMinigameClient,keyboardMouseInput,placeGameCues,type MinigameVie
 导出接口 · 源码第 6 行。
 
 ```ts
-export function NumberTapView(p: MinigameViewProps): import("@source/node_modules/.pnpm/@types+react@18.3.31/node_modules/@types/react/index").JSX.Element | null;
+export function NumberTapView(p: MinigameViewProps): import("E:/project/AAF-worktrees/naa-qte-release-0243/game/node_modules/.pnpm/@types+react@18.3.31/node_modules/@types/react/index").JSX.Element | null;
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |

@@ -119,13 +119,13 @@
     },
     {
       "path": "game/apps/desktop/package.json",
-      "sha256": "a71371238d4386db6dd062497514f9aa19d0d611bed0c7e320626196bfb1f717",
-      "bytes": 1548
+      "sha256": "4f8cd4d470694b65a702e278be0d4f316870eccc1c0cf0cd3345f7fe964d1af0",
+      "bytes": 1549
     },
     {
       "path": "game/apps/desktop/src-tauri/tauri.conf.json",
-      "sha256": "4b4a7cf2d78b8b6aafd44a11d09f07430325cd66481982988efeb08159ce1d25",
-      "bytes": 1319
+      "sha256": "28a055d758eb4f85ae3dc3a26422bb0acb3f4bda33246e696d3dc000ec1b4c3a",
+      "bytes": 1375
     },
     {
       "path": "game/apps/desktop/src-tauri/src/lib.rs",
@@ -154,8 +154,8 @@
     },
     {
       "path": "game/apps/desktop/src/story/scriptMacro.ts",
-      "sha256": "e20eafc58f66a097c71594d81a9470390044fce775ebaa072422802f57f068f0",
-      "bytes": 5610
+      "sha256": "f9a5c62e29da07fe4934709e9d76d08853832dbe6b3da88cdd723d3bd7e653b4",
+      "bytes": 5643
     },
     {
       "path": "game/apps/desktop/src/story/macroRunner.ts",
@@ -169,8 +169,8 @@
     },
     {
       "path": "game/apps/desktop/src/platform/aiPreparation.ts",
-      "sha256": "38d3544b2915d1da0280a40d6480647e327940df1896aae7880b1138754b94e4",
-      "bytes": 2915
+      "sha256": "a69bd0a1a0a2be5499b30779b8a0fbf889152263b61cbdd92822eb40ba1554a2",
+      "bytes": 2944
     },
     {
       "path": "game/apps/desktop/src/platform/updates.ts",

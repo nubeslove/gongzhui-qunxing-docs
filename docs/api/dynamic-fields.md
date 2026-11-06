@@ -141,9 +141,9 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/apps/desktop/src/tabletop/lancer/LancerCharacter.tsx:40` → `a.fields['lancer.creation']`
 - `game/apps/desktop/src/tabletop/lancer/LancerCharacter.tsx:62` → `actor.fields['lancer.creation']`
 - `game/apps/desktop/src/tabletop/lancer/LancerCharacter.tsx:65` → `actor.fields['lancer.creation']`
-- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:173` → `hangarActor?.fields['lancer.creation']`
-- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:175` → `hangarActor?.fields['lancer.creation']`
-- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:175` → `hangarActor?.fields['lancer.creation']`
+- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:177` → `hangarActor?.fields['lancer.creation']`
+- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:179` → `hangarActor?.fields['lancer.creation']`
+- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:179` → `hangarActor?.fields['lancer.creation']`
 - `game/apps/desktop/src/tabletop/lancer/LancerHome.tsx:52` → `actor?.fields['lancer.creation']`
 - `game/apps/desktop/src/tabletop/lancer/manualNodeControls.ts:7` → `a.fields['lancer.creation']`
 - `game/apps/desktop/src/tabletop/lancer/PilotImport.tsx:14` → `a.fields['lancer.creation']`
@@ -477,8 +477,8 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/apps/desktop/src/tabletop/lancer/hud/ImportantBroadcast.tsx:19` → `a.fields['lancer.npc']`
 - `game/apps/desktop/src/tabletop/lancer/hud/sceneStatusModel.ts:10` → `actor?.fields['lancer.npc']`
 - `game/apps/desktop/src/tabletop/lancer/hud/sceneStatusModel.ts:15` → `a.fields['lancer.npc']`
-- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:91` → `a.fields['lancer.npc']`
-- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:173` → `hangarActor?.fields['lancer.npc']`
+- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:93` → `a.fields['lancer.npc']`
+- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:177` → `hangarActor?.fields['lancer.npc']`
 - `game/apps/desktop/src/tabletop/lancer/MaintenancePanel.tsx:17` → `a.fields['lancer.npc']`
 - `game/apps/desktop/src/tabletop/lancer/manualNodeControls.ts:7` → `a.fields['lancer.npc']`
 - `game/apps/desktop/src/tabletop/lancer/npcImport.ts:43` → `actor.fields['lancer.npc']`
@@ -719,7 +719,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/apps/desktop/src/tabletop/lancer/Hangar.tsx:41` → `t.actors.find(a=>a.id===actor.id)!.fields['lancer.side']`
 - `game/apps/desktop/src/tabletop/lancer/hud/ImportantBroadcast.tsx:19` → `a.fields['lancer.side']`
 - `game/apps/desktop/src/tabletop/lancer/hud/sceneStatusModel.ts:15` → `a.fields['lancer.side']`
-- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:91` → `a.fields['lancer.side']`
+- `game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx:93` → `a.fields['lancer.side']`
 - `game/apps/desktop/src/tabletop/lancer/MaintenancePanel.tsx:17` → `a.fields['lancer.side']`
 - `game/apps/desktop/src/tabletop/lancer/MaintenancePanel.tsx:17` → `a.fields['lancer.side']`
 - `game/apps/desktop/src/tabletop/lancer/MaintenancePanel.tsx:17` → `actor.fields['lancer.side']`

@@ -24368,6 +24368,19 @@
         "controller": {
           "type": "string"
         },
+        "freeDeployment": {
+          "anyOf": [
+            {
+              "const": false,
+              "type": "boolean"
+            },
+            {
+              "const": true,
+              "type": "boolean"
+            }
+          ],
+          "description": "Ordinary sorties allow every controller to deploy after the shared confirmation. Omitted for legacy sequential entries."
+        },
         "roster": {
           "type": "array",
           "items": {

@@ -19,6 +19,7 @@ export interface LancerEntry {
     order: string[];
     current: string | null;
     controller: string;
+    freeDeployment?: boolean;
     roster: {
         unit: string;
         name: string;
@@ -38,6 +39,7 @@ export interface LancerEntry {
 | `order` | 否 | `string[]` | 见结构定义及所属功能文档 |
 | `current` | 否 | `string&#124;null` | 见结构定义及所属功能文档 |
 | `controller` | 否 | `string` | 见结构定义及所属功能文档 |
+| `freeDeployment` | 是 | `boolean` | Ordinary sorties allow every controller to deploy after the shared confirmation. Omitted for legacy sequential entries. |
 | `roster` | 否 | `{unit:string;name:string;side:'players'&#124;'hostiles';portrait:string;public:boolean}[]` | 见结构定义及所属功能文档 |
 | `roster.[].unit` | 否 | `string` | 见结构定义及所属功能文档 |
 | `roster.[].name` | 否 | `string` | 见结构定义及所属功能文档 |
@@ -47,7 +49,7 @@ export interface LancerEntry {
 
 ## parseLancerEntry
 
-导出接口 · 源码第 7 行。
+导出接口 · 源码第 9 行。
 
 ```ts
 export function parseLancerEntry(raw: unknown): LancerEntry;

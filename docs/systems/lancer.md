@@ -2,7 +2,7 @@
 
 身份：`lancer / 1`。LL为0–12，与新乌托邦的1–13等级不同。三维坐标、体型、武器挂载、机体与驾驶员状态按LANCER独立模型解释。
 
-0.2.37 正式发行源码的地图、棋子、章节、演出、休整与中心约定见 [LANCER 备团指南](../authoring/lancer-preparation.md)。制作官模或原创遭遇前先读该页，再查本页字段；已确认正式版本为 0.2.37，使用新能力前须核对实际客户端和服务端版本。
+地图、棋子、章节、演出、休整与中心约定见 [LANCER 备团指南](../authoring/lancer-preparation.md)。制作官模或原创遭遇前先读该页，再查本页字段；本页新增的出击确认与部署约定对应 0.2.44，使用新能力前须核对实际客户端和服务端版本。
 
 ## 角色卡的字符串字段
 
@@ -47,6 +47,12 @@ system自动化可有1–8个actions，每项id、name、description、cost、ta
 驾驶员离机具有独立步战资料、装备和棋子关联。骑乘使用LancerRide；AI可在pilot/ai/cascade间切换。NHP可涉及mech/subaltern/casket、压力容量、负担和失控，不能用普通玩家ownerId替代控制流程。扫描信息属于有访问范围的情报，不默认向所有玩家广播。
 
 字段：[lancer-combat](../../reference/packages/contracts/src/lancer-combat.md)、[维修](../../reference/packages/contracts/src/lancer-maintenance.md)、[场景物件](../../reference/packages/contracts/src/lancer-scene.md)。执行签名在 `reference/packages/game-core/src/lancer/` 下按攻击、NHP、驾驶员、准备动作、场景事件、位移等拆分。
+
+## 出击确认与部署（0.2.44）
+
+普通新出击保留全员确认：GM 与参战玩家分别确认，全部就绪后才进入部署。`LancerEntry.freeDeployment=true` 表示确认后的自由落位；此时 `current` 为 `null`，各玩家仍只能部署自己拥有且获准部署的单位。该字段不取消确认或归属校验，不能用直接写坐标跳过权威动作。
+
+GM 左键选择地图落点，部署成功后自动切到下一台非玩家单位；保存失败不会消耗当前单位。代部署其他玩家是独立的可选操作，仍校验玩家身份与部署权限。玩家收到的编队不包含隐藏敌军；部署阶段重连不会重播出击演出。全部落位后开始战斗。竞技场、旧式顺序出击及没有出击记录的存档继续按各自流程处理。
 
 ## 创建资源时的边界
 

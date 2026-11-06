@@ -1,6 +1,6 @@
 {
   "date": "2026-11-06",
-  "version": "0.2.43",
+  "version": "0.2.44",
   "scope": "Shared contracts, rules engine signatures, game core, session, transport, assets, world model and selected local authoring entry points. No rulebook prose or asset binaries.",
   "files": [
     {
@@ -35,8 +35,8 @@
     },
     {
       "path": "game/apps/desktop/src/story/minigames/index.ts",
-      "sha256": "9655e276549d9701bf7a2964e44152bc9fa23f7383fec95661aa060bde0ea788",
-      "bytes": 413
+      "sha256": "60668d1c7cedb41b1dd0987e2aa169bde3b870c0cbeee7b1f05a8989b7041d89",
+      "bytes": 418
     },
     {
       "path": "game/apps/desktop/src/story/minigames/input.ts",
@@ -45,13 +45,13 @@
     },
     {
       "path": "game/apps/desktop/src/story/minigames/layout.ts",
-      "sha256": "3d84558efa0dd5a8516260aa4f3303c55b66f5b94040c88773dc17c6ee98144e",
-      "bytes": 2002
+      "sha256": "3a9da80201af2ce4ebd5dab0846b44c6ee785c8622b68b2145de39c3e6808b64",
+      "bytes": 2023
     },
     {
       "path": "game/apps/desktop/src/story/minigames/sdk.tsx",
-      "sha256": "2ab00b3d946e6b988beb78a1033b2710fb346a4f261323fad88073277476222b",
-      "bytes": 1041
+      "sha256": "4f71654fd72e01cb73f8615c9fedaa8c4893258756bfb13b0360042835b25a5e",
+      "bytes": 1058
     },
     {
       "path": "game/apps/desktop/src/tabletop/lancer/catalog.ts",
@@ -485,8 +485,8 @@
     },
     {
       "path": "game/packages/contracts/src/index.ts",
-      "sha256": "a40c33dd7105d9d984b23b5c115fb89aad3ed39d1aaa670b42fda26490cceb23",
-      "bytes": 15009
+      "sha256": "7f2d53881a4d49d13b200e31bdba7112f3d7f1acb1aa6d46232ee20d4437ccdd",
+      "bytes": 15558
     },
     {
       "path": "game/packages/contracts/src/inline-roll.ts",
@@ -545,8 +545,8 @@
     },
     {
       "path": "game/packages/contracts/src/lancer-entry.ts",
-      "sha256": "bf9732fd4c9ed46ff08ada72c580ec923f23627bcc9deb6f934531d4856f54a8",
-      "bytes": 1452
+      "sha256": "0290c4a29b1fdd568905987cee91c41114793b68956abef5db505708f088b5eb",
+      "bytes": 1753
     },
     {
       "path": "game/packages/contracts/src/lancer-maintenance.ts",
@@ -630,8 +630,8 @@
     },
     {
       "path": "game/packages/contracts/src/minigame.ts",
-      "sha256": "6295347f958a76b6ed79567708178d7e031f6050be7b16dadb19e6fe3d66cfde",
-      "bytes": 9302
+      "sha256": "f32b5f7d79ed994b0610f5191f69a9a497b36815837bc2bfbf75c38ba01d7424",
+      "bytes": 9394
     },
     {
       "path": "game/packages/contracts/src/monster-health.ts",
@@ -695,13 +695,13 @@
     },
     {
       "path": "game/packages/contracts/src/plugin-dependencies.ts",
-      "sha256": "913f869a2987832eb6e06646fec560c6a9b59db2557266c5b45677fe329ed015",
-      "bytes": 4135
+      "sha256": "1f25d1132930700d9462640ab51ecd219123d2cb6957279221b4b817eb38980e",
+      "bytes": 4198
     },
     {
       "path": "game/packages/contracts/src/plugin-registry.ts",
-      "sha256": "1accc434d1454a89e60d669533c268234ba85cc2c5e0fc587133cf380d78820d",
-      "bytes": 3601
+      "sha256": "3e3289347afc026e3eccfd6683aec3800c1a040c97e69adb1bf1ccec97c66207",
+      "bytes": 3641
     },
     {
       "path": "game/packages/contracts/src/progress-directory.ts",
@@ -715,8 +715,8 @@
     },
     {
       "path": "game/packages/contracts/src/qte.ts",
-      "sha256": "1483ead4fdfce75a09cb4511681d249a0c55b49ae1e5c4080f7bb83c95c36293",
-      "bytes": 3519
+      "sha256": "03d2134852631921eaf4a214711ddd5b93b1dcc0a9719757acb3c3cc6c38b4ad",
+      "bytes": 3551
     },
     {
       "path": "game/packages/contracts/src/region-combat.ts",
@@ -1055,8 +1055,8 @@
     },
     {
       "path": "game/packages/contracts/src/story.ts",
-      "sha256": "2a0b497d171f1f5cfb3149a1a04470d1f844b8d48049709810de1edc62577702",
-      "bytes": 35049
+      "sha256": "36e1e0415bb8135261657372557cdaefdae56314a09f5f160724b15677b3711f",
+      "bytes": 35290
     },
     {
       "path": "game/packages/contracts/src/systems.ts",
@@ -1110,8 +1110,8 @@
     },
     {
       "path": "game/packages/contracts/src/theatre.ts",
-      "sha256": "3d5ddc3f7bd576a932cea313514334aaa1a7be6e97c8004f6306aa38a982ea18",
-      "bytes": 12404
+      "sha256": "e6f5e719ad60b016a61795d3abe594f6b2a8be58ae25529b4c36cf951772ec65",
+      "bytes": 12599
     },
     {
       "path": "game/packages/contracts/src/token-appearance.ts",
@@ -1195,8 +1195,8 @@
     },
     {
       "path": "game/packages/contracts/src/world-edit-policy.ts",
-      "sha256": "e2c695fce81aeb2995138c45f4fd97ddc50ab6911a1b4fb68a82d50aa167a2eb",
-      "bytes": 5063
+      "sha256": "539ab7bd4e65f9bda651b44e4e096137a9e34ff7d2e0dbb9b120fd31fbd81ea1",
+      "bytes": 5125
     },
     {
       "path": "game/packages/contracts/src/world-library.ts",
@@ -1580,8 +1580,8 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/battle.ts",
-      "sha256": "3705e20acd11db6e433e229004c10f42f8bf43962d2c44dc6e573853e58eb47d",
-      "bytes": 51324
+      "sha256": "f6a16fb0e2993f33aced09066876d0916b97d50151146c31977c52f97c4a2c25",
+      "bytes": 51488
     },
     {
       "path": "game/packages/game-core/src/lancer/concealment.ts",
@@ -1650,8 +1650,8 @@
     },
     {
       "path": "game/packages/game-core/src/lancer/entry.ts",
-      "sha256": "12f171a98bcf6cf40af5e302f6ca74689ce551cb52739deab4aaf3640d779410",
-      "bytes": 438
+      "sha256": "76b9751c6066f30296800305e3cfbf1bac0baab7d5af47761daac269718a1e8d",
+      "bytes": 487
     },
     {
       "path": "game/packages/game-core/src/lancer/executioner.ts",
@@ -2400,8 +2400,8 @@
     },
     {
       "path": "game/packages/session/src/core.ts",
-      "sha256": "302feee7683e4a90f968d886a28d4c79d51dfe5394b1bd8060ffe879258f3a2e",
-      "bytes": 3220
+      "sha256": "c0750d74c8dbdfb9ac709b10d9fbbda55ce27c24acd5166715ade83aeb6a15bb",
+      "bytes": 3325
     },
     {
       "path": "game/packages/session/src/directory-access.ts",
@@ -2430,8 +2430,8 @@
     },
     {
       "path": "game/packages/session/src/examples/number-tap.ts",
-      "sha256": "b3cf648905b160e8d56354b300d30947b677d15568cadf733be27311cf4b1f0f",
-      "bytes": 831
+      "sha256": "5bd51b998952ad00100f1414204e98d31ae1c953da245461c9f1311bec28bbf9",
+      "bytes": 849
     },
     {
       "path": "game/packages/session/src/index.ts",
@@ -2445,8 +2445,8 @@
     },
     {
       "path": "game/packages/session/src/minigame-modules.ts",
-      "sha256": "d1a534f62533e45b4b1f4f0fde4bf95dbde8c3e0ad57d3a1f03755fb36192c93",
-      "bytes": 582
+      "sha256": "9045459cae7b566cd26767b4e97172baaa3699d05c3a214e46abee0b589b70d6",
+      "bytes": 591
     },
     {
       "path": "game/packages/session/src/owned-items.ts",
@@ -2455,8 +2455,8 @@
     },
     {
       "path": "game/packages/session/src/qte-runtime.ts",
-      "sha256": "108a50789a652145cb01bb2da0300266a3c3eb5c3efd9fce29a30f9c3b91c282",
-      "bytes": 6956
+      "sha256": "8df31f51a8117aad8159af9610d5b11a46ac2d31a3ee533e91a0c191eb261303",
+      "bytes": 7037
     },
     {
       "path": "game/packages/session/src/region-decisions.ts",
@@ -2560,13 +2560,13 @@
     },
     {
       "path": "game/packages/session/src/story-library.ts",
-      "sha256": "1b1d1937781e246e7c498a4846ac2124d82ee6af0d4d65fe8ec04cdbcc2a3ec4",
-      "bytes": 16783
+      "sha256": "85b39bd08ea19c866864ffcab15586b6ccff73fde6f870948a8eb496c6cc7efb",
+      "bytes": 16912
     },
     {
       "path": "game/packages/session/src/story-minigame.ts",
-      "sha256": "c446b3752523f1b29d43112ccb6df35e72d38f267b6d9e98c78d27b6ae7c3092",
-      "bytes": 13146
+      "sha256": "510f84f0ee081ccd99af2273746767aecf8e675f8455c488d46d2e87973cdf2f",
+      "bytes": 13302
     },
     {
       "path": "game/packages/session/src/story-onboarding.ts",
@@ -2640,13 +2640,13 @@
     },
     {
       "path": "game/packages/session/src/story-theatre.ts",
-      "sha256": "7a1c75cde70d5d982c9aaaca42f1ff1f062686ced39d0ddc8e22bf419a88f688",
-      "bytes": 13691
+      "sha256": "87245e17a2e10e4f81f9a414564ce84ab17f86528346599e514da7205029799d",
+      "bytes": 13908
     },
     {
       "path": "game/packages/session/src/story-workspace.ts",
-      "sha256": "6566a465bb7bd7ec9f7495aa4a8c3f191fd3e7929733ac55db5f2e00d1d2341e",
-      "bytes": 14622
+      "sha256": "59a92bcf2ad5f654b0c5a7f7f55e18f36b443ebba50edf77272eb39cdfa0b10c",
+      "bytes": 14788
     },
     {
       "path": "game/packages/session/src/world-aaf-character.ts",
@@ -2690,8 +2690,8 @@
     },
     {
       "path": "game/packages/session/src/world-authority.ts",
-      "sha256": "975e504d1f2d659e22766d1ded0a6b3d4e605703e60ec1d4cc30125895edfd0a",
-      "bytes": 19297
+      "sha256": "5f8ef3dba8e525499f07d195b1ac6c563fc520337ec010150c44768195501a62",
+      "bytes": 19502
     },
     {
       "path": "game/packages/session/src/world-catalog.ts",
@@ -2840,8 +2840,8 @@
     },
     {
       "path": "game/packages/session/src/world-story.ts",
-      "sha256": "eb54e4cf34641087d84d8cd9b4c7c1dfd23a4591e442dff0299eda1ffa8d4444",
-      "bytes": 2672
+      "sha256": "287fc6eb4878f4e035f07cd9c7fe27d4c1c3f15bc748b168c1b9c624d61a94dd",
+      "bytes": 2691
     },
     {
       "path": "game/packages/session/src/world-teleports.ts",
@@ -3050,8 +3050,8 @@
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/battleEntry.ts",
-      "sha256": "178941375e05f02a52a11ecf2cd0046a3b28781edced19a05fe97c39270f24c8",
-      "bytes": 1901
+      "sha256": "1e529b238f052c860994cf7ff34bdbee03992088d68480462d14e5706ed8ecbb",
+      "bytes": 1935
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/campaignTemplate.ts",
@@ -3095,8 +3095,8 @@
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/deployment.ts",
-      "sha256": "f1dbbcce150f9dd2bceb41c181e4d24400fc9d9f7ded8c60f6aa51923ae9e2a6",
-      "bytes": 8226
+      "sha256": "aea5149b2a88128ca34779cbb3bb3276e5c4fa2d5ab1eacaa0485a3869d5d735",
+      "bytes": 8205
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/deploymentConfirmation.ts",
@@ -3335,13 +3335,13 @@
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/minigameStatus.ts",
-      "sha256": "cc5955b7defd67cde2a0defea2710ee58fbf3ad1597b9de71b5773e444cc49d4",
-      "bytes": 1718
+      "sha256": "f087a4ba7550d0f715a9b65da185e30b64e074bd4b405e7b3312bb139b335056",
+      "bytes": 1739
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/model.ts",
-      "sha256": "d27779deaab4fb4e341640a28f3e9bac1f94eea22fdf991d854375ea682b7869",
-      "bytes": 39051
+      "sha256": "38741b1d34e6013faf3148919779f76e3a87fb26a032fa47639d6025bb4dceb3",
+      "bytes": 39191
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/narrativeActor.ts",
@@ -3410,8 +3410,8 @@
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/storyActions.ts",
-      "sha256": "9cdb90de585134e1b8028c6fe7004261da57d4562649c60fcd847213657ad48c",
-      "bytes": 22472
+      "sha256": "63249704e7d3901ef04ffdc5b77e34f2a7b4e67adae2ae7da2e12b8546e15762",
+      "bytes": 22608
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/tokenInstances.ts",

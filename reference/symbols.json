@@ -464,8 +464,8 @@
         "type": "MinigameViewProps"
       }
     ],
-    "returns": "import(\"@source/node_modules/.pnpm/@types+react@18.3.31/node_modules/@types/react/index\").JSX.Element",
-    "declaration": "export function QteView(p: MinigameViewProps): import(\"@source/node_modules/.pnpm/@types+react@18.3.31/node_modules/@types/react/index\").JSX.Element;",
+    "returns": "import(\"E:/project/AAF-worktrees/naa-qte-release-0243/game/node_modules/.pnpm/@types+react@18.3.31/node_modules/@types/react/index\").JSX.Element",
+    "declaration": "export function QteView(p: MinigameViewProps): import(\"E:/project/AAF-worktrees/naa-qte-release-0243/game/node_modules/.pnpm/@types+react@18.3.31/node_modules/@types/react/index\").JSX.Element;",
     "line": 18,
     "source": "game/apps/desktop/src/story/minigames/QteView.tsx",
     "document": "reference/apps/desktop/src/story/minigames/QteView.md",
@@ -483,8 +483,8 @@
         "type": "MinigameViewProps"
       }
     ],
-    "returns": "import(\"@source/node_modules/.pnpm/@types+react@18.3.31/node_modules/@types/react/index\").JSX.Element | null",
-    "declaration": "export function NumberTapView(p: MinigameViewProps): import(\"@source/node_modules/.pnpm/@types+react@18.3.31/node_modules/@types/react/index\").JSX.Element | null;",
+    "returns": "import(\"E:/project/AAF-worktrees/naa-qte-release-0243/game/node_modules/.pnpm/@types+react@18.3.31/node_modules/@types/react/index\").JSX.Element | null",
+    "declaration": "export function NumberTapView(p: MinigameViewProps): import(\"E:/project/AAF-worktrees/naa-qte-release-0243/game/node_modules/.pnpm/@types+react@18.3.31/node_modules/@types/react/index\").JSX.Element | null;",
     "line": 6,
     "source": "game/apps/desktop/src/story/minigames/examples/NumberTap.tsx",
     "document": "reference/apps/desktop/src/story/minigames/examples/NumberTap.md",
@@ -28888,13 +28888,13 @@
       {
         "name": "combatants",
         "optional": false,
-        "type": "Array<{\n    id: string; name: string; faction: \"pc\" | \"npc\";\n    x: number; y: number; z?:number;hp: number; maxHp: number; ac: number; alive: boolean; burnStacks: number;\n    weaponName?: string;\n    offhandName?: string;\n    offhandReady?: boolean;\n    initiative?: number;\n    injured?:boolean;\n    actions?:{standard:number;move:number;quick:number;reaction:number};\n    effectiveSpeeds?:Record<import('./aaf-movement').AafSpeedMode,number>;\n    movementGrants?:import('./aaf-movement').AafMovementPool[];\n    specialName?: string;\n    specialMp?: number;\n    mp?: number;\n    mpMax?: number;\n    actorId?: string;\n    quota?: { standard: boolean; move: boolean; quick: boolean; reaction: boolean };\n  }>",
+        "type": "Array<{\r\n    id: string; name: string; faction: \"pc\" | \"npc\";\r\n    x: number; y: number; z?:number;hp: number; maxHp: number; ac: number; alive: boolean; burnStacks: number;\r\n    weaponName?: string;\r\n    offhandName?: string;\r\n    offhandReady?: boolean;\r\n    initiative?: number;\r\n    injured?:boolean;\r\n    actions?:{standard:number;move:number;quick:number;reaction:number};\r\n    effectiveSpeeds?:Record<import('./aaf-movement').AafSpeedMode,number>;\r\n    movementGrants?:import('./aaf-movement').AafMovementPool[];\r\n    specialName?: string;\r\n    specialMp?: number;\r\n    mp?: number;\r\n    mpMax?: number;\r\n    actorId?: string;\r\n    quota?: { standard: boolean; move: boolean; quick: boolean; reaction: boolean };\r\n  }>",
         "description": ""
       },
       {
         "name": "eventsTail",
         "optional": false,
-        "type": "Array<{ kind: string; text: string; eventId?: number; sourceId?: string; targetId?: string; damage?: number;\n    check?: import('./aaf-rules').AafCheckRecord;\n    dice?: { d20: number[]; bonusFaces: number[]; penaltyFaces: number[]; flat: number; total: number; nat20: boolean; nat1: boolean } }>",
+        "type": "Array<{ kind: string; text: string; eventId?: number; sourceId?: string; targetId?: string; damage?: number;\r\n    check?: import('./aaf-rules').AafCheckRecord;\r\n    dice?: { d20: number[]; bonusFaces: number[]; penaltyFaces: number[]; flat: number; total: number; nat20: boolean; nat1: boolean } }>",
         "description": ""
       }
     ],
@@ -37110,7 +37110,7 @@
     "kind": "interface",
     "exported": true,
     "description": "Durable pre-battle handshake. Secret roster rows are removed from player snapshots.",
-    "declaration": "export interface LancerEntry {\n    id: string;\n    stage: 'confirm' | 'deploy' | 'complete';\n    participants: string[];\n    confirmed: string[];\n    order: string[];\n    current: string | null;\n    controller: string;\n    roster: {\n        unit: string;\n        name: string;\n        side: 'players' | 'hostiles';\n        portrait: string;\n        public: boolean;\n    }[];\n}",
+    "declaration": "export interface LancerEntry {\n    id: string;\n    stage: 'confirm' | 'deploy' | 'complete';\n    participants: string[];\n    confirmed: string[];\n    order: string[];\n    current: string | null;\n    controller: string;\n    freeDeployment?: boolean;\n    roster: {\n        unit: string;\n        name: string;\n        side: 'players' | 'hostiles';\n        portrait: string;\n        public: boolean;\n    }[];\n}",
     "fields": [
       {
         "name": "id",
@@ -37153,6 +37153,12 @@
         "optional": false,
         "type": "string",
         "description": ""
+      },
+      {
+        "name": "freeDeployment",
+        "optional": true,
+        "type": "boolean",
+        "description": "Ordinary sorties allow every controller to deploy after the shared confirmation. Omitted for legacy sequential entries."
       },
       {
         "name": "roster",
@@ -37210,7 +37216,7 @@
     ],
     "returns": "LancerEntry",
     "declaration": "export function parseLancerEntry(raw: unknown): LancerEntry;",
-    "line": 7,
+    "line": 9,
     "source": "game/packages/contracts/src/lancer-entry.ts",
     "document": "reference/packages/contracts/src/lancer-entry.md",
     "anchor": "parselancerentry"

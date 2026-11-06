@@ -2792,37 +2792,37 @@
   {
     "key": "lancer.npc",
     "source": "game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx",
-    "line": 91,
+    "line": 93,
     "expression": "a.fields['lancer.npc']"
   },
   {
     "key": "lancer.side",
     "source": "game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx",
-    "line": 91,
+    "line": 93,
     "expression": "a.fields['lancer.side']"
   },
   {
     "key": "lancer.npc",
     "source": "game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx",
-    "line": 173,
+    "line": 177,
     "expression": "hangarActor?.fields['lancer.npc']"
   },
   {
     "key": "lancer.creation",
     "source": "game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx",
-    "line": 173,
+    "line": 177,
     "expression": "hangarActor?.fields['lancer.creation']"
   },
   {
     "key": "lancer.creation",
     "source": "game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx",
-    "line": 175,
+    "line": 179,
     "expression": "hangarActor?.fields['lancer.creation']"
   },
   {
     "key": "lancer.creation",
     "source": "game/apps/desktop/src/tabletop/lancer/LancerDesktop.tsx",
-    "line": 175,
+    "line": 179,
     "expression": "hangarActor?.fields['lancer.creation']"
   },
   {
