@@ -1,12 +1,13 @@
 # game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts
 
-源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-07。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
+import {voteArenaWithdrawal,updateArenaTasks,arenaMissionRewards,arenaBattleWear} from './missionProgress';
 import {claimRogueBossReward,ensureRogueBossRewards,rogueBonusMounts} from './bossRewards';
 import {ensureRogueInitialRewards,rogueInitialRewardsPending,rogueRewardKind,rogueRewardRounds} from './rewardFlow';
 import {ROGUE_ATTRIBUTES,rogueAttributes,rogueHealthSnapshot,preserveRogueDamage} from './growth';
@@ -23,14 +24,14 @@ import {readLancer,readyLancer,selectLancerFrame,setEquipment} from '../model';
 import {starterLancer} from '../combatAdapter';
 import {rogueUnlockedFrames,rogueSlotCapacity,rogueEquipment,ROGUE_JOBS,rogueJob,ROGUE_RESOURCES,ROGUE_RESOURCE_BY_ID,drawRogueCards,learnRogueChoice,rogueRandom} from './resources';
 import {drawRogueRoutes} from './encounters';
-import {launchArena} from './battle';
+import {launchArena,settleArena} from './battle';
 import {applyRogueRetraining,grantRogueRetraining} from './retraining';
 ```
 </details>
 
 ## createRogueWorld
 
-导出接口 · 源码第 20 行。
+导出接口 · 源码第 21 行。
 
 ```ts
 export function createRogueWorld(table: ManualTable, start?: 0|2, difficulty?: 1|2|3): ManualTable;
@@ -44,7 +45,7 @@ export function createRogueWorld(table: ManualTable, start?: 0|2, difficulty?: 1
 
 ## refreshRogueActor
 
-导出接口 · 源码第 29 行。
+导出接口 · 源码第 30 行。
 
 ```ts
 export function refreshRogueActor(t: ManualTable, p: RoguePlayer): void;
@@ -57,7 +58,7 @@ export function refreshRogueActor(t: ManualTable, p: RoguePlayer): void;
 
 ## openRogueRewards
 
-导出接口 · 源码第 56 行。
+导出接口 · 源码第 57 行。
 
 ```ts
 export function openRogueRewards(t: ManualTable): void;
@@ -69,7 +70,7 @@ export function openRogueRewards(t: ManualTable): void;
 
 ## applyRogueCommand
 
-导出接口 · 源码第 76 行。
+导出接口 · 源码第 77 行。
 
 ```ts
 export function applyRogueCommand(t: ManualTable, sender: string, c: RogueCommand, nickname: string): void;
@@ -84,7 +85,7 @@ export function applyRogueCommand(t: ManualTable, sender: string, c: RogueComman
 
 ## finishRogueBattle
 
-导出接口 · 源码第 165 行。
+导出接口 · 源码第 167 行。
 
 ```ts
 export function finishRogueBattle(t: ManualTable, won: boolean, wipe?: boolean): void;

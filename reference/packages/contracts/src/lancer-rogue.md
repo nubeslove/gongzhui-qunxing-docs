@@ -1,6 +1,6 @@
 # game/packages/contracts/src/lancer-rogue.ts
 
-源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-07。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../README.md)
 
@@ -234,6 +234,8 @@ export interface RogueEncounter {
     legion?: string;
     modifier?: 'fortified' | 'mobile' | 'volatile';
     threat?: number;
+    missionVersion?: 2;
+    missionKey?: string;
 }
 ```
 
@@ -251,10 +253,116 @@ export interface RogueEncounter {
 | `legion` | 是 | `string` | 见结构定义及所属功能文档 |
 | `modifier` | 是 | `'fortified'&#124;'mobile'&#124;'volatile'` | 见结构定义及所属功能文档 |
 | `threat` | 是 | `number` | 见结构定义及所属功能文档 |
+| `missionVersion` | 是 | `2` | 见结构定义及所属功能文档 |
+| `missionKey` | 是 | `string` | 见结构定义及所属功能文档 |
+
+## RogueObjectiveStatus
+
+导出接口 · 源码第 16 行。
+
+```ts
+export type RogueObjectiveStatus = 'active' | 'completed' | 'failed';
+```
+
+## RogueSecondary
+
+导出接口 · 源码第 17 行。
+
+```ts
+export interface RogueSecondary {
+    id: string;
+    label: string;
+    kind: 'cache' | 'eliminate' | 'secure' | 'cargo';
+    goal: number;
+    progress: number;
+    status: RogueObjectiveStatus;
+    reward: number;
+    target?: string;
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `label` | 否 | `string` | 见结构定义及所属功能文档 |
+| `kind` | 否 | `'cache'&#124;'eliminate'&#124;'secure'&#124;'cargo'` | 见结构定义及所属功能文档 |
+| `goal` | 否 | `number` | 见结构定义及所属功能文档 |
+| `progress` | 否 | `number` | 见结构定义及所属功能文档 |
+| `status` | 否 | `RogueObjectiveStatus` | 见结构定义及所属功能文档 |
+| `reward` | 否 | `number` | 见结构定义及所属功能文档 |
+| `target` | 是 | `string` | 见结构定义及所属功能文档 |
+
+## RogueChallenge
+
+导出接口 · 源码第 18 行。
+
+```ts
+export interface RogueChallenge {
+    id: string;
+    label: string;
+    kind: 'primary-time' | 'battle-time' | 'protect' | 'pacifist';
+    deadline?: number;
+    target?: string;
+    status: RogueObjectiveStatus;
+    reward: number;
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `id` | 否 | `string` | 见结构定义及所属功能文档 |
+| `label` | 否 | `string` | 见结构定义及所属功能文档 |
+| `kind` | 否 | `'primary-time'&#124;'battle-time'&#124;'protect'&#124;'pacifist'` | 见结构定义及所属功能文档 |
+| `deadline` | 是 | `number` | 见结构定义及所属功能文档 |
+| `target` | 是 | `string` | 见结构定义及所属功能文档 |
+| `status` | 否 | `RogueObjectiveStatus` | 见结构定义及所属功能文档 |
+| `reward` | 否 | `number` | 见结构定义及所属功能文档 |
+
+## RogueWithdrawal
+
+导出接口 · 源码第 19 行。
+
+```ts
+export interface RogueWithdrawal {
+    votes: Record<string, boolean>;
+    status: 'open' | 'passed' | 'rejected';
+    eligible: string[];
+    threshold: number;
+    deadline: number;
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `votes` | 否 | `Record<string,boolean>` | 见结构定义及所属功能文档 |
+| `status` | 否 | `'open'&#124;'passed'&#124;'rejected'` | 见结构定义及所属功能文档 |
+| `eligible` | 否 | `string[]` | 见结构定义及所属功能文档 |
+| `threshold` | 否 | `number` | 见结构定义及所属功能文档 |
+| `deadline` | 否 | `number` | 见结构定义及所属功能文档 |
+
+## RogueWearSnapshot
+
+导出接口 · 源码第 20 行。
+
+```ts
+export interface RogueWearSnapshot {
+    repair: number;
+    debt: number;
+    cp: number;
+    limited: number;
+}
+```
+
+| 字段 | 可选 | 类型 | 含义／来源注释 |
+| --- | --- | --- | --- |
+| `repair` | 否 | `number` | 见结构定义及所属功能文档 |
+| `debt` | 否 | `number` | 见结构定义及所属功能文档 |
+| `cp` | 否 | `number` | 见结构定义及所属功能文档 |
+| `limited` | 否 | `number` | 见结构定义及所属功能文档 |
 
 ## RogueHazard
 
-导出接口 · 源码第 16 行。
+导出接口 · 源码第 21 行。
 
 ```ts
 export interface RogueHazard {
@@ -284,7 +392,7 @@ export interface RogueHazard {
 
 ## RogueScenario
 
-导出接口 · 源码第 18 行。
+导出接口 · 源码第 23 行。
 
 Resumable mission state. A round and each hazard target are consumed before resolving reactions.
 
@@ -303,6 +411,14 @@ export interface RogueScenario {
     alert: string;
     reinforcements: number;
     flags: Record<string, number>;
+    main?: {
+        status: RogueObjectiveStatus;
+        completedRound?: number;
+    };
+    secondaries?: RogueSecondary[];
+    challenges?: RogueChallenge[];
+    withdrawal?: RogueWithdrawal;
+    wearStart?: Record<string, RogueWearSnapshot>;
 }
 ```
 
@@ -321,10 +437,17 @@ export interface RogueScenario {
 | `alert` | 否 | `string` | 见结构定义及所属功能文档 |
 | `reinforcements` | 否 | `number` | 见结构定义及所属功能文档 |
 | `flags` | 否 | `Record<string,number>` | 见结构定义及所属功能文档 |
+| `main` | 是 | `{status:RogueObjectiveStatus;completedRound?:number}` | 见结构定义及所属功能文档 |
+| `main.status` | 否 | `RogueObjectiveStatus` | 见结构定义及所属功能文档 |
+| `main.completedRound` | 是 | `number` | 见结构定义及所属功能文档 |
+| `secondaries` | 是 | `RogueSecondary[]` | 见结构定义及所属功能文档 |
+| `challenges` | 是 | `RogueChallenge[]` | 见结构定义及所属功能文档 |
+| `withdrawal` | 是 | `RogueWithdrawal` | 见结构定义及所属功能文档 |
+| `wearStart` | 是 | `Record<string,RogueWearSnapshot>` | 见结构定义及所属功能文档 |
 
 ## RogueRecord
 
-导出接口 · 源码第 19 行。
+导出接口 · 源码第 24 行。
 
 ```ts
 export interface RogueRecord {
@@ -333,6 +456,12 @@ export interface RogueRecord {
     danger: RogueDanger;
     won: boolean;
     rounds: number;
+    rewards?: {
+        base: number;
+        secondary: number;
+        challenge: number;
+    };
+    wear?: Record<string, number>;
 }
 ```
 
@@ -343,10 +472,15 @@ export interface RogueRecord {
 | `danger` | 否 | `RogueDanger` | 见结构定义及所属功能文档 |
 | `won` | 否 | `boolean` | 见结构定义及所属功能文档 |
 | `rounds` | 否 | `number` | 见结构定义及所属功能文档 |
+| `rewards` | 是 | `{base:number;secondary:number;challenge:number}` | 见结构定义及所属功能文档 |
+| `rewards.base` | 否 | `number` | 见结构定义及所属功能文档 |
+| `rewards.secondary` | 否 | `number` | 见结构定义及所属功能文档 |
+| `rewards.challenge` | 否 | `number` | 见结构定义及所属功能文档 |
+| `wear` | 是 | `Record<string,number>` | 见结构定义及所属功能文档 |
 
 ## LancerRogueRun
 
-导出接口 · 源码第 20 行。
+导出接口 · 源码第 25 行。
 
 ```ts
 export interface LancerRogueRun {
@@ -402,7 +536,7 @@ export interface LancerRogueRun {
 
 ## RogueCommand
 
-导出接口 · 源码第 21 行。
+导出接口 · 源码第 26 行。
 
 ```ts
 export type RogueCommand = {
@@ -439,6 +573,9 @@ export type RogueCommand = {
 } | {
     op: 'vote';
     encounter: string;
+} | {
+    op: 'withdraw';
+    agree: boolean;
 } | {
     op: 'pick';
     card: string;
@@ -529,56 +666,58 @@ export type RogueCommand = {
 | `分支9.op` | 否 | `'depart'` | 见结构定义及所属功能文档 |
 | `分支10.op` | 否 | `'vote'` | 见结构定义及所属功能文档 |
 | `分支10.encounter` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支11.op` | 否 | `'pick'` | 见结构定义及所属功能文档 |
-| `分支11.card` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支11.round` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支12.op` | 否 | `'reward'` | 见结构定义及所属功能文档 |
-| `分支12.mode` | 否 | `'convert'&#124;'refresh'&#124;'upgrade'` | 见结构定义及所属功能文档 |
+| `分支11.op` | 否 | `'withdraw'` | 见结构定义及所属功能文档 |
+| `分支11.agree` | 否 | `boolean` | 见结构定义及所属功能文档 |
+| `分支12.op` | 否 | `'pick'` | 见结构定义及所属功能文档 |
+| `分支12.card` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支12.round` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支12.offers` | 否 | `string[]` | 见结构定义及所属功能文档 |
-| `分支12.resource` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支13.op` | 否 | `'bossReward'` | 见结构定义及所属功能文档 |
-| `分支13.reward` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支13.choice` | 否 | `RogueBossChoice` | 见结构定义及所属功能文档 |
-| `分支14.op` | 否 | `'retrainOffer'` | 见结构定义及所属功能文档 |
-| `分支14.kind` | 否 | `'talent'&#124;'license'` | 见结构定义及所属功能文档 |
-| `分支14.source` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支14.level` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支15.op` | 否 | `'retrainRefresh'` | 见结构定义及所属功能文档 |
+| `分支13.op` | 否 | `'reward'` | 见结构定义及所属功能文档 |
+| `分支13.mode` | 否 | `'convert'&#124;'refresh'&#124;'upgrade'` | 见结构定义及所属功能文档 |
+| `分支13.round` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支13.offers` | 否 | `string[]` | 见结构定义及所属功能文档 |
+| `分支13.resource` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支14.op` | 否 | `'bossReward'` | 见结构定义及所属功能文档 |
+| `分支14.reward` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支14.choice` | 否 | `RogueBossChoice` | 见结构定义及所属功能文档 |
+| `分支15.op` | 否 | `'retrainOffer'` | 见结构定义及所属功能文档 |
+| `分支15.kind` | 否 | `'talent'&#124;'license'` | 见结构定义及所属功能文档 |
+| `分支15.source` | 否 | `string` | 见结构定义及所属功能文档 |
 | `分支15.level` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支15.offers` | 否 | `string[]` | 见结构定义及所属功能文档 |
-| `分支16.op` | 否 | `'retrainConfirm'` | 见结构定义及所属功能文档 |
+| `分支16.op` | 否 | `'retrainRefresh'` | 见结构定义及所属功能文档 |
 | `分支16.level` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支16.card` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支16.newFrame` | 是 | `string` | 见结构定义及所属功能文档 |
-| `分支17.op` | 否 | `'buy'` | 见结构定义及所属功能文档 |
+| `分支16.offers` | 否 | `string[]` | 见结构定义及所属功能文档 |
+| `分支17.op` | 否 | `'retrainConfirm'` | 见结构定义及所属功能文档 |
+| `分支17.level` | 否 | `number` | 见结构定义及所属功能文档 |
 | `分支17.card` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支18.op` | 否 | `'gift'` | 见结构定义及所属功能文档 |
-| `分支18.to` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支18.amount` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支19.op` | 否 | `'repair'` | 见结构定义及所属功能文档 |
-| `分支19.service` | 否 | `'hp'&#124;'structure'&#124;'stress'&#124;'cp'&#124;'repair'&#124;'equipment'&#124;'overcharge'` | 见结构定义及所属功能文档 |
-| `分支20.op` | 否 | `'allocate'` | 见结构定义及所属功能文档 |
-| `分支20.stat` | 否 | `'hull'&#124;'agility'&#124;'systems'&#124;'engineering'` | 见结构定义及所属功能文档 |
-| `分支21.op` | 否 | `'allocateStats'` | 见结构定义及所属功能文档 |
-| `分支21.values` | 否 | `Record<'hull'&#124;'agility'&#124;'systems'&#124;'engineering',number>` | 见结构定义及所属功能文档 |
-| `分支21.expected` | 否 | `Record<'hull'&#124;'agility'&#124;'systems'&#124;'engineering',number>` | 见结构定义及所属功能文档 |
-| `分支22.op` | 否 | `'equip'` | 见结构定义及所属功能文档 |
-| `分支22.resource` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支22.mount` | 是 | `number` | 见结构定义及所属功能文档 |
-| `分支22.slot` | 是 | `0&#124;1` | 见结构定义及所属功能文档 |
-| `分支22.replace` | 是 | `number` | 见结构定义及所属功能文档 |
-| `分支23.op` | 否 | `'unequip'` | 见结构定义及所属功能文档 |
-| `分支23.kind` | 否 | `'weapon'&#124;'system'&#124;'mod'` | 见结构定义及所属功能文档 |
-| `分支23.index` | 否 | `number` | 见结构定义及所属功能文档 |
-| `分支24.op` | 否 | `'print'` | 见结构定义及所属功能文档 |
-| `分支24.frame` | 否 | `string` | 见结构定义及所属功能文档 |
-| `分支25.op` | 否 | `'challenge'` | 见结构定义及所属功能文档 |
-| `分支25.danger` | 否 | `'strong'&#124;'boss'` | 见结构定义及所属功能文档 |
+| `分支17.newFrame` | 是 | `string` | 见结构定义及所属功能文档 |
+| `分支18.op` | 否 | `'buy'` | 见结构定义及所属功能文档 |
+| `分支18.card` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支19.op` | 否 | `'gift'` | 见结构定义及所属功能文档 |
+| `分支19.to` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支19.amount` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支20.op` | 否 | `'repair'` | 见结构定义及所属功能文档 |
+| `分支20.service` | 否 | `'hp'&#124;'structure'&#124;'stress'&#124;'cp'&#124;'repair'&#124;'equipment'&#124;'overcharge'` | 见结构定义及所属功能文档 |
+| `分支21.op` | 否 | `'allocate'` | 见结构定义及所属功能文档 |
+| `分支21.stat` | 否 | `'hull'&#124;'agility'&#124;'systems'&#124;'engineering'` | 见结构定义及所属功能文档 |
+| `分支22.op` | 否 | `'allocateStats'` | 见结构定义及所属功能文档 |
+| `分支22.values` | 否 | `Record<'hull'&#124;'agility'&#124;'systems'&#124;'engineering',number>` | 见结构定义及所属功能文档 |
+| `分支22.expected` | 否 | `Record<'hull'&#124;'agility'&#124;'systems'&#124;'engineering',number>` | 见结构定义及所属功能文档 |
+| `分支23.op` | 否 | `'equip'` | 见结构定义及所属功能文档 |
+| `分支23.resource` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支23.mount` | 是 | `number` | 见结构定义及所属功能文档 |
+| `分支23.slot` | 是 | `0&#124;1` | 见结构定义及所属功能文档 |
+| `分支23.replace` | 是 | `number` | 见结构定义及所属功能文档 |
+| `分支24.op` | 否 | `'unequip'` | 见结构定义及所属功能文档 |
+| `分支24.kind` | 否 | `'weapon'&#124;'system'&#124;'mod'` | 见结构定义及所属功能文档 |
+| `分支24.index` | 否 | `number` | 见结构定义及所属功能文档 |
+| `分支25.op` | 否 | `'print'` | 见结构定义及所属功能文档 |
+| `分支25.frame` | 否 | `string` | 见结构定义及所属功能文档 |
+| `分支26.op` | 否 | `'challenge'` | 见结构定义及所属功能文档 |
+| `分支26.danger` | 否 | `'strong'&#124;'boss'` | 见结构定义及所属功能文档 |
 
 ## parseLancerRogue
 
-导出接口 · 源码第 46 行。
+导出接口 · 源码第 52 行。
 
 ```ts
 export function parseLancerRogue(raw: unknown): LancerRogueRun;
@@ -590,7 +729,7 @@ export function parseLancerRogue(raw: unknown): LancerRogueRun;
 
 ## projectLancerRogue
 
-导出接口 · 源码第 69 行。
+导出接口 · 源码第 84 行。
 
 ```ts
 export function projectLancerRogue(run: LancerRogueRun, player?: string): LancerRogueRun;

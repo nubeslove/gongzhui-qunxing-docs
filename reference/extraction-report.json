@@ -1,7 +1,7 @@
 {
-  "files": 690,
-  "symbols": 3727,
-  "fields": 8324,
+  "files": 695,
+  "symbols": 3761,
+  "fields": 8376,
   "schemaRoots": [
     "LancerNpc",
     "TheatreState",
@@ -71,6 +71,6 @@
     "MinigameWorkspace",
     "QteDefinition"
   ],
-  "definitions": 1265,
+  "definitions": 1273,
   "unsupported": []
 }

@@ -1,6 +1,6 @@
 # 源码字段与调用签名
 
-共 690 个文件、3727 项类型／函数／常量。按包拆分，每个文件包含字段表、联合类型全部分支、参数、返回类型和依赖。带内部依赖标记的类型不承诺可从包顶层导入。
+共 695 个文件、3761 项类型／函数／常量。按包拆分，每个文件包含字段表、联合类型全部分支、参数、返回类型和依赖。带内部依赖标记的类型不承诺可从包顶层导入。
 
 - [机器可读符号目录](symbols.json)
 - [源码指纹](source-snapshot.json)
@@ -123,7 +123,7 @@
 | [packages/contracts/src/lancer-player-ability.ts](packages/contracts/src/lancer-player-ability.md) | 6 |
 | [packages/contracts/src/lancer-preparation-runtime.ts](packages/contracts/src/lancer-preparation-runtime.md) | 1 |
 | [packages/contracts/src/lancer-recovery.ts](packages/contracts/src/lancer-recovery.md) | 6 |
-| [packages/contracts/src/lancer-rogue.ts](packages/contracts/src/lancer-rogue.md) | 19 |
+| [packages/contracts/src/lancer-rogue.ts](packages/contracts/src/lancer-rogue.md) | 24 |
 | [packages/contracts/src/lancer-runtime-fields.ts](packages/contracts/src/lancer-runtime-fields.md) | 1 |
 | [packages/contracts/src/lancer-scene-plan.ts](packages/contracts/src/lancer-scene-plan.md) | 2 |
 | [packages/contracts/src/lancer-scene.ts](packages/contracts/src/lancer-scene.md) | 13 |
@@ -648,11 +648,13 @@
 | [packages/tabletop-runtime/src/tabletop/lancer/resourceEquipment.ts](packages/tabletop-runtime/src/tabletop/lancer/resourceEquipment.md) | 3 |
 | [packages/tabletop-runtime/src/tabletop/lancer/rogue/abilities.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/abilities.md) | 4 |
 | [packages/tabletop-runtime/src/tabletop/lancer/rogue/ai.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/ai.md) | 3 |
+| [packages/tabletop-runtime/src/tabletop/lancer/rogue/arena-balance-v2.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/arena-balance-v2.md) | 3 |
 | [packages/tabletop-runtime/src/tabletop/lancer/rogue/arsenal.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/arsenal.md) | 5 |
 | [packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.md) | 4 |
 | [packages/tabletop-runtime/src/tabletop/lancer/rogue/bossRewards.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/bossRewards.md) | 3 |
-| [packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.md) | 11 |
-| [packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.md) | 5 |
+| [packages/tabletop-runtime/src/tabletop/lancer/rogue/cargo.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/cargo.md) | 3 |
+| [packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.md) | 14 |
+| [packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.md) | 9 |
 | [packages/tabletop-runtime/src/tabletop/lancer/rogue/generation.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/generation.md) | 6 |
 | [packages/tabletop-runtime/src/tabletop/lancer/rogue/generationValidation.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/generationValidation.md) | 1 |
 | [packages/tabletop-runtime/src/tabletop/lancer/rogue/growth.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/growth.md) | 5 |
@@ -660,13 +662,16 @@
 | [packages/tabletop-runtime/src/tabletop/lancer/rogue/maintenance.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/maintenance.md) | 3 |
 | [packages/tabletop-runtime/src/tabletop/lancer/rogue/manual-weapons.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/manual-weapons.md) | 1 |
 | [packages/tabletop-runtime/src/tabletop/lancer/rogue/mapLayouts.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/mapLayouts.md) | 2 |
-| [packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.md) | 6 |
+| [packages/tabletop-runtime/src/tabletop/lancer/rogue/medical-route-analysis.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/medical-route-analysis.md) | 1 |
+| [packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.md) | 10 |
+| [packages/tabletop-runtime/src/tabletop/lancer/rogue/modernObjectives.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/modernObjectives.md) | 1 |
+| [packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.md) | 9 |
 | [packages/tabletop-runtime/src/tabletop/lancer/rogue/resources.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/resources.md) | 12 |
 | [packages/tabletop-runtime/src/tabletop/lancer/rogue/retraining.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/retraining.md) | 4 |
 | [packages/tabletop-runtime/src/tabletop/lancer/rogue/rewardFlow.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/rewardFlow.md) | 4 |
 | [packages/tabletop-runtime/src/tabletop/lancer/rogue/rewardPools.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/rewardPools.md) | 5 |
 | [packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/run.md) | 5 |
-| [packages/tabletop-runtime/src/tabletop/lancer/rogue/scenarios.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/scenarios.md) | 8 |
+| [packages/tabletop-runtime/src/tabletop/lancer/rogue/scenarios.ts](packages/tabletop-runtime/src/tabletop/lancer/rogue/scenarios.md) | 9 |
 | [packages/tabletop-runtime/src/tabletop/lancer/scenePreparation.ts](packages/tabletop-runtime/src/tabletop/lancer/scenePreparation.md) | 3 |
 | [packages/tabletop-runtime/src/tabletop/lancer/sirenTools.ts](packages/tabletop-runtime/src/tabletop/lancer/sirenTools.md) | 3 |
 | [packages/tabletop-runtime/src/tabletop/lancer/solsticeReinforcements.ts](packages/tabletop-runtime/src/tabletop/lancer/solsticeReinforcements.md) | 2 |

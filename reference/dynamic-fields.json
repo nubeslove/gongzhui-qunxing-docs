@@ -1562,44 +1562,98 @@
   {
     "key": "lancer.rogue.target",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/ai.ts",
-    "line": 35,
+    "line": 38,
+    "expression": "t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.target']"
+  },
+  {
+    "key": "lancer.rogue.target",
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/arena-balance-v2.ts",
+    "line": 185,
     "expression": "t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.target']"
   },
   {
     "key": "lancer.rogue.target",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts",
-    "line": 20,
+    "line": 22,
     "expression": "a.fields['lancer.rogue.target']"
   },
   {
     "key": "lancer.rogue.target",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts",
-    "line": 20,
+    "line": 22,
     "expression": "a.fields['lancer.rogue.target']"
   },
   {
     "key": "lancer.rogue.boss",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts",
-    "line": 20,
+    "line": 22,
     "expression": "a.fields['lancer.rogue.boss']"
+  },
+  {
+    "key": "lancer.rogue.veteran",
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts",
+    "line": 35,
+    "expression": "t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.veteran']"
   },
   {
     "key": "lancer.rogue.bounty",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts",
-    "line": 35,
+    "line": 37,
     "expression": "t.actors.find(a=>a.id===p.actor)!.fields['lancer.rogue.bounty']"
   },
   {
     "key": "lancer.rogue.bounty",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts",
-    "line": 49,
+    "line": 52,
     "expression": "a.fields['lancer.rogue.bounty']"
   },
   {
     "key": "lancer.rogue.bounty",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts",
-    "line": 49,
+    "line": 52,
     "expression": "a.fields['lancer.rogue.bounty']"
+  },
+  {
+    "key": "lancer.rogue.equipmentState",
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/economy-validation.ts",
+    "line": 22,
+    "expression": "a.fields['lancer.rogue.equipmentState']"
+  },
+  {
+    "key": "lancer.rogue.equipmentState",
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/economy-validation.ts",
+    "line": 29,
+    "expression": "a.fields['lancer.rogue.equipmentState']"
+  },
+  {
+    "key": "lancer.cp",
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/economy-validation.ts",
+    "line": 31,
+    "expression": "a.fields['lancer.cp']"
+  },
+  {
+    "key": "lancer.frame",
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/economy-validation.ts",
+    "line": 32,
+    "expression": "a.fields['lancer.frame']"
+  },
+  {
+    "key": "lancer.frame",
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/economy-validation.ts",
+    "line": 32,
+    "expression": "a.fields['lancer.frame']"
+  },
+  {
+    "key": "lancer.current.repair",
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/economy-validation.ts",
+    "line": 43,
+    "expression": "a.fields['lancer.current.repair']"
+  },
+  {
+    "key": "lancer.cp",
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/economy-validation.ts",
+    "line": 43,
+    "expression": "a.fields['lancer.cp']"
   },
   {
     "key": "lancer.current.hp",
@@ -1668,21 +1722,39 @@
     "expression": "actor.fields['lancer.destroyed.unit']"
   },
   {
-    "key": "lancer.rogue.boss",
-    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
-    "line": 62,
-    "expression": "t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.boss']"
+    "key": "lancer.rogue.target",
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.ts",
+    "line": 32,
+    "expression": "t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.target']"
+  },
+  {
+    "key": "lancer.frame",
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.ts",
+    "line": 42,
+    "expression": "t.actors.find(a=>a.id===u.actorId)?.fields['lancer.frame']"
   },
   {
     "key": "lancer.rogue.target",
-    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
-    "line": 74,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/modernObjectives.ts",
+    "line": 19,
     "expression": "t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.target']"
   },
   {
     "key": "lancer.rogue.boss",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
-    "line": 74,
+    "line": 71,
+    "expression": "t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.boss']"
+  },
+  {
+    "key": "lancer.rogue.target",
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
+    "line": 84,
+    "expression": "t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.target']"
+  },
+  {
+    "key": "lancer.rogue.boss",
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
+    "line": 84,
     "expression": "t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.boss']"
   },
   {
@@ -1742,229 +1814,229 @@
   {
     "key": "lancer.level",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 31,
+    "line": 32,
     "expression": "f['lancer.level']"
   },
   {
     "key": "lancer.rogue",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 31,
+    "line": 32,
     "expression": "f['lancer.rogue']"
   },
   {
     "key": "lancer.rogue.mounts",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 32,
+    "line": 33,
     "expression": "f['lancer.rogue.mounts']"
   },
   {
     "key": "lancer.training",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 33,
+    "line": 34,
     "expression": "f['lancer.training']"
   },
   {
     "key": "lancer.rogue.bindings",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 33,
+    "line": 34,
     "expression": "f['lancer.rogue.bindings']"
   },
   {
     "key": "lancer.licenses",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 34,
+    "line": 35,
     "expression": "f['lancer.licenses']"
   },
   {
     "key": "lancer.rogue.manualStats",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 38,
+    "line": 39,
     "expression": "f['lancer.rogue.manualStats']"
   },
   {
     "key": "lancer.rogue.equipmentState",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 65,
+    "line": 66,
     "expression": "a.fields['lancer.rogue.equipmentState']"
   },
   {
     "key": "lancer.destroyed.${kind}.${i}（插值）",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 66,
+    "line": 67,
     "expression": "a.fields[`lancer.destroyed.${kind}.${i}`]"
   },
   {
     "key": "lancer.loaded.${i}（插值）",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 66,
+    "line": 67,
     "expression": "a.fields[`lancer.loaded.${i}`]"
   },
   {
     "key": "lancer.rogue.bindings",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 68,
+    "line": 69,
     "expression": "a.fields['lancer.rogue.bindings']"
   },
   {
     "key": "lancer.rogue.bindings",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 68,
+    "line": 69,
     "expression": "a.fields['lancer.rogue.bindings']"
   },
   {
     "key": "lancer.destroyed.${kind}.${i}（插值）",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 74,
+    "line": 75,
     "expression": "updated.fields[`lancer.destroyed.${kind}.${i}`]"
   },
   {
     "key": "lancer.loaded.${i}（插值）",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 74,
+    "line": 75,
     "expression": "updated.fields[`lancer.loaded.${i}`]"
   },
   {
     "key": "lancer.rogue.equipmentState",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 74,
+    "line": 75,
     "expression": "actorFor(t,p).fields['lancer.rogue.equipmentState']"
   },
   {
     "key": "呼号",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 98,
+    "line": 99,
     "expression": "a.fields['呼号']"
   },
   {
     "key": "lancer.hull",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 98,
+    "line": 99,
     "expression": "a.fields['lancer.hull']"
   },
   {
     "key": "lancer.level",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 98,
+    "line": 99,
     "expression": "a.fields['lancer.level']"
   },
   {
     "key": "lancer.rogue",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 98,
+    "line": 99,
     "expression": "a.fields['lancer.rogue']"
   },
   {
     "key": "立绘",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 98,
+    "line": 99,
     "expression": "a.fields['立绘']"
   },
   {
     "key": "lancer.rogue.portrait",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 98,
+    "line": 99,
     "expression": "a.fields['lancer.rogue.portrait']"
   },
   {
     "key": "lancer.frameLicense",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 101,
+    "line": 102,
     "expression": "a.fields['lancer.frameLicense']"
   },
   {
     "key": "lancer.frame",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 133,
+    "line": 135,
     "expression": "a.fields['lancer.frame']"
   },
   {
     "key": "lancer.rogue.equipmentState",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 151,
+    "line": 153,
     "expression": "a.fields['lancer.rogue.equipmentState']"
   },
   {
     "key": "lancer.destroyed.${kind}.${i}（插值）",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 152,
+    "line": 154,
     "expression": "a.fields[`lancer.destroyed.${kind}.${i}`]"
   },
   {
     "key": "lancer.loaded.${i}（插值）",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 152,
+    "line": 154,
     "expression": "a.fields[`lancer.loaded.${i}`]"
   },
   {
     "key": "lancer.destroyed.${kind}.${i}（插值）",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 155,
+    "line": 157,
     "expression": "next.fields[`lancer.destroyed.${kind}.${i}`]"
   },
   {
     "key": "lancer.loaded.${i}（插值）",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 155,
+    "line": 157,
     "expression": "next.fields[`lancer.loaded.${i}`]"
   },
   {
     "key": "lancer.rogue.equipmentState",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 156,
+    "line": 158,
     "expression": "next.fields['lancer.rogue.equipmentState']"
   },
   {
     "key": "lancer.cp",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 158,
+    "line": 160,
     "expression": "actorFor(t,p).fields['lancer.cp']"
   },
   {
     "key": "lancer.rogue.equipmentState",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 158,
+    "line": 160,
     "expression": "a.fields['lancer.rogue.equipmentState']"
   },
   {
     "key": "lancer.cp",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 158,
+    "line": 160,
     "expression": "a.fields['lancer.cp']"
   },
   {
     "key": "lancer.current.heat",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 166,
+    "line": 173,
     "expression": "actorFor(t,p).fields['lancer.current.heat']"
   },
   {
     "key": "lancer.systems",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 170,
+    "line": 177,
     "expression": "a.fields['lancer.systems']"
   },
   {
     "key": "lancer.rogue.bounty",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 170,
+    "line": 177,
     "expression": "a.fields['lancer.rogue.bounty']"
   },
   {
     "key": "lancer.current.repair",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 170,
+    "line": 177,
     "expression": "a.fields['lancer.current.repair']"
   },
   {
     "key": "lancer.rogue.equipmentState",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 170,
+    "line": 177,
     "expression": "a.fields['lancer.rogue.equipmentState']"
   },
   {
     "key": "lancer.ai",
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-    "line": 170,
+    "line": 177,
     "expression": "a.fields['lancer.ai']"
   },
   {

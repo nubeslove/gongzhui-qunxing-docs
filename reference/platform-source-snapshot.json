@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-06",
+  "date": "2026-11-07",
   "scope": "Manually documented HTTP, deployment, native and macro entry points; hashes only.",
   "files": [
     {
@@ -124,7 +124,7 @@
     },
     {
       "path": "game/apps/desktop/src-tauri/tauri.conf.json",
-      "sha256": "807f868c44f9ecc2af03a384638cd59e51abd14af473ce1bf75b544a39a76611",
+      "sha256": "77be49a824a903a257c3831c60d2c9c87a8950a5918633c84ac574cc87f57913",
       "bytes": 1375
     },
     {

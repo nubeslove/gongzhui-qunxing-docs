@@ -86,7 +86,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/packages/tabletop-runtime/src/tabletop/lancer/maintenance.ts:13` → `a.fields['lancer.ai']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/maintenance.ts:13` → `a.fields['lancer.ai']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/maintenance.ts:13` → `a.fields['lancer.ai']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:170` → `a.fields['lancer.ai']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:177` → `a.fields['lancer.ai']`
 
 ## `lancer.base.${key}（插值）`
 
@@ -117,8 +117,10 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 ## `lancer.cp`
 
 - `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:89` → `actor.fields['lancer.cp']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:158` → `actorFor(t,p).fields['lancer.cp']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:158` → `a.fields['lancer.cp']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/economy-validation.ts:31` → `a.fields['lancer.cp']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/economy-validation.ts:43` → `a.fields['lancer.cp']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:160` → `actorFor(t,p).fields['lancer.cp']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:160` → `a.fields['lancer.cp']`
 - `game/apps/desktop/src/tabletop/lancer/rogue/previewFixture.ts:24` → `a.fields['lancer.cp']`
 
 ## `lancer.cp（插值）`
@@ -165,7 +167,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.current.heat`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:166` → `actorFor(t,p).fields['lancer.current.heat']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:173` → `actorFor(t,p).fields['lancer.current.heat']`
 
 ## `lancer.current.hp`
 
@@ -178,9 +180,10 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.current.repair`
 
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/economy-validation.ts:43` → `a.fields['lancer.current.repair']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/maintenance.ts:22` → `actor.fields['lancer.current.repair']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/retraining.ts:53` → `updated.fields['lancer.current.repair']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:170` → `a.fields['lancer.current.repair']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:177` → `a.fields['lancer.current.repair']`
 - `game/apps/desktop/src/tabletop/lancer/MaintenancePanel.tsx:24` → `a.fields['lancer.current.repair']`
 - `game/apps/desktop/src/tabletop/lancer/MaintenancePanel.tsx:30` → `a.fields['lancer.current.repair']`
 - `game/apps/desktop/src/tabletop/lancer/rogue/previewFixture.ts:24` → `a.fields['lancer.current.repair']`
@@ -208,10 +211,10 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:82` → `next.fields[`lancer.destroyed.${kind}.${i}`]`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:84` → `next.fields[`lancer.destroyed.${kind}.${i}`]`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/retraining.ts:44` → `actor.fields[`lancer.destroyed.${kind}.${i}`]`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:66` → `a.fields[`lancer.destroyed.${kind}.${i}`]`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:74` → `updated.fields[`lancer.destroyed.${kind}.${i}`]`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:152` → `a.fields[`lancer.destroyed.${kind}.${i}`]`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:155` → `next.fields[`lancer.destroyed.${kind}.${i}`]`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:67` → `a.fields[`lancer.destroyed.${kind}.${i}`]`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:75` → `updated.fields[`lancer.destroyed.${kind}.${i}`]`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:154` → `a.fields[`lancer.destroyed.${kind}.${i}`]`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:157` → `next.fields[`lancer.destroyed.${kind}.${i}`]`
 
 ## `lancer.destroyed.${kind}.${match}（插值）`
 
@@ -285,8 +288,11 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:23` → `next.fields['lancer.frame']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:23` → `next.fields['lancer.frame']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/abilities.ts:10` → `actor?.fields['lancer.frame']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/economy-validation.ts:32` → `a.fields['lancer.frame']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/economy-validation.ts:32` → `a.fields['lancer.frame']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.ts:42` → `t.actors.find(a=>a.id===u.actorId)?.fields['lancer.frame']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/retraining.ts:34` → `actor.fields['lancer.frame']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:133` → `a.fields['lancer.frame']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:135` → `a.fields['lancer.frame']`
 - `game/apps/desktop/src/tabletop/lancer/battleBoardModel.ts:7` → `actor?.fields['lancer.frame']`
 - `game/apps/desktop/src/tabletop/lancer/compcon.ts:30` → `f['lancer.frame']`
 - `game/apps/desktop/src/tabletop/lancer/FramePicker.tsx:10` → `actor.fields['lancer.frame']`
@@ -300,7 +306,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:23` → `next.fields['lancer.frameLicense']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/retraining.ts:40` → `updated.fields['lancer.frameLicense']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:101` → `a.fields['lancer.frameLicense']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:102` → `a.fields['lancer.frameLicense']`
 - `game/apps/desktop/src/tabletop/lancer/compcon.ts:35` → `f['lancer.frameLicense']`
 
 ## `lancer.frameLicense（插值）`
@@ -324,7 +330,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 - `game/packages/tabletop-runtime/src/tabletop/lancer/combatAdapter.ts:98` → `a.fields['lancer.hull']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:18` → `a.fields['lancer.hull']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:98` → `a.fields['lancer.hull']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:99` → `a.fields['lancer.hull']`
 
 ## `lancer.hull（插值）`
 
@@ -373,8 +379,8 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/packages/tabletop-runtime/src/tabletop/lancer/nodeExecution.ts:39` → `a.fields['lancer.level']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/pilotProfile.ts:4` → `actor.fields['lancer.level']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:24` → `a.fields['lancer.level']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:31` → `f['lancer.level']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:98` → `a.fields['lancer.level']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:32` → `f['lancer.level']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:99` → `a.fields['lancer.level']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/startingGrants.ts:7` → `actor.fields['lancer.level']`
 - `game/apps/desktop/src/tabletop/lancer/compcon.ts:30` → `f['lancer.level']`
 - `game/apps/desktop/src/tabletop/lancer/CoreBonusBrowser.tsx:9` → `actor.fields['lancer.level']`
@@ -398,7 +404,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/packages/tabletop-runtime/src/tabletop/lancer/content.ts:27` → `a.fields['lancer.licenses']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:18` → `a.fields['lancer.licenses']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:23` → `next.fields['lancer.licenses']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:34` → `f['lancer.licenses']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:35` → `f['lancer.licenses']`
 - `game/apps/desktop/src/tabletop/lancer/ProgressionEditors.tsx:27` → `actor.fields['lancer.licenses']`
 
 ## `lancer.loaded.${i}（插值）`
@@ -410,10 +416,10 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:84` → `next.fields[`lancer.loaded.${i}`]`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/retraining.ts:44` → `actor.fields[`lancer.loaded.${i}`]`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/retraining.ts:49` → `updated.fields[`lancer.loaded.${i}`]`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:66` → `a.fields[`lancer.loaded.${i}`]`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:74` → `updated.fields[`lancer.loaded.${i}`]`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:152` → `a.fields[`lancer.loaded.${i}`]`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:155` → `next.fields[`lancer.loaded.${i}`]`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:67` → `a.fields[`lancer.loaded.${i}`]`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:75` → `updated.fields[`lancer.loaded.${i}`]`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:154` → `a.fields[`lancer.loaded.${i}`]`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:157` → `next.fields[`lancer.loaded.${i}`]`
 - `game/packages/game-core/src/lancer/npc-profile.ts:21` → `actor.fields[`lancer.loaded.${i}`]`
 - `game/packages/game-core/src/lancer/npc.ts:49` → `actor.fields[`lancer.loaded.${i}`]`
 
@@ -628,40 +634,42 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 - `game/packages/tabletop-runtime/src/tabletop/lancer/model.ts:74` → `f['lancer.rogue']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/model.ts:84` → `f['lancer.rogue']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/model.ts:100` → `actor.fields['lancer.rogue']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:31` → `f['lancer.rogue']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:98` → `a.fields['lancer.rogue']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:32` → `f['lancer.rogue']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:99` → `a.fields['lancer.rogue']`
 
 ## `lancer.rogue.bindings`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:33` → `f['lancer.rogue.bindings']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:68` → `a.fields['lancer.rogue.bindings']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:68` → `a.fields['lancer.rogue.bindings']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:34` → `f['lancer.rogue.bindings']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:69` → `a.fields['lancer.rogue.bindings']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:69` → `a.fields['lancer.rogue.bindings']`
 
 ## `lancer.rogue.boss`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts:20` → `a.fields['lancer.rogue.boss']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts:62` → `t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.boss']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts:74` → `t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.boss']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts:22` → `a.fields['lancer.rogue.boss']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts:71` → `t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.boss']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts:84` → `t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.boss']`
 
 ## `lancer.rogue.bounty`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts:35` → `t.actors.find(a=>a.id===p.actor)!.fields['lancer.rogue.bounty']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts:49` → `a.fields['lancer.rogue.bounty']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts:49` → `a.fields['lancer.rogue.bounty']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:170` → `a.fields['lancer.rogue.bounty']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts:37` → `t.actors.find(a=>a.id===p.actor)!.fields['lancer.rogue.bounty']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts:52` → `a.fields['lancer.rogue.bounty']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts:52` → `a.fields['lancer.rogue.bounty']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:177` → `a.fields['lancer.rogue.bounty']`
 
 ## `lancer.rogue.equipmentState`
 
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/economy-validation.ts:22` → `a.fields['lancer.rogue.equipmentState']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/economy-validation.ts:29` → `a.fields['lancer.rogue.equipmentState']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/maintenance.ts:24` → `actor.fields['lancer.rogue.equipmentState']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/maintenance.ts:26` → `actor.fields['lancer.rogue.equipmentState']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/retraining.ts:43` → `updated.fields['lancer.rogue.equipmentState']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/retraining.ts:50` → `updated.fields['lancer.rogue.equipmentState']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:65` → `a.fields['lancer.rogue.equipmentState']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:74` → `actorFor(t,p).fields['lancer.rogue.equipmentState']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:151` → `a.fields['lancer.rogue.equipmentState']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:156` → `next.fields['lancer.rogue.equipmentState']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:158` → `a.fields['lancer.rogue.equipmentState']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:170` → `a.fields['lancer.rogue.equipmentState']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:66` → `a.fields['lancer.rogue.equipmentState']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:75` → `actorFor(t,p).fields['lancer.rogue.equipmentState']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:153` → `a.fields['lancer.rogue.equipmentState']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:158` → `next.fields['lancer.rogue.equipmentState']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:160` → `a.fields['lancer.rogue.equipmentState']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:177` → `a.fields['lancer.rogue.equipmentState']`
 
 ## `lancer.rogue.hpDebt`
 
@@ -673,18 +681,18 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/abilities.ts:35` → `a.fields['lancer.rogue.manualStats']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/abilities.ts:35` → `a.fields['lancer.rogue.manualStats']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:38` → `f['lancer.rogue.manualStats']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:39` → `f['lancer.rogue.manualStats']`
 - `game/apps/desktop/src/tabletop/lancer/rogue/RogueAbilityDesk.tsx:32` → `actor.fields['lancer.rogue.manualStats']`
 - `game/apps/desktop/src/tabletop/lancer/rogue/RogueAbilityDesk.tsx:34` → `actor.fields['lancer.rogue.manualStats']`
 
 ## `lancer.rogue.mounts`
 
 - `game/packages/tabletop-runtime/src/tabletop/lancer/model.ts:66` → `f['lancer.rogue.mounts']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:32` → `f['lancer.rogue.mounts']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:33` → `f['lancer.rogue.mounts']`
 
 ## `lancer.rogue.portrait`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:98` → `a.fields['lancer.rogue.portrait']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:99` → `a.fields['lancer.rogue.portrait']`
 - `game/apps/desktop/src/tabletop/lancer/CharacterReadView.tsx:22` → `actor.fields['lancer.rogue.portrait']`
 - `game/apps/desktop/src/tabletop/lancer/rogue/RogueBase.tsx:38` → `actor.fields['lancer.rogue.portrait']`
 - `game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx:60` → `a?.fields['lancer.rogue.portrait']`
@@ -692,11 +700,18 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.rogue.target`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/ai.ts:35` → `t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.target']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts:20` → `a.fields['lancer.rogue.target']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts:20` → `a.fields['lancer.rogue.target']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts:74` → `t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.target']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/ai.ts:38` → `t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.target']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/arena-balance-v2.ts:185` → `t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.target']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts:22` → `a.fields['lancer.rogue.target']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts:22` → `a.fields['lancer.rogue.target']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.ts:32` → `t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.target']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/modernObjectives.ts:19` → `t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.target']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts:84` → `t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.target']`
 - `game/apps/desktop/src/tabletop/lancer/rogue/missionStatus.ts:13` → `table.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.target']`
+
+## `lancer.rogue.veteran`
+
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts:35` → `t.actors.find(a=>a.id===u.actorId)?.fields['lancer.rogue.veteran']`
 
 ## `lancer.side`
 
@@ -756,7 +771,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `lancer.systems`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:170` → `a.fields['lancer.systems']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:177` → `a.fields['lancer.systems']`
 
 ## `lancer.systems（插值）`
 
@@ -802,7 +817,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 ## `lancer.training`
 
 - `game/packages/tabletop-runtime/src/tabletop/lancer/progression.ts:18` → `a.fields['lancer.training']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:33` → `f['lancer.training']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:34` → `f['lancer.training']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/startingGrants.ts:12` → `actor.fields['lancer.training']`
 - `game/packages/tabletop-runtime/src/tabletop/lancer/startingGrants.ts:12` → `actor.fields['lancer.training']`
 
@@ -1056,7 +1071,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 ## `呼号`
 
 - `game/packages/tabletop-runtime/src/tabletop/lancer/model.ts:11` → `actor.fields['呼号']`
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:98` → `a.fields['呼号']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:99` → `a.fields['呼号']`
 - `game/apps/desktop/src/tabletop/lancer/CharacterReadView.tsx:24` → `actor.fields['呼号']`
 - `game/apps/desktop/src/tabletop/lancer/CharacterReadView.tsx:24` → `actor.fields['呼号']`
 - `game/apps/desktop/src/tabletop/lancer/compcon.ts:32` → `f['呼号']`
@@ -1120,7 +1135,7 @@ ManualActor.fields 的所有值都是字符串。此清单列出代码直接读�
 
 ## `立绘`
 
-- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:98` → `a.fields['立绘']`
+- `game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts:99` → `a.fields['立绘']`
 - `game/apps/desktop/src/tabletop/lancer/npcImport.ts:44` → `actor.fields['立绘']`
 - `game/apps/desktop/src/tabletop/lancer/rogue/RogueBase.tsx:38` → `actor.fields['立绘']`
 - `game/apps/desktop/src/tabletop/lancer/rogue/RogueDesktop.tsx:60` → `a?.fields['立绘']`

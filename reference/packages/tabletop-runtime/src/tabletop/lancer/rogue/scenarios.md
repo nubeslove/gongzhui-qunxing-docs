@@ -1,6 +1,6 @@
 # game/packages/tabletop-runtime/src/tabletop/lancer/rogue/scenarios.ts
 
-源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-07。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../../../README.md)
 
@@ -65,9 +65,17 @@ type Row = [
 ];
 ```
 
-## scenarioDefinition
+## MISSION_FAMILIES
 
 导出接口 · 源码第 55 行。
+
+```ts
+export const MISSION_FAMILIES = ['medical', 'cargo', 'escort', 'defend', 'control', 'terminals', 'sabotage', 'hunt', 'chase', 'escape', 'production', 'jam'] as const;
+```
+
+## scenarioDefinition
+
+导出接口 · 源码第 78 行。
 
 ```ts
 export function scenarioDefinition(m: ArenaMap): ArenaScenarioDefinition;
@@ -79,7 +87,7 @@ export function scenarioDefinition(m: ArenaMap): ArenaScenarioDefinition;
 
 ## scenarioPoints
 
-导出接口 · 源码第 56 行。
+导出接口 · 源码第 86 行。
 
 ```ts
 export function scenarioPoints(m: ArenaMap): { x: number; y: number; }[];
@@ -91,7 +99,7 @@ export function scenarioPoints(m: ArenaMap): { x: number; y: number; }[];
 
 ## arenaObjectId
 
-导出接口 · 源码第 66 行。
+导出接口 · 源码第 97 行。
 
 ```ts
 export const arenaObjectId: (i: number): string;
@@ -99,7 +107,7 @@ export const arenaObjectId: (i: number): string;
 
 ## arenaObjectiveZone
 
-导出接口 · 源码第 67 行。
+导出接口 · 源码第 98 行。
 
 ```ts
 export function arenaObjectiveZone(m: ArenaMap): {name:string;edge:'north'|'south';boundary:number}|undefined;
@@ -111,7 +119,7 @@ export function arenaObjectiveZone(m: ArenaMap): {name:string;edge:'north'|'sout
 
 ## scenarioObjects
 
-导出接口 · 源码第 74 行。
+导出接口 · 源码第 105 行。
 
 ```ts
 export function scenarioObjects(m: ArenaMap): ManualBlock[];

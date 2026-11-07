@@ -1,17 +1,17 @@
 # game/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.ts
 
-源码核对日：2026-11-06。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
+源码核对日：2026-11-07。仅结构、签名与字段；不是独立 HTTP 服务。可选指规范化后的 TypeScript 属性，导入默认值和数值限制还需看对应解析器说明。
 
 [全部索引](../../../../../../README.md)
 
 <details><summary>类型依赖</summary>
 
 ```ts
-import {drawArenaRecipe,ARENA_BIOMES,ARENA_SCALES,generatedArenaBlocks} from './generation';
+import {ARENA_BIOMES,ARENA_SCALES,generatedArenaBlocks} from './generation';
 import type {LancerRogueRun,ManualMap,RogueDanger,RogueEncounter,RogueBattlefieldRecipe} from '@aelzerant/contracts';
 import {rogueRandom} from './resources';
 import {arenaCoverLayout} from './mapLayouts';
-import {scenarioDefinition,scenarioObjects,scenarioPoints} from './scenarios';
+import {scenarioDefinition,scenarioObjects,scenarioPoints,MISSION_FAMILIES} from './scenarios';
 ```
 </details>
 
@@ -37,6 +37,9 @@ export interface ArenaMap {
     height: number;
     variant: number;
     rounds: number;
+    missionVersion?: 2;
+    missionKey?: string;
+    modifier?: RogueEncounter['modifier'];
 }
 ```
 
@@ -50,18 +53,55 @@ export interface ArenaMap {
 | `height` | 否 | `number` | 见结构定义及所属功能文档 |
 | `variant` | 否 | `number` | 见结构定义及所属功能文档 |
 | `rounds` | 否 | `number` | 见结构定义及所属功能文档 |
+| `missionVersion` | 是 | `2` | 见结构定义及所属功能文档 |
+| `missionKey` | 是 | `string` | 见结构定义及所属功能文档 |
+| `modifier` | 是 | `RogueEncounter['modifier']` | 见结构定义及所属功能文档 |
+
+## ORDINARY_ARENA_MAPS
+
+导出接口 · 源码第 11 行。
+
+```ts
+export const ORDINARY_ARENA_MAPS: ArenaMap[];
+```
 
 ## ARENA_MAPS
 
-导出接口 · 源码第 9 行。
+导出接口 · 源码第 12 行。
 
 ```ts
 export const ARENA_MAPS: ArenaMap[];
 ```
 
+## compatibleArenaMissions
+
+导出接口 · 源码第 14 行。
+
+Six compatible families per layout; each family appears on twenty maps.
+
+```ts
+export function compatibleArenaMissions(m: ArenaMap): string[];
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `m` | 否 | `ArenaMap` | — |
+
+## arenaMapForEncounter
+
+导出接口 · 源码第 15 行。
+
+```ts
+export function arenaMapForEncounter(e: RogueEncounter): ArenaMap;
+```
+
+| 参数 | 可选 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `e` | 否 | `RogueEncounter` | — |
+
 ## resolveArenaMap
 
-导出接口 · 源码第 10 行。
+导出接口 · 源码第 19 行。
 
 ```ts
 export function resolveArenaMap(encounter: RogueEncounter): ArenaMap;
@@ -73,7 +113,7 @@ export function resolveArenaMap(encounter: RogueEncounter): ArenaMap;
 
 ## MISSION_NAMES
 
-导出接口 · 源码第 15 行。
+导出接口 · 源码第 24 行。
 
 ```ts
 export const MISSION_NAMES: Record<ArenaMission, string>;
@@ -81,10 +121,10 @@ export const MISSION_NAMES: Record<ArenaMission, string>;
 
 ## missionBrief
 
-导出接口 · 源码第 16 行。
+导出接口 · 源码第 25 行。
 
 ```ts
-export function missionBrief(m: ArenaMap): {task:string;objectives:string[];rules:string;rounds:number};
+export function missionBrief(m: ArenaMap): {task:string;objectives:string[];rules:string;rounds:number;missionVersion?:2;missionKey?:string;modifier?:RogueEncounter['modifier']};
 ```
 
 | 参数 | 可选 | 类型 | 默认值 |
@@ -93,7 +133,7 @@ export function missionBrief(m: ArenaMap): {task:string;objectives:string[];rule
 
 ## missionText
 
-导出接口 · 源码第 19 行。
+导出接口 · 源码第 28 行。
 
 ```ts
 export function missionText(m: ArenaMap): string;
@@ -105,7 +145,7 @@ export function missionText(m: ArenaMap): string;
 
 ## encounterFor
 
-导出接口 · 源码第 20 行。
+导出接口 · 源码第 29 行。
 
 ```ts
 export function encounterFor(run: LancerRogueRun, danger: RogueDanger, index: number, exclude?: string[]): RogueEncounter;
@@ -120,7 +160,7 @@ export function encounterFor(run: LancerRogueRun, danger: RogueDanger, index: nu
 
 ## drawRogueRoutes
 
-导出接口 · 源码第 27 行。
+导出接口 · 源码第 37 行。
 
 ```ts
 export function drawRogueRoutes(run: LancerRogueRun): RogueEncounter[];
@@ -132,7 +172,7 @@ export function drawRogueRoutes(run: LancerRogueRun): RogueEncounter[];
 
 ## objectivePoints
 
-导出接口 · 源码第 36 行。
+导出接口 · 源码第 46 行。
 
 ```ts
 export const objectivePoints: (m: ArenaMap): { x: number; y: number; }[];
@@ -140,7 +180,7 @@ export const objectivePoints: (m: ArenaMap): { x: number; y: number; }[];
 
 ## buildArenaMap
 
-导出接口 · 源码第 37 行。
+导出接口 · 源码第 47 行。
 
 ```ts
 export function buildArenaMap(m: ArenaMap): ManualMap;

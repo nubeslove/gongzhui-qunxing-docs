@@ -464,8 +464,8 @@
         "type": "MinigameViewProps"
       }
     ],
-    "returns": "import(\"E:/project/AAF-worktrees/naa-qte-release-0243/game/node_modules/.pnpm/@types+react@18.3.31/node_modules/@types/react/index\").JSX.Element",
-    "declaration": "export function QteView(p: MinigameViewProps): import(\"E:/project/AAF-worktrees/naa-qte-release-0243/game/node_modules/.pnpm/@types+react@18.3.31/node_modules/@types/react/index\").JSX.Element;",
+    "returns": "import(\"@source/node_modules/.pnpm/@types+react@18.3.31/node_modules/@types/react/index\").JSX.Element",
+    "declaration": "export function QteView(p: MinigameViewProps): import(\"@source/node_modules/.pnpm/@types+react@18.3.31/node_modules/@types/react/index\").JSX.Element;",
     "line": 18,
     "source": "game/apps/desktop/src/story/minigames/QteView.tsx",
     "document": "reference/apps/desktop/src/story/minigames/QteView.md",
@@ -483,8 +483,8 @@
         "type": "MinigameViewProps"
       }
     ],
-    "returns": "import(\"E:/project/AAF-worktrees/naa-qte-release-0243/game/node_modules/.pnpm/@types+react@18.3.31/node_modules/@types/react/index\").JSX.Element | null",
-    "declaration": "export function NumberTapView(p: MinigameViewProps): import(\"E:/project/AAF-worktrees/naa-qte-release-0243/game/node_modules/.pnpm/@types+react@18.3.31/node_modules/@types/react/index\").JSX.Element | null;",
+    "returns": "import(\"@source/node_modules/.pnpm/@types+react@18.3.31/node_modules/@types/react/index\").JSX.Element | null",
+    "declaration": "export function NumberTapView(p: MinigameViewProps): import(\"@source/node_modules/.pnpm/@types+react@18.3.31/node_modules/@types/react/index\").JSX.Element | null;",
     "line": 6,
     "source": "game/apps/desktop/src/story/minigames/examples/NumberTap.tsx",
     "document": "reference/apps/desktop/src/story/minigames/examples/NumberTap.md",
@@ -39347,7 +39347,7 @@
     "kind": "interface",
     "exported": true,
     "description": "",
-    "declaration": "export interface RogueEncounter {\n    generation?: RogueBattlefieldRecipe;\n    id: string;\n    map: string;\n    name: string;\n    mission: string;\n    danger: RogueDanger;\n    rounds: number;\n    reward: number;\n    formation?: number;\n    legion?: string;\n    modifier?: 'fortified' | 'mobile' | 'volatile';\n    threat?: number;\n}",
+    "declaration": "export interface RogueEncounter {\n    generation?: RogueBattlefieldRecipe;\n    id: string;\n    map: string;\n    name: string;\n    mission: string;\n    danger: RogueDanger;\n    rounds: number;\n    reward: number;\n    formation?: number;\n    legion?: string;\n    modifier?: 'fortified' | 'mobile' | 'volatile';\n    threat?: number;\n    missionVersion?: 2;\n    missionKey?: string;\n}",
     "fields": [
       {
         "name": "generation",
@@ -39420,12 +39420,232 @@
         "optional": true,
         "type": "number",
         "description": ""
+      },
+      {
+        "name": "missionVersion",
+        "optional": true,
+        "type": "2",
+        "description": ""
+      },
+      {
+        "name": "missionKey",
+        "optional": true,
+        "type": "string",
+        "description": ""
       }
     ],
     "line": 15,
     "source": "game/packages/contracts/src/lancer-rogue.ts",
     "document": "reference/packages/contracts/src/lancer-rogue.md",
     "anchor": "rogueencounter"
+  },
+  {
+    "name": "RogueObjectiveStatus",
+    "kind": "type",
+    "exported": true,
+    "description": "",
+    "declaration": "export type RogueObjectiveStatus = 'active' | 'completed' | 'failed';",
+    "fields": [],
+    "line": 16,
+    "source": "game/packages/contracts/src/lancer-rogue.ts",
+    "document": "reference/packages/contracts/src/lancer-rogue.md",
+    "anchor": "rogueobjectivestatus"
+  },
+  {
+    "name": "RogueSecondary",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface RogueSecondary {\n    id: string;\n    label: string;\n    kind: 'cache' | 'eliminate' | 'secure' | 'cargo';\n    goal: number;\n    progress: number;\n    status: RogueObjectiveStatus;\n    reward: number;\n    target?: string;\n}",
+    "fields": [
+      {
+        "name": "id",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "kind",
+        "optional": false,
+        "type": "'cache'|'eliminate'|'secure'|'cargo'",
+        "description": ""
+      },
+      {
+        "name": "goal",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "progress",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "status",
+        "optional": false,
+        "type": "RogueObjectiveStatus",
+        "description": ""
+      },
+      {
+        "name": "reward",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "target",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      }
+    ],
+    "line": 17,
+    "source": "game/packages/contracts/src/lancer-rogue.ts",
+    "document": "reference/packages/contracts/src/lancer-rogue.md",
+    "anchor": "roguesecondary"
+  },
+  {
+    "name": "RogueChallenge",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface RogueChallenge {\n    id: string;\n    label: string;\n    kind: 'primary-time' | 'battle-time' | 'protect' | 'pacifist';\n    deadline?: number;\n    target?: string;\n    status: RogueObjectiveStatus;\n    reward: number;\n}",
+    "fields": [
+      {
+        "name": "id",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "kind",
+        "optional": false,
+        "type": "'primary-time'|'battle-time'|'protect'|'pacifist'",
+        "description": ""
+      },
+      {
+        "name": "deadline",
+        "optional": true,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "target",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "status",
+        "optional": false,
+        "type": "RogueObjectiveStatus",
+        "description": ""
+      },
+      {
+        "name": "reward",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      }
+    ],
+    "line": 18,
+    "source": "game/packages/contracts/src/lancer-rogue.ts",
+    "document": "reference/packages/contracts/src/lancer-rogue.md",
+    "anchor": "roguechallenge"
+  },
+  {
+    "name": "RogueWithdrawal",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface RogueWithdrawal {\n    votes: Record<string, boolean>;\n    status: 'open' | 'passed' | 'rejected';\n    eligible: string[];\n    threshold: number;\n    deadline: number;\n}",
+    "fields": [
+      {
+        "name": "votes",
+        "optional": false,
+        "type": "Record<string,boolean>",
+        "description": ""
+      },
+      {
+        "name": "status",
+        "optional": false,
+        "type": "'open'|'passed'|'rejected'",
+        "description": ""
+      },
+      {
+        "name": "eligible",
+        "optional": false,
+        "type": "string[]",
+        "description": ""
+      },
+      {
+        "name": "threshold",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "deadline",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      }
+    ],
+    "line": 19,
+    "source": "game/packages/contracts/src/lancer-rogue.ts",
+    "document": "reference/packages/contracts/src/lancer-rogue.md",
+    "anchor": "roguewithdrawal"
+  },
+  {
+    "name": "RogueWearSnapshot",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface RogueWearSnapshot {\n    repair: number;\n    debt: number;\n    cp: number;\n    limited: number;\n}",
+    "fields": [
+      {
+        "name": "repair",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "debt",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "cp",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "limited",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      }
+    ],
+    "line": 20,
+    "source": "game/packages/contracts/src/lancer-rogue.ts",
+    "document": "reference/packages/contracts/src/lancer-rogue.md",
+    "anchor": "roguewearsnapshot"
   },
   {
     "name": "RogueHazard",
@@ -39489,7 +39709,7 @@
         "description": ""
       }
     ],
-    "line": 16,
+    "line": 21,
     "source": "game/packages/contracts/src/lancer-rogue.ts",
     "document": "reference/packages/contracts/src/lancer-rogue.md",
     "anchor": "roguehazard"
@@ -39499,7 +39719,7 @@
     "kind": "interface",
     "exported": true,
     "description": "Resumable mission state. A round and each hazard target are consumed before resolving reactions.",
-    "declaration": "export interface RogueScenario {\n    round: number;\n    stage: number;\n    score: number;\n    enemyScore: number;\n    escort: number;\n    evacuated: string[];\n    carriers: Record<string, string>;\n    telegraphs: RogueHazard[];\n    pending: RogueHazard[];\n    bonus: number;\n    alert: string;\n    reinforcements: number;\n    flags: Record<string, number>;\n}",
+    "declaration": "export interface RogueScenario {\n    round: number;\n    stage: number;\n    score: number;\n    enemyScore: number;\n    escort: number;\n    evacuated: string[];\n    carriers: Record<string, string>;\n    telegraphs: RogueHazard[];\n    pending: RogueHazard[];\n    bonus: number;\n    alert: string;\n    reinforcements: number;\n    flags: Record<string, number>;\n    main?: {\n        status: RogueObjectiveStatus;\n        completedRound?: number;\n    };\n    secondaries?: RogueSecondary[];\n    challenges?: RogueChallenge[];\n    withdrawal?: RogueWithdrawal;\n    wearStart?: Record<string, RogueWearSnapshot>;\n}",
     "fields": [
       {
         "name": "round",
@@ -39578,9 +39798,51 @@
         "optional": false,
         "type": "Record<string,number>",
         "description": ""
+      },
+      {
+        "name": "main",
+        "optional": true,
+        "type": "{status:RogueObjectiveStatus;completedRound?:number}",
+        "description": ""
+      },
+      {
+        "name": "main.status",
+        "optional": false,
+        "type": "RogueObjectiveStatus",
+        "description": ""
+      },
+      {
+        "name": "main.completedRound",
+        "optional": true,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "secondaries",
+        "optional": true,
+        "type": "RogueSecondary[]",
+        "description": ""
+      },
+      {
+        "name": "challenges",
+        "optional": true,
+        "type": "RogueChallenge[]",
+        "description": ""
+      },
+      {
+        "name": "withdrawal",
+        "optional": true,
+        "type": "RogueWithdrawal",
+        "description": ""
+      },
+      {
+        "name": "wearStart",
+        "optional": true,
+        "type": "Record<string,RogueWearSnapshot>",
+        "description": ""
       }
     ],
-    "line": 18,
+    "line": 23,
     "source": "game/packages/contracts/src/lancer-rogue.ts",
     "document": "reference/packages/contracts/src/lancer-rogue.md",
     "anchor": "roguescenario"
@@ -39590,7 +39852,7 @@
     "kind": "interface",
     "exported": true,
     "description": "",
-    "declaration": "export interface RogueRecord {\n    node: number;\n    name: string;\n    danger: RogueDanger;\n    won: boolean;\n    rounds: number;\n}",
+    "declaration": "export interface RogueRecord {\n    node: number;\n    name: string;\n    danger: RogueDanger;\n    won: boolean;\n    rounds: number;\n    rewards?: {\n        base: number;\n        secondary: number;\n        challenge: number;\n    };\n    wear?: Record<string, number>;\n}",
     "fields": [
       {
         "name": "node",
@@ -39621,9 +39883,39 @@
         "optional": false,
         "type": "number",
         "description": ""
+      },
+      {
+        "name": "rewards",
+        "optional": true,
+        "type": "{base:number;secondary:number;challenge:number}",
+        "description": ""
+      },
+      {
+        "name": "rewards.base",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "rewards.secondary",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "rewards.challenge",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "wear",
+        "optional": true,
+        "type": "Record<string,number>",
+        "description": ""
       }
     ],
-    "line": 19,
+    "line": 24,
     "source": "game/packages/contracts/src/lancer-rogue.ts",
     "document": "reference/packages/contracts/src/lancer-rogue.md",
     "anchor": "roguerecord"
@@ -39768,7 +40060,7 @@
         "description": ""
       }
     ],
-    "line": 20,
+    "line": 25,
     "source": "game/packages/contracts/src/lancer-rogue.ts",
     "document": "reference/packages/contracts/src/lancer-rogue.md",
     "anchor": "lancerroguerun"
@@ -39778,7 +40070,7 @@
     "kind": "type",
     "exported": true,
     "description": "",
-    "declaration": "export type RogueCommand = {\n    op: 'pause';\n    paused: boolean;\n} | {\n    op: 'ability';\n    ability: import('./lancer-player-ability').LancerPlayerAbility;\n    request: string;\n} | {\n    op: 'abilityStats';\n    source: string;\n    bonuses: Record<string, number>;\n} | {\n    op: 'join';\n    name: string;\n    callsign: string;\n    job: string;\n    frame: string;\n    portrait?: string;\n    license?: string;\n} | {\n    op: 'portrait' | 'token';\n    image: string;\n} | {\n    op: 'ready';\n    ready: boolean;\n} | {\n    op: 'start';\n} | {\n    op: 'routes';\n} | {\n    op: 'depart';\n} | {\n    op: 'vote';\n    encounter: string;\n} | {\n    op: 'pick';\n    card: string;\n    round: number;\n} | {\n    op: 'reward';\n    mode: 'convert' | 'refresh' | 'upgrade';\n    round: number;\n    offers: string[];\n    resource?: string;\n} | {\n    op: 'bossReward';\n    reward: string;\n    choice: RogueBossChoice;\n} | {\n    op: 'retrainOffer';\n    kind: 'talent' | 'license';\n    source: string;\n    level: number;\n} | {\n    op: 'retrainRefresh';\n    level: number;\n    offers: string[];\n} | {\n    op: 'retrainConfirm';\n    level: number;\n    card: string;\n    newFrame?: string;\n} | {\n    op: 'buy';\n    card: string;\n} | {\n    op: 'gift';\n    to: string;\n    amount: number;\n} | {\n    op: 'repair';\n    service: 'hp' | 'structure' | 'stress' | 'cp' | 'repair' | 'equipment' | 'overcharge';\n} | {\n    op: 'allocate';\n    stat: 'hull' | 'agility' | 'systems' | 'engineering';\n} | {\n    op: 'allocateStats';\n    values: Record<'hull' | 'agility' | 'systems' | 'engineering', number>;\n    expected: Record<'hull' | 'agility' | 'systems' | 'engineering', number>;\n} | {\n    op: 'equip';\n    resource: string;\n    mount?: number;\n    slot?: 0 | 1;\n    replace?: number;\n} | {\n    op: 'unequip';\n    kind: 'weapon' | 'system' | 'mod';\n    index: number;\n} | {\n    op: 'print';\n    frame: string;\n} | {\n    op: 'challenge';\n    danger: 'strong' | 'boss';\n};",
+    "declaration": "export type RogueCommand = {\n    op: 'pause';\n    paused: boolean;\n} | {\n    op: 'ability';\n    ability: import('./lancer-player-ability').LancerPlayerAbility;\n    request: string;\n} | {\n    op: 'abilityStats';\n    source: string;\n    bonuses: Record<string, number>;\n} | {\n    op: 'join';\n    name: string;\n    callsign: string;\n    job: string;\n    frame: string;\n    portrait?: string;\n    license?: string;\n} | {\n    op: 'portrait' | 'token';\n    image: string;\n} | {\n    op: 'ready';\n    ready: boolean;\n} | {\n    op: 'start';\n} | {\n    op: 'routes';\n} | {\n    op: 'depart';\n} | {\n    op: 'vote';\n    encounter: string;\n} | {\n    op: 'withdraw';\n    agree: boolean;\n} | {\n    op: 'pick';\n    card: string;\n    round: number;\n} | {\n    op: 'reward';\n    mode: 'convert' | 'refresh' | 'upgrade';\n    round: number;\n    offers: string[];\n    resource?: string;\n} | {\n    op: 'bossReward';\n    reward: string;\n    choice: RogueBossChoice;\n} | {\n    op: 'retrainOffer';\n    kind: 'talent' | 'license';\n    source: string;\n    level: number;\n} | {\n    op: 'retrainRefresh';\n    level: number;\n    offers: string[];\n} | {\n    op: 'retrainConfirm';\n    level: number;\n    card: string;\n    newFrame?: string;\n} | {\n    op: 'buy';\n    card: string;\n} | {\n    op: 'gift';\n    to: string;\n    amount: number;\n} | {\n    op: 'repair';\n    service: 'hp' | 'structure' | 'stress' | 'cp' | 'repair' | 'equipment' | 'overcharge';\n} | {\n    op: 'allocate';\n    stat: 'hull' | 'agility' | 'systems' | 'engineering';\n} | {\n    op: 'allocateStats';\n    values: Record<'hull' | 'agility' | 'systems' | 'engineering', number>;\n    expected: Record<'hull' | 'agility' | 'systems' | 'engineering', number>;\n} | {\n    op: 'equip';\n    resource: string;\n    mount?: number;\n    slot?: 0 | 1;\n    replace?: number;\n} | {\n    op: 'unequip';\n    kind: 'weapon' | 'system' | 'mod';\n    index: number;\n} | {\n    op: 'print';\n    frame: string;\n} | {\n    op: 'challenge';\n    danger: 'strong' | 'boss';\n};",
     "fields": [
       {
         "name": "分支1.op",
@@ -39927,31 +40219,25 @@
       {
         "name": "分支11.op",
         "optional": false,
-        "type": "'pick'",
+        "type": "'withdraw'",
         "description": ""
       },
       {
-        "name": "分支11.card",
+        "name": "分支11.agree",
         "optional": false,
-        "type": "string",
-        "description": ""
-      },
-      {
-        "name": "分支11.round",
-        "optional": false,
-        "type": "number",
+        "type": "boolean",
         "description": ""
       },
       {
         "name": "分支12.op",
         "optional": false,
-        "type": "'reward'",
+        "type": "'pick'",
         "description": ""
       },
       {
-        "name": "分支12.mode",
+        "name": "分支12.card",
         "optional": false,
-        "type": "'convert'|'refresh'|'upgrade'",
+        "type": "string",
         "description": ""
       },
       {
@@ -39961,63 +40247,69 @@
         "description": ""
       },
       {
-        "name": "分支12.offers",
-        "optional": false,
-        "type": "string[]",
-        "description": ""
-      },
-      {
-        "name": "分支12.resource",
-        "optional": true,
-        "type": "string",
-        "description": ""
-      },
-      {
         "name": "分支13.op",
         "optional": false,
-        "type": "'bossReward'",
+        "type": "'reward'",
         "description": ""
       },
       {
-        "name": "分支13.reward",
+        "name": "分支13.mode",
         "optional": false,
-        "type": "string",
+        "type": "'convert'|'refresh'|'upgrade'",
         "description": ""
       },
       {
-        "name": "分支13.choice",
-        "optional": false,
-        "type": "RogueBossChoice",
-        "description": ""
-      },
-      {
-        "name": "分支14.op",
-        "optional": false,
-        "type": "'retrainOffer'",
-        "description": ""
-      },
-      {
-        "name": "分支14.kind",
-        "optional": false,
-        "type": "'talent'|'license'",
-        "description": ""
-      },
-      {
-        "name": "分支14.source",
-        "optional": false,
-        "type": "string",
-        "description": ""
-      },
-      {
-        "name": "分支14.level",
+        "name": "分支13.round",
         "optional": false,
         "type": "number",
         "description": ""
       },
       {
+        "name": "分支13.offers",
+        "optional": false,
+        "type": "string[]",
+        "description": ""
+      },
+      {
+        "name": "分支13.resource",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "分支14.op",
+        "optional": false,
+        "type": "'bossReward'",
+        "description": ""
+      },
+      {
+        "name": "分支14.reward",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "分支14.choice",
+        "optional": false,
+        "type": "RogueBossChoice",
+        "description": ""
+      },
+      {
         "name": "分支15.op",
         "optional": false,
-        "type": "'retrainRefresh'",
+        "type": "'retrainOffer'",
+        "description": ""
+      },
+      {
+        "name": "分支15.kind",
+        "optional": false,
+        "type": "'talent'|'license'",
+        "description": ""
+      },
+      {
+        "name": "分支15.source",
+        "optional": false,
+        "type": "string",
         "description": ""
       },
       {
@@ -40027,15 +40319,9 @@
         "description": ""
       },
       {
-        "name": "分支15.offers",
-        "optional": false,
-        "type": "string[]",
-        "description": ""
-      },
-      {
         "name": "分支16.op",
         "optional": false,
-        "type": "'retrainConfirm'",
+        "type": "'retrainRefresh'",
         "description": ""
       },
       {
@@ -40045,21 +40331,21 @@
         "description": ""
       },
       {
-        "name": "分支16.card",
+        "name": "分支16.offers",
         "optional": false,
-        "type": "string",
-        "description": ""
-      },
-      {
-        "name": "分支16.newFrame",
-        "optional": true,
-        "type": "string",
+        "type": "string[]",
         "description": ""
       },
       {
         "name": "分支17.op",
         "optional": false,
-        "type": "'buy'",
+        "type": "'retrainConfirm'",
+        "description": ""
+      },
+      {
+        "name": "分支17.level",
+        "optional": false,
+        "type": "number",
         "description": ""
       },
       {
@@ -40069,139 +40355,157 @@
         "description": ""
       },
       {
-        "name": "分支18.op",
-        "optional": false,
-        "type": "'gift'",
-        "description": ""
-      },
-      {
-        "name": "分支18.to",
-        "optional": false,
+        "name": "分支17.newFrame",
+        "optional": true,
         "type": "string",
         "description": ""
       },
       {
-        "name": "分支18.amount",
+        "name": "分支18.op",
         "optional": false,
-        "type": "number",
+        "type": "'buy'",
+        "description": ""
+      },
+      {
+        "name": "分支18.card",
+        "optional": false,
+        "type": "string",
         "description": ""
       },
       {
         "name": "分支19.op",
         "optional": false,
-        "type": "'repair'",
+        "type": "'gift'",
         "description": ""
       },
       {
-        "name": "分支19.service",
-        "optional": false,
-        "type": "'hp'|'structure'|'stress'|'cp'|'repair'|'equipment'|'overcharge'",
-        "description": ""
-      },
-      {
-        "name": "分支20.op",
-        "optional": false,
-        "type": "'allocate'",
-        "description": ""
-      },
-      {
-        "name": "分支20.stat",
-        "optional": false,
-        "type": "'hull'|'agility'|'systems'|'engineering'",
-        "description": ""
-      },
-      {
-        "name": "分支21.op",
-        "optional": false,
-        "type": "'allocateStats'",
-        "description": ""
-      },
-      {
-        "name": "分支21.values",
-        "optional": false,
-        "type": "Record<'hull'|'agility'|'systems'|'engineering',number>",
-        "description": ""
-      },
-      {
-        "name": "分支21.expected",
-        "optional": false,
-        "type": "Record<'hull'|'agility'|'systems'|'engineering',number>",
-        "description": ""
-      },
-      {
-        "name": "分支22.op",
-        "optional": false,
-        "type": "'equip'",
-        "description": ""
-      },
-      {
-        "name": "分支22.resource",
+        "name": "分支19.to",
         "optional": false,
         "type": "string",
         "description": ""
       },
       {
-        "name": "分支22.mount",
-        "optional": true,
+        "name": "分支19.amount",
+        "optional": false,
         "type": "number",
         "description": ""
       },
       {
-        "name": "分支22.slot",
-        "optional": true,
-        "type": "0|1",
+        "name": "分支20.op",
+        "optional": false,
+        "type": "'repair'",
         "description": ""
       },
       {
-        "name": "分支22.replace",
-        "optional": true,
-        "type": "number",
+        "name": "分支20.service",
+        "optional": false,
+        "type": "'hp'|'structure'|'stress'|'cp'|'repair'|'equipment'|'overcharge'",
+        "description": ""
+      },
+      {
+        "name": "分支21.op",
+        "optional": false,
+        "type": "'allocate'",
+        "description": ""
+      },
+      {
+        "name": "分支21.stat",
+        "optional": false,
+        "type": "'hull'|'agility'|'systems'|'engineering'",
+        "description": ""
+      },
+      {
+        "name": "分支22.op",
+        "optional": false,
+        "type": "'allocateStats'",
+        "description": ""
+      },
+      {
+        "name": "分支22.values",
+        "optional": false,
+        "type": "Record<'hull'|'agility'|'systems'|'engineering',number>",
+        "description": ""
+      },
+      {
+        "name": "分支22.expected",
+        "optional": false,
+        "type": "Record<'hull'|'agility'|'systems'|'engineering',number>",
         "description": ""
       },
       {
         "name": "分支23.op",
         "optional": false,
-        "type": "'unequip'",
+        "type": "'equip'",
         "description": ""
       },
       {
-        "name": "分支23.kind",
+        "name": "分支23.resource",
         "optional": false,
-        "type": "'weapon'|'system'|'mod'",
+        "type": "string",
         "description": ""
       },
       {
-        "name": "分支23.index",
-        "optional": false,
+        "name": "分支23.mount",
+        "optional": true,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "分支23.slot",
+        "optional": true,
+        "type": "0|1",
+        "description": ""
+      },
+      {
+        "name": "分支23.replace",
+        "optional": true,
         "type": "number",
         "description": ""
       },
       {
         "name": "分支24.op",
         "optional": false,
-        "type": "'print'",
+        "type": "'unequip'",
         "description": ""
       },
       {
-        "name": "分支24.frame",
+        "name": "分支24.kind",
         "optional": false,
-        "type": "string",
+        "type": "'weapon'|'system'|'mod'",
+        "description": ""
+      },
+      {
+        "name": "分支24.index",
+        "optional": false,
+        "type": "number",
         "description": ""
       },
       {
         "name": "分支25.op",
         "optional": false,
+        "type": "'print'",
+        "description": ""
+      },
+      {
+        "name": "分支25.frame",
+        "optional": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "分支26.op",
+        "optional": false,
         "type": "'challenge'",
         "description": ""
       },
       {
-        "name": "分支25.danger",
+        "name": "分支26.danger",
         "optional": false,
         "type": "'strong'|'boss'",
         "description": ""
       }
     ],
-    "line": 21,
+    "line": 26,
     "source": "game/packages/contracts/src/lancer-rogue.ts",
     "document": "reference/packages/contracts/src/lancer-rogue.md",
     "anchor": "roguecommand"
@@ -40220,7 +40524,7 @@
     ],
     "returns": "LancerRogueRun",
     "declaration": "export function parseLancerRogue(raw: unknown): LancerRogueRun;",
-    "line": 46,
+    "line": 52,
     "source": "game/packages/contracts/src/lancer-rogue.ts",
     "document": "reference/packages/contracts/src/lancer-rogue.md",
     "anchor": "parselancerrogue"
@@ -40244,7 +40548,7 @@
     ],
     "returns": "LancerRogueRun",
     "declaration": "export function projectLancerRogue(run: LancerRogueRun, player?: string): LancerRogueRun;",
-    "line": 69,
+    "line": 84,
     "source": "game/packages/contracts/src/lancer-rogue.ts",
     "document": "reference/packages/contracts/src/lancer-rogue.md",
     "anchor": "projectlancerrogue"
@@ -121870,10 +122174,15 @@
         "optional": true,
         "type": "boolean",
         "default": "true"
+      },
+      {
+        "name": "coverFrom",
+        "optional": true,
+        "type": "ManualToken"
       }
     ],
     "returns": "{x:number;y:number;z:number}[]",
-    "declaration": "export function arenaPathRoute(t: ManualTable, origin: ManualToken, goal: {x:number;y:number}, avoidDanger?: boolean): {x:number;y:number;z:number}[];",
+    "declaration": "export function arenaPathRoute(t: ManualTable, origin: ManualToken, goal: {x:number;y:number}, avoidDanger?: boolean, coverFrom?: ManualToken): {x:number;y:number;z:number}[];",
     "line": 11,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/ai.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/ai.md",
@@ -121909,7 +122218,7 @@
     ],
     "returns": "{ x: number; y: number; z: number; }",
     "declaration": "export function arenaPathStep(t: ManualTable, origin: ManualToken, goal: {x:number;y:number}, avoidDanger?: boolean): { x: number; y: number; z: number; };",
-    "line": 28,
+    "line": 29,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/ai.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/ai.md",
     "anchor": "arenapathstep"
@@ -121938,10 +122247,46 @@
     ],
     "returns": "boolean",
     "declaration": "export function arenaAIAction(t: ManualTable, u: LancerCombatUnit, attempt: (i:LancerCombatIntent)=>boolean): boolean;",
-    "line": 29,
+    "line": 30,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/ai.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/ai.md",
     "anchor": "arenaaiaction"
+  },
+  {
+    "name": "Archetype",
+    "kind": "type",
+    "exported": false,
+    "description": "",
+    "declaration": "type Archetype = typeof archetypes[number];",
+    "fields": [],
+    "line": 27,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/arena-balance-v2.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/arena-balance-v2.md",
+    "anchor": "archetype"
+  },
+  {
+    "name": "Stat",
+    "kind": "type",
+    "exported": false,
+    "description": "",
+    "declaration": "type Stat = 'hull' | 'agility' | 'systems' | 'engineering';",
+    "fields": [],
+    "line": 28,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/arena-balance-v2.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/arena-balance-v2.md",
+    "anchor": "stat"
+  },
+  {
+    "name": "MedicalPlan",
+    "kind": "type",
+    "exported": false,
+    "description": "",
+    "declaration": "type MedicalPlan = Map<string, {\n    pod: string;\n    courier: boolean;\n}>;",
+    "fields": [],
+    "line": 77,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/arena-balance-v2.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/arena-balance-v2.md",
+    "anchor": "medicalplan"
   },
   {
     "name": "ArenaEquipment",
@@ -122033,7 +122378,7 @@
     ],
     "returns": "void",
     "declaration": "export function launchArena(t: ManualTable): void;",
-    "line": 25,
+    "line": 27,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.md",
     "anchor": "launcharena"
@@ -122063,7 +122408,7 @@
     ],
     "returns": "void",
     "declaration": "export function arenaIntent(t: ManualTable, intent: LancerCombatIntent, sender?: string): void;",
-    "line": 38,
+    "line": 41,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.md",
     "anchor": "arenaintent"
@@ -122074,7 +122419,7 @@
     "exported": true,
     "declaration": "export const settleArena: (t: ManualTable): boolean;",
     "description": "",
-    "line": 53,
+    "line": 56,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.md",
     "anchor": "settlearena"
@@ -122099,7 +122444,7 @@
     ],
     "returns": "ManualTable|undefined",
     "declaration": "export function advanceRogueAI(table: ManualTable, now?: number): ManualTable|undefined;",
-    "line": 80,
+    "line": 83,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.md",
     "anchor": "advancerogueai"
@@ -122169,6 +122514,88 @@
     "anchor": "roguebonusmounts"
   },
   {
+    "name": "validateArenaCargo",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "t",
+        "optional": false,
+        "type": "ManualTable"
+      },
+      {
+        "name": "i",
+        "optional": false,
+        "type": "LancerCombatIntent"
+      }
+    ],
+    "returns": "void",
+    "declaration": "export function validateArenaCargo(t: ManualTable, i: LancerCombatIntent): void;",
+    "line": 5,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/cargo.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/cargo.md",
+    "anchor": "validatearenacargo"
+  },
+  {
+    "name": "trackArenaCargo",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "t",
+        "optional": false,
+        "type": "ManualTable"
+      },
+      {
+        "name": "i",
+        "optional": false,
+        "type": "LancerCombatIntent"
+      }
+    ],
+    "returns": "boolean",
+    "declaration": "export function trackArenaCargo(t: ManualTable, i: LancerCombatIntent): boolean;",
+    "line": 25,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/cargo.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/cargo.md",
+    "anchor": "trackarenacargo"
+  },
+  {
+    "name": "trackArenaCargoMovement",
+    "kind": "function",
+    "exported": true,
+    "description": "Forced and special movement moves the mech, but leaves its pod at the departure point.",
+    "parameters": [
+      {
+        "name": "t",
+        "optional": false,
+        "type": "ManualTable"
+      },
+      {
+        "name": "before",
+        "optional": false,
+        "type": "LancerBattle"
+      },
+      {
+        "name": "oldMap",
+        "optional": false,
+        "type": "ManualMap"
+      },
+      {
+        "name": "intent",
+        "optional": false,
+        "type": "LancerCombatIntent"
+      }
+    ],
+    "returns": "void",
+    "declaration": "export function trackArenaCargoMovement(t: ManualTable, before: LancerBattle, oldMap: ManualMap, intent: LancerCombatIntent): void;",
+    "line": 41,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/cargo.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/cargo.md",
+    "anchor": "trackarenacargomovement"
+  },
+  {
     "name": "ArenaMission",
     "kind": "type",
     "exported": true,
@@ -122185,7 +122612,7 @@
     "kind": "interface",
     "exported": true,
     "description": "",
-    "declaration": "export interface ArenaMap {\n    generation?: RogueBattlefieldRecipe;\n    id: string;\n    name: string;\n    mission: ArenaMission;\n    width: number;\n    height: number;\n    variant: number;\n    rounds: number;\n}",
+    "declaration": "export interface ArenaMap {\n    generation?: RogueBattlefieldRecipe;\n    id: string;\n    name: string;\n    mission: ArenaMission;\n    width: number;\n    height: number;\n    variant: number;\n    rounds: number;\n    missionVersion?: 2;\n    missionKey?: string;\n    modifier?: RogueEncounter['modifier'];\n}",
     "fields": [
       {
         "name": "generation",
@@ -122234,6 +122661,24 @@
         "optional": false,
         "type": "number",
         "description": ""
+      },
+      {
+        "name": "missionVersion",
+        "optional": true,
+        "type": "2",
+        "description": ""
+      },
+      {
+        "name": "missionKey",
+        "optional": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "modifier",
+        "optional": true,
+        "type": "RogueEncounter['modifier']",
+        "description": ""
       }
     ],
     "line": 7,
@@ -122242,15 +122687,64 @@
     "anchor": "arenamap"
   },
   {
+    "name": "ORDINARY_ARENA_MAPS",
+    "kind": "constant",
+    "exported": true,
+    "declaration": "export const ORDINARY_ARENA_MAPS: ArenaMap[];",
+    "description": "",
+    "line": 11,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.md",
+    "anchor": "ordinary_arena_maps"
+  },
+  {
     "name": "ARENA_MAPS",
     "kind": "constant",
     "exported": true,
     "declaration": "export const ARENA_MAPS: ArenaMap[];",
     "description": "",
-    "line": 9,
+    "line": 12,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.md",
     "anchor": "arena_maps"
+  },
+  {
+    "name": "compatibleArenaMissions",
+    "kind": "function",
+    "exported": true,
+    "description": "Six compatible families per layout; each family appears on twenty maps.",
+    "parameters": [
+      {
+        "name": "m",
+        "optional": false,
+        "type": "ArenaMap"
+      }
+    ],
+    "returns": "string[]",
+    "declaration": "export function compatibleArenaMissions(m: ArenaMap): string[];",
+    "line": 14,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.md",
+    "anchor": "compatiblearenamissions"
+  },
+  {
+    "name": "arenaMapForEncounter",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "e",
+        "optional": false,
+        "type": "RogueEncounter"
+      }
+    ],
+    "returns": "ArenaMap",
+    "declaration": "export function arenaMapForEncounter(e: RogueEncounter): ArenaMap;",
+    "line": 15,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.md",
+    "anchor": "arenamapforencounter"
   },
   {
     "name": "resolveArenaMap",
@@ -122266,7 +122760,7 @@
     ],
     "returns": "ArenaMap",
     "declaration": "export function resolveArenaMap(encounter: RogueEncounter): ArenaMap;",
-    "line": 10,
+    "line": 19,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.md",
     "anchor": "resolvearenamap"
@@ -122277,7 +122771,7 @@
     "exported": true,
     "declaration": "export const MISSION_NAMES: Record<ArenaMission, string>;",
     "description": "",
-    "line": 15,
+    "line": 24,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.md",
     "anchor": "mission_names"
@@ -122294,9 +122788,9 @@
         "type": "ArenaMap"
       }
     ],
-    "returns": "{task:string;objectives:string[];rules:string;rounds:number}",
-    "declaration": "export function missionBrief(m: ArenaMap): {task:string;objectives:string[];rules:string;rounds:number};",
-    "line": 16,
+    "returns": "{task:string;objectives:string[];rules:string;rounds:number;missionVersion?:2;missionKey?:string;modifier?:RogueEncounter['modifier']}",
+    "declaration": "export function missionBrief(m: ArenaMap): {task:string;objectives:string[];rules:string;rounds:number;missionVersion?:2;missionKey?:string;modifier?:RogueEncounter['modifier']};",
+    "line": 25,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.md",
     "anchor": "missionbrief"
@@ -122315,7 +122809,7 @@
     ],
     "returns": "string",
     "declaration": "export function missionText(m: ArenaMap): string;",
-    "line": 19,
+    "line": 28,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.md",
     "anchor": "missiontext"
@@ -122350,7 +122844,7 @@
     ],
     "returns": "RogueEncounter",
     "declaration": "export function encounterFor(run: LancerRogueRun, danger: RogueDanger, index: number, exclude?: string[]): RogueEncounter;",
-    "line": 20,
+    "line": 29,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.md",
     "anchor": "encounterfor"
@@ -122369,7 +122863,7 @@
     ],
     "returns": "RogueEncounter[]",
     "declaration": "export function drawRogueRoutes(run: LancerRogueRun): RogueEncounter[];",
-    "line": 27,
+    "line": 37,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.md",
     "anchor": "drawrogueroutes"
@@ -122380,7 +122874,7 @@
     "exported": true,
     "declaration": "export const objectivePoints: (m: ArenaMap): { x: number; y: number; }[];",
     "description": "",
-    "line": 36,
+    "line": 46,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.md",
     "anchor": "objectivepoints"
@@ -122399,7 +122893,7 @@
     ],
     "returns": "ManualMap",
     "declaration": "export function buildArenaMap(m: ArenaMap): ManualMap;",
-    "line": 37,
+    "line": 47,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.md",
     "anchor": "buildarenamap"
@@ -122422,7 +122916,7 @@
     "description": "",
     "declaration": "export type ArenaEnemy = keyof typeof ARENA_ENEMIES;",
     "fields": [],
-    "line": 21,
+    "line": 33,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.md",
     "anchor": "arenaenemy"
@@ -122431,7 +122925,7 @@
     "name": "arenaEnemySystems",
     "kind": "function",
     "exported": true,
-    "description": "",
+    "description": "Arena adaptations: these effects execute through the ordinary custom-system queue.",
     "parameters": [
       {
         "name": "key",
@@ -122442,14 +122936,75 @@
         "name": "tier",
         "optional": false,
         "type": "number"
+      },
+      {
+        "name": "veteran",
+        "optional": true,
+        "type": "boolean",
+        "default": "false"
       }
     ],
     "returns": "LancerCombatSystem[]",
-    "declaration": "export function arenaEnemySystems(key: string, tier: number): LancerCombatSystem[];",
-    "line": 23,
+    "declaration": "export function arenaEnemySystems(key: string, tier: number, veteran?: boolean): LancerCombatSystem[];",
+    "line": 36,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.md",
     "anchor": "arenaenemysystems"
+  },
+  {
+    "name": "ArenaEnemySpawn",
+    "kind": "interface",
+    "exported": true,
+    "description": "",
+    "declaration": "export interface ArenaEnemySpawn {\n    key: ArenaEnemy;\n    grunt?: boolean;\n    veteran?: boolean;\n    elite?: boolean;\n    boss?: boolean;\n    target?: boolean;\n    reinforcement?: boolean;\n}",
+    "fields": [
+      {
+        "name": "key",
+        "optional": false,
+        "type": "ArenaEnemy",
+        "description": ""
+      },
+      {
+        "name": "grunt",
+        "optional": true,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "veteran",
+        "optional": true,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "elite",
+        "optional": true,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "boss",
+        "optional": true,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "target",
+        "optional": true,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "reinforcement",
+        "optional": true,
+        "type": "boolean",
+        "description": ""
+      }
+    ],
+    "line": 65,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.md",
+    "anchor": "arenaenemyspawn"
   },
   {
     "name": "spawnArenaEnemy",
@@ -122475,16 +123030,54 @@
       {
         "name": "options",
         "optional": true,
-        "type": "{grunt?:boolean;elite?:boolean;boss?:boolean;target?:boolean;reinforcement?:boolean}",
+        "type": "Omit<ArenaEnemySpawn,'key'>",
         "default": "{}"
       }
     ],
     "returns": "import(\"@source/packages/contracts/src/lancer-combat\").LancerCombatUnit | undefined",
-    "declaration": "export function spawnArenaEnemy(t: ManualTable, index: number, key: ArenaEnemy, options?: {grunt?:boolean;elite?:boolean;boss?:boolean;target?:boolean;reinforcement?:boolean}): import(\"@source/packages/contracts/src/lancer-combat\").LancerCombatUnit | undefined;",
-    "line": 27,
+    "declaration": "export function spawnArenaEnemy(t: ManualTable, index: number, key: ArenaEnemy, options?: Omit<ArenaEnemySpawn,'key'>): import(\"@source/packages/contracts/src/lancer-combat\").LancerCombatUnit | undefined;",
+    "line": 66,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.md",
     "anchor": "spawnarenaenemy"
+  },
+  {
+    "name": "arenaActivationCap",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "t",
+        "optional": false,
+        "type": "ManualTable"
+      }
+    ],
+    "returns": "number",
+    "declaration": "export function arenaActivationCap(t: ManualTable): number;",
+    "line": 93,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.md",
+    "anchor": "arenaactivationcap"
+  },
+  {
+    "name": "arenaEncounterRoster",
+    "kind": "function",
+    "exported": true,
+    "description": "A fixed four-PC budget; actual player count never enters generation-two rosters.",
+    "parameters": [
+      {
+        "name": "t",
+        "optional": false,
+        "type": "ManualTable"
+      }
+    ],
+    "returns": "{initial:ArenaEnemySpawn[];reserve:ArenaEnemySpawn[]}",
+    "declaration": "export function arenaEncounterRoster(t: ManualTable): {initial:ArenaEnemySpawn[];reserve:ArenaEnemySpawn[]};",
+    "line": 98,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.md",
+    "anchor": "arenaencounterroster"
   },
   {
     "name": "arenaInitialRoster",
@@ -122498,12 +123091,31 @@
         "type": "ManualTable"
       }
     ],
-    "returns": "{key:ArenaEnemy;grunt?:boolean;elite?:boolean;boss?:boolean;target?:boolean}[]",
-    "declaration": "export function arenaInitialRoster(t: ManualTable): {key:ArenaEnemy;grunt?:boolean;elite?:boolean;boss?:boolean;target?:boolean}[];",
-    "line": 40,
+    "returns": "ArenaEnemySpawn[]",
+    "declaration": "export function arenaInitialRoster(t: ManualTable): ArenaEnemySpawn[];",
+    "line": 118,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.md",
     "anchor": "arenainitialroster"
+  },
+  {
+    "name": "arenaReinforcementPlan",
+    "kind": "function",
+    "exported": true,
+    "description": "Caller invokes only on mission wave triggers, then counts successful spawns.",
+    "parameters": [
+      {
+        "name": "t",
+        "optional": false,
+        "type": "ManualTable"
+      }
+    ],
+    "returns": "ArenaEnemySpawn[]",
+    "declaration": "export function arenaReinforcementPlan(t: ManualTable): ArenaEnemySpawn[];",
+    "line": 120,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.md",
+    "anchor": "arenareinforcementplan"
   },
   {
     "name": "drawArenaRecipe",
@@ -122877,12 +123489,293 @@
     "anchor": "arenacoverlayout"
   },
   {
+    "name": "Edge",
+    "kind": "type",
+    "exported": false,
+    "description": "",
+    "declaration": "type Edge = {\n    to: number;\n    cost: number;\n};",
+    "fields": [
+      {
+        "name": "to",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "cost",
+        "optional": false,
+        "type": "number",
+        "description": ""
+      }
+    ],
+    "line": 11,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/medical-route-analysis.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/medical-route-analysis.md",
+    "anchor": "edge"
+  },
+  {
+    "name": "arenaSupplyScale",
+    "kind": "function-value",
+    "exported": true,
+    "declaration": "export const arenaSupplyScale: (difficulty: 1 | 2 | 3): number;",
+    "description": "",
+    "line": 5,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.md",
+    "anchor": "arenasupplyscale"
+  },
+  {
+    "name": "arenaObjectiveBrief",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "e",
+        "optional": false,
+        "type": "RogueEncounter"
+      },
+      {
+        "name": "difficulty",
+        "optional": false,
+        "type": "1|2|3"
+      }
+    ],
+    "returns": "{ secondaries: RogueSecondary[]; challenges: RogueChallenge[]; }",
+    "declaration": "export function arenaObjectiveBrief(e: RogueEncounter, difficulty: 1|2|3): { secondaries: RogueSecondary[]; challenges: RogueChallenge[]; };",
+    "line": 21,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.md",
+    "anchor": "arenaobjectivebrief"
+  },
+  {
+    "name": "initializeArenaTasks",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "t",
+        "optional": false,
+        "type": "ManualTable"
+      }
+    ],
+    "returns": "void",
+    "declaration": "export function initializeArenaTasks(t: ManualTable): void;",
+    "line": 29,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.md",
+    "anchor": "initializearenatasks"
+  },
+  {
+    "name": "arenaWearSnapshot",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "t",
+        "optional": false,
+        "type": "ManualTable"
+      },
+      {
+        "name": "u",
+        "optional": false,
+        "type": "LancerCombatUnit"
+      }
+    ],
+    "returns": "RogueWearSnapshot",
+    "declaration": "export function arenaWearSnapshot(t: ManualTable, u: LancerCombatUnit): RogueWearSnapshot;",
+    "line": 41,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.md",
+    "anchor": "arenawearsnapshot"
+  },
+  {
+    "name": "arenaBattleWear",
+    "kind": "function",
+    "exported": true,
+    "description": "Used repairs plus remaining repair debt; later replenishment does not charge the battle twice.",
+    "parameters": [
+      {
+        "name": "t",
+        "optional": false,
+        "type": "ManualTable"
+      }
+    ],
+    "returns": "{ [k: string]: number; } | undefined",
+    "declaration": "export function arenaBattleWear(t: ManualTable): { [k: string]: number; } | undefined;",
+    "line": 47,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.md",
+    "anchor": "arenabattlewear"
+  },
+  {
+    "name": "completeArenaPrimary",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "t",
+        "optional": false,
+        "type": "ManualTable"
+      },
+      {
+        "name": "now",
+        "optional": true,
+        "type": "number",
+        "default": "Date.now()"
+      },
+      {
+        "name": "completedRound",
+        "optional": true,
+        "type": "number",
+        "default": "t.lancerRogue!.scenario!.flags['end-round']??t.lancerBattle!.round"
+      }
+    ],
+    "returns": "boolean",
+    "declaration": "export function completeArenaPrimary(t: ManualTable, now?: number, completedRound?: number): boolean;",
+    "line": 51,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.md",
+    "anchor": "completearenaprimary"
+  },
+  {
+    "name": "resolveArenaWithdrawal",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "t",
+        "optional": false,
+        "type": "ManualTable"
+      },
+      {
+        "name": "now",
+        "optional": true,
+        "type": "number",
+        "default": "Date.now()"
+      }
+    ],
+    "returns": "boolean",
+    "declaration": "export function resolveArenaWithdrawal(t: ManualTable, now?: number): boolean;",
+    "line": 57,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.md",
+    "anchor": "resolvearenawithdrawal"
+  },
+  {
+    "name": "voteArenaWithdrawal",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "t",
+        "optional": false,
+        "type": "ManualTable"
+      },
+      {
+        "name": "sender",
+        "optional": false,
+        "type": "string"
+      },
+      {
+        "name": "agree",
+        "optional": false,
+        "type": "boolean"
+      }
+    ],
+    "returns": "void",
+    "declaration": "export function voteArenaWithdrawal(t: ManualTable, sender: string, agree: boolean): void;",
+    "line": 64,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.md",
+    "anchor": "votearenawithdrawal"
+  },
+  {
+    "name": "updateArenaTasks",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "t",
+        "optional": false,
+        "type": "ManualTable"
+      },
+      {
+        "name": "ending",
+        "optional": true,
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "name": "won",
+        "optional": true,
+        "type": "boolean",
+        "default": "true"
+      }
+    ],
+    "returns": "boolean",
+    "declaration": "export function updateArenaTasks(t: ManualTable, ending?: boolean, won?: boolean): boolean;",
+    "line": 71,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.md",
+    "anchor": "updatearenatasks"
+  },
+  {
+    "name": "arenaMissionRewards",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "t",
+        "optional": false,
+        "type": "ManualTable"
+      },
+      {
+        "name": "won",
+        "optional": false,
+        "type": "boolean"
+      }
+    ],
+    "returns": "{ base: number; secondary: number; challenge: number; }",
+    "declaration": "export function arenaMissionRewards(t: ManualTable, won: boolean): { base: number; secondary: number; challenge: number; };",
+    "line": 92,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.md",
+    "anchor": "arenamissionrewards"
+  },
+  {
+    "name": "settleModernArena",
+    "kind": "function",
+    "exported": true,
+    "description": "Generation two keeps the main objective, optional objectives and withdrawal independent.",
+    "parameters": [
+      {
+        "name": "t",
+        "optional": false,
+        "type": "ManualTable"
+      }
+    ],
+    "returns": "boolean",
+    "declaration": "export function settleModernArena(t: ManualTable): boolean;",
+    "line": 11,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/modernObjectives.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/modernObjectives.md",
+    "anchor": "settlemodernarena"
+  },
+  {
     "name": "freshScenario",
     "kind": "function-value",
     "exported": true,
     "declaration": "export const freshScenario: (): RogueScenario;",
     "description": "",
-    "line": 9,
+    "line": 11,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.md",
     "anchor": "freshscenario"
@@ -122906,7 +123799,7 @@
     ],
     "returns": "void",
     "declaration": "export function validateArenaInteraction(t: ManualTable, i: LancerCombatIntent): void;",
-    "line": 13,
+    "line": 15,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.md",
     "anchor": "validatearenainteraction"
@@ -122930,10 +123823,29 @@
     ],
     "returns": "void",
     "declaration": "export function trackArenaInteraction(t: ManualTable, i: LancerCombatIntent): void;",
-    "line": 19,
+    "line": 23,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.md",
     "anchor": "trackarenainteraction"
+  },
+  {
+    "name": "alarm",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "t",
+        "optional": false,
+        "type": "ManualTable"
+      }
+    ],
+    "returns": "void",
+    "declaration": "export function alarm(t: ManualTable): void;",
+    "line": 33,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.md",
+    "anchor": "alarm"
   },
   {
     "name": "inArenaHazard",
@@ -122959,7 +123871,7 @@
     ],
     "returns": "boolean",
     "declaration": "export function inArenaHazard(p: ManualToken, h: RogueHazard, map?: ManualMap): boolean;",
-    "line": 34,
+    "line": 42,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.md",
     "anchor": "inarenahazard"
@@ -122983,10 +123895,48 @@
     ],
     "returns": "boolean",
     "declaration": "export function resolveArenaHazard(t: ManualTable, apply: (t:ManualTable,i:LancerCombatIntent)=>void): boolean;",
-    "line": 35,
+    "line": 43,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.md",
     "anchor": "resolvearenahazard"
+  },
+  {
+    "name": "moveEscort",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "t",
+        "optional": false,
+        "type": "ManualTable"
+      }
+    ],
+    "returns": "boolean",
+    "declaration": "export function moveEscort(t: ManualTable): boolean;",
+    "line": 52,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.md",
+    "anchor": "moveescort"
+  },
+  {
+    "name": "updateBoss",
+    "kind": "function",
+    "exported": true,
+    "description": "",
+    "parameters": [
+      {
+        "name": "t",
+        "optional": false,
+        "type": "ManualTable"
+      }
+    ],
+    "returns": "void",
+    "declaration": "export function updateBoss(t: ManualTable): void;",
+    "line": 71,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.md",
+    "anchor": "updateboss"
   },
   {
     "name": "settleArenaObjectives",
@@ -123002,7 +123952,7 @@
     ],
     "returns": "boolean",
     "declaration": "export function settleArenaObjectives(t: ManualTable): boolean;",
-    "line": 72,
+    "line": 81,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.md",
     "anchor": "settlearenaobjectives"
@@ -123538,7 +124488,7 @@
     ],
     "returns": "ManualTable",
     "declaration": "export function createRogueWorld(table: ManualTable, start?: 0|2, difficulty?: 1|2|3): ManualTable;",
-    "line": 20,
+    "line": 21,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.md",
     "anchor": "createrogueworld"
@@ -123562,7 +124512,7 @@
     ],
     "returns": "void",
     "declaration": "export function refreshRogueActor(t: ManualTable, p: RoguePlayer): void;",
-    "line": 29,
+    "line": 30,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.md",
     "anchor": "refreshrogueactor"
@@ -123581,7 +124531,7 @@
     ],
     "returns": "void",
     "declaration": "export function openRogueRewards(t: ManualTable): void;",
-    "line": 56,
+    "line": 57,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.md",
     "anchor": "openroguerewards"
@@ -123615,7 +124565,7 @@
     ],
     "returns": "void",
     "declaration": "export function applyRogueCommand(t: ManualTable, sender: string, c: RogueCommand, nickname: string): void;",
-    "line": 76,
+    "line": 77,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.md",
     "anchor": "applyroguecommand"
@@ -123645,7 +124595,7 @@
     ],
     "returns": "void",
     "declaration": "export function finishRogueBattle(t: ManualTable, won: boolean, wipe?: boolean): void;",
-    "line": 165,
+    "line": 167,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.md",
     "anchor": "finishroguebattle"
@@ -123736,6 +124686,17 @@
     "anchor": "row"
   },
   {
+    "name": "MISSION_FAMILIES",
+    "kind": "constant",
+    "exported": true,
+    "declaration": "export const MISSION_FAMILIES = ['medical', 'cargo', 'escort', 'defend', 'control', 'terminals', 'sabotage', 'hunt', 'chase', 'escape', 'production', 'jam'] as const;",
+    "description": "",
+    "line": 55,
+    "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/scenarios.ts",
+    "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/scenarios.md",
+    "anchor": "mission_families"
+  },
+  {
     "name": "scenarioDefinition",
     "kind": "function",
     "exported": true,
@@ -123749,7 +124710,7 @@
     ],
     "returns": "ArenaScenarioDefinition",
     "declaration": "export function scenarioDefinition(m: ArenaMap): ArenaScenarioDefinition;",
-    "line": 55,
+    "line": 78,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/scenarios.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/scenarios.md",
     "anchor": "scenariodefinition"
@@ -123768,7 +124729,7 @@
     ],
     "returns": "{ x: number; y: number; }[]",
     "declaration": "export function scenarioPoints(m: ArenaMap): { x: number; y: number; }[];",
-    "line": 56,
+    "line": 86,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/scenarios.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/scenarios.md",
     "anchor": "scenariopoints"
@@ -123779,7 +124740,7 @@
     "exported": true,
     "declaration": "export const arenaObjectId: (i: number): string;",
     "description": "",
-    "line": 66,
+    "line": 97,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/scenarios.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/scenarios.md",
     "anchor": "arenaobjectid"
@@ -123798,7 +124759,7 @@
     ],
     "returns": "{name:string;edge:'north'|'south';boundary:number}|undefined",
     "declaration": "export function arenaObjectiveZone(m: ArenaMap): {name:string;edge:'north'|'south';boundary:number}|undefined;",
-    "line": 67,
+    "line": 98,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/scenarios.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/scenarios.md",
     "anchor": "arenaobjectivezone"
@@ -123817,7 +124778,7 @@
     ],
     "returns": "ManualBlock[]",
     "declaration": "export function scenarioObjects(m: ArenaMap): ManualBlock[];",
-    "line": 74,
+    "line": 105,
     "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/scenarios.ts",
     "document": "reference/packages/tabletop-runtime/src/tabletop/lancer/rogue/scenarios.md",
     "anchor": "scenarioobjects"

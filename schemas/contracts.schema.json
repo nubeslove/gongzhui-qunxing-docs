@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:gongzhui:contracts:2026-11-06",
-  "title": "共坠群星规范化数据结构 2026-11-06",
+  "$id": "urn:gongzhui:contracts:2026-11-07",
+  "title": "共坠群星规范化数据结构 2026-11-07",
   "description": "只验证规范化后的结构；无法替代游戏解析器、版本校验、引用完整性和权限。通过 wrappers 选择根类型。",
   "$defs": {
     "LancerNpc": {
@@ -33240,6 +33240,13 @@
         },
         "threat": {
           "type": "number"
+        },
+        "missionVersion": {
+          "const": 2,
+          "type": "number"
+        },
+        "missionKey": {
+          "type": "string"
         }
       },
       "required": [
@@ -33422,6 +33429,12 @@
         },
         "rounds": {
           "type": "number"
+        },
+        "rewards": {
+          "$ref": "#/$defs/Object_381"
+        },
+        "wear": {
+          "$ref": "#/$defs/Record_37"
         }
       },
       "required": [
@@ -33430,6 +33443,26 @@
         "danger",
         "won",
         "rounds"
+      ],
+      "additionalProperties": false
+    },
+    "Object_381": {
+      "type": "object",
+      "properties": {
+        "base": {
+          "type": "number"
+        },
+        "secondary": {
+          "type": "number"
+        },
+        "challenge": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "base",
+        "secondary",
+        "challenge"
       ],
       "additionalProperties": false
     },
@@ -33483,6 +33516,27 @@
         },
         "flags": {
           "$ref": "#/$defs/Record_37"
+        },
+        "main": {
+          "$ref": "#/$defs/Object_382"
+        },
+        "secondaries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RogueSecondary"
+          }
+        },
+        "challenges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RogueChallenge"
+          }
+        },
+        "withdrawal": {
+          "$ref": "#/$defs/RogueWithdrawal"
+        },
+        "wearStart": {
+          "$ref": "#/$defs/Record_383"
         }
       },
       "required": [
@@ -33557,7 +33611,243 @@
       ],
       "additionalProperties": false
     },
-    "Object_381": {
+    "Object_382": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "anyOf": [
+            {
+              "const": "active",
+              "type": "string"
+            },
+            {
+              "const": "completed",
+              "type": "string"
+            },
+            {
+              "const": "failed",
+              "type": "string"
+            }
+          ]
+        },
+        "completedRound": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "RogueSecondary": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "kind": {
+          "anyOf": [
+            {
+              "const": "cargo",
+              "type": "string"
+            },
+            {
+              "const": "eliminate",
+              "type": "string"
+            },
+            {
+              "const": "cache",
+              "type": "string"
+            },
+            {
+              "const": "secure",
+              "type": "string"
+            }
+          ]
+        },
+        "goal": {
+          "type": "number"
+        },
+        "progress": {
+          "type": "number"
+        },
+        "status": {
+          "anyOf": [
+            {
+              "const": "active",
+              "type": "string"
+            },
+            {
+              "const": "completed",
+              "type": "string"
+            },
+            {
+              "const": "failed",
+              "type": "string"
+            }
+          ]
+        },
+        "reward": {
+          "type": "number"
+        },
+        "target": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "kind",
+        "goal",
+        "progress",
+        "status",
+        "reward"
+      ],
+      "additionalProperties": false
+    },
+    "RogueChallenge": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "kind": {
+          "anyOf": [
+            {
+              "const": "protect",
+              "type": "string"
+            },
+            {
+              "const": "primary-time",
+              "type": "string"
+            },
+            {
+              "const": "battle-time",
+              "type": "string"
+            },
+            {
+              "const": "pacifist",
+              "type": "string"
+            }
+          ]
+        },
+        "deadline": {
+          "type": "number"
+        },
+        "target": {
+          "type": "string"
+        },
+        "status": {
+          "anyOf": [
+            {
+              "const": "active",
+              "type": "string"
+            },
+            {
+              "const": "completed",
+              "type": "string"
+            },
+            {
+              "const": "failed",
+              "type": "string"
+            }
+          ]
+        },
+        "reward": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "kind",
+        "status",
+        "reward"
+      ],
+      "additionalProperties": false
+    },
+    "RogueWithdrawal": {
+      "type": "object",
+      "properties": {
+        "votes": {
+          "$ref": "#/$defs/Record_58"
+        },
+        "status": {
+          "anyOf": [
+            {
+              "const": "rejected",
+              "type": "string"
+            },
+            {
+              "const": "open",
+              "type": "string"
+            },
+            {
+              "const": "passed",
+              "type": "string"
+            }
+          ]
+        },
+        "eligible": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "threshold": {
+          "type": "number"
+        },
+        "deadline": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "votes",
+        "status",
+        "eligible",
+        "threshold",
+        "deadline"
+      ],
+      "additionalProperties": false
+    },
+    "Record_383": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": {
+        "$ref": "#/$defs/RogueWearSnapshot"
+      }
+    },
+    "RogueWearSnapshot": {
+      "type": "object",
+      "properties": {
+        "repair": {
+          "type": "number"
+        },
+        "debt": {
+          "type": "number"
+        },
+        "cp": {
+          "type": "number"
+        },
+        "limited": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "repair",
+        "debt",
+        "cp",
+        "limited"
+      ],
+      "additionalProperties": false
+    },
+    "Object_384": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -33591,7 +33881,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_382": {
+    "Object_385": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -33625,7 +33915,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_383": {
+    "Object_386": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -33690,7 +33980,7 @@
           "type": "string"
         },
         "stats": {
-          "$ref": "#/$defs/Partial_384"
+          "$ref": "#/$defs/Partial_387"
         },
         "destroyed": {
           "anyOf": [
@@ -33713,11 +34003,11 @@
         "equipment": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_385"
+            "$ref": "#/$defs/Object_388"
           }
         },
         "position": {
-          "$ref": "#/$defs/Object_386"
+          "$ref": "#/$defs/Object_389"
         }
       },
       "required": [
@@ -33725,7 +34015,7 @@
       ],
       "additionalProperties": false
     },
-    "Partial_384": {
+    "Partial_387": {
       "type": "object",
       "properties": {
         "movement": {
@@ -33767,7 +34057,7 @@
       },
       "additionalProperties": false
     },
-    "Object_385": {
+    "Object_388": {
       "type": "object",
       "properties": {
         "id": {
@@ -33799,7 +34089,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_386": {
+    "Object_389": {
       "type": "object",
       "properties": {
         "x": {
@@ -33819,7 +34109,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_387": {
+    "Object_390": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -33989,7 +34279,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_388": {
+    "Object_391": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -34028,7 +34318,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_389": {
+    "Object_392": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -34057,7 +34347,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_390": {
+    "Object_393": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -34089,7 +34379,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_391": {
+    "Object_394": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -34133,7 +34423,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_392": {
+    "Object_395": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -34190,7 +34480,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_393": {
+    "Object_396": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -34219,7 +34509,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_394": {
+    "Object_397": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -34248,7 +34538,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_395": {
+    "Object_398": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -34285,7 +34575,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_396": {
+    "Object_399": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -34314,7 +34604,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_397": {
+    "Object_400": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -34339,7 +34629,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_398": {
+    "Object_401": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -34368,7 +34658,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_399": {
+    "Object_402": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -34393,7 +34683,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_400": {
+    "Object_403": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -34418,7 +34708,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_401": {
+    "Object_404": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -34480,7 +34770,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_402": {
+    "Object_405": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -34526,7 +34816,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_403": {
+    "Object_406": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -34589,7 +34879,7 @@
           ]
         },
         "point": {
-          "$ref": "#/$defs/Object_404"
+          "$ref": "#/$defs/Object_407"
         },
         "body": {
           "anyOf": [
@@ -34629,7 +34919,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_404": {
+    "Object_407": {
       "type": "object",
       "properties": {
         "x": {
@@ -34649,7 +34939,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_405": {
+    "Object_408": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -34723,7 +35013,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_406": {
+    "Object_409": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -34752,7 +35042,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_407": {
+    "Object_410": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -34797,7 +35087,7 @@
           "type": "string"
         },
         "point": {
-          "$ref": "#/$defs/Object_408"
+          "$ref": "#/$defs/Object_411"
         },
         "effect": {
           "type": "string"
@@ -34810,7 +35100,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_408": {
+    "Object_411": {
       "type": "object",
       "properties": {
         "x": {
@@ -34830,7 +35120,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_409": {
+    "Object_412": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -34893,7 +35183,7 @@
           ]
         },
         "point": {
-          "$ref": "#/$defs/Object_410"
+          "$ref": "#/$defs/Object_413"
         },
         "weapon": {
           "type": "string"
@@ -34940,7 +35230,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_410": {
+    "Object_413": {
       "type": "object",
       "properties": {
         "x": {
@@ -34960,7 +35250,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_411": {
+    "Object_414": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -35200,7 +35490,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_412": {
+    "Object_415": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -35292,7 +35582,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_413": {
+    "Object_416": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -35334,7 +35624,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_414": {
+    "Object_417": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -35371,7 +35661,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_415": {
+    "Object_418": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -35393,7 +35683,7 @@
         "expected": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_416"
+            "$ref": "#/$defs/Object_419"
           }
         },
         "reason": {
@@ -35412,7 +35702,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_416": {
+    "Object_419": {
       "type": "object",
       "properties": {
         "id": {
@@ -35439,7 +35729,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_417": {
+    "Object_420": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -35461,7 +35751,7 @@
         "expected": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_416"
+            "$ref": "#/$defs/Object_419"
           }
         },
         "reason": {
@@ -35495,7 +35785,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_418": {
+    "Object_421": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -35517,7 +35807,7 @@
         "expected": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_416"
+            "$ref": "#/$defs/Object_419"
           }
         },
         "reason": {
@@ -35564,7 +35854,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_419": {
+    "Object_422": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -35589,7 +35879,7 @@
         "choices": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_420"
+            "$ref": "#/$defs/Object_423"
           }
         }
       },
@@ -35599,7 +35889,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_420": {
+    "Object_423": {
       "type": "object",
       "properties": {
         "option": {
@@ -35619,7 +35909,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_421": {
+    "Object_424": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -35671,7 +35961,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_422": {
+    "Object_425": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -35713,7 +36003,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_423": {
+    "Object_426": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -35775,7 +36065,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_424": {
+    "Object_427": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -35808,7 +36098,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_425": {
+    "Object_428": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -35837,7 +36127,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_426": {
+    "Object_429": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -35866,7 +36156,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_427": {
+    "Object_430": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -35923,7 +36213,7 @@
           "type": "string"
         },
         "point": {
-          "$ref": "#/$defs/Object_428"
+          "$ref": "#/$defs/Object_431"
         }
       },
       "required": [
@@ -35933,7 +36223,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_428": {
+    "Object_431": {
       "type": "object",
       "properties": {
         "x": {
@@ -35953,7 +36243,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_429": {
+    "Object_432": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -36001,7 +36291,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_430": {
+    "Object_433": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -36045,7 +36335,7 @@
           ]
         },
         "point": {
-          "$ref": "#/$defs/Object_431"
+          "$ref": "#/$defs/Object_434"
         }
       },
       "required": [
@@ -36056,7 +36346,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_431": {
+    "Object_434": {
       "type": "object",
       "properties": {
         "x": {
@@ -36076,7 +36366,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_432": {
+    "Object_435": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -36210,7 +36500,7 @@
           ]
         },
         "save": {
-          "$ref": "#/$defs/Object_433"
+          "$ref": "#/$defs/Object_436"
         }
       },
       "required": [
@@ -36221,7 +36511,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_433": {
+    "Object_436": {
       "type": "object",
       "properties": {
         "skill": {
@@ -36258,7 +36548,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_434": {
+    "Object_437": {
       "type": "object",
       "properties": {
         "leadership": {
@@ -36621,7 +36911,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_435": {
+    "Object_438": {
       "type": "object",
       "properties": {
         "kind": {
@@ -36687,7 +36977,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_436": {
+    "Object_439": {
       "type": "object",
       "properties": {
         "kind": {
@@ -36708,7 +36998,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_437": {
+    "Object_440": {
       "type": "object",
       "properties": {
         "kind": {
@@ -36725,7 +37015,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_438": {
+    "Object_441": {
       "type": "object",
       "properties": {
         "kind": {
@@ -36742,7 +37032,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_439": {
+    "Object_442": {
       "type": "object",
       "properties": {
         "kind": {
@@ -36759,7 +37049,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_440": {
+    "Object_443": {
       "type": "object",
       "properties": {
         "kind": {
@@ -36784,7 +37074,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_441": {
+    "Object_444": {
       "type": "object",
       "properties": {
         "kind": {
@@ -36825,7 +37115,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_442": {
+    "Object_445": {
       "type": "object",
       "properties": {
         "kind": {
@@ -37240,7 +37530,7 @@
           }
         },
         "gearBase": {
-          "$ref": "#/$defs/Object_451"
+          "$ref": "#/$defs/Object_454"
         },
         "activeHand": {
           "anyOf": [
@@ -37489,7 +37779,7 @@
         "coverage": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_446"
+            "$ref": "#/$defs/Object_449"
           },
           "description": "Each group is a position/type requirement. Distinct groups may need distinct physical items or blueprints."
         },
@@ -37544,7 +37834,7 @@
         "outlets": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_448"
+            "$ref": "#/$defs/Object_451"
           }
         }
       },
@@ -37754,13 +38044,13 @@
           "type": "boolean"
         },
         "armor": {
-          "$ref": "#/$defs/Object_443"
+          "$ref": "#/$defs/Object_446"
         },
         "shield": {
-          "$ref": "#/$defs/Object_444"
+          "$ref": "#/$defs/Object_447"
         },
         "weapon": {
-          "$ref": "#/$defs/Object_445"
+          "$ref": "#/$defs/Object_448"
         }
       },
       "required": [
@@ -37770,7 +38060,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_443": {
+    "Object_446": {
       "type": "object",
       "properties": {
         "base": {
@@ -37811,7 +38101,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_444": {
+    "Object_447": {
       "type": "object",
       "properties": {
         "bonus": {
@@ -37827,7 +38117,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_445": {
+    "Object_448": {
       "type": "object",
       "properties": {
         "dice": {
@@ -37891,7 +38181,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_446": {
+    "Object_449": {
       "type": "object",
       "properties": {
         "label": {
@@ -37900,7 +38190,7 @@
         "groups": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_447"
+            "$ref": "#/$defs/Object_450"
           }
         },
         "minimum": {
@@ -37931,7 +38221,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_447": {
+    "Object_450": {
       "type": "object",
       "properties": {
         "zones": {
@@ -37953,7 +38243,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_448": {
+    "Object_451": {
       "type": "object",
       "properties": {
         "origin": {
@@ -38098,7 +38388,7 @@
         "classes": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_449"
+            "$ref": "#/$defs/Object_452"
           }
         },
         "life": {
@@ -38117,7 +38407,7 @@
           "type": "string"
         },
         "biography": {
-          "$ref": "#/$defs/Object_450"
+          "$ref": "#/$defs/Object_453"
         },
         "selections": {
           "type": "array",
@@ -38218,7 +38508,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_449": {
+    "Object_452": {
       "type": "object",
       "properties": {
         "id": {
@@ -38237,7 +38527,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_450": {
+    "Object_453": {
       "type": "object",
       "properties": {
         "personality": {
@@ -38315,7 +38605,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_451": {
+    "Object_454": {
       "type": "object",
       "properties": {
         "ac": {
@@ -38734,7 +39024,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_452": {
+    "Object_455": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -38757,7 +39047,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_453": {
+    "Object_456": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -38769,15 +39059,6 @@
         },
         "command": {
           "anyOf": [
-            {
-              "$ref": "#/$defs/Object_454"
-            },
-            {
-              "$ref": "#/$defs/Object_455"
-            },
-            {
-              "$ref": "#/$defs/Object_456"
-            },
             {
               "$ref": "#/$defs/Object_457"
             },
@@ -38833,6 +39114,9 @@
               "$ref": "#/$defs/Object_474"
             },
             {
+              "$ref": "#/$defs/Object_475"
+            },
+            {
               "$ref": "#/$defs/Object_476"
             },
             {
@@ -38842,7 +39126,16 @@
               "$ref": "#/$defs/Object_478"
             },
             {
-              "$ref": "#/$defs/Object_479"
+              "$ref": "#/$defs/Object_480"
+            },
+            {
+              "$ref": "#/$defs/Object_481"
+            },
+            {
+              "$ref": "#/$defs/Object_482"
+            },
+            {
+              "$ref": "#/$defs/Object_483"
             }
           ]
         }
@@ -38853,7 +39146,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_454": {
+    "Object_457": {
       "type": "object",
       "properties": {
         "op": {
@@ -38870,7 +39163,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_455": {
+    "Object_458": {
       "type": "object",
       "properties": {
         "op": {
@@ -38891,7 +39184,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_456": {
+    "Object_459": {
       "type": "object",
       "properties": {
         "op": {
@@ -38912,7 +39205,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_457": {
+    "Object_460": {
       "type": "object",
       "properties": {
         "op": {
@@ -38947,7 +39240,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_458": {
+    "Object_461": {
       "type": "object",
       "properties": {
         "op": {
@@ -38972,7 +39265,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_459": {
+    "Object_462": {
       "type": "object",
       "properties": {
         "op": {
@@ -38989,7 +39282,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_460": {
+    "Object_463": {
       "type": "object",
       "properties": {
         "op": {
@@ -39002,7 +39295,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_461": {
+    "Object_464": {
       "type": "object",
       "properties": {
         "op": {
@@ -39015,7 +39308,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_462": {
+    "Object_465": {
       "type": "object",
       "properties": {
         "op": {
@@ -39028,7 +39321,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_463": {
+    "Object_466": {
       "type": "object",
       "properties": {
         "op": {
@@ -39045,7 +39338,24 @@
       ],
       "additionalProperties": false
     },
-    "Object_464": {
+    "Object_467": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "const": "withdraw",
+          "type": "string"
+        },
+        "agree": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "op",
+        "agree"
+      ],
+      "additionalProperties": false
+    },
+    "Object_468": {
       "type": "object",
       "properties": {
         "op": {
@@ -39066,7 +39376,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_465": {
+    "Object_469": {
       "type": "object",
       "properties": {
         "op": {
@@ -39110,7 +39420,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_466": {
+    "Object_470": {
       "type": "object",
       "properties": {
         "op": {
@@ -39138,7 +39448,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_467": {
+    "Object_471": {
       "type": "object",
       "properties": {
         "op": {
@@ -39172,7 +39482,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_468": {
+    "Object_472": {
       "type": "object",
       "properties": {
         "op": {
@@ -39196,7 +39506,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_469": {
+    "Object_473": {
       "type": "object",
       "properties": {
         "op": {
@@ -39220,7 +39530,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_470": {
+    "Object_474": {
       "type": "object",
       "properties": {
         "op": {
@@ -39237,7 +39547,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_471": {
+    "Object_475": {
       "type": "object",
       "properties": {
         "op": {
@@ -39258,7 +39568,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_472": {
+    "Object_476": {
       "type": "object",
       "properties": {
         "op": {
@@ -39304,7 +39614,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_473": {
+    "Object_477": {
       "type": "object",
       "properties": {
         "op": {
@@ -39338,7 +39648,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_474": {
+    "Object_478": {
       "type": "object",
       "properties": {
         "op": {
@@ -39346,10 +39656,10 @@
           "type": "string"
         },
         "values": {
-          "$ref": "#/$defs/Record_475"
+          "$ref": "#/$defs/Record_479"
         },
         "expected": {
-          "$ref": "#/$defs/Record_475"
+          "$ref": "#/$defs/Record_479"
         }
       },
       "required": [
@@ -39359,7 +39669,7 @@
       ],
       "additionalProperties": false
     },
-    "Record_475": {
+    "Record_479": {
       "type": "object",
       "properties": {
         "hull": {
@@ -39383,7 +39693,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_476": {
+    "Object_480": {
       "type": "object",
       "properties": {
         "op": {
@@ -39418,7 +39728,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_477": {
+    "Object_481": {
       "type": "object",
       "properties": {
         "op": {
@@ -39452,7 +39762,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_478": {
+    "Object_482": {
       "type": "object",
       "properties": {
         "op": {
@@ -39469,7 +39779,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_479": {
+    "Object_483": {
       "type": "object",
       "properties": {
         "op": {
@@ -39495,7 +39805,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_480": {
+    "Object_484": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -39508,13 +39818,13 @@
         "intent": {
           "anyOf": [
             {
-              "$ref": "#/$defs/Object_481"
+              "$ref": "#/$defs/Object_485"
             },
             {
-              "$ref": "#/$defs/Object_482"
+              "$ref": "#/$defs/Object_486"
             },
             {
-              "$ref": "#/$defs/Object_483"
+              "$ref": "#/$defs/Object_487"
             }
           ]
         }
@@ -39525,7 +39835,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_481": {
+    "Object_485": {
       "type": "object",
       "properties": {
         "op": {
@@ -39581,7 +39891,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_482": {
+    "Object_486": {
       "type": "object",
       "properties": {
         "op": {
@@ -39606,7 +39916,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_483": {
+    "Object_487": {
       "type": "object",
       "properties": {
         "op": {
@@ -39627,7 +39937,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_484": {
+    "Object_488": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -39666,7 +39976,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_485": {
+    "Object_489": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -39693,7 +40003,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_486": {
+    "Object_490": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -39714,7 +40024,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_487": {
+    "Object_491": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -39727,10 +40037,10 @@
         "command": {
           "anyOf": [
             {
-              "$ref": "#/$defs/Object_488"
+              "$ref": "#/$defs/Object_492"
             },
             {
-              "$ref": "#/$defs/Object_489"
+              "$ref": "#/$defs/Object_493"
             }
           ]
         }
@@ -39741,7 +40051,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_488": {
+    "Object_492": {
       "type": "object",
       "properties": {
         "op": {
@@ -39769,7 +40079,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_489": {
+    "Object_493": {
       "type": "object",
       "properties": {
         "op": {
@@ -39786,7 +40096,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_490": {
+    "Object_494": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -39864,7 +40174,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_491": {
+    "Object_495": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -39877,16 +40187,16 @@
         "command": {
           "anyOf": [
             {
-              "$ref": "#/$defs/Object_492"
+              "$ref": "#/$defs/Object_496"
             },
             {
-              "$ref": "#/$defs/Object_493"
+              "$ref": "#/$defs/Object_497"
             },
             {
-              "$ref": "#/$defs/Object_494"
+              "$ref": "#/$defs/Object_498"
             },
             {
-              "$ref": "#/$defs/Object_495"
+              "$ref": "#/$defs/Object_499"
             }
           ]
         }
@@ -39897,7 +40207,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_492": {
+    "Object_496": {
       "type": "object",
       "properties": {
         "op": {
@@ -39922,7 +40232,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_493": {
+    "Object_497": {
       "type": "object",
       "properties": {
         "op": {
@@ -40236,7 +40546,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_494": {
+    "Object_498": {
       "type": "object",
       "properties": {
         "op": {
@@ -40261,7 +40571,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_495": {
+    "Object_499": {
       "type": "object",
       "properties": {
         "op": {
@@ -40278,7 +40588,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_496": {
+    "Object_500": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -40290,18 +40600,6 @@
         },
         "command": {
           "anyOf": [
-            {
-              "$ref": "#/$defs/Object_497"
-            },
-            {
-              "$ref": "#/$defs/Object_498"
-            },
-            {
-              "$ref": "#/$defs/Object_499"
-            },
-            {
-              "$ref": "#/$defs/Object_500"
-            },
             {
               "$ref": "#/$defs/Object_501"
             },
@@ -40370,6 +40668,18 @@
             },
             {
               "$ref": "#/$defs/Object_523"
+            },
+            {
+              "$ref": "#/$defs/Object_524"
+            },
+            {
+              "$ref": "#/$defs/Object_525"
+            },
+            {
+              "$ref": "#/$defs/Object_526"
+            },
+            {
+              "$ref": "#/$defs/Object_527"
             }
           ]
         }
@@ -40380,7 +40690,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_497": {
+    "Object_501": {
       "type": "object",
       "properties": {
         "op": {
@@ -40406,7 +40716,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_498": {
+    "Object_502": {
       "type": "object",
       "properties": {
         "op": {
@@ -40434,7 +40744,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_499": {
+    "Object_503": {
       "type": "object",
       "properties": {
         "op": {
@@ -40455,7 +40765,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_500": {
+    "Object_504": {
       "type": "object",
       "properties": {
         "op": {
@@ -40472,7 +40782,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_501": {
+    "Object_505": {
       "type": "object",
       "properties": {
         "op": {
@@ -40489,7 +40799,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_502": {
+    "Object_506": {
       "type": "object",
       "properties": {
         "op": {
@@ -40516,7 +40826,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_503": {
+    "Object_507": {
       "type": "object",
       "properties": {
         "op": {
@@ -40537,7 +40847,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_504": {
+    "Object_508": {
       "type": "object",
       "properties": {
         "op": {
@@ -40562,7 +40872,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_505": {
+    "Object_509": {
       "type": "object",
       "properties": {
         "op": {
@@ -40583,7 +40893,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_506": {
+    "Object_510": {
       "type": "object",
       "properties": {
         "op": {
@@ -40608,7 +40918,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_507": {
+    "Object_511": {
       "type": "object",
       "properties": {
         "op": {
@@ -40637,7 +40947,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_508": {
+    "Object_512": {
       "type": "object",
       "properties": {
         "op": {
@@ -40666,7 +40976,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_509": {
+    "Object_513": {
       "type": "object",
       "properties": {
         "op": {
@@ -40695,7 +41005,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_510": {
+    "Object_514": {
       "type": "object",
       "properties": {
         "op": {
@@ -40727,7 +41037,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_511": {
+    "Object_515": {
       "type": "object",
       "properties": {
         "op": {
@@ -40755,7 +41065,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_512": {
+    "Object_516": {
       "type": "object",
       "properties": {
         "op": {
@@ -40776,7 +41086,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_513": {
+    "Object_517": {
       "type": "object",
       "properties": {
         "op": {
@@ -40804,7 +41114,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_514": {
+    "Object_518": {
       "type": "object",
       "properties": {
         "op": {
@@ -40825,7 +41135,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_515": {
+    "Object_519": {
       "type": "object",
       "properties": {
         "op": {
@@ -40889,7 +41199,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_516": {
+    "Object_520": {
       "type": "object",
       "properties": {
         "op": {
@@ -40926,7 +41236,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_517": {
+    "Object_521": {
       "type": "object",
       "properties": {
         "op": {
@@ -40946,7 +41256,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_518": {
+    "Object_522": {
       "type": "object",
       "properties": {
         "op": {
@@ -40971,7 +41281,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_519": {
+    "Object_523": {
       "type": "object",
       "properties": {
         "op": {
@@ -40988,7 +41298,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_520": {
+    "Object_524": {
       "type": "object",
       "properties": {
         "op": {
@@ -41005,7 +41315,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_521": {
+    "Object_525": {
       "type": "object",
       "properties": {
         "op": {
@@ -41022,7 +41332,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_522": {
+    "Object_526": {
       "type": "object",
       "properties": {
         "op": {
@@ -41035,7 +41345,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_523": {
+    "Object_527": {
       "type": "object",
       "properties": {
         "op": {
@@ -41052,7 +41362,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_524": {
+    "Object_528": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -41200,7 +41510,7 @@
         "growth": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_525"
+            "$ref": "#/$defs/Object_529"
           }
         },
         "classId": {
@@ -41301,7 +41611,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_525": {
+    "Object_529": {
       "type": "object",
       "properties": {
         "level": {
@@ -41321,7 +41631,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_526": {
+    "Object_530": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -41355,7 +41665,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_527": {
+    "Object_531": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -41372,7 +41682,7 @@
           "$ref": "#/$defs/ManualActor"
         },
         "exception": {
-          "$ref": "#/$defs/Object_528"
+          "$ref": "#/$defs/Object_532"
         },
         "folderId": {
           "anyOf": [
@@ -41392,7 +41702,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_528": {
+    "Object_532": {
       "type": "object",
       "properties": {
         "reason": {
@@ -41404,7 +41714,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_529": {
+    "Object_533": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -41417,18 +41727,6 @@
         "command": {
           "anyOf": [
             {
-              "$ref": "#/$defs/Object_530"
-            },
-            {
-              "$ref": "#/$defs/Object_531"
-            },
-            {
-              "$ref": "#/$defs/Object_532"
-            },
-            {
-              "$ref": "#/$defs/Object_533"
-            },
-            {
               "$ref": "#/$defs/Object_534"
             },
             {
@@ -41436,6 +41734,18 @@
             },
             {
               "$ref": "#/$defs/Object_536"
+            },
+            {
+              "$ref": "#/$defs/Object_537"
+            },
+            {
+              "$ref": "#/$defs/Object_538"
+            },
+            {
+              "$ref": "#/$defs/Object_539"
+            },
+            {
+              "$ref": "#/$defs/Object_540"
             }
           ]
         }
@@ -41446,7 +41756,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_530": {
+    "Object_534": {
       "type": "object",
       "properties": {
         "op": {
@@ -41506,7 +41816,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_531": {
+    "Object_535": {
       "type": "object",
       "properties": {
         "op": {
@@ -41664,7 +41974,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_532": {
+    "Object_536": {
       "type": "object",
       "properties": {
         "op": {
@@ -41747,7 +42057,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_533": {
+    "Object_537": {
       "type": "object",
       "properties": {
         "op": {
@@ -41791,7 +42101,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_534": {
+    "Object_538": {
       "type": "object",
       "properties": {
         "op": {
@@ -41804,7 +42114,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_535": {
+    "Object_539": {
       "type": "object",
       "properties": {
         "op": {
@@ -41836,7 +42146,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_536": {
+    "Object_540": {
       "type": "object",
       "properties": {
         "op": {
@@ -41863,7 +42173,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_537": {
+    "Object_541": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -41909,7 +42219,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_538": {
+    "Object_542": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -41922,28 +42232,28 @@
         "command": {
           "anyOf": [
             {
-              "$ref": "#/$defs/Object_539"
-            },
-            {
-              "$ref": "#/$defs/Object_540"
-            },
-            {
-              "$ref": "#/$defs/Object_542"
-            },
-            {
               "$ref": "#/$defs/Object_543"
             },
             {
               "$ref": "#/$defs/Object_544"
             },
             {
-              "$ref": "#/$defs/Object_545"
-            },
-            {
               "$ref": "#/$defs/Object_546"
             },
             {
               "$ref": "#/$defs/Object_547"
+            },
+            {
+              "$ref": "#/$defs/Object_548"
+            },
+            {
+              "$ref": "#/$defs/Object_549"
+            },
+            {
+              "$ref": "#/$defs/Object_550"
+            },
+            {
+              "$ref": "#/$defs/Object_551"
             }
           ]
         }
@@ -41954,7 +42264,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_539": {
+    "Object_543": {
       "type": "object",
       "properties": {
         "op": {
@@ -41982,7 +42292,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_540": {
+    "Object_544": {
       "type": "object",
       "properties": {
         "op": {
@@ -41993,7 +42303,7 @@
           "type": "string"
         },
         "patch": {
-          "$ref": "#/$defs/Partial_541"
+          "$ref": "#/$defs/Partial_545"
         }
       },
       "required": [
@@ -42003,7 +42313,7 @@
       ],
       "additionalProperties": false
     },
-    "Partial_541": {
+    "Partial_545": {
       "type": "object",
       "properties": {
         "hidden": {
@@ -42052,7 +42362,7 @@
       },
       "additionalProperties": false
     },
-    "Object_542": {
+    "Object_546": {
       "type": "object",
       "properties": {
         "op": {
@@ -42069,7 +42379,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_543": {
+    "Object_547": {
       "type": "object",
       "properties": {
         "op": {
@@ -42094,7 +42404,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_544": {
+    "Object_548": {
       "type": "object",
       "properties": {
         "op": {
@@ -42107,7 +42417,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_545": {
+    "Object_549": {
       "type": "object",
       "properties": {
         "op": {
@@ -42146,7 +42456,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_546": {
+    "Object_550": {
       "type": "object",
       "properties": {
         "op": {
@@ -42166,7 +42476,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_547": {
+    "Object_551": {
       "type": "object",
       "properties": {
         "op": {
@@ -42183,7 +42493,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_548": {
+    "Object_552": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -42220,7 +42530,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_549": {
+    "Object_553": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -42253,7 +42563,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_550": {
+    "Object_554": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -42331,7 +42641,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_551": {
+    "Object_555": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -42368,7 +42678,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_552": {
+    "Object_556": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -42401,7 +42711,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_553": {
+    "Object_557": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -42438,7 +42748,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_554": {
+    "Object_558": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -42494,7 +42804,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_555": {
+    "Object_559": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -42534,7 +42844,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_556": {
+    "Object_560": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -42566,7 +42876,7 @@
         "tokens": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Change_557"
+            "$ref": "#/$defs/Change_561"
           }
         }
       },
@@ -42610,7 +42920,7 @@
       ],
       "additionalProperties": false
     },
-    "Change_557": {
+    "Change_561": {
       "type": "object",
       "properties": {
         "id": {
@@ -42644,7 +42954,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_558": {
+    "Object_562": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -42691,7 +43001,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_559": {
+    "Object_563": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -42741,7 +43051,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_560": {
+    "Object_564": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -42791,7 +43101,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_561": {
+    "Object_565": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -42847,7 +43157,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_562": {
+    "Object_566": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -42962,7 +43272,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_563": {
+    "Object_567": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -43027,7 +43337,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_564": {
+    "Object_568": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -43121,7 +43431,7 @@
         "pages": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_565"
+            "$ref": "#/$defs/Object_569"
           }
         },
         "id": {
@@ -43141,7 +43451,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_565": {
+    "Object_569": {
       "type": "object",
       "properties": {
         "id": {
@@ -43201,7 +43511,7 @@
           ]
         },
         "users": {
-          "$ref": "#/$defs/Record_566"
+          "$ref": "#/$defs/Record_570"
         }
       },
       "required": [
@@ -43209,7 +43519,7 @@
       ],
       "additionalProperties": false
     },
-    "Record_566": {
+    "Record_570": {
       "type": "object",
       "properties": {},
       "additionalProperties": {
@@ -43236,7 +43546,7 @@
         ]
       }
     },
-    "Object_567": {
+    "Object_571": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -43264,7 +43574,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_568": {
+    "Object_572": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -43306,7 +43616,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_569": {
+    "Object_573": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -43350,7 +43660,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_570": {
+    "Object_574": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -43420,7 +43730,7 @@
           "$ref": "#/$defs/Record_58"
         },
         "counters": {
-          "$ref": "#/$defs/Record_571"
+          "$ref": "#/$defs/Record_575"
         }
       },
       "required": [
@@ -43430,14 +43740,14 @@
       ],
       "additionalProperties": false
     },
-    "Record_571": {
+    "Record_575": {
       "type": "object",
       "properties": {},
       "additionalProperties": {
-        "$ref": "#/$defs/Object_572"
+        "$ref": "#/$defs/Object_576"
       }
     },
-    "Object_572": {
+    "Object_576": {
       "type": "object",
       "properties": {
         "value": {
@@ -43453,7 +43763,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_573": {
+    "Object_577": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -43504,7 +43814,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_574": {
+    "Object_578": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -43537,7 +43847,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_575": {
+    "Object_579": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -43570,7 +43880,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_576": {
+    "Object_580": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -43584,18 +43894,6 @@
           "anyOf": [
             {
               "$ref": "#/$defs/ProgressDirectoryCommand"
-            },
-            {
-              "$ref": "#/$defs/Object_577"
-            },
-            {
-              "$ref": "#/$defs/Object_578"
-            },
-            {
-              "$ref": "#/$defs/Object_579"
-            },
-            {
-              "$ref": "#/$defs/Object_580"
             },
             {
               "$ref": "#/$defs/Object_581"
@@ -43616,6 +43914,9 @@
               "$ref": "#/$defs/Object_586"
             },
             {
+              "$ref": "#/$defs/Object_587"
+            },
+            {
               "$ref": "#/$defs/Object_588"
             },
             {
@@ -43623,9 +43924,6 @@
             },
             {
               "$ref": "#/$defs/Object_590"
-            },
-            {
-              "$ref": "#/$defs/Object_591"
             },
             {
               "$ref": "#/$defs/Object_592"
@@ -43649,25 +43947,37 @@
               "$ref": "#/$defs/Object_598"
             },
             {
-              "$ref": "#/$defs/CompendiumDirectoryCommand"
-            },
-            {
-              "$ref": "#/$defs/CompendiumCatalogCommand"
-            },
-            {
               "$ref": "#/$defs/Object_599"
             },
             {
               "$ref": "#/$defs/Object_600"
             },
             {
-              "$ref": "#/$defs/EntityDirectoryCommand"
-            },
-            {
               "$ref": "#/$defs/Object_601"
             },
             {
               "$ref": "#/$defs/Object_602"
+            },
+            {
+              "$ref": "#/$defs/CompendiumDirectoryCommand"
+            },
+            {
+              "$ref": "#/$defs/CompendiumCatalogCommand"
+            },
+            {
+              "$ref": "#/$defs/Object_603"
+            },
+            {
+              "$ref": "#/$defs/Object_604"
+            },
+            {
+              "$ref": "#/$defs/EntityDirectoryCommand"
+            },
+            {
+              "$ref": "#/$defs/Object_605"
+            },
+            {
+              "$ref": "#/$defs/Object_606"
             },
             {
               "$ref": "#/$defs/JournalDirectoryCommand"
@@ -43682,25 +43992,10 @@
               "$ref": "#/$defs/SceneJournalCommand"
             },
             {
-              "$ref": "#/$defs/Object_603"
-            },
-            {
-              "$ref": "#/$defs/Object_604"
-            },
-            {
-              "$ref": "#/$defs/Object_605"
-            },
-            {
-              "$ref": "#/$defs/Object_606"
-            },
-            {
               "$ref": "#/$defs/Object_607"
             },
             {
               "$ref": "#/$defs/Object_608"
-            },
-            {
-              "$ref": "#/$defs/SceneDirectoryCommand"
             },
             {
               "$ref": "#/$defs/Object_609"
@@ -43713,6 +44008,9 @@
             },
             {
               "$ref": "#/$defs/Object_612"
+            },
+            {
+              "$ref": "#/$defs/SceneDirectoryCommand"
             },
             {
               "$ref": "#/$defs/Object_613"
@@ -43757,9 +44055,6 @@
               "$ref": "#/$defs/Object_626"
             },
             {
-              "$ref": "#/$defs/CardStackImportCommand"
-            },
-            {
               "$ref": "#/$defs/Object_627"
             },
             {
@@ -43772,19 +44067,13 @@
               "$ref": "#/$defs/Object_630"
             },
             {
+              "$ref": "#/$defs/CardStackImportCommand"
+            },
+            {
               "$ref": "#/$defs/Object_631"
             },
             {
               "$ref": "#/$defs/Object_632"
-            },
-            {
-              "$ref": "#/$defs/CardDealCommand"
-            },
-            {
-              "$ref": "#/$defs/CardReturnCommand"
-            },
-            {
-              "$ref": "#/$defs/LibraryDirectoryCommand"
             },
             {
               "$ref": "#/$defs/Object_633"
@@ -43799,6 +44088,18 @@
               "$ref": "#/$defs/Object_636"
             },
             {
+              "$ref": "#/$defs/CardDealCommand"
+            },
+            {
+              "$ref": "#/$defs/CardReturnCommand"
+            },
+            {
+              "$ref": "#/$defs/LibraryDirectoryCommand"
+            },
+            {
+              "$ref": "#/$defs/Object_637"
+            },
+            {
               "$ref": "#/$defs/Object_638"
             },
             {
@@ -43806,9 +44107,6 @@
             },
             {
               "$ref": "#/$defs/Object_640"
-            },
-            {
-              "$ref": "#/$defs/Object_641"
             },
             {
               "$ref": "#/$defs/Object_642"
@@ -43829,6 +44127,9 @@
               "$ref": "#/$defs/Object_647"
             },
             {
+              "$ref": "#/$defs/Object_648"
+            },
+            {
               "$ref": "#/$defs/Object_649"
             },
             {
@@ -43836,9 +44137,6 @@
             },
             {
               "$ref": "#/$defs/Object_651"
-            },
-            {
-              "$ref": "#/$defs/Object_652"
             },
             {
               "$ref": "#/$defs/Object_653"
@@ -43871,6 +44169,9 @@
               "$ref": "#/$defs/Object_662"
             },
             {
+              "$ref": "#/$defs/Object_663"
+            },
+            {
               "$ref": "#/$defs/Object_664"
             },
             {
@@ -43878,9 +44179,6 @@
             },
             {
               "$ref": "#/$defs/Object_666"
-            },
-            {
-              "$ref": "#/$defs/Object_667"
             },
             {
               "$ref": "#/$defs/Object_668"
@@ -43925,12 +44223,6 @@
               "$ref": "#/$defs/Object_681"
             },
             {
-              "$ref": "#/$defs/OnboardingCommand"
-            },
-            {
-              "$ref": "#/$defs/SceneEffectsCommand"
-            },
-            {
               "$ref": "#/$defs/Object_682"
             },
             {
@@ -43941,6 +44233,12 @@
             },
             {
               "$ref": "#/$defs/Object_685"
+            },
+            {
+              "$ref": "#/$defs/OnboardingCommand"
+            },
+            {
+              "$ref": "#/$defs/SceneEffectsCommand"
             },
             {
               "$ref": "#/$defs/Object_686"
@@ -43977,6 +44275,18 @@
             },
             {
               "$ref": "#/$defs/Object_697"
+            },
+            {
+              "$ref": "#/$defs/Object_698"
+            },
+            {
+              "$ref": "#/$defs/Object_699"
+            },
+            {
+              "$ref": "#/$defs/Object_700"
+            },
+            {
+              "$ref": "#/$defs/Object_701"
             }
           ]
         }
@@ -44021,7 +44331,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_577": {
+    "Object_581": {
       "type": "object",
       "properties": {
         "type": {
@@ -44055,7 +44365,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_578": {
+    "Object_582": {
       "type": "object",
       "properties": {
         "type": {
@@ -44076,7 +44386,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_579": {
+    "Object_583": {
       "type": "object",
       "properties": {
         "type": {
@@ -44114,7 +44424,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_580": {
+    "Object_584": {
       "type": "object",
       "properties": {
         "type": {
@@ -44139,7 +44449,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_581": {
+    "Object_585": {
       "type": "object",
       "properties": {
         "type": {
@@ -44164,7 +44474,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_582": {
+    "Object_586": {
       "type": "object",
       "properties": {
         "type": {
@@ -44201,7 +44511,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_583": {
+    "Object_587": {
       "type": "object",
       "properties": {
         "type": {
@@ -44226,7 +44536,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_584": {
+    "Object_588": {
       "type": "object",
       "properties": {
         "type": {
@@ -44263,7 +44573,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_585": {
+    "Object_589": {
       "type": "object",
       "properties": {
         "type": {
@@ -44296,7 +44606,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_586": {
+    "Object_590": {
       "type": "object",
       "properties": {
         "type": {
@@ -44304,7 +44614,7 @@
           "type": "string"
         },
         "value": {
-          "$ref": "#/$defs/Omit_587"
+          "$ref": "#/$defs/Omit_591"
         },
         "expectedRevision": {
           "type": "number"
@@ -44317,7 +44627,7 @@
       ],
       "additionalProperties": false
     },
-    "Omit_587": {
+    "Omit_591": {
       "type": "object",
       "properties": {
         "id": {
@@ -44345,7 +44655,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_588": {
+    "Object_592": {
       "type": "object",
       "properties": {
         "type": {
@@ -44366,7 +44676,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_589": {
+    "Object_593": {
       "type": "object",
       "properties": {
         "type": {
@@ -44407,7 +44717,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_590": {
+    "Object_594": {
       "type": "object",
       "properties": {
         "type": {
@@ -44428,7 +44738,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_591": {
+    "Object_595": {
       "type": "object",
       "properties": {
         "type": {
@@ -44449,7 +44759,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_592": {
+    "Object_596": {
       "type": "object",
       "properties": {
         "type": {
@@ -44470,7 +44780,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_593": {
+    "Object_597": {
       "type": "object",
       "properties": {
         "type": {
@@ -44499,7 +44809,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_594": {
+    "Object_598": {
       "type": "object",
       "properties": {
         "type": {
@@ -44537,7 +44847,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_595": {
+    "Object_599": {
       "type": "object",
       "properties": {
         "type": {
@@ -44566,7 +44876,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_596": {
+    "Object_600": {
       "type": "object",
       "properties": {
         "type": {
@@ -44595,7 +44905,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_597": {
+    "Object_601": {
       "type": "object",
       "properties": {
         "type": {
@@ -44619,7 +44929,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_598": {
+    "Object_602": {
       "type": "object",
       "properties": {
         "type": {
@@ -44733,7 +45043,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_599": {
+    "Object_603": {
       "type": "object",
       "properties": {
         "type": {
@@ -44772,7 +45082,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_600": {
+    "Object_604": {
       "type": "object",
       "properties": {
         "type": {
@@ -44847,7 +45157,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_601": {
+    "Object_605": {
       "type": "object",
       "properties": {
         "type": {
@@ -44886,7 +45196,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_602": {
+    "Object_606": {
       "type": "object",
       "properties": {
         "type": {
@@ -45071,7 +45381,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_603": {
+    "Object_607": {
       "type": "object",
       "properties": {
         "type": {
@@ -45101,7 +45411,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_604": {
+    "Object_608": {
       "type": "object",
       "properties": {
         "type": {
@@ -45126,7 +45436,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_605": {
+    "Object_609": {
       "type": "object",
       "properties": {
         "type": {
@@ -45143,7 +45453,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_606": {
+    "Object_610": {
       "type": "object",
       "properties": {
         "type": {
@@ -45160,7 +45470,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_607": {
+    "Object_611": {
       "type": "object",
       "properties": {
         "type": {
@@ -45184,7 +45494,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_608": {
+    "Object_612": {
       "type": "object",
       "properties": {
         "type": {
@@ -45230,7 +45540,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_609": {
+    "Object_613": {
       "type": "object",
       "properties": {
         "type": {
@@ -45251,7 +45561,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_610": {
+    "Object_614": {
       "type": "object",
       "properties": {
         "type": {
@@ -45272,7 +45582,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_611": {
+    "Object_615": {
       "type": "object",
       "properties": {
         "type": {
@@ -45301,7 +45611,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_612": {
+    "Object_616": {
       "type": "object",
       "properties": {
         "type": {
@@ -45318,7 +45628,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_613": {
+    "Object_617": {
       "type": "object",
       "properties": {
         "type": {
@@ -45339,7 +45649,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_614": {
+    "Object_618": {
       "type": "object",
       "properties": {
         "type": {
@@ -45360,7 +45670,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_615": {
+    "Object_619": {
       "type": "object",
       "properties": {
         "type": {
@@ -45402,7 +45712,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_616": {
+    "Object_620": {
       "type": "object",
       "properties": {
         "type": {
@@ -45436,7 +45746,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_617": {
+    "Object_621": {
       "type": "object",
       "properties": {
         "type": {
@@ -45469,7 +45779,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_618": {
+    "Object_622": {
       "type": "object",
       "properties": {
         "type": {
@@ -45507,7 +45817,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_619": {
+    "Object_623": {
       "type": "object",
       "properties": {
         "type": {
@@ -45553,7 +45863,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_620": {
+    "Object_624": {
       "type": "object",
       "properties": {
         "type": {
@@ -45601,7 +45911,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_621": {
+    "Object_625": {
       "type": "object",
       "properties": {
         "type": {
@@ -45625,7 +45935,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_622": {
+    "Object_626": {
       "type": "object",
       "properties": {
         "type": {
@@ -45650,7 +45960,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_623": {
+    "Object_627": {
       "type": "object",
       "properties": {
         "type": {
@@ -45667,7 +45977,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_624": {
+    "Object_628": {
       "type": "object",
       "properties": {
         "type": {
@@ -45680,7 +45990,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_625": {
+    "Object_629": {
       "type": "object",
       "properties": {
         "type": {
@@ -45708,7 +46018,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_626": {
+    "Object_630": {
       "type": "object",
       "properties": {
         "type": {
@@ -45808,7 +46118,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_627": {
+    "Object_631": {
       "type": "object",
       "properties": {
         "type": {
@@ -45865,7 +46175,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_628": {
+    "Object_632": {
       "type": "object",
       "properties": {
         "type": {
@@ -45919,7 +46229,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_629": {
+    "Object_633": {
       "type": "object",
       "properties": {
         "type": {
@@ -45977,7 +46287,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_630": {
+    "Object_634": {
       "type": "object",
       "properties": {
         "type": {
@@ -46018,7 +46328,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_631": {
+    "Object_635": {
       "type": "object",
       "properties": {
         "type": {
@@ -46039,7 +46349,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_632": {
+    "Object_636": {
       "type": "object",
       "properties": {
         "type": {
@@ -46208,7 +46518,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_633": {
+    "Object_637": {
       "type": "object",
       "properties": {
         "type": {
@@ -46229,7 +46539,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_634": {
+    "Object_638": {
       "type": "object",
       "properties": {
         "type": {
@@ -46268,7 +46578,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_635": {
+    "Object_639": {
       "type": "object",
       "properties": {
         "type": {
@@ -46288,7 +46598,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_636": {
+    "Object_640": {
       "type": "object",
       "properties": {
         "type": {
@@ -46328,7 +46638,7 @@
           "type": "number"
         },
         "macroSlot": {
-          "$ref": "#/$defs/Object_637"
+          "$ref": "#/$defs/Object_641"
         }
       },
       "required": [
@@ -46338,7 +46648,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_637": {
+    "Object_641": {
       "type": "object",
       "properties": {
         "slot": {
@@ -46354,7 +46664,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_638": {
+    "Object_642": {
       "type": "object",
       "properties": {
         "type": {
@@ -46395,7 +46705,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_639": {
+    "Object_643": {
       "type": "object",
       "properties": {
         "type": {
@@ -46439,7 +46749,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_640": {
+    "Object_644": {
       "type": "object",
       "properties": {
         "type": {
@@ -46464,7 +46774,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_641": {
+    "Object_645": {
       "type": "object",
       "properties": {
         "type": {
@@ -46509,7 +46819,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_642": {
+    "Object_646": {
       "type": "object",
       "properties": {
         "type": {
@@ -46560,7 +46870,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_643": {
+    "Object_647": {
       "type": "object",
       "properties": {
         "type": {
@@ -46592,7 +46902,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_644": {
+    "Object_648": {
       "type": "object",
       "properties": {
         "type": {
@@ -46620,7 +46930,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_645": {
+    "Object_649": {
       "type": "object",
       "properties": {
         "type": {
@@ -46672,7 +46982,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_646": {
+    "Object_650": {
       "type": "object",
       "properties": {
         "type": {
@@ -46749,7 +47059,7 @@
         ]
       }
     },
-    "Object_647": {
+    "Object_651": {
       "type": "object",
       "properties": {
         "type": {
@@ -46765,7 +47075,7 @@
         "cast": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_648"
+            "$ref": "#/$defs/Object_652"
           }
         }
       },
@@ -46775,7 +47085,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_648": {
+    "Object_652": {
       "type": "object",
       "properties": {
         "actorId": {
@@ -46806,7 +47116,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_649": {
+    "Object_653": {
       "type": "object",
       "properties": {
         "type": {
@@ -46819,7 +47129,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_650": {
+    "Object_654": {
       "type": "object",
       "properties": {
         "type": {
@@ -46859,7 +47169,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_651": {
+    "Object_655": {
       "type": "object",
       "properties": {
         "type": {
@@ -46880,7 +47190,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_652": {
+    "Object_656": {
       "type": "object",
       "properties": {
         "type": {
@@ -46904,7 +47214,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_653": {
+    "Object_657": {
       "type": "object",
       "properties": {
         "type": {
@@ -46925,7 +47235,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_654": {
+    "Object_658": {
       "type": "object",
       "properties": {
         "type": {
@@ -46938,7 +47248,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_655": {
+    "Object_659": {
       "type": "object",
       "properties": {
         "type": {
@@ -47003,7 +47313,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_656": {
+    "Object_660": {
       "type": "object",
       "properties": {
         "type": {
@@ -47073,7 +47383,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_657": {
+    "Object_661": {
       "type": "object",
       "properties": {
         "type": {
@@ -47094,7 +47404,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_658": {
+    "Object_662": {
       "type": "object",
       "properties": {
         "type": {
@@ -47124,7 +47434,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_659": {
+    "Object_663": {
       "type": "object",
       "properties": {
         "type": {
@@ -47145,7 +47455,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_660": {
+    "Object_664": {
       "type": "object",
       "properties": {
         "type": {
@@ -47166,7 +47476,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_661": {
+    "Object_665": {
       "type": "object",
       "properties": {
         "type": {
@@ -47187,7 +47497,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_662": {
+    "Object_666": {
       "type": "object",
       "properties": {
         "type": {
@@ -47200,7 +47510,7 @@
         "participants": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_663"
+            "$ref": "#/$defs/Object_667"
           }
         }
       },
@@ -47210,7 +47520,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_663": {
+    "Object_667": {
       "type": "object",
       "properties": {
         "id": {
@@ -47225,7 +47535,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_664": {
+    "Object_668": {
       "type": "object",
       "properties": {
         "type": {
@@ -47254,7 +47564,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_665": {
+    "Object_669": {
       "type": "object",
       "properties": {
         "type": {
@@ -47310,7 +47620,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_666": {
+    "Object_670": {
       "type": "object",
       "properties": {
         "type": {
@@ -47331,7 +47641,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_667": {
+    "Object_671": {
       "type": "object",
       "properties": {
         "type": {
@@ -47380,7 +47690,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_668": {
+    "Object_672": {
       "type": "object",
       "properties": {
         "type": {
@@ -47405,7 +47715,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_669": {
+    "Object_673": {
       "type": "object",
       "properties": {
         "type": {
@@ -47440,7 +47750,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_670": {
+    "Object_674": {
       "type": "object",
       "properties": {
         "type": {
@@ -47457,7 +47767,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_671": {
+    "Object_675": {
       "type": "object",
       "properties": {
         "type": {
@@ -47483,7 +47793,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_672": {
+    "Object_676": {
       "type": "object",
       "properties": {
         "type": {
@@ -47585,7 +47895,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_673": {
+    "Object_677": {
       "type": "object",
       "properties": {
         "type": {
@@ -47601,7 +47911,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_674": {
+    "Object_678": {
       "type": "object",
       "properties": {
         "type": {
@@ -47625,7 +47935,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_675": {
+    "Object_679": {
       "type": "object",
       "properties": {
         "type": {
@@ -47649,7 +47959,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_676": {
+    "Object_680": {
       "type": "object",
       "properties": {
         "type": {
@@ -47669,7 +47979,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_677": {
+    "Object_681": {
       "type": "object",
       "properties": {
         "type": {
@@ -47689,7 +47999,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_678": {
+    "Object_682": {
       "type": "object",
       "properties": {
         "type": {
@@ -47716,7 +48026,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_679": {
+    "Object_683": {
       "type": "object",
       "properties": {
         "type": {
@@ -47735,7 +48045,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_680": {
+    "Object_684": {
       "type": "object",
       "properties": {
         "type": {
@@ -47752,7 +48062,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_681": {
+    "Object_685": {
       "type": "object",
       "properties": {
         "type": {
@@ -47838,7 +48148,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_682": {
+    "Object_686": {
       "type": "object",
       "properties": {
         "type": {
@@ -47877,7 +48187,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_683": {
+    "Object_687": {
       "type": "object",
       "properties": {
         "type": {
@@ -47921,7 +48231,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_684": {
+    "Object_688": {
       "type": "object",
       "properties": {
         "type": {
@@ -47934,7 +48244,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_685": {
+    "Object_689": {
       "type": "object",
       "properties": {
         "type": {
@@ -47971,7 +48281,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_686": {
+    "Object_690": {
       "type": "object",
       "properties": {
         "type": {
@@ -47991,7 +48301,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_687": {
+    "Object_691": {
       "type": "object",
       "properties": {
         "type": {
@@ -48024,7 +48334,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_688": {
+    "Object_692": {
       "type": "object",
       "properties": {
         "type": {
@@ -48051,7 +48361,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_689": {
+    "Object_693": {
       "type": "object",
       "properties": {
         "type": {
@@ -48068,7 +48378,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_690": {
+    "Object_694": {
       "type": "object",
       "properties": {
         "type": {
@@ -48102,7 +48412,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_691": {
+    "Object_695": {
       "type": "object",
       "properties": {
         "type": {
@@ -48119,7 +48429,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_692": {
+    "Object_696": {
       "type": "object",
       "properties": {
         "type": {
@@ -48140,7 +48450,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_693": {
+    "Object_697": {
       "type": "object",
       "properties": {
         "type": {
@@ -48157,7 +48467,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_694": {
+    "Object_698": {
       "type": "object",
       "properties": {
         "type": {
@@ -48197,7 +48507,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_695": {
+    "Object_699": {
       "type": "object",
       "properties": {
         "type": {
@@ -48217,7 +48527,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_696": {
+    "Object_700": {
       "type": "object",
       "properties": {
         "type": {
@@ -48247,7 +48557,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_697": {
+    "Object_701": {
       "type": "object",
       "properties": {
         "type": {
@@ -48264,7 +48574,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_698": {
+    "Object_702": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -48318,7 +48628,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_699": {
+    "Object_703": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -48356,7 +48666,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_700": {
+    "Object_704": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -48438,7 +48748,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_701": {
+    "Object_705": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -48491,7 +48801,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_702": {
+    "Object_706": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -48514,7 +48824,7 @@
           "$ref": "#/$defs/TokenConfigurationValue"
         },
         "binding": {
-          "$ref": "#/$defs/Object_703"
+          "$ref": "#/$defs/Object_707"
         }
       },
       "required": [
@@ -48526,7 +48836,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_703": {
+    "Object_707": {
       "type": "object",
       "properties": {
         "linked": {
@@ -48542,7 +48852,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_704": {
+    "Object_708": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -48570,7 +48880,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_705": {
+    "Object_709": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -48590,7 +48900,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_706": {
+    "Object_710": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -48670,7 +48980,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_707": {
+    "Object_711": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -48808,7 +49118,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_708": {
+    "Object_712": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -48885,7 +49195,7 @@
       },
       "additionalProperties": false
     },
-    "Object_709": {
+    "Object_713": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -49038,7 +49348,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_710": {
+    "Object_714": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -49051,25 +49361,25 @@
         "intent": {
           "anyOf": [
             {
-              "$ref": "#/$defs/Object_711"
-            },
-            {
-              "$ref": "#/$defs/Object_712"
-            },
-            {
-              "$ref": "#/$defs/Object_713"
-            },
-            {
-              "$ref": "#/$defs/Object_714"
-            },
-            {
               "$ref": "#/$defs/Object_715"
+            },
+            {
+              "$ref": "#/$defs/Object_716"
             },
             {
               "$ref": "#/$defs/Object_717"
             },
             {
               "$ref": "#/$defs/Object_718"
+            },
+            {
+              "$ref": "#/$defs/Object_719"
+            },
+            {
+              "$ref": "#/$defs/Object_721"
+            },
+            {
+              "$ref": "#/$defs/Object_722"
             }
           ]
         }
@@ -49080,7 +49390,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_711": {
+    "Object_715": {
       "type": "object",
       "properties": {
         "type": {
@@ -49100,7 +49410,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_712": {
+    "Object_716": {
       "type": "object",
       "properties": {
         "type": {
@@ -49113,7 +49423,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_713": {
+    "Object_717": {
       "type": "object",
       "properties": {
         "type": {
@@ -49130,7 +49440,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_714": {
+    "Object_718": {
       "type": "object",
       "properties": {
         "type": {
@@ -49182,7 +49492,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_715": {
+    "Object_719": {
       "type": "object",
       "properties": {
         "type": {
@@ -49198,7 +49508,7 @@
         "contributions": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_716"
+            "$ref": "#/$defs/Object_720"
           }
         }
       },
@@ -49210,7 +49520,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_716": {
+    "Object_720": {
       "type": "object",
       "properties": {
         "actor": {
@@ -49226,7 +49536,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_717": {
+    "Object_721": {
       "type": "object",
       "properties": {
         "type": {
@@ -49250,7 +49560,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_718": {
+    "Object_722": {
       "type": "object",
       "properties": {
         "type": {
@@ -49281,7 +49591,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_719": {
+    "Object_723": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -49310,7 +49620,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_720": {
+    "Object_724": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -49380,7 +49690,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_721": {
+    "Object_725": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -49400,7 +49710,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_722": {
+    "Object_726": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -49420,7 +49730,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_723": {
+    "Object_727": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -49450,7 +49760,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_724": {
+    "Object_728": {
       "type": "object",
       "properties": {
         "sceneScope": {
@@ -49463,22 +49773,13 @@
         "intent": {
           "anyOf": [
             {
-              "$ref": "#/$defs/Object_381"
+              "$ref": "#/$defs/Object_384"
             },
             {
-              "$ref": "#/$defs/Object_382"
+              "$ref": "#/$defs/Object_385"
             },
             {
-              "$ref": "#/$defs/Object_383"
-            },
-            {
-              "$ref": "#/$defs/Object_387"
-            },
-            {
-              "$ref": "#/$defs/Object_388"
-            },
-            {
-              "$ref": "#/$defs/Object_389"
+              "$ref": "#/$defs/Object_386"
             },
             {
               "$ref": "#/$defs/Object_390"
@@ -49523,25 +49824,25 @@
               "$ref": "#/$defs/Object_403"
             },
             {
+              "$ref": "#/$defs/Object_404"
+            },
+            {
               "$ref": "#/$defs/Object_405"
             },
             {
               "$ref": "#/$defs/Object_406"
             },
             {
-              "$ref": "#/$defs/Object_407"
+              "$ref": "#/$defs/Object_408"
             },
             {
               "$ref": "#/$defs/Object_409"
             },
             {
-              "$ref": "#/$defs/Object_411"
+              "$ref": "#/$defs/Object_410"
             },
             {
               "$ref": "#/$defs/Object_412"
-            },
-            {
-              "$ref": "#/$defs/Object_413"
             },
             {
               "$ref": "#/$defs/Object_414"
@@ -49550,22 +49851,22 @@
               "$ref": "#/$defs/Object_415"
             },
             {
+              "$ref": "#/$defs/Object_416"
+            },
+            {
               "$ref": "#/$defs/Object_417"
             },
             {
               "$ref": "#/$defs/Object_418"
             },
             {
-              "$ref": "#/$defs/Object_419"
+              "$ref": "#/$defs/Object_420"
             },
             {
               "$ref": "#/$defs/Object_421"
             },
             {
               "$ref": "#/$defs/Object_422"
-            },
-            {
-              "$ref": "#/$defs/Object_423"
             },
             {
               "$ref": "#/$defs/Object_424"
@@ -49580,6 +49881,9 @@
               "$ref": "#/$defs/Object_427"
             },
             {
+              "$ref": "#/$defs/Object_428"
+            },
+            {
               "$ref": "#/$defs/Object_429"
             },
             {
@@ -49589,7 +49893,13 @@
               "$ref": "#/$defs/Object_432"
             },
             {
-              "$ref": "#/$defs/Object_434"
+              "$ref": "#/$defs/Object_433"
+            },
+            {
+              "$ref": "#/$defs/Object_435"
+            },
+            {
+              "$ref": "#/$defs/Object_437"
             }
           ]
         }
@@ -49639,16 +49949,16 @@
           ]
         },
         "scenes": {
-          "$ref": "#/$defs/Record_780"
-        },
-        "actors": {
           "$ref": "#/$defs/Record_784"
         },
+        "actors": {
+          "$ref": "#/$defs/Record_788"
+        },
         "catalog": {
-          "$ref": "#/$defs/Record_786"
+          "$ref": "#/$defs/Record_790"
         },
         "journals": {
-          "$ref": "#/$defs/Record_787"
+          "$ref": "#/$defs/Record_791"
         },
         "messages": {
           "type": "array",
@@ -49657,7 +49967,7 @@
           }
         },
         "clocks": {
-          "$ref": "#/$defs/Record_789"
+          "$ref": "#/$defs/Record_793"
         },
         "audio": {
           "$ref": "#/$defs/AudioState"
@@ -49668,7 +49978,7 @@
         "receipts": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_790"
+            "$ref": "#/$defs/Object_794"
           }
         }
       },
@@ -49708,7 +50018,7 @@
           ]
         },
         "party": {
-          "$ref": "#/$defs/Record_756"
+          "$ref": "#/$defs/Record_760"
         },
         "rngState": {
           "type": "number"
@@ -49736,10 +50046,10 @@
         "presentation": {
           "anyOf": [
             {
-              "$ref": "#/$defs/Object_727"
+              "$ref": "#/$defs/Object_731"
             },
             {
-              "$ref": "#/$defs/Object_729"
+              "$ref": "#/$defs/Object_733"
             }
           ]
         },
@@ -49795,7 +50105,7 @@
         "quests": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_731"
+            "$ref": "#/$defs/Object_735"
           }
         },
         "version": {
@@ -50143,7 +50453,7 @@
         "regions": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_725"
+            "$ref": "#/$defs/Object_729"
           }
         },
         "day": {
@@ -50184,7 +50494,7 @@
           }
         },
         "rally": {
-          "$ref": "#/$defs/Object_726"
+          "$ref": "#/$defs/Object_730"
         },
         "retreatReady": {
           "type": "array",
@@ -50435,7 +50745,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_725": {
+    "Object_729": {
       "type": "object",
       "properties": {
         "q": {
@@ -50571,7 +50881,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_726": {
+    "Object_730": {
       "type": "object",
       "properties": {
         "siteId": {
@@ -50730,7 +51040,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_727": {
+    "Object_731": {
       "type": "object",
       "properties": {
         "id": {
@@ -50811,7 +51121,7 @@
           "type": "boolean"
         },
         "actions": {
-          "$ref": "#/$defs/Object_728"
+          "$ref": "#/$defs/Object_732"
         },
         "movementLeft": {
           "type": "number"
@@ -50832,7 +51142,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_728": {
+    "Object_732": {
       "type": "object",
       "properties": {
         "standard": {
@@ -51128,7 +51438,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_729": {
+    "Object_733": {
       "type": "object",
       "properties": {
         "id": {
@@ -51147,7 +51457,7 @@
         "candidates": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_730"
+            "$ref": "#/$defs/Object_734"
           }
         },
         "winnerPlayerId": {
@@ -51167,7 +51477,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_730": {
+    "Object_734": {
       "type": "object",
       "properties": {
         "playerId": {
@@ -51183,7 +51493,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_731": {
+    "Object_735": {
       "type": "object",
       "properties": {
         "id": {
@@ -51376,7 +51686,7 @@
           }
         },
         "aafTurnStart": {
-          "$ref": "#/$defs/Object_753"
+          "$ref": "#/$defs/Object_757"
         },
         "schemaVersion": {
           "const": 1,
@@ -51410,10 +51720,10 @@
           "type": "string"
         },
         "combatants": {
-          "$ref": "#/$defs/Record_756"
+          "$ref": "#/$defs/Record_760"
         },
         "quotas": {
-          "$ref": "#/$defs/Record_779"
+          "$ref": "#/$defs/Record_783"
         },
         "moveLeft": {
           "type": "number"
@@ -51520,28 +51830,28 @@
         "operation": {
           "anyOf": [
             {
-              "$ref": "#/$defs/Object_732"
+              "$ref": "#/$defs/Object_736"
             },
             {
-              "$ref": "#/$defs/Object_733"
-            },
-            {
-              "$ref": "#/$defs/Object_747"
-            },
-            {
-              "$ref": "#/$defs/Object_748"
-            },
-            {
-              "$ref": "#/$defs/Object_749"
-            },
-            {
-              "$ref": "#/$defs/Object_750"
+              "$ref": "#/$defs/Object_737"
             },
             {
               "$ref": "#/$defs/Object_751"
             },
             {
               "$ref": "#/$defs/Object_752"
+            },
+            {
+              "$ref": "#/$defs/Object_753"
+            },
+            {
+              "$ref": "#/$defs/Object_754"
+            },
+            {
+              "$ref": "#/$defs/Object_755"
+            },
+            {
+              "$ref": "#/$defs/Object_756"
             }
           ]
         },
@@ -51580,7 +51890,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_732": {
+    "Object_736": {
       "type": "object",
       "properties": {
         "kind": {
@@ -51607,7 +51917,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_733": {
+    "Object_737": {
       "type": "object",
       "properties": {
         "kind": {
@@ -51628,25 +51938,25 @@
           "items": {
             "anyOf": [
               {
-                "$ref": "#/$defs/Object_735"
-              },
-              {
-                "$ref": "#/$defs/Object_737"
-              },
-              {
                 "$ref": "#/$defs/Object_739"
-              },
-              {
-                "$ref": "#/$defs/Object_740"
               },
               {
                 "$ref": "#/$defs/Object_741"
               },
               {
-                "$ref": "#/$defs/Object_742"
+                "$ref": "#/$defs/Object_743"
               },
               {
-                "$ref": "#/$defs/Object_743"
+                "$ref": "#/$defs/Object_744"
+              },
+              {
+                "$ref": "#/$defs/Object_745"
+              },
+              {
+                "$ref": "#/$defs/Object_746"
+              },
+              {
+                "$ref": "#/$defs/Object_747"
               }
             ]
           }
@@ -51752,7 +52062,7 @@
           ]
         },
         "cost": {
-          "$ref": "#/$defs/Object_734"
+          "$ref": "#/$defs/Object_738"
         },
         "range": {
           "type": "number"
@@ -51812,25 +52122,25 @@
           "items": {
             "anyOf": [
               {
-                "$ref": "#/$defs/Object_735"
-              },
-              {
-                "$ref": "#/$defs/Object_737"
-              },
-              {
                 "$ref": "#/$defs/Object_739"
-              },
-              {
-                "$ref": "#/$defs/Object_740"
               },
               {
                 "$ref": "#/$defs/Object_741"
               },
               {
-                "$ref": "#/$defs/Object_742"
+                "$ref": "#/$defs/Object_743"
               },
               {
-                "$ref": "#/$defs/Object_743"
+                "$ref": "#/$defs/Object_744"
+              },
+              {
+                "$ref": "#/$defs/Object_745"
+              },
+              {
+                "$ref": "#/$defs/Object_746"
+              },
+              {
+                "$ref": "#/$defs/Object_747"
               }
             ]
           }
@@ -51845,7 +52155,7 @@
           "type": "number"
         },
         "components": {
-          "$ref": "#/$defs/Object_744"
+          "$ref": "#/$defs/Object_748"
         },
         "tags": {
           "type": "array",
@@ -51894,13 +52204,13 @@
           "type": "number"
         },
         "ritual": {
-          "$ref": "#/$defs/Object_745"
+          "$ref": "#/$defs/Object_749"
         },
         "counterRank": {
           "type": "number"
         },
         "reaction": {
-          "$ref": "#/$defs/Object_746"
+          "$ref": "#/$defs/Object_750"
         },
         "known": {
           "type": "boolean"
@@ -51931,7 +52241,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_734": {
+    "Object_738": {
       "type": "object",
       "properties": {
         "action": {
@@ -51983,7 +52293,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_735": {
+    "Object_739": {
       "type": "object",
       "properties": {
         "kind": {
@@ -52079,7 +52389,7 @@
           ]
         },
         "dice": {
-          "$ref": "#/$defs/Object_736"
+          "$ref": "#/$defs/Object_740"
         },
         "flat": {
           "type": "number"
@@ -52103,7 +52413,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_736": {
+    "Object_740": {
       "type": "object",
       "properties": {
         "count": {
@@ -52119,7 +52429,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_737": {
+    "Object_741": {
       "type": "object",
       "properties": {
         "kind": {
@@ -52146,7 +52456,7 @@
           "type": "number"
         },
         "dice": {
-          "$ref": "#/$defs/Object_738"
+          "$ref": "#/$defs/Object_742"
         },
         "type": {
           "anyOf": [
@@ -52215,7 +52525,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_738": {
+    "Object_742": {
       "type": "object",
       "properties": {
         "count": {
@@ -52231,7 +52541,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_739": {
+    "Object_743": {
       "type": "object",
       "properties": {
         "kind": {
@@ -52404,7 +52714,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_740": {
+    "Object_744": {
       "type": "object",
       "properties": {
         "kind": {
@@ -52442,7 +52752,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_741": {
+    "Object_745": {
       "type": "object",
       "properties": {
         "kind": {
@@ -52476,7 +52786,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_742": {
+    "Object_746": {
       "type": "object",
       "properties": {
         "kind": {
@@ -52590,7 +52900,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_743": {
+    "Object_747": {
       "type": "object",
       "properties": {
         "kind": {
@@ -52607,7 +52917,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_744": {
+    "Object_748": {
       "type": "object",
       "properties": {
         "verbal": {
@@ -52635,7 +52945,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_745": {
+    "Object_749": {
       "type": "object",
       "properties": {
         "dc": {
@@ -52651,7 +52961,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_746": {
+    "Object_750": {
       "type": "object",
       "properties": {
         "event": {
@@ -52713,7 +53023,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_747": {
+    "Object_751": {
       "type": "object",
       "properties": {
         "kind": {
@@ -52743,25 +53053,25 @@
         "effect": {
           "anyOf": [
             {
-              "$ref": "#/$defs/Object_735"
-            },
-            {
-              "$ref": "#/$defs/Object_737"
-            },
-            {
               "$ref": "#/$defs/Object_739"
-            },
-            {
-              "$ref": "#/$defs/Object_740"
             },
             {
               "$ref": "#/$defs/Object_741"
             },
             {
-              "$ref": "#/$defs/Object_742"
+              "$ref": "#/$defs/Object_743"
             },
             {
-              "$ref": "#/$defs/Object_743"
+              "$ref": "#/$defs/Object_744"
+            },
+            {
+              "$ref": "#/$defs/Object_745"
+            },
+            {
+              "$ref": "#/$defs/Object_746"
+            },
+            {
+              "$ref": "#/$defs/Object_747"
             }
           ]
         },
@@ -52820,7 +53130,7 @@
       },
       "additionalProperties": false
     },
-    "Object_748": {
+    "Object_752": {
       "type": "object",
       "properties": {
         "kind": {
@@ -52841,7 +53151,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_749": {
+    "Object_753": {
       "type": "object",
       "properties": {
         "kind": {
@@ -52866,7 +53176,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_750": {
+    "Object_754": {
       "type": "object",
       "properties": {
         "kind": {
@@ -52924,7 +53234,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_751": {
+    "Object_755": {
       "type": "object",
       "properties": {
         "kind": {
@@ -52982,7 +53292,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_752": {
+    "Object_756": {
       "type": "object",
       "properties": {
         "kind": {
@@ -52995,7 +53305,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_753": {
+    "Object_757": {
       "type": "object",
       "properties": {
         "actorId": {
@@ -53106,10 +53416,10 @@
           "description": "扩展（M6 起）：height/lighting 等"
         },
         "door": {
-          "$ref": "#/$defs/Object_754"
+          "$ref": "#/$defs/Object_758"
         },
         "light": {
-          "$ref": "#/$defs/Object_755"
+          "$ref": "#/$defs/Object_759"
         }
       },
       "required": [
@@ -53119,7 +53429,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_754": {
+    "Object_758": {
       "type": "object",
       "properties": {
         "open": {
@@ -53139,7 +53449,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_755": {
+    "Object_759": {
       "type": "object",
       "properties": {
         "radiusFeet": {
@@ -53197,7 +53507,7 @@
       ],
       "additionalProperties": false
     },
-    "Record_756": {
+    "Record_760": {
       "type": "object",
       "properties": {},
       "additionalProperties": {
@@ -53250,7 +53560,7 @@
           "type": "number"
         },
         "movementSpeeds": {
-          "$ref": "#/$defs/Partial_776"
+          "$ref": "#/$defs/Partial_780"
         },
         "hp": {
           "type": "number"
@@ -53262,7 +53572,7 @@
           "type": "number"
         },
         "attrs": {
-          "$ref": "#/$defs/Object_777"
+          "$ref": "#/$defs/Object_781"
         },
         "weapon": {
           "$ref": "#/$defs/WeaponProfile"
@@ -53302,7 +53612,7 @@
           "type": "number"
         },
         "focus": {
-          "$ref": "#/$defs/Object_757"
+          "$ref": "#/$defs/Object_761"
         },
         "storyPoints": {
           "type": "number"
@@ -53353,7 +53663,7 @@
           }
         },
         "effects": {
-          "$ref": "#/$defs/Object_759"
+          "$ref": "#/$defs/Object_763"
         },
         "exhaustion": {
           "type": "number"
@@ -53386,7 +53696,7 @@
           "type": "boolean"
         },
         "armor": {
-          "$ref": "#/$defs/Object_760"
+          "$ref": "#/$defs/Object_764"
         },
         "saves": {
           "type": "array",
@@ -53528,11 +53838,11 @@
         "afflictionProtection": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_761"
+            "$ref": "#/$defs/Object_765"
           }
         },
         "casting": {
-          "$ref": "#/$defs/Object_762"
+          "$ref": "#/$defs/Object_766"
         },
         "abilities": {
           "type": "array",
@@ -53541,22 +53851,22 @@
           }
         },
         "heroMoment": {
-          "$ref": "#/$defs/Object_763"
+          "$ref": "#/$defs/Object_767"
         },
         "turn": {
-          "$ref": "#/$defs/Object_764"
+          "$ref": "#/$defs/Object_768"
         },
         "lastCheck": {
           "$ref": "#/$defs/AafCheckRecord"
         },
         "pending": {
-          "$ref": "#/$defs/Object_768"
+          "$ref": "#/$defs/Object_772"
         },
         "cast": {
-          "$ref": "#/$defs/Object_773"
+          "$ref": "#/$defs/Object_777"
         },
         "ready": {
-          "$ref": "#/$defs/Object_774"
+          "$ref": "#/$defs/Object_778"
         },
         "movement": {
           "$ref": "#/$defs/AafTurnMovement"
@@ -53564,7 +53874,7 @@
         "controlCooldowns": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_775"
+            "$ref": "#/$defs/Object_779"
           }
         }
       },
@@ -53604,7 +53914,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_757": {
+    "Object_761": {
       "type": "object",
       "properties": {
         "value": {
@@ -53959,7 +54269,7 @@
           "type": "number"
         },
         "dice": {
-          "$ref": "#/$defs/Object_758"
+          "$ref": "#/$defs/Object_762"
         },
         "advantage": {
           "anyOf": [
@@ -54022,7 +54332,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_758": {
+    "Object_762": {
       "type": "object",
       "properties": {
         "count": {
@@ -54302,7 +54612,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_759": {
+    "Object_763": {
       "type": "object",
       "properties": {
         "bleeding": {
@@ -54350,7 +54660,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_760": {
+    "Object_764": {
       "type": "object",
       "properties": {
         "proficient": {
@@ -54378,7 +54688,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_761": {
+    "Object_765": {
       "type": "object",
       "properties": {
         "category": {
@@ -54411,7 +54721,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_762": {
+    "Object_766": {
       "type": "object",
       "properties": {
         "arcane": {
@@ -54476,7 +54786,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_763": {
+    "Object_767": {
       "type": "object",
       "properties": {
         "sacrifice": {
@@ -54492,14 +54802,14 @@
       ],
       "additionalProperties": false
     },
-    "Object_764": {
+    "Object_768": {
       "type": "object",
       "properties": {
         "serial": {
           "type": "number"
         },
         "actions": {
-          "$ref": "#/$defs/Object_765"
+          "$ref": "#/$defs/Object_769"
         },
         "compoundUsed": {
           "type": "boolean"
@@ -54540,7 +54850,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_765": {
+    "Object_769": {
       "type": "object",
       "properties": {
         "standard": {
@@ -54650,7 +54960,7 @@
         "other": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_766"
+            "$ref": "#/$defs/Object_770"
           }
         },
         "chosen": {
@@ -54683,7 +54993,7 @@
         "rerolls": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_767"
+            "$ref": "#/$defs/Object_771"
           }
         }
       },
@@ -54705,7 +55015,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_766": {
+    "Object_770": {
       "type": "object",
       "properties": {
         "name": {
@@ -54737,7 +55047,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_767": {
+    "Object_771": {
       "type": "object",
       "properties": {
         "index": {
@@ -54757,7 +55067,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_768": {
+    "Object_772": {
       "type": "object",
       "properties": {
         "afterEffects": {
@@ -54795,13 +55105,13 @@
           ]
         },
         "abilityResult": {
-          "$ref": "#/$defs/Object_769"
+          "$ref": "#/$defs/Object_773"
         },
         "counterResult": {
-          "$ref": "#/$defs/Object_770"
+          "$ref": "#/$defs/Object_774"
         },
         "focusResult": {
-          "$ref": "#/$defs/Object_771"
+          "$ref": "#/$defs/Object_775"
         },
         "forceCritical": {
           "anyOf": [
@@ -54828,7 +55138,7 @@
           "type": "boolean"
         },
         "reroll": {
-          "$ref": "#/$defs/Object_772"
+          "$ref": "#/$defs/Object_776"
         }
       },
       "required": [
@@ -54838,7 +55148,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_769": {
+    "Object_773": {
       "type": "object",
       "properties": {
         "ability": {
@@ -54849,25 +55159,25 @@
           "items": {
             "anyOf": [
               {
-                "$ref": "#/$defs/Object_735"
-              },
-              {
-                "$ref": "#/$defs/Object_737"
-              },
-              {
                 "$ref": "#/$defs/Object_739"
-              },
-              {
-                "$ref": "#/$defs/Object_740"
               },
               {
                 "$ref": "#/$defs/Object_741"
               },
               {
-                "$ref": "#/$defs/Object_742"
+                "$ref": "#/$defs/Object_743"
               },
               {
-                "$ref": "#/$defs/Object_743"
+                "$ref": "#/$defs/Object_744"
+              },
+              {
+                "$ref": "#/$defs/Object_745"
+              },
+              {
+                "$ref": "#/$defs/Object_746"
+              },
+              {
+                "$ref": "#/$defs/Object_747"
               }
             ]
           }
@@ -54890,7 +55200,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_770": {
+    "Object_774": {
       "type": "object",
       "properties": {
         "frameId": {
@@ -54905,7 +55215,7 @@
       },
       "additionalProperties": false
     },
-    "Object_771": {
+    "Object_775": {
       "type": "object",
       "properties": {
         "source": {
@@ -54929,7 +55239,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_772": {
+    "Object_776": {
       "type": "object",
       "properties": {
         "index": {
@@ -54945,7 +55255,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_773": {
+    "Object_777": {
       "type": "object",
       "properties": {
         "abilityId": {
@@ -54997,7 +55307,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_774": {
+    "Object_778": {
       "type": "object",
       "properties": {
         "trigger": {
@@ -55138,7 +55448,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_775": {
+    "Object_779": {
       "type": "object",
       "properties": {
         "source": {
@@ -55255,7 +55565,7 @@
       ],
       "additionalProperties": false
     },
-    "Partial_776": {
+    "Partial_780": {
       "type": "object",
       "properties": {
         "fly": {
@@ -55273,7 +55583,7 @@
       },
       "additionalProperties": false
     },
-    "Object_777": {
+    "Object_781": {
       "type": "object",
       "properties": {
         "str": {
@@ -55353,7 +55663,7 @@
           ]
         },
         "special": {
-          "$ref": "#/$defs/Object_778"
+          "$ref": "#/$defs/Object_782"
         }
       },
       "required": [
@@ -55362,7 +55672,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_778": {
+    "Object_782": {
       "type": "object",
       "properties": {
         "name": {
@@ -55385,7 +55695,7 @@
       ],
       "additionalProperties": false
     },
-    "Record_779": {
+    "Record_783": {
       "type": "object",
       "properties": {},
       "additionalProperties": {
@@ -55570,7 +55880,7 @@
       ],
       "additionalProperties": false
     },
-    "Record_780": {
+    "Record_784": {
       "type": "object",
       "properties": {},
       "additionalProperties": {
@@ -55616,7 +55926,7 @@
           ]
         },
         "tokens": {
-          "$ref": "#/$defs/Record_781"
+          "$ref": "#/$defs/Record_785"
         },
         "combat": {
           "anyOf": [
@@ -55629,7 +55939,7 @@
           ]
         },
         "annotations": {
-          "$ref": "#/$defs/Record_782"
+          "$ref": "#/$defs/Record_786"
         },
         "fogEnabled": {
           "type": "boolean"
@@ -55669,7 +55979,7 @@
       ],
       "additionalProperties": false
     },
-    "Record_781": {
+    "Record_785": {
       "type": "object",
       "properties": {},
       "additionalProperties": {
@@ -55723,7 +56033,7 @@
       ],
       "additionalProperties": false
     },
-    "Record_782": {
+    "Record_786": {
       "type": "object",
       "properties": {},
       "additionalProperties": {
@@ -55761,7 +56071,7 @@
         "points": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_783"
+            "$ref": "#/$defs/Object_787"
           }
         },
         "visibility": {
@@ -55791,7 +56101,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_783": {
+    "Object_787": {
       "type": "object",
       "properties": {
         "x": {
@@ -55807,7 +56117,7 @@
       ],
       "additionalProperties": false
     },
-    "Record_784": {
+    "Record_788": {
       "type": "object",
       "properties": {},
       "additionalProperties": {
@@ -55889,7 +56199,7 @@
           }
         },
         "resources": {
-          "$ref": "#/$defs/Record_785"
+          "$ref": "#/$defs/Record_789"
         },
         "effects": {
           "type": "array",
@@ -55935,7 +56245,7 @@
           "type": "number"
         },
         "movementSpeeds": {
-          "$ref": "#/$defs/Partial_776"
+          "$ref": "#/$defs/Partial_780"
         },
         "aafRules": {
           "$ref": "#/$defs/AafRuleState"
@@ -55956,7 +56266,7 @@
           "type": "number"
         },
         "attrs": {
-          "$ref": "#/$defs/Object_777"
+          "$ref": "#/$defs/Object_781"
         },
         "offhandWeapon": {
           "$ref": "#/$defs/WeaponProfile"
@@ -56009,7 +56319,7 @@
       ],
       "additionalProperties": false
     },
-    "Record_785": {
+    "Record_789": {
       "type": "object",
       "properties": {},
       "additionalProperties": {
@@ -56088,7 +56398,7 @@
       ],
       "additionalProperties": false
     },
-    "Record_786": {
+    "Record_790": {
       "type": "object",
       "properties": {},
       "additionalProperties": {
@@ -56187,7 +56497,7 @@
       ],
       "additionalProperties": false
     },
-    "Record_787": {
+    "Record_791": {
       "type": "object",
       "properties": {},
       "additionalProperties": {
@@ -56278,7 +56588,7 @@
           ]
         },
         "roll": {
-          "$ref": "#/$defs/Object_788"
+          "$ref": "#/$defs/Object_792"
         }
       },
       "required": [
@@ -56290,7 +56600,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_788": {
+    "Object_792": {
       "type": "object",
       "properties": {
         "count": {
@@ -56321,7 +56631,7 @@
       ],
       "additionalProperties": false
     },
-    "Record_789": {
+    "Record_793": {
       "type": "object",
       "properties": {},
       "additionalProperties": {
@@ -56415,7 +56725,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_790": {
+    "Object_794": {
       "type": "object",
       "properties": {
         "senderId": {
@@ -56546,10 +56856,10 @@
           ]
         },
         "manifest": {
-          "$ref": "#/$defs/Object_791"
+          "$ref": "#/$defs/Object_795"
         },
         "plugin": {
-          "$ref": "#/$defs/Object_794"
+          "$ref": "#/$defs/Object_798"
         },
         "resources": {
           "$ref": "#/$defs/ResourcePackage"
@@ -56563,7 +56873,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_791": {
+    "Object_795": {
       "type": "object",
       "properties": {
         "id": {
@@ -56615,13 +56925,13 @@
         "dependencies": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_792"
+            "$ref": "#/$defs/Object_796"
           }
         },
         "conflicts": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_793"
+            "$ref": "#/$defs/Object_797"
           }
         }
       },
@@ -56636,7 +56946,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_792": {
+    "Object_796": {
       "type": "object",
       "properties": {
         "id": {
@@ -56651,7 +56961,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_793": {
+    "Object_797": {
       "type": "object",
       "properties": {
         "id": {
@@ -56667,7 +56977,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_794": {
+    "Object_798": {
       "type": "object",
       "properties": {
         "manifest": {
@@ -56700,10 +57010,10 @@
           "type": "string"
         },
         "permissions": {
-          "$ref": "#/$defs/Object_795"
+          "$ref": "#/$defs/Object_799"
         },
         "contributions": {
-          "$ref": "#/$defs/Object_796"
+          "$ref": "#/$defs/Object_800"
         }
       },
       "required": [
@@ -56716,7 +57026,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_795": {
+    "Object_799": {
       "type": "object",
       "properties": {
         "sceneRead": {
@@ -56789,7 +57099,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_796": {
+    "Object_800": {
       "type": "object",
       "properties": {
         "panels": {
@@ -57253,7 +57563,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_797": {
+    "Object_801": {
       "type": "object",
       "properties": {
         "action": {
@@ -57278,7 +57588,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_798": {
+    "Object_802": {
       "type": "object",
       "properties": {
         "action": {
@@ -57299,7 +57609,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_799": {
+    "Object_803": {
       "type": "object",
       "properties": {
         "action": {
@@ -57340,7 +57650,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_800": {
+    "Object_804": {
       "type": "object",
       "properties": {
         "action": {
@@ -57385,7 +57695,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_801": {
+    "Object_805": {
       "type": "object",
       "properties": {
         "action": {
@@ -57549,7 +57859,7 @@
         "providers": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_802"
+            "$ref": "#/$defs/Object_806"
           }
         },
         "selected": {
@@ -57571,7 +57881,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_802": {
+    "Object_806": {
       "type": "object",
       "properties": {
         "id": {
@@ -57717,13 +58027,13 @@
         "packages": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_803"
+            "$ref": "#/$defs/Object_807"
           }
         },
         "notices": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Object_804"
+            "$ref": "#/$defs/Object_808"
           }
         }
       },
@@ -57734,7 +58044,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_803": {
+    "Object_807": {
       "type": "object",
       "properties": {
         "installation": {
@@ -57774,7 +58084,7 @@
       ],
       "additionalProperties": false
     },
-    "Object_804": {
+    "Object_808": {
       "type": "object",
       "properties": {
         "id": {

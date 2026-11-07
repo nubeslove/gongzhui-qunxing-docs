@@ -1,6 +1,6 @@
 {
-  "date": "2026-11-06",
-  "version": "0.2.45",
+  "date": "2026-11-07",
+  "version": "0.2.46",
   "scope": "Shared contracts, rules engine signatures, game core, session, transport, assets, world model and selected local authoring entry points. No rulebook prose or asset binaries.",
   "files": [
     {
@@ -535,8 +535,8 @@
     },
     {
       "path": "game/packages/contracts/src/lancer-combat.ts",
-      "sha256": "a670d54d0d9d0d3e4919f4d207c9e3a53fe34cffb5d807a13f46e2da79284893",
-      "bytes": 56783
+      "sha256": "a7a6a8a354ea0c00cf5ae1cf43e94cc911bf6089aede3998a314eeaedfb9d633",
+      "bytes": 57083
     },
     {
       "path": "game/packages/contracts/src/lancer-custom.ts",
@@ -580,8 +580,8 @@
     },
     {
       "path": "game/packages/contracts/src/lancer-rogue.ts",
-      "sha256": "51b597c2909776eda020be315b9808f5e45d96a18366ce6feb6feb03b5a8daec",
-      "bytes": 9511
+      "sha256": "f101190f1b96f20630f4c554a556125160ac0f10b3b22fa53760cb7cc6b13936",
+      "bytes": 12375
     },
     {
       "path": "game/packages/contracts/src/lancer-runtime-fields.ts",
@@ -1550,8 +1550,8 @@
     },
     {
       "path": "game/packages/game-core/src/index.ts",
-      "sha256": "ddece783fa5a88fd993fd2a20a0d79df4a5dcf75c565cd98ec543b392d2cac86",
-      "bytes": 3678
+      "sha256": "a4b82805bde120381c1935830f8118e56af288765eb327905c2829cff259e9d6",
+      "bytes": 3654
     },
     {
       "path": "game/packages/game-core/src/lancer/ability-costs.ts",
@@ -3195,13 +3195,18 @@
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/abilities.ts",
-      "sha256": "f673d35640a4bb2b6c0aea6fabd66adf355418344aa6b6a093a2da7bef422667",
-      "bytes": 3902
+      "sha256": "ae9eb1f4306ee02a1ea8ea9564a91a9f0cc0371a2054ef493582ecabcd79a734",
+      "bytes": 3859
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/ai.ts",
-      "sha256": "977427b4bb9f5bda8afb22e9012f807c3bfa52472f66e643068ac9155eaab154",
-      "bytes": 7395
+      "sha256": "b84a4ea8b66ec3ebd09a2982f3e47b382a38ab40d8a2915115a0542872351e91",
+      "bytes": 11577
+    },
+    {
+      "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/arena-balance-v2.ts",
+      "sha256": "af4f71798ed088724638ba8d2974f9c194a7ed06b157b7296841b6cc7e214fc9",
+      "bytes": 20933
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/arsenal.ts",
@@ -3210,8 +3215,8 @@
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/battle.ts",
-      "sha256": "f946ad335e8742122d1b30376ab29e459a90b4ca7ea2d2d2c4522fc1e348099c",
-      "bytes": 10231
+      "sha256": "d5dac352b47530bcb1a316f6442f3e98fc75124f388537248831f5de15a9fb74",
+      "bytes": 10594
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/bossRewards.ts",
@@ -3219,14 +3224,19 @@
       "bytes": 1292
     },
     {
+      "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/cargo.ts",
+      "sha256": "2280318bb10071058ee5cd05661feef412debf268e6e11db0950bf621c5e6940",
+      "bytes": 4107
+    },
+    {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/encounters.ts",
-      "sha256": "d0d02dce6cca2c535a3da07c14093b6c442040f5db9a474d029be369abac8bc1",
-      "bytes": 5367
+      "sha256": "92333e12a1e9af6874316dd74b76f44c32ba07640d537f54cc1aae7d7b848459",
+      "bytes": 6680
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/enemies.ts",
-      "sha256": "3e30c5d03be55cf10cf8acb93a6db12c958132218f3c6cd02f06ef6b1c28a58b",
-      "bytes": 7714
+      "sha256": "f62165eacac37bf810b40811d04688142f669ee68fbd0aef7096c9be08cf7773",
+      "bytes": 15847
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/generation.ts",
@@ -3245,13 +3255,13 @@
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/loadout.ts",
-      "sha256": "cd7e9167f35fd718607126013c7627565831c554dc153b32ba93a61642394ebd",
-      "bytes": 1350
+      "sha256": "48b5261d4430be05973b28f302091328914b9e19c1164596aba3e538741409bc",
+      "bytes": 1338
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/maintenance.ts",
-      "sha256": "fe9fb8a18b2c0a887b7f0182b3ce4ba219b8a3db0db06cbf1eaeb735d6b83a8a",
-      "bytes": 2798
+      "sha256": "9f94db39982442c9266110850fb9b86ef2412ae9516397a8a4b3996b60b10cc0",
+      "bytes": 2766
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/manual-weapons.ts",
@@ -3260,18 +3270,33 @@
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/mapLayouts.ts",
-      "sha256": "42e6533b635e1f9b8822e8d0bf5eca741ca8971feeefc8f8a7a6e09e3f0c3173",
-      "bytes": 2304
+      "sha256": "5ad4c57f9d596499a365a183deb6f2efd53e1c37f257eff8aaafa2cb76c768f9",
+      "bytes": 6652
+    },
+    {
+      "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/medical-route-analysis.ts",
+      "sha256": "2dfb865011fe458195416f11d7dfecdfc77993df48bf756bc51b29c4856a9a37",
+      "bytes": 5108
+    },
+    {
+      "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/missionProgress.ts",
+      "sha256": "75cdb0674a4bba4e4f3f337a0aeac35a68a25ee68229422c7502e3a218182d38",
+      "bytes": 9014
+    },
+    {
+      "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/modernObjectives.ts",
+      "sha256": "1d939cbd0eb16bc4f98748f82f21f5cc362f83139d9f3e81235c25e1f2b787ae",
+      "bytes": 6161
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
-      "sha256": "fd758dfd1fe95a47261ccbdf2b52e79d05c5b855487b36a26ce099a8b90dfca1",
-      "bytes": 14170
+      "sha256": "c00045fcd5c489024ab06804810a2bcff0cba29eff386f7e002c73fc695b86bc",
+      "bytes": 15037
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/resources.ts",
-      "sha256": "a0689b03f2d48c3ef3a02feecff2dd0e46317a16646adb0a4f28340452eae4da",
-      "bytes": 12077
+      "sha256": "c1ea1c10396e7345520a30bca5b963e9348f5bf489e3a9174c09a2859f022ee0",
+      "bytes": 11995
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/retraining.ts",
@@ -3290,13 +3315,13 @@
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/run.ts",
-      "sha256": "49d59b3de9c4d3444318e990be8e6713ccff92657455f6c53723d42d99392f5e",
-      "bytes": 23380
+      "sha256": "3aa6abbbcdf0642370c71e956be39d3f810c3c420671b43779b35888e831eb66",
+      "bytes": 24358
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/scenarios.ts",
-      "sha256": "c22c138e0002c700ae532b361fdf89d6a0dfdc59cf64e0f96fa3b25c9711379f",
-      "bytes": 10857
+      "sha256": "75a12e4ea2eb59fe5cd5686440791a15c193cf8baac85566101bc2426ee2ed71",
+      "bytes": 15764
     },
     {
       "path": "game/packages/tabletop-runtime/src/tabletop/lancer/scenePreparation.ts",

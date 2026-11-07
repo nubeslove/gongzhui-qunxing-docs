@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-06",
+  "date": "2026-11-07",
   "scope": "Direct parser/validator call arguments and rejection predicates. Not exhaustive interprocedural validation.",
   "validators": [
     {
@@ -1498,15 +1498,17 @@
     {
       "name": "parseLancerRogue",
       "source": "game/packages/contracts/src/lancer-rogue.ts",
-      "line": 46,
+      "line": 52,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
         "p.retraining!==undefined",
         "r.pausedAt!==undefined&&!(typeof r.pausedAt==='number'&&Number.isFinite(r.pausedAt)&&r.pausedAt>=0)",
         "r.challenge!==undefined&&!['strong','boss'].includes(r.challenge)",
-        "e.formation!==undefined&&!n(e.formation,0,2)||e.legion!==undefined&&!s(e.legion)||e.modifier!==undefined&&!['fortified','mobile','volatile'].includes(e.modifier)||e.threat!==undefined&&!n(e.threat,0,100)",
-        "r.scenario"
+        "e.formation!==undefined&&!n(e.formation,0,5)||e.legion!==undefined&&!s(e.legion)||e.modifier!==undefined&&!['fortified','mobile','volatile'].includes(e.modifier)||e.threat!==undefined&&!n(e.threat,0,100)||e.missionVersion!==undefined&&e.missionVersion!==2||e.missionKey!==undefined&&!s(e.missionKey,40)",
+        "r.scenario",
+        "v.main&&(!status(v.main.status)||v.main.completedRound!==undefined&&!n(v.main.completedRound,1,100))",
+        "v.withdrawal"
       ],
       "delegatedTypes": []
     },
@@ -4511,14 +4513,33 @@
       "delegatedTypes": []
     },
     {
+      "name": "validateArenaCargo",
+      "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/cargo.ts",
+      "line": 5,
+      "fields": [],
+      "checks": [],
+      "rejectionConditions": [
+        "carried&&(i.type==='action'&&i.action==='boost'||i.type==='ability'&&i.ability==='everest-boost')",
+        "i.action==='stabilize'",
+        "s.flags['stable:'+i.object]",
+        "s.carriers[i.object]",
+        "i.action==='pickup'",
+        "!s.flags['stable:'+i.object]",
+        "carried||s.carriers[i.object]",
+        "i.action==='deliver'",
+        "!carried"
+      ],
+      "delegatedTypes": []
+    },
+    {
       "name": "validateArenaInteraction",
       "source": "game/packages/tabletop-runtime/src/tabletop/lancer/rogue/objectives.ts",
-      "line": 13,
+      "line": 15,
       "fields": [],
       "checks": [],
       "rejectionConditions": [
         "['cargo','rescue'].includes(d.rule)&&Object.values(s.carriers).includes(i.unit)",
-        "r.selected!.map==='arena-4-1'",
+        "i.action!=='reopen'&&(r.selected!.map==='arena-4-1'||r.selected!.missionVersion===2&&d.rule==='terminals')",
         "index>0&&!objectDone(t,index-1)"
       ],
       "delegatedTypes": []
